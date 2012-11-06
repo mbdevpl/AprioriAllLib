@@ -10,6 +10,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AprioriAllLib", "AprioriAllLib\AprioriAllLib.csproj", "{8EB6F2DA-E671-4227-BE88-DA183A0C227B}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = AprioriAll.vsmdi
@@ -23,6 +25,10 @@ Global
 		{8B7069AB-E7D4-4A0F-82B6-F1D6831A51C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B7069AB-E7D4-4A0F-82B6-F1D6831A51C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8B7069AB-E7D4-4A0F-82B6-F1D6831A51C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EB6F2DA-E671-4227-BE88-DA183A0C227B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EB6F2DA-E671-4227-BE88-DA183A0C227B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EB6F2DA-E671-4227-BE88-DA183A0C227B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EB6F2DA-E671-4227-BE88-DA183A0C227B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
