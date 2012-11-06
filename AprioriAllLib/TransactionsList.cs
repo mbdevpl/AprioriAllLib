@@ -4,7 +4,8 @@ using System.Text;
 
 namespace AprioriAllLib
 {
-    public class Class1
+    public class TransactionsList
     {
+		 public List<Record> Transactions;
     }
 }
