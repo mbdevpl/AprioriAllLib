@@ -36,9 +36,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TransactionsList.cs" />
+    <Compile Include="AprioriAllAlgorithm.cs" />
+    <Compile Include="CustomerList.cs" />
+    <Compile Include="Item.cs" />
+    <Compile Include="Transaction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Record.cs" />
+    <Compile Include="Customer.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
