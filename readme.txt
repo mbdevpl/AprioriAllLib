@@ -1,1 +1,0 @@
-Apriori All algorithm implementation
