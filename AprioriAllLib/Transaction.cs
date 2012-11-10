@@ -9,7 +9,7 @@ namespace AprioriAllLib {
 	/// </summary>
 	public class Transaction {
 
-		private List<Item> items;
+		public List<Item> items; //sorry
 		public List<Item> Items {
 			get { return items; }
 			//set { items = value; }
@@ -20,6 +20,11 @@ namespace AprioriAllLib {
 			foreach(int value in values)
 				items.Add(new Item(value));
 		}
+
+        public Transaction()
+        {
+            items = new List<Item>();
+        }
 
 	}
 

@@ -13,6 +13,8 @@ namespace AprioriAllTest {
 
 		[TestMethod]
 		public void TestCorrectnessForDataSet1() {
+            //XmlReader reader = new XmlReader();
+            //CustomerList cList = reader.ReadFromXmlFile(/* full path or whatever else works*/);
 			//Arrange
 			CustomerList list = new CustomerList();
 

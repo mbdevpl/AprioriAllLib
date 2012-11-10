@@ -22,6 +22,11 @@ namespace AprioriAllLib {
 				Transactions.Add(new Transaction(values));
 		}
 
+        public Customer()
+        {
+            Transactions = new List<Transaction>();
+        }
+
 	}
 
 }
