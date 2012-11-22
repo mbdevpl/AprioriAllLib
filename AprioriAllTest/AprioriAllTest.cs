@@ -13,8 +13,13 @@ namespace AprioriAllTest {
 
 		[TestMethod]
 		public void TestCorrectnessForDataSet1() {
+
+            // READING FROM THE DATABASE AND FINDING 1-LITEMSETS
             //XmlReader reader = new XmlReader();
             //CustomerList cList = reader.ReadFromXmlFile(/* full path or whatever else works*/);
+            //Apriori apriori = new Apriori(cList);
+            //List<Litemset> oneLitemsets = apriori.FindOneLitemsets(2);
+
 			//Arrange
 			CustomerList list = new CustomerList();
 

@@ -7,7 +7,8 @@ namespace AprioriAllLib {
 	/// <summary>
 	/// Single item of a transaction.
 	/// </summary>
-	public class Item {
+	public class Item : IComparable
+    {
 
 		public int Value;
 
@@ -15,6 +16,10 @@ namespace AprioriAllLib {
 			this.Value = value;
 		}
 
-	}
+        public int CompareTo(object obj)
+        {
+            return ((Item)obj).Value == this.Value ? 1 : 0;
+        }
+    }
 
 }

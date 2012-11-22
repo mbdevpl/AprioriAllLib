@@ -65,8 +65,8 @@ namespace AprioriAllLib
             while (reader.Read() && (reader.NodeType != XmlNodeType.EndElement) && reader.Name != "Item")
                 if (reader.NodeType == XmlNodeType.Text && reader.HasValue)
                 {
-                    transaction.items.Add(new Item(int.Parse(reader.Value)));
-                    Console.WriteLine(reader.Value);
+                    transaction.Items.Add(new Item(int.Parse(reader.Value)));
+                    //Console.WriteLine(reader.Value);
                 }
         }
     }
