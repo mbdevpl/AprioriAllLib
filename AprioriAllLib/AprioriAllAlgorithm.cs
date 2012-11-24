@@ -97,6 +97,42 @@ namespace AprioriAllLib {
 
 			// 4. find all frequent sequences in the input
 
+			var kSequences = new List<List<Litemset>>();
+			kSequences.Add(new List<Litemset>()); // placeholder for 0-sequences (whatever it means)
+			kSequences.Add(oneLitemsets); // already done
+
+			for (int k = 2; kSequences.Count >= k && kSequences[k - 1].Count > 0; ++k) {
+				var candidates = new Dictionary<List<int>,int>();
+
+				// TODO: generate candidates
+
+				foreach (KeyValuePair<List<int>, int> candidate in candidates) {
+
+					foreach (List<List<int>> encodedCustomer in encodedList) {
+
+						foreach (List<int> encodedTransaction in encodedCustomer) {
+							if (encodedTransaction.Count < k)
+								continue;
+
+							bool allNeededItemsArePresent = true;
+							foreach (int candidateItem in candidate.Key) {
+								if (!encodedTransaction.Contains(candidateItem)) {
+									allNeededItemsArePresent = false;
+									break;
+								}
+							}
+
+							if (allNeededItemsArePresent) {
+								candidates[candidate.Key] += 1;
+							}
+						}
+
+					}
+
+				}
+
+				// TODO: confront results with min. support
+			}
 
 			// 5. purge all non-maximal sequences
 
