@@ -23,6 +23,12 @@ namespace AprioriAllLib {
 			return String.Format("{0}", Value);
 		}
 
+		public override bool Equals(object obj) {
+			if (typeof(Item).Equals(obj.GetType()) && ((Item)obj).Value == Value)
+				return true;
+			return false;
+		}
+
 	}
 
 }
