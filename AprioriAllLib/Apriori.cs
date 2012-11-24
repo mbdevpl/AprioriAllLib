@@ -30,7 +30,7 @@ namespace AprioriAllLib
                     temp = new List<Item>(candLitemsets[i]);
                     temp.Remove(item);
                     if (!candLitemsets.Exists(list => list.Count == count &&
-                        temp.All(tempItem => list.Exists(listItem => listItem.CompareTo(tempItem) == 1))))
+                        temp.All(tempItem => list.Exists(listItem => listItem.CompareTo(tempItem) == 0))))
                         candLitemsets.Add(temp);
                 }
                 if (candLitemsets[i + 1].Count == candLitemsets[i].Count - 1)
@@ -60,7 +60,7 @@ namespace AprioriAllLib
                     foreach (Litemset lset in candidateLitemsets)
                     {
                         IEnumerable<Litemset> l = litemsets.Where(litemset => (litemset.Items.Count == lset.Items.Count) &&
-                            litemset.Items.All(item => lset.Items.Exists(lsetItem => lsetItem.CompareTo(item) == 1)));
+                            litemset.Items.All(item => lset.Items.Exists(lsetItem => lsetItem.CompareTo(item) == 0)));
 
                         int custID = customerList.Customers.IndexOf(c);
                         if (l.Count() == 0 && !lset.IDs.Contains(custID))
@@ -86,6 +86,8 @@ namespace AprioriAllLib
             foreach (Litemset litemset in litemsets)
                 if (litemset.Support >= minimalSupport)
                     properLitemsets.Add(litemset);
+
+            properLitemsets.Sort();
 
             return properLitemsets;
         }

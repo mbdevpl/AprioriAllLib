@@ -16,7 +16,7 @@ namespace AprioriAllLib {
 		}
 
 		public int CompareTo(object obj) {
-			return ((Item)obj).Value == this.Value ? 1 : 0;
+			return ((Item)obj).Value == this.Value ? 0 : (((Item)obj).Value > this.Value ? -1 : 1);
 		}
 
 		public override string ToString() {

@@ -34,7 +34,5 @@ namespace AprioriAllLib {
 			string itemsStr = string.Join(" ",items.Select(x => x.ToString()).ToArray()); 
 			return String.Format("({0})", itemsStr);
 		}
-
-	}
-
+    }
 }
