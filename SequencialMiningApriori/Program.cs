@@ -82,13 +82,22 @@ namespace SequentialMining
                         IEnumerable<Litemset> l = litemsets.Where(litemset => (litemset.Items.Count == lset.Items.Count) &&
                             litemset.Items.All(item => lset.Items.Exists(lsetItem => lsetItem.CompareTo(item) == 1)));
 
-                        if (l.Count() == 0)
+                        int custID = customerList.Customers.IndexOf(c);
+                        if (l.Count() == 0 && !lset.IDs.Contains(custID))
                         {
                             litemsets.Add(lset);
                             lset.Support++;
+                            lset.IDs.Add(custID);
                         }
                         else
-                            l.FirstOrDefault().Support++;
+                        {
+                            Litemset litset = l.FirstOrDefault();
+                            if (!litset.IDs.Contains(custID))
+                            {
+                                litset.Support++;
+                                litset.IDs.Add(custID);
+                            }
+                        }     
                     }
                 }
             }
