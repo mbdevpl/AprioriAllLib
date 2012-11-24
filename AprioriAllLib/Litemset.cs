@@ -8,7 +8,8 @@ namespace AprioriAllLib {
 	public class Litemset {
 
 		public int Support;
-
+        // IDs of clients that support this litemset
+        public List<int> IDs;
 		public List<Item> Items; // litemset
 
 		public Litemset() {
@@ -16,6 +17,7 @@ namespace AprioriAllLib {
 
 		public Litemset(List<Item> items) {
 			Items = items;
+            IDs = new List<int>();
 		}
 
 		public Litemset(int support, params int[] values) {
