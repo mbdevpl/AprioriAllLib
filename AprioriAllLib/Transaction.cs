@@ -31,8 +31,8 @@ namespace AprioriAllLib {
 		}
 
 		public override string ToString() {
-			string itemsStr = string.Join(",",items.Select(x => x.ToString()).ToArray()); 
-			return String.Format("Transaction({0})", itemsStr);
+			string itemsStr = string.Join(" ",items.Select(x => x.ToString()).ToArray()); 
+			return String.Format("({0})", itemsStr);
 		}
 
 	}

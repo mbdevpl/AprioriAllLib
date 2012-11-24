@@ -29,7 +29,7 @@ namespace AprioriAllLib {
 
 		public override string ToString() {
 			string itemsStr = string.Join(",", Transactions.Select(x => x.ToString()).ToArray());
-			return String.Format("Customer({0})", itemsStr);
+			return String.Format("{0}", itemsStr);
 		}
 
 	}

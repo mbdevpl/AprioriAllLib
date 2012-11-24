@@ -20,7 +20,7 @@ namespace AprioriAllLib {
 		}
 
 		public override string ToString() {
-			return String.Format("Item({0})", Value);
+			return String.Format("{0}", Value);
 		}
 
 	}
