@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace AprioriAllLib {
 
@@ -9,6 +10,10 @@ namespace AprioriAllLib {
 		//public string Name;
 
 		public List<Transaction> Transactions;
+
+		public Customer() {
+			Transactions = new List<Transaction>();
+		}
 
 		public Customer(params Transaction[] transactions) {
 			Transactions = new List<Transaction>();
@@ -22,10 +27,10 @@ namespace AprioriAllLib {
 				Transactions.Add(new Transaction(values));
 		}
 
-        public Customer()
-        {
-            Transactions = new List<Transaction>();
-        }
+		public override string ToString() {
+			string itemsStr = string.Join(",", Transactions.Select(x => x.ToString()).ToArray());
+			return String.Format("Customer({0})", itemsStr);
+		}
 
 	}
 

@@ -12,6 +12,10 @@ namespace AprioriAllLib {
 		/// <param name="treshold">from 0 to 1</param>
 		/// <returns></returns>
 		static public List<Customer> execute(CustomerList list, double treshold) {
+			Apriori apriori = new Apriori(list);
+
+			List<Litemset> oneLitemsets = apriori.FindOneLitemsets(2);
+
 			// 1. find all frequent 1-sequences
 
 			// 2. 
