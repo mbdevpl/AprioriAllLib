@@ -37,7 +37,7 @@ namespace AprioriAllLib
                 }
                 reader.Close();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 Console.WriteLine("Invalid XML file");
             }
