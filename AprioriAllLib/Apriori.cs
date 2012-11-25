@@ -5,15 +5,27 @@ using System.Linq;
 
 namespace AprioriAllLib
 {
+    /// <summary>
+    /// This class is used for calculating litemsets from a set of customers' transactions
+    /// </summary>
     public class Apriori
     {
         CustomerList customerList;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="customerList">CustomerList object containing a list of Customers from a database</param>
         public Apriori(CustomerList customerList)
         {
             this.customerList = customerList;
         }
 
+        /// <summary>
+        /// Produces all subsets of a given list of items in a transaction
+        /// </summary>
+        /// <param name="items">List of items contained in one transaction</param>
+        /// <returns>List of Litemsets</returns>
         private List<Litemset> generateCandidates(List<Item> items)
         {
             int count = items.Count;
@@ -43,6 +55,11 @@ namespace AprioriAllLib
             return l;
         }
 
+        /// <summary>
+        /// Finds all litemsets that have the minimal support
+        /// </summary>
+        /// <param name="minimalSupport">Minimal support</param>
+        /// <returns>A list of Litemsets with support >= minimalSupport</returns>
         public List<Litemset> FindOneLitemsets(int minimalSupport)
         {
             if (minimalSupport > customerList.Customers.Count)

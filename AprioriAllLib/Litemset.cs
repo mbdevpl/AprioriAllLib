@@ -5,21 +5,46 @@ using System.Linq;
 
 namespace AprioriAllLib {
 
+    /// <summary>
+    /// Class that represents a litemset (1-itemset)
+    /// </summary>
 	public class Litemset : IComparable {
 
+        /// <summary>
+        /// Support of this litemset
+        /// </summary>
 		public int Support;
-        // IDs of clients that support this litemset
+         
+        /// <summary>
+        /// List of IDs of clients that support this litemset
+        /// </summary>
         public List<int> IDs;
+
+        /// <summary>
+        /// List of items that this litemset contains
+        /// </summary>
 		public List<Item> Items; // litemset
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
 		public Litemset() {
 		}
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="items">List of items</param>
 		public Litemset(List<Item> items) {
 			Items = items;
             IDs = new List<int>();
 		}
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="support">Support</param>
+        /// <param name="values">Values of items</param>
 		public Litemset(int support, params int[] values) {
 			if (values == null)
 				throw new ArgumentNullException("values", "values is null.");
@@ -50,6 +75,10 @@ namespace AprioriAllLib {
             }
         }
 
+        /// <summary>
+        /// String representation of this class
+        /// </summary>
+        /// <returns>String representation</returns>
 		public override string ToString() {
 			string itemsStr = string.Join(",", Items.Select(x => x.ToString()).ToArray());
 			return String.Format("Lit(Supp={0};{1})", Support, itemsStr);

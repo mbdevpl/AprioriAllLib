@@ -5,8 +5,16 @@ using System.Xml;
 
 namespace AprioriAllLib
 {
+    /// <summary>
+    /// Class that reads data from xml client database and transforms them into classes
+    /// </summary>
     public class XmlReader
     {
+        /// <summary>
+        /// Reads from xml client database
+        /// </summary>
+        /// <param name="filename">String path of the database file</param>
+        /// <returns>Database transformed into a CustomerList object</returns>
         public CustomerList ReadFromXmlFile(string filename)
         {
             CustomerList list = new CustomerList();
