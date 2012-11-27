@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace AprioriAllLib
@@ -32,6 +30,7 @@ namespace AprioriAllLib
             int i = 0;
             List<List<Item>> candLitemsets = new List<List<Item>>();
 
+            // add a frequent sequence containing all the elements in this transaction
             candLitemsets.Add(new List<Item>(items));
             count--;
             while (count != 0)
@@ -41,6 +40,8 @@ namespace AprioriAllLib
                 {
                     temp = new List<Item>(candLitemsets[i]);
                     temp.Remove(item);
+                    // check if there's already such subsequence in the list, add
+                    // if it doesn't exist
                     if (!candLitemsets.Exists(list => list.Count == count &&
                         temp.All(tempItem => list.Exists(listItem => listItem.CompareTo(tempItem) == 0))))
                         candLitemsets.Add(temp);
@@ -60,10 +61,12 @@ namespace AprioriAllLib
         /// </summary>
         /// <param name="minimalSupport">Minimal support</param>
         /// <returns>A list of Litemsets with support >= minimalSupport</returns>
-        public List<Litemset> FindOneLitemsets(int minimalSupport)
+        public List<Litemset> FindOneLitemsets(double minimalSupport)
         {
-            if (minimalSupport > customerList.Customers.Count)
-                return null;
+            if (minimalSupport > 1 || minimalSupport < 0)
+                return null; 
+            
+            minimalSupport *= customerList.Customers.Count;
             List<Litemset> litemsets = new List<Litemset>();
 
             foreach (Customer c in customerList.Customers)
