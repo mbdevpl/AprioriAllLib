@@ -1,0 +1,137 @@
+\hypertarget{class_apriori_all_lib_1_1_litemset}{\section{Apriori\-All\-Lib.\-Litemset Class Reference}
+\label{class_apriori_all_lib_1_1_litemset}\index{Apriori\-All\-Lib.\-Litemset@{Apriori\-All\-Lib.\-Litemset}}
+}
+
+
+Class that represents a litemset (1-\/itemset)  
+
+
+Inheritance diagram for Apriori\-All\-Lib.\-Litemset\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_apriori_all_lib_1_1_litemset}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_apriori_all_lib_1_1_litemset_af490087265e5b6389f19ce52775e6f35}{Litemset} ()
+\begin{DoxyCompactList}\small\item\em Constructor \end{DoxyCompactList}\item 
+\hyperlink{class_apriori_all_lib_1_1_litemset_a332a50f3e028dafcf393addcca5f3fb3}{Litemset} (List$<$ \hyperlink{class_apriori_all_lib_1_1_item}{Item} $>$ items)
+\begin{DoxyCompactList}\small\item\em Constructor \end{DoxyCompactList}\item 
+\hyperlink{class_apriori_all_lib_1_1_litemset_a2f9611a4cc391651629df60ea2e2f3e9}{Litemset} (int support, params int\mbox{[}$\,$\mbox{]} values)
+\begin{DoxyCompactList}\small\item\em Constructor \end{DoxyCompactList}\item 
+\hypertarget{class_apriori_all_lib_1_1_litemset_afcbe1c14c38d2638cb48ed9305de5a4e}{int {\bfseries Compare\-To} (object obj)}\label{class_apriori_all_lib_1_1_litemset_afcbe1c14c38d2638cb48ed9305de5a4e}
+
+\item 
+override string \hyperlink{class_apriori_all_lib_1_1_litemset_a512b70867120363edcd1178cec1c31f9}{To\-String} ()
+\begin{DoxyCompactList}\small\item\em String representation of this class \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{class_apriori_all_lib_1_1_litemset_a9f37ba3b3423bc7a1619493132dbc3e2}{Support}
+\begin{DoxyCompactList}\small\item\em Support of this litemset \end{DoxyCompactList}\item 
+List$<$ int $>$ \hyperlink{class_apriori_all_lib_1_1_litemset_a74c9ee16b225268e66ee77d69142bc1a}{I\-Ds}
+\begin{DoxyCompactList}\small\item\em List of I\-Ds of clients that support this litemset \end{DoxyCompactList}\item 
+List$<$ \hyperlink{class_apriori_all_lib_1_1_item}{Item} $>$ \hyperlink{class_apriori_all_lib_1_1_litemset_aef38d5fccb4e45867abf5838ab8a68fa}{Items}
+\begin{DoxyCompactList}\small\item\em List of items that this litemset contains \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class that represents a litemset (1-\/itemset) 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_apriori_all_lib_1_1_litemset_af490087265e5b6389f19ce52775e6f35}{\index{Apriori\-All\-Lib\-::\-Litemset@{Apriori\-All\-Lib\-::\-Litemset}!Litemset@{Litemset}}
+\index{Litemset@{Litemset}!AprioriAllLib::Litemset@{Apriori\-All\-Lib\-::\-Litemset}}
+\subsubsection[{Litemset}]{\setlength{\rightskip}{0pt plus 5cm}Apriori\-All\-Lib.\-Litemset.\-Litemset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_apriori_all_lib_1_1_litemset_af490087265e5b6389f19ce52775e6f35}
+
+
+Constructor 
+
+\hypertarget{class_apriori_all_lib_1_1_litemset_a332a50f3e028dafcf393addcca5f3fb3}{\index{Apriori\-All\-Lib\-::\-Litemset@{Apriori\-All\-Lib\-::\-Litemset}!Litemset@{Litemset}}
+\index{Litemset@{Litemset}!AprioriAllLib::Litemset@{Apriori\-All\-Lib\-::\-Litemset}}
+\subsubsection[{Litemset}]{\setlength{\rightskip}{0pt plus 5cm}Apriori\-All\-Lib.\-Litemset.\-Litemset (
+\begin{DoxyParamCaption}
+\item[{List$<$ {\bf Item} $>$}]{items}
+\end{DoxyParamCaption}
+)}}\label{class_apriori_all_lib_1_1_litemset_a332a50f3e028dafcf393addcca5f3fb3}
+
+
+Constructor 
+
+
+\begin{DoxyParams}{Parameters}
+{\em items} & List of items\\
+\hline
+\end{DoxyParams}
+\hypertarget{class_apriori_all_lib_1_1_litemset_a2f9611a4cc391651629df60ea2e2f3e9}{\index{Apriori\-All\-Lib\-::\-Litemset@{Apriori\-All\-Lib\-::\-Litemset}!Litemset@{Litemset}}
+\index{Litemset@{Litemset}!AprioriAllLib::Litemset@{Apriori\-All\-Lib\-::\-Litemset}}
+\subsubsection[{Litemset}]{\setlength{\rightskip}{0pt plus 5cm}Apriori\-All\-Lib.\-Litemset.\-Litemset (
+\begin{DoxyParamCaption}
+\item[{int}]{support, }
+\item[{params int\mbox{[}$\,$\mbox{]}}]{values}
+\end{DoxyParamCaption}
+)}}\label{class_apriori_all_lib_1_1_litemset_a2f9611a4cc391651629df60ea2e2f3e9}
+
+
+Constructor 
+
+
+\begin{DoxyParams}{Parameters}
+{\em support} & Support\\
+\hline
+{\em values} & Values of items\\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_apriori_all_lib_1_1_litemset_a512b70867120363edcd1178cec1c31f9}{\index{Apriori\-All\-Lib\-::\-Litemset@{Apriori\-All\-Lib\-::\-Litemset}!To\-String@{To\-String}}
+\index{To\-String@{To\-String}!AprioriAllLib::Litemset@{Apriori\-All\-Lib\-::\-Litemset}}
+\subsubsection[{To\-String}]{\setlength{\rightskip}{0pt plus 5cm}override string Apriori\-All\-Lib.\-Litemset.\-To\-String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_apriori_all_lib_1_1_litemset_a512b70867120363edcd1178cec1c31f9}
+
+
+String representation of this class 
+
+\begin{DoxyReturn}{Returns}
+String representation
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_apriori_all_lib_1_1_litemset_a74c9ee16b225268e66ee77d69142bc1a}{\index{Apriori\-All\-Lib\-::\-Litemset@{Apriori\-All\-Lib\-::\-Litemset}!I\-Ds@{I\-Ds}}
+\index{I\-Ds@{I\-Ds}!AprioriAllLib::Litemset@{Apriori\-All\-Lib\-::\-Litemset}}
+\subsubsection[{I\-Ds}]{\setlength{\rightskip}{0pt plus 5cm}List$<$int$>$ Apriori\-All\-Lib.\-Litemset.\-I\-Ds}}\label{class_apriori_all_lib_1_1_litemset_a74c9ee16b225268e66ee77d69142bc1a}
+
+
+List of I\-Ds of clients that support this litemset 
+
+\hypertarget{class_apriori_all_lib_1_1_litemset_aef38d5fccb4e45867abf5838ab8a68fa}{\index{Apriori\-All\-Lib\-::\-Litemset@{Apriori\-All\-Lib\-::\-Litemset}!Items@{Items}}
+\index{Items@{Items}!AprioriAllLib::Litemset@{Apriori\-All\-Lib\-::\-Litemset}}
+\subsubsection[{Items}]{\setlength{\rightskip}{0pt plus 5cm}List$<${\bf Item}$>$ Apriori\-All\-Lib.\-Litemset.\-Items}}\label{class_apriori_all_lib_1_1_litemset_aef38d5fccb4e45867abf5838ab8a68fa}
+
+
+List of items that this litemset contains 
+
+\hypertarget{class_apriori_all_lib_1_1_litemset_a9f37ba3b3423bc7a1619493132dbc3e2}{\index{Apriori\-All\-Lib\-::\-Litemset@{Apriori\-All\-Lib\-::\-Litemset}!Support@{Support}}
+\index{Support@{Support}!AprioriAllLib::Litemset@{Apriori\-All\-Lib\-::\-Litemset}}
+\subsubsection[{Support}]{\setlength{\rightskip}{0pt plus 5cm}int Apriori\-All\-Lib.\-Litemset.\-Support}}\label{class_apriori_all_lib_1_1_litemset_a9f37ba3b3423bc7a1619493132dbc3e2}
+
+
+Support of this litemset 
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Karolina/\-Desktop/\-Apriori -\/ Copy/\-Apriori\-All\-Lib/Litemset.\-cs\end{DoxyCompactItemize}

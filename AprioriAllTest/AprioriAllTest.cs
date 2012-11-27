@@ -46,7 +46,7 @@ namespace AprioriAllTest {
 
 			//Act
 			Apriori apriori = new Apriori(list);
-			List<Litemset> oneLitemsets = apriori.FindOneLitemsets(1);
+			List<Litemset> oneLitemsets = apriori.FindOneLitemsets(0.2);
 
 			//Assert
 			CollectionAssert.AreEqual(expected, oneLitemsets);
@@ -87,7 +87,7 @@ namespace AprioriAllTest {
 
 			//Act
 			Apriori apriori = new Apriori(list);
-			List<Litemset> oneLitemsets = apriori.FindOneLitemsets(1);
+			List<Litemset> oneLitemsets = apriori.FindOneLitemsets(0.2);
 
 			//Assert
 			CollectionAssert.AreEqual(expected, oneLitemsets);
