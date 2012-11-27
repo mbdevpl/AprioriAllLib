@@ -119,7 +119,7 @@ namespace AprioriAllTest {
 			List<Customer> results = AprioriAllAlgorithm.execute(list, 0.25);
 
 			//Assert
-			CollectionAssert.AreEqual(expected, results);
+			CollectionAssert.AreEquivalent(expected, results);
 		}
 
 	}

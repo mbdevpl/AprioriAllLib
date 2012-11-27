@@ -53,6 +53,14 @@ namespace AprioriAllLib {
 			return String.Format("{0}", itemsStr);
 		}
 
+		public override bool Equals(object obj) {
+			if (obj.GetType().Equals(typeof(Customer)) && Transactions.Count == ((Customer)obj).Transactions.Count
+					&& Enumerable.SequenceEqual(Transactions, ((Customer)obj).Transactions))
+				return true;
+			return false;
+			//return base.Equals(obj);
+		}
+
 	}
 
 }

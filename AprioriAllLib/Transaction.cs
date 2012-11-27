@@ -58,5 +58,14 @@ namespace AprioriAllLib {
 			string itemsStr = string.Join(" ", items.Select(x => x.ToString()).ToArray());
 			return String.Format("({0})", itemsStr);
 		}
+
+		public override bool Equals(object obj) {
+			if (obj.GetType().Equals(typeof(Transaction)) && Items.Count == ((Transaction)obj).Items.Count
+					&& Enumerable.SequenceEqual(Items, ((Transaction)obj).Items))
+				return true;
+			return false;
+			//return base.Equals(obj);
+		}
+
 	}
 }

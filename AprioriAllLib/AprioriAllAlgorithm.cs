@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 
+using System.Linq;
+
 namespace AprioriAllLib {
 
 	/// <summary>
@@ -285,7 +287,8 @@ namespace AprioriAllLib {
 		}
 
 		// this method assumes that both lists are sorted!
-		private static bool IsSubSequence(List<int> hyptheticalSubSequence, List<int> sequence) {
+		private static bool IsSubSequence<T>(List<T> hyptheticalSubSequence, List<T> sequence)
+				where T : IComparable {
 			if (hyptheticalSubSequence.Count == 0)
 				return true;
 			if (hyptheticalSubSequence.Count > sequence.Count)
@@ -299,10 +302,10 @@ namespace AprioriAllLib {
 				else if (i2 >= sequence.Count)
 					return false;
 
-				if (hyptheticalSubSequence[i1] == sequence[i2]) {
+				if (hyptheticalSubSequence[i1].Equals(sequence[i2])) {
 					// in the next move we check next element
 					++i1;
-				} else if (hyptheticalSubSequence[i1] < sequence[i2]) {
+				} else if (hyptheticalSubSequence[i1].CompareTo(sequence[i2]) < 0) {
 					// since both lists are sorted, we cannot encounter elem i1 anywhere later, 
 					//  because we know that all other further elements i2 are also larger
 					return false;
@@ -367,9 +370,24 @@ namespace AprioriAllLib {
 				decodedList.Add(c);
 			}
 
-			//foreach (List<List<int>> customer in encodedList) {
-			//   foreach (List<List<int>> customer in encodedList) {
-			//}
+			foreach (Customer customer in decodedList) {
+				for (int tn = customer.Transactions.Count - 1; tn >= 0; --tn) {
+					// tn : transaction no.
+					Transaction t = customer.Transactions[tn];
+
+					foreach (Transaction comparedTransaction in customer.Transactions) {
+						if (Object.ReferenceEquals(t, comparedTransaction))
+							continue;
+						if (t.Items.Count >= comparedTransaction.Items.Count)
+							continue;
+						if (IsSubSequence<Item>(t.Items, comparedTransaction.Items)) {
+							customer.Transactions.RemoveAt(tn);
+							break;
+						}
+					}
+				}
+
+			}
 
 			return decodedList;
 		}
