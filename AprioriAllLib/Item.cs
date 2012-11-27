@@ -9,15 +9,15 @@ namespace AprioriAllLib {
 	/// </summary>
 	public class Item : IComparable {
 
-        /// <summary>
-        /// Integer value (id) of the item
-        /// </summary>
+		/// <summary>
+		/// Integer value (id) of the item
+		/// </summary>
 		public int Value;
 
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        /// <param name="value">Value of the item</param>
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="value">Value of the item</param>
 		public Item(int value) {
 			this.Value = value;
 		}
@@ -26,10 +26,10 @@ namespace AprioriAllLib {
 			return ((Item)obj).Value == this.Value ? 0 : (((Item)obj).Value > this.Value ? -1 : 1);
 		}
 
-        /// <summary>
-        /// String representation of this class
-        /// </summary>
-        /// <returns>String representation</returns>
+		/// <summary>
+		/// String representation of this class
+		/// </summary>
+		/// <returns>String representation</returns>
 		public override string ToString() {
 			return String.Format("{0}", Value);
 		}

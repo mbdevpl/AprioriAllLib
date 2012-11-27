@@ -97,9 +97,9 @@ namespace AprioriAllTest {
 		[TestMethod]
 		public void TestCorrectnessForDataSet1() {
 
-            // READING FROM THE DATABASE AND FINDING 1-LITEMSETS
-            //XmlReader reader = new XmlReader();
-            //CustomerList cList = reader.ReadFromXmlFile(/* full path or whatever else works*/);
+			// READING FROM THE DATABASE AND FINDING 1-LITEMSETS
+			//XmlReader reader = new XmlReader();
+			//CustomerList cList = reader.ReadFromXmlFile(/* full path or whatever else works*/);
 
 			//Arrange
 			CustomerList list = new CustomerList();

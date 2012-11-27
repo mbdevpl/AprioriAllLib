@@ -3,10 +3,16 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace AprioriAllLib {
+
+	/// <summary>
+	/// Apriori All Algorithm :P
+	/// </summary>
 	public class AprioriAllAlgorithm {
 
-		static private void GenerateEncoding(List<Litemset> oneLitemsets, Dictionary<Litemset, int> encoding,
-				Dictionary<int, Litemset> decoding) {
+		static private void GenerateEncoding(List<Litemset> oneLitemsets, out Dictionary<Litemset, int> encoding,
+				out Dictionary<int, Litemset> decoding) {
+			encoding = new Dictionary<Litemset, int>();
+			decoding = new Dictionary<int, Litemset>();
 
 			int i = 1;
 			foreach (Litemset li in oneLitemsets) {
@@ -17,8 +23,17 @@ namespace AprioriAllLib {
 
 		}
 
-		static private void EncodeCustomerList(CustomerList customerList, List<Litemset> oneLitemsets,
-				Dictionary<Litemset, int> encoding, List<List<List<int>>> encodedList) {
+		/// <summary>
+		/// Corresponds to 3rd step of Apriori All algorithm, namely "Transformation Phase".
+		/// </summary>
+		/// <param name="customerList"></param>
+		/// <param name="oneLitemsets"></param>
+		/// <param name="encoding"></param>
+		/// <param name="?"></param>
+		/// <returns>encoded customer list</returns>
+		static private List<List<List<int>>> EncodeCustomerList(CustomerList customerList, List<Litemset> oneLitemsets,
+				Dictionary<Litemset, int> encoding) {
+			var encodedList = new List<List<List<int>>>();
 
 			foreach (Customer c in customerList.Customers) {
 				var encodedCustomer = new List<List<int>>();
@@ -70,6 +85,7 @@ namespace AprioriAllLib {
 					encodedList.Add(encodedCustomer);
 			}
 
+			return encodedList;
 		}
 
 		/// <summary>
@@ -160,8 +176,17 @@ namespace AprioriAllLib {
 			}
 		}
 
-		static private void FindAllFrequentSequences(List<Litemset> oneLitemsets, Dictionary<Litemset, int> encoding, 
-				List<List<List<int>>> encodedList, int minSupport, List<List<List<int>>> kSequences) {
+		/// <summary>
+		/// Corresponds to 4th step of Apriori All algorithm, namely "Sequence Phase".
+		/// </summary>
+		/// <param name="oneLitemsets"></param>
+		/// <param name="encoding"></param>
+		/// <param name="encodedList"></param>
+		/// <param name="minSupport"></param>
+		/// <param name="kSequences"></param>
+		static private List<List<List<int>>> FindAllFrequentSequences(List<Litemset> oneLitemsets,
+			Dictionary<Litemset, int> encoding, List<List<List<int>>> encodedList, int minSupport) {
+			var kSequences = new List<List<List<int>>>();
 
 			kSequences.Add(new List<List<int>>()); // placeholder for 0-sequences (whatever it means)
 			kSequences.Add(new List<List<int>>()); // 1-seq, already done, just copy:
@@ -224,6 +249,22 @@ namespace AprioriAllLib {
 				}
 
 			}
+
+			return kSequences;
+		}
+
+		/// <summary>
+		/// Deletes all non-maximal seqences from list of k-sequences.
+		/// 
+		/// Corresponds to 5th step of Apriori All algorithm, namely "Maximal Phase".
+		/// </summary>
+		/// <param name="kSequences"></param>
+		static private void PurgeAllNonMax(List<List<List<int>>> kSequences) {
+
+			// additional "-1" because all largest k-sequences are for sure maximal
+			for (int i = kSequences.Count - 1 - 1; i >= 0; ++i) {
+
+			}
 		}
 
 		/// <summary>
@@ -238,19 +279,22 @@ namespace AprioriAllLib {
 
 			// 1. sort the input!
 
-			// TODO
+			// corresponds to 1st step of Apriori All algorithm, namely "Sort Phase".
+
+			// already done because input is sorted by the user in an apropriate way
 
 			// 2. find all frequent 1-sequences
 			Apriori apriori = new Apriori(customerList);
+			// this corresponds to 2nd step of Apriori All algorithm, namely "Litemset Phase".
 			List<Litemset> oneLitemsets = apriori.FindOneLitemsets(minSupport);
 
 			// 3. transform input into list of IDs
 
 			// 3.a) give an ID to each 1-seq
-			var encoding = new Dictionary<Litemset, int>();
-			var decoding = new Dictionary<int, Litemset>();
+			Dictionary<Litemset, int> encoding;
+			Dictionary<int, Litemset> decoding;
 
-			GenerateEncoding(oneLitemsets, encoding, decoding);
+			GenerateEncoding(oneLitemsets, out encoding, out decoding);
 
 			// 3.b) using created IDs, transform the input
 
@@ -260,19 +304,16 @@ namespace AprioriAllLib {
 			//   meaning a list of transaction represented as a list of frequent 
 			//   itemsets performed by one customer
 			// - outer list means list of customers
-			var encodedList = new List<List<List<int>>>();
 
-			EncodeCustomerList(customerList, oneLitemsets, encoding, encodedList);
-			
+			var encodedList = EncodeCustomerList(customerList, oneLitemsets, encoding);
+
 			// 4. find all frequent sequences in the input
 
-			var kSequences = new List<List<List<int>>>();
-
-			FindAllFrequentSequences(oneLitemsets, encoding, encodedList, minSupport, kSequences);
+			var kSequences = FindAllFrequentSequences(oneLitemsets, encoding, encodedList, minSupport);
 
 			// 5. purge all non-maximal sequences
 
-			// kSequences ...
+			PurgeAllNonMax(kSequences);
 
 			// 6. decode results
 			var decodedList = new List<Customer>();
