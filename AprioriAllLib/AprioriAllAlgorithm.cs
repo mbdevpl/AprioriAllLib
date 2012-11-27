@@ -262,8 +262,10 @@ namespace AprioriAllLib {
 		static private void PurgeAllNonMax(List<List<List<int>>> kSequences) {
 
 			// additional "-1" because all largest k-sequences are for sure maximal
-			for (int i = kSequences.Count - 1 - 1; i >= 0; ++i) {
+			for (int k = kSequences.Count - 1 - 1; k >= 0; --k) {
 
+				for (int i = k + 1; i < kSequences.Count; ++i) {
+				}
 			}
 		}
 
