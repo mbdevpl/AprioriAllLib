@@ -263,9 +263,70 @@ namespace AprioriAllLib {
 
 			// additional "-1" because all largest k-sequences are for sure maximal
 			for (int k = kSequences.Count - 1 - 1; k >= 0; --k) {
+				List<List<int>> sequencesOfLengthK = kSequences[k];
+				for (int n = sequencesOfLengthK.Count - 1; n >= 0; --n) {
 
-				for (int i = k + 1; i < kSequences.Count; ++i) {
+					List<int> sequence = sequencesOfLengthK[n];
+					for (int i = k + 1; i < kSequences.Count; ++i) {
+
+						foreach (List<int> longerSequence in kSequences[i])
+							if (IsSubSequence(sequence, longerSequence)) { // if sequence is a sub-seqence of s
+								// purge sequence and all its subsequences
+								PurgeAllSubSeqsOf(kSequences, k, n);
+								sequencesOfLengthK.RemoveAt(n);
+							}
+
+					}
+
 				}
+			}
+		}
+
+		// this method assumes that both lists are sorted!
+		static private bool IsSubSequence(List<int> hyptheticalSubSequence, List<int> sequence) {
+			if (hyptheticalSubSequence.Count == 0)
+				return true;
+			if (hyptheticalSubSequence.Count > sequence.Count)
+				return false;
+
+			int i1 = 0;
+			int i2 = 0;
+			while (true) {
+				if (i1 >= hyptheticalSubSequence.Count)
+					break;
+				else if (i2 >= sequence.Count)
+					return false;
+
+				if (hyptheticalSubSequence[i1] == sequence[i2]) {
+					// in the next move we check next element
+					++i1;
+				} else if (hyptheticalSubSequence[i1] < sequence[i2]) {
+					// since both lists are sorted, we cannot encounter elem i1 anywhere later, 
+					//  because we know that all other further elements i2 are also larger
+					return false;
+				}
+
+				++i2;
+			}
+
+			return true;
+		}
+
+		static private void PurgeAllSubSeqsOf(List<List<List<int>>> kSequences, int kk, int ii) {
+			if (kk <= 1)
+				return;
+			List<int> sequence = kSequences[kk][ii];
+			for (int k = kk - 1; k >= 0; --k) {
+
+				List<List<int>> sequencesOfLengthK = kSequences[k];
+
+				for (int i = 0; i < sequencesOfLengthK.Count; ++i) {
+					if (IsSubSequence(sequencesOfLengthK[i], sequence)) {
+						PurgeAllSubSeqsOf(kSequences, k, i);
+						sequencesOfLengthK.RemoveAt(i);
+					}
+				}
+
 			}
 		}
 
