@@ -13,7 +13,7 @@ namespace AprioriAllLib {
 		private List<Item> items;
 
 		/// <summary>
-		/// A list of items
+		/// A list of items of this transaction.
 		/// </summary>
 		public List<Item> Items {
 			get { return items; }
@@ -24,21 +24,30 @@ namespace AprioriAllLib {
 		public List<List<Item>> FrequentItems;
 
 		/// <summary>
-		/// Constructor
+		/// Default constructor.
 		/// </summary>
 		public Transaction() {
 			items = new List<Item>();
+			FrequentItems = new List<List<Item>>();
 		}
 
 		/// <summary>
-		/// Constructor
+		/// Constructor from vararg list of ints.
 		/// </summary>
-		/// <param name="values">Array of integer values of items contained in this transaction</param>
-		public Transaction(params int[] values) {
-			items = new List<Item>();
-			FrequentItems = new List<List<Item>>();
+		/// <param name="values">vararg list of values of items contained in this transaction</param>
+		public Transaction(params int[] values)
+			: this() {
 			foreach (int value in values)
 				items.Add(new Item(value));
+		}
+
+		/// <summary>
+		/// Constructor.
+		/// </summary>
+		/// <param name="listOfItems"></param>
+		public Transaction(List<Item> listOfItems)
+			: this() {
+			items.AddRange(listOfItems);
 		}
 
 		/// <summary>

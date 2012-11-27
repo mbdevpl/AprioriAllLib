@@ -182,9 +182,10 @@ namespace AprioriAllLib {
 		/// </summary>
 		/// <param name="oneLitemsets"></param>
 		/// <param name="encoding"></param>
-		/// <param name="encodedList"></param>
-		/// <param name="minSupport"></param>
-		/// <param name="kSequences"></param>
+		/// <param name="encodedList">encoded list of customers</param>
+		/// <param name="minSupport">minimum number of occurances</param>
+		/// <returns>list of k-sequences, partitioned by k. i.e. i-th element of resulting List 
+		/// contains all i-sequences</returns>
 		private static List<List<List<int>>> FindAllFrequentSequences(List<Litemset> oneLitemsets,
 			Dictionary<Litemset, int> encoding, List<List<List<int>>> encodedList, int minSupport) {
 			var kSequences = new List<List<List<int>>>();
@@ -333,18 +334,18 @@ namespace AprioriAllLib {
 
 		private static List<List<int>> CompactSequencesList(List<List<List<int>>> kSequences) {
 			var compacted = new List<List<int>>();
-			
+
 			//for (int k = kSequences.Count - 1; k >= 0; --k) {
 			for (int k = 0; k < kSequences.Count; ++k) {
 				//for (int n = kSequences[k].Count - 1; n >= 0; --n) {
 				for (int n = 0; n < kSequences[k].Count; ++n) {
-						if (kSequences[k][n].Count > 0)
-							//	kSequences[n].RemoveAt(k);
-							compacted.Add(kSequences[k][n]);
-					}
+					if (kSequences[k][n].Count > 0)
+						//kSequences[n].RemoveAt(k);
+						compacted.Add(kSequences[k][n]);
+				}
 
 				//if (kSequences[k].Count == 0)
-				//	kSequences.RemoveAt(k);
+				//   kSequences.RemoveAt(k);
 			}
 
 			return compacted;
@@ -355,6 +356,20 @@ namespace AprioriAllLib {
 			var decodedList = new List<Customer>();
 
 			var compactSequences = CompactSequencesList(kSequences);
+			//var decodedSequences = new List<Customer>();
+
+			foreach (List<int> sequence in compactSequences) {
+				Customer c = new Customer();
+				foreach (int encodedLitemset in sequence) {
+					Transaction t = new Transaction(decoding[encodedLitemset].Items);
+					c.Transactions.Add(t);
+				}
+				decodedList.Add(c);
+			}
+
+			//foreach (List<List<int>> customer in encodedList) {
+			//   foreach (List<List<int>> customer in encodedList) {
+			//}
 
 			return decodedList;
 		}
