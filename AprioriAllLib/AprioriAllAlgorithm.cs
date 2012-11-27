@@ -163,12 +163,13 @@ namespace AprioriAllLib {
 					if (foundEqual)
 						continue;
 
+					// Invalid statement:
+
 					// we ain't gonna add any lists, that do not exist partially in the previous set,
 					//  I tell ya!
-
-					for (int ic = 0; ic < candidate.Count; ++ic) {
-						// TODO
-					}
+					//for (int ic = 0; ic < candidate.Count; ++ic) {
+						// nothing
+					//}
 
 					candidates.Add(candidate, 0);
 				}
@@ -330,6 +331,13 @@ namespace AprioriAllLib {
 			}
 		}
 
+		private static List<Customer> InferRealResults(List<List<List<int>>> kSequences,
+				Dictionary<int, Litemset> decoding, CustomerList customerList) {
+			var decodedList = new List<Customer>();
+
+			return decodedList;
+		}
+
 		/// <summary>
 		/// Executes Apriori All algorithm on a given input and minimum suport threshold.
 		/// </summary>
@@ -337,6 +345,10 @@ namespace AprioriAllLib {
 		/// <param name="threshold">from 0 to 1</param>
 		/// <returns></returns>
 		static public List<Customer> execute(CustomerList customerList, double threshold) {
+			if (customerList == null)
+				throw new ArgumentNullException("customerList", "customerList is null.");
+			if (threshold > 1 || threshold < 0)
+				throw new ArgumentException("threshold", "threshold is out of range = [0,1]");
 
 			int minSupport = (int)Math.Ceiling((double)customerList.Customers.Count * threshold);
 
@@ -349,7 +361,7 @@ namespace AprioriAllLib {
 			// 2. find all frequent 1-sequences
 			Apriori apriori = new Apriori(customerList);
 			// this corresponds to 2nd step of Apriori All algorithm, namely "Litemset Phase".
-			List<Litemset> oneLitemsets = apriori.FindOneLitemsets(minSupport);
+			List<Litemset> oneLitemsets = apriori.FindOneLitemsets(threshold);
 
 			// 3. transform input into list of IDs
 
@@ -379,7 +391,7 @@ namespace AprioriAllLib {
 			PurgeAllNonMax(kSequences);
 
 			// 6. decode results
-			var decodedList = new List<Customer>();
+			var decodedList = InferRealResults(kSequences, decoding, customerList);
 
 			// 7. return results
 			return decodedList;
