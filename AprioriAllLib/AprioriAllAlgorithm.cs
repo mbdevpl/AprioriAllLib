@@ -93,7 +93,7 @@ namespace AprioriAllLib {
 		/// </summary>
 		/// <param name="prev">previous k-sequences, i.e. (k-1)-sequences</param>
 		/// <param name="candidates">output, candidates for k-sequences</param>
-		static private void GenerateCandidates(List<List<int>> prev, Dictionary<List<int>, int> candidates) {
+		private static void GenerateCandidates(List<List<int>> prev, Dictionary<List<int>, int> candidates) {
 
 			//for (List<List<int>>.Enumerator e1 = prev.GetEnumerator(); e1.MoveNext(); ) {
 			//   // prev in kSequences[k - 1]
@@ -168,7 +168,7 @@ namespace AprioriAllLib {
 					// we ain't gonna add any lists, that do not exist partially in the previous set,
 					//  I tell ya!
 					//for (int ic = 0; ic < candidate.Count; ++ic) {
-						// nothing
+					// nothing
 					//}
 
 					candidates.Add(candidate, 0);
@@ -185,7 +185,7 @@ namespace AprioriAllLib {
 		/// <param name="encodedList"></param>
 		/// <param name="minSupport"></param>
 		/// <param name="kSequences"></param>
-		static private List<List<List<int>>> FindAllFrequentSequences(List<Litemset> oneLitemsets,
+		private static List<List<List<int>>> FindAllFrequentSequences(List<Litemset> oneLitemsets,
 			Dictionary<Litemset, int> encoding, List<List<List<int>>> encodedList, int minSupport) {
 			var kSequences = new List<List<List<int>>>();
 
@@ -260,7 +260,7 @@ namespace AprioriAllLib {
 		/// Corresponds to 5th step of Apriori All algorithm, namely "Maximal Phase".
 		/// </summary>
 		/// <param name="kSequences"></param>
-		static private void PurgeAllNonMax(List<List<List<int>>> kSequences) {
+		private static void PurgeAllNonMax(List<List<List<int>>> kSequences) {
 
 			// additional "-1" because all largest k-sequences are for sure maximal
 			for (int k = kSequences.Count - 1 - 1; k >= 0; --k) {
@@ -284,7 +284,7 @@ namespace AprioriAllLib {
 		}
 
 		// this method assumes that both lists are sorted!
-		static private bool IsSubSequence(List<int> hyptheticalSubSequence, List<int> sequence) {
+		private static bool IsSubSequence(List<int> hyptheticalSubSequence, List<int> sequence) {
 			if (hyptheticalSubSequence.Count == 0)
 				return true;
 			if (hyptheticalSubSequence.Count > sequence.Count)
@@ -313,7 +313,7 @@ namespace AprioriAllLib {
 			return true;
 		}
 
-		static private void PurgeAllSubSeqsOf(List<List<List<int>>> kSequences, int kk, int ii) {
+		private static void PurgeAllSubSeqsOf(List<List<List<int>>> kSequences, int kk, int ii) {
 			if (kk <= 1)
 				return;
 			List<int> sequence = kSequences[kk][ii];
@@ -331,9 +331,30 @@ namespace AprioriAllLib {
 			}
 		}
 
+		private static List<List<int>> CompactSequencesList(List<List<List<int>>> kSequences) {
+			var compacted = new List<List<int>>();
+			
+			//for (int k = kSequences.Count - 1; k >= 0; --k) {
+			for (int k = 0; k < kSequences.Count; ++k) {
+				//for (int n = kSequences[k].Count - 1; n >= 0; --n) {
+				for (int n = 0; n < kSequences[k].Count; ++n) {
+						if (kSequences[k][n].Count > 0)
+							//	kSequences[n].RemoveAt(k);
+							compacted.Add(kSequences[k][n]);
+					}
+
+				//if (kSequences[k].Count == 0)
+				//	kSequences.RemoveAt(k);
+			}
+
+			return compacted;
+		}
+
 		private static List<Customer> InferRealResults(List<List<List<int>>> kSequences,
 				Dictionary<int, Litemset> decoding, CustomerList customerList) {
 			var decodedList = new List<Customer>();
+
+			var compactSequences = CompactSequencesList(kSequences);
 
 			return decodedList;
 		}
@@ -344,7 +365,7 @@ namespace AprioriAllLib {
 		/// <param name="list">list of customers, who have transactions that have items</param>
 		/// <param name="threshold">from 0 to 1</param>
 		/// <returns></returns>
-		static public List<Customer> execute(CustomerList customerList, double threshold) {
+		public static List<Customer> execute(CustomerList customerList, double threshold) {
 			if (customerList == null)
 				throw new ArgumentNullException("customerList", "customerList is null.");
 			if (threshold > 1 || threshold < 0)
