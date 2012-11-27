@@ -42,7 +42,73 @@ Executes \hyperlink{class_apriori_all_lib_1_1_apriori}{Apriori} All algorithm on
 
 \end{DoxyReturn}
 
+\begin{DoxyCode}
+                                                                               
+                 \{
+            \textcolor{keywordflow}{if} (customerList == null)
+                \textcolor{keywordflow}{throw} \textcolor{keyword}{new} ArgumentNullException(\textcolor{stringliteral}{"customerList"}, \textcolor{stringliteral}{"customerList
+       is null."});
+            \textcolor{keywordflow}{if} (threshold > 1 || threshold < 0)
+                \textcolor{keywordflow}{throw} \textcolor{keyword}{new} ArgumentException(\textcolor{stringliteral}{"threshold"}, \textcolor{stringliteral}{"threshold is out of
+       range = [0,1]"});
+
+            \textcolor{keywordtype}{int} minSupport = (int)Math.Ceiling((\textcolor{keywordtype}{double})customerList.Customers.
+      Count * threshold);
+
+            \textcolor{comment}{// 1. sort the input!}
+
+            \textcolor{comment}{// corresponds to 1st step of Apriori All algorithm, namely "Sort
+       Phase".}
+
+            \textcolor{comment}{// already done because input is sorted by the user in an
+       apropriate way}
+
+            \textcolor{comment}{// 2. find all frequent 1-sequences}
+            Apriori apriori = \textcolor{keyword}{new} Apriori(customerList);
+            \textcolor{comment}{// this corresponds to 2nd step of Apriori All algorithm, namely
+       "Litemset Phase".}
+            List<Litemset> oneLitemsets = apriori.FindOneLitemsets(threshold);
+
+            \textcolor{comment}{// 3. transform input into list of IDs}
+
+            \textcolor{comment}{// 3.a) give an ID to each 1-seq}
+            Dictionary<Litemset, int> encoding;
+            Dictionary<int, Litemset> decoding;
+
+            GenerateEncoding(oneLitemsets, out encoding, out decoding);
+
+            \textcolor{comment}{// 3.b) using created IDs, transform the input}
+
+            \textcolor{comment}{// list of lists of list of IDs:}
+            \textcolor{comment}{// - each list of IDs is a frequent itemset}
+            \textcolor{comment}{// - list of those means a list of frequent itemsets, }
+            \textcolor{comment}{//   meaning a list of transaction represented as a list of
+       frequent }
+            \textcolor{comment}{//   itemsets performed by one customer}
+            \textcolor{comment}{// - outer list means list of customers}
+
+            var encodedList = EncodeCustomerList(customerList, oneLitemsets, 
+      encoding);
+
+            \textcolor{comment}{// 4. find all frequent sequences in the input}
+
+            var kSequences = FindAllFrequentSequences(oneLitemsets, encoding, 
+      encodedList, minSupport);
+
+            \textcolor{comment}{// 5. purge all non-maximal sequences}
+
+            PurgeAllNonMax(kSequences);
+
+            \textcolor{comment}{// 6. decode results}
+            var decodedList = InferRealResults(encodedList, kSequences, 
+      decoding, customerList);
+
+            \textcolor{comment}{// 7. return results}
+            \textcolor{keywordflow}{return} decodedList;
+        \}
+\end{DoxyCode}
+
 
 The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
 \item 
-C\-:/\-Users/\-Karolina/\-Desktop/\-Apriori -\/ Copy/\-Apriori\-All\-Lib/Apriori\-All\-Algorithm.\-cs\end{DoxyCompactItemize}
+D\-:/\-Projects/\-Csharp/\-Mi\-N\-I\-\_\-\-Apriori\-All/\-Apriori\-All\-Lib/Apriori\-All\-Algorithm.\-cs\end{DoxyCompactItemize}

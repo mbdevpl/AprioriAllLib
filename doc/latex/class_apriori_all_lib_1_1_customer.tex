@@ -41,6 +41,12 @@ Class which represents a customer from database having a list of transactions
 
 Constructor 
 
+
+\begin{DoxyCode}
+                          \{
+            \hyperlink{class_apriori_all_lib_1_1_customer_a5bf3b782d5e9c582e3f395834b7bddad}{Transactions} = \textcolor{keyword}{new} List<Transaction>();
+        \}
+\end{DoxyCode}
 \hypertarget{class_apriori_all_lib_1_1_customer_a168c8ef2fa0b53671ea51fa21d788f7e}{\index{Apriori\-All\-Lib\-::\-Customer@{Apriori\-All\-Lib\-::\-Customer}!Customer@{Customer}}
 \index{Customer@{Customer}!AprioriAllLib::Customer@{Apriori\-All\-Lib\-::\-Customer}}
 \subsubsection[{Customer}]{\setlength{\rightskip}{0pt plus 5cm}Apriori\-All\-Lib.\-Customer.\-Customer (
@@ -57,6 +63,14 @@ Constructor
 {\em transactions} & Array of transactions of this client\\
 \hline
 \end{DoxyParams}
+
+\begin{DoxyCode}
+                                                           \{
+            \hyperlink{class_apriori_all_lib_1_1_customer_a5bf3b782d5e9c582e3f395834b7bddad}{Transactions} = \textcolor{keyword}{new} List<Transaction>();
+            \textcolor{keywordflow}{foreach} (Transaction t \textcolor{keywordflow}{in} transactions)
+                \hyperlink{class_apriori_all_lib_1_1_customer_a5bf3b782d5e9c582e3f395834b7bddad}{Transactions}.Add(t);
+        \}
+\end{DoxyCode}
 \hypertarget{class_apriori_all_lib_1_1_customer_a8a0e52125e85fae2662fa7edb756cedd}{\index{Apriori\-All\-Lib\-::\-Customer@{Apriori\-All\-Lib\-::\-Customer}!Customer@{Customer}}
 \index{Customer@{Customer}!AprioriAllLib::Customer@{Apriori\-All\-Lib\-::\-Customer}}
 \subsubsection[{Customer}]{\setlength{\rightskip}{0pt plus 5cm}Apriori\-All\-Lib.\-Customer.\-Customer (
@@ -73,6 +87,14 @@ Constructor
 {\em values\-Array} & Two-\/dimensional array of integer values of items in transactions of this client\\
 \hline
 \end{DoxyParams}
+
+\begin{DoxyCode}
+                                                    \{
+            \hyperlink{class_apriori_all_lib_1_1_customer_a5bf3b782d5e9c582e3f395834b7bddad}{Transactions} = \textcolor{keyword}{new} List<Transaction>();
+            \textcolor{keywordflow}{foreach} (\textcolor{keywordtype}{int}[] values \textcolor{keywordflow}{in} valuesArray)
+                \hyperlink{class_apriori_all_lib_1_1_customer_a5bf3b782d5e9c582e3f395834b7bddad}{Transactions}.Add(\textcolor{keyword}{new} Transaction(values));
+        \}
+\end{DoxyCode}
 
 
 \subsection{Member Function Documentation}
@@ -91,6 +113,14 @@ Prints the content of client transactions
 String of values of transaction items
 \end{DoxyReturn}
 
+\begin{DoxyCode}
+                                          \{
+            \textcolor{keywordtype}{string} itemsStr = \textcolor{keywordtype}{string}.Join(\textcolor{stringliteral}{","}, \hyperlink{class_apriori_all_lib_1_1_customer_a5bf3b782d5e9c582e3f395834b7bddad}{Transactions}.Select(
+      x => x.ToString()).ToArray());
+            \textcolor{keywordflow}{return} String.Format(\textcolor{stringliteral}{"\{0\}"}, itemsStr);
+        \}
+\end{DoxyCode}
+
 
 \subsection{Member Data Documentation}
 \hypertarget{class_apriori_all_lib_1_1_customer_a5bf3b782d5e9c582e3f395834b7bddad}{\index{Apriori\-All\-Lib\-::\-Customer@{Apriori\-All\-Lib\-::\-Customer}!Transactions@{Transactions}}
@@ -104,4 +134,4 @@ List of transactions
 
 The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
 \item 
-C\-:/\-Users/\-Karolina/\-Desktop/\-Apriori -\/ Copy/\-Apriori\-All\-Lib/Customer.\-cs\end{DoxyCompactItemize}
+D\-:/\-Projects/\-Csharp/\-Mi\-N\-I\-\_\-\-Apriori\-All/\-Apriori\-All\-Lib/Customer.\-cs\end{DoxyCompactItemize}

@@ -54,6 +54,11 @@ Class that represents a litemset (1-\/itemset)
 
 Constructor 
 
+
+\begin{DoxyCode}
+                          \{
+        \}
+\end{DoxyCode}
 \hypertarget{class_apriori_all_lib_1_1_litemset_a332a50f3e028dafcf393addcca5f3fb3}{\index{Apriori\-All\-Lib\-::\-Litemset@{Apriori\-All\-Lib\-::\-Litemset}!Litemset@{Litemset}}
 \index{Litemset@{Litemset}!AprioriAllLib::Litemset@{Apriori\-All\-Lib\-::\-Litemset}}
 \subsubsection[{Litemset}]{\setlength{\rightskip}{0pt plus 5cm}Apriori\-All\-Lib.\-Litemset.\-Litemset (
@@ -70,6 +75,13 @@ Constructor
 {\em items} & List of items\\
 \hline
 \end{DoxyParams}
+
+\begin{DoxyCode}
+                                          \{
+            \hyperlink{class_apriori_all_lib_1_1_litemset_aef38d5fccb4e45867abf5838ab8a68fa}{Items} = items;
+            \hyperlink{class_apriori_all_lib_1_1_litemset_a74c9ee16b225268e66ee77d69142bc1a}{IDs} = \textcolor{keyword}{new} List<int>();
+        \}
+\end{DoxyCode}
 \hypertarget{class_apriori_all_lib_1_1_litemset_a2f9611a4cc391651629df60ea2e2f3e9}{\index{Apriori\-All\-Lib\-::\-Litemset@{Apriori\-All\-Lib\-::\-Litemset}!Litemset@{Litemset}}
 \index{Litemset@{Litemset}!AprioriAllLib::Litemset@{Apriori\-All\-Lib\-::\-Litemset}}
 \subsubsection[{Litemset}]{\setlength{\rightskip}{0pt plus 5cm}Apriori\-All\-Lib.\-Litemset.\-Litemset (
@@ -90,6 +102,17 @@ Constructor
 \hline
 \end{DoxyParams}
 
+\begin{DoxyCode}
+                                                          \{
+            \textcolor{keywordflow}{if} (values == null)
+                \textcolor{keywordflow}{throw} \textcolor{keyword}{new} ArgumentNullException(\textcolor{stringliteral}{"values"}, \textcolor{stringliteral}{"values is null."});
+            \hyperlink{class_apriori_all_lib_1_1_litemset_a9f37ba3b3423bc7a1619493132dbc3e2}{Support} = support;
+            \hyperlink{class_apriori_all_lib_1_1_litemset_aef38d5fccb4e45867abf5838ab8a68fa}{Items} = \textcolor{keyword}{new} List<Item>();
+            \textcolor{keywordflow}{foreach} (\textcolor{keywordtype}{int} value \textcolor{keywordflow}{in} values)
+                \hyperlink{class_apriori_all_lib_1_1_litemset_aef38d5fccb4e45867abf5838ab8a68fa}{Items}.Add(\textcolor{keyword}{new} Item(value));
+        \}
+\end{DoxyCode}
+
 
 \subsection{Member Function Documentation}
 \hypertarget{class_apriori_all_lib_1_1_litemset_a512b70867120363edcd1178cec1c31f9}{\index{Apriori\-All\-Lib\-::\-Litemset@{Apriori\-All\-Lib\-::\-Litemset}!To\-String@{To\-String}}
@@ -106,6 +129,15 @@ String representation of this class
 \begin{DoxyReturn}{Returns}
 String representation
 \end{DoxyReturn}
+
+\begin{DoxyCode}
+                                          \{
+            \textcolor{keywordtype}{string} itemsStr = \textcolor{keywordtype}{string}.Join(\textcolor{stringliteral}{","}, \hyperlink{class_apriori_all_lib_1_1_litemset_aef38d5fccb4e45867abf5838ab8a68fa}{Items}.Select(x => x.
+      ToString()).ToArray());
+            \textcolor{keywordflow}{return} String.Format(\textcolor{stringliteral}{"Lit(Supp=\{0\};\{1\})"}, \hyperlink{class_apriori_all_lib_1_1_litemset_a9f37ba3b3423bc7a1619493132dbc3e2}{Support}, itemsStr)
+      ;
+        \}
+\end{DoxyCode}
 
 
 \subsection{Member Data Documentation}
@@ -134,4 +166,4 @@ Support of this litemset
 
 The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
 \item 
-C\-:/\-Users/\-Karolina/\-Desktop/\-Apriori -\/ Copy/\-Apriori\-All\-Lib/Litemset.\-cs\end{DoxyCompactItemize}
+D\-:/\-Projects/\-Csharp/\-Mi\-N\-I\-\_\-\-Apriori\-All/\-Apriori\-All\-Lib/Litemset.\-cs\end{DoxyCompactItemize}

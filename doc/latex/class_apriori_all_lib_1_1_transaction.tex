@@ -10,9 +10,11 @@ Single client's transaction having a list of items
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{class_apriori_all_lib_1_1_transaction_adad35699bc55fcba5ee7ad28d34bdf53}{Transaction} ()
-\begin{DoxyCompactList}\small\item\em Constructor \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
 \hyperlink{class_apriori_all_lib_1_1_transaction_a582a1d655d1c0d452a5e5f0b972688dd}{Transaction} (params int\mbox{[}$\,$\mbox{]} values)
-\begin{DoxyCompactList}\small\item\em Constructor \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Constructor from vararg list of ints. \end{DoxyCompactList}\item 
+\hyperlink{class_apriori_all_lib_1_1_transaction_a4a114cb49deabd17311768a8ecdf38a5}{Transaction} (List$<$ \hyperlink{class_apriori_all_lib_1_1_item}{Item} $>$ list\-Of\-Items)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
 override string \hyperlink{class_apriori_all_lib_1_1_transaction_acee1a8846d87f949c63110f7e6eabfe0}{To\-String} ()
 \begin{DoxyCompactList}\small\item\em Prints the content of transaction \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
@@ -25,7 +27,7 @@ override string \hyperlink{class_apriori_all_lib_1_1_transaction_acee1a8846d87f9
 \begin{DoxyCompactItemize}
 \item 
 List$<$ \hyperlink{class_apriori_all_lib_1_1_item}{Item} $>$ \hyperlink{class_apriori_all_lib_1_1_transaction_abb1fe3a28d74f8b1cd5f5ca2add6a043}{Items}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
-\begin{DoxyCompactList}\small\item\em A list of items \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em A list of items of this transaction. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -43,8 +45,15 @@ Single client's transaction having a list of items
 )}}\label{class_apriori_all_lib_1_1_transaction_adad35699bc55fcba5ee7ad28d34bdf53}
 
 
-Constructor 
+Default constructor. 
 
+
+\begin{DoxyCode}
+                             \{
+            items = \textcolor{keyword}{new} List<Item>();
+            FrequentItems = \textcolor{keyword}{new} List<List<Item>>();
+        \}
+\end{DoxyCode}
 \hypertarget{class_apriori_all_lib_1_1_transaction_a582a1d655d1c0d452a5e5f0b972688dd}{\index{Apriori\-All\-Lib\-::\-Transaction@{Apriori\-All\-Lib\-::\-Transaction}!Transaction@{Transaction}}
 \index{Transaction@{Transaction}!AprioriAllLib::Transaction@{Apriori\-All\-Lib\-::\-Transaction}}
 \subsubsection[{Transaction}]{\setlength{\rightskip}{0pt plus 5cm}Apriori\-All\-Lib.\-Transaction.\-Transaction (
@@ -54,13 +63,42 @@ Constructor
 )}}\label{class_apriori_all_lib_1_1_transaction_a582a1d655d1c0d452a5e5f0b972688dd}
 
 
-Constructor 
+Constructor from vararg list of ints. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em values} & Array of integer values of items contained in this transaction\\
+{\em values} & vararg list of values of items contained in this transaction\\
 \hline
 \end{DoxyParams}
+
+\begin{DoxyCode}
+            : \textcolor{keyword}{this}() \{
+            \textcolor{keywordflow}{foreach} (\textcolor{keywordtype}{int} value \textcolor{keywordflow}{in} values)
+                items.Add(\textcolor{keyword}{new} Item(value));
+        \}
+\end{DoxyCode}
+\hypertarget{class_apriori_all_lib_1_1_transaction_a4a114cb49deabd17311768a8ecdf38a5}{\index{Apriori\-All\-Lib\-::\-Transaction@{Apriori\-All\-Lib\-::\-Transaction}!Transaction@{Transaction}}
+\index{Transaction@{Transaction}!AprioriAllLib::Transaction@{Apriori\-All\-Lib\-::\-Transaction}}
+\subsubsection[{Transaction}]{\setlength{\rightskip}{0pt plus 5cm}Apriori\-All\-Lib.\-Transaction.\-Transaction (
+\begin{DoxyParamCaption}
+\item[{List$<$ {\bf Item} $>$}]{list\-Of\-Items}
+\end{DoxyParamCaption}
+)}}\label{class_apriori_all_lib_1_1_transaction_a4a114cb49deabd17311768a8ecdf38a5}
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list\-Of\-Items} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+            : \textcolor{keyword}{this}() \{
+            items.AddRange(listOfItems);
+        \}
+\end{DoxyCode}
 
 
 \subsection{Member Function Documentation}
@@ -79,6 +117,14 @@ Prints the content of transaction
 String of values of transaction items
 \end{DoxyReturn}
 
+\begin{DoxyCode}
+                                          \{
+            \textcolor{keywordtype}{string} itemsStr = \textcolor{keywordtype}{string}.Join(\textcolor{stringliteral}{" "}, items.Select(x => x.ToString()).
+      ToArray());
+            \textcolor{keywordflow}{return} String.Format(\textcolor{stringliteral}{"(\{0\})"}, itemsStr);
+        \}
+\end{DoxyCode}
+
 
 \subsection{Property Documentation}
 \hypertarget{class_apriori_all_lib_1_1_transaction_abb1fe3a28d74f8b1cd5f5ca2add6a043}{\index{Apriori\-All\-Lib\-::\-Transaction@{Apriori\-All\-Lib\-::\-Transaction}!Items@{Items}}
@@ -86,10 +132,10 @@ String of values of transaction items
 \subsubsection[{Items}]{\setlength{\rightskip}{0pt plus 5cm}List$<${\bf Item}$>$ Apriori\-All\-Lib.\-Transaction.\-Items\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}}\label{class_apriori_all_lib_1_1_transaction_abb1fe3a28d74f8b1cd5f5ca2add6a043}
 
 
-A list of items 
+A list of items of this transaction. 
 
 
 
 The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
 \item 
-C\-:/\-Users/\-Karolina/\-Desktop/\-Apriori -\/ Copy/\-Apriori\-All\-Lib/Transaction.\-cs\end{DoxyCompactItemize}
+D\-:/\-Projects/\-Csharp/\-Mi\-N\-I\-\_\-\-Apriori\-All/\-Apriori\-All\-Lib/Transaction.\-cs\end{DoxyCompactItemize}

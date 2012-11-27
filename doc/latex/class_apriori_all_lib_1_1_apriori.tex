@@ -38,6 +38,12 @@ Constructor
 \hline
 \end{DoxyParams}
 
+\begin{DoxyCode}
+        \{
+            this.customerList = customerList;
+        \}
+\end{DoxyCode}
+
 
 \subsection{Member Function Documentation}
 \hypertarget{class_apriori_all_lib_1_1_apriori_a64e63d73cfc770ef8532127198b314dd}{\index{Apriori\-All\-Lib\-::\-Apriori@{Apriori\-All\-Lib\-::\-Apriori}!Find\-One\-Litemsets@{Find\-One\-Litemsets}}
@@ -60,7 +66,64 @@ Finds all litemsets that have the minimal support
 A list of Litemsets with support $>$= minimal\-Support
 \end{DoxyReturn}
 
+\begin{DoxyCode}
+        \{
+            \textcolor{keywordflow}{if} (minimalSupport > 1 || minimalSupport < 0)
+                \textcolor{keywordflow}{return} null; 
+            
+            minimalSupport *= customerList.\hyperlink{class_apriori_all_lib_1_1_customer_list_a4fd2a16a984844e61ffc60b327e6534a}{Customers}.Count;
+            List<Litemset> litemsets = \textcolor{keyword}{new} List<Litemset>();
+
+            \textcolor{keywordflow}{foreach} (Customer c \textcolor{keywordflow}{in} customerList.\hyperlink{class_apriori_all_lib_1_1_customer_list_a4fd2a16a984844e61ffc60b327e6534a}{Customers})
+            \{
+                \textcolor{keywordflow}{foreach} (Transaction t \textcolor{keywordflow}{in} c.Transactions)
+                \{
+                    \textcolor{comment}{//generate subsets (candidates for litemsets)}
+                    List<Litemset> candidateLitemsets = generateCandidates(t.
+      Items);
+
+                    \textcolor{comment}{//check if they already exist in litemsets list; if not,
+       add a litemset to litemsets}
+                    \textcolor{keywordflow}{foreach} (Litemset lset \textcolor{keywordflow}{in} candidateLitemsets)
+                    \{
+                        IEnumerable<Litemset> l = litemsets.Where(litemset => (
+      litemset.Items.Count == lset.Items.Count) &&
+                            litemset.Items.All(item => lset.Items.Exists(
+      lsetItem => lsetItem.CompareTo(item) == 0)));
+
+                        \textcolor{keywordtype}{int} custID = customerList.\hyperlink{class_apriori_all_lib_1_1_customer_list_a4fd2a16a984844e61ffc60b327e6534a}{Customers}.IndexOf(c)
+      ;
+                        \textcolor{keywordflow}{if} (l.Count() == 0 && !lset.IDs.Contains(custID))
+                        \{
+                            litemsets.Add(lset);
+                            lset.Support++;
+                            lset.IDs.Add(custID);
+                        \}
+                        \textcolor{keywordflow}{else}
+                        \{
+                            Litemset litset = l.FirstOrDefault();
+                            \textcolor{keywordflow}{if} (!litset.IDs.Contains(custID))
+                            \{
+                                litset.Support++;
+                                litset.IDs.Add(custID);
+                            \}
+                        \}     
+                    \}
+                \}
+            \}
+            \textcolor{comment}{// rewrite the litemsets with support >= minimum to a new list}
+            List<Litemset> properLitemsets = \textcolor{keyword}{new} List<Litemset>();
+            \textcolor{keywordflow}{foreach} (Litemset litemset \textcolor{keywordflow}{in} litemsets)
+                \textcolor{keywordflow}{if} (litemset.Support >= minimalSupport)
+                    properLitemsets.Add(litemset);
+
+            properLitemsets.Sort();
+
+            \textcolor{keywordflow}{return} properLitemsets;
+        \}
+\end{DoxyCode}
+
 
 The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
 \item 
-C\-:/\-Users/\-Karolina/\-Desktop/\-Apriori -\/ Copy/\-Apriori\-All\-Lib/Apriori.\-cs\end{DoxyCompactItemize}
+D\-:/\-Projects/\-Csharp/\-Mi\-N\-I\-\_\-\-Apriori\-All/\-Apriori\-All\-Lib/Apriori.\-cs\end{DoxyCompactItemize}

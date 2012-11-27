@@ -1,4 +1,4 @@
-Apriori All algorithm implementation
+Apriori All algorithm implementation {#mainpage}
 ====================================
 
 (C) 2012, Karolina Baltyn and Mateusz Bysiek

@@ -38,6 +38,12 @@ Class that represents a total set of customers
 Constructor 
 
 
+\begin{DoxyCode}
+                              \{
+            \hyperlink{class_apriori_all_lib_1_1_customer_list_a4fd2a16a984844e61ffc60b327e6534a}{Customers} = \textcolor{keyword}{new} List<Customer>();
+        \}
+\end{DoxyCode}
+
 
 \subsection{Member Function Documentation}
 \hypertarget{class_apriori_all_lib_1_1_customer_list_a8f3853844dc1e35424a54e706014f8d7}{\index{Apriori\-All\-Lib\-::\-Customer\-List@{Apriori\-All\-Lib\-::\-Customer\-List}!To\-String@{To\-String}}
@@ -55,6 +61,14 @@ String representation of this class
 String representation
 \end{DoxyReturn}
 
+\begin{DoxyCode}
+                                          \{
+            \textcolor{keywordtype}{string} itemsStr = \textcolor{keywordtype}{string}.Join(\textcolor{stringliteral}{"; "}, \hyperlink{class_apriori_all_lib_1_1_customer_list_a4fd2a16a984844e61ffc60b327e6534a}{Customers}.Select(x => 
+      x.ToString()).ToArray());
+            \textcolor{keywordflow}{return} String.Format(\textcolor{stringliteral}{"CuLst[ \{0\} ]"}, itemsStr);
+        \}
+\end{DoxyCode}
+
 
 \subsection{Member Data Documentation}
 \hypertarget{class_apriori_all_lib_1_1_customer_list_a4fd2a16a984844e61ffc60b327e6534a}{\index{Apriori\-All\-Lib\-::\-Customer\-List@{Apriori\-All\-Lib\-::\-Customer\-List}!Customers@{Customers}}
@@ -68,4 +82,4 @@ List of Customers
 
 The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
 \item 
-C\-:/\-Users/\-Karolina/\-Desktop/\-Apriori -\/ Copy/\-Apriori\-All\-Lib/Customer\-List.\-cs\end{DoxyCompactItemize}
+D\-:/\-Projects/\-Csharp/\-Mi\-N\-I\-\_\-\-Apriori\-All/\-Apriori\-All\-Lib/Customer\-List.\-cs\end{DoxyCompactItemize}

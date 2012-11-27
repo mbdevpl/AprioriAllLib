@@ -39,7 +39,42 @@ Reads from xml client database
 Database transformed into a \hyperlink{class_apriori_all_lib_1_1_customer_list}{Customer\-List} object
 \end{DoxyReturn}
 
+\begin{DoxyCode}
+        \{
+            CustomerList list = \textcolor{keyword}{new} CustomerList();
+
+            \textcolor{keywordflow}{try}
+            \{
+                XmlTextReader reader = \textcolor{keyword}{new} XmlTextReader(filename);
+                \textcolor{keywordflow}{while} (reader.Read())
+                \{
+                    \textcolor{comment}{// Once we find the Clients tag, we start a particular loop
+       for all of them.}
+                    \textcolor{keywordflow}{if} (reader.NodeType == XmlNodeType.Element && reader.Name 
+      == \textcolor{stringliteral}{"Customers"})
+                    \{
+                        \textcolor{comment}{// We'll stay in this local loop until we find the end
+       of the Clients tag.}
+                        \textcolor{keywordflow}{while} (reader.Read() && (reader.NodeType != XmlNodeType
+      .EndElement || reader.Name != \textcolor{stringliteral}{"Customers"}))
+                        \{
+                            \textcolor{keywordflow}{if} (reader.NodeType == XmlNodeType.Element && 
+      reader.Name == \textcolor{stringliteral}{"Customer"})
+                                addCustomer(reader, list);
+                        \}
+                    \}
+                \}
+                reader.Close();
+            \}
+            \textcolor{keywordflow}{catch} (Exception)
+            \{
+                Console.WriteLine(\textcolor{stringliteral}{"Invalid XML file"});
+            \}
+            \textcolor{keywordflow}{return} list;
+        \}
+\end{DoxyCode}
+
 
 The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
 \item 
-C\-:/\-Users/\-Karolina/\-Desktop/\-Apriori -\/ Copy/\-Apriori\-All\-Lib/Xml\-Reader.\-cs\end{DoxyCompactItemize}
+D\-:/\-Projects/\-Csharp/\-Mi\-N\-I\-\_\-\-Apriori\-All/\-Apriori\-All\-Lib/Xml\-Reader.\-cs\end{DoxyCompactItemize}
