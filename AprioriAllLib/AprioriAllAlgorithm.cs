@@ -350,7 +350,7 @@ namespace AprioriAllLib {
 			return compacted;
 		}
 
-		private static List<Customer> InferRealResults(List<List<List<int>>> kSequences,
+		private static List<Customer> InferRealResults(List<List<List<int>>> encodedList, List<List<List<int>>> kSequences,
 				Dictionary<int, Litemset> decoding, CustomerList customerList) {
 			var decodedList = new List<Customer>();
 
@@ -412,7 +412,7 @@ namespace AprioriAllLib {
 			PurgeAllNonMax(kSequences);
 
 			// 6. decode results
-			var decodedList = InferRealResults(kSequences, decoding, customerList);
+			var decodedList = InferRealResults(encodedList, kSequences, decoding, customerList);
 
 			// 7. return results
 			return decodedList;
