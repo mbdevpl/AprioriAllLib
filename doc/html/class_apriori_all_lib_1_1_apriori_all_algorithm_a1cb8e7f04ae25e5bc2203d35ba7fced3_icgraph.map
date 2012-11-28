@@ -1,0 +1,4 @@
+<map id="AprioriAllLib.AprioriAllAlgorithm.GenerateCandidates" name="AprioriAllLib.AprioriAllAlgorithm.GenerateCandidates">
+<area shape="rect" id="node3" href="$class_apriori_all_lib_1_1_apriori_all_algorithm.html#ae57be8bc7c5996b4687db96e333acc6a" title="Corresponds to 4th step of Apriori All algorithm, namely &quot;Sequence Phase&quot;. " alt="" coords="253,5,491,46"/>
+<area shape="rect" id="node5" href="$class_apriori_all_lib_1_1_apriori_all_algorithm.html#ae4f86f8c88052d29cbfc629f2f61c302" title="Executes Apriori All algorithm on a given input and minimum suport threshold. " alt="" coords="539,5,685,46"/>
+</map>

@@ -44,6 +44,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="namespaces.html"><span>Packages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
+      <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -66,7 +67,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="inherits.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -90,7 +91,7 @@ $(document).ready(function(){initNavTree('class_apriori_all_lib_1_1_apriori_all_
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Properties</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Properties</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -107,13 +108,22 @@ $(document).ready(function(){initNavTree('class_apriori_all_lib_1_1_apriori_all_
 
 <p>This is the complete list of members for <a class="el" href="class_apriori_all_lib_1_1_apriori_all_algorithm.html">AprioriAllLib.AprioriAllAlgorithm</a>, including all inherited members.</p>
 <table class="directory">
+  <tr class="even"><td class="entry"><a class="el" href="class_apriori_all_lib_1_1_apriori_all_algorithm.html#a2d56f7cbefc50b34a910c7623ee2496f">CompactSequencesList</a>(List&lt; List&lt; List&lt; int &gt;&gt;&gt; kSequences)</td><td class="entry"><a class="el" href="class_apriori_all_lib_1_1_apriori_all_algorithm.html">AprioriAllLib.AprioriAllAlgorithm</a></td><td class="entry"><span class="mlabel">private</span><span class="mlabel">static</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_apriori_all_lib_1_1_apriori_all_algorithm.html#a2250ee6a09f30990fc8e6f50d0600bdc">EncodeCustomerList</a>(CustomerList customerList, List&lt; Litemset &gt; oneLitemsets, Dictionary&lt; Litemset, int &gt; encoding)</td><td class="entry"><a class="el" href="class_apriori_all_lib_1_1_apriori_all_algorithm.html">AprioriAllLib.AprioriAllAlgorithm</a></td><td class="entry"><span class="mlabel">private</span><span class="mlabel">static</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_apriori_all_lib_1_1_apriori_all_algorithm.html#ae4f86f8c88052d29cbfc629f2f61c302">execute</a>(CustomerList customerList, double threshold)</td><td class="entry"><a class="el" href="class_apriori_all_lib_1_1_apriori_all_algorithm.html">AprioriAllLib.AprioriAllAlgorithm</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_apriori_all_lib_1_1_apriori_all_algorithm.html#ae57be8bc7c5996b4687db96e333acc6a">FindAllFrequentSequences</a>(List&lt; Litemset &gt; oneLitemsets, Dictionary&lt; Litemset, int &gt; encoding, List&lt; List&lt; List&lt; int &gt;&gt;&gt; encodedList, int minSupport)</td><td class="entry"><a class="el" href="class_apriori_all_lib_1_1_apriori_all_algorithm.html">AprioriAllLib.AprioriAllAlgorithm</a></td><td class="entry"><span class="mlabel">private</span><span class="mlabel">static</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_apriori_all_lib_1_1_apriori_all_algorithm.html#a1cb8e7f04ae25e5bc2203d35ba7fced3">GenerateCandidates</a>(List&lt; List&lt; int &gt;&gt; prev, Dictionary&lt; List&lt; int &gt;, int &gt; candidates)</td><td class="entry"><a class="el" href="class_apriori_all_lib_1_1_apriori_all_algorithm.html">AprioriAllLib.AprioriAllAlgorithm</a></td><td class="entry"><span class="mlabel">private</span><span class="mlabel">static</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_apriori_all_lib_1_1_apriori_all_algorithm.html#afc5e40088ea694ce9de76cd8f4d34900">GenerateEncoding</a>(List&lt; Litemset &gt; oneLitemsets, out Dictionary&lt; Litemset, int &gt; encoding, out Dictionary&lt; int, Litemset &gt; decoding)</td><td class="entry"><a class="el" href="class_apriori_all_lib_1_1_apriori_all_algorithm.html">AprioriAllLib.AprioriAllAlgorithm</a></td><td class="entry"><span class="mlabel">private</span><span class="mlabel">static</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_apriori_all_lib_1_1_apriori_all_algorithm.html#a9b1affa47b8ad14eedeaec9ac17bb8c1">InferRealResults</a>(List&lt; List&lt; List&lt; int &gt;&gt;&gt; encodedList, List&lt; List&lt; List&lt; int &gt;&gt;&gt; kSequences, Dictionary&lt; int, Litemset &gt; decoding, CustomerList customerList)</td><td class="entry"><a class="el" href="class_apriori_all_lib_1_1_apriori_all_algorithm.html">AprioriAllLib.AprioriAllAlgorithm</a></td><td class="entry"><span class="mlabel">private</span><span class="mlabel">static</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_apriori_all_lib_1_1_apriori_all_algorithm.html#a2961a55124ad9f61dbee911deb9eee88">IsSubSequence&lt; T &gt;</a>(List&lt; T &gt; hyptheticalSubSequence, List&lt; T &gt; sequence)</td><td class="entry"><a class="el" href="class_apriori_all_lib_1_1_apriori_all_algorithm.html">AprioriAllLib.AprioriAllAlgorithm</a></td><td class="entry"><span class="mlabel">private</span><span class="mlabel">static</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_apriori_all_lib_1_1_apriori_all_algorithm.html#a9f9a1d34d48761a094d3390c2e9d90cd">PurgeAllNonMax</a>(List&lt; List&lt; List&lt; int &gt;&gt;&gt; kSequences)</td><td class="entry"><a class="el" href="class_apriori_all_lib_1_1_apriori_all_algorithm.html">AprioriAllLib.AprioriAllAlgorithm</a></td><td class="entry"><span class="mlabel">private</span><span class="mlabel">static</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_apriori_all_lib_1_1_apriori_all_algorithm.html#a6a6e8aa1c43b3a71c2eb1d5e068d959a">PurgeAllSubSeqsOf</a>(List&lt; List&lt; List&lt; int &gt;&gt;&gt; kSequences, int kk, int ii)</td><td class="entry"><a class="el" href="class_apriori_all_lib_1_1_apriori_all_algorithm.html">AprioriAllLib.AprioriAllAlgorithm</a></td><td class="entry"><span class="mlabel">private</span><span class="mlabel">static</span></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Tue Nov 27 2012 20:42:43 for Apriori All by
+    <li class="footer">Generated on Wed Nov 28 2012 15:38:46 for Apriori All by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.2 </li>
   </ul>

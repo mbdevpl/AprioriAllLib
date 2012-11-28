@@ -44,6 +44,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="namespaces.html"><span>Packages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
+      <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -66,7 +67,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="inherits.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -90,7 +91,7 @@ $(document).ready(function(){initNavTree('class_apriori_all_lib_1_1_xml_reader.h
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Properties</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Properties</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -102,6 +103,7 @@ $(document).ready(function(){initNavTree('class_apriori_all_lib_1_1_xml_reader.h
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="class_apriori_all_lib_1_1_xml_reader-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">AprioriAllLib.XmlReader Class Reference</div>  </div>
@@ -116,10 +118,194 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab7285c4d5cee31f7a1001f00f4eeff25"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_apriori_all_lib_1_1_customer_list.html">CustomerList</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_xml_reader.html#ab7285c4d5cee31f7a1001f00f4eeff25">ReadFromXmlFile</a> (string filename)</td></tr>
 <tr class="memdesc:ab7285c4d5cee31f7a1001f00f4eeff25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads from xml client database  <a href="#ab7285c4d5cee31f7a1001f00f4eeff25"></a><br/></td></tr>
 <tr class="separator:ab7285c4d5cee31f7a1001f00f4eeff25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a117782b010f24408af2a1308786b473a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_xml_reader.html#a117782b010f24408af2a1308786b473a">addCustomer</a> (XmlTextReader reader, <a class="el" href="class_apriori_all_lib_1_1_customer_list.html">CustomerList</a> list)</td></tr>
+<tr class="separator:a117782b010f24408af2a1308786b473a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad39b320cc29d31704fbaa7b121cbc3ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_xml_reader.html#ad39b320cc29d31704fbaa7b121cbc3ba">addTransaction</a> (XmlTextReader reader, <a class="el" href="class_apriori_all_lib_1_1_customer.html">Customer</a> customer)</td></tr>
+<tr class="separator:ad39b320cc29d31704fbaa7b121cbc3ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24244fe32b889d4f7a4f44a9aeb11779"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_xml_reader.html#a24244fe32b889d4f7a4f44a9aeb11779">addItem</a> (XmlTextReader reader, <a class="el" href="class_apriori_all_lib_1_1_transaction.html">Transaction</a> transaction)</td></tr>
+<tr class="separator:a24244fe32b889d4f7a4f44a9aeb11779"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class that reads data from xml client database and transforms them into classes </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a117782b010f24408af2a1308786b473a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AprioriAllLib.XmlReader.addCustomer </td>
+          <td>(</td>
+          <td class="paramtype">XmlTextReader&#160;</td>
+          <td class="paramname"><em>reader</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_apriori_all_lib_1_1_customer_list.html">CustomerList</a>&#160;</td>
+          <td class="paramname"><em>list</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line">        {</div>
+<div class="line">            Customer customer = <span class="keyword">new</span> Customer();</div>
+<div class="line">            list.Customers.Add(customer);</div>
+<div class="line"></div>
+<div class="line">            <span class="keywordflow">while</span> (reader.Read() &amp;&amp; (reader.NodeType != XmlNodeType.EndElement || reader.Name != <span class="stringliteral">&quot;Customer&quot;</span>))</div>
+<div class="line">            {</div>
+<div class="line">                <span class="keywordflow">if</span> (reader.NodeType == XmlNodeType.Element &amp;&amp; reader.Name == <span class="stringliteral">&quot;Transaction&quot;</span>)</div>
+<div class="line">                    <a class="code" href="class_apriori_all_lib_1_1_xml_reader.html#ad39b320cc29d31704fbaa7b121cbc3ba">addTransaction</a>(reader, customer);</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_apriori_all_lib_1_1_xml_reader_a117782b010f24408af2a1308786b473a_cgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_xml_reader_a117782b010f24408af2a1308786b473a_cgraph" alt=""/></div>
+<map name="class_apriori_all_lib_1_1_xml_reader_a117782b010f24408af2a1308786b473a_cgraph" id="class_apriori_all_lib_1_1_xml_reader_a117782b010f24408af2a1308786b473a_cgraph">
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_xml_reader.html#ad39b320cc29d31704fbaa7b121cbc3ba" title="AprioriAllLib.XmlReader.add\lTransaction" alt="" coords="238,5,421,46"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_xml_reader.html#a24244fe32b889d4f7a4f44a9aeb11779" title="AprioriAllLib.XmlReader.addItem" alt="" coords="470,12,677,39"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_apriori_all_lib_1_1_xml_reader_a117782b010f24408af2a1308786b473a_icgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_xml_reader_a117782b010f24408af2a1308786b473a_icgraph" alt=""/></div>
+<map name="class_apriori_all_lib_1_1_xml_reader_a117782b010f24408af2a1308786b473a_icgraph" id="class_apriori_all_lib_1_1_xml_reader_a117782b010f24408af2a1308786b473a_icgraph">
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_xml_reader.html#ab7285c4d5cee31f7a1001f00f4eeff25" title="Reads from xml client database " alt="" coords="238,5,399,46"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a24244fe32b889d4f7a4f44a9aeb11779"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AprioriAllLib.XmlReader.addItem </td>
+          <td>(</td>
+          <td class="paramtype">XmlTextReader&#160;</td>
+          <td class="paramname"><em>reader</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_apriori_all_lib_1_1_transaction.html">Transaction</a>&#160;</td>
+          <td class="paramname"><em>transaction</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line">        {</div>
+<div class="line">            <span class="keywordflow">while</span> (reader.Read() &amp;&amp; (reader.NodeType != XmlNodeType.EndElement) &amp;&amp; reader.Name != <span class="stringliteral">&quot;Item&quot;</span>)</div>
+<div class="line">                <span class="keywordflow">if</span> (reader.NodeType == XmlNodeType.Text &amp;&amp; reader.HasValue)</div>
+<div class="line">                {</div>
+<div class="line">                    transaction.Items.Add(<span class="keyword">new</span> Item(<span class="keywordtype">int</span>.Parse(reader.Value)));</div>
+<div class="line">                    <span class="comment">//Console.WriteLine(reader.Value);</span></div>
+<div class="line">                }</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_apriori_all_lib_1_1_xml_reader_a24244fe32b889d4f7a4f44a9aeb11779_icgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_xml_reader_a24244fe32b889d4f7a4f44a9aeb11779_icgraph" alt=""/></div>
+<map name="class_apriori_all_lib_1_1_xml_reader_a24244fe32b889d4f7a4f44a9aeb11779_icgraph" id="class_apriori_all_lib_1_1_xml_reader_a24244fe32b889d4f7a4f44a9aeb11779_icgraph">
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_xml_reader.html#ad39b320cc29d31704fbaa7b121cbc3ba" title="AprioriAllLib.XmlReader.add\lTransaction" alt="" coords="262,5,445,46"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_xml_reader.html#a117782b010f24408af2a1308786b473a" title="AprioriAllLib.XmlReader.add\lCustomer" alt="" coords="494,5,677,46"/><area shape="rect" id="node7" href="class_apriori_all_lib_1_1_xml_reader.html#ab7285c4d5cee31f7a1001f00f4eeff25" title="Reads from xml client database " alt="" coords="726,5,887,46"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ad39b320cc29d31704fbaa7b121cbc3ba"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AprioriAllLib.XmlReader.addTransaction </td>
+          <td>(</td>
+          <td class="paramtype">XmlTextReader&#160;</td>
+          <td class="paramname"><em>reader</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_apriori_all_lib_1_1_customer.html">Customer</a>&#160;</td>
+          <td class="paramname"><em>customer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line">        {</div>
+<div class="line">            Transaction transaction = <span class="keyword">new</span> Transaction();</div>
+<div class="line">            customer.Transactions.Add(transaction);</div>
+<div class="line"></div>
+<div class="line">            <span class="keywordflow">while</span> (reader.Read() &amp;&amp; (reader.NodeType != XmlNodeType.EndElement || reader.Name != <span class="stringliteral">&quot;Transaction&quot;</span>))</div>
+<div class="line">            {</div>
+<div class="line">                <span class="keywordflow">if</span> (reader.NodeType == XmlNodeType.Element &amp;&amp; reader.Name == <span class="stringliteral">&quot;Item&quot;</span>)</div>
+<div class="line">                    <a class="code" href="class_apriori_all_lib_1_1_xml_reader.html#a24244fe32b889d4f7a4f44a9aeb11779">addItem</a>(reader, transaction);</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_apriori_all_lib_1_1_xml_reader_ad39b320cc29d31704fbaa7b121cbc3ba_cgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_xml_reader_ad39b320cc29d31704fbaa7b121cbc3ba_cgraph" alt=""/></div>
+<map name="class_apriori_all_lib_1_1_xml_reader_ad39b320cc29d31704fbaa7b121cbc3ba_cgraph" id="class_apriori_all_lib_1_1_xml_reader_ad39b320cc29d31704fbaa7b121cbc3ba_cgraph">
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_xml_reader.html#a24244fe32b889d4f7a4f44a9aeb11779" title="AprioriAllLib.XmlReader.addItem" alt="" coords="238,12,445,39"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_apriori_all_lib_1_1_xml_reader_ad39b320cc29d31704fbaa7b121cbc3ba_icgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_xml_reader_ad39b320cc29d31704fbaa7b121cbc3ba_icgraph" alt=""/></div>
+<map name="class_apriori_all_lib_1_1_xml_reader_ad39b320cc29d31704fbaa7b121cbc3ba_icgraph" id="class_apriori_all_lib_1_1_xml_reader_ad39b320cc29d31704fbaa7b121cbc3ba_icgraph">
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_xml_reader.html#a117782b010f24408af2a1308786b473a" title="AprioriAllLib.XmlReader.add\lCustomer" alt="" coords="238,5,421,46"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_xml_reader.html#ab7285c4d5cee31f7a1001f00f4eeff25" title="Reads from xml client database " alt="" coords="470,5,631,46"/></map>
+</div>
+</p>
+
+</div>
+</div>
 <a class="anchor" id="ab7285c4d5cee31f7a1001f00f4eeff25"></a>
 <div class="memitem">
 <div class="memproto">
@@ -157,7 +343,7 @@ Public Member Functions</h2></td></tr>
 <div class="line">                        <span class="keywordflow">while</span> (reader.Read() &amp;&amp; (reader.NodeType != XmlNodeType.EndElement || reader.Name != <span class="stringliteral">&quot;Customers&quot;</span>))</div>
 <div class="line">                        {</div>
 <div class="line">                            <span class="keywordflow">if</span> (reader.NodeType == XmlNodeType.Element &amp;&amp; reader.Name == <span class="stringliteral">&quot;Customer&quot;</span>)</div>
-<div class="line">                                addCustomer(reader, list);</div>
+<div class="line">                                <a class="code" href="class_apriori_all_lib_1_1_xml_reader.html#a117782b010f24408af2a1308786b473a">addCustomer</a>(reader, list);</div>
 <div class="line">                        }</div>
 <div class="line">                    }</div>
 <div class="line">                }</div>
@@ -170,10 +356,19 @@ Public Member Functions</h2></td></tr>
 <div class="line">            <span class="keywordflow">return</span> list;</div>
 <div class="line">        }</div>
 </div><!-- fragment -->
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_apriori_all_lib_1_1_xml_reader_ab7285c4d5cee31f7a1001f00f4eeff25_cgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_xml_reader_ab7285c4d5cee31f7a1001f00f4eeff25_cgraph" alt=""/></div>
+<map name="class_apriori_all_lib_1_1_xml_reader_ab7285c4d5cee31f7a1001f00f4eeff25_cgraph" id="class_apriori_all_lib_1_1_xml_reader_ab7285c4d5cee31f7a1001f00f4eeff25_cgraph">
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_xml_reader.html#a117782b010f24408af2a1308786b473a" title="AprioriAllLib.XmlReader.add\lCustomer" alt="" coords="217,5,399,46"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_xml_reader.html#ad39b320cc29d31704fbaa7b121cbc3ba" title="AprioriAllLib.XmlReader.add\lTransaction" alt="" coords="449,5,631,46"/><area shape="rect" id="node7" href="class_apriori_all_lib_1_1_xml_reader.html#a24244fe32b889d4f7a4f44a9aeb11779" title="AprioriAllLib.XmlReader.addItem" alt="" coords="681,12,887,39"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>D:/Projects/Csharp/MiNI_AprioriAll/AprioriAllLib/XmlReader.cs</li>
+<li>D:/Projects/Csharp/MiNI_AprioriAll/AprioriAllLib/<a class="el" href="_xml_reader_8cs.html">XmlReader.cs</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -181,7 +376,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_apriori_all_lib.html">AprioriAllLib</a></li><li class="navelem"><a class="el" href="class_apriori_all_lib_1_1_xml_reader.html">XmlReader</a></li>
-    <li class="footer">Generated on Tue Nov 27 2012 20:42:45 for Apriori All by
+    <li class="footer">Generated on Wed Nov 28 2012 15:38:47 for Apriori All by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.2 </li>
   </ul>

@@ -16,7 +16,9 @@ Class which represents a customer from database having a list of transactions
 \hyperlink{class_apriori_all_lib_1_1_customer_a8a0e52125e85fae2662fa7edb756cedd}{Customer} (params int\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} values\-Array)
 \begin{DoxyCompactList}\small\item\em Constructor \end{DoxyCompactList}\item 
 override string \hyperlink{class_apriori_all_lib_1_1_customer_a311c3424f3f1207afe9b883cc41cae60}{To\-String} ()
-\begin{DoxyCompactList}\small\item\em Prints the content of client transactions \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Prints the content of client transactions \end{DoxyCompactList}\item 
+override bool \hyperlink{class_apriori_all_lib_1_1_customer_a8036f14573c62b0e4785e7157a1f547b}{Equals} (object obj)
+\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -47,6 +49,17 @@ Constructor
             \hyperlink{class_apriori_all_lib_1_1_customer_a5bf3b782d5e9c582e3f395834b7bddad}{Transactions} = \textcolor{keyword}{new} List<Transaction>();
         \}
 \end{DoxyCode}
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_apriori_all_lib_1_1_customer_af02616d948989c7ff6161efc2488ecab_icgraph}
+\end{center}
+\end{figure}
+
+
 \hypertarget{class_apriori_all_lib_1_1_customer_a168c8ef2fa0b53671ea51fa21d788f7e}{\index{Apriori\-All\-Lib\-::\-Customer@{Apriori\-All\-Lib\-::\-Customer}!Customer@{Customer}}
 \index{Customer@{Customer}!AprioriAllLib::Customer@{Apriori\-All\-Lib\-::\-Customer}}
 \subsubsection[{Customer}]{\setlength{\rightskip}{0pt plus 5cm}Apriori\-All\-Lib.\-Customer.\-Customer (
@@ -98,6 +111,36 @@ Constructor
 
 
 \subsection{Member Function Documentation}
+\hypertarget{class_apriori_all_lib_1_1_customer_a8036f14573c62b0e4785e7157a1f547b}{\index{Apriori\-All\-Lib\-::\-Customer@{Apriori\-All\-Lib\-::\-Customer}!Equals@{Equals}}
+\index{Equals@{Equals}!AprioriAllLib::Customer@{Apriori\-All\-Lib\-::\-Customer}}
+\subsubsection[{Equals}]{\setlength{\rightskip}{0pt plus 5cm}override bool Apriori\-All\-Lib.\-Customer.\-Equals (
+\begin{DoxyParamCaption}
+\item[{object}]{obj}
+\end{DoxyParamCaption}
+)}}\label{class_apriori_all_lib_1_1_customer_a8036f14573c62b0e4785e7157a1f547b}
+
+\begin{DoxyCode}
+                                                \{
+            \textcolor{keywordflow}{if} (obj.GetType().Equals(typeof(\hyperlink{class_apriori_all_lib_1_1_customer_af02616d948989c7ff6161efc2488ecab}{Customer})) && \hyperlink{class_apriori_all_lib_1_1_customer_a5bf3b782d5e9c582e3f395834b7bddad}{Transactions}
+      .Count == ((\hyperlink{class_apriori_all_lib_1_1_customer_af02616d948989c7ff6161efc2488ecab}{Customer})obj).Transactions.Count
+                    && Enumerable.SequenceEqual(\hyperlink{class_apriori_all_lib_1_1_customer_a5bf3b782d5e9c582e3f395834b7bddad}{Transactions}, ((
+      \hyperlink{class_apriori_all_lib_1_1_customer_af02616d948989c7ff6161efc2488ecab}{Customer})obj).\hyperlink{class_apriori_all_lib_1_1_customer_a5bf3b782d5e9c582e3f395834b7bddad}{Transactions}))
+                \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+            \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+            \textcolor{comment}{//return base.Equals(obj);}
+        \}
+\end{DoxyCode}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_apriori_all_lib_1_1_customer_a8036f14573c62b0e4785e7157a1f547b_cgraph}
+\end{center}
+\end{figure}
+
+
 \hypertarget{class_apriori_all_lib_1_1_customer_a311c3424f3f1207afe9b883cc41cae60}{\index{Apriori\-All\-Lib\-::\-Customer@{Apriori\-All\-Lib\-::\-Customer}!To\-String@{To\-String}}
 \index{To\-String@{To\-String}!AprioriAllLib::Customer@{Apriori\-All\-Lib\-::\-Customer}}
 \subsubsection[{To\-String}]{\setlength{\rightskip}{0pt plus 5cm}override string Apriori\-All\-Lib.\-Customer.\-To\-String (
@@ -134,4 +177,4 @@ List of transactions
 
 The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
 \item 
-D\-:/\-Projects/\-Csharp/\-Mi\-N\-I\-\_\-\-Apriori\-All/\-Apriori\-All\-Lib/Customer.\-cs\end{DoxyCompactItemize}
+D\-:/\-Projects/\-Csharp/\-Mi\-N\-I\-\_\-\-Apriori\-All/\-Apriori\-All\-Lib/\hyperlink{_customer_8cs}{Customer.\-cs}\end{DoxyCompactItemize}

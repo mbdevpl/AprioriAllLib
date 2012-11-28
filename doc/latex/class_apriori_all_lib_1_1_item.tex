@@ -6,10 +6,22 @@
 Single item of a transaction.  
 
 
-Inheritance diagram for Apriori\-All\-Lib.\-Item\-:\begin{figure}[H]
+
+
+Inheritance diagram for Apriori\-All\-Lib.\-Item\-:\nopagebreak
+\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=2.000000cm]{class_apriori_all_lib_1_1_item}
+\includegraphics[width=170pt]{class_apriori_all_lib_1_1_item__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Apriori\-All\-Lib.\-Item\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=170pt]{class_apriori_all_lib_1_1_item__coll__graph}
 \end{center}
 \end{figure}
 \subsection*{Public Member Functions}
@@ -17,13 +29,11 @@ Inheritance diagram for Apriori\-All\-Lib.\-Item\-:\begin{figure}[H]
 \item 
 \hyperlink{class_apriori_all_lib_1_1_item_aed218e4e6b27b6ac780be54f6f483d59}{Item} (int value)
 \begin{DoxyCompactList}\small\item\em Constructor \end{DoxyCompactList}\item 
-\hypertarget{class_apriori_all_lib_1_1_item_a0b0e9bbfeea95abed90935db84beb999}{int {\bfseries Compare\-To} (object obj)}\label{class_apriori_all_lib_1_1_item_a0b0e9bbfeea95abed90935db84beb999}
-
+int \hyperlink{class_apriori_all_lib_1_1_item_a0b0e9bbfeea95abed90935db84beb999}{Compare\-To} (object obj)
 \item 
 override string \hyperlink{class_apriori_all_lib_1_1_item_a020b36119d00b63670da5688967dc147}{To\-String} ()
 \begin{DoxyCompactList}\small\item\em String representation of this class \end{DoxyCompactList}\item 
-\hypertarget{class_apriori_all_lib_1_1_item_a69489ac60415029faf0dc3e7dc926e62}{override bool {\bfseries Equals} (object obj)}\label{class_apriori_all_lib_1_1_item_a69489ac60415029faf0dc3e7dc926e62}
-
+override bool \hyperlink{class_apriori_all_lib_1_1_item_a69489ac60415029faf0dc3e7dc926e62}{Equals} (object obj)
 \end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -62,7 +72,71 @@ Constructor
 \end{DoxyCode}
 
 
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_apriori_all_lib_1_1_item_aed218e4e6b27b6ac780be54f6f483d59_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
 \subsection{Member Function Documentation}
+\hypertarget{class_apriori_all_lib_1_1_item_a0b0e9bbfeea95abed90935db84beb999}{\index{Apriori\-All\-Lib\-::\-Item@{Apriori\-All\-Lib\-::\-Item}!Compare\-To@{Compare\-To}}
+\index{Compare\-To@{Compare\-To}!AprioriAllLib::Item@{Apriori\-All\-Lib\-::\-Item}}
+\subsubsection[{Compare\-To}]{\setlength{\rightskip}{0pt plus 5cm}int Apriori\-All\-Lib.\-Item.\-Compare\-To (
+\begin{DoxyParamCaption}
+\item[{object}]{obj}
+\end{DoxyParamCaption}
+)}}\label{class_apriori_all_lib_1_1_item_a0b0e9bbfeea95abed90935db84beb999}
+
+\begin{DoxyCode}
+                                         \{
+            \textcolor{keywordflow}{return} ((\hyperlink{class_apriori_all_lib_1_1_item_aed218e4e6b27b6ac780be54f6f483d59}{Item})obj).Value == this.\hyperlink{class_apriori_all_lib_1_1_item_ab54b4b9529a99f74048264c3ed2ab6bd}{Value} ? 0 : (((\hyperlink{class_apriori_all_lib_1_1_item_aed218e4e6b27b6ac780be54f6f483d59}{Item})
+      obj).Value > this.\hyperlink{class_apriori_all_lib_1_1_item_ab54b4b9529a99f74048264c3ed2ab6bd}{Value} ? -1 : 1);
+        \}
+\end{DoxyCode}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_apriori_all_lib_1_1_item_a0b0e9bbfeea95abed90935db84beb999_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_apriori_all_lib_1_1_item_a69489ac60415029faf0dc3e7dc926e62}{\index{Apriori\-All\-Lib\-::\-Item@{Apriori\-All\-Lib\-::\-Item}!Equals@{Equals}}
+\index{Equals@{Equals}!AprioriAllLib::Item@{Apriori\-All\-Lib\-::\-Item}}
+\subsubsection[{Equals}]{\setlength{\rightskip}{0pt plus 5cm}override bool Apriori\-All\-Lib.\-Item.\-Equals (
+\begin{DoxyParamCaption}
+\item[{object}]{obj}
+\end{DoxyParamCaption}
+)}}\label{class_apriori_all_lib_1_1_item_a69489ac60415029faf0dc3e7dc926e62}
+
+\begin{DoxyCode}
+                                                \{
+            \textcolor{keywordflow}{if} (typeof(\hyperlink{class_apriori_all_lib_1_1_item_aed218e4e6b27b6ac780be54f6f483d59}{Item}).\hyperlink{class_apriori_all_lib_1_1_item_a69489ac60415029faf0dc3e7dc926e62}{Equals}(obj.GetType()) && ((\hyperlink{class_apriori_all_lib_1_1_item_aed218e4e6b27b6ac780be54f6f483d59}{Item})obj)
+      .\hyperlink{class_apriori_all_lib_1_1_item_ab54b4b9529a99f74048264c3ed2ab6bd}{Value} == \hyperlink{class_apriori_all_lib_1_1_item_ab54b4b9529a99f74048264c3ed2ab6bd}{Value})
+                \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+            \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+        \}
+\end{DoxyCode}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_apriori_all_lib_1_1_item_a69489ac60415029faf0dc3e7dc926e62_icgraph}
+\end{center}
+\end{figure}
+
+
 \hypertarget{class_apriori_all_lib_1_1_item_a020b36119d00b63670da5688967dc147}{\index{Apriori\-All\-Lib\-::\-Item@{Apriori\-All\-Lib\-::\-Item}!To\-String@{To\-String}}
 \index{To\-String@{To\-String}!AprioriAllLib::Item@{Apriori\-All\-Lib\-::\-Item}}
 \subsubsection[{To\-String}]{\setlength{\rightskip}{0pt plus 5cm}override string Apriori\-All\-Lib.\-Item.\-To\-String (
@@ -97,4 +171,4 @@ Integer value (id) of the item
 
 The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
 \item 
-D\-:/\-Projects/\-Csharp/\-Mi\-N\-I\-\_\-\-Apriori\-All/\-Apriori\-All\-Lib/Item.\-cs\end{DoxyCompactItemize}
+D\-:/\-Projects/\-Csharp/\-Mi\-N\-I\-\_\-\-Apriori\-All/\-Apriori\-All\-Lib/\hyperlink{_item_8cs}{Item.\-cs}\end{DoxyCompactItemize}

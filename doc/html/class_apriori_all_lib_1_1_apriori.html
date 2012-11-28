@@ -44,6 +44,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="namespaces.html"><span>Packages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
+      <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -66,7 +67,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="inherits.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -90,7 +91,7 @@ $(document).ready(function(){initNavTree('class_apriori_all_lib_1_1_apriori.html
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Properties</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Properties</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -102,6 +103,8 @@ $(document).ready(function(){initNavTree('class_apriori_all_lib_1_1_apriori.html
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_apriori_all_lib_1_1_apriori-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">AprioriAllLib.Apriori Class Reference</div>  </div>
@@ -110,15 +113,33 @@ $(document).ready(function(){initNavTree('class_apriori_all_lib_1_1_apriori.html
 
 <p>This class is used for calculating litemsets from a set of customers' transactions  
  <a href="class_apriori_all_lib_1_1_apriori.html#details">More...</a></p>
+<div class="dynheader">
+Collaboration diagram for AprioriAllLib.Apriori:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_apriori_all_lib_1_1_apriori__coll__graph.png" border="0" usemap="#_apriori_all_lib_8_apriori_coll__map" alt="Collaboration graph"/></div>
+<map name="_apriori_all_lib_8_apriori_coll__map" id="_apriori_all_lib_8_apriori_coll__map">
+<area shape="rect" id="node2" href="class_apriori_all_lib_1_1_customer_list.html" title="Class that represents a total set of customers " alt="" coords="5,5,176,32"/></map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a07c440217ce84e547c31c71ba9a2742e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#a07c440217ce84e547c31c71ba9a2742e">Apriori</a> (<a class="el" href="class_apriori_all_lib_1_1_customer_list.html">CustomerList</a> customerList)</td></tr>
+<tr class="memitem:a07c440217ce84e547c31c71ba9a2742e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#a07c440217ce84e547c31c71ba9a2742e">Apriori</a> (<a class="el" href="class_apriori_all_lib_1_1_customer_list.html">CustomerList</a> <a class="el" href="class_apriori_all_lib_1_1_apriori.html#abbca8be3761136e76782ce10ebd61638">customerList</a>)</td></tr>
 <tr class="memdesc:a07c440217ce84e547c31c71ba9a2742e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor  <a href="#a07c440217ce84e547c31c71ba9a2742e"></a><br/></td></tr>
 <tr class="separator:a07c440217ce84e547c31c71ba9a2742e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a64e63d73cfc770ef8532127198b314dd"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_apriori_all_lib_1_1_litemset.html">Litemset</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#a64e63d73cfc770ef8532127198b314dd">FindOneLitemsets</a> (double minimalSupport)</td></tr>
 <tr class="memdesc:a64e63d73cfc770ef8532127198b314dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds all litemsets that have the minimal support  <a href="#a64e63d73cfc770ef8532127198b314dd"></a><br/></td></tr>
 <tr class="separator:a64e63d73cfc770ef8532127198b314dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a79d720678f873cfb665fe6cbf4bf32ae"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_apriori_all_lib_1_1_litemset.html">Litemset</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#a79d720678f873cfb665fe6cbf4bf32ae">generateCandidates</a> (List&lt; <a class="el" href="class_apriori_all_lib_1_1_item.html">Item</a> &gt; items)</td></tr>
+<tr class="memdesc:a79d720678f873cfb665fe6cbf4bf32ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produces all subsets of a given list of items in a transaction  <a href="#a79d720678f873cfb665fe6cbf4bf32ae"></a><br/></td></tr>
+<tr class="separator:a79d720678f873cfb665fe6cbf4bf32ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:abbca8be3761136e76782ce10ebd61638"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_apriori_all_lib_1_1_customer_list.html">CustomerList</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#abbca8be3761136e76782ce10ebd61638">customerList</a></td></tr>
+<tr class="separator:abbca8be3761136e76782ce10ebd61638"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class is used for calculating litemsets from a set of customers' transactions </p>
@@ -145,7 +166,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <div class="fragment"><div class="line">        {</div>
-<div class="line">            this.customerList = customerList;</div>
+<div class="line">            this.<a class="code" href="class_apriori_all_lib_1_1_apriori.html#abbca8be3761136e76782ce10ebd61638">customerList</a> = <a class="code" href="class_apriori_all_lib_1_1_apriori.html#abbca8be3761136e76782ce10ebd61638">customerList</a>;</div>
 <div class="line">        }</div>
 </div><!-- fragment -->
 </div>
@@ -177,15 +198,15 @@ Public Member Functions</h2></td></tr>
 <div class="line">            <span class="keywordflow">if</span> (minimalSupport &gt; 1 || minimalSupport &lt; 0)</div>
 <div class="line">                <span class="keywordflow">return</span> null; </div>
 <div class="line">            </div>
-<div class="line">            minimalSupport *= customerList.<a class="code" href="class_apriori_all_lib_1_1_customer_list.html#a4fd2a16a984844e61ffc60b327e6534a" title="List of Customers ">Customers</a>.Count;</div>
+<div class="line">            minimalSupport *= <a class="code" href="class_apriori_all_lib_1_1_apriori.html#abbca8be3761136e76782ce10ebd61638">customerList</a>.<a class="code" href="class_apriori_all_lib_1_1_customer_list.html#a4fd2a16a984844e61ffc60b327e6534a" title="List of Customers ">Customers</a>.Count;</div>
 <div class="line">            List&lt;Litemset&gt; litemsets = <span class="keyword">new</span> List&lt;Litemset&gt;();</div>
 <div class="line"></div>
-<div class="line">            <span class="keywordflow">foreach</span> (Customer c <span class="keywordflow">in</span> customerList.<a class="code" href="class_apriori_all_lib_1_1_customer_list.html#a4fd2a16a984844e61ffc60b327e6534a" title="List of Customers ">Customers</a>)</div>
+<div class="line">            <span class="keywordflow">foreach</span> (Customer c <span class="keywordflow">in</span> <a class="code" href="class_apriori_all_lib_1_1_apriori.html#abbca8be3761136e76782ce10ebd61638">customerList</a>.<a class="code" href="class_apriori_all_lib_1_1_customer_list.html#a4fd2a16a984844e61ffc60b327e6534a" title="List of Customers ">Customers</a>)</div>
 <div class="line">            {</div>
 <div class="line">                <span class="keywordflow">foreach</span> (Transaction t <span class="keywordflow">in</span> c.Transactions)</div>
 <div class="line">                {</div>
 <div class="line">                    <span class="comment">//generate subsets (candidates for litemsets)</span></div>
-<div class="line">                    List&lt;Litemset&gt; candidateLitemsets = generateCandidates(t.Items);</div>
+<div class="line">                    List&lt;Litemset&gt; candidateLitemsets = <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a79d720678f873cfb665fe6cbf4bf32ae" title="Produces all subsets of a given list of items in a transaction ">generateCandidates</a>(t.Items);</div>
 <div class="line"></div>
 <div class="line">                    <span class="comment">//check if they already exist in litemsets list; if not, add a litemset to litemsets</span></div>
 <div class="line">                    <span class="keywordflow">foreach</span> (Litemset lset <span class="keywordflow">in</span> candidateLitemsets)</div>
@@ -193,7 +214,7 @@ Public Member Functions</h2></td></tr>
 <div class="line">                        IEnumerable&lt;Litemset&gt; l = litemsets.Where(litemset =&gt; (litemset.Items.Count == lset.Items.Count) &amp;&amp;</div>
 <div class="line">                            litemset.Items.All(item =&gt; lset.Items.Exists(lsetItem =&gt; lsetItem.CompareTo(item) == 0)));</div>
 <div class="line"></div>
-<div class="line">                        <span class="keywordtype">int</span> custID = customerList.<a class="code" href="class_apriori_all_lib_1_1_customer_list.html#a4fd2a16a984844e61ffc60b327e6534a" title="List of Customers ">Customers</a>.IndexOf(c);</div>
+<div class="line">                        <span class="keywordtype">int</span> custID = <a class="code" href="class_apriori_all_lib_1_1_apriori.html#abbca8be3761136e76782ce10ebd61638">customerList</a>.<a class="code" href="class_apriori_all_lib_1_1_customer_list.html#a4fd2a16a984844e61ffc60b327e6534a" title="List of Customers ">Customers</a>.IndexOf(c);</div>
 <div class="line">                        <span class="keywordflow">if</span> (l.Count() == 0 &amp;&amp; !lset.IDs.Contains(custID))</div>
 <div class="line">                        {</div>
 <div class="line">                            litemsets.Add(lset);</div>
@@ -223,10 +244,121 @@ Public Member Functions</h2></td></tr>
 <div class="line">            <span class="keywordflow">return</span> properLitemsets;</div>
 <div class="line">        }</div>
 </div><!-- fragment -->
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_apriori_all_lib_1_1_apriori_a64e63d73cfc770ef8532127198b314dd_cgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_apriori_a64e63d73cfc770ef8532127198b314dd_cgraph" alt=""/></div>
+<map name="class_apriori_all_lib_1_1_apriori_a64e63d73cfc770ef8532127198b314dd_cgraph" id="class_apriori_all_lib_1_1_apriori_a64e63d73cfc770ef8532127198b314dd_cgraph">
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori.html#a79d720678f873cfb665fe6cbf4bf32ae" title="Produces all subsets of a given list of items in a transaction " alt="" coords="216,5,403,46"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_apriori_all_lib_1_1_apriori_a64e63d73cfc770ef8532127198b314dd_icgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_apriori_a64e63d73cfc770ef8532127198b314dd_icgraph" alt=""/></div>
+<map name="class_apriori_all_lib_1_1_apriori_a64e63d73cfc770ef8532127198b314dd_icgraph" id="class_apriori_all_lib_1_1_apriori_a64e63d73cfc770ef8532127198b314dd_icgraph">
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori_all_algorithm.html#ae4f86f8c88052d29cbfc629f2f61c302" title="Executes Apriori All algorithm on a given input and minimum suport threshold. " alt="" coords="216,5,363,46"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a79d720678f873cfb665fe6cbf4bf32ae"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt;<a class="el" href="class_apriori_all_lib_1_1_litemset.html">Litemset</a>&gt; AprioriAllLib.Apriori.generateCandidates </td>
+          <td>(</td>
+          <td class="paramtype">List&lt; <a class="el" href="class_apriori_all_lib_1_1_item.html">Item</a> &gt;&#160;</td>
+          <td class="paramname"><em>items</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Produces all subsets of a given list of items in a transaction </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">items</td><td>List of items contained in one transaction</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>List of Litemsets</dd></dl>
+<div class="fragment"><div class="line">        {</div>
+<div class="line">            <span class="keywordtype">int</span> count = items.Count;</div>
+<div class="line">            <span class="keywordtype">int</span> i = 0;</div>
+<div class="line">            List&lt;List&lt;Item&gt;&gt; candLitemsets = <span class="keyword">new</span> List&lt;List&lt;Item&gt;&gt;();</div>
+<div class="line"></div>
+<div class="line">            <span class="comment">// add a frequent sequence containing all the elements in this transaction</span></div>
+<div class="line">            candLitemsets.Add(<span class="keyword">new</span> List&lt;Item&gt;(items));</div>
+<div class="line">            count--;</div>
+<div class="line">            <span class="keywordflow">while</span> (count != 0)</div>
+<div class="line">            {</div>
+<div class="line">                List&lt;Item&gt; temp;</div>
+<div class="line">                <span class="keywordflow">foreach</span> (Item item <span class="keywordflow">in</span> candLitemsets[i])</div>
+<div class="line">                {</div>
+<div class="line">                    temp = <span class="keyword">new</span> List&lt;Item&gt;(candLitemsets[i]);</div>
+<div class="line">                    temp.Remove(item);</div>
+<div class="line">                    <span class="comment">// check if there&#39;s already such subsequence in the list, add</span></div>
+<div class="line">                    <span class="comment">// if it doesn&#39;t exist</span></div>
+<div class="line">                    <span class="keywordflow">if</span> (!candLitemsets.Exists(list =&gt; list.Count == count &amp;&amp;</div>
+<div class="line">                        temp.All(tempItem =&gt; list.Exists(listItem =&gt; listItem.CompareTo(tempItem) == 0))))</div>
+<div class="line">                        candLitemsets.Add(temp);</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">if</span> (candLitemsets[i + 1].Count == candLitemsets[i].Count - 1)</div>
+<div class="line">                    count--;</div>
+<div class="line">                i++;</div>
+<div class="line">            }</div>
+<div class="line">            List&lt;Litemset&gt; l = <span class="keyword">new</span> List&lt;Litemset&gt;();</div>
+<div class="line">            <span class="keywordflow">foreach</span> (List&lt;Item&gt; j <span class="keywordflow">in</span> candLitemsets)</div>
+<div class="line">                l.Add(<span class="keyword">new</span> Litemset(j));</div>
+<div class="line">            <span class="keywordflow">return</span> l;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_apriori_all_lib_1_1_apriori_a79d720678f873cfb665fe6cbf4bf32ae_icgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_apriori_a79d720678f873cfb665fe6cbf4bf32ae_icgraph" alt=""/></div>
+<map name="class_apriori_all_lib_1_1_apriori_a79d720678f873cfb665fe6cbf4bf32ae_icgraph" id="class_apriori_all_lib_1_1_apriori_a79d720678f873cfb665fe6cbf4bf32ae_icgraph">
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori.html#a64e63d73cfc770ef8532127198b314dd" title="Finds all litemsets that have the minimal support " alt="" coords="241,5,402,46"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_apriori_all_algorithm.html#ae4f86f8c88052d29cbfc629f2f61c302" title="Executes Apriori All algorithm on a given input and minimum suport threshold. " alt="" coords="451,5,597,46"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="abbca8be3761136e76782ce10ebd61638"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_apriori_all_lib_1_1_customer_list.html">CustomerList</a> AprioriAllLib.Apriori.customerList</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>D:/Projects/Csharp/MiNI_AprioriAll/AprioriAllLib/Apriori.cs</li>
+<li>D:/Projects/Csharp/MiNI_AprioriAll/AprioriAllLib/<a class="el" href="_apriori_8cs.html">Apriori.cs</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -234,7 +366,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_apriori_all_lib.html">AprioriAllLib</a></li><li class="navelem"><a class="el" href="class_apriori_all_lib_1_1_apriori.html">Apriori</a></li>
-    <li class="footer">Generated on Tue Nov 27 2012 20:42:43 for Apriori All by
+    <li class="footer">Generated on Wed Nov 28 2012 15:38:46 for Apriori All by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.2 </li>
   </ul>

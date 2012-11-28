@@ -11,6 +11,27 @@
 \item 
 static List$<$ \hyperlink{class_apriori_all_lib_1_1_customer}{Customer} $>$ \hyperlink{class_apriori_all_lib_1_1_apriori_all_algorithm_ae4f86f8c88052d29cbfc629f2f61c302}{execute} (\hyperlink{class_apriori_all_lib_1_1_customer_list}{Customer\-List} customer\-List, double threshold)
 \begin{DoxyCompactList}\small\item\em Executes \hyperlink{class_apriori_all_lib_1_1_apriori}{Apriori} All algorithm on a given input and minimum suport threshold. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{class_apriori_all_lib_1_1_apriori_all_algorithm_afc5e40088ea694ce9de76cd8f4d34900}{Generate\-Encoding} (List$<$ \hyperlink{class_apriori_all_lib_1_1_litemset}{Litemset} $>$ one\-Litemsets, out Dictionary$<$ \hyperlink{class_apriori_all_lib_1_1_litemset}{Litemset}, int $>$ encoding, out Dictionary$<$ int, \hyperlink{class_apriori_all_lib_1_1_litemset}{Litemset} $>$ decoding)
+\item 
+static List$<$ List$<$ List$<$ int $>$ $>$ $>$ \hyperlink{class_apriori_all_lib_1_1_apriori_all_algorithm_a2250ee6a09f30990fc8e6f50d0600bdc}{Encode\-Customer\-List} (\hyperlink{class_apriori_all_lib_1_1_customer_list}{Customer\-List} customer\-List, List$<$ \hyperlink{class_apriori_all_lib_1_1_litemset}{Litemset} $>$ one\-Litemsets, Dictionary$<$ \hyperlink{class_apriori_all_lib_1_1_litemset}{Litemset}, int $>$ encoding)
+\begin{DoxyCompactList}\small\item\em Corresponds to 3rd step of \hyperlink{class_apriori_all_lib_1_1_apriori}{Apriori} All algorithm, namely \char`\"{}\-Transformation Phase\char`\"{}. \end{DoxyCompactList}\item 
+static void \hyperlink{class_apriori_all_lib_1_1_apriori_all_algorithm_a1cb8e7f04ae25e5bc2203d35ba7fced3}{Generate\-Candidates} (List$<$ List$<$ int $>$$>$ prev, Dictionary$<$ List$<$ int $>$, int $>$ candidates)
+\begin{DoxyCompactList}\small\item\em Generates all candidates for k-\/sequences, basing on set of (k-\/1)-\/sequences. \end{DoxyCompactList}\item 
+static List$<$ List$<$ List$<$ int $>$ $>$ $>$ \hyperlink{class_apriori_all_lib_1_1_apriori_all_algorithm_ae57be8bc7c5996b4687db96e333acc6a}{Find\-All\-Frequent\-Sequences} (List$<$ \hyperlink{class_apriori_all_lib_1_1_litemset}{Litemset} $>$ one\-Litemsets, Dictionary$<$ \hyperlink{class_apriori_all_lib_1_1_litemset}{Litemset}, int $>$ encoding, List$<$ List$<$ List$<$ int $>$$>$$>$ encoded\-List, int min\-Support)
+\begin{DoxyCompactList}\small\item\em Corresponds to 4th step of \hyperlink{class_apriori_all_lib_1_1_apriori}{Apriori} All algorithm, namely \char`\"{}\-Sequence Phase\char`\"{}. \end{DoxyCompactList}\item 
+static void \hyperlink{class_apriori_all_lib_1_1_apriori_all_algorithm_a9f9a1d34d48761a094d3390c2e9d90cd}{Purge\-All\-Non\-Max} (List$<$ List$<$ List$<$ int $>$$>$$>$ k\-Sequences)
+\begin{DoxyCompactList}\small\item\em Deletes all non-\/maximal seqences from list of k-\/sequences. \end{DoxyCompactList}\item 
+static bool \hyperlink{class_apriori_all_lib_1_1_apriori_all_algorithm_a2961a55124ad9f61dbee911deb9eee88}{Is\-Sub\-Sequence$<$ T $>$} (List$<$ T $>$ hypthetical\-Sub\-Sequence, List$<$ T $>$ sequence)
+\item 
+static void \hyperlink{class_apriori_all_lib_1_1_apriori_all_algorithm_a6a6e8aa1c43b3a71c2eb1d5e068d959a}{Purge\-All\-Sub\-Seqs\-Of} (List$<$ List$<$ List$<$ int $>$$>$$>$ k\-Sequences, int kk, int ii)
+\item 
+static List$<$ List$<$ int $>$ $>$ \hyperlink{class_apriori_all_lib_1_1_apriori_all_algorithm_a2d56f7cbefc50b34a910c7623ee2496f}{Compact\-Sequences\-List} (List$<$ List$<$ List$<$ int $>$$>$$>$ k\-Sequences)
+\item 
+static List$<$ \hyperlink{class_apriori_all_lib_1_1_customer}{Customer} $>$ \hyperlink{class_apriori_all_lib_1_1_apriori_all_algorithm_a9b1affa47b8ad14eedeaec9ac17bb8c1}{Infer\-Real\-Results} (List$<$ List$<$ List$<$ int $>$$>$$>$ encoded\-List, List$<$ List$<$ List$<$ int $>$$>$$>$ k\-Sequences, Dictionary$<$ int, \hyperlink{class_apriori_all_lib_1_1_litemset}{Litemset} $>$ decoding, \hyperlink{class_apriori_all_lib_1_1_customer_list}{Customer\-List} customer\-List)
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -19,6 +40,156 @@ static List$<$ \hyperlink{class_apriori_all_lib_1_1_customer}{Customer} $>$ \hyp
 
 
 \subsection{Member Function Documentation}
+\hypertarget{class_apriori_all_lib_1_1_apriori_all_algorithm_a2d56f7cbefc50b34a910c7623ee2496f}{\index{Apriori\-All\-Lib\-::\-Apriori\-All\-Algorithm@{Apriori\-All\-Lib\-::\-Apriori\-All\-Algorithm}!Compact\-Sequences\-List@{Compact\-Sequences\-List}}
+\index{Compact\-Sequences\-List@{Compact\-Sequences\-List}!AprioriAllLib::AprioriAllAlgorithm@{Apriori\-All\-Lib\-::\-Apriori\-All\-Algorithm}}
+\subsubsection[{Compact\-Sequences\-List}]{\setlength{\rightskip}{0pt plus 5cm}static List$<$List$<$int$>$ $>$ Apriori\-All\-Lib.\-Apriori\-All\-Algorithm.\-Compact\-Sequences\-List (
+\begin{DoxyParamCaption}
+\item[{List$<$ List$<$ List$<$ int $>$$>$$>$}]{k\-Sequences}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{class_apriori_all_lib_1_1_apriori_all_algorithm_a2d56f7cbefc50b34a910c7623ee2496f}
+
+\begin{DoxyCode}
+                                                                               
+                     \{
+            var compacted = \textcolor{keyword}{new} List<List<int>>();
+
+            \textcolor{comment}{//for (int k = kSequences.Count - 1; k >= 0; --k) \{}
+            \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} k = 0; k < kSequences.Count; ++k) \{
+                \textcolor{comment}{//for (int n = kSequences[k].Count - 1; n >= 0; --n) \{}
+                \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} n = 0; n < kSequences[k].Count; ++n) \{
+                    \textcolor{keywordflow}{if} (kSequences[k][n].Count > 0)
+                        \textcolor{comment}{//kSequences[n].RemoveAt(k);}
+                        compacted.Add(kSequences[k][n]);
+                \}
+
+                \textcolor{comment}{//if (kSequences[k].Count == 0)}
+                \textcolor{comment}{//   kSequences.RemoveAt(k);}
+            \}
+
+            \textcolor{keywordflow}{return} compacted;
+        \}
+\end{DoxyCode}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_apriori_all_lib_1_1_apriori_all_algorithm_a2d56f7cbefc50b34a910c7623ee2496f_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_apriori_all_lib_1_1_apriori_all_algorithm_a2250ee6a09f30990fc8e6f50d0600bdc}{\index{Apriori\-All\-Lib\-::\-Apriori\-All\-Algorithm@{Apriori\-All\-Lib\-::\-Apriori\-All\-Algorithm}!Encode\-Customer\-List@{Encode\-Customer\-List}}
+\index{Encode\-Customer\-List@{Encode\-Customer\-List}!AprioriAllLib::AprioriAllAlgorithm@{Apriori\-All\-Lib\-::\-Apriori\-All\-Algorithm}}
+\subsubsection[{Encode\-Customer\-List}]{\setlength{\rightskip}{0pt plus 5cm}static List$<$List$<$List$<$int$>$ $>$ $>$ Apriori\-All\-Lib.\-Apriori\-All\-Algorithm.\-Encode\-Customer\-List (
+\begin{DoxyParamCaption}
+\item[{{\bf Customer\-List}}]{customer\-List, }
+\item[{List$<$ {\bf Litemset} $>$}]{one\-Litemsets, }
+\item[{Dictionary$<$ {\bf Litemset}, int $>$}]{encoding}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{class_apriori_all_lib_1_1_apriori_all_algorithm_a2250ee6a09f30990fc8e6f50d0600bdc}
+
+
+Corresponds to 3rd step of \hyperlink{class_apriori_all_lib_1_1_apriori}{Apriori} All algorithm, namely \char`\"{}\-Transformation Phase\char`\"{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em customer\-List} & \\
+\hline
+{\em one\-Litemsets} & \\
+\hline
+{\em encoding} & \\
+\hline
+{\em ?} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+encoded customer list
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+                                                    \{
+            var encodedList = \textcolor{keyword}{new} List<List<List<int>>>();
+
+            \textcolor{keywordflow}{foreach} (Customer c \textcolor{keywordflow}{in} customerList.Customers) \{
+                var encodedCustomer = \textcolor{keyword}{new} List<List<int>>();
+
+                \textcolor{keywordflow}{foreach} (Transaction t \textcolor{keywordflow}{in} c.Transactions) \{
+                    var encodedTransaction = \textcolor{keyword}{new} List<int>();
+                    \textcolor{keywordtype}{int} \textcolor{keywordtype}{id} = -1; \textcolor{comment}{// temp. variable used as in-out param}
+
+                    \textcolor{comment}{// adding litemsets of length >= 2}
+                    \textcolor{keywordflow}{foreach} (Litemset li \textcolor{keywordflow}{in} oneLitemsets) \{
+                        \textcolor{keywordflow}{if} (li.Items.Count == 1)
+                            \textcolor{keywordflow}{continue};
+                        \textcolor{keywordtype}{bool} someMissing = \textcolor{keyword}{false};
+                        \textcolor{keywordflow}{foreach} (Item litem \textcolor{keywordflow}{in} li.Items) \{
+                            \textcolor{keywordflow}{if} (!t.Items.Contains(litem)) \{
+                                someMissing = \textcolor{keyword}{true};
+                                \textcolor{keywordflow}{break};
+                            \}
+                        \}
+
+                        \textcolor{keywordflow}{if} (!someMissing) \{
+                            \textcolor{keywordflow}{if} (encoding.TryGetValue(li, out \textcolor{keywordtype}{id}))
+                                encodedTransaction.Add(\textcolor{keywordtype}{id});
+                        \}
+
+                    \}
+
+                    \textcolor{keywordflow}{foreach} (Item i \textcolor{keywordflow}{in} t.Items) \{
+
+                        \textcolor{comment}{// adding litemsets of length == 1}
+                        \textcolor{keywordflow}{foreach} (Litemset li \textcolor{keywordflow}{in} oneLitemsets) \{
+                            \textcolor{keywordflow}{if} (li.Items.Count > 1)
+                                \textcolor{keywordflow}{continue};
+                            Item item = li.Items[0];
+
+                            \textcolor{keywordflow}{if} (item.Equals(i)) \{
+                                \textcolor{keywordflow}{if} (encoding.TryGetValue(li, out \textcolor{keywordtype}{id}))
+                                    encodedTransaction.Add(\textcolor{keywordtype}{id});
+                            \}
+                        \}
+
+                    \}
+
+                    \textcolor{keywordflow}{if} (encodedTransaction.Count > 0)
+                        encodedCustomer.Add(encodedTransaction);
+                \}
+
+                \textcolor{keywordflow}{if} (encodedCustomer.Count > 0)
+                    encodedList.Add(encodedCustomer);
+            \}
+
+            \textcolor{keywordflow}{return} encodedList;
+        \}
+\end{DoxyCode}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_apriori_all_lib_1_1_apriori_all_algorithm_a2250ee6a09f30990fc8e6f50d0600bdc_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_apriori_all_lib_1_1_apriori_all_algorithm_a2250ee6a09f30990fc8e6f50d0600bdc_icgraph}
+\end{center}
+\end{figure}
+
+
 \hypertarget{class_apriori_all_lib_1_1_apriori_all_algorithm_ae4f86f8c88052d29cbfc629f2f61c302}{\index{Apriori\-All\-Lib\-::\-Apriori\-All\-Algorithm@{Apriori\-All\-Lib\-::\-Apriori\-All\-Algorithm}!execute@{execute}}
 \index{execute@{execute}!AprioriAllLib::AprioriAllAlgorithm@{Apriori\-All\-Lib\-::\-Apriori\-All\-Algorithm}}
 \subsubsection[{execute}]{\setlength{\rightskip}{0pt plus 5cm}static List$<${\bf Customer}$>$ Apriori\-All\-Lib.\-Apriori\-All\-Algorithm.\-execute (
@@ -75,7 +246,8 @@ Executes \hyperlink{class_apriori_all_lib_1_1_apriori}{Apriori} All algorithm on
             Dictionary<Litemset, int> encoding;
             Dictionary<int, Litemset> decoding;
 
-            GenerateEncoding(oneLitemsets, out encoding, out decoding);
+            \hyperlink{class_apriori_all_lib_1_1_apriori_all_algorithm_afc5e40088ea694ce9de76cd8f4d34900}{GenerateEncoding}(oneLitemsets, out encoding, out 
+      decoding);
 
             \textcolor{comment}{// 3.b) using created IDs, transform the input}
 
@@ -87,21 +259,21 @@ Executes \hyperlink{class_apriori_all_lib_1_1_apriori}{Apriori} All algorithm on
             \textcolor{comment}{//   itemsets performed by one customer}
             \textcolor{comment}{// - outer list means list of customers}
 
-            var encodedList = EncodeCustomerList(customerList, oneLitemsets, 
-      encoding);
+            var encodedList = \hyperlink{class_apriori_all_lib_1_1_apriori_all_algorithm_a2250ee6a09f30990fc8e6f50d0600bdc}{EncodeCustomerList}(customerList
+      , oneLitemsets, encoding);
 
             \textcolor{comment}{// 4. find all frequent sequences in the input}
 
-            var kSequences = FindAllFrequentSequences(oneLitemsets, encoding, 
-      encodedList, minSupport);
+            var kSequences = \hyperlink{class_apriori_all_lib_1_1_apriori_all_algorithm_ae57be8bc7c5996b4687db96e333acc6a}{FindAllFrequentSequences}(
+      oneLitemsets, encoding, encodedList, minSupport);
 
             \textcolor{comment}{// 5. purge all non-maximal sequences}
 
-            PurgeAllNonMax(kSequences);
+            \hyperlink{class_apriori_all_lib_1_1_apriori_all_algorithm_a9f9a1d34d48761a094d3390c2e9d90cd}{PurgeAllNonMax}(kSequences);
 
             \textcolor{comment}{// 6. decode results}
-            var decodedList = InferRealResults(encodedList, kSequences, 
-      decoding, customerList);
+            var decodedList = \hyperlink{class_apriori_all_lib_1_1_apriori_all_algorithm_a9b1affa47b8ad14eedeaec9ac17bb8c1}{InferRealResults}(encodedList, 
+      kSequences, decoding, customerList);
 
             \textcolor{comment}{// 7. return results}
             \textcolor{keywordflow}{return} decodedList;
@@ -109,6 +281,547 @@ Executes \hyperlink{class_apriori_all_lib_1_1_apriori}{Apriori} All algorithm on
 \end{DoxyCode}
 
 
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_apriori_all_lib_1_1_apriori_all_algorithm_ae4f86f8c88052d29cbfc629f2f61c302_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_apriori_all_lib_1_1_apriori_all_algorithm_ae57be8bc7c5996b4687db96e333acc6a}{\index{Apriori\-All\-Lib\-::\-Apriori\-All\-Algorithm@{Apriori\-All\-Lib\-::\-Apriori\-All\-Algorithm}!Find\-All\-Frequent\-Sequences@{Find\-All\-Frequent\-Sequences}}
+\index{Find\-All\-Frequent\-Sequences@{Find\-All\-Frequent\-Sequences}!AprioriAllLib::AprioriAllAlgorithm@{Apriori\-All\-Lib\-::\-Apriori\-All\-Algorithm}}
+\subsubsection[{Find\-All\-Frequent\-Sequences}]{\setlength{\rightskip}{0pt plus 5cm}static List$<$List$<$List$<$int$>$ $>$ $>$ Apriori\-All\-Lib.\-Apriori\-All\-Algorithm.\-Find\-All\-Frequent\-Sequences (
+\begin{DoxyParamCaption}
+\item[{List$<$ {\bf Litemset} $>$}]{one\-Litemsets, }
+\item[{Dictionary$<$ {\bf Litemset}, int $>$}]{encoding, }
+\item[{List$<$ List$<$ List$<$ int $>$$>$$>$}]{encoded\-List, }
+\item[{int}]{min\-Support}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{class_apriori_all_lib_1_1_apriori_all_algorithm_ae57be8bc7c5996b4687db96e333acc6a}
+
+
+Corresponds to 4th step of \hyperlink{class_apriori_all_lib_1_1_apriori}{Apriori} All algorithm, namely \char`\"{}\-Sequence Phase\char`\"{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em one\-Litemsets} & \\
+\hline
+{\em encoding} & \\
+\hline
+{\em encoded\-List} & encoded list of customers\\
+\hline
+{\em min\-Support} & minimum number of occurances\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+list of k-\/sequences, partitioned by k. i.\-e. i-\/th element of resulting List contains all i-\/sequences
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+                                                                               
+                          \{
+            var kSequences = \textcolor{keyword}{new} List<List<List<int>>>();
+
+            kSequences.Add(\textcolor{keyword}{new} List<List<int>>()); \textcolor{comment}{// placeholder for
+       0-sequences (whatever it means)}
+            kSequences.Add(\textcolor{keyword}{new} List<List<int>>()); \textcolor{comment}{// 1-seq, already done, just
+       copy:}
+            \textcolor{keywordflow}{foreach} (Litemset li \textcolor{keywordflow}{in} oneLitemsets) \{
+                var lst = \textcolor{keyword}{new} List<int>();
+                lst.Add(encoding[li]);
+                kSequences[1].Add(lst);
+            \}
+
+            \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} k = 2; kSequences.Count >= k && kSequences[k - 1].Count > 
+      0; ++k) \{
+                \textcolor{comment}{// list of kSequences, initially empty}
+                kSequences.Add(\textcolor{keyword}{new} List<List<int>>());
+                var prev = kSequences[k - 1];
+
+                \textcolor{comment}{// generate candidates}
+                var candidates = \textcolor{keyword}{new} Dictionary<List<int>, \textcolor{keywordtype}{int}>();
+
+                \hyperlink{class_apriori_all_lib_1_1_apriori_all_algorithm_a1cb8e7f04ae25e5bc2203d35ba7fced3}{GenerateCandidates}(prev, candidates);
+
+                \textcolor{comment}{// calculate support of each candidate by analyzing the whole
+       encoded input}
+
+                Dictionary<List<int>, \textcolor{keywordtype}{int}>.KeyCollection keysOrig = candidates.
+      Keys;
+                List<List<int>> keys = \textcolor{keyword}{new} List<List<int>>(keysOrig);
+                \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < keys.Count; ++i) \{
+                    List<int> candidate = keys[i];
+
+                    \textcolor{comment}{// check every customer for compatibility with the
+       candidate}
+                    \textcolor{keywordflow}{foreach} (List<List<int>> encodedCustomer \textcolor{keywordflow}{in} encodedList) \{
+
+                        \textcolor{keywordtype}{bool} allNeededItemsArePresent = \textcolor{keyword}{true};
+                        \textcolor{keywordflow}{foreach} (\textcolor{keywordtype}{int} candidateItem \textcolor{keywordflow}{in} candidate) \{
+
+                            \textcolor{comment}{// check all transactions, item must exist in any
+       of them}
+                            \textcolor{keywordtype}{bool} foundCandidateItem = \textcolor{keyword}{false};
+                            \textcolor{keywordflow}{foreach} (List<int> encodedTransaction \textcolor{keywordflow}{in} 
+      encodedCustomer) \{
+                                \textcolor{comment}{//if (encodedTransaction.Count < k)}
+                                \textcolor{comment}{//  continue;}
+                                foundCandidateItem = encodedTransaction.
+      Contains(candidateItem);
+                                \textcolor{keywordflow}{if} (foundCandidateItem)
+                                    \textcolor{keywordflow}{break};
+                            \}
+
+                            \textcolor{comment}{// if item does not exist in any of the
+       transactions, this customer}
+                            \textcolor{comment}{// is not compatible with 'candidate' sequence}
+                            \textcolor{keywordflow}{if} (!foundCandidateItem) \{
+                                allNeededItemsArePresent = \textcolor{keyword}{false};
+                                \textcolor{keywordflow}{break};
+                            \}
+                        \}
+
+                        \textcolor{keywordflow}{if} (allNeededItemsArePresent) \{
+                            candidates[candidate] += 1;
+                        \}
+                    \}
+
+                    \textcolor{comment}{// confront results with min. support}
+                    \textcolor{keywordflow}{if} (candidates[candidate] >= minSupport)
+                        kSequences[k].Add(candidate);
+
+                \}
+
+            \}
+
+            \textcolor{keywordflow}{return} kSequences;
+        \}
+\end{DoxyCode}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_apriori_all_lib_1_1_apriori_all_algorithm_ae57be8bc7c5996b4687db96e333acc6a_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_apriori_all_lib_1_1_apriori_all_algorithm_ae57be8bc7c5996b4687db96e333acc6a_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_apriori_all_lib_1_1_apriori_all_algorithm_a1cb8e7f04ae25e5bc2203d35ba7fced3}{\index{Apriori\-All\-Lib\-::\-Apriori\-All\-Algorithm@{Apriori\-All\-Lib\-::\-Apriori\-All\-Algorithm}!Generate\-Candidates@{Generate\-Candidates}}
+\index{Generate\-Candidates@{Generate\-Candidates}!AprioriAllLib::AprioriAllAlgorithm@{Apriori\-All\-Lib\-::\-Apriori\-All\-Algorithm}}
+\subsubsection[{Generate\-Candidates}]{\setlength{\rightskip}{0pt plus 5cm}static void Apriori\-All\-Lib.\-Apriori\-All\-Algorithm.\-Generate\-Candidates (
+\begin{DoxyParamCaption}
+\item[{List$<$ List$<$ int $>$$>$}]{prev, }
+\item[{Dictionary$<$ List$<$ int $>$, int $>$}]{candidates}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{class_apriori_all_lib_1_1_apriori_all_algorithm_a1cb8e7f04ae25e5bc2203d35ba7fced3}
+
+
+Generates all candidates for k-\/sequences, basing on set of (k-\/1)-\/sequences. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em prev} & previous k-\/sequences, i.\-e. (k-\/1)-\/sequences\\
+\hline
+{\em candidates} & output, candidates for k-\/sequences\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+                                                                               
+                                   \{
+
+            \textcolor{comment}{//for (List<List<int>>.Enumerator e1 = prev.GetEnumerator();
+       e1.MoveNext(); ) \{}
+            \textcolor{comment}{//   // prev in kSequences[k - 1]}
+            \textcolor{comment}{//   List<int> l1 = e1.Current;}
+            \textcolor{comment}{//   for (List<List<int>>.Enumerator e2 = prev.GetEnumerator();
+       e2.MoveNext(); ) \{}
+            \textcolor{comment}{//      // we discard candidates like (1 1), (2 2), ... (k k), ...
+       , (1 2 1 2),}
+            \textcolor{comment}{//      // in general, all (a b .. k a b .. k)}
+            \textcolor{comment}{//      if (e1.Equals(e2))}
+            \textcolor{comment}{//         continue;}
+            \textcolor{comment}{//      List<int> l2 = e2.Current;}
+            \textcolor{comment}{//      int differentValue = -1;}
+            \textcolor{comment}{//      int diff = 0;}
+            \textcolor{comment}{//      foreach (int i1 in l1) \{}
+            \textcolor{comment}{//         if (!l2.Contains(i1)) \{}
+            \textcolor{comment}{//            ++diff;}
+            \textcolor{comment}{//            if (diff > 1)}
+            \textcolor{comment}{//               break;}
+            \textcolor{comment}{//            differentValue = i1;}
+            \textcolor{comment}{//         \}}
+            \textcolor{comment}{//      \}}
+            \textcolor{comment}{//      // we cannot form candidates from lists that differ in more
+       than one element}
+            \textcolor{comment}{//      if (diff != 1)}
+            \textcolor{comment}{//         continue;}
+            \textcolor{comment}{//   \}}
+            \textcolor{comment}{//\}}
+
+            \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i1 = 0; i1 < prev.Count; ++i1) \{
+                List<int> l1 = prev[i1];
+
+                \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i2 = i1 + 1; i2 < prev.Count; ++i2) \{
+                    List<int> l2 = prev[i2];
+
+                    \textcolor{keywordtype}{int} differentValue = -1;
+                    \textcolor{keywordtype}{int} diff = 0;
+                    \textcolor{keywordflow}{foreach} (\textcolor{keywordtype}{int} elem1 \textcolor{keywordflow}{in} l1) \{
+                        \textcolor{keywordflow}{if} (!l2.Contains(elem1)) \{
+                            ++diff;
+                            \textcolor{keywordflow}{if} (diff > 1)
+                                \textcolor{keywordflow}{break};
+                            differentValue = elem1;
+                        \}
+                    \}
+
+                    \textcolor{comment}{// we cannot form candidates from lists that differ in more
+       than one element}
+                    \textcolor{keywordflow}{if} (diff != 1)
+                        \textcolor{keywordflow}{continue};
+
+                    List<int> candidate = \textcolor{keyword}{new} List<int>(l2);
+                    candidate.Add(differentValue);
+                    candidate.Sort();
+
+                    \textcolor{comment}{// we don't want to add any duplicates}
+                    \textcolor{keywordtype}{bool} foundEqual = \textcolor{keyword}{false};
+                    \textcolor{keywordflow}{foreach} (List<int> cand \textcolor{keywordflow}{in} candidates.Keys)
+                        \textcolor{keywordflow}{if} (cand.Count == candidate.Count) \{
+                            \textcolor{keywordtype}{bool} isEqual = \textcolor{keyword}{true};
+                            \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} icc = 0; icc < candidate.Count; ++icc)
+                                \textcolor{keywordflow}{if} (cand[icc] != candidate[icc]) \{
+                                    isEqual = \textcolor{keyword}{false};
+                                    \textcolor{keywordflow}{break};
+                                \}
+                            \textcolor{keywordflow}{if} (isEqual) \{
+                                foundEqual = \textcolor{keyword}{true};
+                                \textcolor{keywordflow}{break};
+                            \}
+                        \}
+                    \textcolor{keywordflow}{if} (foundEqual)
+                        \textcolor{keywordflow}{continue};
+
+                    \textcolor{comment}{// Invalid statement:}
+
+                    \textcolor{comment}{// we ain't gonna add any lists, that do not exist
+       partially in the previous set,}
+                    \textcolor{comment}{//  I tell ya!}
+                    \textcolor{comment}{//for (int ic = 0; ic < candidate.Count; ++ic) \{}
+                    \textcolor{comment}{// nothing}
+                    \textcolor{comment}{//\}}
+
+                    candidates.Add(candidate, 0);
+                \}
+
+            \}
+        \}
+\end{DoxyCode}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_apriori_all_lib_1_1_apriori_all_algorithm_a1cb8e7f04ae25e5bc2203d35ba7fced3_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_apriori_all_lib_1_1_apriori_all_algorithm_afc5e40088ea694ce9de76cd8f4d34900}{\index{Apriori\-All\-Lib\-::\-Apriori\-All\-Algorithm@{Apriori\-All\-Lib\-::\-Apriori\-All\-Algorithm}!Generate\-Encoding@{Generate\-Encoding}}
+\index{Generate\-Encoding@{Generate\-Encoding}!AprioriAllLib::AprioriAllAlgorithm@{Apriori\-All\-Lib\-::\-Apriori\-All\-Algorithm}}
+\subsubsection[{Generate\-Encoding}]{\setlength{\rightskip}{0pt plus 5cm}static void Apriori\-All\-Lib.\-Apriori\-All\-Algorithm.\-Generate\-Encoding (
+\begin{DoxyParamCaption}
+\item[{List$<$ {\bf Litemset} $>$}]{one\-Litemsets, }
+\item[{out Dictionary$<$ {\bf Litemset}, int $>$}]{encoding, }
+\item[{out Dictionary$<$ int, {\bf Litemset} $>$}]{decoding}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{class_apriori_all_lib_1_1_apriori_all_algorithm_afc5e40088ea694ce9de76cd8f4d34900}
+
+\begin{DoxyCode}
+                                                        \{
+            encoding = \textcolor{keyword}{new} Dictionary<Litemset, int>();
+            decoding = \textcolor{keyword}{new} Dictionary<int, Litemset>();
+
+            \textcolor{keywordtype}{int} i = 1;
+            \textcolor{keywordflow}{foreach} (Litemset li \textcolor{keywordflow}{in} oneLitemsets) \{
+                encoding.Add(li, i);
+                decoding.Add(i, li);
+                ++i;
+            \}
+
+        \}
+\end{DoxyCode}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_apriori_all_lib_1_1_apriori_all_algorithm_afc5e40088ea694ce9de76cd8f4d34900_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_apriori_all_lib_1_1_apriori_all_algorithm_a9b1affa47b8ad14eedeaec9ac17bb8c1}{\index{Apriori\-All\-Lib\-::\-Apriori\-All\-Algorithm@{Apriori\-All\-Lib\-::\-Apriori\-All\-Algorithm}!Infer\-Real\-Results@{Infer\-Real\-Results}}
+\index{Infer\-Real\-Results@{Infer\-Real\-Results}!AprioriAllLib::AprioriAllAlgorithm@{Apriori\-All\-Lib\-::\-Apriori\-All\-Algorithm}}
+\subsubsection[{Infer\-Real\-Results}]{\setlength{\rightskip}{0pt plus 5cm}static List$<${\bf Customer}$>$ Apriori\-All\-Lib.\-Apriori\-All\-Algorithm.\-Infer\-Real\-Results (
+\begin{DoxyParamCaption}
+\item[{List$<$ List$<$ List$<$ int $>$$>$$>$}]{encoded\-List, }
+\item[{List$<$ List$<$ List$<$ int $>$$>$$>$}]{k\-Sequences, }
+\item[{Dictionary$<$ int, {\bf Litemset} $>$}]{decoding, }
+\item[{{\bf Customer\-List}}]{customer\-List}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{class_apriori_all_lib_1_1_apriori_all_algorithm_a9b1affa47b8ad14eedeaec9ac17bb8c1}
+
+\begin{DoxyCode}
+                                                                               
+      \{
+            var decodedList = \textcolor{keyword}{new} List<Customer>();
+
+            var compactSequences = \hyperlink{class_apriori_all_lib_1_1_apriori_all_algorithm_a2d56f7cbefc50b34a910c7623ee2496f}{CompactSequencesList}(
+      kSequences);
+            \textcolor{comment}{//var decodedSequences = new List<Customer>();}
+
+            \textcolor{keywordflow}{foreach} (List<int> sequence \textcolor{keywordflow}{in} compactSequences) \{
+                Customer c = \textcolor{keyword}{new} Customer();
+                \textcolor{keywordflow}{foreach} (\textcolor{keywordtype}{int} encodedLitemset \textcolor{keywordflow}{in} sequence) \{
+                    Transaction t = \textcolor{keyword}{new} Transaction(decoding[encodedLitemset].
+      Items);
+                    c.Transactions.Add(t);
+                \}
+                decodedList.Add(c);
+            \}
+
+            \textcolor{keywordflow}{foreach} (Customer customer \textcolor{keywordflow}{in} decodedList) \{
+                \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} tn = customer.Transactions.Count - 1; tn >= 0; --tn) \{
+                    \textcolor{comment}{// tn : transaction no.}
+                    Transaction t = customer.Transactions[tn];
+
+                    \textcolor{keywordflow}{foreach} (Transaction comparedTransaction \textcolor{keywordflow}{in} customer.
+      Transactions) \{
+                        \textcolor{keywordflow}{if} (Object.ReferenceEquals(t, comparedTransaction))
+                            \textcolor{keywordflow}{continue};
+                        \textcolor{keywordflow}{if} (t.Items.Count >= comparedTransaction.Items.Count)
+                            \textcolor{keywordflow}{continue};
+                        \textcolor{keywordflow}{if} (IsSubSequence<Item>(t.Items, comparedTransaction.
+      Items)) \{
+                            customer.Transactions.RemoveAt(tn);
+                            \textcolor{keywordflow}{break};
+                        \}
+                    \}
+                \}
+
+            \}
+
+            \textcolor{keywordflow}{return} decodedList;
+        \}
+\end{DoxyCode}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_apriori_all_lib_1_1_apriori_all_algorithm_a9b1affa47b8ad14eedeaec9ac17bb8c1_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_apriori_all_lib_1_1_apriori_all_algorithm_a9b1affa47b8ad14eedeaec9ac17bb8c1_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_apriori_all_lib_1_1_apriori_all_algorithm_a2961a55124ad9f61dbee911deb9eee88}{\index{Apriori\-All\-Lib\-::\-Apriori\-All\-Algorithm@{Apriori\-All\-Lib\-::\-Apriori\-All\-Algorithm}!Is\-Sub\-Sequence$<$ T $>$@{Is\-Sub\-Sequence$<$ T $>$}}
+\index{Is\-Sub\-Sequence$<$ T $>$@{Is\-Sub\-Sequence$<$ T $>$}!AprioriAllLib::AprioriAllAlgorithm@{Apriori\-All\-Lib\-::\-Apriori\-All\-Algorithm}}
+\subsubsection[{Is\-Sub\-Sequence$<$ T $>$}]{\setlength{\rightskip}{0pt plus 5cm}static bool Apriori\-All\-Lib.\-Apriori\-All\-Algorithm.\-Is\-Sub\-Sequence$<$ T $>$ (
+\begin{DoxyParamCaption}
+\item[{List$<$ T $>$}]{hypthetical\-Sub\-Sequence, }
+\item[{List$<$ T $>$}]{sequence}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{class_apriori_all_lib_1_1_apriori_all_algorithm_a2961a55124ad9f61dbee911deb9eee88}
+\begin{Desc}
+\item[Type Constraints]\begin{description}
+\item[{\em T} : {\em I\-Comparable}]\end{description}
+\end{Desc}
+
+\begin{DoxyCode}
+                        : IComparable \{
+            \textcolor{keywordflow}{if} (hyptheticalSubSequence.Count == 0)
+                \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+            \textcolor{keywordflow}{if} (hyptheticalSubSequence.Count > sequence.Count)
+                \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+
+            \textcolor{keywordtype}{int} i1 = 0;
+            \textcolor{keywordtype}{int} i2 = 0;
+            \textcolor{keywordflow}{while} (\textcolor{keyword}{true}) \{
+                \textcolor{keywordflow}{if} (i1 >= hyptheticalSubSequence.Count)
+                    \textcolor{keywordflow}{break};
+                \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (i2 >= sequence.Count)
+                    \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+
+                \textcolor{keywordflow}{if} (hyptheticalSubSequence[i1].Equals(sequence[i2])) \{
+                    \textcolor{comment}{// in the next move we check next element}
+                    ++i1;
+                \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (hyptheticalSubSequence[i1].CompareTo(sequence[i2]) <
+       0) \{
+                    \textcolor{comment}{// since both lists are sorted, we cannot encounter elem i1
+       anywhere later, }
+                    \textcolor{comment}{//  because we know that all other further elements i2 are
+       also larger}
+                    \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+                \}
+
+                ++i2;
+            \}
+
+            \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+        \}
+\end{DoxyCode}
+\hypertarget{class_apriori_all_lib_1_1_apriori_all_algorithm_a9f9a1d34d48761a094d3390c2e9d90cd}{\index{Apriori\-All\-Lib\-::\-Apriori\-All\-Algorithm@{Apriori\-All\-Lib\-::\-Apriori\-All\-Algorithm}!Purge\-All\-Non\-Max@{Purge\-All\-Non\-Max}}
+\index{Purge\-All\-Non\-Max@{Purge\-All\-Non\-Max}!AprioriAllLib::AprioriAllAlgorithm@{Apriori\-All\-Lib\-::\-Apriori\-All\-Algorithm}}
+\subsubsection[{Purge\-All\-Non\-Max}]{\setlength{\rightskip}{0pt plus 5cm}static void Apriori\-All\-Lib.\-Apriori\-All\-Algorithm.\-Purge\-All\-Non\-Max (
+\begin{DoxyParamCaption}
+\item[{List$<$ List$<$ List$<$ int $>$$>$$>$}]{k\-Sequences}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{class_apriori_all_lib_1_1_apriori_all_algorithm_a9f9a1d34d48761a094d3390c2e9d90cd}
+
+
+Deletes all non-\/maximal seqences from list of k-\/sequences. 
+
+Corresponds to 5th step of \hyperlink{class_apriori_all_lib_1_1_apriori}{Apriori} All algorithm, namely \char`\"{}\-Maximal Phase\char`\"{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em k\-Sequences} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+                                                                             \{
+
+            \textcolor{comment}{// additional "-1" because all largest k-sequences are for sure
+       maximal}
+            \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} k = kSequences.Count - 1 - 1; k >= 0; --k) \{
+                List<List<int>> sequencesOfLengthK = kSequences[k];
+                \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} n = sequencesOfLengthK.Count - 1; n >= 0; --n) \{
+
+                    List<int> sequence = sequencesOfLengthK[n];
+                    \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = k + 1; i < kSequences.Count; ++i) \{
+
+                        \textcolor{keywordflow}{foreach} (List<int> longerSequence \textcolor{keywordflow}{in} kSequences[i])
+                            \textcolor{keywordflow}{if} (IsSubSequence(sequence, longerSequence)) \{ \textcolor{comment}{//
+       if sequence is a sub-seqence of s}
+                                \textcolor{comment}{// purge sequence and all its subsequences}
+                                \hyperlink{class_apriori_all_lib_1_1_apriori_all_algorithm_a6a6e8aa1c43b3a71c2eb1d5e068d959a}{PurgeAllSubSeqsOf}(kSequences, 
+      k, n);
+                                sequencesOfLengthK.RemoveAt(n);
+                            \}
+
+                    \}
+
+                \}
+            \}
+        \}
+\end{DoxyCode}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_apriori_all_lib_1_1_apriori_all_algorithm_a9f9a1d34d48761a094d3390c2e9d90cd_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_apriori_all_lib_1_1_apriori_all_algorithm_a9f9a1d34d48761a094d3390c2e9d90cd_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_apriori_all_lib_1_1_apriori_all_algorithm_a6a6e8aa1c43b3a71c2eb1d5e068d959a}{\index{Apriori\-All\-Lib\-::\-Apriori\-All\-Algorithm@{Apriori\-All\-Lib\-::\-Apriori\-All\-Algorithm}!Purge\-All\-Sub\-Seqs\-Of@{Purge\-All\-Sub\-Seqs\-Of}}
+\index{Purge\-All\-Sub\-Seqs\-Of@{Purge\-All\-Sub\-Seqs\-Of}!AprioriAllLib::AprioriAllAlgorithm@{Apriori\-All\-Lib\-::\-Apriori\-All\-Algorithm}}
+\subsubsection[{Purge\-All\-Sub\-Seqs\-Of}]{\setlength{\rightskip}{0pt plus 5cm}static void Apriori\-All\-Lib.\-Apriori\-All\-Algorithm.\-Purge\-All\-Sub\-Seqs\-Of (
+\begin{DoxyParamCaption}
+\item[{List$<$ List$<$ List$<$ int $>$$>$$>$}]{k\-Sequences, }
+\item[{int}]{kk, }
+\item[{int}]{ii}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{class_apriori_all_lib_1_1_apriori_all_algorithm_a6a6e8aa1c43b3a71c2eb1d5e068d959a}
+
+\begin{DoxyCode}
+                                                                               
+                       \{
+            \textcolor{keywordflow}{if} (kk <= 1)
+                \textcolor{keywordflow}{return};
+            List<int> sequence = kSequences[kk][ii];
+            \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} k = kk - 1; k >= 0; --k) \{
+
+                List<List<int>> sequencesOfLengthK = kSequences[k];
+
+                \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < sequencesOfLengthK.Count; ++i) \{
+                    \textcolor{keywordflow}{if} (IsSubSequence(sequencesOfLengthK[i], sequence)) \{
+                        \hyperlink{class_apriori_all_lib_1_1_apriori_all_algorithm_a6a6e8aa1c43b3a71c2eb1d5e068d959a}{PurgeAllSubSeqsOf}(kSequences, k, i);
+                        sequencesOfLengthK.RemoveAt(i);
+                    \}
+                \}
+
+            \}
+        \}
+\end{DoxyCode}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_apriori_all_lib_1_1_apriori_all_algorithm_a6a6e8aa1c43b3a71c2eb1d5e068d959a_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
 The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
 \item 
-D\-:/\-Projects/\-Csharp/\-Mi\-N\-I\-\_\-\-Apriori\-All/\-Apriori\-All\-Lib/Apriori\-All\-Algorithm.\-cs\end{DoxyCompactItemize}
+D\-:/\-Projects/\-Csharp/\-Mi\-N\-I\-\_\-\-Apriori\-All/\-Apriori\-All\-Lib/\hyperlink{_apriori_all_algorithm_8cs}{Apriori\-All\-Algorithm.\-cs}\end{DoxyCompactItemize}

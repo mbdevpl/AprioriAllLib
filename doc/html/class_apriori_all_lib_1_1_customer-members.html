@@ -44,6 +44,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="namespaces.html"><span>Packages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
+      <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -66,7 +67,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="inherits.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -90,7 +91,7 @@ $(document).ready(function(){initNavTree('class_apriori_all_lib_1_1_customer.htm
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Properties</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Properties</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -110,14 +111,15 @@ $(document).ready(function(){initNavTree('class_apriori_all_lib_1_1_customer.htm
   <tr class="even"><td class="entry"><a class="el" href="class_apriori_all_lib_1_1_customer.html#af02616d948989c7ff6161efc2488ecab">Customer</a>()</td><td class="entry"><a class="el" href="class_apriori_all_lib_1_1_customer.html">AprioriAllLib.Customer</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_apriori_all_lib_1_1_customer.html#a168c8ef2fa0b53671ea51fa21d788f7e">Customer</a>(params Transaction[] transactions)</td><td class="entry"><a class="el" href="class_apriori_all_lib_1_1_customer.html">AprioriAllLib.Customer</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_apriori_all_lib_1_1_customer.html#a8a0e52125e85fae2662fa7edb756cedd">Customer</a>(params int[][] valuesArray)</td><td class="entry"><a class="el" href="class_apriori_all_lib_1_1_customer.html">AprioriAllLib.Customer</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_apriori_all_lib_1_1_customer.html#a311c3424f3f1207afe9b883cc41cae60">ToString</a>()</td><td class="entry"><a class="el" href="class_apriori_all_lib_1_1_customer.html">AprioriAllLib.Customer</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_apriori_all_lib_1_1_customer.html#a5bf3b782d5e9c582e3f395834b7bddad">Transactions</a></td><td class="entry"><a class="el" href="class_apriori_all_lib_1_1_customer.html">AprioriAllLib.Customer</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_apriori_all_lib_1_1_customer.html#a8036f14573c62b0e4785e7157a1f547b">Equals</a>(object obj)</td><td class="entry"><a class="el" href="class_apriori_all_lib_1_1_customer.html">AprioriAllLib.Customer</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_apriori_all_lib_1_1_customer.html#a311c3424f3f1207afe9b883cc41cae60">ToString</a>()</td><td class="entry"><a class="el" href="class_apriori_all_lib_1_1_customer.html">AprioriAllLib.Customer</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_apriori_all_lib_1_1_customer.html#a5bf3b782d5e9c582e3f395834b7bddad">Transactions</a></td><td class="entry"><a class="el" href="class_apriori_all_lib_1_1_customer.html">AprioriAllLib.Customer</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Tue Nov 27 2012 20:42:43 for Apriori All by
+    <li class="footer">Generated on Wed Nov 28 2012 15:38:46 for Apriori All by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.2 </li>
   </ul>

@@ -6,10 +6,22 @@
 Class that represents a litemset (1-\/itemset)  
 
 
-Inheritance diagram for Apriori\-All\-Lib.\-Litemset\-:\begin{figure}[H]
+
+
+Inheritance diagram for Apriori\-All\-Lib.\-Litemset\-:\nopagebreak
+\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=2.000000cm]{class_apriori_all_lib_1_1_litemset}
+\includegraphics[width=188pt]{class_apriori_all_lib_1_1_litemset__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Apriori\-All\-Lib.\-Litemset\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=188pt]{class_apriori_all_lib_1_1_litemset__coll__graph}
 \end{center}
 \end{figure}
 \subsection*{Public Member Functions}
@@ -21,8 +33,7 @@ Inheritance diagram for Apriori\-All\-Lib.\-Litemset\-:\begin{figure}[H]
 \begin{DoxyCompactList}\small\item\em Constructor \end{DoxyCompactList}\item 
 \hyperlink{class_apriori_all_lib_1_1_litemset_a2f9611a4cc391651629df60ea2e2f3e9}{Litemset} (int support, params int\mbox{[}$\,$\mbox{]} values)
 \begin{DoxyCompactList}\small\item\em Constructor \end{DoxyCompactList}\item 
-\hypertarget{class_apriori_all_lib_1_1_litemset_afcbe1c14c38d2638cb48ed9305de5a4e}{int {\bfseries Compare\-To} (object obj)}\label{class_apriori_all_lib_1_1_litemset_afcbe1c14c38d2638cb48ed9305de5a4e}
-
+int \hyperlink{class_apriori_all_lib_1_1_litemset_afcbe1c14c38d2638cb48ed9305de5a4e}{Compare\-To} (object obj)
 \item 
 override string \hyperlink{class_apriori_all_lib_1_1_litemset_a512b70867120363edcd1178cec1c31f9}{To\-String} ()
 \begin{DoxyCompactList}\small\item\em String representation of this class \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -59,6 +70,17 @@ Constructor
                           \{
         \}
 \end{DoxyCode}
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_apriori_all_lib_1_1_litemset_af490087265e5b6389f19ce52775e6f35_icgraph}
+\end{center}
+\end{figure}
+
+
 \hypertarget{class_apriori_all_lib_1_1_litemset_a332a50f3e028dafcf393addcca5f3fb3}{\index{Apriori\-All\-Lib\-::\-Litemset@{Apriori\-All\-Lib\-::\-Litemset}!Litemset@{Litemset}}
 \index{Litemset@{Litemset}!AprioriAllLib::Litemset@{Apriori\-All\-Lib\-::\-Litemset}}
 \subsubsection[{Litemset}]{\setlength{\rightskip}{0pt plus 5cm}Apriori\-All\-Lib.\-Litemset.\-Litemset (
@@ -115,6 +137,46 @@ Constructor
 
 
 \subsection{Member Function Documentation}
+\hypertarget{class_apriori_all_lib_1_1_litemset_afcbe1c14c38d2638cb48ed9305de5a4e}{\index{Apriori\-All\-Lib\-::\-Litemset@{Apriori\-All\-Lib\-::\-Litemset}!Compare\-To@{Compare\-To}}
+\index{Compare\-To@{Compare\-To}!AprioriAllLib::Litemset@{Apriori\-All\-Lib\-::\-Litemset}}
+\subsubsection[{Compare\-To}]{\setlength{\rightskip}{0pt plus 5cm}int Apriori\-All\-Lib.\-Litemset.\-Compare\-To (
+\begin{DoxyParamCaption}
+\item[{object}]{obj}
+\end{DoxyParamCaption}
+)}}\label{class_apriori_all_lib_1_1_litemset_afcbe1c14c38d2638cb48ed9305de5a4e}
+
+\begin{DoxyCode}
+        \{
+            \hyperlink{class_apriori_all_lib_1_1_litemset_af490087265e5b6389f19ce52775e6f35}{Litemset} litemset = (\hyperlink{class_apriori_all_lib_1_1_litemset_af490087265e5b6389f19ce52775e6f35}{Litemset})obj;
+            \textcolor{keywordflow}{if} (\hyperlink{class_apriori_all_lib_1_1_litemset_aef38d5fccb4e45867abf5838ab8a68fa}{Items}.Count > litemset.Items.Count)
+                \textcolor{keywordflow}{return} 1;
+            \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\hyperlink{class_apriori_all_lib_1_1_litemset_aef38d5fccb4e45867abf5838ab8a68fa}{Items}.Count < litemset.Items.Count)
+                \textcolor{keywordflow}{return} -1;
+            \textcolor{keywordflow}{else}
+            \{
+                \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \hyperlink{class_apriori_all_lib_1_1_litemset_aef38d5fccb4e45867abf5838ab8a68fa}{Items}.Count; i++)
+                \{
+                    \textcolor{keywordflow}{if} (\hyperlink{class_apriori_all_lib_1_1_litemset_aef38d5fccb4e45867abf5838ab8a68fa}{Items}[i].\hyperlink{class_apriori_all_lib_1_1_litemset_afcbe1c14c38d2638cb48ed9305de5a4e}{CompareTo}(litemset.Items[i]) == 
+      0) \textcolor{comment}{// equal}
+                        \textcolor{keywordflow}{continue};
+                    \textcolor{keywordflow}{else} 
+                        \textcolor{keywordflow}{return} \hyperlink{class_apriori_all_lib_1_1_litemset_aef38d5fccb4e45867abf5838ab8a68fa}{Items}[i].CompareTo(litemset.Items[i]);
+                \}
+                \textcolor{keywordflow}{return} 0;
+            \}
+        \}
+\end{DoxyCode}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_apriori_all_lib_1_1_litemset_afcbe1c14c38d2638cb48ed9305de5a4e_cgraph}
+\end{center}
+\end{figure}
+
+
 \hypertarget{class_apriori_all_lib_1_1_litemset_a512b70867120363edcd1178cec1c31f9}{\index{Apriori\-All\-Lib\-::\-Litemset@{Apriori\-All\-Lib\-::\-Litemset}!To\-String@{To\-String}}
 \index{To\-String@{To\-String}!AprioriAllLib::Litemset@{Apriori\-All\-Lib\-::\-Litemset}}
 \subsubsection[{To\-String}]{\setlength{\rightskip}{0pt plus 5cm}override string Apriori\-All\-Lib.\-Litemset.\-To\-String (
@@ -166,4 +228,4 @@ Support of this litemset
 
 The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
 \item 
-D\-:/\-Projects/\-Csharp/\-Mi\-N\-I\-\_\-\-Apriori\-All/\-Apriori\-All\-Lib/Litemset.\-cs\end{DoxyCompactItemize}
+D\-:/\-Projects/\-Csharp/\-Mi\-N\-I\-\_\-\-Apriori\-All/\-Apriori\-All\-Lib/\hyperlink{_litemset_8cs}{Litemset.\-cs}\end{DoxyCompactItemize}

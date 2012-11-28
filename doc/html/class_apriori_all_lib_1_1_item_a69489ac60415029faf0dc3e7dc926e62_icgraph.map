@@ -1,0 +1,4 @@
+<map id="AprioriAllLib.Item.Equals" name="AprioriAllLib.Item.Equals">
+<area shape="rect" id="node3" href="$class_apriori_all_lib_1_1_apriori_all_algorithm.html#a2250ee6a09f30990fc8e6f50d0600bdc" title="Corresponds to 3rd step of Apriori All algorithm, namely &quot;Transformation Phase&quot;. " alt="" coords="219,5,421,46"/>
+<area shape="rect" id="node5" href="$class_apriori_all_lib_1_1_apriori_all_algorithm.html#ae4f86f8c88052d29cbfc629f2f61c302" title="Executes Apriori All algorithm on a given input and minimum suport threshold. " alt="" coords="469,5,616,46"/>
+</map>

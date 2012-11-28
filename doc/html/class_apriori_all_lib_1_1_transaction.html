@@ -44,6 +44,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="namespaces.html"><span>Packages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
+      <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -66,7 +67,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="inherits.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -90,7 +91,7 @@ $(document).ready(function(){initNavTree('class_apriori_all_lib_1_1_transaction.
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Properties</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Properties</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -104,6 +105,7 @@ $(document).ready(function(){initNavTree('class_apriori_all_lib_1_1_transaction.
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#properties">Properties</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_apriori_all_lib_1_1_transaction-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">AprioriAllLib.Transaction Class Reference</div>  </div>
@@ -127,11 +129,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:acee1a8846d87f949c63110f7e6eabfe0"><td class="memItemLeft" align="right" valign="top">override string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_transaction.html#acee1a8846d87f949c63110f7e6eabfe0">ToString</a> ()</td></tr>
 <tr class="memdesc:acee1a8846d87f949c63110f7e6eabfe0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the content of transaction  <a href="#acee1a8846d87f949c63110f7e6eabfe0"></a><br/></td></tr>
 <tr class="separator:acee1a8846d87f949c63110f7e6eabfe0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30328717fdd46c8c8eea3a86310db3dd"><td class="memItemLeft" align="right" valign="top">override bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_transaction.html#a30328717fdd46c8c8eea3a86310db3dd">Equals</a> (object obj)</td></tr>
+<tr class="separator:a30328717fdd46c8c8eea3a86310db3dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a2ee6b2f74a842edb646ec8f99e5f7b8f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2ee6b2f74a842edb646ec8f99e5f7b8f"></a>
-List&lt; List&lt; <a class="el" href="class_apriori_all_lib_1_1_item.html">Item</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>FrequentItems</b></td></tr>
+<tr class="memitem:a2ee6b2f74a842edb646ec8f99e5f7b8f"><td class="memItemLeft" align="right" valign="top">List&lt; List&lt; <a class="el" href="class_apriori_all_lib_1_1_item.html">Item</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_transaction.html#a2ee6b2f74a842edb646ec8f99e5f7b8f">FrequentItems</a></td></tr>
 <tr class="separator:a2ee6b2f74a842edb646ec8f99e5f7b8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
@@ -139,6 +142,11 @@ Properties</h2></td></tr>
 <tr class="memitem:abb1fe3a28d74f8b1cd5f5ca2add6a043"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_apriori_all_lib_1_1_item.html">Item</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_transaction.html#abb1fe3a28d74f8b1cd5f5ca2add6a043">Items</a><code> [get, set]</code></td></tr>
 <tr class="memdesc:abb1fe3a28d74f8b1cd5f5ca2add6a043"><td class="mdescLeft">&#160;</td><td class="mdescRight">A list of items of this transaction.  <a href="#abb1fe3a28d74f8b1cd5f5ca2add6a043"></a><br/></td></tr>
 <tr class="separator:abb1fe3a28d74f8b1cd5f5ca2add6a043"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ae815fd730576c0592d47895a2c8b420d"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_apriori_all_lib_1_1_item.html">Item</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_transaction.html#ae815fd730576c0592d47895a2c8b420d">items</a></td></tr>
+<tr class="separator:ae815fd730576c0592d47895a2c8b420d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Single client's transaction having a list of items </p>
@@ -158,10 +166,19 @@ Properties</h2></td></tr>
 
 <p>Default constructor. </p>
 <div class="fragment"><div class="line">                             {</div>
-<div class="line">            items = <span class="keyword">new</span> List&lt;Item&gt;();</div>
-<div class="line">            FrequentItems = <span class="keyword">new</span> List&lt;List&lt;Item&gt;&gt;();</div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_transaction.html#ae815fd730576c0592d47895a2c8b420d">items</a> = <span class="keyword">new</span> List&lt;Item&gt;();</div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_transaction.html#a2ee6b2f74a842edb646ec8f99e5f7b8f">FrequentItems</a> = <span class="keyword">new</span> List&lt;List&lt;Item&gt;&gt;();</div>
 <div class="line">        }</div>
 </div><!-- fragment -->
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_apriori_all_lib_1_1_transaction_adad35699bc55fcba5ee7ad28d34bdf53_icgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_transaction_adad35699bc55fcba5ee7ad28d34bdf53_icgraph" alt=""/></div>
+<map name="class_apriori_all_lib_1_1_transaction_adad35699bc55fcba5ee7ad28d34bdf53_icgraph" id="class_apriori_all_lib_1_1_transaction_adad35699bc55fcba5ee7ad28d34bdf53_icgraph">
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_transaction.html#a30328717fdd46c8c8eea3a86310db3dd" title="AprioriAllLib.Transaction.\lEquals" alt="" coords="222,5,389,46"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a582a1d655d1c0d452a5e5f0b972688dd"></a>
@@ -187,7 +204,7 @@ Properties</h2></td></tr>
 </dl>
 <div class="fragment"><div class="line">            : <span class="keyword">this</span>() {</div>
 <div class="line">            <span class="keywordflow">foreach</span> (<span class="keywordtype">int</span> value <span class="keywordflow">in</span> values)</div>
-<div class="line">                items.Add(<span class="keyword">new</span> Item(value));</div>
+<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_transaction.html#ae815fd730576c0592d47895a2c8b420d">items</a>.Add(<span class="keyword">new</span> Item(value));</div>
 <div class="line">        }</div>
 </div><!-- fragment -->
 </div>
@@ -214,12 +231,44 @@ Properties</h2></td></tr>
   </dd>
 </dl>
 <div class="fragment"><div class="line">            : <span class="keyword">this</span>() {</div>
-<div class="line">            items.AddRange(listOfItems);</div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_transaction.html#ae815fd730576c0592d47895a2c8b420d">items</a>.AddRange(listOfItems);</div>
 <div class="line">        }</div>
 </div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a30328717fdd46c8c8eea3a86310db3dd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">override bool AprioriAllLib.Transaction.Equals </td>
+          <td>(</td>
+          <td class="paramtype">object&#160;</td>
+          <td class="paramname"><em>obj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line">                                                {</div>
+<div class="line">            <span class="keywordflow">if</span> (obj.GetType().Equals(typeof(<a class="code" href="class_apriori_all_lib_1_1_transaction.html#adad35699bc55fcba5ee7ad28d34bdf53" title="Default constructor. ">Transaction</a>)) &amp;&amp; <a class="code" href="class_apriori_all_lib_1_1_transaction.html#abb1fe3a28d74f8b1cd5f5ca2add6a043" title="A list of items of this transaction. ">Items</a>.Count == ((<a class="code" href="class_apriori_all_lib_1_1_transaction.html#adad35699bc55fcba5ee7ad28d34bdf53" title="Default constructor. ">Transaction</a>)obj).Items.Count</div>
+<div class="line">                    &amp;&amp; Enumerable.SequenceEqual(<a class="code" href="class_apriori_all_lib_1_1_transaction.html#abb1fe3a28d74f8b1cd5f5ca2add6a043" title="A list of items of this transaction. ">Items</a>, ((<a class="code" href="class_apriori_all_lib_1_1_transaction.html#adad35699bc55fcba5ee7ad28d34bdf53" title="Default constructor. ">Transaction</a>)obj).<a class="code" href="class_apriori_all_lib_1_1_transaction.html#abb1fe3a28d74f8b1cd5f5ca2add6a043" title="A list of items of this transaction. ">Items</a>))</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">            <span class="comment">//return base.Equals(obj);</span></div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_apriori_all_lib_1_1_transaction_a30328717fdd46c8c8eea3a86310db3dd_cgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_transaction_a30328717fdd46c8c8eea3a86310db3dd_cgraph" alt=""/></div>
+<map name="class_apriori_all_lib_1_1_transaction_a30328717fdd46c8c8eea3a86310db3dd_cgraph" id="class_apriori_all_lib_1_1_transaction_a30328717fdd46c8c8eea3a86310db3dd_cgraph">
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_transaction.html#adad35699bc55fcba5ee7ad28d34bdf53" title="Default constructor. " alt="" coords="222,5,389,46"/></map>
+</div>
+</p>
+
+</div>
+</div>
 <a class="anchor" id="acee1a8846d87f949c63110f7e6eabfe0"></a>
 <div class="memitem">
 <div class="memproto">
@@ -236,10 +285,43 @@ Properties</h2></td></tr>
 <p>Prints the content of transaction </p>
 <dl class="section return"><dt>Returns</dt><dd>String of values of transaction items</dd></dl>
 <div class="fragment"><div class="line">                                          {</div>
-<div class="line">            <span class="keywordtype">string</span> itemsStr = <span class="keywordtype">string</span>.Join(<span class="stringliteral">&quot; &quot;</span>, items.Select(x =&gt; x.ToString()).ToArray());</div>
+<div class="line">            <span class="keywordtype">string</span> itemsStr = <span class="keywordtype">string</span>.Join(<span class="stringliteral">&quot; &quot;</span>, <a class="code" href="class_apriori_all_lib_1_1_transaction.html#ae815fd730576c0592d47895a2c8b420d">items</a>.Select(x =&gt; x.ToString()).ToArray());</div>
 <div class="line">            <span class="keywordflow">return</span> String.Format(<span class="stringliteral">&quot;({0})&quot;</span>, itemsStr);</div>
 <div class="line">        }</div>
 </div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a2ee6b2f74a842edb646ec8f99e5f7b8f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt;List&lt;<a class="el" href="class_apriori_all_lib_1_1_item.html">Item</a>&gt; &gt; AprioriAllLib.Transaction.FrequentItems</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ae815fd730576c0592d47895a2c8b420d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt;<a class="el" href="class_apriori_all_lib_1_1_item.html">Item</a>&gt; AprioriAllLib.Transaction.items</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
 </div>
 </div>
 <h2 class="groupheader">Property Documentation</h2>
@@ -266,7 +348,7 @@ Properties</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>D:/Projects/Csharp/MiNI_AprioriAll/AprioriAllLib/Transaction.cs</li>
+<li>D:/Projects/Csharp/MiNI_AprioriAll/AprioriAllLib/<a class="el" href="_transaction_8cs.html">Transaction.cs</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -274,7 +356,7 @@ Properties</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_apriori_all_lib.html">AprioriAllLib</a></li><li class="navelem"><a class="el" href="class_apriori_all_lib_1_1_transaction.html">Transaction</a></li>
-    <li class="footer">Generated on Tue Nov 27 2012 20:42:45 for Apriori All by
+    <li class="footer">Generated on Wed Nov 28 2012 15:38:46 for Apriori All by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.2 </li>
   </ul>
