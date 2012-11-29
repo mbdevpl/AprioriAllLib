@@ -47,6 +47,7 @@ namespace AprioriAllTest {
 			//Act
 			Apriori apriori = new Apriori(list);
 			List<Litemset> oneLitemsets = apriori.FindOneLitemsets(0.2);
+		    List<Customer> frequentSequences = AprioriAllAlgorithm.execute(list, 0.2);
 
 			//Assert
 			CollectionAssert.AreEqual(expected, oneLitemsets);
@@ -117,6 +118,34 @@ namespace AprioriAllTest {
 			//Assert
 			CollectionAssert.AreEqual(expected, results); //areEquivalent doesn't work
 		}
+
+        [TestMethod]
+        public void TestCorrectnessForDataSet2()
+        {
+            //Arrange
+            CustomerList list = new CustomerList();
+            list.Customers.Add(new Customer(new int[] { 30 }, new int[] { 80 }, new int[] { 30, 40, 50 }, new int[] { 90 }));
+            list.Customers.Add(new Customer(new int[] { 10, 20 }, new int[] { 30 }, new int[] { 40, 60, 70 }));
+            list.Customers.Add(new Customer(new int[] { 30, 50, 70 }, new int[] { 10, 20 }));
+            list.Customers.Add(new Customer(new int[] { 30, 80 }, new int[] { 40, 70 }, new int[] { 90, 30, 40, 50 }));
+            list.Customers.Add(new Customer(new int[] { 90 }, new int[] { 80 }));
+            list.Customers.Add(new Customer(new int[] { 50, 10 }, new int[] { 80 }));
+            Assert.AreEqual(6, list.Customers.Count());
+
+            List<Customer> expected = new List<Customer>();
+            expected.Add(new Customer(new int[] { 10 }, new int[] { 50 }));
+            expected.Add(new Customer(new int[] { 30 }, new int[] { 40, 70 }));
+            expected.Add(new Customer(new int[] { 70 }, new int[] { 30, 50 }));
+            expected.Add(new Customer(new int[] { 30 }, new int[] { 70 }, new int[] { 10, 20 }));
+            expected.Add(new Customer(new int[] { 80 }, new int[] { 90 }, new int[] { 30, 40, 50 }));
+            Assert.AreEqual(5, expected.Count());
+
+            //Act
+            List<Customer> results = AprioriAllAlgorithm.execute(list, 0.2);
+
+            //Assert
+            CollectionAssert.AreEqual(expected, results); // areEquivalent doesn't work
+        }
 
 	}
 
