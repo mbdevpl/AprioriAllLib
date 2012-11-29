@@ -84,6 +84,18 @@ namespace AprioriAllLib {
 			return String.Format("Lit(Supp={0};{1})", Support, itemsStr);
 		}
 
+        public override bool Equals(object obj)
+        {
+            if (Items.Count != ((Litemset) obj).Items.Count)
+                return false;
+            for (int i = 0; i < Items.Count; i++)
+            {
+                if (Items[i].Value != ((Litemset) obj).Items[i].Value)
+                    return false;
+            }
+            return true;
+        }
+
 	}
 
 }

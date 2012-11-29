@@ -12,10 +12,10 @@ namespace SequentialMining
         {
             XmlReader reader = new XmlReader();
             CustomerList customerList = new CustomerList();
-            double support = 0.4;
+            double support = 0.3;
 
             if(args.Count() == 0)
-                customerList = reader.ReadFromXmlFile("dataset1.xml");
+                customerList = reader.ReadFromXmlFile("dataset2.xml");
             else if (args.Count() == 2)
             {
                 try
@@ -39,8 +39,9 @@ namespace SequentialMining
             }
             Apriori apriori = new Apriori(customerList);
             List<Litemset> litemsets = apriori.FindOneLitemsets(support);
+            List<Customer> aprioriAllResult = AprioriAllAlgorithm.execute(customerList, 0.3);
 
-            Console.WriteLine("Litemsets found: ");
+            Console.WriteLine("Litemsets found: \n");
             foreach (Litemset l in litemsets)
             {
                 Console.Write("(");
@@ -52,6 +53,26 @@ namespace SequentialMining
                 }
                 Console.Write(") ");
             }
+
+            Console.WriteLine("\n\nSequences found: \n");
+            foreach (Customer c in aprioriAllResult)
+            {
+                Console.Write("{");
+                foreach (Transaction t in c.Transactions)
+                {
+                    Console.Write("(");
+                    foreach (Item i in t.Items)
+                    {
+                        Console.Write(i.Value);
+                        if (t.Items.IndexOf(i) != t.Items.Count - 1)
+                            Console.Write(", ");
+                    }
+                    Console.Write(")");
+                }
+                Console.Write("} ");
+            }
+
+
 
             Console.WriteLine("\n\nPress enter to continue");
             Console.ReadLine();

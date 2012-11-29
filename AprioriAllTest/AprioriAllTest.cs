@@ -56,41 +56,37 @@ namespace AprioriAllTest {
 		public void TestAprioriForNoSupportUnsorted() {
 			//Arrange
 			CustomerList list = new CustomerList();
-			list.Customers.Add(new Customer(new int[] { 30 }, new int[] { 80 }));
-			list.Customers.Add(new Customer(new int[] { 10, 20 }, new int[] { 30 }, new int[] { 10, 60, 70 }));
-			list.Customers.Add(new Customer(new int[] { 30, 50, 70 }));
-			list.Customers.Add(new Customer(new int[] { 30 }, new int[] { 40, 70 }, new int[] { 40 }));
-			list.Customers.Add(new Customer(new int[] { 90 }));
-			Assert.AreEqual(5, list.Customers.Count());
+            list.Customers.Add(new Customer(new int[] { 30 }, new int[] { 80 }, new int[] { 30, 40, 50 }, new int[] { 90 }));
+			list.Customers.Add(new Customer(new int[] { 10, 20 }, new int[] { 30 }, new int[] { 40, 60, 70 }));
+            list.Customers.Add(new Customer(new int[] { 30, 50, 70 }, new int[] { 10, 20 }));
+			list.Customers.Add(new Customer(new int[] { 30, 80 }, new int[] { 40, 70 }, new int[] { 90, 30, 40, 50 }));
+            list.Customers.Add(new Customer(new int[] { 90 }, new int[] { 80 }));
+            list.Customers.Add(new Customer(new int[] { 50, 10 }, new int[] { 80 }));
+			Assert.AreEqual(6, list.Customers.Count());
 
 			List<Litemset> expected = new List<Litemset>();
-			expected.Add(new Litemset(4, 30));
-			expected.Add(new Litemset(1, 80));
-			expected.Add(new Litemset(1, 10, 20));
-			expected.Add(new Litemset(1, 20));
-			expected.Add(new Litemset(2, 10));
-			expected.Add(new Litemset(1, 10, 60, 70));
-			expected.Add(new Litemset(1, 60, 70));
-			expected.Add(new Litemset(1, 10, 70));
-			expected.Add(new Litemset(1, 10, 60));
-			expected.Add(new Litemset(3, 70));
-			expected.Add(new Litemset(1, 60));
-			expected.Add(new Litemset(1, 30, 50, 70));
-			expected.Add(new Litemset(1, 50, 70));
-			expected.Add(new Litemset(1, 30, 70));
-			expected.Add(new Litemset(1, 30, 50));
-			expected.Add(new Litemset(1, 50));
-			expected.Add(new Litemset(1, 40, 70));
-			expected.Add(new Litemset(1, 40));
-			expected.Add(new Litemset(1, 90));
-			Assert.AreEqual(19, expected.Count());
+			expected.Add(new Litemset(3, 10));
+			expected.Add(new Litemset(2, 20));
+            expected.Add(new Litemset(4, 30));
+            expected.Add(new Litemset(3, 40));
+            expected.Add(new Litemset(4, 50));
+            expected.Add(new Litemset(3, 70));
+            expected.Add(new Litemset(4, 80));
+            expected.Add(new Litemset(3, 90));
+			expected.Add(new Litemset(2, 10, 20));
+            expected.Add(new Litemset(2, 30, 40));
+            expected.Add(new Litemset(3, 30, 50));
+            expected.Add(new Litemset(2, 40, 50));
+            expected.Add(new Litemset(2, 40, 70));
+			expected.Add(new Litemset(2, 30, 40, 50));
+			Assert.AreEqual(14, expected.Count());
 
 			//Act
 			Apriori apriori = new Apriori(list);
 			List<Litemset> oneLitemsets = apriori.FindOneLitemsets(0.2);
 
 			//Assert
-			CollectionAssert.AreEqual(expected, oneLitemsets);
+			CollectionAssert.AreEquivalent(expected, oneLitemsets);
 		}
 
 
