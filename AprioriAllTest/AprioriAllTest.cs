@@ -13,7 +13,7 @@ namespace AprioriAllTest {
 
 		private static CustomerList Example1;
 
-		private static CustomerList Example2;
+		//private static CustomerList Example2; // duplicate
 
 		private static CustomerList DataSet1;
 
@@ -30,14 +30,14 @@ namespace AprioriAllTest {
 			Example1.Customers.Add(new Customer(new int[] { 90 }));
 			Assert.AreEqual(5, Example1.Customers.Count());
 
-			Example2 = new CustomerList();
-			Example2.Customers.Add(new Customer(new int[] { 30 }, new int[] { 80 }, new int[] { 30, 40, 50 }, new int[] { 90 }));
-			Example2.Customers.Add(new Customer(new int[] { 10, 20 }, new int[] { 30 }, new int[] { 40, 60, 70 }));
-			Example2.Customers.Add(new Customer(new int[] { 30, 50, 70 }, new int[] { 10, 20 }));
-			Example2.Customers.Add(new Customer(new int[] { 30, 80 }, new int[] { 40, 70 }, new int[] { 90, 30, 40, 50 }));
-			Example2.Customers.Add(new Customer(new int[] { 90 }, new int[] { 80 }));
-			Example2.Customers.Add(new Customer(new int[] { 50, 10 }, new int[] { 80 }));
-			Assert.AreEqual(6, Example2.Customers.Count());
+			//Example2 = new CustomerList();
+			//Example2.Customers.Add(new Customer(new int[] { 30 }, new int[] { 80 }, new int[] { 30, 40, 50 }, new int[] { 90 }));
+			//Example2.Customers.Add(new Customer(new int[] { 10, 20 }, new int[] { 30 }, new int[] { 40, 60, 70 }));
+			//Example2.Customers.Add(new Customer(new int[] { 30, 50, 70 }, new int[] { 10, 20 }));
+			//Example2.Customers.Add(new Customer(new int[] { 30, 80 }, new int[] { 40, 70 }, new int[] { 90, 30, 40, 50 }));
+			//Example2.Customers.Add(new Customer(new int[] { 90 }, new int[] { 80 }));
+			//Example2.Customers.Add(new Customer(new int[] { 50, 10 }, new int[] { 80 }));
+			//Assert.AreEqual(6, Example2.Customers.Count());
 
 			DataSet1 = new CustomerList();
 			DataSet1.Customers.Add(new Customer(new int[] { 30 }, new int[] { 90 }));
@@ -115,7 +115,7 @@ namespace AprioriAllTest {
 		}
 
 		[TestMethod]
-		public void Test_Apriori_Example2_LowSupport() {
+		public void Test_Apriori_DataSet2_LowSupport() {
 			//Arrange
 			List<Litemset> expected = new List<Litemset>();
 			expected.Add(new Litemset(3, 10));
@@ -135,7 +135,7 @@ namespace AprioriAllTest {
 			Assert.AreEqual(14, expected.Count());
 
 			//Act
-			Apriori apriori = new Apriori(Example2);
+			Apriori apriori = new Apriori(DataSet2);
 			List<Litemset> oneLitemsets = apriori.FindOneLitemsets(0.2);
 
 			//Assert
@@ -143,7 +143,7 @@ namespace AprioriAllTest {
 		}
 
 		[TestMethod]
-		public void Test_Apriori_Example2_HighSupport() {
+		public void Test_Apriori_DataSet2_HighSupport() {
 			//Arrange
 			List<Litemset> expected = new List<Litemset>();
 			expected.Add(new Litemset(3, 10));
@@ -157,7 +157,7 @@ namespace AprioriAllTest {
 			Assert.AreEqual(8, expected.Count());
 
 			//Act
-			Apriori apriori = new Apriori(Example2);
+			Apriori apriori = new Apriori(DataSet2);
 			List<Litemset> oneLitemsets = apriori.FindOneLitemsets(0.5);
 
 			//Assert
@@ -178,23 +178,23 @@ namespace AprioriAllTest {
 			CollectionAssert.AreEqual(expected, results);
 		}
 
-		[TestMethod]
-		public void Test_AprioriAll_Example2() {
-			//Arrange
-			List<Customer> expected = new List<Customer>();
-			expected.Add(new Customer(new int[] { 10 }, new int[] { 50 }));
-			expected.Add(new Customer(new int[] { 30 }, new int[] { 40, 70 }));
-			expected.Add(new Customer(new int[] { 70 }, new int[] { 30, 50 }));
-			expected.Add(new Customer(new int[] { 30 }, new int[] { 70 }, new int[] { 10, 20 }));
-			expected.Add(new Customer(new int[] { 80 }, new int[] { 90 }, new int[] { 30, 40, 50 }));
-			Assert.AreEqual(5, expected.Count());
+		//[TestMethod]
+		//public void Test_AprioriAll_Example2() {
+		//   //Arrange
+		//   List<Customer> expected = new List<Customer>();
+		//   expected.Add(new Customer(new int[] { 10 }, new int[] { 50 }));
+		//   expected.Add(new Customer(new int[] { 30 }, new int[] { 40, 70 }));
+		//   expected.Add(new Customer(new int[] { 70 }, new int[] { 30, 50 }));
+		//   expected.Add(new Customer(new int[] { 30 }, new int[] { 70 }, new int[] { 10, 20 }));
+		//   expected.Add(new Customer(new int[] { 80 }, new int[] { 90 }, new int[] { 30, 40, 50 }));
+		//   Assert.AreEqual(5, expected.Count());
 
-			//Act
-			List<Customer> results = AprioriAllAlgorithm.execute(Example2, 0.3);
+		//   //Act
+		//   List<Customer> results = AprioriAllAlgorithm.execute(Example2, 0.3);
 
-			//Assert
-			CollectionAssert.AreEqual(expected, results);
-		}
+		//   //Assert
+		//   CollectionAssert.AreEqual(expected, results);
+		//}
 
 		[TestMethod]
 		public void Test_AprioriAll_DataSet1() {
@@ -233,12 +233,13 @@ namespace AprioriAllTest {
 		public void Test_AprioriAll_DataSet2_HighSupport() {
 			//Arrange
 			List<Customer> expected = new List<Customer>();
-			expected.Add(new Customer(new int[] { 10 }, new int[] { 50 }));
-			expected.Add(new Customer(new int[] { 30 }, new int[] { 40, 70 }));
-			expected.Add(new Customer(new int[] { 70 }, new int[] { 30, 50 }));
-			expected.Add(new Customer(new int[] { 30 }, new int[] { 70 }, new int[] { 10, 20 }));
-			expected.Add(new Customer(new int[] { 80 }, new int[] { 90 }, new int[] { 30, 40, 50 }));
-			Assert.AreEqual(5, expected.Count());
+			expected.Add(new Customer(new int[] { 10 }));
+			expected.Add(new Customer(new int[] { 30 }, new int[] { 40 }));
+			expected.Add(new Customer(new int[] { 30 }, new int[] { 70 }));
+			expected.Add(new Customer(new int[] { 50 }, new int[] { 80 }));
+			expected.Add(new Customer(new int[] { 80 }, new int[] { 90 }));
+			expected.Add(new Customer(new int[] { 30, 50 }));
+			Assert.AreEqual(6, expected.Count());
 
 			//Act
 			List<Customer> results = AprioriAllAlgorithm.execute(DataSet2, 0.4);

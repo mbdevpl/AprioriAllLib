@@ -269,15 +269,16 @@ namespace AprioriAllLib {
 			for (int k = kSequences.Count - 1 - 1; k >= 0; --k) {
 				List<List<int>> sequencesOfLengthK = kSequences[k];
 				for (int n = sequencesOfLengthK.Count - 1; n >= 0; --n) {
-
+					// we analyze n-th k-sequence:
 					List<int> sequence = sequencesOfLengthK[n];
 					for (int i = k + 1; i < kSequences.Count; ++i) {
 
 						foreach (List<int> longerSequence in kSequences[i])
-							if (IsSubSequence(sequence, longerSequence)) { // if sequence is a sub-seqence of s
-								// purge sequence and all its subsequences
+							if (IsSubSequence(sequence, longerSequence)) {
+								// if 'sequence' is a sub-seqence of 'longerSequence'
 								PurgeAllSubSeqsOf(kSequences, k, n);
 								sequencesOfLengthK.RemoveAt(n);
+								break;
 							}
 
 					}
