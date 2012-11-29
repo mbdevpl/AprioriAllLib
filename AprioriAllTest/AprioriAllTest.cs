@@ -86,7 +86,7 @@ namespace AprioriAllTest {
 			List<Litemset> oneLitemsets = apriori.FindOneLitemsets(0.2);
 
 			//Assert
-			CollectionAssert.AreEquivalent(expected, oneLitemsets);
+			CollectionAssert.AreEqual(expected, oneLitemsets); // areEquivalent doesn't work
 		}
 
 
@@ -115,7 +115,7 @@ namespace AprioriAllTest {
 			List<Customer> results = AprioriAllAlgorithm.execute(list, 0.25);
 
 			//Assert
-			CollectionAssert.AreEquivalent(expected, results);
+			CollectionAssert.AreEqual(expected, results); //areEquivalent doesn't work
 		}
 
 	}
