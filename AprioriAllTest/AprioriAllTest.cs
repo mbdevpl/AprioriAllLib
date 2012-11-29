@@ -244,7 +244,7 @@ namespace AprioriAllTest {
 			List<Customer> results = AprioriAllAlgorithm.execute(DataSet2, 0.4);
 
 			//Assert
-			CollectionAssert.AreEqual(expected, results); // areEquivalent doesn't work
+			CollectionAssert.AreEqual(expected, results);
 		}
 
 	}
