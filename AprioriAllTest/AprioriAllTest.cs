@@ -212,7 +212,7 @@ namespace AprioriAllTest {
 		}
 
 		[TestMethod]
-		public void Test_AprioriAll_DataSet2() {
+		public void Test_AprioriAll_DataSet2_LowSupport() {
 			//Arrange
 			List<Customer> expected = new List<Customer>();
 			expected.Add(new Customer(new int[] { 10 }, new int[] { 50 }));
@@ -224,6 +224,24 @@ namespace AprioriAllTest {
 
 			//Act
 			List<Customer> results = AprioriAllAlgorithm.execute(DataSet2, 0.2);
+
+			//Assert
+			CollectionAssert.AreEqual(expected, results); // areEquivalent doesn't work
+		}
+
+		[TestMethod]
+		public void Test_AprioriAll_DataSet2_HighSupport() {
+			//Arrange
+			List<Customer> expected = new List<Customer>();
+			expected.Add(new Customer(new int[] { 10 }, new int[] { 50 }));
+			expected.Add(new Customer(new int[] { 30 }, new int[] { 40, 70 }));
+			expected.Add(new Customer(new int[] { 70 }, new int[] { 30, 50 }));
+			expected.Add(new Customer(new int[] { 30 }, new int[] { 70 }, new int[] { 10, 20 }));
+			expected.Add(new Customer(new int[] { 80 }, new int[] { 90 }, new int[] { 30, 40, 50 }));
+			Assert.AreEqual(5, expected.Count());
+
+			//Act
+			List<Customer> results = AprioriAllAlgorithm.execute(DataSet2, 0.4);
 
 			//Assert
 			CollectionAssert.AreEqual(expected, results); // areEquivalent doesn't work
