@@ -19,6 +19,8 @@ namespace AprioriAllTest {
 
 		private static CustomerList DataSet2;
 
+		private static CustomerList DataSet3;
+
 		[ClassInitialize]
 		public static void InitializeTestSuite(TestContext testContext) {
 
@@ -55,6 +57,15 @@ namespace AprioriAllTest {
 			DataSet2.Customers.Add(new Customer(new int[] { 90 }, new int[] { 80 }));
 			DataSet2.Customers.Add(new Customer(new int[] { 50, 10 }, new int[] { 80 }));
 			Assert.AreEqual(6, DataSet2.Customers.Count());
+
+			DataSet3 = new CustomerList();
+			DataSet3.Customers.Add(new Customer(new int[] { 30 }, new int[] { 80 }, new int[] { 30, 40, 50 }, new int[] { 90 }));
+			DataSet3.Customers.Add(new Customer(new int[] { 10, 20 }, new int[] { 30 }, new int[] { 40, 60, 70 }));
+			DataSet3.Customers.Add(new Customer(new int[] { 30, 50, 70 }, new int[] { 10, 20 }));
+			DataSet3.Customers.Add(new Customer(new int[] { 30, 80 }, new int[] { 40, 70 }, new int[] { 90, 30, 40, 50 }));
+			DataSet3.Customers.Add(new Customer(new int[] { 90 }, new int[] { 80 }));
+			DataSet3.Customers.Add(new Customer(new int[] { 50, 10 }, new int[] { 80 }));
+			Assert.AreEqual(6, DataSet3.Customers.Count());
 
 			// future sets may be read from xml files?
 			//XmlReader reader = new XmlReader();
@@ -165,6 +176,56 @@ namespace AprioriAllTest {
 		}
 
 		[TestMethod]
+		public void Test_Apriori_DataSet3_LowSupport() {
+			//Arrange
+			List<Litemset> expected = new List<Litemset>();
+			expected.Add(new Litemset(3, 10));
+			expected.Add(new Litemset(2, 20));
+			expected.Add(new Litemset(4, 30));
+			expected.Add(new Litemset(3, 40));
+			expected.Add(new Litemset(4, 50));
+			expected.Add(new Litemset(3, 70));
+			expected.Add(new Litemset(4, 80));
+			expected.Add(new Litemset(3, 90));
+			expected.Add(new Litemset(2, 10, 20));
+			expected.Add(new Litemset(2, 30, 40));
+			expected.Add(new Litemset(3, 30, 50));
+			expected.Add(new Litemset(2, 40, 50));
+			expected.Add(new Litemset(2, 40, 70));
+			expected.Add(new Litemset(2, 30, 40, 50));
+			Assert.AreEqual(14, expected.Count());
+
+			//Act
+			Apriori apriori = new Apriori(DataSet3);
+			List<Litemset> oneLitemsets = apriori.FindOneLitemsets(0.2);
+
+			//Assert
+			CollectionAssert.AreEqual(expected, oneLitemsets); // areEquivalent doesn't work
+		}
+
+		[TestMethod]
+		public void Test_Apriori_DataSet3_HighSupport() {
+			//Arrange
+			List<Litemset> expected = new List<Litemset>();
+			expected.Add(new Litemset(3, 10));
+			expected.Add(new Litemset(4, 30));
+			expected.Add(new Litemset(3, 40));
+			expected.Add(new Litemset(4, 50));
+			expected.Add(new Litemset(3, 70));
+			expected.Add(new Litemset(4, 80));
+			expected.Add(new Litemset(3, 90));
+			expected.Add(new Litemset(3, 30, 50));
+			Assert.AreEqual(8, expected.Count());
+
+			//Act
+			Apriori apriori = new Apriori(DataSet3);
+			List<Litemset> oneLitemsets = apriori.FindOneLitemsets(0.5);
+
+			//Assert
+			CollectionAssert.AreEqual(expected, oneLitemsets);
+		}
+
+		[TestMethod]
 		public void Test_AprioriAll_Example1() {
 			//Arrange
 			List<Customer> expected = new List<Customer>();
@@ -177,24 +238,6 @@ namespace AprioriAllTest {
 			//Assert
 			CollectionAssert.AreEqual(expected, results);
 		}
-
-		//[TestMethod]
-		//public void Test_AprioriAll_Example2() {
-		//   //Arrange
-		//   List<Customer> expected = new List<Customer>();
-		//   expected.Add(new Customer(new int[] { 10 }, new int[] { 50 }));
-		//   expected.Add(new Customer(new int[] { 30 }, new int[] { 40, 70 }));
-		//   expected.Add(new Customer(new int[] { 70 }, new int[] { 30, 50 }));
-		//   expected.Add(new Customer(new int[] { 30 }, new int[] { 70 }, new int[] { 10, 20 }));
-		//   expected.Add(new Customer(new int[] { 80 }, new int[] { 90 }, new int[] { 30, 40, 50 }));
-		//   Assert.AreEqual(5, expected.Count());
-
-		//   //Act
-		//   List<Customer> results = AprioriAllAlgorithm.execute(Example2, 0.3);
-
-		//   //Assert
-		//   CollectionAssert.AreEqual(expected, results);
-		//}
 
 		[TestMethod]
 		public void Test_AprioriAll_DataSet1() {
@@ -243,6 +286,43 @@ namespace AprioriAllTest {
 
 			//Act
 			List<Customer> results = AprioriAllAlgorithm.execute(DataSet2, 0.4);
+
+			//Assert
+			CollectionAssert.AreEqual(expected, results);
+		}
+
+		[TestMethod]
+		public void Test_AprioriAll_DataSet3_LowSupport() {
+			//Arrange
+			List<Customer> expected = new List<Customer>();
+			expected.Add(new Customer(new int[] { 10 }, new int[] { 50 }));
+			expected.Add(new Customer(new int[] { 30 }, new int[] { 40, 70 }));
+			expected.Add(new Customer(new int[] { 70 }, new int[] { 30, 50 }));
+			expected.Add(new Customer(new int[] { 30 }, new int[] { 70 }, new int[] { 10, 20 }));
+			expected.Add(new Customer(new int[] { 80 }, new int[] { 90 }, new int[] { 30, 40, 50 }));
+			Assert.AreEqual(5, expected.Count());
+
+			//Act
+			List<Customer> results = AprioriAllAlgorithm.execute(DataSet3, 0.2);
+
+			//Assert
+			CollectionAssert.AreEqual(expected, results); // areEquivalent doesn't work
+		}
+
+		[TestMethod]
+		public void Test_AprioriAll_DataSet3_HighSupport() {
+			//Arrange
+			List<Customer> expected = new List<Customer>();
+			expected.Add(new Customer(new int[] { 10 }));
+			expected.Add(new Customer(new int[] { 30 }, new int[] { 40 }));
+			expected.Add(new Customer(new int[] { 30 }, new int[] { 70 }));
+			expected.Add(new Customer(new int[] { 50 }, new int[] { 80 }));
+			expected.Add(new Customer(new int[] { 80 }, new int[] { 90 }));
+			expected.Add(new Customer(new int[] { 30, 50 }));
+			Assert.AreEqual(6, expected.Count());
+
+			//Act
+			List<Customer> results = AprioriAllAlgorithm.execute(DataSet3, 0.4);
 
 			//Assert
 			CollectionAssert.AreEqual(expected, results);
