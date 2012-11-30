@@ -12,10 +12,10 @@ namespace SequentialMining
         {
             XmlReader reader = new XmlReader();
             CustomerList customerList = new CustomerList();
-            double support = 0.3;
+            double support = 0.4;
 
             if(args.Count() == 0)
-                customerList = reader.ReadFromXmlFile("dataset2.xml");
+                customerList = reader.ReadFromXmlFile("dataset1.xml");
             else if (args.Count() == 2)
             {
                 try
