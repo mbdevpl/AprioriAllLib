@@ -9,6 +9,5 @@ var searchData=
   ['aprioriallalgorithm',['AprioriAllAlgorithm',['../class_apriori_all_lib_1_1_apriori_all_algorithm.html',1,'AprioriAllLib']]],
   ['aprioriallalgorithm_2ecs',['AprioriAllAlgorithm.cs',['../_apriori_all_algorithm_8cs.html',1,'']]],
   ['apriorialllib',['AprioriAllLib',['../namespace_apriori_all_lib.html',1,'']]],
-  ['assemblyinfo_2ecs',['AssemblyInfo.cs',['../_assembly_info_8cs.html',1,'']]],
   ['apriori_20all_20algorithm_20implementation',['Apriori All algorithm implementation',['../index.html',1,'']]]
 ];

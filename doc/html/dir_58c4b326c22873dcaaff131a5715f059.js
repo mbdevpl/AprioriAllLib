@@ -1,6 +1,5 @@
 var dir_58c4b326c22873dcaaff131a5715f059 =
 [
-    [ "Properties", "dir_08e2e1a1c244758713f4940a155bfd99.html", "dir_08e2e1a1c244758713f4940a155bfd99" ],
     [ "Apriori.cs", "_apriori_8cs.html", [
       [ "Apriori", "class_apriori_all_lib_1_1_apriori.html", "class_apriori_all_lib_1_1_apriori" ]
     ] ],

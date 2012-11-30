@@ -139,6 +139,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a512b70867120363edcd1178cec1c31f9"><td class="memItemLeft" align="right" valign="top">override string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_litemset.html#a512b70867120363edcd1178cec1c31f9">ToString</a> ()</td></tr>
 <tr class="memdesc:a512b70867120363edcd1178cec1c31f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">String representation of this class  <a href="#a512b70867120363edcd1178cec1c31f9"></a><br/></td></tr>
 <tr class="separator:a512b70867120363edcd1178cec1c31f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e95f18474ad4afdd49d917ec3a93884"><td class="memItemLeft" align="right" valign="top">override bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_litemset.html#a6e95f18474ad4afdd49d917ec3a93884">Equals</a> (object obj)</td></tr>
+<tr class="separator:a6e95f18474ad4afdd49d917ec3a93884"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -298,6 +300,32 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
+<a class="anchor" id="a6e95f18474ad4afdd49d917ec3a93884"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">override bool AprioriAllLib.Litemset.Equals </td>
+          <td>(</td>
+          <td class="paramtype">object&#160;</td>
+          <td class="paramname"><em>obj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line">        {</div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_apriori_all_lib_1_1_litemset.html#aef38d5fccb4e45867abf5838ab8a68fa" title="List of items that this litemset contains ">Items</a>.Count != ((<a class="code" href="class_apriori_all_lib_1_1_litemset.html#af490087265e5b6389f19ce52775e6f35" title="Constructor ">Litemset</a>) obj).Items.Count)</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="class_apriori_all_lib_1_1_litemset.html#aef38d5fccb4e45867abf5838ab8a68fa" title="List of items that this litemset contains ">Items</a>.Count; i++)</div>
+<div class="line">            {</div>
+<div class="line">                <span class="keywordflow">if</span> (<a class="code" href="class_apriori_all_lib_1_1_litemset.html#aef38d5fccb4e45867abf5838ab8a68fa" title="List of items that this litemset contains ">Items</a>[i].Value != ((<a class="code" href="class_apriori_all_lib_1_1_litemset.html#af490087265e5b6389f19ce52775e6f35" title="Constructor ">Litemset</a>) obj).<a class="code" href="class_apriori_all_lib_1_1_litemset.html#aef38d5fccb4e45867abf5838ab8a68fa" title="List of items that this litemset contains ">Items</a>[i].Value)</div>
+<div class="line">                    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
 <a class="anchor" id="a512b70867120363edcd1178cec1c31f9"></a>
 <div class="memitem">
 <div class="memproto">
@@ -372,7 +400,7 @@ Here is the call graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_apriori_all_lib.html">AprioriAllLib</a></li><li class="navelem"><a class="el" href="class_apriori_all_lib_1_1_litemset.html">Litemset</a></li>
-    <li class="footer">Generated on Wed Nov 28 2012 15:38:46 for Apriori All by
+    <li class="footer">Generated on Fri Nov 30 2012 16:18:59 for Apriori All by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.2 </li>
   </ul>

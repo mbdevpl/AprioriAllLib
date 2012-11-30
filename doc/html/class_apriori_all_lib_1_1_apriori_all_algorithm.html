@@ -358,12 +358,12 @@ Here is the caller graph for this function:</div>
 <p>Executes <a class="el" href="class_apriori_all_lib_1_1_apriori.html" title="This class is used for calculating litemsets from a set of customers&#39; transactions ...">Apriori</a> All algorithm on a given input and minimum suport threshold. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">list</td><td>list of customers, who have transactions that have items</td></tr>
+    <tr><td class="paramname">customerList</td><td>list of customers, who have transactions that have items</td></tr>
     <tr><td class="paramname">threshold</td><td>from 0 to 1</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>list of frequently occurring customers transaction's patters</dd></dl>
 <div class="fragment"><div class="line">                                                                                          {</div>
 <div class="line">            <span class="keywordflow">if</span> (customerList == null)</div>
 <div class="line">                <span class="keywordflow">throw</span> <span class="keyword">new</span> ArgumentNullException(<span class="stringliteral">&quot;customerList&quot;</span>, <span class="stringliteral">&quot;customerList is null.&quot;</span>);</div>
@@ -972,15 +972,16 @@ Here is the caller graph for this function:</div>
 <div class="line">            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> k = kSequences.Count - 1 - 1; k &gt;= 0; --k) {</div>
 <div class="line">                List&lt;List&lt;int&gt;&gt; sequencesOfLengthK = kSequences[k];</div>
 <div class="line">                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> n = sequencesOfLengthK.Count - 1; n &gt;= 0; --n) {</div>
-<div class="line"></div>
+<div class="line">                    <span class="comment">// we analyze n-th k-sequence:</span></div>
 <div class="line">                    List&lt;int&gt; sequence = sequencesOfLengthK[n];</div>
 <div class="line">                    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = k + 1; i &lt; kSequences.Count; ++i) {</div>
 <div class="line"></div>
 <div class="line">                        <span class="keywordflow">foreach</span> (List&lt;int&gt; longerSequence <span class="keywordflow">in</span> kSequences[i])</div>
-<div class="line">                            <span class="keywordflow">if</span> (IsSubSequence(sequence, longerSequence)) { <span class="comment">// if sequence is a sub-seqence of s</span></div>
-<div class="line">                                <span class="comment">// purge sequence and all its subsequences</span></div>
+<div class="line">                            <span class="keywordflow">if</span> (IsSubSequence(sequence, longerSequence)) {</div>
+<div class="line">                                <span class="comment">// if &#39;sequence&#39; is a sub-seqence of &#39;longerSequence&#39;</span></div>
 <div class="line">                                <a class="code" href="class_apriori_all_lib_1_1_apriori_all_algorithm.html#a6a6e8aa1c43b3a71c2eb1d5e068d959a">PurgeAllSubSeqsOf</a>(kSequences, k, n);</div>
 <div class="line">                                sequencesOfLengthK.RemoveAt(n);</div>
+<div class="line">                                <span class="keywordflow">break</span>;</div>
 <div class="line">                            }</div>
 <div class="line"></div>
 <div class="line">                    }</div>
@@ -1084,7 +1085,7 @@ Here is the caller graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_apriori_all_lib.html">AprioriAllLib</a></li><li class="navelem"><a class="el" href="class_apriori_all_lib_1_1_apriori_all_algorithm.html">AprioriAllAlgorithm</a></li>
-    <li class="footer">Generated on Wed Nov 28 2012 15:38:46 for Apriori All by
+    <li class="footer">Generated on Fri Nov 30 2012 16:18:59 for Apriori All by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.2 </li>
   </ul>

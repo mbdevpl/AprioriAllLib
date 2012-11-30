@@ -396,9 +396,9 @@ namespace AprioriAllLib {
 		/// <summary>
 		/// Executes Apriori All algorithm on a given input and minimum suport threshold.
 		/// </summary>
-		/// <param name="list">list of customers, who have transactions that have items</param>
+		/// <param name="customerList">list of customers, who have transactions that have items</param>
 		/// <param name="threshold">from 0 to 1</param>
-		/// <returns></returns>
+		/// <returns>list of frequently occurring customers transaction's patters</returns>
 		public static List<Customer> execute(CustomerList customerList, double threshold) {
 			if (customerList == null)
 				throw new ArgumentNullException("customerList", "customerList is null.");
