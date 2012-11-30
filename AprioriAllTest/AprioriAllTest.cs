@@ -48,12 +48,12 @@ namespace AprioriAllTest {
 			Assert.AreEqual(5, DataSet1.Customers.Count());
 
 			DataSet2 = new CustomerList();
-			DataSet2.Customers.Add(new Customer(new int[] { 30 }, new int[] { 80 }, new int[] { 30, 40, 50 }, new int[] { 90 }));
+			DataSet2.Customers.Add(new Customer(new int[] { 30 }, new int[] { 30, 40, 50 }, new int[] { 80 }, new int[] { 90 }));
 			DataSet2.Customers.Add(new Customer(new int[] { 10, 20 }, new int[] { 30 }, new int[] { 40, 60, 70 }));
-			DataSet2.Customers.Add(new Customer(new int[] { 30, 50, 70 }, new int[] { 10, 20 }));
-			DataSet2.Customers.Add(new Customer(new int[] { 30, 80 }, new int[] { 40, 70 }, new int[] { 90, 30, 40, 50 }));
-			DataSet2.Customers.Add(new Customer(new int[] { 90 }, new int[] { 80 }));
-			DataSet2.Customers.Add(new Customer(new int[] { 50, 10 }, new int[] { 80 }));
+			DataSet2.Customers.Add(new Customer(new int[] { 10, 20 },new int[] { 30, 50, 70 }));
+			DataSet2.Customers.Add(new Customer(new int[] { 30, 40 }, new int[] { 50, 60 }, new int[] { 70, 80, 90 }));
+			DataSet2.Customers.Add(new Customer(new int[] { 80 }, new int[] { 90 }));
+			DataSet2.Customers.Add(new Customer(new int[] { 10, 50 }, new int[] { 80 }));
 			Assert.AreEqual(6, DataSet2.Customers.Count());
 
 			// future sets may be read from xml files?
@@ -123,16 +123,14 @@ namespace AprioriAllTest {
 			expected.Add(new Litemset(4, 30));
 			expected.Add(new Litemset(3, 40));
 			expected.Add(new Litemset(4, 50));
+            expected.Add(new Litemset(2, 60));
 			expected.Add(new Litemset(3, 70));
 			expected.Add(new Litemset(4, 80));
 			expected.Add(new Litemset(3, 90));
 			expected.Add(new Litemset(2, 10, 20));
 			expected.Add(new Litemset(2, 30, 40));
-			expected.Add(new Litemset(3, 30, 50));
-			expected.Add(new Litemset(2, 40, 50));
-			expected.Add(new Litemset(2, 40, 70));
-			expected.Add(new Litemset(2, 30, 40, 50));
-			Assert.AreEqual(14, expected.Count());
+			expected.Add(new Litemset(2, 30, 50));
+			Assert.AreEqual(12, expected.Count());
 
 			//Act
 			Apriori apriori = new Apriori(DataSet2);
@@ -153,8 +151,7 @@ namespace AprioriAllTest {
 			expected.Add(new Litemset(3, 70));
 			expected.Add(new Litemset(4, 80));
 			expected.Add(new Litemset(3, 90));
-			expected.Add(new Litemset(3, 30, 50));
-			Assert.AreEqual(8, expected.Count());
+			Assert.AreEqual(7, expected.Count());
 
 			//Act
 			Apriori apriori = new Apriori(DataSet2);
@@ -216,11 +213,12 @@ namespace AprioriAllTest {
 			//Arrange
 			List<Customer> expected = new List<Customer>();
 			expected.Add(new Customer(new int[] { 10 }, new int[] { 50 }));
-			expected.Add(new Customer(new int[] { 30 }, new int[] { 40, 70 }));
-			expected.Add(new Customer(new int[] { 70 }, new int[] { 30, 50 }));
-			expected.Add(new Customer(new int[] { 30 }, new int[] { 70 }, new int[] { 10, 20 }));
-			expected.Add(new Customer(new int[] { 80 }, new int[] { 90 }, new int[] { 30, 40, 50 }));
-			Assert.AreEqual(5, expected.Count());
+            expected.Add(new Customer(new int[] { 30 }, new int[] { 50 }, new int[] { 70 }));
+			expected.Add(new Customer(new int[] { 30, 50 }));
+            expected.Add(new Customer(new int[] { 30 }, new int[] { 40 }, new int[] { 60 }, new int[] { 70 }));
+            expected.Add(new Customer(new int[] { 30 }, new int[] { 70 }, new int[] { 10, 20 }));
+            expected.Add(new Customer(new int[] { 50 }, new int[] { 80 }, new int[] { 90 }, new int[] { 30, 40 }));
+			Assert.AreEqual(6, expected.Count());
 
 			//Act
 			List<Customer> results = AprioriAllAlgorithm.execute(DataSet2, 0.2);
@@ -235,11 +233,11 @@ namespace AprioriAllTest {
 			List<Customer> expected = new List<Customer>();
 			expected.Add(new Customer(new int[] { 10 }));
 			expected.Add(new Customer(new int[] { 30 }, new int[] { 40 }));
+			expected.Add(new Customer(new int[] { 30 }, new int[] { 50 }));
 			expected.Add(new Customer(new int[] { 30 }, new int[] { 70 }));
 			expected.Add(new Customer(new int[] { 50 }, new int[] { 80 }));
-			expected.Add(new Customer(new int[] { 80 }, new int[] { 90 }));
-			expected.Add(new Customer(new int[] { 30, 50 }));
-			Assert.AreEqual(6, expected.Count());
+            expected.Add(new Customer(new int[] { 80 }, new int[] { 90 })); 
+            Assert.AreEqual(6, expected.Count());
 
 			//Act
 			List<Customer> results = AprioriAllAlgorithm.execute(DataSet2, 0.4);
