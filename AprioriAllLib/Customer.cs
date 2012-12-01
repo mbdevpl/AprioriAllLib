@@ -50,7 +50,7 @@ namespace AprioriAllLib {
 		/// <returns>String of values of transaction items</returns>
 		public override string ToString() {
 			string itemsStr = string.Join(",", Transactions.Select(x => x.ToString()).ToArray());
-			return String.Format("{0}", itemsStr);
+			return String.Format("({0})", itemsStr);
 		}
 
 		public override bool Equals(object obj) {

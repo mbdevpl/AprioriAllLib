@@ -1,0 +1,31 @@
+
+Data set 2, low support:
++		[0]	{({10},{50})}	AprioriAllLib.Customer
++		[1]	{({30},{50},{70})}	AprioriAllLib.Customer
++		[2]	{({30 50})}	AprioriAllLib.Customer
++		[3]	{({30},{40},{60},{70})}	AprioriAllLib.Customer
++		[4]	{({10 20},{30},{70})}	AprioriAllLib.Customer
++		[5]	{({30 40},{50},{80},{90})}	AprioriAllLib.Customer
+
+Data set 2, high support:
++		[0]	{({10})}	AprioriAllLib.Customer
++		[1]	{({30},{40})}	AprioriAllLib.Customer
++		[2]	{({30},{50})}	AprioriAllLib.Customer
++		[3]	{({30},{70})}	AprioriAllLib.Customer
++		[4]	{({50},{80})}	AprioriAllLib.Customer
++		[5]	{({80},{90})}	AprioriAllLib.Customer
+
+Data set 3, low support:
++		[0]	{({50},{10})}
++		[1]	{({10 20})}
++		[2]	{({30},{40 70})}
++		[3]	{({70},{30 50})}
++		[4]	{({80},{30 40 50},{90})}
+
+Data set 3, high support:
++		[0]	{({10})}
++		[1]	{({80})}
++		[2]	{({90})}
++		[3]	{({30},{40})}
++		[4]	{({30},{70})}
++		[5]	{({30 50})}
