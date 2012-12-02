@@ -67,5 +67,9 @@ namespace AprioriAllLib {
 			//return base.Equals(obj);
 		}
 
+		public void AddItem(int value) {
+			items.Add(new Item(value));
+		}
+
 	}
 }
