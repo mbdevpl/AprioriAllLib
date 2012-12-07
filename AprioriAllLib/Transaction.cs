@@ -67,5 +67,12 @@ namespace AprioriAllLib {
 			//return base.Equals(obj);
 		}
 
+		public void AddItem(int value) {
+			items.Add(new Item(value));
+		}
+
+		public bool Contains(int itemVal) {
+			return items.Contains(new Item(itemVal));
+		}
 	}
 }

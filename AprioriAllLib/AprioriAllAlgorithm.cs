@@ -7,10 +7,16 @@ using System.Linq;
 namespace AprioriAllLib {
 
 	/// <summary>
-	/// Apriori All Algorithm :P
+	/// AprioriAll Algorithm.
 	/// </summary>
 	public class AprioriAllAlgorithm {
 
+		/// <summary>
+		/// Generates encoding and decoding dictionaries for a given set of 1-sequences (large itemsets).
+		/// </summary>
+		/// <param name="oneLitemsets">set of 1-sequences (large itemsets)</param>
+		/// <param name="encoding">encoding dictionary</param>
+		/// <param name="decoding">decoding dictionary</param>
 		protected static void GenerateEncoding(List<Litemset> oneLitemsets, out Dictionary<Litemset, int> encoding,
 				out Dictionary<int, Litemset> decoding) {
 			encoding = new Dictionary<Litemset, int>();
@@ -95,33 +101,8 @@ namespace AprioriAllLib {
 		/// </summary>
 		/// <param name="prev">previous k-sequences, i.e. (k-1)-sequences</param>
 		/// <returns>candidates for k-sequences</returns>
-		protected static Dictionary<List<int>, int> GenerateCandidates(List<List<int>> prev) {
+		protected static Dictionary<List<int>, int> GenerateCandidates(List<List<int>> prev, bool progressOutput) {
 			var candidates = new Dictionary<List<int>, int>();
-
-			//for (List<List<int>>.Enumerator e1 = prev.GetEnumerator(); e1.MoveNext(); ) {
-			//   // prev in kSequences[k - 1]
-			//   List<int> l1 = e1.Current;
-			//   for (List<List<int>>.Enumerator e2 = prev.GetEnumerator(); e2.MoveNext(); ) {
-			//      // we discard candidates like (1 1), (2 2), ... (k k), ... , (1 2 1 2),
-			//      // in general, all (a b .. k a b .. k)
-			//      if (e1.Equals(e2))
-			//         continue;
-			//      List<int> l2 = e2.Current;
-			//      int differentValue = -1;
-			//      int diff = 0;
-			//      foreach (int i1 in l1) {
-			//         if (!l2.Contains(i1)) {
-			//            ++diff;
-			//            if (diff > 1)
-			//               break;
-			//            differentValue = i1;
-			//         }
-			//      }
-			//      // we cannot form candidates from lists that differ in more than one element
-			//      if (diff != 1)
-			//         continue;
-			//   }
-			//}
 
 			int prevCount = prev.Count;
 			if (prevCount == 0)
@@ -135,52 +116,6 @@ namespace AprioriAllLib {
 					if (i1 == i2)
 						continue;
 					List<int> l2 = prev[i2];
-
-					//int differentValue = -1;
-					//int diff = 0;
-					//int onlyInOneIndex = -1;
-					//bool[] onlyInOne = new bool[prevLen];
-					//bool[] onlyInTwo = new bool[prevLen];
-					//for (int i = 0; i < prevLen; ++i) {
-					//   onlyInOne[i] = false;
-					//   onlyInTwo[i] = true;
-					//}
-					//int ii2 = 0;
-					//for (int ii1 = 0; ii1 < prevLen; ++ii1) {
-					//   if (l1[ii1].Equals(l2[ii2])) {
-					//      onlyInTwo[ii2] = false;
-					//      ++ii2;
-					//   } else {
-					//      ++diff;
-					//      onlyInOne[ii1] = true;
-					//      onlyInOneIndex = ii1;
-					//      if (diff > 1)
-					//         break;
-					//   }
-					//   //for (ii2 = ii2 + 1; ii2 < l2.Count; ++ii2) {
-					//   //}
-					//}
-					//foreach (int elem1 in l1) {
-					//   if (!l2.Contains(elem1)) {
-					//      ++diff;
-					//      if (diff > 1)
-					//         break;
-					//      differentValue = elem1;
-					//   }
-					//}
-
-					// we cannot form candidates from lists that differ in more than one element
-					//if (diff != 1)
-					//   continue;
-
-					//if (ii2 < prevLen) {
-					//   if (l1[onlyInOneIndex] == l2[ii2]) {
-					//      // the number by which the sequences differ is in fact the same
-					//      continue;
-					//   }
-					//} else {
-					//   throw new ArgumentException("both counters are at maximum");
-					//}
 
 					// check if first n-1 elements of both lists are equal
 					bool partEqual = true;
@@ -196,14 +131,6 @@ namespace AprioriAllLib {
 					// join l1 and l2
 					List<int> candidate = new List<int>(l1);
 					candidate.Add(l2[prevLen - 1]);
-
-					//for (int ii1 = 0; ii1 < prevLen; ++ii1) {
-					//   if (onlyInOne[ii1])
-					//      candidate.Add(;
-					//}
-					//onlyInTwo[ii2] = false;
-					//candidate.Add(differentValue);
-					//candidate.Sort();
 
 					// we don't want to add any duplicates
 					bool foundEqual = false;
@@ -224,8 +151,10 @@ namespace AprioriAllLib {
 						continue;
 
 					candidates.Add(candidate, 0);
+					if (progressOutput)
+						if (candidates.Count > 0 && candidates.Count % 25000 == 0)
+							Console.Out.WriteLine("   {0} and counting...", candidates.Count);
 				}
-
 			}
 
 			// build a list of candidates that haven't got all their sub-sequences
@@ -259,6 +188,9 @@ namespace AprioriAllLib {
 				if (invalidCandidate)
 					keysToRemove.Add(keys.ElementAt(ic));
 			}
+			if (progressOutput)
+				Console.Out.WriteLine("Found {0} candidates, of which previous sequences do not contain {1}.",
+					candidates.Count, keysToRemove.Count);
 			//remove invalid candidates
 			foreach (List<int> key in keysToRemove)
 				candidates.Remove(key);
@@ -313,7 +245,7 @@ namespace AprioriAllLib {
 		/// <returns>list of k-sequences, partitioned by k. i.e. i-th element of resulting List 
 		/// contains all i-sequences</returns>
 		protected static List<List<List<int>>> FindAllFrequentSequences(List<Litemset> oneLitemsets,
-			Dictionary<Litemset, int> encoding, List<List<List<int>>> encodedList, int minSupport) {
+			Dictionary<Litemset, int> encoding, List<List<List<int>>> encodedList, int minSupport, bool progressOutput) {
 			var kSequences = new List<List<List<int>>>();
 
 			kSequences.Add(new List<List<int>>()); // placeholder for 0-sequences (whatever it means)
@@ -325,12 +257,14 @@ namespace AprioriAllLib {
 			}
 
 			for (int k = 2; kSequences.Count >= k && kSequences[k - 1].Count > 0; ++k) {
+				if (progressOutput)
+					Console.Out.WriteLine("Looking for {0}-sequences...", k);
 				// list of kSequences, initially empty
 				kSequences.Add(new List<List<int>>());
 				var prev = kSequences[k - 1];
 
 				// generate candidates
-				Dictionary<List<int>, int> candidates = GenerateCandidates(prev);
+				Dictionary<List<int>, int> candidates = GenerateCandidates(prev, progressOutput);
 
 				// calculate support of each candidate by analyzing the whole encoded input
 
@@ -374,7 +308,8 @@ namespace AprioriAllLib {
 						kSequences[k].Add(candidate);
 
 				}
-
+				if (progressOutput)
+					Console.Out.WriteLine("Found {0} sequences that have sufficient support.", kSequences[k].Count);
 			}
 
 			return kSequences;
@@ -566,33 +501,58 @@ namespace AprioriAllLib {
 
 			return decodedList;
 		}
+		/// <summary>
+		/// Executes Apriori All algorithm on a given input and minimum suport threshold.
+		/// </summary>
+		/// <param name="customerList">list of customers, who have transactions that have items</param>
+		/// <param name="threshold">greater than 0, and less or equal 1</param>
+		/// <returns>list of frequently occurring customers transaction's patters</returns>
+		public static List<Customer> Execute(CustomerList customerList, double threshold) {
+			return Execute(customerList, threshold, false);
+		}
 
 		/// <summary>
 		/// Executes Apriori All algorithm on a given input and minimum suport threshold.
 		/// </summary>
 		/// <param name="customerList">list of customers, who have transactions that have items</param>
-		/// <param name="threshold">from 0 to 1</param>
+		/// <param name="threshold">greater than 0, and less or equal 1</param>
+		/// <param name="progressOutput">if true, information about progress is sent to standard output</param>
 		/// <returns>list of frequently occurring customers transaction's patters</returns>
-		public static List<Customer> execute(CustomerList customerList, double threshold) {
+		public static List<Customer> Execute(CustomerList customerList, double threshold, bool progressOutput) {
 			if (customerList == null)
 				throw new ArgumentNullException("customerList", "customerList is null.");
-			if (threshold > 1 || threshold < 0)
-				throw new ArgumentException("threshold", "threshold is out of range = [0,1]");
+			if (threshold > 1 || threshold <= 0)
+				throw new ArgumentException("threshold", "threshold is out of range = (0,1]");
 
 			int minSupport = (int)Math.Ceiling((double)customerList.Customers.Count * threshold);
+			if (progressOutput)
+				Console.Out.WriteLine("Threshold = {0}  =>  Minimum support = {1}", threshold, minSupport);
 
 			// 1. sort the input!
+			if (progressOutput)
+				Console.Out.WriteLine("1) Sort Phase - list is already sorted as user sees fit");
 
 			// corresponds to 1st step of Apriori All algorithm, namely "Sort Phase".
 
 			// already done because input is sorted by the user in an apropriate way
 
 			// 2. find all frequent 1-sequences
+			if (progressOutput)
+				Console.Out.WriteLine("2) Litemset Phase");
+			if (progressOutput)
+				Console.Out.WriteLine("Launching Apriori...");
 			Apriori apriori = new Apriori(customerList);
 			// this corresponds to 2nd step of Apriori All algorithm, namely "Litemset Phase".
 			List<Litemset> oneLitemsets = apriori.FindOneLitemsets(threshold);
+			if (progressOutput) {
+				Console.Out.WriteLine("Litemsets:");
+				foreach (Litemset l in oneLitemsets)
+					Console.Out.WriteLine(" - {0}", l);
+			}
 
 			// 3. transform input into list of IDs
+			if (progressOutput)
+				Console.Out.WriteLine("3) Transformation Phase");
 
 			// 3.a) give an ID to each 1-seq
 			Dictionary<Litemset, int> encoding;
@@ -609,17 +569,31 @@ namespace AprioriAllLib {
 			//   itemsets performed by one customer
 			// - outer list means list of customers
 
+			if (progressOutput)
+				Console.Out.WriteLine("Encoding input data...");
 			var encodedList = EncodeCustomerList(customerList, oneLitemsets, encoding);
 
 			// 4. find all frequent sequences in the input
+			if (progressOutput)
+				Console.Out.WriteLine("4) Sequence Phase");
 
-			var kSequences = FindAllFrequentSequences(oneLitemsets, encoding, encodedList, minSupport);
+			if (progressOutput)
+				Console.Out.WriteLine("Searching for all possible k-sequences");
+			var kSequences = FindAllFrequentSequences(oneLitemsets, encoding, encodedList, minSupport, progressOutput);
+			if (progressOutput)
+				Console.Out.WriteLine("Maximal k is {0}.", kSequences.Count - 2);
 
 			// 5. purge all non-maximal sequences
+			if (progressOutput)
+				Console.Out.WriteLine("5) Maximal Phase");
 
+			if (progressOutput)
+				Console.Out.WriteLine("Purging all non-maximal sequences...");
 			PurgeAllNonMax(kSequences);
 
 			// 6. decode results
+			if (progressOutput)
+				Console.Out.WriteLine("Decoding results and purging again...");
 			var decodedList = InferRealResults(encodedList, kSequences, decoding, customerList);
 
 			// 7. return results

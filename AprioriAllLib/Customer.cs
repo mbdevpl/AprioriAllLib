@@ -61,6 +61,10 @@ namespace AprioriAllLib {
 			//return base.Equals(obj);
 		}
 
+		public void AddTransaction(Transaction t) {
+			Transactions.Add(t);
+		}
+
 	}
 
 }
