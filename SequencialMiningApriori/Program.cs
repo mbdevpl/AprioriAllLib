@@ -39,7 +39,7 @@ namespace SequentialMining
             }
             Apriori apriori = new Apriori(customerList);
             List<Litemset> litemsets = apriori.FindOneLitemsets(support);
-            List<Customer> aprioriAllResult = AprioriAllAlgorithm.execute(customerList, support);
+            List<Customer> aprioriAllResult = AprioriAllAlgorithm.Execute(customerList, support);
 
             Console.WriteLine("Litemsets found: \n");
             foreach (Litemset l in litemsets)
