@@ -63,7 +63,7 @@ namespace AprioriAllLib
         /// <returns>A list of Litemsets with support >= minimalSupport</returns>
         public List<Litemset> FindOneLitemsets(double minimalSupport)
         {
-            if (minimalSupport > 1 || minimalSupport < 0)
+            if (minimalSupport > 1 || minimalSupport <= 0)
                 return null; 
             
             minimalSupport *= customerList.Customers.Count;

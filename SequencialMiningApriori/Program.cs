@@ -21,7 +21,7 @@ namespace SequentialMining
                 try
                 {
                     support = double.Parse(args[1]);
-                    if (support < 0 || support > 1)
+                    if (support <= 0 || support > 1)
                     {
                         Console.WriteLine("Invalid support: should be between 0 and 1");
                         return;
@@ -39,7 +39,7 @@ namespace SequentialMining
             }
             Apriori apriori = new Apriori(customerList);
             List<Litemset> litemsets = apriori.FindOneLitemsets(support);
-            List<Customer> aprioriAllResult = AprioriAllAlgorithm.execute(customerList, 0.3);
+            List<Customer> aprioriAllResult = AprioriAllAlgorithm.execute(customerList, support);
 
             Console.WriteLine("Litemsets found: \n");
             foreach (Litemset l in litemsets)
