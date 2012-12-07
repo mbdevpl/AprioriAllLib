@@ -9,20 +9,26 @@ namespace ConsoleTestAprioriAll {
 
 	public class Program {
 
-		public static CustomerList GenerateRandomList(int length) {
+		public static CustomerList GenerateRandomList(int customersCount, int maxTransactionCount, int maxTransactionLength) {
 			Random random = new Random();
 			CustomerList randomCustomerList = new CustomerList();
 
 			Customer c;
 			Transaction t;
-			for (int i = 0; i < length; ++i) {
+			for (int i = 0; i < customersCount; ++i) {
 				c = new Customer();
-				int transactionsCount = random.Next() % 5 + 1;
+				int transactionsCount = random.Next() % maxTransactionCount + 1;
 				for (int tn = 0; tn < transactionsCount; ++tn) {
-					int n = random.Next() % 8 + 1;
+					int n = random.Next() % maxTransactionLength + 1;
 					t = new Transaction();
-					for (int it = 0; it < n; ++it)
-						t.AddItem((random.Next() % 9 + 1) * 10);
+					for (int it = 0; it < n; ++it) {
+						int itemVal = (random.Next() % maxTransactionLength + 10) * 10;
+						if (t.Contains(itemVal)) {
+							--it;
+							continue;
+						}
+						t.AddItem(itemVal);
+					}
 					c.AddTransaction(t);
 				}
 				randomCustomerList.Customers.Add(c);
@@ -33,8 +39,8 @@ namespace ConsoleTestAprioriAll {
 		public static void Main(string[] args) {
 			Console.Out.WriteLine("AprioriAll algorithm implementation in .NET");
 			//Arrange
-			CustomerList randomExample = GenerateRandomList(100);
-			double support = 0.5;
+			CustomerList randomExample = GenerateRandomList(700, 7, 7);
+			double support = 0.4;
 
 			Console.Out.WriteLine("\nInput:");
 			foreach (Customer c in randomExample.Customers) {

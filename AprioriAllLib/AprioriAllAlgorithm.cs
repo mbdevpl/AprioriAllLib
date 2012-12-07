@@ -7,10 +7,16 @@ using System.Linq;
 namespace AprioriAllLib {
 
 	/// <summary>
-	/// Apriori All Algorithm :P
+	/// AprioriAll Algorithm.
 	/// </summary>
 	public class AprioriAllAlgorithm {
 
+		/// <summary>
+		/// Generates encoding and decoding dictionaries for a given set of 1-sequences (large itemsets).
+		/// </summary>
+		/// <param name="oneLitemsets">set of 1-sequences (large itemsets)</param>
+		/// <param name="encoding">encoding dictionary</param>
+		/// <param name="decoding">decoding dictionary</param>
 		protected static void GenerateEncoding(List<Litemset> oneLitemsets, out Dictionary<Litemset, int> encoding,
 				out Dictionary<int, Litemset> decoding) {
 			encoding = new Dictionary<Litemset, int>();
