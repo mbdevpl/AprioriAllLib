@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Apriori All: Apriori All algorithm implementation</title>
+<title>Data Mining project - AprioriAll implementation: Apriori All algorithm implementation</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,8 +27,10 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Apriori All
+   <div id="projectname">Data Mining project - AprioriAll implementation
+   &#160;<span id="projectnumber">version 1.0</span>
    </div>
+   <div id="projectbrief">authors: Karolina Baltyn, Mateusz Bysiek</div>
   </td>
  </tr>
  </tbody>
@@ -99,20 +101,22 @@ $(document).ready(function(){initNavTree('index.html','');});
 <div class="contents">
 <div class="textblock"><p>(C) 2012, Karolina Baltyn and Mateusz Bysiek</p>
 <h2>How to use the application</h2>
-<p>This is (for the moment) a pure test application, it does not have any interface allowing any user-defined input. Such feature is planned.</p>
+<p>Launch SequencialMiningApriori with paths to input files as command line arguments.</p>
 <h2>Where is everything</h2>
 <ul>
+<li>*/doc/pdf* - general documentation describing main principles of the algorithm and this application</li>
+<li>*/doc/html* - documentation of source code</li>
 <li>*/AprioriAllLib* - library that implements the algorithm</li>
 <li>*/AprioriAllTest* - unit tests, which check correctness of the implementation</li>
-<li>*/ConsoleTestAprioriAll* - a test console app</li>
-<li>*/SequentialMiningApriori* - another test console app </li>
+<li>*/ConsoleTestAprioriAll* - a test console application that generates random input data and runs the algorithm</li>
+<li>*/SequencialMiningApriori* - console application which accepts user-defined input </li>
 </ul>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri Nov 30 2012 16:18:59 for Apriori All by
+    <li class="footer">Generated on Fri Dec 7 2012 21:46:10 for Data Mining project - AprioriAll implementation by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.2 </li>
   </ul>

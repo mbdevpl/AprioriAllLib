@@ -1,6 +1,6 @@
 var NAVTREE =
 [
-  [ "Apriori All", "index.html", [
+  [ "Data Mining project - AprioriAll implementation", "index.html", [
     [ "Apriori All algorithm implementation", "index.html", null ],
     [ "Packages", null, [
       [ "Packages", "namespaces.html", "namespaces" ]

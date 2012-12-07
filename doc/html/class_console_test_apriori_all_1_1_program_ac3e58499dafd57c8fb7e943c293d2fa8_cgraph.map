@@ -1,0 +1,7 @@
+<map id="ConsoleTestAprioriAll.Program.Main" name="ConsoleTestAprioriAll.Program.Main">
+<area shape="rect" id="node3" href="$class_console_test_apriori_all_1_1_program.html#a61b4bb52ed3320d51119354a7950f509" title="ConsoleTestAprioriAll.Program.\lGenerateRandomList" alt="" coords="285,70,488,111"/>
+<area shape="rect" id="node11" href="$class_apriori_all_lib_1_1_apriori_all_algorithm.html#a476e8f9c034a09ec0545dbb5105e399f" title="Executes Apriori All algorithm on a given input and minimum suport threshold. " alt="" coords="313,135,460,177"/>
+<area shape="rect" id="node5" href="$class_apriori_all_lib_1_1_transaction.html#ac736c8e2fd896d89a0d57258e27beed4" title="AprioriAllLib.Transaction.\lContains" alt="" coords="542,5,709,46"/>
+<area shape="rect" id="node7" href="$class_apriori_all_lib_1_1_transaction.html#a3b4983310e683a073e1472f5abea5700" title="AprioriAllLib.Transaction.\lAddItem" alt="" coords="542,70,709,111"/>
+<area shape="rect" id="node9" href="$class_apriori_all_lib_1_1_customer.html#a222005fd9e9134325409b26f30d1be40" title="AprioriAllLib.Customer.Add\lTransaction" alt="" coords="536,135,715,177"/>
+</map>

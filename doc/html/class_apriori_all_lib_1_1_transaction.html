@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Apriori All: AprioriAllLib.Transaction Class Reference</title>
+<title>Data Mining project - AprioriAll implementation: AprioriAllLib.Transaction Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,8 +27,10 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Apriori All
+   <div id="projectname">Data Mining project - AprioriAll implementation
+   &#160;<span id="projectnumber">version 1.0</span>
    </div>
+   <div id="projectbrief">authors: Karolina Baltyn, Mateusz Bysiek</div>
   </td>
  </tr>
  </tbody>
@@ -131,6 +133,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:acee1a8846d87f949c63110f7e6eabfe0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30328717fdd46c8c8eea3a86310db3dd"><td class="memItemLeft" align="right" valign="top">override bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_transaction.html#a30328717fdd46c8c8eea3a86310db3dd">Equals</a> (object obj)</td></tr>
 <tr class="separator:a30328717fdd46c8c8eea3a86310db3dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b4983310e683a073e1472f5abea5700"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_transaction.html#a3b4983310e683a073e1472f5abea5700">AddItem</a> (int value)</td></tr>
+<tr class="separator:a3b4983310e683a073e1472f5abea5700"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac736c8e2fd896d89a0d57258e27beed4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_transaction.html#ac736c8e2fd896d89a0d57258e27beed4">Contains</a> (int itemVal)</td></tr>
+<tr class="separator:ac736c8e2fd896d89a0d57258e27beed4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -237,6 +243,62 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a3b4983310e683a073e1472f5abea5700"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AprioriAllLib.Transaction.AddItem </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line">                                       {</div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_transaction.html#ae815fd730576c0592d47895a2c8b420d">items</a>.Add(<span class="keyword">new</span> Item(value));</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_apriori_all_lib_1_1_transaction_a3b4983310e683a073e1472f5abea5700_icgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_transaction_a3b4983310e683a073e1472f5abea5700_icgraph" alt=""/></div>
+<map name="class_apriori_all_lib_1_1_transaction_a3b4983310e683a073e1472f5abea5700_icgraph" id="class_apriori_all_lib_1_1_transaction_a3b4983310e683a073e1472f5abea5700_icgraph">
+<area shape="rect" id="node3" href="class_console_test_apriori_all_1_1_program.html#a61b4bb52ed3320d51119354a7950f509" title="ConsoleTestAprioriAll.Program.\lGenerateRandomList" alt="" coords="221,5,424,46"/><area shape="rect" id="node5" href="class_console_test_apriori_all_1_1_program.html#ac3e58499dafd57c8fb7e943c293d2fa8" title="ConsoleTestAprioriAll.Program.Main" alt="" coords="473,12,703,39"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ac736c8e2fd896d89a0d57258e27beed4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AprioriAllLib.Transaction.Contains </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>itemVal</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line">                                          {</div>
+<div class="line">            <span class="keywordflow">return</span> <a class="code" href="class_apriori_all_lib_1_1_transaction.html#ae815fd730576c0592d47895a2c8b420d">items</a>.Contains(<span class="keyword">new</span> Item(itemVal));</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_apriori_all_lib_1_1_transaction_ac736c8e2fd896d89a0d57258e27beed4_icgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_transaction_ac736c8e2fd896d89a0d57258e27beed4_icgraph" alt=""/></div>
+<map name="class_apriori_all_lib_1_1_transaction_ac736c8e2fd896d89a0d57258e27beed4_icgraph" id="class_apriori_all_lib_1_1_transaction_ac736c8e2fd896d89a0d57258e27beed4_icgraph">
+<area shape="rect" id="node3" href="class_console_test_apriori_all_1_1_program.html#a61b4bb52ed3320d51119354a7950f509" title="ConsoleTestAprioriAll.Program.\lGenerateRandomList" alt="" coords="221,5,424,46"/><area shape="rect" id="node5" href="class_console_test_apriori_all_1_1_program.html#ac3e58499dafd57c8fb7e943c293d2fa8" title="ConsoleTestAprioriAll.Program.Main" alt="" coords="473,12,703,39"/></map>
+</div>
+</p>
+
+</div>
+</div>
 <a class="anchor" id="a30328717fdd46c8c8eea3a86310db3dd"></a>
 <div class="memitem">
 <div class="memproto">
@@ -286,7 +348,7 @@ Here is the call graph for this function:</div>
 <dl class="section return"><dt>Returns</dt><dd>String of values of transaction items</dd></dl>
 <div class="fragment"><div class="line">                                          {</div>
 <div class="line">            <span class="keywordtype">string</span> itemsStr = <span class="keywordtype">string</span>.Join(<span class="stringliteral">&quot; &quot;</span>, <a class="code" href="class_apriori_all_lib_1_1_transaction.html#ae815fd730576c0592d47895a2c8b420d">items</a>.Select(x =&gt; x.ToString()).ToArray());</div>
-<div class="line">            <span class="keywordflow">return</span> String.Format(<span class="stringliteral">&quot;({0})&quot;</span>, itemsStr);</div>
+<div class="line">            <span class="keywordflow">return</span> String.Format(<span class="stringliteral">&quot;{{{0}}}&quot;</span>, itemsStr);</div>
 <div class="line">        }</div>
 </div><!-- fragment -->
 </div>
@@ -356,7 +418,7 @@ Here is the call graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_apriori_all_lib.html">AprioriAllLib</a></li><li class="navelem"><a class="el" href="class_apriori_all_lib_1_1_transaction.html">Transaction</a></li>
-    <li class="footer">Generated on Fri Nov 30 2012 16:18:59 for Apriori All by
+    <li class="footer">Generated on Fri Dec 7 2012 21:46:10 for Data Mining project - AprioriAll implementation by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.2 </li>
   </ul>

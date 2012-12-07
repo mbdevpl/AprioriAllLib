@@ -1,3 +1,4 @@
 <map id="AprioriAllLib.Apriori.FindOneLitemsets" name="AprioriAllLib.Apriori.FindOneLitemsets">
-<area shape="rect" id="node3" href="$class_apriori_all_lib_1_1_apriori_all_algorithm.html#ae4f86f8c88052d29cbfc629f2f61c302" title="Executes Apriori All algorithm on a given input and minimum suport threshold. " alt="" coords="216,5,363,46"/>
+<area shape="rect" id="node3" href="$class_apriori_all_lib_1_1_apriori_all_algorithm.html#a9e350216593ae11a671aa26e3651ae8a" title="Executes Apriori All algorithm on a given input and minimum suport threshold. " alt="" coords="247,5,393,46"/>
+<area shape="rect" id="node5" href="$class_sequential_mining_1_1_program.html#ae2e59f6150c7b0a70bf9625ffa8bf302" title="SequentialMining.Program.Main" alt="" coords="217,71,423,97"/>
 </map>

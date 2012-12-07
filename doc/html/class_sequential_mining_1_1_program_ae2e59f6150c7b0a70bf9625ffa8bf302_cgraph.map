@@ -1,0 +1,9 @@
+<map id="SequentialMining.Program.Main" name="SequentialMining.Program.Main">
+<area shape="rect" id="node3" href="$class_apriori_all_lib_1_1_xml_reader.html#ab7285c4d5cee31f7a1001f00f4eeff25" title="Reads from xml client database " alt="" coords="262,5,423,46"/>
+<area shape="rect" id="node11" href="$class_apriori_all_lib_1_1_apriori.html#a64e63d73cfc770ef8532127198b314dd" title="Finds all litemsets that have the minimal support " alt="" coords="262,70,423,111"/>
+<area shape="rect" id="node15" href="$class_apriori_all_lib_1_1_apriori_all_algorithm.html#a476e8f9c034a09ec0545dbb5105e399f" title="Executes Apriori All algorithm on a given input and minimum suport threshold. " alt="" coords="269,135,416,177"/>
+<area shape="rect" id="node5" href="$class_apriori_all_lib_1_1_xml_reader.html#a117782b010f24408af2a1308786b473a" title="AprioriAllLib.XmlReader.add\lCustomer" alt="" coords="474,5,657,46"/>
+<area shape="rect" id="node7" href="$class_apriori_all_lib_1_1_xml_reader.html#ad39b320cc29d31704fbaa7b121cbc3ba" title="AprioriAllLib.XmlReader.add\lTransaction" alt="" coords="707,5,890,46"/>
+<area shape="rect" id="node9" href="$class_apriori_all_lib_1_1_xml_reader.html#a24244fe32b889d4f7a4f44a9aeb11779" title="AprioriAllLib.XmlReader.addItem" alt="" coords="939,12,1146,39"/>
+<area shape="rect" id="node13" href="$class_apriori_all_lib_1_1_apriori.html#a79d720678f873cfb665fe6cbf4bf32ae" title="Produces all subsets of a given list of items in a transaction " alt="" coords="472,70,659,111"/>
+</map>
