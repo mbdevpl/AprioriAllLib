@@ -7,6 +7,9 @@ using OpenCL.Net;
 
 namespace AprioriAllLib.Test
 {
+	/// <summary>
+	/// Unit tests for parallel version of Apriori.
+	/// </summary>
 	[TestClass]
 	public class AprioriParallelTest
 	{

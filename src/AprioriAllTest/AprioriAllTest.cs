@@ -7,7 +7,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace AprioriAllLib.Test
 {
 	/// <summary>
-	/// Unit tests for serialized versions of Apriori and AprioriAll.
+	/// Unit tests for serialized version of AprioriAll algorithm.
 	/// </summary>
 	[TestClass]
 	public class AprioriAllTest
