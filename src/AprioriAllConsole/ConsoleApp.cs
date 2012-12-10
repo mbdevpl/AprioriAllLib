@@ -11,20 +11,15 @@ namespace AprioriAllLib.ConsoleTest
 	/// </summary>
 	class ConsoleApp
 	{
+
 		static void Main(string[] args)
 		{
-			XmlReader reader = new XmlReader();
-			CustomerList customerList = new CustomerList();
-			double support = 1;
+			Console.Out.WriteLine("AprioriAll algorithm implementation in .NET\n");
 
-			if (args.Count() == 0)
-			{
-				//customerList = reader.ReadFromXmlFile("dataset1.xml");
-				Console.Out.WriteLine("Usage: aprioriall <filename> <support>");
-				Console.Out.WriteLine("  <filename> : XML file containing database of customers");
-				Console.Out.WriteLine("  <support> : real number greater than 0 and less or equal 1");
-			}
-			else if (args.Count() == 2)
+			CustomerList customerList = null;
+			double support = -1;
+
+			if (args.Count() == 2)
 			{
 				try
 				{
@@ -34,6 +29,7 @@ namespace AprioriAllLib.ConsoleTest
 						Console.WriteLine("Invalid support: should be between 0 and 1");
 						return;
 					}
+					XmlReader reader = new XmlReader();
 					customerList = reader.ReadFromXmlFile(args[0]);
 				}
 				catch (Exception)
@@ -41,56 +37,29 @@ namespace AprioriAllLib.ConsoleTest
 					throw new Exception("Invalid parameters");
 				}
 			}
-			else if (args.Count() == 1)
+			else
 			{
-				throw new Exception("Invalid number of arguments: should be 2");
+				Console.Out.WriteLine("Usage: aprioriall <filename> <support>");
+				Console.Out.WriteLine("  <filename> : path to XML file containing database of customers");
+				Console.Out.WriteLine("  <support> : real number greater than 0 and less or equal 1");
+				return;
 			}
 
-			Console.Out.WriteLine("\nInput:");
+			Console.Out.WriteLine("Input:");
 			foreach (Customer c in customerList.Customers)
 				Console.Out.WriteLine(" - {0}", c);
 
-			Apriori apriori = new Apriori(customerList);
-			List<Litemset> litemsets = apriori.FindOneLitemsets(support);
-
-			Console.WriteLine("Litemsets found: \n");
-			foreach (Litemset l in litemsets)
-			{
-				Console.Write("(");
-				foreach (Item i in l.Items)
-				{
-					Console.Write(i.Value);
-					if (l.Items.IndexOf(i) != l.Items.Count - 1)
-						Console.Write(", ");
-				}
-				Console.Write(") ");
-			}
-
+			Console.Out.WriteLine("\nComputation:");
 			AprioriAll aprioriAll = new AprioriAll(customerList);
-			List<Customer> aprioriAllResult = aprioriAll.Execute(support);
+			List<Customer> aprioriAllResult = aprioriAll.Execute(support, true);
 
-			Console.WriteLine("\n\nSequences found: \n");
+			Console.Out.WriteLine("\nResults:");
 			foreach (Customer c in aprioriAllResult)
-			{
-				Console.Write("{");
-				foreach (Transaction t in c.Transactions)
-				{
-					Console.Write("(");
-					foreach (Item i in t.Items)
-					{
-						Console.Write(i.Value);
-						if (t.Items.IndexOf(i) != t.Items.Count - 1)
-							Console.Write(", ");
-					}
-					Console.Write(")");
-				}
-				Console.Write("} ");
-			}
+				Console.Out.WriteLine(" - {0}", c);
 
-
-
-			Console.WriteLine("\n\nPress enter to continue");
-			Console.ReadLine();
+			Console.Write("\nThe end.");
+			Console.ReadKey();
 		}
+
 	}
 }
