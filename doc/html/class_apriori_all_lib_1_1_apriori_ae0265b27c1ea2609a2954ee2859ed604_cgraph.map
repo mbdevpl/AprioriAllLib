@@ -1,5 +1,4 @@
 <map id="AprioriAllLib.Apriori.FindOneLitemsets" name="AprioriAllLib.Apriori.FindOneLitemsets">
-<area shape="rect" id="node3" href="$class_apriori_all_lib_1_1_open_c_l_checker.html#ae52ccff5d63aba27e9c5932c281ed494" title="AprioriAllLib.OpenCLChecker.\lGetBuildInfo" alt="" coords="216,5,411,46"/>
-<area shape="rect" id="node7" href="$class_apriori_all_lib_1_1_apriori.html#a79d720678f873cfb665fe6cbf4bf32ae" title="Produces all subsets of a given list of items in a transaction " alt="" coords="220,70,407,111"/>
-<area shape="rect" id="node5" href="$class_apriori_all_lib_1_1_open_c_l_checker.html#a07d311d65baca6836000be716fc575e2" title="AprioriAllLib.OpenCLChecker.\lTrueIfError" alt="" coords="459,5,653,46"/>
+<area shape="rect" id="node3" href="$class_apriori_all_lib_1_1_apriori.html#a76b9d8fc1425b720ec674727a1d65b36" title="Executes parallel version of the Apriori algorithm. " alt="" coords="216,5,400,46"/>
+<area shape="rect" id="node5" href="$class_apriori_all_lib_1_1_apriori.html#ab03bffcbb72d21f81aad2f7ef3aea798" title="Finds all litemsets that have the minimal support. " alt="" coords="216,71,400,97"/>
 </map>

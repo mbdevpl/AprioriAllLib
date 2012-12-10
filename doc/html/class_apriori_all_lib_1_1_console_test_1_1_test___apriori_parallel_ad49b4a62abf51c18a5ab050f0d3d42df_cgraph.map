@@ -2,7 +2,7 @@
 <area shape="rect" id="node3" href="$class_apriori_all_lib_1_1_open_c_l_checker.html#a87b058b5c16c68126b71e18ad5593afa" title="Lists details of all available OpenCL platforms. " alt="" coords="472,5,667,46"/>
 <area shape="rect" id="node7" href="$class_apriori_all_lib_1_1_open_c_l_checker.html#a148326e54e04c29b067ad42d1b245b81" title="Lists details and devices of all available OpenCL platforms. " alt="" coords="224,63,424,105"/>
 <area shape="rect" id="node11" href="$class_apriori_all_lib_1_1_input_generator.html#af4d27a9352dff265fe1d6f012f33f2b8" title="Generates a random list of customers. Randomization is parameterized. " alt="" coords="232,129,416,170"/>
-<area shape="rect" id="node19" href="$class_apriori_all_lib_1_1_apriori.html#a64e63d73cfc770ef8532127198b314dd" title="Finds all litemsets that have the minimal support " alt="" coords="243,194,405,235"/>
+<area shape="rect" id="node19" href="$class_apriori_all_lib_1_1_apriori.html#a76b9d8fc1425b720ec674727a1d65b36" title="Executes parallel version of the Apriori algorithm. " alt="" coords="232,194,416,235"/>
 <area shape="rect" id="node5" href="$class_apriori_all_lib_1_1_open_c_l_checker.html#a07d311d65baca6836000be716fc575e2" title="AprioriAllLib.OpenCLChecker.\lTrueIfError" alt="" coords="715,34,909,75"/>
 <area shape="rect" id="node13" href="$class_apriori_all_lib_1_1_transaction.html#ac736c8e2fd896d89a0d57258e27beed4" title="AprioriAllLib.Transaction.\lContains" alt="" coords="486,122,653,163"/>
 <area shape="rect" id="node15" href="$class_apriori_all_lib_1_1_transaction.html#a3b4983310e683a073e1472f5abea5700" title="AprioriAllLib.Transaction.\lAddItem" alt="" coords="486,187,653,229"/>

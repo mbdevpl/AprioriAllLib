@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['generatecandidates',['generateCandidates',['../class_apriori_all_lib_1_1_apriori.html#a79d720678f873cfb665fe6cbf4bf32ae',1,'AprioriAllLib.Apriori.generateCandidates()'],['../class_apriori_all_lib_1_1_apriori_all.html#a4a46e7bcf9bb434201599eed388546c1',1,'AprioriAllLib.AprioriAll.GenerateCandidates()']]],
+  ['generatecandidates',['GenerateCandidates',['../class_apriori_all_lib_1_1_apriori_all.html#a4a46e7bcf9bb434201599eed388546c1',1,'AprioriAllLib.AprioriAll.GenerateCandidates()'],['../class_apriori_all_lib_1_1_apriori.html#a79d720678f873cfb665fe6cbf4bf32ae',1,'AprioriAllLib.Apriori.generateCandidates()']]],
   ['generateencoding',['GenerateEncoding',['../class_apriori_all_lib_1_1_apriori_all.html#a5df23984f4c14ccba3f0456673123934',1,'AprioriAllLib::AprioriAll']]],
   ['generaterandomlist',['GenerateRandomList',['../class_apriori_all_lib_1_1_input_generator.html#af4d27a9352dff265fe1d6f012f33f2b8',1,'AprioriAllLib::InputGenerator']]],
   ['getbuildinfo',['GetBuildInfo',['../class_apriori_all_lib_1_1_open_c_l_checker.html#ae52ccff5d63aba27e9c5932c281ed494',1,'AprioriAllLib::OpenCLChecker']]],
