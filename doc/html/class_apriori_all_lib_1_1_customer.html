@@ -131,6 +131,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a311c3424f3f1207afe9b883cc41cae60"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8036f14573c62b0e4785e7157a1f547b"><td class="memItemLeft" align="right" valign="top">override bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_customer.html#a8036f14573c62b0e4785e7157a1f547b">Equals</a> (object obj)</td></tr>
 <tr class="separator:a8036f14573c62b0e4785e7157a1f547b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4829804d6b0775ffe01460f82a9b5d0"><td class="memItemLeft" align="right" valign="top">override int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_customer.html#aa4829804d6b0775ffe01460f82a9b5d0">GetHashCode</a> ()</td></tr>
+<tr class="separator:aa4829804d6b0775ffe01460f82a9b5d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a222005fd9e9134325409b26f30d1be40"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_customer.html#a222005fd9e9134325409b26f30d1be40">AddTransaction</a> (<a class="el" href="class_apriori_all_lib_1_1_transaction.html">Transaction</a> t)</td></tr>
 <tr class="separator:a222005fd9e9134325409b26f30d1be40"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -157,7 +159,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Constructor </p>
-<div class="fragment"><div class="line">                          {</div>
+<div class="fragment"><div class="line">        {</div>
 <div class="line">            <a class="code" href="class_apriori_all_lib_1_1_customer.html#a5bf3b782d5e9c582e3f395834b7bddad" title="List of transactions ">Transactions</a> = <span class="keyword">new</span> List&lt;Transaction&gt;();</div>
 <div class="line">        }</div>
 </div><!-- fragment -->
@@ -166,7 +168,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_apriori_all_lib_1_1_customer_af02616d948989c7ff6161efc2488ecab_icgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_customer_af02616d948989c7ff6161efc2488ecab_icgraph" alt=""/></div>
 <map name="class_apriori_all_lib_1_1_customer_af02616d948989c7ff6161efc2488ecab_icgraph" id="class_apriori_all_lib_1_1_customer_af02616d948989c7ff6161efc2488ecab_icgraph">
-<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_customer.html#a8036f14573c62b0e4785e7157a1f547b" title="AprioriAllLib.Customer.Equals" alt="" coords="264,12,459,39"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_apriori_all_algorithm.html#a9b1affa47b8ad14eedeaec9ac17bb8c1" title="AprioriAllLib.AprioriAll\lAlgorithm.InferRealResults" alt="" coords="507,5,682,46"/><area shape="rect" id="node7" href="class_apriori_all_lib_1_1_apriori_all_algorithm.html#a9e350216593ae11a671aa26e3651ae8a" title="Executes Apriori All algorithm on a given input and minimum suport threshold. " alt="" coords="731,5,877,46"/></map>
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_customer.html#a8036f14573c62b0e4785e7157a1f547b" title="AprioriAllLib.Customer.Equals" alt="" coords="264,45,459,72"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_apriori_all.html#ad0e1764626e9c890583e7f1e5783d51e" title="AprioriAllLib.AprioriAll.\lInferRealResults" alt="" coords="507,38,658,79"/><area shape="rect" id="node7" href="class_apriori_all_lib_1_1_apriori_all.html#a364420b4ab56c532c8a7d51b62a1a713" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. " alt="" coords="707,5,858,46"/><area shape="rect" id="node9" href="class_apriori_all_lib_1_1_apriori_all.html#a7f7ec01b000801e6ed432ec090397344" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. It uses parallel version..." alt="" coords="707,70,858,111"/></map>
 </div>
 </p>
 
@@ -193,7 +195,7 @@ Here is the caller graph for this function:</div>
   </table>
   </dd>
 </dl>
-<div class="fragment"><div class="line">                                                           {</div>
+<div class="fragment"><div class="line">        {</div>
 <div class="line">            <a class="code" href="class_apriori_all_lib_1_1_customer.html#a5bf3b782d5e9c582e3f395834b7bddad" title="List of transactions ">Transactions</a> = <span class="keyword">new</span> List&lt;Transaction&gt;();</div>
 <div class="line">            <span class="keywordflow">foreach</span> (Transaction t <span class="keywordflow">in</span> transactions)</div>
 <div class="line">                <a class="code" href="class_apriori_all_lib_1_1_customer.html#a5bf3b782d5e9c582e3f395834b7bddad" title="List of transactions ">Transactions</a>.Add(t);</div>
@@ -222,7 +224,7 @@ Here is the caller graph for this function:</div>
   </table>
   </dd>
 </dl>
-<div class="fragment"><div class="line">                                                    {</div>
+<div class="fragment"><div class="line">        {</div>
 <div class="line">            <a class="code" href="class_apriori_all_lib_1_1_customer.html#a5bf3b782d5e9c582e3f395834b7bddad" title="List of transactions ">Transactions</a> = <span class="keyword">new</span> List&lt;Transaction&gt;();</div>
 <div class="line">            <span class="keywordflow">foreach</span> (<span class="keywordtype">int</span>[] values <span class="keywordflow">in</span> valuesArray)</div>
 <div class="line">                <a class="code" href="class_apriori_all_lib_1_1_customer.html#a5bf3b782d5e9c582e3f395834b7bddad" title="List of transactions ">Transactions</a>.Add(<span class="keyword">new</span> Transaction(values));</div>
@@ -244,7 +246,7 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line">                                                  {</div>
+<div class="fragment"><div class="line">        {</div>
 <div class="line">            <a class="code" href="class_apriori_all_lib_1_1_customer.html#a5bf3b782d5e9c582e3f395834b7bddad" title="List of transactions ">Transactions</a>.Add(t);</div>
 <div class="line">        }</div>
 </div><!-- fragment -->
@@ -253,7 +255,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_apriori_all_lib_1_1_customer_a222005fd9e9134325409b26f30d1be40_icgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_customer_a222005fd9e9134325409b26f30d1be40_icgraph" alt=""/></div>
 <map name="class_apriori_all_lib_1_1_customer_a222005fd9e9134325409b26f30d1be40_icgraph" id="class_apriori_all_lib_1_1_customer_a222005fd9e9134325409b26f30d1be40_icgraph">
-<area shape="rect" id="node3" href="class_console_test_apriori_all_1_1_program.html#a61b4bb52ed3320d51119354a7950f509" title="ConsoleTestAprioriAll.Program.\lGenerateRandomList" alt="" coords="232,5,435,46"/><area shape="rect" id="node5" href="class_console_test_apriori_all_1_1_program.html#ac3e58499dafd57c8fb7e943c293d2fa8" title="ConsoleTestAprioriAll.Program.Main" alt="" coords="483,12,714,39"/></map>
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_input_generator.html#af4d27a9352dff265fe1d6f012f33f2b8" title="Generates a random list of customers. Randomization is parameterized. " alt="" coords="232,38,416,79"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_console_test_1_1_test___apriori_all.html#a1cf91c94b32a1f2a3ec448fd87aa6103" title="AprioriAllLib.ConsoleTest.\lTest_AprioriAll.Main" alt="" coords="464,5,635,46"/><area shape="rect" id="node7" href="class_apriori_all_lib_1_1_console_test_1_1_test___apriori_parallel.html#ad49b4a62abf51c18a5ab050f0d3d42df" title="AprioriAllLib.ConsoleTest.\lTest_AprioriParallel.Main" alt="" coords="464,70,635,111"/></map>
 </div>
 </p>
 
@@ -272,7 +274,7 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line">                                                {</div>
+<div class="fragment"><div class="line">        {</div>
 <div class="line">            <span class="keywordflow">if</span> (obj.GetType().Equals(typeof(<a class="code" href="class_apriori_all_lib_1_1_customer.html#af02616d948989c7ff6161efc2488ecab" title="Constructor ">Customer</a>)) &amp;&amp; <a class="code" href="class_apriori_all_lib_1_1_customer.html#a5bf3b782d5e9c582e3f395834b7bddad" title="List of transactions ">Transactions</a>.Count == ((<a class="code" href="class_apriori_all_lib_1_1_customer.html#af02616d948989c7ff6161efc2488ecab" title="Constructor ">Customer</a>)obj).Transactions.Count</div>
 <div class="line">                    &amp;&amp; Enumerable.SequenceEqual(<a class="code" href="class_apriori_all_lib_1_1_customer.html#a5bf3b782d5e9c582e3f395834b7bddad" title="List of transactions ">Transactions</a>, ((<a class="code" href="class_apriori_all_lib_1_1_customer.html#af02616d948989c7ff6161efc2488ecab" title="Constructor ">Customer</a>)obj).<a class="code" href="class_apriori_all_lib_1_1_customer.html#a5bf3b782d5e9c582e3f395834b7bddad" title="List of transactions ">Transactions</a>))</div>
 <div class="line">                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
@@ -294,10 +296,28 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_apriori_all_lib_1_1_customer_a8036f14573c62b0e4785e7157a1f547b_icgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_customer_a8036f14573c62b0e4785e7157a1f547b_icgraph" alt=""/></div>
 <map name="class_apriori_all_lib_1_1_customer_a8036f14573c62b0e4785e7157a1f547b_icgraph" id="class_apriori_all_lib_1_1_customer_a8036f14573c62b0e4785e7157a1f547b_icgraph">
-<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori_all_algorithm.html#a9b1affa47b8ad14eedeaec9ac17bb8c1" title="AprioriAllLib.AprioriAll\lAlgorithm.InferRealResults" alt="" coords="249,5,423,46"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_apriori_all_algorithm.html#a9e350216593ae11a671aa26e3651ae8a" title="Executes Apriori All algorithm on a given input and minimum suport threshold. " alt="" coords="472,5,619,46"/></map>
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori_all.html#ad0e1764626e9c890583e7f1e5783d51e" title="AprioriAllLib.AprioriAll.\lInferRealResults" alt="" coords="249,38,399,79"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_apriori_all.html#a364420b4ab56c532c8a7d51b62a1a713" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. " alt="" coords="449,5,599,46"/><area shape="rect" id="node7" href="class_apriori_all_lib_1_1_apriori_all.html#a7f7ec01b000801e6ed432ec090397344" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. It uses parallel version..." alt="" coords="449,70,599,111"/></map>
 </div>
 </p>
 
+</div>
+</div>
+<a class="anchor" id="aa4829804d6b0775ffe01460f82a9b5d0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">override int AprioriAllLib.Customer.GetHashCode </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line">        {</div>
+<div class="line">            <span class="keywordflow">return</span> base.GetHashCode();</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a311c3424f3f1207afe9b883cc41cae60"></a>
@@ -315,7 +335,7 @@ Here is the caller graph for this function:</div>
 
 <p>Prints the content of client transactions </p>
 <dl class="section return"><dt>Returns</dt><dd>String of values of transaction items</dd></dl>
-<div class="fragment"><div class="line">                                          {</div>
+<div class="fragment"><div class="line">        {</div>
 <div class="line">            <span class="keywordtype">string</span> itemsStr = <span class="keywordtype">string</span>.Join(<span class="stringliteral">&quot;,&quot;</span>, <a class="code" href="class_apriori_all_lib_1_1_customer.html#a5bf3b782d5e9c582e3f395834b7bddad" title="List of transactions ">Transactions</a>.Select(x =&gt; x.ToString()).ToArray());</div>
 <div class="line">            <span class="keywordflow">return</span> String.Format(<span class="stringliteral">&quot;({0})&quot;</span>, itemsStr);</div>
 <div class="line">        }</div>
@@ -338,7 +358,7 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>D:/Projects/Csharp/MiNI_AprioriAll/AprioriAllLib/<a class="el" href="_customer_8cs.html">Customer.cs</a></li>
+<li>D:/Projects/Csharp/MiNI_AprioriAll/src/AprioriAllLib/<a class="el" href="_customer_8cs.html">Customer.cs</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -1,0 +1,7 @@
+<map id="AprioriAllLib.ConsoleTest.Test_AprioriAll.Main" name="AprioriAllLib.ConsoleTest.Test_AprioriAll.Main">
+<area shape="rect" id="node3" href="$class_apriori_all_lib_1_1_input_generator.html#af4d27a9352dff265fe1d6f012f33f2b8" title="Generates a random list of customers. Randomization is parameterized. " alt="" coords="224,70,408,111"/>
+<area shape="rect" id="node11" href="$class_apriori_all_lib_1_1_apriori_all.html#a946fad496b8c3beaf7c53b32c3e02367" title="Executes Apriori All algorithm on a given input and minimum suport threshold. " alt="" coords="241,135,391,177"/>
+<area shape="rect" id="node5" href="$class_apriori_all_lib_1_1_transaction.html#ac736c8e2fd896d89a0d57258e27beed4" title="AprioriAllLib.Transaction.\lContains" alt="" coords="462,5,629,46"/>
+<area shape="rect" id="node7" href="$class_apriori_all_lib_1_1_transaction.html#a3b4983310e683a073e1472f5abea5700" title="AprioriAllLib.Transaction.\lAddItem" alt="" coords="462,70,629,111"/>
+<area shape="rect" id="node9" href="$class_apriori_all_lib_1_1_customer.html#a222005fd9e9134325409b26f30d1be40" title="AprioriAllLib.Customer.Add\lTransaction" alt="" coords="456,135,635,177"/>
+</map>

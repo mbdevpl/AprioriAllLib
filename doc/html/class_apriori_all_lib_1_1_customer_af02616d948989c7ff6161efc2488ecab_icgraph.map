@@ -1,5 +1,6 @@
 <map id="AprioriAllLib.Customer.Customer" name="AprioriAllLib.Customer.Customer">
-<area shape="rect" id="node3" href="$class_apriori_all_lib_1_1_customer.html#a8036f14573c62b0e4785e7157a1f547b" title="AprioriAllLib.Customer.Equals" alt="" coords="264,12,459,39"/>
-<area shape="rect" id="node5" href="$class_apriori_all_lib_1_1_apriori_all_algorithm.html#a9b1affa47b8ad14eedeaec9ac17bb8c1" title="AprioriAllLib.AprioriAll\lAlgorithm.InferRealResults" alt="" coords="507,5,682,46"/>
-<area shape="rect" id="node7" href="$class_apriori_all_lib_1_1_apriori_all_algorithm.html#a9e350216593ae11a671aa26e3651ae8a" title="Executes Apriori All algorithm on a given input and minimum suport threshold. " alt="" coords="731,5,877,46"/>
+<area shape="rect" id="node3" href="$class_apriori_all_lib_1_1_customer.html#a8036f14573c62b0e4785e7157a1f547b" title="AprioriAllLib.Customer.Equals" alt="" coords="264,45,459,72"/>
+<area shape="rect" id="node5" href="$class_apriori_all_lib_1_1_apriori_all.html#ad0e1764626e9c890583e7f1e5783d51e" title="AprioriAllLib.AprioriAll.\lInferRealResults" alt="" coords="507,38,658,79"/>
+<area shape="rect" id="node7" href="$class_apriori_all_lib_1_1_apriori_all.html#a364420b4ab56c532c8a7d51b62a1a713" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. " alt="" coords="707,5,858,46"/>
+<area shape="rect" id="node9" href="$class_apriori_all_lib_1_1_apriori_all.html#a7f7ec01b000801e6ed432ec090397344" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. It uses parallel version..." alt="" coords="707,70,858,111"/>
 </map>

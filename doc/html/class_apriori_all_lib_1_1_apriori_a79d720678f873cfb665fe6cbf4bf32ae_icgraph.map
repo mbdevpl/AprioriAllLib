@@ -1,5 +1,3 @@
 <map id="AprioriAllLib.Apriori.generateCandidates" name="AprioriAllLib.Apriori.generateCandidates">
-<area shape="rect" id="node3" href="$class_apriori_all_lib_1_1_apriori.html#a64e63d73cfc770ef8532127198b314dd" title="Finds all litemsets that have the minimal support " alt="" coords="241,34,402,75"/>
-<area shape="rect" id="node5" href="$class_apriori_all_lib_1_1_apriori_all_algorithm.html#a9e350216593ae11a671aa26e3651ae8a" title="Executes Apriori All algorithm on a given input and minimum suport threshold. " alt="" coords="481,5,628,46"/>
-<area shape="rect" id="node7" href="$class_sequential_mining_1_1_program.html#ae2e59f6150c7b0a70bf9625ffa8bf302" title="SequentialMining.Program.Main" alt="" coords="451,71,658,97"/>
+<area shape="rect" id="node3" href="$class_apriori_all_lib_1_1_apriori.html#ae0265b27c1ea2609a2954ee2859ed604" title="Finds all litemsets that have the minimal support " alt="" coords="241,5,402,46"/>
 </map>

@@ -1,9 +1,6 @@
 var searchData=
 [
-  ['program',['Program',['../class_sequential_mining_1_1_program.html',1,'SequentialMining']]],
-  ['program',['Program',['../class_console_test_apriori_all_1_1_program.html',1,'ConsoleTestAprioriAll']]],
-  ['program_2ecs',['Program.cs',['../_console_test_apriori_all_2_program_8cs.html',1,'']]],
-  ['program_2ecs',['Program.cs',['../_sequencial_mining_apriori_2_program_8cs.html',1,'']]],
-  ['purgeallnonmax',['PurgeAllNonMax',['../class_apriori_all_lib_1_1_apriori_all_algorithm.html#a9f9a1d34d48761a094d3390c2e9d90cd',1,'AprioriAllLib::AprioriAllAlgorithm']]],
-  ['purgeallsubseqsof',['PurgeAllSubSeqsOf',['../class_apriori_all_lib_1_1_apriori_all_algorithm.html#a6a6e8aa1c43b3a71c2eb1d5e068d959a',1,'AprioriAllLib::AprioriAllAlgorithm']]]
+  ['platformscount',['PlatformsCount',['../class_apriori_all_lib_1_1_open_c_l_checker.html#adf47c7b99e651e7fb42b5a6ff28d3df9',1,'AprioriAllLib::OpenCLChecker']]],
+  ['purgeallnonmax',['PurgeAllNonMax',['../class_apriori_all_lib_1_1_apriori_all.html#ad68b617b7a2a945291c9b06efce61e4c',1,'AprioriAllLib::AprioriAll']]],
+  ['purgeallsubseqsof',['PurgeAllSubSeqsOf',['../class_apriori_all_lib_1_1_apriori_all.html#ad5fc82d557718ca9ba150b3fbda3ea75',1,'AprioriAllLib::AprioriAll']]]
 ];
