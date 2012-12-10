@@ -4,15 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using AprioriAllLib;
-
-namespace AprioriParallelConsoleTesting
+namespace AprioriAllLib.ConsoleTest
 {
 	/// <summary>
-	/// An example program that runs the parallel versions of the Apriori and AprioriAll algorithms.
+	/// An example program that runs the parallel version of the Apriori algorithm.
 	/// </summary>
-	public class Program
+	public class Test_AprioriParallel
 	{
+
 		static void Main(string[] args)
 		{
 			Console.Out.WriteLine("OpenCL plaforms:");
@@ -44,5 +43,6 @@ namespace AprioriParallelConsoleTesting
 			Console.Out.Write("Fin.");
 			Console.ReadKey();
 		}
+
 	}
 }

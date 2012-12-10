@@ -4,9 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-using AprioriAllLib;
-
-namespace AprioriAllTest
+namespace AprioriAllLib.Test
 {
 	/// <summary>
 	/// Unit tests for serialized versions of Apriori and AprioriAll.
@@ -14,215 +12,49 @@ namespace AprioriAllTest
 	[TestClass]
 	public class AprioriAllTest
 	{
-		private static CustomerList Example1;
+		private static InputData data;
 
-		private static CustomerList DataSet1;
-
-		private static CustomerList DataSet2;
-
-		private static CustomerList DataSet3;
-
+		//Use ClassInitialize to run code before running the first test in the class
 		[ClassInitialize]
-		public static void InitializeTestSuite(TestContext testContext)
+		public static void MyClassInitialize(TestContext testContext)
 		{
-			Example1 = new CustomerList();
-			Example1.Customers.Add(new Customer(new int[] { 30 }, new int[] { 80 }));
-			Example1.Customers.Add(new Customer(new int[] { 10, 20 }, new int[] { 30 }, new int[] { 10, 60, 70 }));
-			Example1.Customers.Add(new Customer(new int[] { 30, 50, 70 }));
-			Example1.Customers.Add(new Customer(new int[] { 30 }, new int[] { 40, 70 }, new int[] { 40 }));
-			Example1.Customers.Add(new Customer(new int[] { 90 }));
-			Assert.AreEqual(5, Example1.Customers.Count);
-
-			DataSet1 = new CustomerList();
-			DataSet1.Customers.Add(new Customer(new int[] { 30 }, new int[] { 90 }));
-			DataSet1.Customers.Add(new Customer(new int[] { 10, 20 }, new int[] { 30 }, new int[] { 40, 60, 70 }));
-			DataSet1.Customers.Add(new Customer(new int[] { 30, 50, 70 }));
-			DataSet1.Customers.Add(new Customer(new int[] { 30 }, new int[] { 40, 70 }, new int[] { 90 }));
-			DataSet1.Customers.Add(new Customer(new int[] { 90 }));
-			Assert.AreEqual(5, DataSet1.Customers.Count);
-
-			DataSet2 = new CustomerList();
-			DataSet2.Customers.Add(new Customer(new int[] { 30 }, new int[] { 30, 40, 50 }, new int[] { 80 }, new int[] { 90 }));
-			DataSet2.Customers.Add(new Customer(new int[] { 10, 20 }, new int[] { 30 }, new int[] { 40, 60, 70 }));
-			DataSet2.Customers.Add(new Customer(new int[] { 10, 20 }, new int[] { 30, 50, 70 }));
-			DataSet2.Customers.Add(new Customer(new int[] { 30, 40 }, new int[] { 50, 60 }, new int[] { 70, 80, 90 }));
-			DataSet2.Customers.Add(new Customer(new int[] { 80 }, new int[] { 90 }));
-			DataSet2.Customers.Add(new Customer(new int[] { 10, 50 }, new int[] { 80 }));
-			Assert.AreEqual(6, DataSet2.Customers.Count);
-
-			DataSet3 = new CustomerList();
-			DataSet3.Customers.Add(new Customer(new int[] { 30 }, new int[] { 80 }, new int[] { 30, 40, 50 }, new int[] { 90 }));
-			DataSet3.Customers.Add(new Customer(new int[] { 10, 20 }, new int[] { 30 }, new int[] { 40, 60, 70 }));
-			DataSet3.Customers.Add(new Customer(new int[] { 30, 50, 70 }, new int[] { 10, 20 }));
-			DataSet3.Customers.Add(new Customer(new int[] { 30, 80 }, new int[] { 40, 70 }, new int[] { 90, 30, 40, 50 }));
-			DataSet3.Customers.Add(new Customer(new int[] { 90 }, new int[] { 80 }));
-			DataSet3.Customers.Add(new Customer(new int[] { 50, 10 }, new int[] { 80 }));
-			Assert.AreEqual(6, DataSet3.Customers.Count);
-
-			// future sets may be read from xml files?
-			//XmlReader reader = new XmlReader();
-			//CustomerList cList = reader.ReadFromXmlFile(/* full path or whatever else works*/);
-		}
-
-		[ClassCleanup]
-		public static void CleanupTestSuite()
-		{
+			data = new InputData();
 		}
 
 		[TestMethod]
-		public void Test_Apriori_Example1_LowSupport()
+		public void Test_AprioriAll_Example1_LowSupport()
 		{
 			//Arrange
-			List<Litemset> expected = new List<Litemset>();
-			expected.Add(new Litemset(1, 10));
-			expected.Add(new Litemset(1, 20));
-			expected.Add(new Litemset(4, 30));
-			expected.Add(new Litemset(1, 40));
-			expected.Add(new Litemset(1, 50));
-			expected.Add(new Litemset(1, 60));
-			expected.Add(new Litemset(3, 70));
-			expected.Add(new Litemset(1, 80));
-			expected.Add(new Litemset(1, 90));
-			expected.Add(new Litemset(1, 10, 20));
-			expected.Add(new Litemset(1, 10, 60));
-			expected.Add(new Litemset(1, 10, 70));
-			expected.Add(new Litemset(1, 30, 50));
-			expected.Add(new Litemset(1, 30, 70));
-			expected.Add(new Litemset(1, 40, 70));
-			expected.Add(new Litemset(1, 50, 70));
-			expected.Add(new Litemset(1, 60, 70));
-			expected.Add(new Litemset(1, 10, 60, 70));
-			expected.Add(new Litemset(1, 30, 50, 70));
-			Assert.AreEqual(19, expected.Count);
+			List<Customer> expected = new List<Customer>();
+			//expected.Add(new Customer(new int[] { 30 }, new int[] { 70 }));
+			//Assert.AreEqual(1, expected.Count);
 
 			//Act
-			Apriori apriori = new Apriori(Example1);
-			List<Litemset> oneLitemsets = apriori.FindOneLitemsets(0.2);
+			AprioriAll all = new AprioriAll(data.Example1);
+			List<Customer> results = all.Execute(0.2);
 
 			//Assert
-			CollectionAssert.AreEqual(expected, oneLitemsets);
+			CollectionAssert.AreEqual(expected, results);
 		}
 
 		[TestMethod]
-		public void Test_Apriori_Example1_HighSupport()
+		public void Test_AprioriAll_Example1_MediumSupport()
 		{
 			//Arrange
-			List<Litemset> expected = new List<Litemset>();
-			expected.Add(new Litemset(4, 30));
-			expected.Add(new Litemset(3, 70));
-			Assert.AreEqual(2, expected.Count);
+			List<Customer> expected = new List<Customer>();
+			//expected.Add(new Customer(new int[] { 30 }, new int[] { 70 }));
+			//Assert.AreEqual(1, expected.Count);
 
 			//Act
-			Apriori apriori = new Apriori(Example1);
-			List<Litemset> oneLitemsets = apriori.FindOneLitemsets(0.6);
+			AprioriAll all = new AprioriAll(data.Example1);
+			List<Customer> results = all.Execute(0.4);
 
 			//Assert
-			CollectionAssert.AreEqual(expected, oneLitemsets);
+			CollectionAssert.AreEqual(expected, results);
 		}
 
 		[TestMethod]
-		public void Test_Apriori_DataSet2_LowSupport()
-		{
-			//Arrange
-			List<Litemset> expected = new List<Litemset>();
-			expected.Add(new Litemset(3, 10));
-			expected.Add(new Litemset(2, 20));
-			expected.Add(new Litemset(4, 30));
-			expected.Add(new Litemset(3, 40));
-			expected.Add(new Litemset(4, 50));
-			expected.Add(new Litemset(2, 60));
-			expected.Add(new Litemset(3, 70));
-			expected.Add(new Litemset(4, 80));
-			expected.Add(new Litemset(3, 90));
-			expected.Add(new Litemset(2, 10, 20));
-			expected.Add(new Litemset(2, 30, 40));
-			expected.Add(new Litemset(2, 30, 50));
-			Assert.AreEqual(12, expected.Count);
-
-			//Act
-			Apriori apriori = new Apriori(DataSet2);
-			List<Litemset> oneLitemsets = apriori.FindOneLitemsets(0.2);
-
-			//Assert
-			CollectionAssert.AreEqual(expected, oneLitemsets); // areEquivalent doesn't work
-		}
-
-		[TestMethod]
-		public void Test_Apriori_DataSet2_HighSupport()
-		{
-			//Arrange
-			List<Litemset> expected = new List<Litemset>();
-			expected.Add(new Litemset(3, 10));
-			expected.Add(new Litemset(4, 30));
-			expected.Add(new Litemset(3, 40));
-			expected.Add(new Litemset(4, 50));
-			expected.Add(new Litemset(3, 70));
-			expected.Add(new Litemset(4, 80));
-			expected.Add(new Litemset(3, 90));
-			Assert.AreEqual(7, expected.Count);
-
-			//Act
-			Apriori apriori = new Apriori(DataSet2);
-			List<Litemset> oneLitemsets = apriori.FindOneLitemsets(0.5);
-
-			//Assert
-			CollectionAssert.AreEqual(expected, oneLitemsets);
-		}
-
-		[TestMethod]
-		public void Test_Apriori_DataSet3_LowSupport()
-		{
-			//Arrange
-			List<Litemset> expected = new List<Litemset>();
-			expected.Add(new Litemset(3, 10));
-			expected.Add(new Litemset(2, 20));
-			expected.Add(new Litemset(4, 30));
-			expected.Add(new Litemset(3, 40));
-			expected.Add(new Litemset(4, 50));
-			expected.Add(new Litemset(3, 70));
-			expected.Add(new Litemset(4, 80));
-			expected.Add(new Litemset(3, 90));
-			expected.Add(new Litemset(2, 10, 20));
-			expected.Add(new Litemset(2, 30, 40));
-			expected.Add(new Litemset(3, 30, 50));
-			expected.Add(new Litemset(2, 40, 50));
-			expected.Add(new Litemset(2, 40, 70));
-			expected.Add(new Litemset(2, 30, 40, 50));
-			Assert.AreEqual(14, expected.Count);
-
-			//Act
-			Apriori apriori = new Apriori(DataSet3);
-			List<Litemset> oneLitemsets = apriori.FindOneLitemsets(0.2);
-
-			//Assert
-			CollectionAssert.AreEqual(expected, oneLitemsets); // areEquivalent doesn't work
-		}
-
-		[TestMethod]
-		public void Test_Apriori_DataSet3_HighSupport()
-		{
-			//Arrange
-			List<Litemset> expected = new List<Litemset>();
-			expected.Add(new Litemset(3, 10));
-			expected.Add(new Litemset(4, 30));
-			expected.Add(new Litemset(3, 40));
-			expected.Add(new Litemset(4, 50));
-			expected.Add(new Litemset(3, 70));
-			expected.Add(new Litemset(4, 80));
-			expected.Add(new Litemset(3, 90));
-			expected.Add(new Litemset(3, 30, 50));
-			Assert.AreEqual(8, expected.Count);
-
-			//Act
-			Apriori apriori = new Apriori(DataSet3);
-			List<Litemset> oneLitemsets = apriori.FindOneLitemsets(0.5);
-
-			//Assert
-			CollectionAssert.AreEqual(expected, oneLitemsets);
-		}
-
-		[TestMethod]
-		public void Test_AprioriAll_Example1()
+		public void Test_AprioriAll_Example1_HighSupport()
 		{
 			//Arrange
 			List<Customer> expected = new List<Customer>();
@@ -230,8 +62,8 @@ namespace AprioriAllTest
 			Assert.AreEqual(1, expected.Count);
 
 			//Act
-			AprioriAll all = new AprioriAll(Example1);
-			List<Customer> results = all.Execute(0.25);
+			AprioriAll all = new AprioriAll(data.Example1);
+			List<Customer> results = all.Execute(0.6);
 
 			//Assert
 			CollectionAssert.AreEqual(expected, results);
@@ -247,7 +79,7 @@ namespace AprioriAllTest
 			Assert.AreEqual(2, expected.Count);
 
 			//Act
-			AprioriAll all = new AprioriAll(DataSet1);
+			AprioriAll all = new AprioriAll(data.DataSet1);
 			List<Customer> results = all.Execute(0.25);
 
 			//Assert
@@ -268,7 +100,7 @@ namespace AprioriAllTest
 			Assert.AreEqual(6, expected.Count);
 
 			//Act
-			AprioriAll all = new AprioriAll(DataSet2);
+			AprioriAll all = new AprioriAll(data.DataSet2);
 			List<Customer> results = all.Execute(0.2);
 
 			//Assert
@@ -289,7 +121,7 @@ namespace AprioriAllTest
 			Assert.AreEqual(6, expected.Count);
 
 			//Act
-			AprioriAll all = new AprioriAll(DataSet2);
+			AprioriAll all = new AprioriAll(data.DataSet2);
 			List<Customer> results = all.Execute(0.4);
 
 			//Assert
@@ -297,24 +129,24 @@ namespace AprioriAllTest
 		}
 
 		// this test passes, but takes 9 minutes...
-		//[TestMethod]
-		//public void Test_AprioriAll_DataSet3_LowSupport() {
-		//	//Arrange
-		//	List<Customer> expected = new List<Customer>();
-		//	expected.Add(new Customer(new int[] { 50 }, new int[] { 10 }));
-		//	expected.Add(new Customer(new int[] { 10, 20 }));
-		//	expected.Add(new Customer(new int[] { 30 }, new int[] { 40, 70 }));
-		//	expected.Add(new Customer(new int[] { 70 }, new int[] { 30, 50 }));
-		//	expected.Add(new Customer(new int[] { 80 }, new int[] { 30, 40, 50 }, new int[] { 90 }));
-		//	Assert.AreEqual(5, expected.Count);
+		[TestMethod]
+		public void Test_AprioriAll_DataSet3_LowSupport() {
+			//Arrange
+			List<Customer> expected = new List<Customer>();
+			expected.Add(new Customer(new int[] { 50 }, new int[] { 10 }));
+			expected.Add(new Customer(new int[] { 10, 20 }));
+			expected.Add(new Customer(new int[] { 30 }, new int[] { 40, 70 }));
+			expected.Add(new Customer(new int[] { 70 }, new int[] { 30, 50 }));
+			expected.Add(new Customer(new int[] { 80 }, new int[] { 30, 40, 50 }, new int[] { 90 }));
+			Assert.AreEqual(5, expected.Count);
 
-		//	//Act
-		//	AprioriAll all = new AprioriAll(DataSet3);
-		//	List<Customer> results = all.Execute(0.2);
+			//Act
+			AprioriAll all = new AprioriAll(data.DataSet3);
+			List<Customer> results = all.Execute(0.2);
 
-		//	//Assert
-		//	CollectionAssert.AreEqual(expected, results); // areEquivalent doesn't work
-		//}
+			//Assert
+			CollectionAssert.AreEqual(expected, results); // areEquivalent doesn't work
+		}
 
 		[TestMethod]
 		public void Test_AprioriAll_DataSet3_HighSupport()
@@ -330,7 +162,7 @@ namespace AprioriAllTest
 			Assert.AreEqual(6, expected.Count);
 
 			//Act
-			AprioriAll all = new AprioriAll(DataSet3);
+			AprioriAll all = new AprioriAll(data.DataSet3);
 			List<Customer> results = all.Execute(0.4);
 
 			//Assert

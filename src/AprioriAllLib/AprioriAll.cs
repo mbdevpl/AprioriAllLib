@@ -8,7 +8,6 @@ using OpenCL.Net;
 
 namespace AprioriAllLib
 {
-
 	/// <summary>
 	/// AprioriAll algorithm implementation. 
 	/// </summary>
