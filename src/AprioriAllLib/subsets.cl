@@ -5,8 +5,8 @@
 		__global const int* subsetSize, 
 		__global int* supports)
 {
-	unsigned int index = get_global_id(0) * get_global_size(0) + get_local_id(0);
-	//if(index >= *setsCount)
-	//	return;
-	supports[index] = 3;
+	unsigned int index = get_global_id(0); // * get_global_size(0) + get_local_id(0);
+	if(index >= *setsCount)
+		return;
+	supports[index] = index;
 }
