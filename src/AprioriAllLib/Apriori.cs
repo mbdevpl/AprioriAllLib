@@ -216,14 +216,14 @@ namespace AprioriAllLib
 				}
 
 				IntPtr supportsLen = new IntPtr(supports.Length);
-				err = Cl.EnqueueReadBuffer(queue, supportsBuf, Cl.Bool.True, IntPtr.Zero, supportsLen, supports, 
+				err = Cl.EnqueueReadBuffer(queue, supportsBuf, Cl.Bool.True, IntPtr.Zero, supportsLen, supports,
 					0, null, out ev);
 
 				Console.Out.WriteLine("Fin.");
 
 				for (int i = 0; i < supports.Length; ++i)
 				{
-					if(supports[i] >= minimalSupport)
+					if (supports[i] >= minimalSupport)
 						litemsets.Add(new Litemset(supports[i], allTransactions.ElementAt(i).ToArray()));
 				}
 

@@ -130,7 +130,8 @@ namespace AprioriAllLib.Test
 
 		// this test passes, but takes 9 minutes...
 		[TestMethod]
-		public void Test_AprioriAll_DataSet3_LowSupport() {
+		public void Test_AprioriAll_DataSet3_LowSupport()
+		{
 			//Arrange
 			List<Customer> expected = new List<Customer>();
 			expected.Add(new Customer(new int[] { 50 }, new int[] { 10 }));

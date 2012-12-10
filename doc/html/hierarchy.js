@@ -9,7 +9,7 @@ var hierarchy =
     [ "AprioriAllLib.ConsoleTest.ConsoleApp", "class_apriori_all_lib_1_1_console_test_1_1_console_app.html", null ],
     [ "AprioriAllLib.Customer", "class_apriori_all_lib_1_1_customer.html", null ],
     [ "AprioriAllLib.CustomerList", "class_apriori_all_lib_1_1_customer_list.html", null ],
-    [ "IComparable", null, [
+    [ "IComparable", "class_i_comparable.html", [
       [ "AprioriAllLib.Item", "class_apriori_all_lib_1_1_item.html", null ],
       [ "AprioriAllLib.Litemset", "class_apriori_all_lib_1_1_litemset.html", null ]
     ] ],

@@ -120,7 +120,7 @@ Collaboration diagram for AprioriAllLib.Apriori:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_apriori_all_lib_1_1_apriori__coll__graph.png" border="0" usemap="#_apriori_all_lib_8_apriori_coll__map" alt="Collaboration graph"/></div>
 <map name="_apriori_all_lib_8_apriori_coll__map" id="_apriori_all_lib_8_apriori_coll__map">
-<area shape="rect" id="node2" href="class_apriori_all_lib_1_1_customer_list.html" title="Class that represents a total set of customers " alt="" coords="5,5,176,32"/></map>
+<area shape="rect" id="node2" href="class_apriori_all_lib_1_1_customer_list.html" title="Class that represents a total set of customers " alt="" coords="5,96,176,123"/></map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -386,14 +386,14 @@ Here is the caller graph for this function:</div>
 <div class="line">                }</div>
 <div class="line"></div>
 <div class="line">                IntPtr supportsLen = <span class="keyword">new</span> IntPtr(supports.Length);</div>
-<div class="line">                err = Cl.EnqueueReadBuffer(queue, supportsBuf, Cl.Bool.True, IntPtr.Zero, supportsLen, supports, </div>
+<div class="line">                err = Cl.EnqueueReadBuffer(queue, supportsBuf, Cl.Bool.True, IntPtr.Zero, supportsLen, supports,</div>
 <div class="line">                    0, null, out ev);</div>
 <div class="line"></div>
 <div class="line">                Console.Out.WriteLine(<span class="stringliteral">&quot;Fin.&quot;</span>);</div>
 <div class="line"></div>
 <div class="line">                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; supports.Length; ++i)</div>
 <div class="line">                {</div>
-<div class="line">                    <span class="keywordflow">if</span>(supports[i] &gt;= minimalSupport)</div>
+<div class="line">                    <span class="keywordflow">if</span> (supports[i] &gt;= minimalSupport)</div>
 <div class="line">                        litemsets.Add(<span class="keyword">new</span> Litemset(supports[i], allTransactions.ElementAt(i).ToArray()));</div>
 <div class="line">                }</div>
 <div class="line"></div>
