@@ -1,5 +1,5 @@
 Thumbs.db
 *.suo
-*/obj/*
-*/bin/*
-TestResults/*
+/src/*/obj/*
+/src/*/bin/*
+/src/TestResults/*
