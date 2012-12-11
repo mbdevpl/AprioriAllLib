@@ -49,7 +49,7 @@ namespace AprioriAllLib.Test
 
 			//Act
 			Apriori apriori = new Apriori(data.Example1);
-			List<Litemset> oneLitemsets = apriori.FindOneLitemsets(0.2);
+			List<Litemset> oneLitemsets = apriori.Execute(0.2);
 
 			//Assert
 			CollectionAssert.AreEqual(expected, oneLitemsets);
@@ -66,7 +66,7 @@ namespace AprioriAllLib.Test
 
 			//Act
 			Apriori apriori = new Apriori(data.Example1);
-			List<Litemset> oneLitemsets = apriori.FindOneLitemsets(0.6);
+			List<Litemset> oneLitemsets = apriori.Execute(0.6);
 
 			//Assert
 			CollectionAssert.AreEqual(expected, oneLitemsets);
@@ -93,7 +93,7 @@ namespace AprioriAllLib.Test
 
 			//Act
 			Apriori apriori = new Apriori(data.DataSet2);
-			List<Litemset> oneLitemsets = apriori.FindOneLitemsets(0.2);
+			List<Litemset> oneLitemsets = apriori.Execute(0.2);
 
 			//Assert
 			CollectionAssert.AreEqual(expected, oneLitemsets); // areEquivalent doesn't work
@@ -115,7 +115,7 @@ namespace AprioriAllLib.Test
 
 			//Act
 			Apriori apriori = new Apriori(data.DataSet2);
-			List<Litemset> oneLitemsets = apriori.FindOneLitemsets(0.5);
+			List<Litemset> oneLitemsets = apriori.Execute(0.5);
 
 			//Assert
 			CollectionAssert.AreEqual(expected, oneLitemsets);
@@ -144,7 +144,7 @@ namespace AprioriAllLib.Test
 
 			//Act
 			Apriori apriori = new Apriori(data.DataSet3);
-			List<Litemset> oneLitemsets = apriori.FindOneLitemsets(0.2);
+			List<Litemset> oneLitemsets = apriori.Execute(0.2);
 
 			//Assert
 			CollectionAssert.AreEqual(expected, oneLitemsets); // areEquivalent doesn't work
@@ -167,7 +167,7 @@ namespace AprioriAllLib.Test
 
 			//Act
 			Apriori apriori = new Apriori(data.DataSet3);
-			List<Litemset> oneLitemsets = apriori.FindOneLitemsets(0.5);
+			List<Litemset> oneLitemsets = apriori.Execute(0.5);
 
 			//Assert
 			CollectionAssert.AreEqual(expected, oneLitemsets);

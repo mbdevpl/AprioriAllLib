@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
 using OpenCL.Net;
 
 namespace AprioriAllLib
@@ -15,7 +14,10 @@ namespace AprioriAllLib
 	/// </summary>
 	public class Apriori
 	{
-		private CustomerList customerList;
+		/// <summary>
+		/// Input data for the algorithm.
+		/// </summary>
+		protected CustomerList customerList;
 
 		private bool clInitialized;
 
@@ -131,7 +133,7 @@ namespace AprioriAllLib
 		/// </summary>
 		/// <param name="items">list of items contained in one transaction</param>
 		/// <returns>list of candidates for litemsets (large itemsets)</returns>
-		private List<Litemset> generateCandidates(List<Item> items)
+		protected List<Litemset> GenerateCandidateLitemsets(List<Item> items)
 		{
 			int count = items.Count;
 			int i = 0;
@@ -168,6 +170,7 @@ namespace AprioriAllLib
 		/// </summary>
 		/// <param name="minimalSupport">Minimal support</param>
 		/// <returns>A list of Litemsets with support >= minimalSupport</returns>
+		[Obsolete("please use Execute instead.", true)]
 		public List<Litemset> FindOneLitemsets(double minimalSupport)
 		{
 			return FindOneLitemsets(minimalSupport, false);
@@ -179,6 +182,7 @@ namespace AprioriAllLib
 		/// <param name="minimalSupport">Minimal support</param>
 		/// <param name="parallel">if true, executed</param>
 		/// <returns>A list of Litemsets with support >= minimalSupport</returns>
+		[Obsolete("please use Execute or ExecuteParallel instead.", true)]
 		public List<Litemset> FindOneLitemsets(double minimalSupport, bool parallel)
 		{
 			if (parallel)
@@ -219,7 +223,7 @@ namespace AprioriAllLib
 				foreach (Transaction t in c.Transactions)
 				{
 					//generate subsets (candidates for litemsets)
-					List<Litemset> candidateLitemsets = generateCandidates(t.Items);
+					List<Litemset> candidateLitemsets = GenerateCandidateLitemsets(t.Items);
 
 					//check if they already exist in litemsets list; if not, add a litemset to litemsets
 					foreach (Litemset lset in candidateLitemsets)

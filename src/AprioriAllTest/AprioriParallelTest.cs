@@ -68,12 +68,12 @@ namespace AprioriAllLib.Test
 		{
 			//Arrange
 			Apriori aprioriSerialized = new Apriori(data.Example1);
-			List<Litemset> expected = aprioriSerialized.FindOneLitemsets(0.2, false);
+			List<Litemset> expected = aprioriSerialized.Execute(0.2);
 			Assert.AreEqual(19, expected.Count);
 
 			//Act
 			Apriori apriori = new Apriori(data.Example1);
-			List<Litemset> oneLitemsets = apriori.FindOneLitemsets(0.2, true);
+			List<Litemset> oneLitemsets = apriori.ExecuteParallel(0.2);
 
 			//Assert
 			CollectionAssert.AreEqual(expected, oneLitemsets);
@@ -90,7 +90,7 @@ namespace AprioriAllLib.Test
 
 			//Act
 			Apriori apriori = new Apriori(data.Example1);
-			List<Litemset> oneLitemsets = apriori.FindOneLitemsets(0.6, true);
+			List<Litemset> oneLitemsets = apriori.ExecuteParallel(0.6, true);
 
 			//Assert
 			CollectionAssert.AreEqual(expected, oneLitemsets);
