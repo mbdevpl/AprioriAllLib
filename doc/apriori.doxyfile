@@ -1711,7 +1711,7 @@ GROUP_GRAPHS           = YES
 # collaboration diagrams in a style similar to the OMG's Unified Modeling 
 # Language.
 
-UML_LOOK               = NO
+UML_LOOK               = YES
 
 # If the UML_LOOK tag is enabled, the fields and methods are shown inside 
 # the class node. If there are many fields or methods and many nodes the 
@@ -1725,7 +1725,7 @@ UML_LIMIT_NUM_FIELDS   = 10
 # If set to YES, the inheritance and collaboration graphs will show the 
 # relations between templates and their instances.
 
-TEMPLATE_RELATIONS     = NO
+TEMPLATE_RELATIONS     = YES
 
 # If the ENABLE_PREPROCESSING, SEARCH_INCLUDES, INCLUDE_GRAPH, and HAVE_DOT 
 # tags are set to YES then doxygen will generate a graph for each documented 
@@ -1836,7 +1836,7 @@ DOT_TRANSPARENT        = NO
 # makes dot run faster, but since only newer versions of dot (>1.8.10) 
 # support this, this feature is disabled by default.
 
-DOT_MULTI_TARGETS      = NO
+DOT_MULTI_TARGETS      = YES
 
 # If the GENERATE_LEGEND tag is set to YES (the default) Doxygen will 
 # generate a legend page explaining the meaning of the various boxes and 

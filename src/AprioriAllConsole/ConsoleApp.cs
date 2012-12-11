@@ -9,10 +9,10 @@ namespace AprioriAllLib.ConsoleTest
 	/// 
 	/// This is modified version of application by Karolina Baltyn.
 	/// </summary>
-	class ConsoleApp
+	public class ConsoleApp
 	{
 
-		static void Main(string[] args)
+		private static void Main(string[] args)
 		{
 			Console.Out.WriteLine("AprioriAll algorithm implementation in .NET\n");
 

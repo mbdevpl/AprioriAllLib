@@ -12,8 +12,10 @@ namespace AprioriAllLib.ConsoleTest
 	public class Test_AprioriParallel
 	{
 
-		static void Main(string[] args)
+		private static void Main(string[] args)
 		{
+			Console.Out.WriteLine("Parallel Apriori algorithm test");
+
 			Console.Out.WriteLine("OpenCL plaforms:");
 			foreach (String s in OpenCLChecker.AvailablePlatfroms())
 				Console.Out.WriteLine("{0}", s);

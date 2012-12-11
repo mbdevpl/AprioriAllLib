@@ -11,9 +11,10 @@ namespace AprioriAllLib.ConsoleTest
 	public class Test_AprioriAll
 	{
 
-		public static void Main(string[] args)
+		private static void Main(string[] args)
 		{
-			Console.Out.WriteLine("AprioriAll algorithm implementation in .NET");
+			Console.Out.WriteLine("Serialized AprioriAll algorithm test");
+
 			//Arrange
 			CustomerList randomExample = InputGenerator.GenerateRandomList(700, 7, 7);
 			double support = 0.4;

@@ -125,7 +125,9 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy $(TargetPath) $(SolutionDir)..\bin\$(ConfigurationName)\$(PlatformName)\
+    <PostBuildEvent>copy $(TargetPath) $(SolutionDir)..\bin\$(ConfigurationName)\
+copy $(TargetDir)OpenCL.Net.dll $(SolutionDir)..\bin\$(ConfigurationName)\
+copy $(TargetDir)subsets.cl $(SolutionDir)..\bin\$(ConfigurationName)\
 </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
