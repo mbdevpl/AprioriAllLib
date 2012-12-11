@@ -21,7 +21,7 @@ namespace AprioriAllLib.Test
 			data = new InputData();
 		}
 
-		[TestMethod]
+		[TestCategory("AprioriAll"), TestCategory("Serialized"), TestMethod]
 		public void Test_AprioriAll_Example1_LowSupport()
 		{
 			//Arrange
