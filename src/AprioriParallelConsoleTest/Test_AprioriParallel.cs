@@ -32,9 +32,9 @@ namespace AprioriAllLib.ConsoleTest
 
 			Console.Out.WriteLine("\nComputation:");
 			Apriori apriori = new Apriori(randomExample);
-			List<Litemset> litemsets = apriori.ExecuteParallel(0.001, true);
+			List<Litemset> litemsets = apriori.RunParallelApriori(0.001, true);
 			//AprioriAll all = new AprioriAll(randomExample);
-			//List<Customer> results = all.ExecuteParallel(0.5, true);
+			//List<Customer> results = all.RunParallelApriori(0.5, true);
 
 			Console.Out.WriteLine("\nResults:");
 			foreach (Litemset l in litemsets)

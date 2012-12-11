@@ -31,7 +31,7 @@ namespace AprioriAllLib.Test
 
 			//Act
 			AprioriAll all = new AprioriAll(data.Example1);
-			List<Customer> results = all.Execute(0.2);
+			List<Customer> results = all.RunAprioriAll(0.2);
 
 			//Assert
 			CollectionAssert.AreEqual(expected, results);
@@ -47,7 +47,7 @@ namespace AprioriAllLib.Test
 
 			//Act
 			AprioriAll all = new AprioriAll(data.Example1);
-			List<Customer> results = all.Execute(0.4);
+			List<Customer> results = all.RunAprioriAll(0.4);
 
 			//Assert
 			CollectionAssert.AreEqual(expected, results);
@@ -63,7 +63,7 @@ namespace AprioriAllLib.Test
 
 			//Act
 			AprioriAll all = new AprioriAll(data.Example1);
-			List<Customer> results = all.Execute(0.6);
+			List<Customer> results = all.RunAprioriAll(0.6);
 
 			//Assert
 			CollectionAssert.AreEqual(expected, results);
@@ -80,7 +80,7 @@ namespace AprioriAllLib.Test
 
 			//Act
 			AprioriAll all = new AprioriAll(data.DataSet1);
-			List<Customer> results = all.Execute(0.25);
+			List<Customer> results = all.RunAprioriAll(0.25);
 
 			//Assert
 			CollectionAssert.AreEqual(expected, results); //areEquivalent doesn't work
@@ -101,7 +101,7 @@ namespace AprioriAllLib.Test
 
 			//Act
 			AprioriAll all = new AprioriAll(data.DataSet2);
-			List<Customer> results = all.Execute(0.2);
+			List<Customer> results = all.RunAprioriAll(0.2);
 
 			//Assert
 			CollectionAssert.AreEqual(expected, results); // areEquivalent doesn't work
@@ -122,7 +122,7 @@ namespace AprioriAllLib.Test
 
 			//Act
 			AprioriAll all = new AprioriAll(data.DataSet2);
-			List<Customer> results = all.Execute(0.4);
+			List<Customer> results = all.RunAprioriAll(0.4);
 
 			//Assert
 			CollectionAssert.AreEqual(expected, results);
@@ -143,7 +143,7 @@ namespace AprioriAllLib.Test
 
 			//Act
 			AprioriAll all = new AprioriAll(data.DataSet3);
-			List<Customer> results = all.Execute(0.2);
+			List<Customer> results = all.RunAprioriAll(0.2);
 
 			//Assert
 			CollectionAssert.AreEqual(expected, results); // areEquivalent doesn't work
@@ -164,7 +164,7 @@ namespace AprioriAllLib.Test
 
 			//Act
 			AprioriAll all = new AprioriAll(data.DataSet3);
-			List<Customer> results = all.Execute(0.4);
+			List<Customer> results = all.RunAprioriAll(0.4);
 
 			//Assert
 			CollectionAssert.AreEqual(expected, results);

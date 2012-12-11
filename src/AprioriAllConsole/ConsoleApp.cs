@@ -51,7 +51,7 @@ namespace AprioriAllLib.ConsoleTest
 
 			Console.Out.WriteLine("\nComputation:");
 			AprioriAll aprioriAll = new AprioriAll(customerList);
-			List<Customer> aprioriAllResult = aprioriAll.Execute(support, true);
+			List<Customer> aprioriAllResult = aprioriAll.RunAprioriAll(support, true);
 
 			Console.Out.WriteLine("\nResults:");
 			foreach (Customer c in aprioriAllResult)

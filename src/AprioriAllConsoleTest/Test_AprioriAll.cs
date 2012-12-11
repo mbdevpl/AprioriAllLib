@@ -28,7 +28,7 @@ namespace AprioriAllLib.ConsoleTest
 			//Act
 			Console.Out.WriteLine("\nComputation:");
 			AprioriAll all = new AprioriAll(randomExample);
-			List<Customer> results = all.Execute(support, true);
+			List<Customer> results = all.RunAprioriAll(support, true);
 
 			//Assert
 			Console.Out.WriteLine("\nResults:");

@@ -608,9 +608,9 @@ namespace AprioriAllLib
 		/// </summary>
 		/// <param name="threshold">greater than 0, and less or equal 1</param>
 		/// <returns>list of frequently occurring customers transaction's patters</returns>
-		public new List<Customer> Execute(double threshold)
+		public List<Customer> RunAprioriAll(double threshold)
 		{
-			return Execute(threshold, false);
+			return RunAprioriAll(threshold, false);
 		}
 
 		/// <summary>
@@ -619,7 +619,7 @@ namespace AprioriAllLib
 		/// <param name="threshold">greater than 0, and less or equal 1</param>
 		/// <param name="progressOutput">if true, information about progress is sent to standard output</param>
 		/// <returns>list of frequently occurring customers transaction's patters</returns>
-		public new List<Customer> Execute(double threshold, bool progressOutput)
+		public List<Customer> RunAprioriAll(double threshold, bool progressOutput)
 		{
 			if (customerList == null)
 				throw new ArgumentNullException("customerList", "customerList is null.");
@@ -644,7 +644,7 @@ namespace AprioriAllLib
 			if (progressOutput)
 				Console.Out.WriteLine("Launching Apriori...");
 			// this corresponds to 2nd step of Apriori All algorithm, namely "Litemset Phase".
-			List<Litemset> oneLitemsets = base.Execute(threshold, progressOutput);
+			List<Litemset> oneLitemsets = RunApriori(threshold, progressOutput);
 			if (progressOutput)
 			{
 				Console.Out.WriteLine("Litemsets:");
@@ -708,9 +708,9 @@ namespace AprioriAllLib
 		/// </summary>
 		/// <param name="threshold">greater than 0, and less or equal 1</param>
 		/// <returns>list of frequently occurring customers transaction's patters</returns>
-		public new List<Customer> ExecuteParallel(double threshold)
+		public List<Customer> RunParallelAprioriAll(double threshold)
 		{
-			return ExecuteParallel(threshold, false);
+			return RunParallelAprioriAll(threshold, false);
 		}
 
 		/// <summary>
@@ -720,10 +720,10 @@ namespace AprioriAllLib
 		/// <param name="threshold">greater than 0, and less or equal 1</param>
 		/// <param name="progressOutput">if true, information about progress is sent to standard output</param>
 		/// <returns>list of frequently occurring customers transaction's patters</returns>
-		public new List<Customer> ExecuteParallel(double threshold, bool progressOutput)
+		public List<Customer> RunParallelAprioriAll(double threshold, bool progressOutput)
 		{
 			if (OpenCLChecker.PlatformsCount() == 0)
-				return Execute(threshold, progressOutput);
+				return RunAprioriAll(threshold, progressOutput);
 
 			if (customerList == null)
 				throw new ArgumentNullException("customerList", "customerList is null.");
@@ -740,7 +740,7 @@ namespace AprioriAllLib
 				Console.Out.WriteLine("Launching Apriori...");
 			}
 
-			List<Litemset> oneLitemsets = base.ExecuteParallel(threshold, progressOutput);
+			List<Litemset> oneLitemsets = RunParallelApriori(threshold, progressOutput);
 
 			if (progressOutput)
 			{

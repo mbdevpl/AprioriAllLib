@@ -50,7 +50,7 @@ namespace AprioriAllLib
 			clKernelsInitialized = false;
 		}
 
-		private void InitOpenCL(bool progressOutput)
+		protected void InitOpenCL(bool progressOutput)
 		{
 			if (clInitialized)
 				return; // already initialized
@@ -82,7 +82,7 @@ namespace AprioriAllLib
 			clInitialized = true;
 		}
 
-		private void InitOpenCLKernels(bool progressOutput)
+		protected void InitOpenCLKernels(bool progressOutput)
 		{
 			Cl.ErrorCode err;
 
@@ -166,39 +166,13 @@ namespace AprioriAllLib
 		}
 
 		/// <summary>
-		/// Finds all litemsets that have the minimal support
-		/// </summary>
-		/// <param name="minimalSupport">Minimal support</param>
-		/// <returns>A list of Litemsets with support >= minimalSupport</returns>
-		[Obsolete("please use Execute instead.", true)]
-		public List<Litemset> FindOneLitemsets(double minimalSupport)
-		{
-			return FindOneLitemsets(minimalSupport, false);
-		}
-
-		/// <summary>
-		/// Finds all litemsets that have the minimal support
-		/// </summary>
-		/// <param name="minimalSupport">Minimal support</param>
-		/// <param name="parallel">if true, executed</param>
-		/// <returns>A list of Litemsets with support >= minimalSupport</returns>
-		[Obsolete("please use Execute or ExecuteParallel instead.", true)]
-		public List<Litemset> FindOneLitemsets(double minimalSupport, bool parallel)
-		{
-			if (parallel)
-				return ExecuteParallel(minimalSupport);
-			else
-				return Execute(minimalSupport);
-		}
-
-		/// <summary>
 		/// Finds all litemsets that have the minimal support.
 		/// </summary>
 		/// <param name="minimalSupport">minimal support</param>
 		/// <returns>A list of Litemsets with support >= minimalSupport</returns>
-		public List<Litemset> Execute(double minimalSupport)
+		public List<Litemset> RunApriori(double minimalSupport)
 		{
-			return Execute(minimalSupport, false);
+			return RunApriori(minimalSupport, false);
 		}
 
 		/// <summary>
@@ -207,7 +181,7 @@ namespace AprioriAllLib
 		/// <param name="minimalSupport">minimal support</param>
 		/// <param name="progressOutput">if true, information about progress is sent to standard output</param>
 		/// <returns>A list of Litemsets with support >= minimalSupport</returns>
-		public List<Litemset> Execute(double minimalSupport, bool progressOutput)
+		public List<Litemset> RunApriori(double minimalSupport, bool progressOutput)
 		{
 			if (minimalSupport > 1 || minimalSupport <= 0)
 				return null;
@@ -276,9 +250,9 @@ namespace AprioriAllLib
 		/// </summary>
 		/// <param name="minimalSupport">minimal support</param>
 		/// <returns>A list of Litemsets with support >= minimalSupport</returns>
-		public List<Litemset> ExecuteParallel(double minimalSupport)
+		public List<Litemset> RunParallelApriori(double minimalSupport)
 		{
-			return ExecuteParallel(minimalSupport, false);
+			return RunParallelApriori(minimalSupport, false);
 		}
 
 		/// <summary>
@@ -287,10 +261,10 @@ namespace AprioriAllLib
 		/// <param name="minimalSupport"></param>
 		/// <param name="progressOutput">if true, information about progress is sent to standard output</param>
 		/// <returns>A list of Litemsets with support >= minimalSupport</returns>
-		public List<Litemset> ExecuteParallel(double minimalSupport, bool progressOutput)
+		public List<Litemset> RunParallelApriori(double minimalSupport, bool progressOutput)
 		{
 			if (OpenCLChecker.PlatformsCount() == 0)
-				return Execute(minimalSupport, progressOutput);
+				return RunApriori(minimalSupport, progressOutput);
 
 			if (minimalSupport > 1 || minimalSupport <= 0)
 				return null;
