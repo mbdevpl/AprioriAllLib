@@ -251,13 +251,22 @@ namespace AprioriAllLib
 				}
 			}
 
+			if (progressOutput)
+				Console.Out.WriteLine("Finished subset generation, found {0}.", litemsets.Count);
+
 			// rewrite the litemsets with support >= minimum to a new list
 			List<Litemset> properLitemsets = new List<Litemset>();
 			foreach (Litemset litemset in litemsets)
 				if (litemset.Support >= minimalSupport)
 					properLitemsets.Add(litemset);
 
+			if (progressOutput)
+				Console.Out.WriteLine("Purged unsupported litemsets, {0} remain.", properLitemsets.Count);
+
 			properLitemsets.Sort();
+
+			if (progressOutput)
+				Console.Out.WriteLine("Sorted output.");
 
 			return properLitemsets;
 		}
@@ -419,7 +428,7 @@ namespace AprioriAllLib
 			}
 
 			if (progressOutput)
-				Console.Out.WriteLine("Generated all litemsets.");
+				Console.Out.WriteLine("Generated all litemsets, found {0}.", litemsets.Count);
 
 			return litemsets;
 		}
