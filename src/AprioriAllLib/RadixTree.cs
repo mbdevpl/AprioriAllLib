@@ -50,18 +50,42 @@ namespace AprioriAllLib
 		public bool Check(List<int> list)
 		{
 			if (root == null)
-				//root = new Node(width);
 				return true;
 			Node currentNode = root;
 			foreach (int i in list)
 			{
 				if (currentNode.Get(i) == null)
-					//currentNode.Set(i, new Node(width));
 					return true;
 				currentNode = currentNode.Get(i);
 			}
 			return currentNode.CheckEnd();
 		}
+
+		/// <summary>
+		/// Checks if a given element can be added to the tree.
+		/// </summary>
+		/// <param name="list"></param>
+		/// <param name="ommitedIndex">eleent of the list at this index is treated as non-existent</param>
+		/// <returns>true if a given element is not in the tree</returns>
+		public bool Check(List<int> list, int ommitedIndex)
+		{
+			if (root == null)
+				return true;
+			Node currentNode = root;
+			var listEnum = list.GetEnumerator();
+			for(int n = 0; n < list.Count; ++n)
+			{
+				listEnum.MoveNext();
+				if (n == ommitedIndex)
+					continue;
+				int i = listEnum.Current;
+				if (currentNode.Get(i) == null)
+					return true;
+				currentNode = currentNode.Get(i);
+			}
+			return currentNode.CheckEnd();
+		}
+
 	}
 
 	class Node

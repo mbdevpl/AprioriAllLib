@@ -26,8 +26,12 @@ namespace AprioriAllLib.Test
 		{
 			//Arrange
 			List<Customer> expected = new List<Customer>();
-			//expected.Add(new Customer(new int[] { 30 }, new int[] { 70 }));
-			//Assert.AreEqual(1, expected.Count);
+			expected.Add(new Customer(new int[] { 90 }));
+			expected.Add(new Customer(new int[] { 30 }, new int[] { 80 }));
+			expected.Add(new Customer(new int[] { 30 }, new int[] { 40, 70 }, new int[] { 40 }));
+			expected.Add(new Customer(new int[] { 10, 20 }, new int[] { 30 }, new int[] { 10, 60, 70 }));
+			expected.Add(new Customer(new int[] { 30, 50, 70 }));
+			Assert.AreEqual(5, expected.Count);
 
 			//Act
 			AprioriAll all = new AprioriAll(data.Example1);
@@ -42,8 +46,8 @@ namespace AprioriAllLib.Test
 		{
 			//Arrange
 			List<Customer> expected = new List<Customer>();
-			//expected.Add(new Customer(new int[] { 30 }, new int[] { 70 }));
-			//Assert.AreEqual(1, expected.Count);
+			expected.Add(new Customer(new int[] { 30 }, new int[] { 70 }));
+			Assert.AreEqual(1, expected.Count);
 
 			//Act
 			AprioriAll all = new AprioriAll(data.Example1);

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 using OpenCL.Net;
+using System.Diagnostics;
 
 namespace AprioriAllLib
 {
@@ -130,6 +131,9 @@ namespace AprioriAllLib
 				return candidates;
 			int prevLen = prev[0].Count;
 
+			Stopwatch sw = new Stopwatch();
+			sw.Start();
+
 			for (int i1 = 0; i1 < prevCount; ++i1)
 			{
 				List<int> l1 = prev[i1];
@@ -189,32 +193,46 @@ namespace AprioriAllLib
 				}
 			}
 
+			sw.Stop();
+
 			if (progressOutput)
 				Console.Out.WriteLine("Found {0} candidates, checking if they are valid...", candidates.Count);
 
 			RadixTree radixTree = new RadixTree(litemsetCount + 1); // litemsets IDs are starting from 1
 
+			Stopwatch sw3 = new Stopwatch();
+			sw3.Start();
+
 			foreach (List<int> onePrev in prev)
 				if (!radixTree.TryAdd(onePrev))
 					throw new ArgumentException("found duplicates in previous k-sequences", "prev");
 
+			sw3.Stop();
+
+			Stopwatch sw2 = new Stopwatch();
+			sw2.Start();
+
 			// build a list of candidates that haven't got all their sub-sequences
 			// in set of previous k-sequences
 			Dictionary<List<int>, int>.KeyCollection keys = candidates.Keys;
+			var keysEnum = keys.GetEnumerator();
 			List<List<int>> keysToRemove = new List<List<int>>();
 			for (int ic = keys.Count - 1; ic >= 0; --ic)
 			{
+				keysEnum.MoveNext();
+				List<int> currentList = keysEnum.Current;
+
 				bool invalidCandidate = false;
 				for (int not = prevLen; not >= 0; --not)
 				{
-					List<int> sublist = new List<int>(keys.ElementAt(ic));
-					sublist.RemoveAt(not);
+					//List<int> sublist = new List<int>(keys.ElementAt(ic));
+					//sublist.RemoveAt(not);
 
-					if (radixTree.Check(sublist))
-					{
-						invalidCandidate = true;
-						break;
-					}
+					if (!radixTree.Check(currentList, not))
+						continue; // if it cannot be added, then it exists in the tree
+
+					invalidCandidate = true;
+					break;
 
 					//bool foundInPrevious = false;
 					//for (int i = 0; i < prevCount; ++i)
@@ -247,13 +265,19 @@ namespace AprioriAllLib
 						Console.Out.WriteLine("   {0} remaining...", ic);
 			}
 
+			sw2.Stop();
+
 			//remove invalid candidates
 			foreach (List<int> key in keysToRemove)
 				candidates.Remove(key);
 
 			if (progressOutput)
+			{
 				Console.Out.WriteLine("Found {0} valid candidates, previous sequences did not contain {1}.",
 					candidates.Count, keysToRemove.Count);
+				Console.Out.WriteLine("Time taken: generation={0}, prev-to-tree={1}, containment check={2}.",
+					sw.Elapsed, sw3.Elapsed, sw2.Elapsed);
+			}
 
 			return candidates;
 		}
@@ -270,13 +294,6 @@ namespace AprioriAllLib
 		{
 			//if (encodedCustomer.Count < candidate.Count)
 			//   return false; // the candidate is too long to possibly match the customer
-
-			//int maxOmit = encodedCustomer.Count - candidate.Count;
-			//for (int omitted = 0; omitted <= maxOmit; ++omitted) {
-			// variable omitted decides how many initial transactions are omitted when matching is perfromed,
-			//  i.e. how wide is the interval put on the customer's transaction list, to which the candidate is matched
-			// finding procedure fails if and only if for none of the interval lengths
-			//  the match was found
 
 			bool allNeededItemsArePresent = true;
 			int prevFoundIndex = 0/*-1*/;
@@ -298,6 +315,7 @@ namespace AprioriAllLib
 						if (ithTransaction[k] == jthCandidateElem)
 						{
 							foundJthItemInIthTransaction = true;
+							prevFoundIndex = i;
 							usedProductsFromCurrentCandidate.Add(k);
 							jthCandidateFound = true;
 							break;
@@ -316,7 +334,7 @@ namespace AprioriAllLib
 				if (!jthCandidateFound)
 				{
 					allNeededItemsArePresent = false;
-					return false; //break;
+					break; //return false;
 				}
 			}
 			if (allNeededItemsArePresent)
@@ -422,28 +440,41 @@ namespace AprioriAllLib
 		{
 			if (kSequences == null || kSequences.Count == 0)
 				return;
-			// additional "-1" because all largest k-sequences are for sure maximal
-			for (int k = kSequences.Count - 1 - 1; k >= 0; --k)
+			int initialK = kSequences.Count - 1
+				- 1 // additional "-1" because all largest k-sequences are for sure maximal
+				- 1; // additional "-1" because the last entry in the list is empty
+			if (kSequences[kSequences.Count - 1].Count > 0)
+				throw new ArgumentException("last entry of kSequences is supposed to be empty", "kSequences");
+
+			for (int k = initialK; k >= 0; --k)
 			{
 				List<List<int>> sequencesOfLengthK = kSequences[k];
 				if (sequencesOfLengthK == null || sequencesOfLengthK.Count == 0)
 					continue;
+				// we need a flag not to fall behind allowed memebers
+				bool removedAny = false;
 				for (int n = sequencesOfLengthK.Count - 1; n >= 0; --n)
 				{
 					// we analyze n-th k-sequence:
 					List<int> sequence = sequencesOfLengthK[n];
 					for (int i = k + 1; i < kSequences.Count; ++i)
 					{
-
 						foreach (List<int> longerSequence in kSequences[i])
 							if (IsSubSequence(sequence, longerSequence))
 							{
 								// if 'sequence' is a sub-seqence of 'longerSequence'
 								PurgeAllSubSeqsOf(kSequences, k, n);
 								sequencesOfLengthK.RemoveAt(n);
+								--n;
+								removedAny = true;
 								break;
 							}
 
+					}
+					if (removedAny)
+					{
+						++n;
+						removedAny = false;
 					}
 				}
 			}
@@ -683,12 +714,13 @@ namespace AprioriAllLib
 				Console.Out.WriteLine("Launching Apriori...");
 			// this corresponds to 2nd step of Apriori All algorithm, namely "Litemset Phase".
 			List<Litemset> oneLitemsets = RunApriori(threshold, progressOutput);
-			if (progressOutput)
-			{
-				Console.Out.WriteLine("Litemsets:");
-				foreach (Litemset l in oneLitemsets)
-					Console.Out.WriteLine(" - {0}", l);
-			}
+
+			//if (progressOutput) // all is printed below anyway
+			//{
+			//	Console.Out.WriteLine("Litemsets:");
+			//	foreach (Litemset l in oneLitemsets)
+			//		Console.Out.WriteLine(" - {0}", l);
+			//}
 
 			// 3. transform input into list of IDs
 			if (progressOutput)
@@ -699,6 +731,13 @@ namespace AprioriAllLib
 			Dictionary<int, Litemset> decoding;
 
 			GenerateEncoding(oneLitemsets, out encoding, out decoding);
+
+			if (progressOutput)
+			{
+				Console.Out.WriteLine("Decoding dictionary for litemsets:");
+				foreach (KeyValuePair<int, Litemset> kv in decoding)
+					Console.Out.WriteLine(" - {0}", kv);
+			}
 
 			// 3.b) using created IDs, transform the input
 
@@ -713,25 +752,26 @@ namespace AprioriAllLib
 				Console.Out.WriteLine("Encoding input data...");
 			var encodedList = EncodeCustomerList(oneLitemsets, encoding);
 
-			foreach (List<List<int>> c in encodedList)
-			{
-				Console.Out.Write(" - (");
-				foreach (List<int> t in c)
+			if (progressOutput)
+				foreach (List<List<int>> c in encodedList)
 				{
-					Console.Out.Write("{");
-					bool first = true;
-					foreach (int i in t)
+					Console.Out.Write(" - (");
+					foreach (List<int> t in c)
 					{
-						if (!first)
-							Console.Out.Write(" ");
-						if (first)
-							first = false;
-						Console.Out.Write("{0}", i);
+						Console.Out.Write("{");
+						bool first = true;
+						foreach (int i in t)
+						{
+							if (!first)
+								Console.Out.Write(" ");
+							if (first)
+								first = false;
+							Console.Out.Write("{0}", i);
+						}
+						Console.Out.Write("}");
 					}
-					Console.Out.Write("}");
+					Console.Out.WriteLine(")");
 				}
-				Console.Out.WriteLine(")");
-			}
 
 			// 4. find all frequent sequences in the input
 			if (progressOutput)
@@ -750,6 +790,26 @@ namespace AprioriAllLib
 			if (progressOutput)
 				Console.Out.WriteLine("Purging all non-maximal sequences...");
 			PurgeAllNonMax(kSequences);
+
+			if (progressOutput)
+			{
+				Console.Out.WriteLine("List of encoded maximal sequences");
+				foreach (List<List<int>> kSequencesPartition in kSequences)
+					foreach (List<int> sequene in kSequencesPartition)
+					{
+						Console.Out.Write(" - <");
+						bool first = true;
+						foreach (int i in sequene)
+						{
+							if (!first)
+								Console.Out.Write(" ");
+							if (first)
+								first = false;
+							Console.Out.Write("{0}", i);
+						}
+						Console.Out.WriteLine(">");
+					}
+			}
 
 			// 6. decode results
 			if (progressOutput)
