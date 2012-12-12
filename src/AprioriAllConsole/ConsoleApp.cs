@@ -29,8 +29,7 @@ namespace AprioriAllLib.ConsoleTest
 						Console.WriteLine("Invalid support: should be between 0 and 1");
 						return;
 					}
-					XmlReader reader = new XmlReader();
-					customerList = reader.ReadFromXmlFile(args[0]);
+					customerList = XmlReader.ReadFromXmlFile(args[0]);
 				}
 				catch (Exception)
 				{

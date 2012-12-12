@@ -6,18 +6,18 @@ using System.Xml;
 namespace AprioriAllLib
 {
 	/// <summary>
-	/// Class that reads data from xml client database and transforms them into classes
+	/// Class that reads data from XML client database and transforms them into classes.
 	/// 
-	/// (C) 2012 by Karolina Baltyn
+	/// by Karolina Baltyn
 	/// </summary>
-	public class XmlReader
+	public static class XmlReader
 	{
 		/// <summary>
-		/// Reads from xml client database
+		/// Reads from XML client database.
 		/// </summary>
-		/// <param name="filename">String path of the database file</param>
-		/// <returns>Database transformed into a CustomerList object</returns>
-		public CustomerList ReadFromXmlFile(string filename)
+		/// <param name="filename">path of the database file</param>
+		/// <returns>database transformed into a CustomerList object</returns>
+		public static CustomerList ReadFromXmlFile(string filename)
 		{
 			CustomerList list = new CustomerList();
 
@@ -46,7 +46,12 @@ namespace AprioriAllLib
 			return list;
 		}
 
-		private void addCustomer(XmlTextReader reader, CustomerList list)
+		/// <summary>
+		/// Adds a Customer to the CustomerList.
+		/// </summary>
+		/// <param name="reader"></param>
+		/// <param name="list"></param>
+		private static void addCustomer(XmlTextReader reader, CustomerList list)
 		{
 			Customer customer = new Customer();
 			list.Customers.Add(customer);
@@ -58,7 +63,12 @@ namespace AprioriAllLib
 			}
 		}
 
-		private void addTransaction(XmlTextReader reader, Customer customer)
+		/// <summary>
+		/// Adds a Transaction to the Customer.
+		/// </summary>
+		/// <param name="reader"></param>
+		/// <param name="customer"></param>
+		private static void addTransaction(XmlTextReader reader, Customer customer)
 		{
 			Transaction transaction = new Transaction();
 			customer.Transactions.Add(transaction);
@@ -70,7 +80,12 @@ namespace AprioriAllLib
 			}
 		}
 
-		private void addItem(XmlTextReader reader, Transaction transaction)
+		/// <summary>
+		/// Adds an Item to the Transaction.
+		/// </summary>
+		/// <param name="reader"></param>
+		/// <param name="transaction"></param>
+		private static void addItem(XmlTextReader reader, Transaction transaction)
 		{
 			while (reader.Read() && (reader.NodeType != XmlNodeType.EndElement) && reader.Name != "Item")
 				if (reader.NodeType == XmlNodeType.Text && reader.HasValue)
@@ -79,5 +94,6 @@ namespace AprioriAllLib
 					//Console.WriteLine(reader.Value);
 				}
 		}
+
 	}
 }

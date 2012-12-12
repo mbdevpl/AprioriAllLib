@@ -12,11 +12,6 @@ namespace AprioriAllLib
 	public class AprioriAll : Apriori
 	{
 
-		///// <summary>
-		///// Apriori algorithm instance.
-		///// </summary>
-		//private Apriori apriori;
-
 		/// <summary>
 		/// Constructs a new AprioriAll instance.
 		/// </summary>
@@ -24,8 +19,6 @@ namespace AprioriAllLib
 		public AprioriAll(CustomerList customerList)
 			: base(customerList)
 		{
-			//this.customerList = customerList;
-			//apriori = new Apriori(customerList);
 		}
 
 		/// <summary>
@@ -128,7 +121,7 @@ namespace AprioriAllLib
 		/// <param name="prev">previous k-sequences, i.e. (k-1)-sequences</param>
 		/// <param name="progressOutput">if true, information about progress is sent to standard output</param>
 		/// <returns>candidates for k-sequences</returns>
-		protected Dictionary<List<int>, int> GenerateCandidates(List<List<int>> prev, bool progressOutput)
+		protected Dictionary<List<int>, int> GenerateCandidates(List<List<int>> prev, int litemsetCount, bool progressOutput)
 		{
 			var candidates = new Dictionary<List<int>, int>();
 
@@ -147,11 +140,12 @@ namespace AprioriAllLib
 						continue;
 					List<int> l2 = prev[i2];
 
-					// check if first n-1 elements of both lists are equal
+					// check if last n-1 elements of first list sequence
+					//  are equal to the first n-1 elements of the 2nd list
 					bool partEqual = true;
 					for (int i = 0; i < prevLen - 1; ++i)
 					{
-						if (!l1[i].Equals(l2[i]))
+						if (!l1[i + 1].Equals(l2[i]))
 						{
 							partEqual = false;
 							break;
@@ -164,33 +158,45 @@ namespace AprioriAllLib
 					List<int> candidate = new List<int>(l1);
 					candidate.Add(l2[prevLen - 1]);
 
-					// we don't want to add any duplicates
-					bool foundEqual = false;
-					bool isEqual;
-					foreach (List<int> cand in candidates.Keys)
-					{
-						isEqual = true;
-						for (int icc = 0; icc < candidate.Count; ++icc)
-							if (cand[icc] != candidate[icc])
-							{
-								isEqual = false;
-								break;
-							}
-						if (isEqual)
-						{
-							foundEqual = true;
-							break;
-						}
-					}
-					if (foundEqual)
-						continue;
+					// the below code seems to be dormant,
+					//  i.e. it never finds any duplicate candidates
+
+					//// we don't want to add any duplicates
+					//bool foundEqual = false;
+					//bool isEqual;
+					//foreach (List<int> cand in candidates.Keys)
+					//{
+					//	isEqual = true;
+					//	for (int icc = 0; icc < candidate.Count; ++icc)
+					//		if (cand[icc] != candidate[icc])
+					//		{
+					//			isEqual = false;
+					//			break;
+					//		}
+					//	if (isEqual)
+					//	{
+					//		foundEqual = true;
+					//		break;
+					//	}
+					//}
+					//if (foundEqual)
+					//	continue;
 
 					candidates.Add(candidate, 0);
 					if (progressOutput)
-						if (candidates.Count > 0 && candidates.Count % 25000 == 0)
+						if (candidates.Count > 0 && candidates.Count % 50000 == 0)
 							Console.Out.WriteLine("   {0} and counting...", candidates.Count);
 				}
 			}
+
+			if (progressOutput)
+				Console.Out.WriteLine("Found {0} candidates, checking if they are valid...", candidates.Count);
+
+			RadixTree radixTree = new RadixTree(litemsetCount + 1); // litemsets IDs are starting from 1
+
+			foreach (List<int> onePrev in prev)
+				if (!radixTree.TryAdd(onePrev))
+					throw new ArgumentException("found duplicates in previous k-sequences", "prev");
 
 			// build a list of candidates that haven't got all their sub-sequences
 			// in set of previous k-sequences
@@ -203,39 +209,51 @@ namespace AprioriAllLib
 				{
 					List<int> sublist = new List<int>(keys.ElementAt(ic));
 					sublist.RemoveAt(not);
-					bool foundInPrevious = false;
-					for (int i = 0; i <= prevCount; ++i)
-					{
-						bool foundEqual = false;
-						for (int n = 0; n < prevLen; ++n)
-						{
-							if (sublist[n] == prev[i][n])
-							{
-								foundEqual = true;
-								break;
-							}
-						}
-						if (foundEqual)
-						{
-							foundInPrevious = true;
-							break;
-						}
-					}
-					if (!foundInPrevious)
+
+					if (radixTree.Check(sublist))
 					{
 						invalidCandidate = true;
 						break;
 					}
+
+					//bool foundInPrevious = false;
+					//for (int i = 0; i < prevCount; ++i)
+					//{
+					//	bool foundEqual = true;
+					//	for (int n = 0; n < prevLen; ++n)
+					//	{
+					//		if (sublist[n] != prev[i][n])
+					//		{
+					//			foundEqual = false;
+					//			break;
+					//		}
+					//	}
+					//	if (foundEqual)
+					//	{
+					//		foundInPrevious = true;
+					//		break;
+					//	}
+					//}
+					//if (!foundInPrevious)
+					//{
+					//	invalidCandidate = true;
+					//	break;
+					//}
 				}
 				if (invalidCandidate)
 					keysToRemove.Add(keys.ElementAt(ic));
+				if (progressOutput)
+					if (ic > 0 && ic % 50000 == 0)
+						Console.Out.WriteLine("   {0} remaining...", ic);
 			}
-			if (progressOutput)
-				Console.Out.WriteLine("Found {0} candidates, of which previous sequences do not contain {1}.",
-					candidates.Count, keysToRemove.Count);
+
 			//remove invalid candidates
 			foreach (List<int> key in keysToRemove)
 				candidates.Remove(key);
+
+			if (progressOutput)
+				Console.Out.WriteLine("Found {0} valid candidates, previous sequences did not contain {1}.",
+					candidates.Count, keysToRemove.Count);
 
 			return candidates;
 		}
@@ -262,6 +280,7 @@ namespace AprioriAllLib
 
 			bool allNeededItemsArePresent = true;
 			int prevFoundIndex = 0/*-1*/;
+			List<int> usedProductsFromCurrentCandidate = new List<int>();
 			for (int j = 0; j < candidate.Count; ++j)
 			{
 				int jthCandidateElem = candidate[j];
@@ -271,12 +290,28 @@ namespace AprioriAllLib
 					List<int> ithTransaction = encodedCustomer[i];
 					// try to match j-th element of candidate
 					//  with i-th transaction of the current customer
-					if (ithTransaction.Contains(jthCandidateElem))
+					bool foundJthItemInIthTransaction = false;
+					for (int k = 0; k < ithTransaction.Count; ++k)
 					{
-						prevFoundIndex = i;
-						jthCandidateFound = true;
-						break;
+						if (usedProductsFromCurrentCandidate.Contains(k))
+							continue;
+						if (ithTransaction[k] == jthCandidateElem)
+						{
+							foundJthItemInIthTransaction = true;
+							usedProductsFromCurrentCandidate.Add(k);
+							jthCandidateFound = true;
+							break;
+						}
 					}
+					if (foundJthItemInIthTransaction)
+						break;
+					//if (ithTransaction.Contains(jthCandidateElem))
+					//{
+					//	prevFoundIndex = i;
+					//	jthCandidateFound = true;
+					//	break;
+					//}
+					usedProductsFromCurrentCandidate.Clear();
 				}
 				if (!jthCandidateFound)
 				{
@@ -323,7 +358,7 @@ namespace AprioriAllLib
 				var prev = kSequences[k - 1];
 
 				// generate candidates
-				Dictionary<List<int>, int> candidates = GenerateCandidates(prev, progressOutput);
+				Dictionary<List<int>, int> candidates = GenerateCandidates(prev, oneLitemsets.Count, progressOutput);
 
 				// calculate support of each candidate by analyzing the whole encoded input
 
@@ -604,7 +639,7 @@ namespace AprioriAllLib
 		}
 
 		/// <summary>
-		/// Executes Apriori All algorithm on a given input and minimum suport threshold.
+		/// Executes AprioriAll algorithm on a given input and minimum suport threshold.
 		/// </summary>
 		/// <param name="threshold">greater than 0, and less or equal 1</param>
 		/// <returns>list of frequently occurring customers transaction's patters</returns>
@@ -622,13 +657,16 @@ namespace AprioriAllLib
 		public List<Customer> RunAprioriAll(double threshold, bool progressOutput)
 		{
 			if (customerList == null)
-				throw new ArgumentNullException("customerList", "customerList is null.");
+				throw new ArgumentNullException("customers list is null", "customerList");
 			if (threshold > 1 || threshold <= 0)
-				throw new ArgumentException("threshold", "threshold is out of range = (0,1]");
+				throw new ArgumentException("threshold is out of range = (0,1]", "threshold");
 
 			int minSupport = (int)Math.Ceiling((double)customerList.Customers.Count * threshold);
 			if (progressOutput)
 				Console.Out.WriteLine("Threshold = {0}  =>  Minimum support = {1}", threshold, minSupport);
+
+			if (minSupport <= 0)
+				throw new ArgumentException("minimum support must be positive", "minSupport");
 
 			// 1. sort the input!
 			if (progressOutput)
@@ -674,6 +712,26 @@ namespace AprioriAllLib
 			if (progressOutput)
 				Console.Out.WriteLine("Encoding input data...");
 			var encodedList = EncodeCustomerList(oneLitemsets, encoding);
+
+			foreach (List<List<int>> c in encodedList)
+			{
+				Console.Out.Write(" - (");
+				foreach (List<int> t in c)
+				{
+					Console.Out.Write("{");
+					bool first = true;
+					foreach (int i in t)
+					{
+						if (!first)
+							Console.Out.Write(" ");
+						if (first)
+							first = false;
+						Console.Out.Write("{0}", i);
+					}
+					Console.Out.Write("}");
+				}
+				Console.Out.WriteLine(")");
+			}
 
 			// 4. find all frequent sequences in the input
 			if (progressOutput)
