@@ -1,0 +1,11 @@
+<map id="AprioriAllLib.Apriori.RunApriori" name="AprioriAllLib.Apriori.RunApriori">
+<area shape="rect" id="node3" href="$class_apriori_all_lib_1_1_apriori.html#acc814f1f0486ef94181556bb96750b95" title="Executes parallel version of the Apriori algorithm. " alt="" coords="238,5,397,46"/>
+<area shape="rect" id="node5" href="$class_apriori_all_lib_1_1_apriori_all.html#a719d1c07f93fa2e82e1ae6dcacbb8efe" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. " alt="" coords="242,70,393,111"/>
+<area shape="rect" id="node7" href="$class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test.html#a34f97425d8fa423d69e2a0b17cee8e28" title="AprioriAllLib.Test.Apriori\lParallelTest.Test_AprioriParallel\l_Example1_LowSupport" alt="" coords="214,136,421,192"/>
+<area shape="rect" id="node9" href="$class_apriori_all_lib_1_1_test_1_1_apriori_test.html#a7f88088aa49b8a59ae72e5c6b8c10603" title="AprioriAllLib.Test.Apriori\lTest.Test_Apriori_Example1\l_LowSupport" alt="" coords="225,216,410,272"/>
+<area shape="rect" id="node11" href="$class_apriori_all_lib_1_1_test_1_1_apriori_test.html#ab672e1f34760b67a025d2b6385e85cf2" title="AprioriAllLib.Test.Apriori\lTest.Test_Apriori_Example1\l_HighSupport" alt="" coords="225,296,410,352"/>
+<area shape="rect" id="node13" href="$class_apriori_all_lib_1_1_test_1_1_apriori_test.html#a995e2e9976503df6750aaa6cdbbd9dd9" title="AprioriAllLib.Test.Apriori\lTest.Test_Apriori_DataSet2\l_LowSupport" alt="" coords="227,376,408,432"/>
+<area shape="rect" id="node15" href="$class_apriori_all_lib_1_1_test_1_1_apriori_test.html#ad622c7c743a4b038c2703c6ba6082d6d" title="AprioriAllLib.Test.Apriori\lTest.Test_Apriori_DataSet2\l_HighSupport" alt="" coords="227,456,408,512"/>
+<area shape="rect" id="node17" href="$class_apriori_all_lib_1_1_test_1_1_apriori_test.html#a320b15a0355574b4a219f6a775d59fa2" title="AprioriAllLib.Test.Apriori\lTest.Test_Apriori_DataSet3\l_LowSupport" alt="" coords="227,536,408,592"/>
+<area shape="rect" id="node19" href="$class_apriori_all_lib_1_1_test_1_1_apriori_test.html#a6e3ab7bce063150d94d925fe9427d0d5" title="AprioriAllLib.Test.Apriori\lTest.Test_Apriori_DataSet3\l_HighSupport" alt="" coords="227,616,408,672"/>
+</map>

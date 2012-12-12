@@ -24,6 +24,10 @@ var dir_fdb869da666d0ce0930763be9405a594 =
     [ "OpenCLChecker.cs", "_open_c_l_checker_8cs.html", [
       [ "OpenCLChecker", "class_apriori_all_lib_1_1_open_c_l_checker.html", "class_apriori_all_lib_1_1_open_c_l_checker" ]
     ] ],
+    [ "RadixTree.cs", "_radix_tree_8cs.html", [
+      [ "RadixTree", "class_apriori_all_lib_1_1_radix_tree.html", "class_apriori_all_lib_1_1_radix_tree" ],
+      [ "Node", "class_apriori_all_lib_1_1_node.html", "class_apriori_all_lib_1_1_node" ]
+    ] ],
     [ "Transaction.cs", "_transaction_8cs.html", [
       [ "Transaction", "class_apriori_all_lib_1_1_transaction.html", "class_apriori_all_lib_1_1_transaction" ]
     ] ],

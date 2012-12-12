@@ -204,7 +204,7 @@ Static Private Attributes</h2></td></tr>
 <div class="line"></div>
 <div class="line">            <span class="comment">//Act</span></div>
 <div class="line">            Apriori apriori = <span class="keyword">new</span> Apriori(<a class="code" href="class_apriori_all_lib_1_1_test_1_1_apriori_test.html#a640aa28389e3dad777fad509f2b6e742">data</a>.<a class="code" href="class_apriori_all_lib_1_1_test_1_1_input_data.html#ad392da8791e3424d29aace43c69c6f52">DataSet2</a>);</div>
-<div class="line">            List&lt;Litemset&gt; oneLitemsets = apriori.FindOneLitemsets(0.5);</div>
+<div class="line">            List&lt;Litemset&gt; oneLitemsets = apriori.RunApriori(0.5);</div>
 <div class="line"></div>
 <div class="line">            <span class="comment">//Assert</span></div>
 <div class="line">            CollectionAssert.AreEqual(expected, oneLitemsets);</div>
@@ -215,7 +215,7 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_apriori_all_lib_1_1_test_1_1_apriori_test_ad622c7c743a4b038c2703c6ba6082d6d_cgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_test_1_1_apriori_test_ad622c7c743a4b038c2703c6ba6082d6d_cgraph" alt=""/></div>
 <map name="class_apriori_all_lib_1_1_test_1_1_apriori_test_ad622c7c743a4b038c2703c6ba6082d6d_cgraph" id="class_apriori_all_lib_1_1_test_1_1_apriori_test_ad622c7c743a4b038c2703c6ba6082d6d_cgraph">
-<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori.html#a64e63d73cfc770ef8532127198b314dd" title="Finds all litemsets that have the minimal support " alt="" coords="235,13,397,54"/></map>
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori.html#a91d0b11de53dab28769f1d7fda0542c6" title="Finds all litemsets that have the minimal support. " alt="" coords="235,13,394,54"/></map>
 </div>
 </p>
 
@@ -252,7 +252,7 @@ Here is the call graph for this function:</div>
 <div class="line"></div>
 <div class="line">            <span class="comment">//Act</span></div>
 <div class="line">            Apriori apriori = <span class="keyword">new</span> Apriori(<a class="code" href="class_apriori_all_lib_1_1_test_1_1_apriori_test.html#a640aa28389e3dad777fad509f2b6e742">data</a>.<a class="code" href="class_apriori_all_lib_1_1_test_1_1_input_data.html#ad392da8791e3424d29aace43c69c6f52">DataSet2</a>);</div>
-<div class="line">            List&lt;Litemset&gt; oneLitemsets = apriori.FindOneLitemsets(0.2);</div>
+<div class="line">            List&lt;Litemset&gt; oneLitemsets = apriori.RunApriori(0.2);</div>
 <div class="line"></div>
 <div class="line">            <span class="comment">//Assert</span></div>
 <div class="line">            CollectionAssert.AreEqual(expected, oneLitemsets); <span class="comment">// areEquivalent doesn&#39;t work</span></div>
@@ -263,7 +263,7 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_apriori_all_lib_1_1_test_1_1_apriori_test_a995e2e9976503df6750aaa6cdbbd9dd9_cgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_test_1_1_apriori_test_a995e2e9976503df6750aaa6cdbbd9dd9_cgraph" alt=""/></div>
 <map name="class_apriori_all_lib_1_1_test_1_1_apriori_test_a995e2e9976503df6750aaa6cdbbd9dd9_cgraph" id="class_apriori_all_lib_1_1_test_1_1_apriori_test_a995e2e9976503df6750aaa6cdbbd9dd9_cgraph">
-<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori.html#a64e63d73cfc770ef8532127198b314dd" title="Finds all litemsets that have the minimal support " alt="" coords="235,13,397,54"/></map>
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori.html#a91d0b11de53dab28769f1d7fda0542c6" title="Finds all litemsets that have the minimal support. " alt="" coords="235,13,394,54"/></map>
 </div>
 </p>
 
@@ -296,7 +296,7 @@ Here is the call graph for this function:</div>
 <div class="line"></div>
 <div class="line">            <span class="comment">//Act</span></div>
 <div class="line">            Apriori apriori = <span class="keyword">new</span> Apriori(<a class="code" href="class_apriori_all_lib_1_1_test_1_1_apriori_test.html#a640aa28389e3dad777fad509f2b6e742">data</a>.<a class="code" href="class_apriori_all_lib_1_1_test_1_1_input_data.html#a78150e515afc61f12aa64e4bdce5c66c">DataSet3</a>);</div>
-<div class="line">            List&lt;Litemset&gt; oneLitemsets = apriori.FindOneLitemsets(0.5);</div>
+<div class="line">            List&lt;Litemset&gt; oneLitemsets = apriori.RunApriori(0.5);</div>
 <div class="line"></div>
 <div class="line">            <span class="comment">//Assert</span></div>
 <div class="line">            CollectionAssert.AreEqual(expected, oneLitemsets);</div>
@@ -307,7 +307,7 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_apriori_all_lib_1_1_test_1_1_apriori_test_a6e3ab7bce063150d94d925fe9427d0d5_cgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_test_1_1_apriori_test_a6e3ab7bce063150d94d925fe9427d0d5_cgraph" alt=""/></div>
 <map name="class_apriori_all_lib_1_1_test_1_1_apriori_test_a6e3ab7bce063150d94d925fe9427d0d5_cgraph" id="class_apriori_all_lib_1_1_test_1_1_apriori_test_a6e3ab7bce063150d94d925fe9427d0d5_cgraph">
-<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori.html#a64e63d73cfc770ef8532127198b314dd" title="Finds all litemsets that have the minimal support " alt="" coords="235,13,397,54"/></map>
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori.html#a91d0b11de53dab28769f1d7fda0542c6" title="Finds all litemsets that have the minimal support. " alt="" coords="235,13,394,54"/></map>
 </div>
 </p>
 
@@ -346,7 +346,7 @@ Here is the call graph for this function:</div>
 <div class="line"></div>
 <div class="line">            <span class="comment">//Act</span></div>
 <div class="line">            Apriori apriori = <span class="keyword">new</span> Apriori(<a class="code" href="class_apriori_all_lib_1_1_test_1_1_apriori_test.html#a640aa28389e3dad777fad509f2b6e742">data</a>.<a class="code" href="class_apriori_all_lib_1_1_test_1_1_input_data.html#a78150e515afc61f12aa64e4bdce5c66c">DataSet3</a>);</div>
-<div class="line">            List&lt;Litemset&gt; oneLitemsets = apriori.FindOneLitemsets(0.2);</div>
+<div class="line">            List&lt;Litemset&gt; oneLitemsets = apriori.RunApriori(0.2);</div>
 <div class="line"></div>
 <div class="line">            <span class="comment">//Assert</span></div>
 <div class="line">            CollectionAssert.AreEqual(expected, oneLitemsets); <span class="comment">// areEquivalent doesn&#39;t work</span></div>
@@ -357,7 +357,7 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_apriori_all_lib_1_1_test_1_1_apriori_test_a320b15a0355574b4a219f6a775d59fa2_cgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_test_1_1_apriori_test_a320b15a0355574b4a219f6a775d59fa2_cgraph" alt=""/></div>
 <map name="class_apriori_all_lib_1_1_test_1_1_apriori_test_a320b15a0355574b4a219f6a775d59fa2_cgraph" id="class_apriori_all_lib_1_1_test_1_1_apriori_test_a320b15a0355574b4a219f6a775d59fa2_cgraph">
-<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori.html#a64e63d73cfc770ef8532127198b314dd" title="Finds all litemsets that have the minimal support " alt="" coords="235,13,397,54"/></map>
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori.html#a91d0b11de53dab28769f1d7fda0542c6" title="Finds all litemsets that have the minimal support. " alt="" coords="235,13,394,54"/></map>
 </div>
 </p>
 
@@ -384,7 +384,7 @@ Here is the call graph for this function:</div>
 <div class="line"></div>
 <div class="line">            <span class="comment">//Act</span></div>
 <div class="line">            Apriori apriori = <span class="keyword">new</span> Apriori(<a class="code" href="class_apriori_all_lib_1_1_test_1_1_apriori_test.html#a640aa28389e3dad777fad509f2b6e742">data</a>.<a class="code" href="class_apriori_all_lib_1_1_test_1_1_input_data.html#a273fe1ea06527075b74dcb66941d5467" title="Example data set. ">Example1</a>);</div>
-<div class="line">            List&lt;Litemset&gt; oneLitemsets = apriori.FindOneLitemsets(0.6);</div>
+<div class="line">            List&lt;Litemset&gt; oneLitemsets = apriori.RunApriori(0.6);</div>
 <div class="line"></div>
 <div class="line">            <span class="comment">//Assert</span></div>
 <div class="line">            CollectionAssert.AreEqual(expected, oneLitemsets);</div>
@@ -395,7 +395,7 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_apriori_all_lib_1_1_test_1_1_apriori_test_ab672e1f34760b67a025d2b6385e85cf2_cgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_test_1_1_apriori_test_ab672e1f34760b67a025d2b6385e85cf2_cgraph" alt=""/></div>
 <map name="class_apriori_all_lib_1_1_test_1_1_apriori_test_ab672e1f34760b67a025d2b6385e85cf2_cgraph" id="class_apriori_all_lib_1_1_test_1_1_apriori_test_ab672e1f34760b67a025d2b6385e85cf2_cgraph">
-<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori.html#a64e63d73cfc770ef8532127198b314dd" title="Finds all litemsets that have the minimal support " alt="" coords="241,13,402,54"/></map>
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori.html#a91d0b11de53dab28769f1d7fda0542c6" title="Finds all litemsets that have the minimal support. " alt="" coords="241,13,399,54"/></map>
 </div>
 </p>
 
@@ -439,7 +439,7 @@ Here is the call graph for this function:</div>
 <div class="line"></div>
 <div class="line">            <span class="comment">//Act</span></div>
 <div class="line">            Apriori apriori = <span class="keyword">new</span> Apriori(<a class="code" href="class_apriori_all_lib_1_1_test_1_1_apriori_test.html#a640aa28389e3dad777fad509f2b6e742">data</a>.<a class="code" href="class_apriori_all_lib_1_1_test_1_1_input_data.html#a273fe1ea06527075b74dcb66941d5467" title="Example data set. ">Example1</a>);</div>
-<div class="line">            List&lt;Litemset&gt; oneLitemsets = apriori.FindOneLitemsets(0.2);</div>
+<div class="line">            List&lt;Litemset&gt; oneLitemsets = apriori.RunApriori(0.2);</div>
 <div class="line"></div>
 <div class="line">            <span class="comment">//Assert</span></div>
 <div class="line">            CollectionAssert.AreEqual(expected, oneLitemsets);</div>
@@ -450,7 +450,7 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_apriori_all_lib_1_1_test_1_1_apriori_test_a7f88088aa49b8a59ae72e5c6b8c10603_cgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_test_1_1_apriori_test_a7f88088aa49b8a59ae72e5c6b8c10603_cgraph" alt=""/></div>
 <map name="class_apriori_all_lib_1_1_test_1_1_apriori_test_a7f88088aa49b8a59ae72e5c6b8c10603_cgraph" id="class_apriori_all_lib_1_1_test_1_1_apriori_test_a7f88088aa49b8a59ae72e5c6b8c10603_cgraph">
-<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori.html#a64e63d73cfc770ef8532127198b314dd" title="Finds all litemsets that have the minimal support " alt="" coords="241,13,402,54"/></map>
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori.html#a91d0b11de53dab28769f1d7fda0542c6" title="Finds all litemsets that have the minimal support. " alt="" coords="241,13,399,54"/></map>
 </div>
 </p>
 

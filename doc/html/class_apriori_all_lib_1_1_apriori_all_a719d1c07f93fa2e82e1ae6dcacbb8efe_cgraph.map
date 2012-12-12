@@ -1,0 +1,15 @@
+<map id="AprioriAllLib.AprioriAll.RunAprioriAll" name="AprioriAllLib.AprioriAll.RunAprioriAll">
+<area shape="rect" id="node3" href="$class_apriori_all_lib_1_1_apriori.html#a91d0b11de53dab28769f1d7fda0542c6" title="Finds all litemsets that have the minimal support. " alt="" coords="215,5,374,46"/>
+<area shape="rect" id="node5" href="$class_apriori_all_lib_1_1_apriori_all.html#a5df23984f4c14ccba3f0456673123934" title="Generates encoding and decoding dictionaries for a given set of 1&#45;sequences (large itemsets)..." alt="" coords="219,70,370,111"/>
+<area shape="rect" id="node7" href="$class_apriori_all_lib_1_1_apriori_all.html#a4030f2db6e2216c8adc5b9e182f14769" title="Corresponds to 3rd step of Apriori All algorithm, namely &quot;Transformation Phase&quot;. " alt="" coords="219,135,370,177"/>
+<area shape="rect" id="node11" href="$class_apriori_all_lib_1_1_apriori_all.html#ab87e3f4c49f61051af5c85b7d6cde14e" title="Corresponds to 4th step of Apriori All algorithm, namely &quot;Sequence Phase&quot;. " alt="" coords="205,201,384,242"/>
+<area shape="rect" id="node17" href="$class_apriori_all_lib_1_1_apriori_all.html#ad68b617b7a2a945291c9b06efce61e4c" title="Deletes all non&#45;maximal seqences from list of k&#45;sequences." alt="" coords="219,266,370,307"/>
+<area shape="rect" id="node21" href="$class_apriori_all_lib_1_1_apriori_all.html#ad0e1764626e9c890583e7f1e5783d51e" title="AprioriAllLib.AprioriAll.\lInferRealResults" alt="" coords="219,331,370,373"/>
+<area shape="rect" id="node9" href="$class_apriori_all_lib_1_1_item.html#a69489ac60415029faf0dc3e7dc926e62" title="AprioriAllLib.Item.Equals" alt="" coords="469,84,633,111"/>
+<area shape="rect" id="node13" href="$class_apriori_all_lib_1_1_apriori_all.html#ab713206403728597418b85b971cceb68" title="Generates all candidates for k&#45;sequences, basing on set of (k&#45;1)&#45;sequences. " alt="" coords="475,135,626,177"/>
+<area shape="rect" id="node15" href="$class_apriori_all_lib_1_1_apriori_all.html#afa7ed1829de9dc0de0b522e41905e300" title="Tries to match the candidate k&#45;sequence to an encoded customer, and returns true if the customer cont..." alt="" coords="432,201,669,242"/>
+<area shape="rect" id="node19" href="$class_apriori_all_lib_1_1_apriori_all.html#ad5fc82d557718ca9ba150b3fbda3ea75" title="Deletes all subsequences of ii&#45;th kk&#45;sequence from the list of k&#45;sequences. " alt="" coords="475,266,626,307"/>
+<area shape="rect" id="node23" href="$class_apriori_all_lib_1_1_apriori_all.html#aa0a08ca2d1a6ddcd4eb86812c67eb0a8" title="Concatenates all lists of k&#45;sequences into a single list. Does nothing else. " alt="" coords="471,331,631,373"/>
+<area shape="rect" id="node25" href="$class_apriori_all_lib_1_1_customer.html#a8036f14573c62b0e4785e7157a1f547b" title="AprioriAllLib.Customer.Equals" alt="" coords="453,397,648,424"/>
+<area shape="rect" id="node27" href="$class_apriori_all_lib_1_1_customer.html#af02616d948989c7ff6161efc2488ecab" title="Constructor " alt="" coords="717,397,928,424"/>
+</map>

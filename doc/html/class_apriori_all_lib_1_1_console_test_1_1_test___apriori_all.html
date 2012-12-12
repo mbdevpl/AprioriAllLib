@@ -117,8 +117,6 @@ $(document).ready(function(){initNavTree('class_apriori_all_lib_1_1_console_test
 Collaboration diagram for AprioriAllLib.ConsoleTest.Test_AprioriAll:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_apriori_all_lib_1_1_console_test_1_1_test___apriori_all__coll__graph.png" border="0" usemap="#_apriori_all_lib_8_console_test_8_test___apriori_all_coll__map" alt="Collaboration graph"/></div>
-<map name="_apriori_all_lib_8_console_test_8_test___apriori_all_coll__map" id="_apriori_all_lib_8_console_test_8_test___apriori_all_coll__map">
-</map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-methods"></a>
@@ -154,8 +152,9 @@ Static Private Member Functions</h2></td></tr>
 <div class="line">            Console.Out.WriteLine(<span class="stringliteral">&quot;Serialized AprioriAll algorithm test&quot;</span>);</div>
 <div class="line"></div>
 <div class="line">            <span class="comment">//Arrange</span></div>
-<div class="line">            CustomerList randomExample = InputGenerator.GenerateRandomList(700, 7, 7);</div>
-<div class="line">            <span class="keywordtype">double</span> support = 0.4;</div>
+<div class="line">            <span class="comment">//CustomerList randomExample = InputGenerator.GenerateRandomList(700, 7, 7);</span></div>
+<div class="line">            CustomerList randomExample = XmlReader.ReadFromXmlFile(<span class="stringliteral">&quot;dataset1.xml&quot;</span>);</div>
+<div class="line">            <span class="keywordtype">double</span> support = 0.2;</div>
 <div class="line"></div>
 <div class="line">            Console.Out.WriteLine(<span class="stringliteral">&quot;\nInput:&quot;</span>);</div>
 <div class="line">            <span class="keywordflow">foreach</span> (Customer c <span class="keywordflow">in</span> randomExample.Customers)</div>
@@ -166,7 +165,7 @@ Static Private Member Functions</h2></td></tr>
 <div class="line">            <span class="comment">//Act</span></div>
 <div class="line">            Console.Out.WriteLine(<span class="stringliteral">&quot;\nComputation:&quot;</span>);</div>
 <div class="line">            AprioriAll all = <span class="keyword">new</span> AprioriAll(randomExample);</div>
-<div class="line">            List&lt;Customer&gt; results = all.Execute(support, <span class="keyword">true</span>);</div>
+<div class="line">            List&lt;Customer&gt; results = all.RunAprioriAll(support, <span class="keyword">true</span>);</div>
 <div class="line"></div>
 <div class="line">            <span class="comment">//Assert</span></div>
 <div class="line">            Console.Out.WriteLine(<span class="stringliteral">&quot;\nResults:&quot;</span>);</div>
@@ -181,7 +180,7 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_apriori_all_lib_1_1_console_test_1_1_test___apriori_all_a1cf91c94b32a1f2a3ec448fd87aa6103_cgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_console_test_1_1_test___apriori_all_a1cf91c94b32a1f2a3ec448fd87aa6103_cgraph" alt=""/></div>
 <map name="class_apriori_all_lib_1_1_console_test_1_1_test___apriori_all_a1cf91c94b32a1f2a3ec448fd87aa6103_cgraph" id="class_apriori_all_lib_1_1_console_test_1_1_test___apriori_all_a1cf91c94b32a1f2a3ec448fd87aa6103_cgraph">
-<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_input_generator.html#af4d27a9352dff265fe1d6f012f33f2b8" title="Generates a random list of customers. Randomization is parameterized. " alt="" coords="224,70,408,111"/><area shape="rect" id="node11" href="class_apriori_all_lib_1_1_apriori_all.html#a946fad496b8c3beaf7c53b32c3e02367" title="Executes Apriori All algorithm on a given input and minimum suport threshold. " alt="" coords="241,135,391,177"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_transaction.html#ac736c8e2fd896d89a0d57258e27beed4" title="AprioriAllLib.Transaction.\lContains" alt="" coords="462,5,629,46"/><area shape="rect" id="node7" href="class_apriori_all_lib_1_1_transaction.html#a3b4983310e683a073e1472f5abea5700" title="AprioriAllLib.Transaction.\lAddItem" alt="" coords="462,70,629,111"/><area shape="rect" id="node9" href="class_apriori_all_lib_1_1_customer.html#a222005fd9e9134325409b26f30d1be40" title="AprioriAllLib.Customer.Add\lTransaction" alt="" coords="456,135,635,177"/></map>
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_xml_reader.html#ac8254897758b96fbc8e8e65ccf1103f9" title="Reads from XML client database. " alt="" coords="225,5,386,46"/><area shape="rect" id="node11" href="class_apriori_all_lib_1_1_apriori_all.html#a9a05f0ff368d6dfea768ce19f09505b2" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. " alt="" coords="230,70,381,111"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_xml_reader.html#a7b9b5900bec644e28a72dd513f26b8b1" title="Adds a Customer to the CustomerList. " alt="" coords="435,5,618,46"/><area shape="rect" id="node7" href="class_apriori_all_lib_1_1_xml_reader.html#a55e41c372e7613272d6cc0c5c7659382" title="Adds a Transaction to the Customer. " alt="" coords="667,5,850,46"/><area shape="rect" id="node9" href="class_apriori_all_lib_1_1_xml_reader.html#a8d7b3b8b757aa0517b726d4c59617836" title="Adds an Item to the Transaction. " alt="" coords="899,12,1106,39"/></map>
 </div>
 </p>
 

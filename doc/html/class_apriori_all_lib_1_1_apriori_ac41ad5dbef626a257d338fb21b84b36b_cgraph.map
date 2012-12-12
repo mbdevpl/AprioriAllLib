@@ -1,8 +1,0 @@
-<map id="AprioriAllLib.Apriori.ExecuteParallel" name="AprioriAllLib.Apriori.ExecuteParallel">
-<area shape="rect" id="node3" href="$class_apriori_all_lib_1_1_open_c_l_checker.html#adf47c7b99e651e7fb42b5a6ff28d3df9" title="Determines and returns number of available OpenCL platforms. " alt="" coords="237,5,432,46"/>
-<area shape="rect" id="node5" href="$class_apriori_all_lib_1_1_apriori.html#ab03bffcbb72d21f81aad2f7ef3aea798" title="Finds all litemsets that have the minimal support. " alt="" coords="243,71,427,97"/>
-<area shape="rect" id="node7" href="$class_apriori_all_lib_1_1_apriori.html#a6421baeff907e6e56568e277f3bafd6b" title="AprioriAllLib.Apriori.Init\lOpenCL" alt="" coords="258,122,411,163"/>
-<area shape="rect" id="node9" href="$class_apriori_all_lib_1_1_apriori.html#a18cf381897f6f8d622bd6ba57b6ab46b" title="AprioriAllLib.Apriori.Init\lOpenCLKernels" alt="" coords="258,187,411,229"/>
-<area shape="rect" id="node11" href="$class_apriori_all_lib_1_1_open_c_l_checker.html#ae52ccff5d63aba27e9c5932c281ed494" title="AprioriAllLib.OpenCLChecker.\lGetBuildInfo" alt="" coords="480,187,675,229"/>
-<area shape="rect" id="node13" href="$class_apriori_all_lib_1_1_open_c_l_checker.html#a07d311d65baca6836000be716fc575e2" title="AprioriAllLib.OpenCLChecker.\lTrueIfError" alt="" coords="723,187,917,229"/>
-</map>

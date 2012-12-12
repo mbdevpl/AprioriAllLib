@@ -1,8 +1,10 @@
 var searchData=
 [
-  ['generatecandidates',['GenerateCandidates',['../class_apriori_all_lib_1_1_apriori_all.html#a4a46e7bcf9bb434201599eed388546c1',1,'AprioriAllLib.AprioriAll.GenerateCandidates()'],['../class_apriori_all_lib_1_1_apriori.html#a79d720678f873cfb665fe6cbf4bf32ae',1,'AprioriAllLib.Apriori.generateCandidates()']]],
+  ['generatecandidatelitemsets',['GenerateCandidateLitemsets',['../class_apriori_all_lib_1_1_apriori.html#a992b4de76d19dcef78a45a0752725977',1,'AprioriAllLib::Apriori']]],
+  ['generatecandidates',['GenerateCandidates',['../class_apriori_all_lib_1_1_apriori_all.html#ab713206403728597418b85b971cceb68',1,'AprioriAllLib::AprioriAll']]],
   ['generateencoding',['GenerateEncoding',['../class_apriori_all_lib_1_1_apriori_all.html#a5df23984f4c14ccba3f0456673123934',1,'AprioriAllLib::AprioriAll']]],
   ['generaterandomlist',['GenerateRandomList',['../class_apriori_all_lib_1_1_input_generator.html#af4d27a9352dff265fe1d6f012f33f2b8',1,'AprioriAllLib::InputGenerator']]],
+  ['get',['Get',['../class_apriori_all_lib_1_1_node.html#aae1a48cbc9de052cf809888dbb5ea09c',1,'AprioriAllLib::Node']]],
   ['getbuildinfo',['GetBuildInfo',['../class_apriori_all_lib_1_1_open_c_l_checker.html#ae52ccff5d63aba27e9c5932c281ed494',1,'AprioriAllLib::OpenCLChecker']]],
   ['gethashcode',['GetHashCode',['../class_apriori_all_lib_1_1_customer.html#aa4829804d6b0775ffe01460f82a9b5d0',1,'AprioriAllLib.Customer.GetHashCode()'],['../class_apriori_all_lib_1_1_item.html#a8e03d67f91ed9e055903e30eecf0d400',1,'AprioriAllLib.Item.GetHashCode()'],['../class_apriori_all_lib_1_1_litemset.html#a9136150bd3e28ca6ec5045e3f9c9d8cc',1,'AprioriAllLib.Litemset.GetHashCode()'],['../class_apriori_all_lib_1_1_transaction.html#a4764adaec1f3e43759056153174b86b0',1,'AprioriAllLib.Transaction.GetHashCode()']]]
 ];

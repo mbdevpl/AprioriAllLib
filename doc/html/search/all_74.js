@@ -23,9 +23,10 @@ var searchData=
   ['test_5fopencl_5fdevicescount',['Test_OpenCL_DevicesCount',['../class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test.html#ae8bd9720beba247a09289a135d895144',1,'AprioriAllLib::Test::AprioriParallelTest']]],
   ['test_5fopencl_5fplatformscount',['Test_OpenCL_PlatformsCount',['../class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test.html#a22505b627464f78b30171ef28b16ca1d',1,'AprioriAllLib::Test::AprioriParallelTest']]],
   ['tostring',['ToString',['../class_apriori_all_lib_1_1_customer.html#a311c3424f3f1207afe9b883cc41cae60',1,'AprioriAllLib.Customer.ToString()'],['../class_apriori_all_lib_1_1_customer_list.html#a8f3853844dc1e35424a54e706014f8d7',1,'AprioriAllLib.CustomerList.ToString()'],['../class_apriori_all_lib_1_1_item.html#a020b36119d00b63670da5688967dc147',1,'AprioriAllLib.Item.ToString()'],['../class_apriori_all_lib_1_1_litemset.html#a512b70867120363edcd1178cec1c31f9',1,'AprioriAllLib.Litemset.ToString()'],['../class_apriori_all_lib_1_1_transaction.html#acee1a8846d87f949c63110f7e6eabfe0',1,'AprioriAllLib.Transaction.ToString()']]],
-  ['transaction',['Transaction',['../class_apriori_all_lib_1_1_transaction.html',1,'AprioriAllLib']]],
   ['transaction',['Transaction',['../class_apriori_all_lib_1_1_transaction.html#adad35699bc55fcba5ee7ad28d34bdf53',1,'AprioriAllLib.Transaction.Transaction()'],['../class_apriori_all_lib_1_1_transaction.html#a582a1d655d1c0d452a5e5f0b972688dd',1,'AprioriAllLib.Transaction.Transaction(params int[] values)'],['../class_apriori_all_lib_1_1_transaction.html#a4a114cb49deabd17311768a8ecdf38a5',1,'AprioriAllLib.Transaction.Transaction(List&lt; Item &gt; listOfItems)']]],
+  ['transaction',['Transaction',['../class_apriori_all_lib_1_1_transaction.html',1,'AprioriAllLib']]],
   ['transaction_2ecs',['Transaction.cs',['../_transaction_8cs.html',1,'']]],
   ['transactions',['Transactions',['../class_apriori_all_lib_1_1_customer.html#a5bf3b782d5e9c582e3f395834b7bddad',1,'AprioriAllLib::Customer']]],
-  ['trueiferror',['TrueIfError',['../class_apriori_all_lib_1_1_open_c_l_checker.html#a07d311d65baca6836000be716fc575e2',1,'AprioriAllLib::OpenCLChecker']]]
+  ['trueiferror',['TrueIfError',['../class_apriori_all_lib_1_1_open_c_l_checker.html#a07d311d65baca6836000be716fc575e2',1,'AprioriAllLib::OpenCLChecker']]],
+  ['tryadd',['TryAdd',['../class_apriori_all_lib_1_1_radix_tree.html#ac7e5b6fa836ad33d91b7de5b735f7032',1,'AprioriAllLib::RadixTree']]]
 ];

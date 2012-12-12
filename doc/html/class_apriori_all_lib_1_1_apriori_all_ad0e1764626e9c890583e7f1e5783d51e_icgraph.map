@@ -1,4 +1,4 @@
 <map id="AprioriAllLib.AprioriAll.InferRealResults" name="AprioriAllLib.AprioriAll.InferRealResults">
-<area shape="rect" id="node3" href="$class_apriori_all_lib_1_1_apriori_all.html#a364420b4ab56c532c8a7d51b62a1a713" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. " alt="" coords="206,5,357,46"/>
-<area shape="rect" id="node5" href="$class_apriori_all_lib_1_1_apriori_all.html#a7f7ec01b000801e6ed432ec090397344" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. It uses parallel version..." alt="" coords="206,70,357,111"/>
+<area shape="rect" id="node3" href="$class_apriori_all_lib_1_1_apriori_all.html#a719d1c07f93fa2e82e1ae6dcacbb8efe" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. " alt="" coords="206,5,357,46"/>
+<area shape="rect" id="node5" href="$class_apriori_all_lib_1_1_apriori_all.html#a1abf95c25d82e6b9ff1bf26184d6c5e4" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. It uses parallel version..." alt="" coords="206,70,357,111"/>
 </map>

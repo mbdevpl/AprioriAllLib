@@ -1,7 +1,8 @@
 var hierarchy =
 [
-    [ "AprioriAllLib.Apriori", "class_apriori_all_lib_1_1_apriori.html", null ],
-    [ "AprioriAllLib.AprioriAll", "class_apriori_all_lib_1_1_apriori_all.html", null ],
+    [ "AprioriAllLib.Apriori", "class_apriori_all_lib_1_1_apriori.html", [
+      [ "AprioriAllLib.AprioriAll", "class_apriori_all_lib_1_1_apriori_all.html", null ]
+    ] ],
     [ "AprioriAllLib.Test.AprioriAllParallelTest", "class_apriori_all_lib_1_1_test_1_1_apriori_all_parallel_test.html", null ],
     [ "AprioriAllLib.Test.AprioriAllTest", "class_apriori_all_lib_1_1_test_1_1_apriori_all_test.html", null ],
     [ "AprioriAllLib.Test.AprioriParallelTest", "class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test.html", null ],
@@ -15,7 +16,9 @@ var hierarchy =
     ] ],
     [ "AprioriAllLib.Test.InputData", "class_apriori_all_lib_1_1_test_1_1_input_data.html", null ],
     [ "AprioriAllLib.InputGenerator", "class_apriori_all_lib_1_1_input_generator.html", null ],
+    [ "AprioriAllLib.Node", "class_apriori_all_lib_1_1_node.html", null ],
     [ "AprioriAllLib.OpenCLChecker", "class_apriori_all_lib_1_1_open_c_l_checker.html", null ],
+    [ "AprioriAllLib.RadixTree", "class_apriori_all_lib_1_1_radix_tree.html", null ],
     [ "AprioriAllLib.ConsoleTest.Test_AprioriAll", "class_apriori_all_lib_1_1_console_test_1_1_test___apriori_all.html", null ],
     [ "AprioriAllLib.ConsoleTest.Test_AprioriParallel", "class_apriori_all_lib_1_1_console_test_1_1_test___apriori_parallel.html", null ],
     [ "AprioriAllLib.Transaction", "class_apriori_all_lib_1_1_transaction.html", null ],

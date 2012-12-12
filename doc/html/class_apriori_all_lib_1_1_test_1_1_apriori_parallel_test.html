@@ -222,7 +222,7 @@ Static Private Attributes</h2></td></tr>
 <div class="line"></div>
 <div class="line">            <span class="comment">//Act</span></div>
 <div class="line">            Apriori apriori = <span class="keyword">new</span> Apriori(<a class="code" href="class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test.html#abee14c983d092b5fd3e6e480b72caf14">data</a>.<a class="code" href="class_apriori_all_lib_1_1_test_1_1_input_data.html#a273fe1ea06527075b74dcb66941d5467" title="Example data set. ">Example1</a>);</div>
-<div class="line">            List&lt;Litemset&gt; oneLitemsets = apriori.FindOneLitemsets(0.6, <span class="keyword">true</span>);</div>
+<div class="line">            List&lt;Litemset&gt; oneLitemsets = apriori.RunParallelApriori(0.6, <span class="keyword">true</span>);</div>
 <div class="line"></div>
 <div class="line">            <span class="comment">//Assert</span></div>
 <div class="line">            CollectionAssert.AreEqual(expected, oneLitemsets);</div>
@@ -233,7 +233,7 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test_a52657a5b9ce9b2fbe98d9420e9f40806_cgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test_a52657a5b9ce9b2fbe98d9420e9f40806_cgraph" alt=""/></div>
 <map name="class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test_a52657a5b9ce9b2fbe98d9420e9f40806_cgraph" id="class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test_a52657a5b9ce9b2fbe98d9420e9f40806_cgraph">
-<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori.html#a64e63d73cfc770ef8532127198b314dd" title="Finds all litemsets that have the minimal support " alt="" coords="262,13,423,54"/></map>
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori.html#abf88e1f78883083cd20760cb43029738" title="Executes parallel version of the Apriori algorithm. " alt="" coords="262,13,421,54"/></map>
 </div>
 </p>
 
@@ -254,12 +254,12 @@ Here is the call graph for this function:</div>
 <div class="fragment"><div class="line">        {</div>
 <div class="line">            <span class="comment">//Arrange</span></div>
 <div class="line">            Apriori aprioriSerialized = <span class="keyword">new</span> Apriori(<a class="code" href="class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test.html#abee14c983d092b5fd3e6e480b72caf14">data</a>.<a class="code" href="class_apriori_all_lib_1_1_test_1_1_input_data.html#a273fe1ea06527075b74dcb66941d5467" title="Example data set. ">Example1</a>);</div>
-<div class="line">            List&lt;Litemset&gt; expected = aprioriSerialized.FindOneLitemsets(0.2, <span class="keyword">false</span>);</div>
+<div class="line">            List&lt;Litemset&gt; expected = aprioriSerialized.RunApriori(0.2);</div>
 <div class="line">            Assert.AreEqual(19, expected.Count);</div>
 <div class="line"></div>
 <div class="line">            <span class="comment">//Act</span></div>
 <div class="line">            Apriori apriori = <span class="keyword">new</span> Apriori(<a class="code" href="class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test.html#abee14c983d092b5fd3e6e480b72caf14">data</a>.<a class="code" href="class_apriori_all_lib_1_1_test_1_1_input_data.html#a273fe1ea06527075b74dcb66941d5467" title="Example data set. ">Example1</a>);</div>
-<div class="line">            List&lt;Litemset&gt; oneLitemsets = apriori.FindOneLitemsets(0.2, <span class="keyword">true</span>);</div>
+<div class="line">            List&lt;Litemset&gt; oneLitemsets = apriori.RunParallelApriori(0.2);</div>
 <div class="line"></div>
 <div class="line">            <span class="comment">//Assert</span></div>
 <div class="line">            CollectionAssert.AreEqual(expected, oneLitemsets);</div>
@@ -270,7 +270,7 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test_a34f97425d8fa423d69e2a0b17cee8e28_cgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test_a34f97425d8fa423d69e2a0b17cee8e28_cgraph" alt=""/></div>
 <map name="class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test_a34f97425d8fa423d69e2a0b17cee8e28_cgraph" id="class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test_a34f97425d8fa423d69e2a0b17cee8e28_cgraph">
-<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori.html#a64e63d73cfc770ef8532127198b314dd" title="Finds all litemsets that have the minimal support " alt="" coords="262,13,423,54"/></map>
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori.html#a91d0b11de53dab28769f1d7fda0542c6" title="Finds all litemsets that have the minimal support. " alt="" coords="262,5,421,46"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_apriori.html#abf88e1f78883083cd20760cb43029738" title="Executes parallel version of the Apriori algorithm. " alt="" coords="262,70,421,111"/></map>
 </div>
 </p>
 
