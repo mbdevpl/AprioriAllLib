@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
 using OpenCL.Net;
 
 namespace AprioriAllLib
@@ -11,17 +10,8 @@ namespace AprioriAllLib
 	/// Utility class that is capable of basic diagnostics of presence of certain OpenCL features 
 	/// via OpenCL.NET bindings.
 	/// </summary>
-	public static class OpenCLChecker
+	public class OpenCLChecker : OpenCLBase
 	{
-		private static bool TrueIfError(Cl.ErrorCode errorCode)
-		{
-			if (errorCode.Equals(Cl.ErrorCode.Success))
-				return false;
-
-			Console.Error.WriteLine("OpenCL.NET error: code={0}", errorCode);
-
-			return true;
-		}
 
 		/// <summary>
 		/// Determines and returns number of available OpenCL platforms.
@@ -145,28 +135,5 @@ namespace AprioriAllLib
 			return results;
 		}
 
-
-		public static String GetBuildInfo(Cl.Program program, Cl.Device device)
-		{
-			Cl.ErrorCode error;
-			String buildInfo = "build info : {";
-
-			Cl.InfoBuffer options = Cl.GetProgramBuildInfo(program, device, Cl.ProgramBuildInfo.Options, out error);
-			if (TrueIfError(error))
-				return buildInfo + " }";
-			buildInfo += String.Format("\n  options='{0}'\n", options);
-
-			Cl.InfoBuffer status = Cl.GetProgramBuildInfo(program, device, Cl.ProgramBuildInfo.Status, out error);
-			if (TrueIfError(error))
-				return buildInfo + "}";
-			buildInfo += String.Format("  status={0}\n", status.CastTo<Cl.BuildStatus>().ToString());
-
-			Cl.InfoBuffer log = Cl.GetProgramBuildInfo(program, device, Cl.ProgramBuildInfo.Log, out error);
-			if (TrueIfError(error))
-				return buildInfo + "}";
-			buildInfo += String.Format("  log: '{0}'\n", log.ToString());
-
-			return buildInfo + "}";
-		}
 	}
 }

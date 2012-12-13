@@ -86,7 +86,7 @@ namespace AprioriAllLib
 		{
 			Cl.ErrorCode err;
 
-			if (!clProgramsInitialized)
+			if (!clKernelsInitialized)
 			{
 				string[] sourceCode
 					//= System.IO.File.ReadAllLines("subsets.cl");
@@ -96,29 +96,34 @@ namespace AprioriAllLib
 					//= new IntPtr[sourceCode.Length];
 					= null;
 
-				OpenCLToolkit.GetSourceCodeFromLocalResource("subsets.cl", out sourceCode, out lenghts);
+				if (!clProgramsInitialized)
+				{
+					OpenCLToolkit.GetSourceCodeFromLocalResource("subsets.cl", out sourceCode, out lenghts);
 
-				//for (int i = 0; i < sourceCode.Length; ++i)
-				//{
-				//	sourceCode[i] += "\n";
-				//	lenghts[i] = new IntPtr(sourceCode[i].Length);
-				//}
+					//for (int i = 0; i < sourceCode.Length; ++i)
+					//{
+					//	sourceCode[i] += "\n";
+					//	lenghts[i] = new IntPtr(sourceCode[i].Length);
+					//}
 
-				program = Cl.CreateProgramWithSource(context, (uint)sourceCode.Length, sourceCode, lenghts, out err);
-				if (!err.Equals(Cl.ErrorCode.Success))
-					throw new Cl.Exception(err, "could not create program");
+					program = Cl.CreateProgramWithSource(context, (uint)sourceCode.Length, sourceCode, lenghts, out err);
+					if (!err.Equals(Cl.ErrorCode.Success))
+						throw new Cl.Exception(err, "could not create program");
 
-				clProgramsInitialized = true;
-			}
-			if (!clKernelsInitialized)
-			{
+					clProgramsInitialized = true;
+				}
+
 				err = Cl.BuildProgram(program, 1, devices, "", null, IntPtr.Zero);
 				if (!err.Equals(Cl.ErrorCode.Success))
 				{
 					if (progressOutput)
 					{
 						Console.Out.WriteLine("Build failed.");
-						Console.Out.WriteLine(OpenCLChecker.GetBuildInfo(program, device));
+						OpenCLToolkit.PrintBuildInfo(program, device, Console.Out);
+						Console.Out.WriteLine();
+						OpenCLToolkit.PrintSourceCode("subsets.cl", sourceCode, lenghts, Console.Out);
+						Console.Out.WriteLine();
+						//Console.Out.WriteLine
 					}
 					throw new Cl.Exception(err, "could not build program");
 				}

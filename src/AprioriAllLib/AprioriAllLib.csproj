@@ -110,6 +110,7 @@
     <Compile Include="InputGenerator.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="Litemset.cs" />
+    <Compile Include="OpenCLBase.cs" />
     <Compile Include="OpenCLChecker.cs" />
     <Compile Include="OpenCLToolkit.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -130,7 +131,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="subsets.cl" />
+    <None Include="subsets.cl" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
