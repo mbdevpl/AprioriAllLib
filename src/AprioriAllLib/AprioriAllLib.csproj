@@ -111,6 +111,12 @@
     <Compile Include="Item.cs" />
     <Compile Include="Litemset.cs" />
     <Compile Include="OpenCLChecker.cs" />
+    <Compile Include="OpenCLToolkit.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="RadixTree.cs" />
     <Compile Include="Transaction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -120,15 +126,16 @@
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
     <None Include="packages.config" />
-    <Content Include="subsets.cl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="subsets.cl" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>copy $(TargetPath) $(SolutionDir)..\bin\$(ConfigurationName)\
 copy $(TargetDir)OpenCL.Net.dll $(SolutionDir)..\bin\$(ConfigurationName)\
-copy $(TargetDir)subsets.cl $(SolutionDir)..\bin\$(ConfigurationName)\
 </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

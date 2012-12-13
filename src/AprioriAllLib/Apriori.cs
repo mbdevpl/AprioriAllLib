@@ -88,15 +88,21 @@ namespace AprioriAllLib
 
 			if (!clProgramsInitialized)
 			{
+				string[] sourceCode
+					//= System.IO.File.ReadAllLines("subsets.cl");
+					= null;
 
-				string[] sourceCode = System.IO.File.ReadAllLines("subsets.cl");
-				IntPtr[] lenghts = new IntPtr[sourceCode.Length];
+				IntPtr[] lenghts
+					//= new IntPtr[sourceCode.Length];
+					= null;
 
-				for (int i = 0; i < sourceCode.Length; ++i)
-				{
-					sourceCode[i] += "\n";
-					lenghts[i] = new IntPtr(sourceCode[i].Length);
-				}
+				OpenCLToolkit.GetSourceCodeFromLocalResource("subsets.cl", out sourceCode, out lenghts);
+
+				//for (int i = 0; i < sourceCode.Length; ++i)
+				//{
+				//	sourceCode[i] += "\n";
+				//	lenghts[i] = new IntPtr(sourceCode[i].Length);
+				//}
 
 				program = Cl.CreateProgramWithSource(context, (uint)sourceCode.Length, sourceCode, lenghts, out err);
 				if (!err.Equals(Cl.ErrorCode.Success))

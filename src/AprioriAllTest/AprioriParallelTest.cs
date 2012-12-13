@@ -3,7 +3,6 @@ using System.Text;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using OpenCL.Net;
 
 namespace AprioriAllLib.Test
 {
@@ -25,42 +24,6 @@ namespace AprioriAllLib.Test
 		[ClassCleanup]
 		public static void CleanupTestSuite()
 		{
-		}
-
-		[TestMethod]
-		public void Test_OpenCL_PlatformsCount()
-		{
-			//Arrange
-
-			//Act
-			uint count = OpenCLChecker.PlatformsCount();
-
-			//Assert
-			Assert.AreEqual(true, count >= 1, "number of OpenCL platforms must be greater or equal 1");
-		}
-
-		[TestMethod]
-		public void Test_OpenCL_DevicesCount()
-		{
-			//Arrange
-			uint devicesCount = 0;
-			Cl.ErrorCode error = Cl.ErrorCode.Success;
-
-			//Act
-			uint count = OpenCLChecker.PlatformsCount();
-			Assert.AreEqual(true, count >= 1, "if there are no platforms available, there can be no devices");
-
-			Cl.Platform[] platforms = Cl.GetPlatformIDs(out error);
-			Assert.AreEqual(Cl.ErrorCode.Success, error, "could not get list of available platforms");
-			foreach (Cl.Platform platfrom in platforms)
-			{
-				Cl.Device[] devices = Cl.GetDeviceIDs(platfrom, Cl.DeviceType.All, out error);
-				Assert.AreEqual(Cl.ErrorCode.Success, error, "could not get list of available devices");
-				devicesCount += (uint)devices.Length;
-			}
-
-			//Assert
-			Assert.AreEqual(true, devicesCount >= 1);
 		}
 
 		[TestMethod]
