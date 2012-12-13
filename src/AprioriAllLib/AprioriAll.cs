@@ -28,8 +28,8 @@ namespace AprioriAllLib
 		/// <param name="oneLitemsets">set of 1-sequences (large itemsets)</param>
 		/// <param name="encoding">encoding dictionary</param>
 		/// <param name="decoding">decoding dictionary</param>
-		protected static void GenerateEncoding(List<Litemset> oneLitemsets, out Dictionary<Litemset, int> encoding,
-				out Dictionary<int, Litemset> decoding)
+		protected void GenerateEncoding(List<Litemset> oneLitemsets, out Dictionary<Litemset, int> encoding,
+			out Dictionary<int, Litemset> decoding)
 		{
 			encoding = new Dictionary<Litemset, int>();
 			decoding = new Dictionary<int, Litemset>();
@@ -42,6 +42,43 @@ namespace AprioriAllLib
 				++i;
 			}
 
+		}
+
+		/// <summary>
+		/// Generates a dictionary that remembers for every litemset x: litemsets that contain x.
+		/// 
+		/// For example:
+		/// if {milk} => 1, {water} => 2, {milk, water} => 3, {milk, water, juice} => 4
+		/// then 1 is-contained-in {3, 4}, 2 is-contained-in {3, 4}, 3 is-contained-in {4}
+		/// </summary>
+		/// <param name="oneLitemsets">large itemests (i.e. 1-sequences)</param>
+		/// <param name="encoding">encoding dictionary for the </param>
+		/// <returns></returns>
+		protected Dictionary<int, List<int>> GenerateContainmentRules(List<Litemset> oneLitemsets,
+			Dictionary<Litemset, int> encoding)
+		{
+			Dictionary<int, List<int>> litemsetsContaining = new Dictionary<int, List<int>>();
+
+			foreach (Litemset l in oneLitemsets)
+			{
+				foreach (Litemset other in oneLitemsets)
+				{
+					if (ReferenceEquals(other, l))
+						continue;
+
+					if (l.Items.All(item => other.Items.Contains(item)))
+					{
+						int encoded = encoding[l];
+						if (!litemsetsContaining.ContainsKey(encoded))
+							litemsetsContaining[encoded] = new List<int>();
+						int otherEncoded = encoding[other];
+						if (!litemsetsContaining[encoded].Contains(otherEncoded))
+							litemsetsContaining[encoded].Add(otherEncoded);
+					}
+				}
+			}
+
+			return litemsetsContaining;
 		}
 
 		/// <summary>
@@ -436,7 +473,7 @@ namespace AprioriAllLib
 		/// Corresponds to 5th step of Apriori All algorithm, namely "Maximal Phase".
 		/// </summary>
 		/// <param name="kSequences">list of all k-sequences, partitioned by k</param>
-		protected void PurgeAllNonMax(List<List<List<int>>> kSequences)
+		protected void PurgeAllNonMax(List<List<List<int>>> kSequences, Dictionary<int, List<int>> containmentRules)
 		{
 			if (kSequences == null || kSequences.Count == 0)
 				return;
@@ -460,7 +497,7 @@ namespace AprioriAllLib
 					for (int i = k + 1; i < kSequences.Count; ++i)
 					{
 						foreach (List<int> longerSequence in kSequences[i])
-							if (IsSubSequence(sequence, longerSequence))
+							if (IsSubSequence(sequence, longerSequence, containmentRules))
 							{
 								// if 'sequence' is a sub-seqence of 'longerSequence'
 								PurgeAllSubSeqsOf(kSequences, k, n);
@@ -488,7 +525,14 @@ namespace AprioriAllLib
 		/// <param name="sequence">suppoed super-sequence</param>
 		/// <returns>true if 1st parameter is a subsequence of the 2nd</returns>
 		protected bool IsSubSequence<T>(List<T> hyptheticalSubSequence, List<T> sequence)
-				where T : IComparable
+			where T : IComparable
+		{
+			return IsSubSequence<T>(hyptheticalSubSequence, sequence, null);
+		}
+
+		protected bool IsSubSequence<T>(List<T> hyptheticalSubSequence, List<T> sequence,
+			Dictionary<T, List<T>> containmentRules)
+			where T : IComparable
 		{
 			if (hyptheticalSubSequence.Count == 0)
 				return true;
@@ -518,17 +562,34 @@ namespace AprioriAllLib
 
 			bool found;
 			int found_index = -1;
-			List<T>.Enumerator en = sequence.GetEnumerator();
-			foreach (T element in hyptheticalSubSequence)
+			bool previousWasContainment = false;
+			List<T>.Enumerator sequenceEnumerator = sequence.GetEnumerator();
+			foreach (T elementOfHypotheticalSubsequence in hyptheticalSubSequence)
 			{
 				found = false;
 				//int i = found_index + 1;
-				for (int i = found_index + 1; en.MoveNext() /*&& i < sequence.Count*/; ++i)
+				int nextDiff = previousWasContainment ? 0 : 1;
+				for (int i = found_index + nextDiff; sequenceEnumerator.MoveNext() /*&& i < sequence.Count*/; ++i)
 				{
-					T e = en.Current;
-					//en.MoveNext();
-					//T e = sequence[i];
-					if (element.Equals(e))
+					T elementOfSequence = sequenceEnumerator.Current;
+					//sequenceEnumerator.MoveNext();
+					//T elementOfSequence = sequence[i];
+					bool sequenceContainsElementOfSubsequence = false;
+
+					if (elementOfHypotheticalSubsequence.Equals(elementOfSequence))
+					{
+						sequenceContainsElementOfSubsequence = true;
+						previousWasContainment = false;
+					}
+
+					if (containmentRules != null && containmentRules.ContainsKey(elementOfHypotheticalSubsequence)
+						&& containmentRules[elementOfHypotheticalSubsequence].Contains(elementOfSequence))
+					{
+						sequenceContainsElementOfSubsequence = true;
+						previousWasContainment = true;
+					}
+
+					if (sequenceContainsElementOfSubsequence)
 					{
 						found = true;
 						found_index = i;
@@ -536,7 +597,12 @@ namespace AprioriAllLib
 					}
 				}
 				if (!found)
-					return false;
+				{
+					if (previousWasContainment)
+						previousWasContainment = false;
+					else
+						return false;
+				}
 			}
 
 			return true;
@@ -599,14 +665,14 @@ namespace AprioriAllLib
 		}
 
 		/// <summary>
-		/// 
+		/// Prepares cleaned-up and user-ready data that can be used as final output of AprioriAll algoritm.
 		/// </summary>
-		/// <param name="encodedList"></param>
-		/// <param name="kSequences"></param>
-		/// <param name="decoding"></param>
-		/// <returns></returns>
+		/// <param name="encodedList">encoded input</param>
+		/// <param name="kSequences">all found maximal k-sequences, partitioned by k</param>
+		/// <param name="decoding">decoding dictionary</param>
+		/// <returns>cleaned-up data that can be used as final output of AprioriAll</returns>
 		protected List<Customer> InferRealResults(List<List<List<int>>> encodedList, List<List<List<int>>> kSequences,
-				Dictionary<int, Litemset> decoding)
+			Dictionary<int, Litemset> decoding)
 		{
 			var decodedList = new List<Customer>();
 
@@ -732,11 +798,13 @@ namespace AprioriAllLib
 
 			GenerateEncoding(oneLitemsets, out encoding, out decoding);
 
+			Dictionary<int, List<int>> litemsetsContaining = GenerateContainmentRules(oneLitemsets, encoding);
+
 			if (progressOutput)
 			{
 				Console.Out.WriteLine("Decoding dictionary for litemsets:");
 				foreach (KeyValuePair<int, Litemset> kv in decoding)
-					Console.Out.WriteLine(" - {0}", kv);
+					Console.Out.WriteLine(" {0} => {1}", kv.Key, kv.Value);
 			}
 
 			// 3.b) using created IDs, transform the input
@@ -753,6 +821,8 @@ namespace AprioriAllLib
 			var encodedList = EncodeCustomerList(oneLitemsets, encoding);
 
 			if (progressOutput)
+			{
+				Console.Out.WriteLine("Encoded input:");
 				foreach (List<List<int>> c in encodedList)
 				{
 					Console.Out.Write(" - (");
@@ -772,6 +842,7 @@ namespace AprioriAllLib
 					}
 					Console.Out.WriteLine(")");
 				}
+			}
 
 			// 4. find all frequent sequences in the input
 			if (progressOutput)
@@ -789,7 +860,7 @@ namespace AprioriAllLib
 
 			if (progressOutput)
 				Console.Out.WriteLine("Purging all non-maximal sequences...");
-			PurgeAllNonMax(kSequences);
+			PurgeAllNonMax(kSequences, litemsetsContaining);
 
 			if (progressOutput)
 			{
@@ -849,60 +920,15 @@ namespace AprioriAllLib
 				throw new ArgumentException("threshold", "threshold is out of range = (0,1]");
 
 			int minSupport = (int)Math.Ceiling((double)customerList.Customers.Count * threshold);
-
 			if (progressOutput)
-			{
 				Console.Out.WriteLine("Threshold = {0}  =>  Minimum support = {1}", threshold, minSupport);
-				Console.Out.WriteLine("1) Sort Phase - list is already sorted as user sees fit");
-				Console.Out.WriteLine("2) Litemset Phase");
-				Console.Out.WriteLine("Launching Apriori...");
-			}
+
+			if (minSupport <= 0)
+				throw new ArgumentException("minimum support must be positive", "minSupport");
 
 			List<Litemset> oneLitemsets = RunParallelApriori(threshold, progressOutput);
 
-			if (progressOutput)
-			{
-				Console.Out.WriteLine("Litemsets:");
-				foreach (Litemset l in oneLitemsets)
-					Console.Out.WriteLine(" - {0}", l);
-			}
-
-			if (progressOutput)
-				Console.Out.WriteLine("3) Transformation Phase");
-
-			Dictionary<Litemset, int> encoding;
-			Dictionary<int, Litemset> decoding;
-
-			GenerateEncoding(oneLitemsets, out encoding, out decoding);
-
-			if (progressOutput)
-				Console.Out.WriteLine("Encoding input data...");
-			var encodedList = EncodeCustomerList(oneLitemsets, encoding);
-
-			if (progressOutput)
-			{
-				Console.Out.WriteLine("4) Sequence Phase");
-				Console.Out.WriteLine("Searching for all possible k-sequences");
-			}
-
-			var kSequences = FindAllFrequentSequences(oneLitemsets, encoding, encodedList, minSupport, progressOutput);
-
-			if (progressOutput)
-			{
-				Console.Out.WriteLine("Maximal k is {0}.", kSequences.Count - 2);
-				Console.Out.WriteLine("5) Maximal Phase");
-				Console.Out.WriteLine("Purging all non-maximal sequences...");
-			}
-
-			PurgeAllNonMax(kSequences);
-
-			if (progressOutput)
-				Console.Out.WriteLine("Decoding results and purging again...");
-
-			var decodedList = InferRealResults(encodedList, kSequences, decoding);
-
-			// 7. return results
-			return decodedList;
+			return null;
 		}
 
 	}
