@@ -201,30 +201,6 @@ namespace AprioriAllLib
 					List<int> candidate = new List<int>(l1);
 					candidate.Add(l2[prevLen - 1]);
 
-					// the below code seems to be dormant,
-					//  i.e. it never finds any duplicate candidates
-
-					//// we don't want to add any duplicates
-					//bool foundEqual = false;
-					//bool isEqual;
-					//foreach (List<int> cand in candidates.Keys)
-					//{
-					//	isEqual = true;
-					//	for (int icc = 0; icc < candidate.Count; ++icc)
-					//		if (cand[icc] != candidate[icc])
-					//		{
-					//			isEqual = false;
-					//			break;
-					//		}
-					//	if (isEqual)
-					//	{
-					//		foundEqual = true;
-					//		break;
-					//	}
-					//}
-					//if (foundEqual)
-					//	continue;
-
 					candidates.Add(candidate, 0);
 					if (progressOutput)
 						if (candidates.Count > 0 && candidates.Count % 50000 == 0)
@@ -284,30 +260,6 @@ namespace AprioriAllLib
 
 					invalidCandidate = true;
 					break;
-
-					//bool foundInPrevious = false;
-					//for (int i = 0; i < prevCount; ++i)
-					//{
-					//	bool foundEqual = true;
-					//	for (int n = 0; n < prevLen; ++n)
-					//	{
-					//		if (sublist[n] != prev[i][n])
-					//		{
-					//			foundEqual = false;
-					//			break;
-					//		}
-					//	}
-					//	if (foundEqual)
-					//	{
-					//		foundInPrevious = true;
-					//		break;
-					//	}
-					//}
-					//if (!foundInPrevious)
-					//{
-					//	invalidCandidate = true;
-					//	break;
-					//}
 				}
 				if (invalidCandidate)
 					keysToRemove.Add(currentList);
@@ -326,7 +278,7 @@ namespace AprioriAllLib
 			{
 				Console.Out.WriteLine(" {0} valid, previous sequences did not contain {1}.",
 					candidates.Count, keysToRemove.Count);
-				Console.Out.WriteLine("Time taken: generation={0}, prev-to-tree={1}, containment check={2}.",
+				Console.Out.WriteLine(" generation: {0}ms, prev-to-tree: {1}ms, containment check: {2}ms",
 					sw.ElapsedMilliseconds, sw3.ElapsedMilliseconds, sw2.ElapsedMilliseconds);
 			}
 
@@ -656,17 +608,47 @@ namespace AprioriAllLib
 		/// Corresponds to 5th step of Apriori All algorithm, namely "Maximal Phase".
 		/// </summary>
 		/// <param name="kSequences">list of all k-sequences, partitioned by k</param>
-		protected void PurgeAllNonMax(List<List<List<int>>> kSequences, Dictionary<int, List<int>> containmentRules)
+		protected void PurgeAllNonMax(List<List<List<int>>> kSequences, Dictionary<int, List<int>> containmentRules,
+			bool progressOutput)
 		{
 			if (kSequences == null || kSequences.Count == 0)
 				return;
+
+			Stopwatch purgingStopwatch = new Stopwatch();
+
 			bool shouldKeepRunning = true;
 			while (shouldKeepRunning)
 			{
-				if (!PurgeUsingInclusionRules(kSequences, containmentRules)
-					&& !PurgeUsingSequenceInnerRedundancy(kSequences, containmentRules)
-					&& !PurgeUsingInclusionRulesWithinSameSize(kSequences, containmentRules))
-					shouldKeepRunning = false;
+				if (progressOutput)
+					Console.Out.Write(" started new run,");
+				shouldKeepRunning = false;
+
+				purgingStopwatch.Reset();
+				purgingStopwatch.Start();
+				if (PurgeUsingInclusionRules(kSequences, containmentRules))
+					shouldKeepRunning = true;
+				purgingStopwatch.Stop();
+
+				if (progressOutput)
+					Console.Out.Write(" inclusion of smaller: {0}ms,", purgingStopwatch.ElapsedMilliseconds);
+
+				purgingStopwatch.Reset();
+				purgingStopwatch.Start();
+				if (PurgeUsingSequenceInnerRedundancy(kSequences, containmentRules))
+					shouldKeepRunning = true;
+				purgingStopwatch.Stop();
+
+				if (progressOutput)
+					Console.Out.Write(" inner redundancy: {0}ms,", purgingStopwatch.ElapsedMilliseconds);
+
+				purgingStopwatch.Reset();
+				purgingStopwatch.Start();
+				if (PurgeUsingInclusionRulesWithinSameSize(kSequences, containmentRules))
+					shouldKeepRunning = true;
+				purgingStopwatch.Stop();
+
+				if (progressOutput)
+					Console.Out.WriteLine(" same size: {0}ms", purgingStopwatch.ElapsedMilliseconds);
 			}
 		}
 
@@ -1026,7 +1008,7 @@ namespace AprioriAllLib
 
 			if (progressOutput)
 				Console.Out.WriteLine("Purging all non-maximal sequences...");
-			PurgeAllNonMax(kSequences, litemsetsContaining);
+			PurgeAllNonMax(kSequences, litemsetsContaining, progressOutput);
 
 			if (progressOutput)
 			{
