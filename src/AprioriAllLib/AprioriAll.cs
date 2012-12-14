@@ -270,6 +270,9 @@ namespace AprioriAllLib
 				keysEnum.MoveNext();
 				List<int> currentList = keysEnum.Current;
 
+				//if (currentList.Count == 3 && currentList.SequenceEqual(new int[] { 11, 5, 8 }))
+				//	ic = ic;
+
 				bool invalidCandidate = false;
 				for (int not = prevLen; not >= 0; --not)
 				{
@@ -307,7 +310,7 @@ namespace AprioriAllLib
 					//}
 				}
 				if (invalidCandidate)
-					keysToRemove.Add(keys.ElementAt(ic));
+					keysToRemove.Add(currentList);
 				if (progressOutput)
 					if (ic > 0 && ic % 50000 == 0)
 						Console.Out.WriteLine("   {0} remaining...", ic);

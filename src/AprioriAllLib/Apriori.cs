@@ -91,7 +91,7 @@ namespace AprioriAllLib
 
 		protected void InitOpenCLKernels(bool progressOutput)
 		{
-			Cl.ErrorCode err;
+			//Cl.ErrorCode err;
 
 			if (!clKernelsInitialized)
 			{
