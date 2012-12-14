@@ -22,15 +22,15 @@ at Warsaw University of Technology
 
 ## How to use the application
 
-Launch <code>/bin/AprioriAll/AprioriAll.bat</code> to see an example.
+Launch <code>/bin/Release/AprioriAll.bat</code> to see an example.
 
-Launch <code>/bin/AprioriAll/AprioriAll.exe</code> with correct command line arguments 
+Launch <code>/bin/Release/AprioriAll.exe</code> with correct command line arguments 
 to execute AprioriAll algorithm for an arbitrary input data. When the program is run without any options,
 it displays information about available options.
 
 ## Where is everything, i.e. structure of the repository
 
-* */bin/AprioriAll* - binaries compiled for .NET 4.0
+* */bin/Release* - binaries compiled for .NET 4.0
 * */doc/pdf* - general documentation describing main principles of the algorithm and this application
 * */doc/html* - documentation of source code
 * */src* - source code
