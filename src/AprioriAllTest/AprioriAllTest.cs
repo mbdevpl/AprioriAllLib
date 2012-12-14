@@ -21,7 +21,7 @@ namespace AprioriAllLib.Test
 			data = new InputData();
 		}
 
-		[TestCategory("AprioriAll"), TestCategory("Serialized"), TestMethod]
+		[TestMethod, TestCategory("AprioriAll"), TestCategory("Serialized")]
 		public void Test_AprioriAll_Example1_LowSupport()
 		{
 			//Arrange
@@ -41,7 +41,7 @@ namespace AprioriAllLib.Test
 			CollectionAssert.AreEqual(expected, results);
 		}
 
-		[TestMethod]
+		[TestMethod, TestCategory("AprioriAll"), TestCategory("Serialized")]
 		public void Test_AprioriAll_Example1_MediumSupport()
 		{
 			//Arrange
@@ -57,7 +57,7 @@ namespace AprioriAllLib.Test
 			CollectionAssert.AreEqual(expected, results);
 		}
 
-		[TestMethod]
+		[TestMethod, TestCategory("AprioriAll"), TestCategory("Serialized")]
 		public void Test_AprioriAll_Example1_HighSupport()
 		{
 			//Arrange
@@ -73,7 +73,7 @@ namespace AprioriAllLib.Test
 			CollectionAssert.AreEqual(expected, results);
 		}
 
-		[TestMethod]
+		[TestMethod, TestCategory("AprioriAll"), TestCategory("Serialized")]
 		public void Test_AprioriAll_DataSet1()
 		{
 			//Arrange
@@ -90,7 +90,7 @@ namespace AprioriAllLib.Test
 			CollectionAssert.AreEqual(expected, results); //areEquivalent doesn't work
 		}
 
-		[TestMethod]
+		[TestMethod, TestCategory("AprioriAll"), TestCategory("Serialized")]
 		public void Test_AprioriAll_DataSet2_LowSupport()
 		{
 			//Arrange
@@ -111,7 +111,7 @@ namespace AprioriAllLib.Test
 			CollectionAssert.AreEqual(expected, results); // areEquivalent doesn't work
 		}
 
-		[TestMethod]
+		[TestMethod, TestCategory("AprioriAll"), TestCategory("Serialized")]
 		public void Test_AprioriAll_DataSet2_HighSupport()
 		{
 			//Arrange
@@ -132,8 +132,7 @@ namespace AprioriAllLib.Test
 			CollectionAssert.AreEqual(expected, results);
 		}
 
-		// this test passes, but takes 9 minutes...
-		[TestMethod]
+		[TestMethod, TestCategory("AprioriAll"), TestCategory("Serialized")]
 		public void Test_AprioriAll_DataSet3_LowSupport()
 		{
 			//Arrange
@@ -153,7 +152,7 @@ namespace AprioriAllLib.Test
 			CollectionAssert.AreEqual(expected, results); // areEquivalent doesn't work
 		}
 
-		[TestMethod]
+		[TestMethod, TestCategory("AprioriAll"), TestCategory("Serialized")]
 		public void Test_AprioriAll_DataSet3_HighSupport()
 		{
 			//Arrange

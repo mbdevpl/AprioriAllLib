@@ -235,7 +235,16 @@ namespace AprioriAllLib
 			sw.Stop();
 
 			if (progressOutput)
-				Console.Out.WriteLine("Found {0} candidates, checking if they are valid...", candidates.Count);
+				Console.Out.Write("Found {0} candidates", candidates.Count);
+
+			if (candidates.Count == 0 || prevLen == 1)
+			{
+				if (progressOutput)
+					Console.Out.WriteLine(".");
+				return candidates;
+			}
+			if (progressOutput)
+				Console.Out.Write(",");
 
 			RadixTree radixTree = new RadixTree(litemsetCount + 1); // litemsets IDs are starting from 1
 
@@ -312,10 +321,10 @@ namespace AprioriAllLib
 
 			if (progressOutput)
 			{
-				Console.Out.WriteLine("Found {0} valid candidates, previous sequences did not contain {1}.",
+				Console.Out.WriteLine(" {0} valid, previous sequences did not contain {1}.",
 					candidates.Count, keysToRemove.Count);
 				Console.Out.WriteLine("Time taken: generation={0}, prev-to-tree={1}, containment check={2}.",
-					sw.Elapsed, sw3.Elapsed, sw2.Elapsed);
+					sw.ElapsedMilliseconds, sw3.ElapsedMilliseconds, sw2.ElapsedMilliseconds);
 			}
 
 			return candidates;
@@ -469,7 +478,7 @@ namespace AprioriAllLib
 			return kSequences;
 		}
 
-		protected bool PurgeUsingRegularRules(List<List<List<int>>> kSequences, Dictionary<int, List<int>> containmentRules)
+		protected bool PurgeUsingInclusionRules(List<List<List<int>>> kSequences, Dictionary<int, List<int>> containmentRules)
 		{
 			if (kSequences == null || kSequences.Count == 0)
 				return false;
@@ -495,6 +504,20 @@ namespace AprioriAllLib
 					for (int i = k + 1; i < kSequences.Count; ++i)
 					{
 						foreach (List<int> longerSequence in kSequences[i])
+						{
+							//if (n < 0)
+							//	break;
+							//if (i == 5
+							//	&& sequence.Count == 1
+							//	//&& sequence.Contains(4) && sequence.Contains(8) 
+							//	&& sequence.Contains(5)
+							//	//&& !sequence.Contains(17)
+							//	&& longerSequence.Count == 2
+							//	&& longerSequence.Contains(1) && longerSequence.Contains(5)
+							//	//&& longerSequence.Contains(9)
+							//	//&& longerSequence.Contains(7) && longerSequence.Contains(17)
+							//	)
+							//	i = i;
 							if (IsSubSequence(sequence, longerSequence, containmentRules))
 							{
 								// if 'sequence' is a sub-seqence of 'longerSequence'
@@ -504,7 +527,9 @@ namespace AprioriAllLib
 								removedAny = true;
 								break;
 							}
-
+						}
+						if (removedAny)
+							break;
 					}
 					if (removedAny)
 					{
@@ -514,6 +539,44 @@ namespace AprioriAllLib
 					}
 				}
 			}
+			return somethingChanged;
+		}
+
+		protected bool PurgeUsingInclusionRulesWithinSameSize(List<List<List<int>>> kSequences,
+			Dictionary<int, List<int>> containmentRules)
+		{
+			if (kSequences == null || kSequences.Count == 0)
+				return false;
+			int initialK = kSequences.Count - 1
+				- 1 // additional "-1" because all largest k-sequences are for sure maximal
+				- 1; // additional "-1" because the last entry in the list is empty
+			if (kSequences[kSequences.Count - 1].Count > 0)
+				throw new ArgumentException("last entry of kSequences is supposed to be empty", "kSequences");
+
+			bool somethingChanged = false;
+
+			for (int k = initialK; k >= 0; --k)
+			{
+				List<List<int>> sequencesOfLengthK = kSequences[k];
+				if (sequencesOfLengthK == null || sequencesOfLengthK.Count == 0)
+					continue;
+
+				for (int n1 = sequencesOfLengthK.Count - 1; n1 >= 0; --n1)
+				{
+					var sequence = sequencesOfLengthK[n1];
+					for (int n2 = n1 - 1; n2 >= 0; --n2)
+					{
+						var maybeSubsequence = sequencesOfLengthK[n2];
+						if (IsSubSequence(maybeSubsequence, sequence, containmentRules))
+						{
+							sequencesOfLengthK.RemoveAt(n2);
+							--n1;
+							somethingChanged = true;
+						}
+					}
+				}
+			}
+
 			return somethingChanged;
 		}
 
@@ -594,15 +657,14 @@ namespace AprioriAllLib
 		{
 			if (kSequences == null || kSequences.Count == 0)
 				return;
-			bool somethingChanged = false;
-			do
+			bool shouldKeepRunning = true;
+			while (shouldKeepRunning)
 			{
-				somethingChanged = PurgeUsingRegularRules(kSequences, containmentRules);
-				if (!somethingChanged)
-					break;
-				somethingChanged = PurgeUsingSequenceInnerRedundancy(kSequences, containmentRules);
+				if (!PurgeUsingInclusionRules(kSequences, containmentRules)
+					&& !PurgeUsingSequenceInnerRedundancy(kSequences, containmentRules)
+					&& !PurgeUsingInclusionRulesWithinSameSize(kSequences, containmentRules))
+					shouldKeepRunning = false;
 			}
-			while (somethingChanged);
 		}
 
 		/// <summary>
@@ -651,18 +713,21 @@ namespace AprioriAllLib
 			bool found;
 			int found_index = -1;
 			bool previousWasContainment = false;
+			bool sequenceContainsElementOfSubsequence = false;
 			List<T>.Enumerator sequenceEnumerator = sequence.GetEnumerator();
 			foreach (T elementOfHypotheticalSubsequence in hyptheticalSubSequence)
 			{
 				found = false;
 				//int i = found_index + 1;
 				int nextDiff = previousWasContainment ? 0 : 1;
-				for (int i = found_index + nextDiff; sequenceEnumerator.MoveNext() /*&& i < sequence.Count*/; ++i)
+				for (int i = found_index + nextDiff;
+					((sequenceContainsElementOfSubsequence && previousWasContainment) ? true : sequenceEnumerator.MoveNext())
+					/*&& i < sequence.Count*/; ++i)
 				{
 					T elementOfSequence = sequenceEnumerator.Current;
 					//sequenceEnumerator.MoveNext();
 					//T elementOfSequence = sequence[i];
-					bool sequenceContainsElementOfSubsequence = false;
+					sequenceContainsElementOfSubsequence = false;
 
 					if (elementOfHypotheticalSubsequence.Equals(elementOfSequence))
 					{
@@ -705,6 +770,9 @@ namespace AprioriAllLib
 		/// <param name="ii">index of sequence in the list of kk-sequences</param>
 		protected void PurgeAllSubSeqsOf(List<List<List<int>>> kSequences, int kk, int ii)
 		{
+			//if (ii < 0)
+			//	throw new ArgumentException(String.Format("kSequences.Count={2}, kk={1} ii={0}",
+			//		ii, kk, kSequences.Count), "ii");
 			if (kk <= 1)
 				return;
 			List<int> sequence = kSequences[kk][ii];
