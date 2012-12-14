@@ -127,23 +127,25 @@ namespace AprioriAllLib
 					{
 
 						// adding litemsets of length == 1
+						//for (int index = oneLitemsets.Count - 1; index >= 0; --index)
 						foreach (Litemset li in oneLitemsets)
 						{
+							//Litemset li = oneLitemsets[index];
 							if (li.Items.Count > 1)
 								continue;
 							Item item = li.Items[0];
 
-							if (item.Equals(i))
-							{
-								if (encoding.TryGetValue(li, out id))
-									encodedTransaction.Add(id);
-							}
+							if (item.Equals(i) && encoding.TryGetValue(li, out id))
+								encodedTransaction.Insert(0, id);
 						}
 
 					}
 
 					if (encodedTransaction.Count > 0)
+					{
+						encodedTransaction.Sort();
 						encodedCustomer.Add(encodedTransaction);
+					}
 				}
 
 				if (encodedCustomer.Count > 0)
@@ -467,21 +469,17 @@ namespace AprioriAllLib
 			return kSequences;
 		}
 
-		/// <summary>
-		/// Deletes all non-maximal seqences from list of k-sequences.
-		/// 
-		/// Corresponds to 5th step of Apriori All algorithm, namely "Maximal Phase".
-		/// </summary>
-		/// <param name="kSequences">list of all k-sequences, partitioned by k</param>
-		protected void PurgeAllNonMax(List<List<List<int>>> kSequences, Dictionary<int, List<int>> containmentRules)
+		protected bool PurgeUsingRegularRules(List<List<List<int>>> kSequences, Dictionary<int, List<int>> containmentRules)
 		{
 			if (kSequences == null || kSequences.Count == 0)
-				return;
+				return false;
 			int initialK = kSequences.Count - 1
 				- 1 // additional "-1" because all largest k-sequences are for sure maximal
 				- 1; // additional "-1" because the last entry in the list is empty
 			if (kSequences[kSequences.Count - 1].Count > 0)
 				throw new ArgumentException("last entry of kSequences is supposed to be empty", "kSequences");
+
+			bool somethingChanged = false;
 
 			for (int k = initialK; k >= 0; --k)
 			{
@@ -510,11 +508,101 @@ namespace AprioriAllLib
 					}
 					if (removedAny)
 					{
+						somethingChanged = true;
 						++n;
 						removedAny = false;
 					}
 				}
 			}
+			return somethingChanged;
+		}
+
+		protected bool PurgeUsingSequenceInnerRedundancy(List<List<List<int>>> kSequences,
+			Dictionary<int, List<int>> containmentRules)
+		{
+			bool somethingChanged = false;
+			// remove elements contained in other elements of the same maximal sequence
+			foreach (List<List<int>> seqs in kSequences)
+			{
+				foreach (List<int> seq in seqs)
+				{
+					for (int n = seq.Count - 1; n >= 0; --n)
+					{
+						var currentLitem = seq[n];
+						if (!containmentRules.ContainsKey(currentLitem))
+							continue;
+
+						var litemsContainingCurrentLitem = containmentRules[currentLitem];
+						if (n > 0 && litemsContainingCurrentLitem.Contains(seq[n - 1]))
+						{
+							// current element is contained in the earlier element
+							seq.RemoveAt(n);
+							if (n <= seq.Count - 1)
+								++n;
+							somethingChanged = true;
+						}
+						else if (n < seq.Count - 1 && litemsContainingCurrentLitem.Contains(seq[n + 1]))
+						{
+							// current element is contained in the later element
+							seq.RemoveAt(n);
+							++n;
+							somethingChanged = true;
+						}
+					}
+				}
+			}
+
+			if (!somethingChanged)
+				return false;
+
+			// rearrange sequences to reflect recent changes
+			// at the same time removes the duplicate sequences created by removal process
+			for (int k = kSequences.Count - 2; k >= 0; --k)
+			{
+				List<List<int>> sequencesOfLengthK = kSequences[k];
+				for (int n = sequencesOfLengthK.Count - 1; n >= 0; --n)
+				{
+					List<int> sequence = sequencesOfLengthK[n];
+					int sequenceCount = sequence.Count;
+					if (sequenceCount < k)
+					{
+						bool alreadyExists = false;
+						foreach (List<int> existingSequence in kSequences[sequenceCount])
+							if (IsSubSequence(sequence, existingSequence))
+							{
+								alreadyExists = true;
+								break;
+							}
+						if (!alreadyExists)
+							kSequences[sequenceCount].Add(sequence);
+						sequencesOfLengthK.RemoveAt(n);
+					}
+				}
+			}
+
+			return true;
+
+		}
+
+		/// <summary>
+		/// Deletes all non-maximal seqences from list of k-sequences.
+		/// 
+		/// Corresponds to 5th step of Apriori All algorithm, namely "Maximal Phase".
+		/// </summary>
+		/// <param name="kSequences">list of all k-sequences, partitioned by k</param>
+		protected void PurgeAllNonMax(List<List<List<int>>> kSequences, Dictionary<int, List<int>> containmentRules)
+		{
+			if (kSequences == null || kSequences.Count == 0)
+				return;
+			bool somethingChanged = false;
+			do
+			{
+				somethingChanged = PurgeUsingRegularRules(kSequences, containmentRules);
+				if (!somethingChanged)
+					break;
+				somethingChanged = PurgeUsingSequenceInnerRedundancy(kSequences, containmentRules);
+			}
+			while (somethingChanged);
 		}
 
 		/// <summary>
@@ -798,13 +886,20 @@ namespace AprioriAllLib
 
 			GenerateEncoding(oneLitemsets, out encoding, out decoding);
 
-			Dictionary<int, List<int>> litemsetsContaining = GenerateContainmentRules(oneLitemsets, encoding);
-
 			if (progressOutput)
 			{
 				Console.Out.WriteLine("Decoding dictionary for litemsets:");
 				foreach (KeyValuePair<int, Litemset> kv in decoding)
 					Console.Out.WriteLine(" {0} => {1}", kv.Key, kv.Value);
+			}
+
+			Dictionary<int, List<int>> litemsetsContaining = GenerateContainmentRules(oneLitemsets, encoding);
+
+			if (progressOutput)
+			{
+				Console.Out.WriteLine("Containment rules for litemsets:");
+				foreach (KeyValuePair<int, List<int>> kv in litemsetsContaining)
+					Console.Out.WriteLine(" {0} is in {1}", kv.Key, String.Join(", ", kv.Value.ToArray()));
 			}
 
 			// 3.b) using created IDs, transform the input

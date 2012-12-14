@@ -18,7 +18,7 @@ namespace AprioriAllLib.ConsoleTest
 			//Arrange
 			//CustomerList randomExample = InputGenerator.GenerateRandomList(700, 7, 7);
 			CustomerList randomExample = XmlReader.ReadFromXmlFile("dataset1.xml");
-			double support = 0.25;
+			double support = 0.2;
 
 			Console.Out.WriteLine("\nInput:");
 			foreach (Customer c in randomExample.Customers)

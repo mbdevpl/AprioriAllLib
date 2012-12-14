@@ -19,6 +19,10 @@ namespace AprioriAllLib
 		/// </summary>
 		protected CustomerList customerList;
 
+		/// <summary>
+		/// Indicator whether OpenCL platorm and device information is alread gathered
+		/// by this instance of Apriori, and whether context was created for it.
+		/// </summary>
 		private bool clInitialized;
 
 		private Cl.Platform platform;
@@ -29,6 +33,9 @@ namespace AprioriAllLib
 
 		private Cl.Context context;
 
+		/// <summary>
+		/// Inditator whether source code of OpenCL kernels was already read by this instance.
+		/// </summary>
 		private bool clProgramsInitialized;
 
 		private Cl.Program program;
@@ -88,52 +95,16 @@ namespace AprioriAllLib
 
 			if (!clKernelsInitialized)
 			{
-				string[] sourceCode
-					//= System.IO.File.ReadAllLines("subsets.cl");
-					= null;
-
-				IntPtr[] lenghts
-					//= new IntPtr[sourceCode.Length];
-					= null;
-
 				if (!clProgramsInitialized)
 				{
-					OpenCLToolkit.GetSourceCodeFromLocalResource("subsets.cl", out sourceCode, out lenghts);
+					program = OpenCLToolkit.GetAndBuildProgramFromLocalResource("subsets.cl", context, device,
+						progressOutput ? Console.Out : null);
 
-					//for (int i = 0; i < sourceCode.Length; ++i)
-					//{
-					//	sourceCode[i] += "\n";
-					//	lenghts[i] = new IntPtr(sourceCode[i].Length);
-					//}
-
-					program = Cl.CreateProgramWithSource(context, (uint)sourceCode.Length, sourceCode, lenghts, out err);
-					if (!err.Equals(Cl.ErrorCode.Success))
-						throw new Cl.Exception(err, "could not create program");
+					if (progressOutput)
+						Console.Out.WriteLine("Built OpenCL programs.");
 
 					clProgramsInitialized = true;
 				}
-
-				err = Cl.BuildProgram(program, 1, devices, "", null, IntPtr.Zero);
-				if (!err.Equals(Cl.ErrorCode.Success))
-				{
-					if (progressOutput)
-					{
-						Console.Out.WriteLine("Build failed.");
-						OpenCLToolkit.PrintBuildInfo(program, device, Console.Out);
-						Console.Out.WriteLine();
-						OpenCLToolkit.PrintSourceCode("subsets.cl", sourceCode, lenghts, Console.Out);
-						Console.Out.WriteLine();
-						//Console.Out.WriteLine
-					}
-					throw new Cl.Exception(err, "could not build program");
-				}
-
-				kernel = Cl.CreateKernel(program, "countSubsetsSupport", out err);
-				if (!err.Equals(Cl.ErrorCode.Success))
-					throw new Cl.Exception(err, "could not create kernel");
-
-				if (progressOutput)
-					Console.Out.WriteLine("Compiled kernels.");
 
 				clKernelsInitialized = true;
 			}
@@ -284,10 +255,17 @@ namespace AprioriAllLib
 			List<Litemset> litemsets = new List<Litemset>();
 
 			InitOpenCL(progressOutput);
-
 			InitOpenCLKernels(progressOutput);
 
 			Cl.ErrorCode err;
+
+			Cl.GetKernelInfo(kernel, Cl.KernelInfo.FunctionName, out err);
+			if(err.Equals(Cl.ErrorCode.Success))
+				kernel.Dispose();
+
+			kernel = Cl.CreateKernel(program, "countSubsetsSupport", out err);
+			if (!err.Equals(Cl.ErrorCode.Success))
+				throw new Cl.Exception(err, "could not create kernel");
 
 			Cl.CommandQueue queue = Cl.CreateCommandQueue(context, device, Cl.CommandQueueProperties.None, out err);
 			if (!err.Equals(Cl.ErrorCode.Success))

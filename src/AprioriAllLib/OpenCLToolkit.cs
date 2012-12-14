@@ -13,8 +13,13 @@ namespace AprioriAllLib
 	/// </summary>
 	public class OpenCLToolkit : OpenCLBase
 	{
-
-		public static void PrintBuildInfo(Cl.Program program, Cl.Device device, TextWriter writer)
+		/// <summary>
+		/// Write build info to the given TextWriter object.
+		/// </summary>
+		/// <param name="program"></param>
+		/// <param name="device"></param>
+		/// <param name="writer"></param>
+		public static void WriteBuildInfo(Cl.Program program, Cl.Device device, TextWriter writer)
 		{
 			Cl.ErrorCode error;
 			//String buildInfo = "build info : {";
@@ -54,7 +59,7 @@ namespace AprioriAllLib
 			writer.Write("}");
 		}
 
-		public static void PrintSourceCode(string path, string[] source, IntPtr[] lenghts, TextWriter writer)
+		public static void WriteSourceCode(string path, string[] source, IntPtr[] lenghts, TextWriter writer)
 		{
 			writer.WriteLine("Source code of '{0}':", path);
 			var enumeratedLenghts = lenghts.GetEnumerator();
@@ -69,20 +74,32 @@ namespace AprioriAllLib
 		}
 
 		/// <summary>
-		/// Retrieves source code contained at a specific path in AprioriAllLib assembly resource file.
+		/// Retrieves OpenCL source code contained at a specific path in AprioriAllLib assembly resource file.
 		/// </summary>
 		/// <param name="path"></param>
 		/// <param name="source"></param>
 		/// <param name="lenghts"></param>
 		internal static void GetSourceCodeFromLocalResource(string path, out string[] source, out IntPtr[] lenghts)
 		{
-			var assembly = Assembly.GetExecutingAssembly();
-			Stream kernelSourceStream
+			if (!path.EndsWith(".cl"))
+				throw new ArgumentException("path must lead to .cl file", "path");
+			int lastDot = path.LastIndexOf('.');
+			if (lastDot >= 0)
+				path = string.Concat(path.Substring(lastDot + 1), '_', path.Substring(0, lastDot));
+			//var assembly = Assembly.GetExecutingAssembly();
+			var resourceManager = AprioriAllLib.Properties.Resources.ResourceManager;
+			var kernelSourceStream
 				//= assembly.GetManifestResourceStream(path);
-				= new MemoryStream(AprioriAllLib.Properties.Resources.cl_subsets);
+				= new MemoryStream((byte[])resourceManager.GetObject(path));
+
+			//var sourceCode = resourceManager.GetObject(path).ToString();
+			//var tempArray = sourceCode.Split('\n');
+			//lenghts = new IntPtr[source.Length];
+
 			StreamReader kernelSourceReader = new StreamReader(kernelSourceStream);
 			List<string> sourceCodeLinesList = new List<string>();
 			List<IntPtr> sourceCodeLinesLenghtsList = new List<IntPtr>();
+			//foreach (string line in tempArray)
 			while (!kernelSourceReader.EndOfStream)
 			{
 				string line = kernelSourceReader.ReadLine();
@@ -91,6 +108,80 @@ namespace AprioriAllLib
 			}
 			source = sourceCodeLinesList.ToArray();
 			lenghts = sourceCodeLinesLenghtsList.ToArray();
+		}
+
+		public static void GetSourceCodeFromFile(string path, out string[] source, out IntPtr[] lenghts)
+		{
+			if (!path.EndsWith(".cl"))
+				throw new ArgumentException("path must lead to .cl file", "path");
+
+			source = File.ReadAllLines(path);
+			lenghts = new IntPtr[source.Length];
+			for (int i = 0; i < source.Length; ++i)
+			{
+				source[i] += "\n";
+				lenghts[i] = new IntPtr(source[i].Length);
+			}
+		}
+
+		internal static Cl.Program GetProgramFromLocalResource(string path, Cl.Context context)
+		{
+			string[] source = null;
+			IntPtr[] lenghts = null;
+			GetSourceCodeFromLocalResource(path, out source, out lenghts);
+
+			Cl.ErrorCode error;
+			Cl.Program program = Cl.CreateProgramWithSource(context, (uint)source.Length, source, lenghts, out error);
+			if (!error.Equals(Cl.ErrorCode.Success))
+				throw new Cl.Exception(error, "could not create program");
+
+			return program;
+		}
+
+		public static Cl.Program GetProgramFromFile(string path, Cl.Context context)
+		{
+			string[] source = null;
+			IntPtr[] lenghts = null;
+			GetSourceCodeFromFile(path, out source, out lenghts);
+
+			Cl.ErrorCode error;
+			Cl.Program program = Cl.CreateProgramWithSource(context, (uint)source.Length, source, lenghts, out error);
+			if (!error.Equals(Cl.ErrorCode.Success))
+				throw new Cl.Exception(error, String.Format("could not create program using '{0}'.", path));
+
+			return program;
+		}
+
+		internal static Cl.Program GetAndBuildProgramFromLocalResource(string path, Cl.Context context, Cl.Device device,
+			TextWriter writer)
+		{
+			return GetAndBuildProgramFromLocalResource(path, context, device, string.Empty, writer);
+		}
+
+		internal static Cl.Program GetAndBuildProgramFromLocalResource(string path, Cl.Context context, Cl.Device device,
+			string buildOptions, TextWriter writer)
+		{
+			Cl.Program program = GetProgramFromLocalResource(path, context);
+
+			Cl.ErrorCode error;
+			error = Cl.BuildProgram(program, 1, new Cl.Device[] { device }, buildOptions, null, IntPtr.Zero);
+			if (!error.Equals(Cl.ErrorCode.Success))
+			{
+				if (writer != null)
+				{
+					writer.WriteLine("Build failed.");
+					WriteBuildInfo(program, device, writer);
+					writer.WriteLine();
+					string[] source = null;
+					IntPtr[] lenghts = null;
+					GetSourceCodeFromLocalResource(path, out source, out lenghts);
+					WriteSourceCode("subsets.cl", source, lenghts, writer);
+					writer.WriteLine();
+				}
+				throw new Cl.Exception(error, "could not build program");
+			}
+
+			return program;
 		}
 
 	}
