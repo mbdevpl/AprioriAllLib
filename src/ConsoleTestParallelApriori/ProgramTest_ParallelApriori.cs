@@ -10,7 +10,7 @@ namespace AprioriAllLib.Test.InConsole
 	/// <summary>
 	/// An example program that runs the parallel version of the Apriori algorithm.
 	/// </summary>
-	public class ProgramTest_AprioriParallel : AprioriTestBase
+	public class ProgramTest_ParallelApriori : AprioriTestBase
 	{
 
 		private static void Main(string[] args)
