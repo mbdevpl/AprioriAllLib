@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 
+//! Applications (either for general use or just testing) that use console.
 namespace AprioriAllLib.Test.InConsole
 {
 	/// <summary>
@@ -12,7 +13,10 @@ namespace AprioriAllLib.Test.InConsole
 	/// </summary>
 	public class Program_AprioriAll
 	{
-
+		/// <summary>
+		/// Main function.
+		/// </summary>
+		/// <param name="args"></param>
 		private static void Main(string[] args)
 		{
 			Trace.Listeners.Add(new TextWriterTraceListener(Console.Out));

@@ -5,6 +5,7 @@ using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Diagnostics;
 
+//! Unit tests and testing tools related to Apriori and AprioriAll algorithms.
 namespace AprioriAllLib.Test
 {
 	/// <summary>
@@ -13,7 +14,6 @@ namespace AprioriAllLib.Test
 	[TestClass]
 	public class AprioriAllTest : AprioriAllTestBase
 	{
-		// runtime: 10 minutes
 		[TestMethod, TestCategory("AprioriAll"), TestCategory("Serialized")]
 		public void Test_AprioriAll_Example1_LowSupport()
 		{
@@ -126,7 +126,6 @@ namespace AprioriAllLib.Test
 			CollectionAssert.AreEqual(expected, results, GetAprioriAllTestResults(expected, results));
 		}
 
-		// runtime: 51 sec.
 		[TestMethod, TestCategory("AprioriAll"), TestCategory("Serialized"), TestCategory("TooLong")]
 		public void Test_AprioriAll_DataSet3_LowSupport()
 		{

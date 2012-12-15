@@ -6,7 +6,9 @@ using System.Text;
 
 namespace AprioriAllLib.Test
 {
-
+	/// <summary>
+	/// Basic routines needed to test Apriori algorithm. AprioriAll tests are also derived from this class.
+	/// </summary>
 	public class AprioriTestBase
 	{
 

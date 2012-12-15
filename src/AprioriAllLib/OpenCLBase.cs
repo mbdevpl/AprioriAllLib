@@ -6,6 +6,10 @@ using OpenCL.Net;
 
 namespace AprioriAllLib
 {
+	/// <summary>
+	/// Base class for all OpenCL.Net object-oriented abstraction classes. Contains very basic tools 
+	/// helpful in OpenCL.Net diagnostics in case of some unpredicted errors.
+	/// </summary>
 	public class OpenCLBase
 	{
 

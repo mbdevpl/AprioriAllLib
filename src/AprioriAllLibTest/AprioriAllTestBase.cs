@@ -5,7 +5,9 @@ using System.Text;
 
 namespace AprioriAllLib.Test
 {
-
+	/// <summary>
+	/// Base class for all AprioriAll tests. Defines common routines used by the tests.
+	/// </summary>
 	public class AprioriAllTestBase : AprioriTestBase
 	{
 

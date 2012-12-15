@@ -5,6 +5,7 @@ using System.Linq;
 using OpenCL.Net;
 using System.Diagnostics;
 
+//! Apriori and AprioriAll algorithms implementation (serialized and parallel), together with supporting classes.
 namespace AprioriAllLib
 {
 	/// <summary>
@@ -82,7 +83,7 @@ namespace AprioriAllLib
 		}
 
 		/// <summary>
-		/// Corresponds to 3rd step of Apriori All algorithm, namely "Transformation Phase".
+		/// Corresponds to 3rd step of AprioriAll algorithm, namely "Transformation Phase".
 		/// </summary>
 		/// <param name="oneLitemsets">1-sequences, i.e. large itemsets</param>
 		/// <param name="encoding">an encoding dictionary</param>
@@ -332,6 +333,7 @@ namespace AprioriAllLib
 		/// </summary>
 		/// <param name="candidate">a candidate k-sequence</param>
 		/// <param name="encodedCustomer">encoded customer, i.e. a sequence of sets of items</param>
+		/// <param name="containmentRules">rules of inclusion between encoded litemsets</param>
 		/// <returns>true if the customer supports the candidate</returns>
 		protected bool MatchCandidateToEncodedCustomer(List<int> candidate, List<List<int>> encodedCustomer,
 			Dictionary<int, List<int>> containmentRules)
@@ -404,11 +406,12 @@ namespace AprioriAllLib
 		}
 
 		/// <summary>
-		/// Corresponds to 4th step of Apriori All algorithm, namely "Sequence Phase".
+		/// Corresponds to 4th step of AprioriAll algorithm, namely "Sequence Phase".
 		/// </summary>
 		/// <param name="oneLitemsets">1-sequences</param>
 		/// <param name="encoding">encoding dictionary</param>
 		/// <param name="encodedList">encoded list of customers</param>
+		/// <param name="containmentRules">rules of inclusion between encoded litemsets</param>
 		/// <param name="minSupport">minimum number of occurances</param>
 		/// <param name="progressOutput">if true, information about progress is sent to standard output</param>
 		/// <returns>list of k-sequences, partitioned by k. i.e. i-th element of resulting List 
@@ -733,7 +736,7 @@ namespace AprioriAllLib
 		/// <summary>
 		/// Deletes all non-maximal seqences from list of k-sequences.
 		/// 
-		/// Corresponds to 5th step of Apriori All algorithm, namely "Maximal Phase".
+		/// Corresponds to 5th step of AprioriAll algorithm, namely "Maximal Phase".
 		/// </summary>
 		/// <param name="kSequences">list of all k-sequences, partitioned by k</param>
 		/// <param name="containmentRules">rules of inclusion between encoded litemsets</param>
@@ -1045,7 +1048,7 @@ namespace AprioriAllLib
 			if (progressOutput)
 				Trace.WriteLine("1) Sort Phase - list is already sorted as user sees fit");
 
-			// corresponds to 1st step of Apriori All algorithm, namely "Sort Phase".
+			// corresponds to 1st step of AprioriAll algorithm, namely "Sort Phase".
 
 			// already done because input is sorted by the user in an apropriate way
 
@@ -1054,7 +1057,7 @@ namespace AprioriAllLib
 				Trace.WriteLine("2) Litemset Phase");
 			if (progressOutput)
 				Trace.WriteLine("Launching Apriori...");
-			// this corresponds to 2nd step of Apriori All algorithm, namely "Litemset Phase".
+			// this corresponds to 2nd step of AprioriAll algorithm, namely "Litemset Phase".
 			List<Litemset> oneLitemsets = RunApriori(threshold, progressOutput);
 
 			// 3. transform input into list of IDs
