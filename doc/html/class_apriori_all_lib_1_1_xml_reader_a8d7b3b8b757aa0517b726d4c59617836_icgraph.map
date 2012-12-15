@@ -1,6 +1,0 @@
-<map id="AprioriAllLib.XmlReader.addItem" name="AprioriAllLib.XmlReader.addItem">
-<area shape="rect" id="node3" href="$class_apriori_all_lib_1_1_xml_reader.html#a55e41c372e7613272d6cc0c5c7659382" title="Adds a Transaction to the Customer. " alt="" coords="262,5,445,46"/>
-<area shape="rect" id="node5" href="$class_apriori_all_lib_1_1_xml_reader.html#a7b9b5900bec644e28a72dd513f26b8b1" title="Adds a Customer to the CustomerList. " alt="" coords="494,5,677,46"/>
-<area shape="rect" id="node7" href="$class_apriori_all_lib_1_1_xml_reader.html#ac8254897758b96fbc8e8e65ccf1103f9" title="Reads from XML client database. " alt="" coords="726,5,887,46"/>
-<area shape="rect" id="node9" href="$class_apriori_all_lib_1_1_console_test_1_1_console_app.html#a6fc5d5c554cf790919e83523d28841f1" title="AprioriAllLib.ConsoleTest.\lConsoleApp.Main" alt="" coords="936,5,1107,46"/>
-</map>

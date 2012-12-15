@@ -1,5 +1,0 @@
-<map id="AprioriAllLib.AprioriAll.PurgeAllSubSeqsOf" name="AprioriAllLib.AprioriAll.PurgeAllSubSeqsOf">
-<area shape="rect" id="node3" href="$class_apriori_all_lib_1_1_apriori_all.html#a5f60478981222609aeecf3660d8b3450" title="AprioriAllLib.AprioriAll.\lPurgeUsingInclusionRules" alt="" coords="205,5,379,46"/>
-<area shape="rect" id="node5" href="$class_apriori_all_lib_1_1_apriori_all.html#a3f249064efd36fb92129668da2d9f6f1" title="Deletes all non&#45;maximal seqences from list of k&#45;sequences." alt="" coords="427,5,578,46"/>
-<area shape="rect" id="node7" href="$class_apriori_all_lib_1_1_apriori_all.html#a719d1c07f93fa2e82e1ae6dcacbb8efe" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. " alt="" coords="627,5,778,46"/>
-</map>

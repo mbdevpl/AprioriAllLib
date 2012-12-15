@@ -1,6 +1,0 @@
-var searchData=
-[
-  ['main',['Main',['../class_apriori_all_lib_1_1_console_test_1_1_console_app.html#a6fc5d5c554cf790919e83523d28841f1',1,'AprioriAllLib.ConsoleTest.ConsoleApp.Main()'],['../class_apriori_all_lib_1_1_console_test_1_1_test___apriori_all.html#a1cf91c94b32a1f2a3ec448fd87aa6103',1,'AprioriAllLib.ConsoleTest.Test_AprioriAll.Main()'],['../class_apriori_all_lib_1_1_console_test_1_1_test___apriori_parallel.html#ad49b4a62abf51c18a5ab050f0d3d42df',1,'AprioriAllLib.ConsoleTest.Test_AprioriParallel.Main()']]],
-  ['matchcandidatetoencodedcustomer',['MatchCandidateToEncodedCustomer',['../class_apriori_all_lib_1_1_apriori_all.html#afa7ed1829de9dc0de0b522e41905e300',1,'AprioriAllLib::AprioriAll']]],
-  ['myclassinitialize',['MyClassInitialize',['../class_apriori_all_lib_1_1_test_1_1_apriori_all_test.html#afb297bacc818bd394a3b64d08709e16b',1,'AprioriAllLib.Test.AprioriAllTest.MyClassInitialize()'],['../class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test.html#adebdebbb4768578d8e8f7a449e7ea59f',1,'AprioriAllLib.Test.AprioriParallelTest.MyClassInitialize()'],['../class_apriori_all_lib_1_1_test_1_1_apriori_test.html#a75ad7f0719970313129e030273668d66',1,'AprioriAllLib.Test.AprioriTest.MyClassInitialize()']]]
-];

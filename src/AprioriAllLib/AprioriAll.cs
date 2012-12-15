@@ -175,7 +175,7 @@ namespace AprioriAllLib
 
 			generationWatch.Start();
 			{
-				RadixTree withoutFirst = new RadixTree(litemsetCount + 1);
+				PrefixTree withoutFirst = new PrefixTree(litemsetCount + 1);
 				foreach (List<int> prevList in prev)
 					withoutFirst.TryAdd(prevList, 0, true);
 				//if (!withoutFirst.TryAdd(prevList, 0, true))
@@ -183,7 +183,7 @@ namespace AprioriAllLib
 
 				foreach (List<int> prevList in prev)
 				{
-					RadixTreeNode node = withoutFirst.GetNode(prevList, prevLen - 1);
+					PrefixTreeNode node = withoutFirst.GetNode(prevList, prevLen - 1);
 					if (node != null)
 					{
 						foreach (int value in node.Values)
@@ -262,7 +262,7 @@ namespace AprioriAllLib
 			if (progressOutput)
 				Trace.Write(",");
 
-			RadixTree radixTree = new RadixTree(litemsetCount + 1); // litemsets IDs are starting from 1
+			PrefixTree radixTree = new PrefixTree(litemsetCount + 1); // litemsets IDs are starting from 1
 
 			Stopwatch sw3 = new Stopwatch();
 			sw3.Start();
