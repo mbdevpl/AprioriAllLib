@@ -36,8 +36,8 @@ it displays information about available options.
 
 ## Timeline
 
-6 Nov 2012: project started
-7 Dec 2012: version 1.0.0
+* 6 Nov 2012: project started
+* 7 Dec 2012: version 1.0.0
 
 ## Where is everything, i.e. structure of the repository
 
