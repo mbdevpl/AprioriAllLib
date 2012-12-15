@@ -36,7 +36,7 @@ namespace AprioriAllLib.Test
 
 			//Act
 			Apriori apriori = new Apriori(data.Example1);
-			List<Litemset> oneLitemsets = apriori.RunParallelApriori(0.2);
+			List<Litemset> oneLitemsets = apriori.RunParallelApriori(0.2, true);
 
 			//Assert
 			CollectionAssert.AreEqual(expected, oneLitemsets);

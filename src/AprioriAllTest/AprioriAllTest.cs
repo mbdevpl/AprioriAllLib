@@ -3,6 +3,7 @@ using System.Text;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Diagnostics;
 
 namespace AprioriAllLib.Test
 {
@@ -19,6 +20,7 @@ namespace AprioriAllLib.Test
 		public static void MyClassInitialize(TestContext testContext)
 		{
 			data = new InputData();
+			Trace.Listeners.Add(new TextWriterTraceListener(Console.Out));
 		}
 
 		[TestMethod, TestCategory("AprioriAll"), TestCategory("Serialized")]
@@ -35,7 +37,7 @@ namespace AprioriAllLib.Test
 
 			//Act
 			AprioriAll all = new AprioriAll(data.Example1);
-			List<Customer> results = all.RunAprioriAll(0.2);
+			List<Customer> results = all.RunAprioriAll(0.2, true);
 
 			//Assert
 			CollectionAssert.AreEqual(expected, results);
@@ -105,7 +107,7 @@ namespace AprioriAllLib.Test
 
 			//Act
 			AprioriAll all = new AprioriAll(data.DataSet2);
-			List<Customer> results = all.RunAprioriAll(0.2);
+			List<Customer> results = all.RunAprioriAll(0.2, true);
 
 			//Assert
 			CollectionAssert.AreEqual(expected, results); // areEquivalent doesn't work
@@ -141,12 +143,12 @@ namespace AprioriAllLib.Test
 			expected.Add(new Customer(new int[] { 10, 20 }));
 			expected.Add(new Customer(new int[] { 30 }, new int[] { 40, 70 }));
 			expected.Add(new Customer(new int[] { 70 }, new int[] { 30, 50 }));
-			expected.Add(new Customer(new int[] { 80 }, new int[] { 30, 40, 50 }, new int[] { 90 }));
+			expected.Add(new Customer(new int[] { 30 }, new int[] { 80 }, new int[] { 30, 40, 50 }, new int[] { 90 }));
 			Assert.AreEqual(5, expected.Count);
 
 			//Act
 			AprioriAll all = new AprioriAll(data.DataSet3);
-			List<Customer> results = all.RunAprioriAll(0.2);
+			List<Customer> results = all.RunAprioriAll(0.2, true);
 
 			//Assert
 			CollectionAssert.AreEqual(expected, results); // areEquivalent doesn't work

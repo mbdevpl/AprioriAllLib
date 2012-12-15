@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using OpenCL.Net;
 
@@ -84,7 +85,7 @@ namespace AprioriAllLib
 				throw new Cl.Exception(err, "could not create context");
 
 			if (progressOutput)
-				Console.Out.WriteLine("Initialized OpenCL.");
+				Trace.WriteLine("Initialized OpenCL.");
 
 			clInitialized = true;
 		}
@@ -101,7 +102,7 @@ namespace AprioriAllLib
 						progressOutput ? Console.Out : null);
 
 					if (progressOutput)
-						Console.Out.WriteLine("Built OpenCL programs.");
+						Trace.WriteLine("Built OpenCL programs.");
 
 					clProgramsInitialized = true;
 				}
@@ -208,7 +209,7 @@ namespace AprioriAllLib
 			}
 
 			if (progressOutput)
-				Console.Out.WriteLine("Finished subset generation, found {0}.", litemsets.Count);
+				Trace.WriteLine(String.Format("Finished subset generation, found {0}.", litemsets.Count));
 
 			// rewrite the litemsets with support >= minimum to a new list
 			List<Litemset> properLitemsets = new List<Litemset>();
@@ -217,12 +218,12 @@ namespace AprioriAllLib
 					properLitemsets.Add(litemset);
 
 			if (progressOutput)
-				Console.Out.WriteLine("Purged unsupported litemsets, {0} remain.", properLitemsets.Count);
+				Trace.WriteLine(String.Format("Purged unsupported litemsets, {0} remain.", properLitemsets.Count));
 
 			properLitemsets.Sort();
 
 			if (progressOutput)
-				Console.Out.WriteLine("Sorted output.");
+				Trace.WriteLine("Sorted output.");
 
 			return properLitemsets;
 		}
@@ -331,7 +332,7 @@ namespace AprioriAllLib
 				throw new Cl.Exception(err, "could not initialize buffer");
 
 			if (progressOutput)
-				Console.Out.WriteLine("Copied input data to device memory.");
+				Trace.WriteLine("Copied input data to device memory.");
 
 			err = Cl.SetKernelArg(kernel, 0, setsCountBuf); //setsCount
 			if (!err.Equals(Cl.ErrorCode.Success))
@@ -361,7 +362,7 @@ namespace AprioriAllLib
 					throw new Cl.Exception(err, "error while launching kernel");
 
 				if (progressOutput)
-					Console.Out.WriteLine("launched kernel for subset size n-{0}.", subsetSize[0]);
+					Trace.WriteLine(String.Format("launched kernel for subset size n-{0}.", subsetSize[0]));
 
 				subsetSize[0] += 1;
 				err = Cl.EnqueueWriteBuffer(queue, subsetSizeBuf, Cl.Bool.True, IntPtr.Zero, subsetSizeLen, subsetSize,
@@ -371,7 +372,7 @@ namespace AprioriAllLib
 			}
 
 			if (progressOutput)
-				Console.Out.WriteLine("Finished subset generation.");
+				Trace.WriteLine("Finished subset generation.");
 
 			//Cl.InfoBuffer buf3 = Cl.GetMemObjectInfo(supportsBuf, Cl.MemInfo.HostPtr, out err);
 			//Cl.InfoBuffer buf = Cl.GetMemObjectInfo(supportsBuf, Cl.MemInfo.Size, out err);
@@ -391,7 +392,7 @@ namespace AprioriAllLib
 			}
 
 			if (progressOutput)
-				Console.Out.WriteLine("Generated all litemsets, found {0}.", litemsets.Count);
+				Trace.WriteLine(String.Format("Generated all litemsets, found {0}.", litemsets.Count));
 
 			return litemsets;
 		}

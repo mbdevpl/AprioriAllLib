@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,8 @@ namespace AprioriAllLib.ConsoleTest
 
 		private static void Main(string[] args)
 		{
+			Trace.Listeners.Add(new TextWriterTraceListener(Console.Out));
+
 			Console.Out.WriteLine("Parallel Apriori algorithm test");
 
 			Console.Out.WriteLine("OpenCL plaforms:");

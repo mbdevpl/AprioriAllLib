@@ -170,57 +170,96 @@ namespace AprioriAllLib
 				return candidates;
 			int prevLen = prev[0].Count;
 
-			Stopwatch sw = new Stopwatch();
-			sw.Start();
+			Stopwatch generationWatch = new Stopwatch();
 
-			for (int i1 = 0; i1 < prevCount; ++i1)
+			generationWatch.Start();
 			{
-				List<int> l1 = prev[i1];
+				RadixTree withoutFirst = new RadixTree(litemsetCount+1);
+				foreach (List<int> prevList in prev)
+					withoutFirst.TryAdd(prevList, 0, true);
+				//if (!withoutFirst.TryAdd(prevList, 0, true))
+				//throw new ArgumentException("error in previous candidate list","prev");
 
-				for (int i2 = 0; i2 < prevCount; ++i2)
+				foreach (List<int> prevList in prev)
 				{
-					if (i1 == i2)
-						continue;
-					List<int> l2 = prev[i2];
-
-					// check if last n-1 elements of first list sequence
-					//  are equal to the first n-1 elements of the 2nd list
-					bool partEqual = true;
-					for (int i = 0; i < prevLen - 1; ++i)
+					RadixTreeNode node = withoutFirst.GetNode(prevList, prevLen-1);
+					if (node != null)
 					{
-						if (!l1[i + 1].Equals(l2[i]))
+						foreach (int value in node.Values)
 						{
-							partEqual = false;
-							break;
+							if (prevLen == 1 && value == prevList[0])
+								continue;
+							List<int> newCandidate = new List<int>(prevList);
+							newCandidate.Insert(0, value);
+							candidates.Add(newCandidate, 0);
+
+							if (progressOutput)
+								if (candidates.Count > 0 && candidates.Count % 50000 == 0)
+									Trace.WriteLine(String.Format("   {0} and counting...", candidates.Count));
 						}
 					}
-					if (!partEqual)
-						continue;
-
-					// join l1 and l2
-					List<int> candidate = new List<int>(l1);
-					candidate.Add(l2[prevLen - 1]);
-
-					candidates.Add(candidate, 0);
-					if (progressOutput)
-						if (candidates.Count > 0 && candidates.Count % 50000 == 0)
-							Console.Out.WriteLine("   {0} and counting...", candidates.Count);
 				}
 			}
+			generationWatch.Stop();
 
-			sw.Stop();
+			//generationWatch.Start();
+			//var enum1 = prev.GetEnumerator();
+			//for (int i1 = 0; i1 < prevCount; ++i1)
+			//{
+			//	enum1.MoveNext();
+			//	List<int> l1 = enum1.Current; //prev[i1];
+
+			//	var enum2 = prev.GetEnumerator();
+			//	for (int i2 = 0; i2 < prevCount; ++i2)
+			//	{
+			//		enum2.MoveNext();
+			//		if (i1 == i2)
+			//			continue;
+			//		List<int> l2 = enum2.Current; //prev[i2];
+
+			//		// check if last n-1 elements of first list sequence
+			//		//  are equal to the first n-1 elements of the 2nd list
+			//		bool partEqual = true;
+			//		//var l1enum = l1.GetEnumerator();
+			//		//var l2enum = l2.GetEnumerator();
+			//		//l1enum.MoveNext();
+			//		for (int i = 0; i < prevLen - 1; ++i)
+			//		{
+			//			//l1enum.MoveNext();
+			//			//l2enum.MoveNext();
+			//			if (!l1[i + 1].Equals(l2[i]))
+			//			//if (!l1enum.Current.Equals(l2enum.Current))
+			//			{
+			//				partEqual = false;
+			//				break;
+			//			}
+			//		}
+			//		if (!partEqual)
+			//			continue;
+
+			//		// join l1 and l2
+			//		List<int> candidate = new List<int>(l1);
+			//		candidate.Add(l2[prevLen - 1]);
+
+			//		candidates.Add(candidate, 0);
+			//		if (progressOutput)
+			//			if (candidates.Count > 0 && candidates.Count % 50000 == 0)
+			//				Trace.WriteLine(String.Format("   {0} and counting...", candidates.Count));
+			//	}
+			//}
+			//generationWatch.Stop();
 
 			if (progressOutput)
-				Console.Out.Write("Found {0} candidates", candidates.Count);
+				Trace.Write(String.Format("Found {0} candidates", candidates.Count));
 
 			if (candidates.Count == 0 || prevLen == 1)
 			{
 				if (progressOutput)
-					Console.Out.WriteLine(".");
+					Trace.WriteLine(".");
 				return candidates;
 			}
 			if (progressOutput)
-				Console.Out.Write(",");
+				Trace.Write(",");
 
 			RadixTree radixTree = new RadixTree(litemsetCount + 1); // litemsets IDs are starting from 1
 
@@ -265,7 +304,7 @@ namespace AprioriAllLib
 					keysToRemove.Add(currentList);
 				if (progressOutput)
 					if (ic > 0 && ic % 50000 == 0)
-						Console.Out.WriteLine("   {0} remaining...", ic);
+						Trace.WriteLine(String.Format("   {0} remaining...", ic));
 			}
 
 			sw2.Stop();
@@ -276,10 +315,10 @@ namespace AprioriAllLib
 
 			if (progressOutput)
 			{
-				Console.Out.WriteLine(" {0} valid, previous sequences did not contain {1}.",
-					candidates.Count, keysToRemove.Count);
-				Console.Out.WriteLine(" generation: {0}ms, prev-to-tree: {1}ms, containment check: {2}ms",
-					sw.ElapsedMilliseconds, sw3.ElapsedMilliseconds, sw2.ElapsedMilliseconds);
+				Trace.WriteLine(String.Format(" {0} valid, previous sequences did not contain {1}.",
+					candidates.Count, keysToRemove.Count));
+				Trace.WriteLine(String.Format(" generation: {0}ms, prev-to-tree: {1}ms, containment check: {2}ms",
+					generationWatch.ElapsedMilliseconds, sw3.ElapsedMilliseconds, sw2.ElapsedMilliseconds));
 			}
 
 			return candidates;
@@ -373,7 +412,7 @@ namespace AprioriAllLib
 			for (int k = 2; kSequences.Count >= k && kSequences[k - 1].Count > 0; ++k)
 			{
 				if (progressOutput)
-					Console.Out.WriteLine("Looking for {0}-sequences...", k);
+					Trace.WriteLine(String.Format("Looking for {0}-sequences...", k));
 				// list of kSequences, initially empty
 				kSequences.Add(new List<List<int>>());
 				var prev = kSequences[k - 1];
@@ -427,7 +466,7 @@ namespace AprioriAllLib
 
 				}
 				if (progressOutput)
-					Console.Out.WriteLine("Found {0} sequences that have sufficient support.", kSequences[k].Count);
+					Trace.WriteLine(String.Format(" Found {0} sequences that have sufficient support.", kSequences[k].Count));
 			}
 
 			return kSequences;
@@ -620,7 +659,7 @@ namespace AprioriAllLib
 			while (shouldKeepRunning)
 			{
 				if (progressOutput)
-					Console.Out.Write(" started new run,");
+					Trace.Write(" started new run,");
 				shouldKeepRunning = false;
 
 				purgingStopwatch.Reset();
@@ -630,7 +669,7 @@ namespace AprioriAllLib
 				purgingStopwatch.Stop();
 
 				if (progressOutput)
-					Console.Out.Write(" inclusion of smaller: {0}ms,", purgingStopwatch.ElapsedMilliseconds);
+					Trace.Write(String.Format(" inclusion of smaller: {0}ms,", purgingStopwatch.ElapsedMilliseconds));
 
 				purgingStopwatch.Reset();
 				purgingStopwatch.Start();
@@ -639,7 +678,7 @@ namespace AprioriAllLib
 				purgingStopwatch.Stop();
 
 				if (progressOutput)
-					Console.Out.Write(" inner redundancy: {0}ms,", purgingStopwatch.ElapsedMilliseconds);
+					Trace.Write(String.Format(" inner redundancy: {0}ms,", purgingStopwatch.ElapsedMilliseconds));
 
 				purgingStopwatch.Reset();
 				purgingStopwatch.Start();
@@ -648,7 +687,7 @@ namespace AprioriAllLib
 				purgingStopwatch.Stop();
 
 				if (progressOutput)
-					Console.Out.WriteLine(" same size: {0}ms", purgingStopwatch.ElapsedMilliseconds);
+					Trace.WriteLine(String.Format(" same size: {0}ms", purgingStopwatch.ElapsedMilliseconds));
 			}
 		}
 
@@ -830,48 +869,50 @@ namespace AprioriAllLib
 				decodedList.Add(c);
 			}
 
-			foreach (Customer customer in decodedList)
-			{
-				for (int tn = customer.Transactions.Count - 1; tn >= 0; --tn)
-				{
-					// tn : transaction no.
-					Transaction t = customer.Transactions[tn];
-					foreach (Transaction comparedTransaction in customer.Transactions)
-					{
-						if (Object.ReferenceEquals(t, comparedTransaction))
-							continue;
-						if (t.Items.Count >= comparedTransaction.Items.Count)
-							continue;
-						if (IsSubSequence<Item>(t.Items, comparedTransaction.Items))
-						{
-							customer.Transactions.RemoveAt(tn);
-							break;
-						}
-					}
-				}
-			}
+			// it seems that the below code is obsolete:
 
-			// compare each pair of customers for equality
-			List<int> duplicateCustomers = new List<int>();
-			for (int i1 = 0; i1 < decodedList.Count; i1++)
-			{
-				Customer customer1 = decodedList[i1];
-				for (int i2 = i1 + 1; i2 < decodedList.Count; i2++)
-				{
-					//if (i1 == i2)
-					//	continue;
-					Customer customer2 = decodedList[i2];
-					if (customer1.Transactions.Count != customer2.Transactions.Count)
-						continue;
-					if (customer1.Equals(customer2))
-					{
-						duplicateCustomers.Add(i1);
-						break;
-					}
-				}
-			}
-			for (int index = duplicateCustomers.Count - 1; index >= 0; --index)
-				decodedList.RemoveAt(duplicateCustomers[index]);
+			//foreach (Customer customer in decodedList)
+			//{
+			//	for (int tn = customer.Transactions.Count - 1; tn >= 0; --tn)
+			//	{
+			//		// tn : transaction no.
+			//		Transaction t = customer.Transactions[tn];
+			//		foreach (Transaction comparedTransaction in customer.Transactions)
+			//		{
+			//			if (Object.ReferenceEquals(t, comparedTransaction))
+			//				continue;
+			//			if (t.Items.Count >= comparedTransaction.Items.Count)
+			//				continue;
+			//			if (IsSubSequence<Item>(t.Items, comparedTransaction.Items))
+			//			{
+			//				customer.Transactions.RemoveAt(tn);
+			//				break;
+			//			}
+			//		}
+			//	}
+			//}
+
+			//// compare each pair of customers for equality
+			//List<int> duplicateCustomers = new List<int>();
+			//for (int i1 = 0; i1 < decodedList.Count; i1++)
+			//{
+			//	Customer customer1 = decodedList[i1];
+			//	for (int i2 = i1 + 1; i2 < decodedList.Count; i2++)
+			//	{
+			//		//if (i1 == i2)
+			//		//	continue;
+			//		Customer customer2 = decodedList[i2];
+			//		if (customer1.Transactions.Count != customer2.Transactions.Count)
+			//			continue;
+			//		if (customer1.Equals(customer2))
+			//		{
+			//			duplicateCustomers.Add(i1);
+			//			break;
+			//		}
+			//	}
+			//}
+			//for (int index = duplicateCustomers.Count - 1; index >= 0; --index)
+			//	decodedList.RemoveAt(duplicateCustomers[index]);
 
 			return decodedList;
 		}
@@ -901,14 +942,14 @@ namespace AprioriAllLib
 
 			int minSupport = (int)Math.Ceiling((double)customerList.Customers.Count * threshold);
 			if (progressOutput)
-				Console.Out.WriteLine("Threshold = {0}  =>  Minimum support = {1}", threshold, minSupport);
+				Trace.WriteLine(String.Format("Threshold = {0}  =>  Minimum support = {1}", threshold, minSupport));
 
 			if (minSupport <= 0)
 				throw new ArgumentException("minimum support must be positive", "minSupport");
 
 			// 1. sort the input!
 			if (progressOutput)
-				Console.Out.WriteLine("1) Sort Phase - list is already sorted as user sees fit");
+				Trace.WriteLine("1) Sort Phase - list is already sorted as user sees fit");
 
 			// corresponds to 1st step of Apriori All algorithm, namely "Sort Phase".
 
@@ -916,22 +957,15 @@ namespace AprioriAllLib
 
 			// 2. find all frequent 1-sequences
 			if (progressOutput)
-				Console.Out.WriteLine("2) Litemset Phase");
+				Trace.WriteLine("2) Litemset Phase");
 			if (progressOutput)
-				Console.Out.WriteLine("Launching Apriori...");
+				Trace.WriteLine("Launching Apriori...");
 			// this corresponds to 2nd step of Apriori All algorithm, namely "Litemset Phase".
 			List<Litemset> oneLitemsets = RunApriori(threshold, progressOutput);
 
-			//if (progressOutput) // all is printed below anyway
-			//{
-			//	Console.Out.WriteLine("Litemsets:");
-			//	foreach (Litemset l in oneLitemsets)
-			//		Console.Out.WriteLine(" - {0}", l);
-			//}
-
 			// 3. transform input into list of IDs
 			if (progressOutput)
-				Console.Out.WriteLine("3) Transformation Phase");
+				Trace.WriteLine("3) Transformation Phase");
 
 			// 3.a) give an ID to each 1-seq
 			Dictionary<Litemset, int> encoding;
@@ -939,21 +973,29 @@ namespace AprioriAllLib
 
 			GenerateEncoding(oneLitemsets, out encoding, out decoding);
 
-			if (progressOutput)
-			{
-				Console.Out.WriteLine("Decoding dictionary for litemsets:");
-				foreach (KeyValuePair<int, Litemset> kv in decoding)
-					Console.Out.WriteLine(" {0} => {1}", kv.Key, kv.Value);
-			}
-
 			Dictionary<int, List<int>> litemsetsContaining = GenerateContainmentRules(oneLitemsets, encoding);
 
 			if (progressOutput)
 			{
-				Console.Out.WriteLine("Containment rules for litemsets:");
-				foreach (KeyValuePair<int, List<int>> kv in litemsetsContaining)
-					Console.Out.WriteLine(" {0} is in {1}", kv.Key, String.Join(", ", kv.Value.ToArray()));
+				Trace.WriteLine("Encoding dictionary for litemsets:");
+				foreach (KeyValuePair<int, Litemset> kv in decoding)
+				{
+					Trace.Write(String.Format(" {0} <= {1}", kv.Key, kv.Value));
+					if (litemsetsContaining.ContainsKey(kv.Key))
+					{
+						List<int> superLitemsets = litemsetsContaining[kv.Key];
+						Trace.Write(String.Format("; {0} is in {1}", kv.Key, String.Join(", ", superLitemsets.ToArray())));
+					}
+					Trace.WriteLine("");
+				}
 			}
+
+			//if (progressOutput)
+			//{
+			//	Console.Out.WriteLine("Containment rules for litemsets:");
+			//	foreach (KeyValuePair<int, List<int>> kv in litemsetsContaining)
+			//		Console.Out.WriteLine(" {0} is in {1}", kv.Key, String.Join(", ", kv.Value.ToArray()));
+			//}
 
 			// 3.b) using created IDs, transform the input
 
@@ -965,75 +1007,85 @@ namespace AprioriAllLib
 			// - outer list means list of customers
 
 			if (progressOutput)
-				Console.Out.WriteLine("Encoding input data...");
+				Trace.WriteLine("Encoding input data...");
 			var encodedList = EncodeCustomerList(oneLitemsets, encoding);
 
 			if (progressOutput)
 			{
-				Console.Out.WriteLine("Encoded input:");
+				var customersEnumerator = customerList.Customers.GetEnumerator();
+				Trace.WriteLine("How the input is encoded:");
 				foreach (List<List<int>> c in encodedList)
 				{
-					Console.Out.Write(" - (");
+					customersEnumerator.MoveNext();
+					//var transactionsEnumerator = customersEnumerator.Current.Transactions.GetEnumerator();
+					Trace.Write(String.Format(" - {0} => (", customersEnumerator.Current));
 					foreach (List<int> t in c)
 					{
-						Console.Out.Write("{");
+						//transactionsEnumerator.MoveNext();
+						//var itemsEnumerator = transactionsEnumerator.Current.Items.GetEnumerator();
+						Trace.Write("{");
 						bool first = true;
 						foreach (int i in t)
 						{
+							//itemsEnumerator.MoveNext();
 							if (!first)
-								Console.Out.Write(" ");
+								Trace.Write(" ");
 							if (first)
 								first = false;
-							Console.Out.Write("{0}", i);
+							Trace.Write(String.Format("{0}", i));
 						}
-						Console.Out.Write("}");
+						Trace.Write("}");
 					}
-					Console.Out.WriteLine(")");
+					Trace.WriteLine(")");
 				}
 			}
 
 			// 4. find all frequent sequences in the input
 			if (progressOutput)
-				Console.Out.WriteLine("4) Sequence Phase");
+				Trace.WriteLine("4) Sequence Phase");
 
 			if (progressOutput)
-				Console.Out.WriteLine("Searching for all possible k-sequences");
+				Trace.WriteLine("Searching for all possible k-sequences");
 			var kSequences = FindAllFrequentSequences(oneLitemsets, encoding, encodedList, minSupport, progressOutput);
 			if (progressOutput)
-				Console.Out.WriteLine("Maximal k is {0}.", kSequences.Count - 2);
+				Trace.WriteLine(String.Format("Maximal k is {0}.", kSequences.Count - 2));
 
 			// 5. purge all non-maximal sequences
 			if (progressOutput)
-				Console.Out.WriteLine("5) Maximal Phase");
+				Trace.WriteLine("5) Maximal Phase");
 
 			if (progressOutput)
-				Console.Out.WriteLine("Purging all non-maximal sequences...");
+				Trace.WriteLine("Purging all non-maximal sequences...");
 			PurgeAllNonMax(kSequences, litemsetsContaining, progressOutput);
+
+			// 6. decode results
+			if (progressOutput)
+				Trace.WriteLine("Decoding results and purging again...");
+			var decodedList = InferRealResults(encodedList, kSequences, decoding);
 
 			if (progressOutput)
 			{
-				Console.Out.WriteLine("List of encoded maximal sequences");
+				var decodedEnumerator = decodedList.GetEnumerator();
+				Trace.WriteLine("How maximal sequences are decoded:");
 				foreach (List<List<int>> kSequencesPartition in kSequences)
 					foreach (List<int> sequene in kSequencesPartition)
 					{
-						Console.Out.Write(" - <");
+						Trace.Write(" - <");
 						bool first = true;
 						foreach (int i in sequene)
 						{
 							if (!first)
-								Console.Out.Write(" ");
+								Trace.Write(" ");
 							if (first)
 								first = false;
-							Console.Out.Write("{0}", i);
+							Trace.Write(String.Format("{0}", i));
 						}
-						Console.Out.WriteLine(">");
+						Trace.Write(">");
+						if (decodedEnumerator.MoveNext())
+							Trace.Write(String.Format(" => {0}", decodedEnumerator.Current));
+						Trace.WriteLine("");
 					}
 			}
-
-			// 6. decode results
-			if (progressOutput)
-				Console.Out.WriteLine("Decoding results and purging again...");
-			var decodedList = InferRealResults(encodedList, kSequences, decoding);
 
 			// 7. return results
 			return decodedList;
@@ -1069,7 +1121,7 @@ namespace AprioriAllLib
 
 			int minSupport = (int)Math.Ceiling((double)customerList.Customers.Count * threshold);
 			if (progressOutput)
-				Console.Out.WriteLine("Threshold = {0}  =>  Minimum support = {1}", threshold, minSupport);
+				Trace.WriteLine(String.Format("Threshold = {0}  =>  Minimum support = {1}", threshold, minSupport));
 
 			if (minSupport <= 0)
 				throw new ArgumentException("minimum support must be positive", "minSupport");

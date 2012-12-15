@@ -3,6 +3,7 @@ using System.Text;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Diagnostics;
 
 namespace AprioriAllLib.Test
 {
@@ -19,6 +20,7 @@ namespace AprioriAllLib.Test
 		public static void MyClassInitialize(TestContext testContext)
 		{
 			data = new InputData();
+			Trace.Listeners.Add(new TextWriterTraceListener(Console.Out));
 		}
 
 		[TestMethod]
