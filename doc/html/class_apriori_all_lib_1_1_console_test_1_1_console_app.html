@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Data Mining project - AprioriAll implementation: AprioriAllLib.ConsoleTest.ConsoleApp Class Reference</title>
+<title>Apriori and AprioriAll in C#: AprioriAllLib.ConsoleTest.ConsoleApp Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Data Mining project - AprioriAll implementation
+   <div id="projectname">Apriori and AprioriAll in C#
    &#160;<span id="projectnumber">version 1.0</span>
    </div>
    <div id="projectbrief">authors: Karolina Baltyn, Mateusz Bysiek</div>
@@ -150,6 +150,8 @@ Static Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <div class="fragment"><div class="line">        {</div>
+<div class="line">            Trace.Listeners.Add(<span class="keyword">new</span> TextWriterTraceListener(Console.Out));</div>
+<div class="line"></div>
 <div class="line">            Console.Out.WriteLine(<span class="stringliteral">&quot;AprioriAll algorithm implementation in .NET\n&quot;</span>);</div>
 <div class="line"></div>
 <div class="line">            CustomerList customerList = null;</div>

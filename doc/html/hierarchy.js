@@ -16,8 +16,11 @@ var hierarchy =
     ] ],
     [ "AprioriAllLib.Test.InputData", "class_apriori_all_lib_1_1_test_1_1_input_data.html", null ],
     [ "AprioriAllLib.InputGenerator", "class_apriori_all_lib_1_1_input_generator.html", null ],
-    [ "AprioriAllLib.Node", "class_apriori_all_lib_1_1_node.html", null ],
-    [ "AprioriAllLib.OpenCLChecker", "class_apriori_all_lib_1_1_open_c_l_checker.html", null ],
+    [ "AprioriAllLib.OpenCLBase", "class_apriori_all_lib_1_1_open_c_l_base.html", [
+      [ "AprioriAllLib.OpenCLChecker", "class_apriori_all_lib_1_1_open_c_l_checker.html", null ],
+      [ "AprioriAllLib.OpenCLToolkit", "class_apriori_all_lib_1_1_open_c_l_toolkit.html", null ]
+    ] ],
+    [ "AprioriAllLib.Test.OpenCLTest", "class_apriori_all_lib_1_1_test_1_1_open_c_l_test.html", null ],
     [ "AprioriAllLib.RadixTree", "class_apriori_all_lib_1_1_radix_tree.html", null ],
     [ "AprioriAllLib.ConsoleTest.Test_AprioriAll", "class_apriori_all_lib_1_1_console_test_1_1_test___apriori_all.html", null ],
     [ "AprioriAllLib.ConsoleTest.Test_AprioriParallel", "class_apriori_all_lib_1_1_console_test_1_1_test___apriori_parallel.html", null ],

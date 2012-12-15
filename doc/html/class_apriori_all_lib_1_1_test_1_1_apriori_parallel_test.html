@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Data Mining project - AprioriAll implementation: AprioriAllLib.Test.AprioriParallelTest Class Reference</title>
+<title>Apriori and AprioriAll in C#: AprioriAllLib.Test.AprioriParallelTest Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Data Mining project - AprioriAll implementation
+   <div id="projectname">Apriori and AprioriAll in C#
    &#160;<span id="projectnumber">version 1.0</span>
    </div>
    <div id="projectbrief">authors: Karolina Baltyn, Mateusz Bysiek</div>
@@ -120,15 +120,11 @@ Collaboration diagram for AprioriAllLib.Test.AprioriParallelTest:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test__coll__graph.png" border="0" usemap="#_apriori_all_lib_8_test_8_apriori_parallel_test_coll__map" alt="Collaboration graph"/></div>
 <map name="_apriori_all_lib_8_test_8_apriori_parallel_test_coll__map" id="_apriori_all_lib_8_test_8_apriori_parallel_test_coll__map">
-<area shape="rect" id="node2" href="class_apriori_all_lib_1_1_test_1_1_input_data.html" title="Defines some example inputs for Apriori and AprioriAll tests. " alt="" coords="24,347,203,469"/><area shape="rect" id="node4" href="class_apriori_all_lib_1_1_customer_list.html" title="Class that represents a total set of customers " alt="" coords="27,147,199,239"/></map>
+<area shape="rect" id="node2" href="class_apriori_all_lib_1_1_test_1_1_input_data.html" title="Defines some example inputs for Apriori and AprioriAll tests. " alt="" coords="5,347,184,469"/><area shape="rect" id="node4" href="class_apriori_all_lib_1_1_customer_list.html" title="Class that represents a total set of customers " alt="" coords="9,147,180,239"/></map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a22505b627464f78b30171ef28b16ca1d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test.html#a22505b627464f78b30171ef28b16ca1d">Test_OpenCL_PlatformsCount</a> ()</td></tr>
-<tr class="separator:a22505b627464f78b30171ef28b16ca1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae8bd9720beba247a09289a135d895144"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test.html#ae8bd9720beba247a09289a135d895144">Test_OpenCL_DevicesCount</a> ()</td></tr>
-<tr class="separator:ae8bd9720beba247a09289a135d895144"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a34f97425d8fa423d69e2a0b17cee8e28"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test.html#a34f97425d8fa423d69e2a0b17cee8e28">Test_AprioriParallel_Example1_LowSupport</a> ()</td></tr>
 <tr class="separator:a34f97425d8fa423d69e2a0b17cee8e28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a52657a5b9ce9b2fbe98d9420e9f40806"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test.html#a52657a5b9ce9b2fbe98d9420e9f40806">Test_AprioriParallel_Example1_HighSupport</a> ()</td></tr>
@@ -259,7 +255,7 @@ Here is the call graph for this function:</div>
 <div class="line"></div>
 <div class="line">            <span class="comment">//Act</span></div>
 <div class="line">            Apriori apriori = <span class="keyword">new</span> Apriori(<a class="code" href="class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test.html#abee14c983d092b5fd3e6e480b72caf14">data</a>.<a class="code" href="class_apriori_all_lib_1_1_test_1_1_input_data.html#a273fe1ea06527075b74dcb66941d5467" title="Example data set. ">Example1</a>);</div>
-<div class="line">            List&lt;Litemset&gt; oneLitemsets = apriori.RunParallelApriori(0.2);</div>
+<div class="line">            List&lt;Litemset&gt; oneLitemsets = apriori.RunParallelApriori(0.2, <span class="keyword">true</span>);</div>
 <div class="line"></div>
 <div class="line">            <span class="comment">//Assert</span></div>
 <div class="line">            CollectionAssert.AreEqual(expected, oneLitemsets);</div>
@@ -271,84 +267,6 @@ Here is the call graph for this function:</div>
 <div class="center"><img src="class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test_a34f97425d8fa423d69e2a0b17cee8e28_cgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test_a34f97425d8fa423d69e2a0b17cee8e28_cgraph" alt=""/></div>
 <map name="class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test_a34f97425d8fa423d69e2a0b17cee8e28_cgraph" id="class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test_a34f97425d8fa423d69e2a0b17cee8e28_cgraph">
 <area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori.html#a91d0b11de53dab28769f1d7fda0542c6" title="Finds all litemsets that have the minimal support. " alt="" coords="262,5,421,46"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_apriori.html#abf88e1f78883083cd20760cb43029738" title="Executes parallel version of the Apriori algorithm. " alt="" coords="262,70,421,111"/></map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="ae8bd9720beba247a09289a135d895144"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void AprioriAllLib.Test.AprioriParallelTest.Test_OpenCL_DevicesCount </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<div class="fragment"><div class="line">        {</div>
-<div class="line">            <span class="comment">//Arrange</span></div>
-<div class="line">            uint devicesCount = 0;</div>
-<div class="line">            Cl.ErrorCode error = Cl.ErrorCode.Success;</div>
-<div class="line"></div>
-<div class="line">            <span class="comment">//Act</span></div>
-<div class="line">            uint count = OpenCLChecker.PlatformsCount();</div>
-<div class="line">            Assert.AreEqual(<span class="keyword">true</span>, count &gt;= 1, <span class="stringliteral">&quot;if there are no platforms available, there can be no devices&quot;</span>);</div>
-<div class="line"></div>
-<div class="line">            Cl.Platform[] platforms = Cl.GetPlatformIDs(out error);</div>
-<div class="line">            Assert.AreEqual(Cl.ErrorCode.Success, error, <span class="stringliteral">&quot;could not get list of available platforms&quot;</span>);</div>
-<div class="line">            <span class="keywordflow">foreach</span> (Cl.Platform platfrom in platforms)</div>
-<div class="line">            {</div>
-<div class="line">                Cl.Device[] devices = Cl.GetDeviceIDs(platfrom, Cl.DeviceType.All, out error);</div>
-<div class="line">                Assert.AreEqual(Cl.ErrorCode.Success, error, <span class="stringliteral">&quot;could not get list of available devices&quot;</span>);</div>
-<div class="line">                devicesCount += (uint)devices.Length;</div>
-<div class="line">            }</div>
-<div class="line"></div>
-<div class="line">            <span class="comment">//Assert</span></div>
-<div class="line">            Assert.AreEqual(<span class="keyword">true</span>, devicesCount &gt;= 1);</div>
-<div class="line">        }</div>
-</div><!-- fragment -->
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test_ae8bd9720beba247a09289a135d895144_cgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test_ae8bd9720beba247a09289a135d895144_cgraph" alt=""/></div>
-<map name="class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test_ae8bd9720beba247a09289a135d895144_cgraph" id="class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test_ae8bd9720beba247a09289a135d895144_cgraph">
-<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_open_c_l_checker.html#adf47c7b99e651e7fb42b5a6ff28d3df9" title="Determines and returns number of available OpenCL platforms. " alt="" coords="227,13,421,54"/></map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a22505b627464f78b30171ef28b16ca1d"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void AprioriAllLib.Test.AprioriParallelTest.Test_OpenCL_PlatformsCount </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<div class="fragment"><div class="line">        {</div>
-<div class="line">            <span class="comment">//Arrange</span></div>
-<div class="line"></div>
-<div class="line">            <span class="comment">//Act</span></div>
-<div class="line">            uint count = OpenCLChecker.PlatformsCount();</div>
-<div class="line"></div>
-<div class="line">            <span class="comment">//Assert</span></div>
-<div class="line">            Assert.AreEqual(<span class="keyword">true</span>, count &gt;= 1, <span class="stringliteral">&quot;number of OpenCL platforms must be greater or equal 1&quot;</span>);</div>
-<div class="line">        }</div>
-</div><!-- fragment -->
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test_a22505b627464f78b30171ef28b16ca1d_cgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test_a22505b627464f78b30171ef28b16ca1d_cgraph" alt=""/></div>
-<map name="class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test_a22505b627464f78b30171ef28b16ca1d_cgraph" id="class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test_a22505b627464f78b30171ef28b16ca1d_cgraph">
-<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_open_c_l_checker.html#adf47c7b99e651e7fb42b5a6ff28d3df9" title="Determines and returns number of available OpenCL platforms. " alt="" coords="227,13,421,54"/></map>
 </div>
 </p>
 

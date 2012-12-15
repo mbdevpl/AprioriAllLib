@@ -21,13 +21,19 @@ var dir_fdb869da666d0ce0930763be9405a594 =
     [ "Litemset.cs", "_litemset_8cs.html", [
       [ "Litemset", "class_apriori_all_lib_1_1_litemset.html", "class_apriori_all_lib_1_1_litemset" ]
     ] ],
+    [ "OpenCLBase.cs", "_open_c_l_base_8cs.html", [
+      [ "OpenCLBase", "class_apriori_all_lib_1_1_open_c_l_base.html", "class_apriori_all_lib_1_1_open_c_l_base" ]
+    ] ],
     [ "OpenCLChecker.cs", "_open_c_l_checker_8cs.html", [
       [ "OpenCLChecker", "class_apriori_all_lib_1_1_open_c_l_checker.html", "class_apriori_all_lib_1_1_open_c_l_checker" ]
     ] ],
-    [ "RadixTree.cs", "_radix_tree_8cs.html", [
-      [ "RadixTree", "class_apriori_all_lib_1_1_radix_tree.html", "class_apriori_all_lib_1_1_radix_tree" ],
-      [ "Node", "class_apriori_all_lib_1_1_node.html", "class_apriori_all_lib_1_1_node" ]
+    [ "OpenCLToolkit.cs", "_open_c_l_toolkit_8cs.html", [
+      [ "OpenCLToolkit", "class_apriori_all_lib_1_1_open_c_l_toolkit.html", "class_apriori_all_lib_1_1_open_c_l_toolkit" ]
     ] ],
+    [ "RadixTree.cs", "_radix_tree_8cs.html", [
+      [ "RadixTree", "class_apriori_all_lib_1_1_radix_tree.html", "class_apriori_all_lib_1_1_radix_tree" ]
+    ] ],
+    [ "RadixTreeNode.cs", "_radix_tree_node_8cs.html", null ],
     [ "Transaction.cs", "_transaction_8cs.html", [
       [ "Transaction", "class_apriori_all_lib_1_1_transaction.html", "class_apriori_all_lib_1_1_transaction" ]
     ] ],

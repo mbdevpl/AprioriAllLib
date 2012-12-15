@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Data Mining project - AprioriAll implementation: AprioriAllLib.Test.AprioriAllTest Class Reference</title>
+<title>Apriori and AprioriAll in C#: AprioriAllLib.Test.AprioriAllTest Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Data Mining project - AprioriAll implementation
+   <div id="projectname">Apriori and AprioriAll in C#
    &#160;<span id="projectnumber">version 1.0</span>
    </div>
    <div id="projectbrief">authors: Karolina Baltyn, Mateusz Bysiek</div>
@@ -178,6 +178,7 @@ Static Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <div class="fragment"><div class="line">        {</div>
 <div class="line">            <a class="code" href="class_apriori_all_lib_1_1_test_1_1_apriori_all_test.html#a7192d615992b49c7706ef827d8f6a124">data</a> = <span class="keyword">new</span> InputData();</div>
+<div class="line">            Trace.Listeners.Add(<span class="keyword">new</span> TextWriterTraceListener(Console.Out));</div>
 <div class="line">        }</div>
 </div><!-- fragment -->
 </div>
@@ -287,7 +288,7 @@ Here is the call graph for this function:</div>
 <div class="line"></div>
 <div class="line">            <span class="comment">//Act</span></div>
 <div class="line">            AprioriAll all = <span class="keyword">new</span> AprioriAll(<a class="code" href="class_apriori_all_lib_1_1_test_1_1_apriori_all_test.html#a7192d615992b49c7706ef827d8f6a124">data</a>.<a class="code" href="class_apriori_all_lib_1_1_test_1_1_input_data.html#ad392da8791e3424d29aace43c69c6f52">DataSet2</a>);</div>
-<div class="line">            List&lt;Customer&gt; results = all.RunAprioriAll(0.2);</div>
+<div class="line">            List&lt;Customer&gt; results = all.RunAprioriAll(0.2, <span class="keyword">true</span>);</div>
 <div class="line"></div>
 <div class="line">            <span class="comment">//Assert</span></div>
 <div class="line">            CollectionAssert.AreEqual(expected, results); <span class="comment">// areEquivalent doesn&#39;t work</span></div>
@@ -365,12 +366,12 @@ Here is the call graph for this function:</div>
 <div class="line">            expected.Add(<span class="keyword">new</span> Customer(<span class="keyword">new</span> <span class="keywordtype">int</span>[] { 10, 20 }));</div>
 <div class="line">            expected.Add(<span class="keyword">new</span> Customer(<span class="keyword">new</span> <span class="keywordtype">int</span>[] { 30 }, <span class="keyword">new</span> <span class="keywordtype">int</span>[] { 40, 70 }));</div>
 <div class="line">            expected.Add(<span class="keyword">new</span> Customer(<span class="keyword">new</span> <span class="keywordtype">int</span>[] { 70 }, <span class="keyword">new</span> <span class="keywordtype">int</span>[] { 30, 50 }));</div>
-<div class="line">            expected.Add(<span class="keyword">new</span> Customer(<span class="keyword">new</span> <span class="keywordtype">int</span>[] { 80 }, <span class="keyword">new</span> <span class="keywordtype">int</span>[] { 30, 40, 50 }, <span class="keyword">new</span> <span class="keywordtype">int</span>[] { 90 }));</div>
+<div class="line">            expected.Add(<span class="keyword">new</span> Customer(<span class="keyword">new</span> <span class="keywordtype">int</span>[] { 30 }, <span class="keyword">new</span> <span class="keywordtype">int</span>[] { 80 }, <span class="keyword">new</span> <span class="keywordtype">int</span>[] { 30, 40, 50 }, <span class="keyword">new</span> <span class="keywordtype">int</span>[] { 90 }));</div>
 <div class="line">            Assert.AreEqual(5, expected.Count);</div>
 <div class="line"></div>
 <div class="line">            <span class="comment">//Act</span></div>
 <div class="line">            AprioriAll all = <span class="keyword">new</span> AprioriAll(<a class="code" href="class_apriori_all_lib_1_1_test_1_1_apriori_all_test.html#a7192d615992b49c7706ef827d8f6a124">data</a>.<a class="code" href="class_apriori_all_lib_1_1_test_1_1_input_data.html#a78150e515afc61f12aa64e4bdce5c66c">DataSet3</a>);</div>
-<div class="line">            List&lt;Customer&gt; results = all.RunAprioriAll(0.2);</div>
+<div class="line">            List&lt;Customer&gt; results = all.RunAprioriAll(0.2, <span class="keyword">true</span>);</div>
 <div class="line"></div>
 <div class="line">            <span class="comment">//Assert</span></div>
 <div class="line">            CollectionAssert.AreEqual(expected, results); <span class="comment">// areEquivalent doesn&#39;t work</span></div>
@@ -439,17 +440,30 @@ Here is the call graph for this function:</div>
 <div class="fragment"><div class="line">        {</div>
 <div class="line">            <span class="comment">//Arrange</span></div>
 <div class="line">            List&lt;Customer&gt; expected = <span class="keyword">new</span> List&lt;Customer&gt;();</div>
-<div class="line">            <span class="comment">//expected.Add(new Customer(new int[] { 30 }, new int[] { 70 }));</span></div>
-<div class="line">            <span class="comment">//Assert.AreEqual(1, expected.Count);</span></div>
+<div class="line">            expected.Add(<span class="keyword">new</span> Customer(<span class="keyword">new</span> <span class="keywordtype">int</span>[] { 90 }));</div>
+<div class="line">            expected.Add(<span class="keyword">new</span> Customer(<span class="keyword">new</span> <span class="keywordtype">int</span>[] { 30 }, <span class="keyword">new</span> <span class="keywordtype">int</span>[] { 80 }));</div>
+<div class="line">            expected.Add(<span class="keyword">new</span> Customer(<span class="keyword">new</span> <span class="keywordtype">int</span>[] { 30 }, <span class="keyword">new</span> <span class="keywordtype">int</span>[] { 40, 70 }, <span class="keyword">new</span> <span class="keywordtype">int</span>[] { 40 }));</div>
+<div class="line">            expected.Add(<span class="keyword">new</span> Customer(<span class="keyword">new</span> <span class="keywordtype">int</span>[] { 10, 20 }, <span class="keyword">new</span> <span class="keywordtype">int</span>[] { 30 }, <span class="keyword">new</span> <span class="keywordtype">int</span>[] { 10, 60, 70 }));</div>
+<div class="line">            expected.Add(<span class="keyword">new</span> Customer(<span class="keyword">new</span> <span class="keywordtype">int</span>[] { 30, 50, 70 }));</div>
+<div class="line">            Assert.AreEqual(5, expected.Count);</div>
 <div class="line"></div>
 <div class="line">            <span class="comment">//Act</span></div>
 <div class="line">            AprioriAll all = <span class="keyword">new</span> AprioriAll(<a class="code" href="class_apriori_all_lib_1_1_test_1_1_apriori_all_test.html#a7192d615992b49c7706ef827d8f6a124">data</a>.<a class="code" href="class_apriori_all_lib_1_1_test_1_1_input_data.html#a273fe1ea06527075b74dcb66941d5467" title="Example data set. ">Example1</a>);</div>
-<div class="line">            List&lt;Customer&gt; results = all.RunAprioriAll(0.2);</div>
+<div class="line">            List&lt;Customer&gt; results = all.RunAprioriAll(0.2, <span class="keyword">true</span>);</div>
 <div class="line"></div>
 <div class="line">            <span class="comment">//Assert</span></div>
 <div class="line">            CollectionAssert.AreEqual(expected, results);</div>
 <div class="line">        }</div>
 </div><!-- fragment -->
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_apriori_all_lib_1_1_test_1_1_apriori_all_test_a0efbf1e646f5c1e0a53c005fccc62ea9_cgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_test_1_1_apriori_all_test_a0efbf1e646f5c1e0a53c005fccc62ea9_cgraph" alt=""/></div>
+<map name="class_apriori_all_lib_1_1_test_1_1_apriori_all_test_a0efbf1e646f5c1e0a53c005fccc62ea9_cgraph" id="class_apriori_all_lib_1_1_test_1_1_apriori_all_test_a0efbf1e646f5c1e0a53c005fccc62ea9_cgraph">
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori_all.html#a9a05f0ff368d6dfea768ce19f09505b2" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. " alt="" coords="217,13,367,54"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a187dc993b3cf23b3065f21a1ee06185a"></a>
@@ -467,8 +481,8 @@ Here is the call graph for this function:</div>
 <div class="fragment"><div class="line">        {</div>
 <div class="line">            <span class="comment">//Arrange</span></div>
 <div class="line">            List&lt;Customer&gt; expected = <span class="keyword">new</span> List&lt;Customer&gt;();</div>
-<div class="line">            <span class="comment">//expected.Add(new Customer(new int[] { 30 }, new int[] { 70 }));</span></div>
-<div class="line">            <span class="comment">//Assert.AreEqual(1, expected.Count);</span></div>
+<div class="line">            expected.Add(<span class="keyword">new</span> Customer(<span class="keyword">new</span> <span class="keywordtype">int</span>[] { 30 }, <span class="keyword">new</span> <span class="keywordtype">int</span>[] { 70 }));</div>
+<div class="line">            Assert.AreEqual(1, expected.Count);</div>
 <div class="line"></div>
 <div class="line">            <span class="comment">//Act</span></div>
 <div class="line">            AprioriAll all = <span class="keyword">new</span> AprioriAll(<a class="code" href="class_apriori_all_lib_1_1_test_1_1_apriori_all_test.html#a7192d615992b49c7706ef827d8f6a124">data</a>.<a class="code" href="class_apriori_all_lib_1_1_test_1_1_input_data.html#a273fe1ea06527075b74dcb66941d5467" title="Example data set. ">Example1</a>);</div>
@@ -478,6 +492,15 @@ Here is the call graph for this function:</div>
 <div class="line">            CollectionAssert.AreEqual(expected, results);</div>
 <div class="line">        }</div>
 </div><!-- fragment -->
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_apriori_all_lib_1_1_test_1_1_apriori_all_test_a187dc993b3cf23b3065f21a1ee06185a_cgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_test_1_1_apriori_all_test_a187dc993b3cf23b3065f21a1ee06185a_cgraph" alt=""/></div>
+<map name="class_apriori_all_lib_1_1_test_1_1_apriori_all_test_a187dc993b3cf23b3065f21a1ee06185a_cgraph" id="class_apriori_all_lib_1_1_test_1_1_apriori_all_test_a187dc993b3cf23b3065f21a1ee06185a_cgraph">
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori_all.html#a9a05f0ff368d6dfea768ce19f09505b2" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. " alt="" coords="241,13,391,54"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>

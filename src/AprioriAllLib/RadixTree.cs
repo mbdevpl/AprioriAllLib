@@ -82,7 +82,7 @@ namespace AprioriAllLib
 		/// Checks if a given element can be added to the tree.
 		/// </summary>
 		/// <param name="list">list of numbers that will be compared with the contents of radix tree</param>
-		/// <param name="ommitedIndex">element of the list at this index is treated as non-existent</param>
+		/// <param name="omittedIndex">element of the list at this index is treated as non-existent</param>
 		/// <returns>true if a given element is not in the tree</returns>
 		public bool Check(List<int> list, int omittedIndex)
 		{

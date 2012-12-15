@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Data Mining project - AprioriAll implementation: AprioriAllLib.ConsoleTest.Test_AprioriAll Class Reference</title>
+<title>Apriori and AprioriAll in C#: AprioriAllLib.ConsoleTest.Test_AprioriAll Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Data Mining project - AprioriAll implementation
+   <div id="projectname">Apriori and AprioriAll in C#
    &#160;<span id="projectnumber">version 1.0</span>
    </div>
    <div id="projectbrief">authors: Karolina Baltyn, Mateusz Bysiek</div>
@@ -149,11 +149,22 @@ Static Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <div class="fragment"><div class="line">        {</div>
+<div class="line">            Trace.Listeners.Add(<span class="keyword">new</span> TextWriterTraceListener(Console.Out));</div>
+<div class="line"></div>
 <div class="line">            Console.Out.WriteLine(<span class="stringliteral">&quot;Serialized AprioriAll algorithm test&quot;</span>);</div>
 <div class="line"></div>
 <div class="line">            <span class="comment">//Arrange</span></div>
-<div class="line">            <span class="comment">//CustomerList randomExample = InputGenerator.GenerateRandomList(700, 7, 7);</span></div>
-<div class="line">            CustomerList randomExample = XmlReader.ReadFromXmlFile(<span class="stringliteral">&quot;dataset1.xml&quot;</span>);</div>
+<div class="line">            CustomerList Example1 = <span class="keyword">new</span> CustomerList();</div>
+<div class="line">            Example1.Customers.Add(<span class="keyword">new</span> Customer(<span class="keyword">new</span> <span class="keywordtype">int</span>[] { 30 }, <span class="keyword">new</span> <span class="keywordtype">int</span>[] { 80 }));</div>
+<div class="line">            Example1.Customers.Add(<span class="keyword">new</span> Customer(<span class="keyword">new</span> <span class="keywordtype">int</span>[] { 10, 20 }, <span class="keyword">new</span> <span class="keywordtype">int</span>[] { 30 }, <span class="keyword">new</span> <span class="keywordtype">int</span>[] { 10, 60, 70 }));</div>
+<div class="line">            Example1.Customers.Add(<span class="keyword">new</span> Customer(<span class="keyword">new</span> <span class="keywordtype">int</span>[] { 30, 50, 70 }));</div>
+<div class="line">            Example1.Customers.Add(<span class="keyword">new</span> Customer(<span class="keyword">new</span> <span class="keywordtype">int</span>[] { 30 }, <span class="keyword">new</span> <span class="keywordtype">int</span>[] { 40, 70 }, <span class="keyword">new</span> <span class="keywordtype">int</span>[] { 40 }));</div>
+<div class="line">            Example1.Customers.Add(<span class="keyword">new</span> Customer(<span class="keyword">new</span> <span class="keywordtype">int</span>[] { 90 }));</div>
+<div class="line"></div>
+<div class="line">            CustomerList randomExample</div>
+<div class="line">                <span class="comment">//= InputGenerator.GenerateRandomList(700, 7, 7);</span></div>
+<div class="line">                <span class="comment">//= XmlReader.ReadFromXmlFile(&quot;dataset3.xml&quot;);</span></div>
+<div class="line">                = Example1;</div>
 <div class="line">            <span class="keywordtype">double</span> support = 0.2;</div>
 <div class="line"></div>
 <div class="line">            Console.Out.WriteLine(<span class="stringliteral">&quot;\nInput:&quot;</span>);</div>
@@ -173,6 +184,9 @@ Static Private Member Functions</h2></td></tr>
 <div class="line">            {</div>
 <div class="line">                Console.Out.WriteLine(<span class="stringliteral">&quot; - {0}&quot;</span>, c);</div>
 <div class="line">            }</div>
+<div class="line"></div>
+<div class="line">            Console.Write(<span class="stringliteral">&quot;Fin.&quot;</span>);</div>
+<div class="line">            Console.ReadKey();</div>
 <div class="line">        }</div>
 </div><!-- fragment -->
 <p><div class="dynheader">
@@ -180,7 +194,7 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_apriori_all_lib_1_1_console_test_1_1_test___apriori_all_a1cf91c94b32a1f2a3ec448fd87aa6103_cgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_console_test_1_1_test___apriori_all_a1cf91c94b32a1f2a3ec448fd87aa6103_cgraph" alt=""/></div>
 <map name="class_apriori_all_lib_1_1_console_test_1_1_test___apriori_all_a1cf91c94b32a1f2a3ec448fd87aa6103_cgraph" id="class_apriori_all_lib_1_1_console_test_1_1_test___apriori_all_a1cf91c94b32a1f2a3ec448fd87aa6103_cgraph">
-<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_xml_reader.html#ac8254897758b96fbc8e8e65ccf1103f9" title="Reads from XML client database. " alt="" coords="225,5,386,46"/><area shape="rect" id="node11" href="class_apriori_all_lib_1_1_apriori_all.html#a9a05f0ff368d6dfea768ce19f09505b2" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. " alt="" coords="230,70,381,111"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_xml_reader.html#a7b9b5900bec644e28a72dd513f26b8b1" title="Adds a Customer to the CustomerList. " alt="" coords="435,5,618,46"/><area shape="rect" id="node7" href="class_apriori_all_lib_1_1_xml_reader.html#a55e41c372e7613272d6cc0c5c7659382" title="Adds a Transaction to the Customer. " alt="" coords="667,5,850,46"/><area shape="rect" id="node9" href="class_apriori_all_lib_1_1_xml_reader.html#a8d7b3b8b757aa0517b726d4c59617836" title="Adds an Item to the Transaction. " alt="" coords="899,12,1106,39"/></map>
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori_all.html#a9a05f0ff368d6dfea768ce19f09505b2" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. " alt="" coords="225,5,375,46"/></map>
 </div>
 </p>
 

@@ -159,6 +159,7 @@ namespace AprioriAllLib
 		/// Generates all candidates for k-sequences, basing on set of (k-1)-sequences.
 		/// </summary>
 		/// <param name="prev">previous k-sequences, i.e. (k-1)-sequences</param>
+		/// <param name="litemsetCount">number of distinct litemsets</param>
 		/// <param name="progressOutput">if true, information about progress is sent to standard output</param>
 		/// <returns>candidates for k-sequences</returns>
 		protected Dictionary<List<int>, int> GenerateCandidates(List<List<int>> prev, int litemsetCount, bool progressOutput)
@@ -647,6 +648,8 @@ namespace AprioriAllLib
 		/// Corresponds to 5th step of Apriori All algorithm, namely "Maximal Phase".
 		/// </summary>
 		/// <param name="kSequences">list of all k-sequences, partitioned by k</param>
+		/// <param name="containmentRules">rules of inclusion between encoded litemsets</param>
+		/// <param name="progressOutput">if true, information about progress is sent to standard output</param>
 		protected void PurgeAllNonMax(List<List<List<int>>> kSequences, Dictionary<int, List<int>> containmentRules,
 			bool progressOutput)
 		{

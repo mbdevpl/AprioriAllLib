@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['check',['Check',['../class_apriori_all_lib_1_1_radix_tree.html#af373a48509cb32d3747a22993fe070d9',1,'AprioriAllLib::RadixTree']]],
-  ['checkend',['CheckEnd',['../class_apriori_all_lib_1_1_node.html#af96f75de74074fe355dae3f8684f72ba',1,'AprioriAllLib::Node']]],
+  ['check',['Check',['../class_apriori_all_lib_1_1_radix_tree.html#af373a48509cb32d3747a22993fe070d9',1,'AprioriAllLib.RadixTree.Check(List&lt; int &gt; list)'],['../class_apriori_all_lib_1_1_radix_tree.html#afe8acb6d860916887ad17ae6d83b0540',1,'AprioriAllLib.RadixTree.Check(List&lt; int &gt; list, int omittedIndex)']]],
   ['cleanuptestsuite',['CleanupTestSuite',['../class_apriori_all_lib_1_1_test_1_1_apriori_all_parallel_test.html#ab48b371a94b157cb88adcfc8538f6a96',1,'AprioriAllLib.Test.AprioriAllParallelTest.CleanupTestSuite()'],['../class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test.html#ac12dfec125965d38875f0bc2a9d66db8',1,'AprioriAllLib.Test.AprioriParallelTest.CleanupTestSuite()']]],
   ['compactsequenceslist',['CompactSequencesList',['../class_apriori_all_lib_1_1_apriori_all.html#aa0a08ca2d1a6ddcd4eb86812c67eb0a8',1,'AprioriAllLib::AprioriAll']]],
   ['compareto',['CompareTo',['../class_apriori_all_lib_1_1_item.html#a0b0e9bbfeea95abed90935db84beb999',1,'AprioriAllLib.Item.CompareTo()'],['../class_apriori_all_lib_1_1_litemset.html#afcbe1c14c38d2638cb48ed9305de5a4e',1,'AprioriAllLib.Litemset.CompareTo()']]],

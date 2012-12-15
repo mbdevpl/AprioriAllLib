@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Data Mining project - AprioriAll implementation: AprioriAllLib.RadixTree Class Reference</title>
+<title>Apriori and AprioriAll in C#: AprioriAllLib.RadixTree Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Data Mining project - AprioriAll implementation
+   <div id="projectname">Apriori and AprioriAll in C#
    &#160;<span id="projectnumber">version 1.0</span>
    </div>
    <div id="projectbrief">authors: Karolina Baltyn, Mateusz Bysiek</div>
@@ -119,26 +119,35 @@ Collaboration diagram for AprioriAllLib.RadixTree:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_apriori_all_lib_1_1_radix_tree__coll__graph.png" border="0" usemap="#_apriori_all_lib_8_radix_tree_coll__map" alt="Collaboration graph"/></div>
 <map name="_apriori_all_lib_8_radix_tree_coll__map" id="_apriori_all_lib_8_radix_tree_coll__map">
-<area shape="rect" id="node4" href="class_apriori_all_lib_1_1_node.html" title="{AprioriAllLib.Node\n||+ Node()\l+ Set()\l+ Get()\l+ CheckEnd()\l+ SetEnd()\l}" alt="" coords="83,147,208,283"/></map>
+<area shape="rect" id="node4" title="Represents a single node of RadixTree. " alt="" coords="75,147,257,298"/></map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:af3ed2bc8bb998e32a0e6876f05d982f9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_radix_tree.html#af3ed2bc8bb998e32a0e6876f05d982f9">RadixTree</a> (int <a class="el" href="class_apriori_all_lib_1_1_radix_tree.html#adaa63a5e43ce2c54fa7ffe16e64dca04">width</a>)</td></tr>
+<tr class="memdesc:af3ed2bc8bb998e32a0e6876f05d982f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a new radix tree with a specified maximal width.  <a href="#af3ed2bc8bb998e32a0e6876f05d982f9"></a><br/></td></tr>
 <tr class="separator:af3ed2bc8bb998e32a0e6876f05d982f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac7e5b6fa836ad33d91b7de5b735f7032"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_radix_tree.html#ac7e5b6fa836ad33d91b7de5b735f7032">TryAdd</a> (List&lt; int &gt; list)</td></tr>
-<tr class="memdesc:ac7e5b6fa836ad33d91b7de5b735f7032"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tries to add a new list to the tree.  <a href="#ac7e5b6fa836ad33d91b7de5b735f7032"></a><br/></td></tr>
 <tr class="separator:ac7e5b6fa836ad33d91b7de5b735f7032"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b4507944aa0bafae2d035ef43c8abce"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_radix_tree.html#a8b4507944aa0bafae2d035ef43c8abce">TryAdd</a> (List&lt; int &gt; list, int omittedIndex)</td></tr>
+<tr class="separator:a8b4507944aa0bafae2d035ef43c8abce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a369f1f6485725fe45b89ce2ade63ad6f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_radix_tree.html#a369f1f6485725fe45b89ce2ade63ad6f">TryAdd</a> (List&lt; int &gt; list, int omittedIndex, bool storeOmittedAtLeaf)</td></tr>
+<tr class="memdesc:a369f1f6485725fe45b89ce2ade63ad6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tries to add a new list to the tree.  <a href="#a369f1f6485725fe45b89ce2ade63ad6f"></a><br/></td></tr>
+<tr class="separator:a369f1f6485725fe45b89ce2ade63ad6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af373a48509cb32d3747a22993fe070d9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_radix_tree.html#af373a48509cb32d3747a22993fe070d9">Check</a> (List&lt; int &gt; list)</td></tr>
-<tr class="memdesc:af373a48509cb32d3747a22993fe070d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a given element can be added to the tree.  <a href="#af373a48509cb32d3747a22993fe070d9"></a><br/></td></tr>
 <tr class="separator:af373a48509cb32d3747a22993fe070d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe8acb6d860916887ad17ae6d83b0540"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_radix_tree.html#afe8acb6d860916887ad17ae6d83b0540">Check</a> (List&lt; int &gt; list, int omittedIndex)</td></tr>
+<tr class="memdesc:afe8acb6d860916887ad17ae6d83b0540"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a given element can be added to the tree.  <a href="#afe8acb6d860916887ad17ae6d83b0540"></a><br/></td></tr>
+<tr class="separator:afe8acb6d860916887ad17ae6d83b0540"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:adaa63a5e43ce2c54fa7ffe16e64dca04"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_radix_tree.html#adaa63a5e43ce2c54fa7ffe16e64dca04">width</a></td></tr>
+<tr class="memdesc:adaa63a5e43ce2c54fa7ffe16e64dca04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximal width of the tree. Large values greatly increase memory use in case of large trees.  <a href="#adaa63a5e43ce2c54fa7ffe16e64dca04"></a><br/></td></tr>
 <tr class="separator:adaa63a5e43ce2c54fa7ffe16e64dca04"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab86aaf6dfcf694828957b024619dfc1c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_apriori_all_lib_1_1_node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_radix_tree.html#ab86aaf6dfcf694828957b024619dfc1c">root</a></td></tr>
-<tr class="separator:ab86aaf6dfcf694828957b024619dfc1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a256b92827235ae7507ab3a120531e8cc"><td class="memItemLeft" align="right" valign="top">RadixTreeNode&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_radix_tree.html#a256b92827235ae7507ab3a120531e8cc">root</a></td></tr>
+<tr class="memdesc:a256b92827235ae7507ab3a120531e8cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Root of the tree, this node is a starting point in all insertions/searches.  <a href="#a256b92827235ae7507ab3a120531e8cc"></a><br/></td></tr>
+<tr class="separator:a256b92827235ae7507ab3a120531e8cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Simple radix tree implementation. </p>
@@ -156,10 +165,18 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Constructs a new radix tree with a specified maximal width. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">width</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 <div class="fragment"><div class="line">        {</div>
-<div class="line">            this.<a class="code" href="class_apriori_all_lib_1_1_radix_tree.html#adaa63a5e43ce2c54fa7ffe16e64dca04">width</a> = <a class="code" href="class_apriori_all_lib_1_1_radix_tree.html#adaa63a5e43ce2c54fa7ffe16e64dca04">width</a>;</div>
+<div class="line">            this.<a class="code" href="class_apriori_all_lib_1_1_radix_tree.html#adaa63a5e43ce2c54fa7ffe16e64dca04" title="Maximal width of the tree. Large values greatly increase memory use in case of large trees...">width</a> = <a class="code" href="class_apriori_all_lib_1_1_radix_tree.html#adaa63a5e43ce2c54fa7ffe16e64dca04" title="Maximal width of the tree. Large values greatly increase memory use in case of large trees...">width</a>;</div>
 <div class="line">            <span class="comment">//this.depth = depth;</span></div>
-<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_radix_tree.html#ab86aaf6dfcf694828957b024619dfc1c">root</a> = null;</div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_radix_tree.html#a256b92827235ae7507ab3a120531e8cc" title="Root of the tree, this node is a starting point in all insertions/searches. ">root</a> = null;</div>
 <div class="line">        }</div>
 </div><!-- fragment -->
 </div>
@@ -178,39 +195,63 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<div class="fragment"><div class="line">        {</div>
+<div class="line">            <span class="keywordflow">return</span> <a class="code" href="class_apriori_all_lib_1_1_radix_tree.html#af373a48509cb32d3747a22993fe070d9">Check</a>(list, -1);</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="afe8acb6d860916887ad17ae6d83b0540"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AprioriAllLib.RadixTree.Check </td>
+          <td>(</td>
+          <td class="paramtype">List&lt; int &gt;&#160;</td>
+          <td class="paramname"><em>list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>omittedIndex</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 <p>Checks if a given element can be added to the tree. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">list</td><td></td></tr>
+    <tr><td class="paramname">list</td><td>list of numbers that will be compared with the contents of radix tree</td></tr>
+    <tr><td class="paramname">omittedIndex</td><td>element of the list at this index is treated as non-existent</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if a given element is not in the tree</dd></dl>
 <div class="fragment"><div class="line">        {</div>
-<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_apriori_all_lib_1_1_radix_tree.html#ab86aaf6dfcf694828957b024619dfc1c">root</a> == null)</div>
-<div class="line">                <span class="comment">//root = new Node(width);</span></div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_apriori_all_lib_1_1_radix_tree.html#a256b92827235ae7507ab3a120531e8cc" title="Root of the tree, this node is a starting point in all insertions/searches. ">root</a> == null)</div>
 <div class="line">                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">            Node currentNode = <a class="code" href="class_apriori_all_lib_1_1_radix_tree.html#ab86aaf6dfcf694828957b024619dfc1c">root</a>;</div>
-<div class="line">            <span class="keywordflow">foreach</span> (<span class="keywordtype">int</span> i <span class="keywordflow">in</span> list)</div>
+<div class="line">            RadixTreeNode currentNode = <a class="code" href="class_apriori_all_lib_1_1_radix_tree.html#a256b92827235ae7507ab3a120531e8cc" title="Root of the tree, this node is a starting point in all insertions/searches. ">root</a>;</div>
+<div class="line">            var listEnum = list.GetEnumerator();</div>
+<div class="line">            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> n = 0; n &lt; list.Count; ++n)</div>
 <div class="line">            {</div>
+<div class="line">                listEnum.MoveNext();</div>
+<div class="line">                <span class="keywordflow">if</span> (n == omittedIndex)</div>
+<div class="line">                    <span class="keywordflow">continue</span>;</div>
+<div class="line">                <span class="keywordtype">int</span> i = listEnum.Current;</div>
 <div class="line">                <span class="keywordflow">if</span> (currentNode.Get(i) == null)</div>
-<div class="line">                    <span class="comment">//currentNode.Set(i, new Node(width));</span></div>
 <div class="line">                    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">                currentNode = currentNode.<a class="code" href="class_apriori_all_lib_1_1_node.html#aae1a48cbc9de052cf809888dbb5ea09c">Get</a>(i);</div>
+<div class="line">                currentNode = currentNode.Get(i);</div>
 <div class="line">            }</div>
-<div class="line">            <span class="keywordflow">return</span> currentNode.<a class="code" href="class_apriori_all_lib_1_1_node.html#af96f75de74074fe355dae3f8684f72ba">CheckEnd</a>();</div>
+<div class="line">            <span class="keywordflow">return</span> currentNode.CheckEnd();</div>
 <div class="line">        }</div>
 </div><!-- fragment -->
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_apriori_all_lib_1_1_radix_tree_af373a48509cb32d3747a22993fe070d9_cgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_radix_tree_af373a48509cb32d3747a22993fe070d9_cgraph" alt=""/></div>
-<map name="class_apriori_all_lib_1_1_radix_tree_af373a48509cb32d3747a22993fe070d9_cgraph" id="class_apriori_all_lib_1_1_radix_tree_af373a48509cb32d3747a22993fe070d9_cgraph">
-<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_node.html#aae1a48cbc9de052cf809888dbb5ea09c" title="AprioriAllLib.Node.Get" alt="" coords="230,5,381,32"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_node.html#af96f75de74074fe355dae3f8684f72ba" title="AprioriAllLib.Node.CheckEnd" alt="" coords="211,56,400,83"/></map>
-</div>
-</p>
-
 </div>
 </div>
 <a class="anchor" id="ac7e5b6fa836ad33d91b7de5b735f7032"></a>
@@ -226,41 +267,125 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Tries to add a new list to the tree. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">list</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>true if a given element was not already in the tree</dd></dl>
 <div class="fragment"><div class="line">        {</div>
-<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_apriori_all_lib_1_1_radix_tree.html#ab86aaf6dfcf694828957b024619dfc1c">root</a> == null)</div>
-<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_radix_tree.html#ab86aaf6dfcf694828957b024619dfc1c">root</a> = <span class="keyword">new</span> Node(<a class="code" href="class_apriori_all_lib_1_1_radix_tree.html#adaa63a5e43ce2c54fa7ffe16e64dca04">width</a>);</div>
-<div class="line">            Node currentNode = <a class="code" href="class_apriori_all_lib_1_1_radix_tree.html#ab86aaf6dfcf694828957b024619dfc1c">root</a>;</div>
-<div class="line">            <span class="keywordflow">foreach</span> (<span class="keywordtype">int</span> i <span class="keywordflow">in</span> list)</div>
-<div class="line">            {</div>
-<div class="line">                <span class="keywordflow">if</span> (currentNode.Get(i) == null)</div>
-<div class="line">                    currentNode.<a class="code" href="class_apriori_all_lib_1_1_node.html#aa63f95b3abb4442aff299d937c4416cb">Set</a>(i, <span class="keyword">new</span> Node(<a class="code" href="class_apriori_all_lib_1_1_radix_tree.html#adaa63a5e43ce2c54fa7ffe16e64dca04">width</a>));</div>
-<div class="line">                currentNode = currentNode.Get(i);</div>
-<div class="line">            }</div>
-<div class="line">            <span class="keywordflow">return</span> currentNode.SetEnd();</div>
+<div class="line">            <span class="keywordflow">return</span> <a class="code" href="class_apriori_all_lib_1_1_radix_tree.html#ac7e5b6fa836ad33d91b7de5b735f7032">TryAdd</a>(list, -1, <span class="keyword">false</span>);</div>
 <div class="line">        }</div>
 </div><!-- fragment -->
 <p><div class="dynheader">
-Here is the call graph for this function:</div>
+Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_apriori_all_lib_1_1_radix_tree_ac7e5b6fa836ad33d91b7de5b735f7032_cgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_radix_tree_ac7e5b6fa836ad33d91b7de5b735f7032_cgraph" alt=""/></div>
-<map name="class_apriori_all_lib_1_1_radix_tree_ac7e5b6fa836ad33d91b7de5b735f7032_cgraph" id="class_apriori_all_lib_1_1_radix_tree_ac7e5b6fa836ad33d91b7de5b735f7032_cgraph">
-<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_node.html#aa63f95b3abb4442aff299d937c4416cb" title="AprioriAllLib.Node.Set" alt="" coords="211,12,360,39"/></map>
+<div class="center"><img src="class_apriori_all_lib_1_1_radix_tree_ac7e5b6fa836ad33d91b7de5b735f7032_icgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_radix_tree_ac7e5b6fa836ad33d91b7de5b735f7032_icgraph" alt=""/></div>
+<map name="class_apriori_all_lib_1_1_radix_tree_ac7e5b6fa836ad33d91b7de5b735f7032_icgraph" id="class_apriori_all_lib_1_1_radix_tree_ac7e5b6fa836ad33d91b7de5b735f7032_icgraph">
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_radix_tree.html#a8b4507944aa0bafae2d035ef43c8abce" title="AprioriAllLib.RadixTree.\lTryAdd" alt="" coords="211,5,368,46"/></map>
 </div>
 </p>
 
 </div>
 </div>
+<a class="anchor" id="a8b4507944aa0bafae2d035ef43c8abce"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AprioriAllLib.RadixTree.TryAdd </td>
+          <td>(</td>
+          <td class="paramtype">List&lt; int &gt;&#160;</td>
+          <td class="paramname"><em>list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>omittedIndex</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line">        {</div>
+<div class="line">            <span class="keywordflow">return</span> <a class="code" href="class_apriori_all_lib_1_1_radix_tree.html#ac7e5b6fa836ad33d91b7de5b735f7032">TryAdd</a>(list, omittedIndex, <span class="keyword">false</span>);</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_apriori_all_lib_1_1_radix_tree_a8b4507944aa0bafae2d035ef43c8abce_cgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_radix_tree_a8b4507944aa0bafae2d035ef43c8abce_cgraph" alt=""/></div>
+<map name="class_apriori_all_lib_1_1_radix_tree_a8b4507944aa0bafae2d035ef43c8abce_cgraph" id="class_apriori_all_lib_1_1_radix_tree_a8b4507944aa0bafae2d035ef43c8abce_cgraph">
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_radix_tree.html#ac7e5b6fa836ad33d91b7de5b735f7032" title="AprioriAllLib.RadixTree.\lTryAdd" alt="" coords="211,5,368,46"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a369f1f6485725fe45b89ce2ade63ad6f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AprioriAllLib.RadixTree.TryAdd </td>
+          <td>(</td>
+          <td class="paramtype">List&lt; int &gt;&#160;</td>
+          <td class="paramname"><em>list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>omittedIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>storeOmittedAtLeaf</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tries to add a new list to the tree. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">list</td><td>list of numbers that will be added to radix tree</td></tr>
+    <tr><td class="paramname">omittedIndex</td><td>element of the list at this index is treated as non-existent</td></tr>
+    <tr><td class="paramname">storeOmittedAtLeaf</td><td>omitted element is stored in the leaf node of the tree</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if a given element was not already in the tree</dd></dl>
+<div class="fragment"><div class="line">        {</div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_apriori_all_lib_1_1_radix_tree.html#a256b92827235ae7507ab3a120531e8cc" title="Root of the tree, this node is a starting point in all insertions/searches. ">root</a> == null)</div>
+<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_radix_tree.html#a256b92827235ae7507ab3a120531e8cc" title="Root of the tree, this node is a starting point in all insertions/searches. ">root</a> = <span class="keyword">new</span> RadixTreeNode(<a class="code" href="class_apriori_all_lib_1_1_radix_tree.html#adaa63a5e43ce2c54fa7ffe16e64dca04" title="Maximal width of the tree. Large values greatly increase memory use in case of large trees...">width</a>);</div>
+<div class="line">            RadixTreeNode currentNode = <a class="code" href="class_apriori_all_lib_1_1_radix_tree.html#a256b92827235ae7507ab3a120531e8cc" title="Root of the tree, this node is a starting point in all insertions/searches. ">root</a>;</div>
+<div class="line">            var listEnum = list.GetEnumerator();</div>
+<div class="line">            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> n = 0; n &lt; list.Count; ++n)</div>
+<div class="line">            {</div>
+<div class="line">                listEnum.MoveNext();</div>
+<div class="line">                <span class="keywordflow">if</span> (n == omittedIndex)</div>
+<div class="line">                    <span class="keywordflow">continue</span>;</div>
+<div class="line">                <span class="keywordtype">int</span> i = listEnum.Current;</div>
+<div class="line">                <span class="keywordflow">if</span> (currentNode.Get(i) == null)</div>
+<div class="line">                    currentNode.Set(i, <span class="keyword">new</span> RadixTreeNode(<a class="code" href="class_apriori_all_lib_1_1_radix_tree.html#adaa63a5e43ce2c54fa7ffe16e64dca04" title="Maximal width of the tree. Large values greatly increase memory use in case of large trees...">width</a>));</div>
+<div class="line">                currentNode = currentNode.Get(i);</div>
+<div class="line">            }</div>
+<div class="line"></div>
+<div class="line">            <span class="keywordflow">if</span>(storeOmittedAtLeaf)</div>
+<div class="line">                currentNode.StoreValue(list[omittedIndex]);</div>
+<div class="line"></div>
+<div class="line">            <span class="keywordflow">return</span> currentNode.SetEnd();</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="ab86aaf6dfcf694828957b024619dfc1c"></a>
+<a class="anchor" id="a256b92827235ae7507ab3a120531e8cc"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -268,7 +393,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_apriori_all_lib_1_1_node.html">Node</a> AprioriAllLib.RadixTree.root</td>
+          <td class="memname">RadixTreeNode AprioriAllLib.RadixTree.root</td>
         </tr>
       </table>
   </td>
@@ -277,6 +402,8 @@ Here is the call graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Root of the tree, this node is a starting point in all insertions/searches. </p>
 
 </div>
 </div>
@@ -297,6 +424,8 @@ Here is the call graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Maximal width of the tree. Large values greatly increase memory use in case of large trees. </p>
 
 </div>
 </div>

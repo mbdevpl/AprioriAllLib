@@ -1,0 +1,4 @@
+<map id="AprioriAllLib.AprioriAll.PurgeUsingInclusionRulesWithinSameSize" name="AprioriAllLib.AprioriAll.PurgeUsingInclusionRulesWithinSameSize">
+<area shape="rect" id="node3" href="$class_apriori_all_lib_1_1_apriori_all.html#a3f249064efd36fb92129668da2d9f6f1" title="Deletes all non&#45;maximal seqences from list of k&#45;sequences." alt="" coords="265,13,415,54"/>
+<area shape="rect" id="node5" href="$class_apriori_all_lib_1_1_apriori_all.html#a719d1c07f93fa2e82e1ae6dcacbb8efe" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. " alt="" coords="465,13,615,54"/>
+</map>

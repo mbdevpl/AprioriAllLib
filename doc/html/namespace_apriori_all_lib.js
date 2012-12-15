@@ -9,9 +9,10 @@ var namespace_apriori_all_lib =
     [ "InputGenerator", "class_apriori_all_lib_1_1_input_generator.html", "class_apriori_all_lib_1_1_input_generator" ],
     [ "Item", "class_apriori_all_lib_1_1_item.html", "class_apriori_all_lib_1_1_item" ],
     [ "Litemset", "class_apriori_all_lib_1_1_litemset.html", "class_apriori_all_lib_1_1_litemset" ],
+    [ "OpenCLBase", "class_apriori_all_lib_1_1_open_c_l_base.html", "class_apriori_all_lib_1_1_open_c_l_base" ],
     [ "OpenCLChecker", "class_apriori_all_lib_1_1_open_c_l_checker.html", "class_apriori_all_lib_1_1_open_c_l_checker" ],
+    [ "OpenCLToolkit", "class_apriori_all_lib_1_1_open_c_l_toolkit.html", "class_apriori_all_lib_1_1_open_c_l_toolkit" ],
     [ "RadixTree", "class_apriori_all_lib_1_1_radix_tree.html", "class_apriori_all_lib_1_1_radix_tree" ],
-    [ "Node", "class_apriori_all_lib_1_1_node.html", "class_apriori_all_lib_1_1_node" ],
     [ "Transaction", "class_apriori_all_lib_1_1_transaction.html", "class_apriori_all_lib_1_1_transaction" ],
     [ "XmlReader", "class_apriori_all_lib_1_1_xml_reader.html", "class_apriori_all_lib_1_1_xml_reader" ]
 ];

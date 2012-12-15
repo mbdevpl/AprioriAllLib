@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Data Mining project - AprioriAll implementation: AprioriAllLib.AprioriAll Class Reference</title>
+<title>Apriori and AprioriAll in C#: AprioriAllLib.AprioriAll Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Data Mining project - AprioriAll implementation
+   <div id="projectname">Apriori and AprioriAll in C#
    &#160;<span id="projectnumber">version 1.0</span>
    </div>
    <div id="projectbrief">authors: Karolina Baltyn, Mateusz Bysiek</div>
@@ -106,7 +106,6 @@ $(document).ready(function(){initNavTree('class_apriori_all_lib_1_1_apriori_all.
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
-<a href="#pro-static-methods">Static Protected Member Functions</a> &#124;
 <a href="class_apriori_all_lib_1_1_apriori_all-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">AprioriAllLib.AprioriAll Class Reference</div>  </div>
@@ -120,7 +119,7 @@ Inheritance diagram for AprioriAllLib.AprioriAll:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_apriori_all_lib_1_1_apriori_all__inherit__graph.png" border="0" usemap="#_apriori_all_lib_8_apriori_all_inherit__map" alt="Inheritance graph"/></div>
 <map name="_apriori_all_lib_8_apriori_all_inherit__map" id="_apriori_all_lib_8_apriori_all_inherit__map">
-<area shape="rect" id="node2" href="class_apriori_all_lib_1_1_apriori.html" title="This class is used for calculating litemsets from a set of customers&#39; transactions" alt="" coords="29,5,237,317"/></map>
+<area shape="rect" id="node2" href="class_apriori_all_lib_1_1_apriori.html" title="This class is used for calculating litemsets from a set of customers&#39; transactions" alt="" coords="34,5,243,317"/></map>
 </div>
 <div class="dynheader">
 Collaboration diagram for AprioriAllLib.AprioriAll:</div>
@@ -166,6 +165,12 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
+<tr class="memitem:a1d9069babd9e846baf093edb597ee35f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori_all.html#a1d9069babd9e846baf093edb597ee35f">GenerateEncoding</a> (List&lt; <a class="el" href="class_apriori_all_lib_1_1_litemset.html">Litemset</a> &gt; oneLitemsets, out Dictionary&lt; <a class="el" href="class_apriori_all_lib_1_1_litemset.html">Litemset</a>, int &gt; encoding, out Dictionary&lt; int, <a class="el" href="class_apriori_all_lib_1_1_litemset.html">Litemset</a> &gt; decoding)</td></tr>
+<tr class="memdesc:a1d9069babd9e846baf093edb597ee35f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates encoding and decoding dictionaries for a given set of 1-sequences (large itemsets).  <a href="#a1d9069babd9e846baf093edb597ee35f"></a><br/></td></tr>
+<tr class="separator:a1d9069babd9e846baf093edb597ee35f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15b51c2de9a3d1a84559c2f3fb642b3d"><td class="memItemLeft" align="right" valign="top">Dictionary&lt; int, List&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori_all.html#a15b51c2de9a3d1a84559c2f3fb642b3d">GenerateContainmentRules</a> (List&lt; <a class="el" href="class_apriori_all_lib_1_1_litemset.html">Litemset</a> &gt; oneLitemsets, Dictionary&lt; <a class="el" href="class_apriori_all_lib_1_1_litemset.html">Litemset</a>, int &gt; encoding)</td></tr>
+<tr class="memdesc:a15b51c2de9a3d1a84559c2f3fb642b3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a dictionary that remembers for every litemset x: litemsets that contain x.  <a href="#a15b51c2de9a3d1a84559c2f3fb642b3d"></a><br/></td></tr>
+<tr class="separator:a15b51c2de9a3d1a84559c2f3fb642b3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4030f2db6e2216c8adc5b9e182f14769"><td class="memItemLeft" align="right" valign="top">List&lt; List&lt; List&lt; int &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori_all.html#a4030f2db6e2216c8adc5b9e182f14769">EncodeCustomerList</a> (List&lt; <a class="el" href="class_apriori_all_lib_1_1_litemset.html">Litemset</a> &gt; oneLitemsets, Dictionary&lt; <a class="el" href="class_apriori_all_lib_1_1_litemset.html">Litemset</a>, int &gt; encoding)</td></tr>
 <tr class="memdesc:a4030f2db6e2216c8adc5b9e182f14769"><td class="mdescLeft">&#160;</td><td class="mdescRight">Corresponds to 3rd step of <a class="el" href="class_apriori_all_lib_1_1_apriori.html" title="This class is used for calculating litemsets from a set of customers&#39; transactions">Apriori</a> All algorithm, namely "Transformation Phase".  <a href="#a4030f2db6e2216c8adc5b9e182f14769"></a><br/></td></tr>
 <tr class="separator:a4030f2db6e2216c8adc5b9e182f14769"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -178,12 +183,20 @@ Protected Member Functions</h2></td></tr>
 <tr class="memitem:ab87e3f4c49f61051af5c85b7d6cde14e"><td class="memItemLeft" align="right" valign="top">List&lt; List&lt; List&lt; int &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori_all.html#ab87e3f4c49f61051af5c85b7d6cde14e">FindAllFrequentSequences</a> (List&lt; <a class="el" href="class_apriori_all_lib_1_1_litemset.html">Litemset</a> &gt; oneLitemsets, Dictionary&lt; <a class="el" href="class_apriori_all_lib_1_1_litemset.html">Litemset</a>, int &gt; encoding, List&lt; List&lt; List&lt; int &gt;&gt;&gt; encodedList, int minSupport, bool progressOutput)</td></tr>
 <tr class="memdesc:ab87e3f4c49f61051af5c85b7d6cde14e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Corresponds to 4th step of <a class="el" href="class_apriori_all_lib_1_1_apriori.html" title="This class is used for calculating litemsets from a set of customers&#39; transactions">Apriori</a> All algorithm, namely "Sequence Phase".  <a href="#ab87e3f4c49f61051af5c85b7d6cde14e"></a><br/></td></tr>
 <tr class="separator:ab87e3f4c49f61051af5c85b7d6cde14e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad68b617b7a2a945291c9b06efce61e4c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori_all.html#ad68b617b7a2a945291c9b06efce61e4c">PurgeAllNonMax</a> (List&lt; List&lt; List&lt; int &gt;&gt;&gt; kSequences)</td></tr>
-<tr class="memdesc:ad68b617b7a2a945291c9b06efce61e4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes all non-maximal seqences from list of k-sequences.  <a href="#ad68b617b7a2a945291c9b06efce61e4c"></a><br/></td></tr>
-<tr class="separator:ad68b617b7a2a945291c9b06efce61e4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f60478981222609aeecf3660d8b3450"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori_all.html#a5f60478981222609aeecf3660d8b3450">PurgeUsingInclusionRules</a> (List&lt; List&lt; List&lt; int &gt;&gt;&gt; kSequences, Dictionary&lt; int, List&lt; int &gt;&gt; containmentRules)</td></tr>
+<tr class="separator:a5f60478981222609aeecf3660d8b3450"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada7deafd303a0ca62e38a5cb5d7baad0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori_all.html#ada7deafd303a0ca62e38a5cb5d7baad0">PurgeUsingInclusionRulesWithinSameSize</a> (List&lt; List&lt; List&lt; int &gt;&gt;&gt; kSequences, Dictionary&lt; int, List&lt; int &gt;&gt; containmentRules)</td></tr>
+<tr class="separator:ada7deafd303a0ca62e38a5cb5d7baad0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e7e5f4c697bfd2571276b7bb89255d2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori_all.html#a5e7e5f4c697bfd2571276b7bb89255d2">PurgeUsingSequenceInnerRedundancy</a> (List&lt; List&lt; List&lt; int &gt;&gt;&gt; kSequences, Dictionary&lt; int, List&lt; int &gt;&gt; containmentRules)</td></tr>
+<tr class="separator:a5e7e5f4c697bfd2571276b7bb89255d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f249064efd36fb92129668da2d9f6f1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori_all.html#a3f249064efd36fb92129668da2d9f6f1">PurgeAllNonMax</a> (List&lt; List&lt; List&lt; int &gt;&gt;&gt; kSequences, Dictionary&lt; int, List&lt; int &gt;&gt; containmentRules, bool progressOutput)</td></tr>
+<tr class="memdesc:a3f249064efd36fb92129668da2d9f6f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes all non-maximal seqences from list of k-sequences.  <a href="#a3f249064efd36fb92129668da2d9f6f1"></a><br/></td></tr>
+<tr class="separator:a3f249064efd36fb92129668da2d9f6f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab050bf4b5201a10b0ad39c1d6b5e868c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori_all.html#ab050bf4b5201a10b0ad39c1d6b5e868c">IsSubSequence&lt; T &gt;</a> (List&lt; T &gt; hyptheticalSubSequence, List&lt; T &gt; sequence)</td></tr>
 <tr class="memdesc:ab050bf4b5201a10b0ad39c1d6b5e868c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if one sequence is a subsequence of the other.  <a href="#ab050bf4b5201a10b0ad39c1d6b5e868c"></a><br/></td></tr>
 <tr class="separator:ab050bf4b5201a10b0ad39c1d6b5e868c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f70a1886ae1b31c381f14fba0961cc2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori_all.html#a3f70a1886ae1b31c381f14fba0961cc2">IsSubSequence&lt; T &gt;</a> (List&lt; T &gt; hyptheticalSubSequence, List&lt; T &gt; sequence, Dictionary&lt; T, List&lt; T &gt;&gt; containmentRules)</td></tr>
+<tr class="separator:a3f70a1886ae1b31c381f14fba0961cc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad5fc82d557718ca9ba150b3fbda3ea75"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori_all.html#ad5fc82d557718ca9ba150b3fbda3ea75">PurgeAllSubSeqsOf</a> (List&lt; List&lt; List&lt; int &gt;&gt;&gt; kSequences, int kk, int ii)</td></tr>
 <tr class="memdesc:ad5fc82d557718ca9ba150b3fbda3ea75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes all subsequences of ii-th kk-sequence from the list of k-sequences.  <a href="#ad5fc82d557718ca9ba150b3fbda3ea75"></a><br/></td></tr>
 <tr class="separator:ad5fc82d557718ca9ba150b3fbda3ea75"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -191,7 +204,7 @@ Protected Member Functions</h2></td></tr>
 <tr class="memdesc:aa0a08ca2d1a6ddcd4eb86812c67eb0a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concatenates all lists of k-sequences into a single list. Does nothing else.  <a href="#aa0a08ca2d1a6ddcd4eb86812c67eb0a8"></a><br/></td></tr>
 <tr class="separator:aa0a08ca2d1a6ddcd4eb86812c67eb0a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad0e1764626e9c890583e7f1e5783d51e"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_apriori_all_lib_1_1_customer.html">Customer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori_all.html#ad0e1764626e9c890583e7f1e5783d51e">InferRealResults</a> (List&lt; List&lt; List&lt; int &gt;&gt;&gt; encodedList, List&lt; List&lt; List&lt; int &gt;&gt;&gt; kSequences, Dictionary&lt; int, <a class="el" href="class_apriori_all_lib_1_1_litemset.html">Litemset</a> &gt; decoding)</td></tr>
-<tr class="memdesc:ad0e1764626e9c890583e7f1e5783d51e"><td class="mdescLeft">&#160;</td><td class="mdescRight"> <a href="#ad0e1764626e9c890583e7f1e5783d51e"></a><br/></td></tr>
+<tr class="memdesc:ad0e1764626e9c890583e7f1e5783d51e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares cleaned-up and user-ready data that can be used as final output of <a class="el" href="class_apriori_all_lib_1_1_apriori_all.html" title="AprioriAll algorithm implementation. ">AprioriAll</a> algoritm.  <a href="#ad0e1764626e9c890583e7f1e5783d51e"></a><br/></td></tr>
 <tr class="separator:ad0e1764626e9c890583e7f1e5783d51e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_class_apriori_all_lib_1_1_apriori"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_class_apriori_all_lib_1_1_apriori')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="class_apriori_all_lib_1_1_apriori.html">AprioriAllLib.Apriori</a></td></tr>
 <tr class="memitem:a6421baeff907e6e56568e277f3bafd6b inherit pro_methods_class_apriori_all_lib_1_1_apriori"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#a6421baeff907e6e56568e277f3bafd6b">InitOpenCL</a> (bool progressOutput)</td></tr>
@@ -201,12 +214,6 @@ Protected Member Functions</h2></td></tr>
 <tr class="memitem:a992b4de76d19dcef78a45a0752725977 inherit pro_methods_class_apriori_all_lib_1_1_apriori"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_apriori_all_lib_1_1_litemset.html">Litemset</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#a992b4de76d19dcef78a45a0752725977">GenerateCandidateLitemsets</a> (List&lt; <a class="el" href="class_apriori_all_lib_1_1_item.html">Item</a> &gt; items)</td></tr>
 <tr class="memdesc:a992b4de76d19dcef78a45a0752725977 inherit pro_methods_class_apriori_all_lib_1_1_apriori"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produces all subsets of a given list of items in a transaction.  <a href="#a992b4de76d19dcef78a45a0752725977"></a><br/></td></tr>
 <tr class="separator:a992b4de76d19dcef78a45a0752725977 inherit pro_methods_class_apriori_all_lib_1_1_apriori"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-methods"></a>
-Static Protected Member Functions</h2></td></tr>
-<tr class="memitem:a5df23984f4c14ccba3f0456673123934"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori_all.html#a5df23984f4c14ccba3f0456673123934">GenerateEncoding</a> (List&lt; <a class="el" href="class_apriori_all_lib_1_1_litemset.html">Litemset</a> &gt; oneLitemsets, out Dictionary&lt; <a class="el" href="class_apriori_all_lib_1_1_litemset.html">Litemset</a>, int &gt; encoding, out Dictionary&lt; int, <a class="el" href="class_apriori_all_lib_1_1_litemset.html">Litemset</a> &gt; decoding)</td></tr>
-<tr class="memdesc:a5df23984f4c14ccba3f0456673123934"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates encoding and decoding dictionaries for a given set of 1-sequences (large itemsets).  <a href="#a5df23984f4c14ccba3f0456673123934"></a><br/></td></tr>
-<tr class="separator:a5df23984f4c14ccba3f0456673123934"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -302,7 +309,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_apriori_all_lib_1_1_apriori_all_aa0a08ca2d1a6ddcd4eb86812c67eb0a8_icgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_apriori_all_aa0a08ca2d1a6ddcd4eb86812c67eb0a8_icgraph" alt=""/></div>
 <map name="class_apriori_all_lib_1_1_apriori_all_aa0a08ca2d1a6ddcd4eb86812c67eb0a8_icgraph" id="class_apriori_all_lib_1_1_apriori_all_aa0a08ca2d1a6ddcd4eb86812c67eb0a8_icgraph">
-<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori_all.html#ad0e1764626e9c890583e7f1e5783d51e" title="AprioriAllLib.AprioriAll.\lInferRealResults" alt="" coords="214,38,365,79"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_apriori_all.html#a719d1c07f93fa2e82e1ae6dcacbb8efe" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. " alt="" coords="414,5,565,46"/><area shape="rect" id="node7" href="class_apriori_all_lib_1_1_apriori_all.html#a1abf95c25d82e6b9ff1bf26184d6c5e4" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. It uses parallel version..." alt="" coords="414,70,565,111"/></map>
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori_all.html#ad0e1764626e9c890583e7f1e5783d51e" title="Prepares cleaned&#45;up and user&#45;ready data that can be used as final output of AprioriAll algoritm..." alt="" coords="214,5,365,46"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_apriori_all.html#a719d1c07f93fa2e82e1ae6dcacbb8efe" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. " alt="" coords="414,5,565,46"/></map>
 </div>
 </p>
 
@@ -388,23 +395,25 @@ Here is the caller graph for this function:</div>
 <div class="line">                    {</div>
 <div class="line"></div>
 <div class="line">                        <span class="comment">// adding litemsets of length == 1</span></div>
+<div class="line">                        <span class="comment">//for (int index = oneLitemsets.Count - 1; index &gt;= 0; --index)</span></div>
 <div class="line">                        <span class="keywordflow">foreach</span> (Litemset li <span class="keywordflow">in</span> oneLitemsets)</div>
 <div class="line">                        {</div>
+<div class="line">                            <span class="comment">//Litemset li = oneLitemsets[index];</span></div>
 <div class="line">                            <span class="keywordflow">if</span> (li.Items.Count &gt; 1)</div>
 <div class="line">                                <span class="keywordflow">continue</span>;</div>
 <div class="line">                            Item item = li.Items[0];</div>
 <div class="line"></div>
-<div class="line">                            <span class="keywordflow">if</span> (item.Equals(i))</div>
-<div class="line">                            {</div>
-<div class="line">                                <span class="keywordflow">if</span> (encoding.TryGetValue(li, out <span class="keywordtype">id</span>))</div>
-<div class="line">                                    encodedTransaction.Add(<span class="keywordtype">id</span>);</div>
-<div class="line">                            }</div>
+<div class="line">                            <span class="keywordflow">if</span> (item.Equals(i) &amp;&amp; encoding.TryGetValue(li, out <span class="keywordtype">id</span>))</div>
+<div class="line">                                encodedTransaction.Insert(0, <span class="keywordtype">id</span>);</div>
 <div class="line">                        }</div>
 <div class="line"></div>
 <div class="line">                    }</div>
 <div class="line"></div>
 <div class="line">                    <span class="keywordflow">if</span> (encodedTransaction.Count &gt; 0)</div>
+<div class="line">                    {</div>
+<div class="line">                        encodedTransaction.Sort();</div>
 <div class="line">                        encodedCustomer.Add(encodedTransaction);</div>
+<div class="line">                    }</div>
 <div class="line">                }</div>
 <div class="line"></div>
 <div class="line">                <span class="keywordflow">if</span> (encodedCustomer.Count &gt; 0)</div>
@@ -428,7 +437,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_apriori_all_lib_1_1_apriori_all_a4030f2db6e2216c8adc5b9e182f14769_icgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_apriori_all_a4030f2db6e2216c8adc5b9e182f14769_icgraph" alt=""/></div>
 <map name="class_apriori_all_lib_1_1_apriori_all_a4030f2db6e2216c8adc5b9e182f14769_icgraph" id="class_apriori_all_lib_1_1_apriori_all_a4030f2db6e2216c8adc5b9e182f14769_icgraph">
-<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori_all.html#a719d1c07f93fa2e82e1ae6dcacbb8efe" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. " alt="" coords="206,5,357,46"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_apriori_all.html#a1abf95c25d82e6b9ff1bf26184d6c5e4" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. It uses parallel version..." alt="" coords="206,70,357,111"/></map>
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori_all.html#a719d1c07f93fa2e82e1ae6dcacbb8efe" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. " alt="" coords="206,5,357,46"/></map>
 </div>
 </p>
 
@@ -511,7 +520,7 @@ Here is the caller graph for this function:</div>
 <div class="line">            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> k = 2; kSequences.Count &gt;= k &amp;&amp; kSequences[k - 1].Count &gt; 0; ++k)</div>
 <div class="line">            {</div>
 <div class="line">                <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                    Console.Out.WriteLine(<span class="stringliteral">&quot;Looking for {0}-sequences...&quot;</span>, k);</div>
+<div class="line">                    Trace.WriteLine(String.Format(<span class="stringliteral">&quot;Looking for {0}-sequences...&quot;</span>, k));</div>
 <div class="line">                <span class="comment">// list of kSequences, initially empty</span></div>
 <div class="line">                kSequences.Add(<span class="keyword">new</span> List&lt;List&lt;int&gt;&gt;());</div>
 <div class="line">                var prev = kSequences[k - 1];</div>
@@ -565,7 +574,7 @@ Here is the caller graph for this function:</div>
 <div class="line"></div>
 <div class="line">                }</div>
 <div class="line">                <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                    Console.Out.WriteLine(<span class="stringliteral">&quot;Found {0} sequences that have sufficient support.&quot;</span>, kSequences[k].Count);</div>
+<div class="line">                    Trace.WriteLine(String.Format(<span class="stringliteral">&quot; Found {0} sequences that have sufficient support.&quot;</span>, kSequences[k].Count));</div>
 <div class="line">            }</div>
 <div class="line"></div>
 <div class="line">            <span class="keywordflow">return</span> kSequences;</div>
@@ -585,7 +594,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_apriori_all_lib_1_1_apriori_all_ab87e3f4c49f61051af5c85b7d6cde14e_icgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_apriori_all_ab87e3f4c49f61051af5c85b7d6cde14e_icgraph" alt=""/></div>
 <map name="class_apriori_all_lib_1_1_apriori_all_ab87e3f4c49f61051af5c85b7d6cde14e_icgraph" id="class_apriori_all_lib_1_1_apriori_all_ab87e3f4c49f61051af5c85b7d6cde14e_icgraph">
-<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori_all.html#a719d1c07f93fa2e82e1ae6dcacbb8efe" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. " alt="" coords="233,5,383,46"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_apriori_all.html#a1abf95c25d82e6b9ff1bf26184d6c5e4" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. It uses parallel version..." alt="" coords="233,70,383,111"/></map>
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori_all.html#a719d1c07f93fa2e82e1ae6dcacbb8efe" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. " alt="" coords="233,5,383,46"/></map>
 </div>
 </p>
 
@@ -633,6 +642,7 @@ Here is the caller graph for this function:</div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">prev</td><td>previous k-sequences, i.e. (k-1)-sequences</td></tr>
+    <tr><td class="paramname">litemsetCount</td><td>number of distinct litemsets</td></tr>
     <tr><td class="paramname">progressOutput</td><td>if true, information about progress is sent to standard output</td></tr>
   </table>
   </dd>
@@ -646,129 +656,156 @@ Here is the caller graph for this function:</div>
 <div class="line">                <span class="keywordflow">return</span> candidates;</div>
 <div class="line">            <span class="keywordtype">int</span> prevLen = prev[0].Count;</div>
 <div class="line"></div>
-<div class="line">            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i1 = 0; i1 &lt; prevCount; ++i1)</div>
+<div class="line">            Stopwatch generationWatch = <span class="keyword">new</span> Stopwatch();</div>
+<div class="line"></div>
+<div class="line">            generationWatch.Start();</div>
 <div class="line">            {</div>
-<div class="line">                List&lt;int&gt; l1 = prev[i1];</div>
+<div class="line">                RadixTree withoutFirst = <span class="keyword">new</span> RadixTree(litemsetCount+1);</div>
+<div class="line">                <span class="keywordflow">foreach</span> (List&lt;int&gt; prevList <span class="keywordflow">in</span> prev)</div>
+<div class="line">                    withoutFirst.TryAdd(prevList, 0, <span class="keyword">true</span>);</div>
+<div class="line">                <span class="comment">//if (!withoutFirst.TryAdd(prevList, 0, true))</span></div>
+<div class="line">                <span class="comment">//throw new ArgumentException(&quot;error in previous candidate list&quot;,&quot;prev&quot;);</span></div>
 <div class="line"></div>
-<div class="line">                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i2 = 0; i2 &lt; prevCount; ++i2)</div>
+<div class="line">                <span class="keywordflow">foreach</span> (List&lt;int&gt; prevList <span class="keywordflow">in</span> prev)</div>
 <div class="line">                {</div>
-<div class="line">                    <span class="keywordflow">if</span> (i1 == i2)</div>
-<div class="line">                        <span class="keywordflow">continue</span>;</div>
-<div class="line">                    List&lt;int&gt; l2 = prev[i2];</div>
-<div class="line"></div>
-<div class="line">                    <span class="comment">// check if last n-1 elements of first list sequence</span></div>
-<div class="line">                    <span class="comment">//  are equal to the first n-1 elements of the 2nd list</span></div>
-<div class="line">                    <span class="keywordtype">bool</span> partEqual = <span class="keyword">true</span>;</div>
-<div class="line">                    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; prevLen - 1; ++i)</div>
+<div class="line">                    RadixTreeNode node = withoutFirst.GetNode(prevList, prevLen-1);</div>
+<div class="line">                    <span class="keywordflow">if</span> (node != null)</div>
 <div class="line">                    {</div>
-<div class="line">                        <span class="keywordflow">if</span> (!l1[i + 1].Equals(l2[i]))</div>
+<div class="line">                        <span class="keywordflow">foreach</span> (<span class="keywordtype">int</span> value <span class="keywordflow">in</span> node.Values)</div>
 <div class="line">                        {</div>
-<div class="line">                            partEqual = <span class="keyword">false</span>;</div>
-<div class="line">                            <span class="keywordflow">break</span>;</div>
+<div class="line">                            <span class="keywordflow">if</span> (prevLen == 1 &amp;&amp; value == prevList[0])</div>
+<div class="line">                                <span class="keywordflow">continue</span>;</div>
+<div class="line">                            List&lt;int&gt; newCandidate = <span class="keyword">new</span> List&lt;int&gt;(prevList);</div>
+<div class="line">                            newCandidate.Insert(0, value);</div>
+<div class="line">                            candidates.Add(newCandidate, 0);</div>
+<div class="line"></div>
+<div class="line">                            <span class="keywordflow">if</span> (progressOutput)</div>
+<div class="line">                                <span class="keywordflow">if</span> (candidates.Count &gt; 0 &amp;&amp; candidates.Count % 50000 == 0)</div>
+<div class="line">                                    Trace.WriteLine(String.Format(<span class="stringliteral">&quot;   {0} and counting...&quot;</span>, candidates.Count));</div>
 <div class="line">                        }</div>
 <div class="line">                    }</div>
-<div class="line">                    <span class="keywordflow">if</span> (!partEqual)</div>
-<div class="line">                        <span class="keywordflow">continue</span>;</div>
-<div class="line"></div>
-<div class="line">                    <span class="comment">// join l1 and l2</span></div>
-<div class="line">                    List&lt;int&gt; candidate = <span class="keyword">new</span> List&lt;int&gt;(l1);</div>
-<div class="line">                    candidate.Add(l2[prevLen - 1]);</div>
-<div class="line"></div>
-<div class="line">                    <span class="comment">// the below code seems to be dormant,</span></div>
-<div class="line">                    <span class="comment">//  i.e. it never finds any duplicate candidates</span></div>
-<div class="line"></div>
-<div class="line">                    <span class="comment">//bool foundEqual = false;</span></div>
-<div class="line">                    <span class="comment">//bool isEqual;</span></div>
-<div class="line">                    <span class="comment">//foreach (List&lt;int&gt; cand in candidates.Keys)</span></div>
-<div class="line">                    <span class="comment">//{</span></div>
-<div class="line">                    <span class="comment">//  isEqual = true;</span></div>
-<div class="line">                    <span class="comment">//  for (int icc = 0; icc &lt; candidate.Count; ++icc)</span></div>
-<div class="line">                    <span class="comment">//      if (cand[icc] != candidate[icc])</span></div>
-<div class="line">                    <span class="comment">//      {</span></div>
-<div class="line">                    <span class="comment">//          isEqual = false;</span></div>
-<div class="line">                    <span class="comment">//          break;</span></div>
-<div class="line">                    <span class="comment">//      }</span></div>
-<div class="line">                    <span class="comment">//  if (isEqual)</span></div>
-<div class="line">                    <span class="comment">//  {</span></div>
-<div class="line">                    <span class="comment">//      foundEqual = true;</span></div>
-<div class="line">                    <span class="comment">//      break;</span></div>
-<div class="line">                    <span class="comment">//  }</span></div>
-<div class="line">                    <span class="comment">//}</span></div>
-<div class="line">                    <span class="comment">//if (foundEqual)</span></div>
-<div class="line">                    <span class="comment">//  continue;</span></div>
-<div class="line"></div>
-<div class="line">                    candidates.Add(candidate, 0);</div>
-<div class="line">                    <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                        <span class="keywordflow">if</span> (candidates.Count &gt; 0 &amp;&amp; candidates.Count % 50000 == 0)</div>
-<div class="line">                            Console.Out.WriteLine(<span class="stringliteral">&quot;   {0} and counting...&quot;</span>, candidates.Count);</div>
 <div class="line">                }</div>
 <div class="line">            }</div>
+<div class="line">            generationWatch.Stop();</div>
+<div class="line"></div>
+<div class="line">            <span class="comment">//generationWatch.Start();</span></div>
+<div class="line">            <span class="comment">//var enum1 = prev.GetEnumerator();</span></div>
+<div class="line">            <span class="comment">//for (int i1 = 0; i1 &lt; prevCount; ++i1)</span></div>
+<div class="line">            <span class="comment">//{</span></div>
+<div class="line">            <span class="comment">//  enum1.MoveNext();</span></div>
+<div class="line">            <span class="comment">//  List&lt;int&gt; l1 = enum1.Current; //prev[i1];</span></div>
+<div class="line"></div>
+<div class="line">            <span class="comment">//  var enum2 = prev.GetEnumerator();</span></div>
+<div class="line">            <span class="comment">//  for (int i2 = 0; i2 &lt; prevCount; ++i2)</span></div>
+<div class="line">            <span class="comment">//  {</span></div>
+<div class="line">            <span class="comment">//      enum2.MoveNext();</span></div>
+<div class="line">            <span class="comment">//      if (i1 == i2)</span></div>
+<div class="line">            <span class="comment">//          continue;</span></div>
+<div class="line">            <span class="comment">//      List&lt;int&gt; l2 = enum2.Current; //prev[i2];</span></div>
+<div class="line"></div>
+<div class="line">            <span class="comment">//      // check if last n-1 elements of first list sequence</span></div>
+<div class="line">            <span class="comment">//      //  are equal to the first n-1 elements of the 2nd list</span></div>
+<div class="line">            <span class="comment">//      bool partEqual = true;</span></div>
+<div class="line">            <span class="comment">//      //var l1enum = l1.GetEnumerator();</span></div>
+<div class="line">            <span class="comment">//      //var l2enum = l2.GetEnumerator();</span></div>
+<div class="line">            <span class="comment">//      //l1enum.MoveNext();</span></div>
+<div class="line">            <span class="comment">//      for (int i = 0; i &lt; prevLen - 1; ++i)</span></div>
+<div class="line">            <span class="comment">//      {</span></div>
+<div class="line">            <span class="comment">//          //l1enum.MoveNext();</span></div>
+<div class="line">            <span class="comment">//          //l2enum.MoveNext();</span></div>
+<div class="line">            <span class="comment">//          if (!l1[i + 1].Equals(l2[i]))</span></div>
+<div class="line">            <span class="comment">//          //if (!l1enum.Current.Equals(l2enum.Current))</span></div>
+<div class="line">            <span class="comment">//          {</span></div>
+<div class="line">            <span class="comment">//              partEqual = false;</span></div>
+<div class="line">            <span class="comment">//              break;</span></div>
+<div class="line">            <span class="comment">//          }</span></div>
+<div class="line">            <span class="comment">//      }</span></div>
+<div class="line">            <span class="comment">//      if (!partEqual)</span></div>
+<div class="line">            <span class="comment">//          continue;</span></div>
+<div class="line"></div>
+<div class="line">            <span class="comment">//      // join l1 and l2</span></div>
+<div class="line">            <span class="comment">//      List&lt;int&gt; candidate = new List&lt;int&gt;(l1);</span></div>
+<div class="line">            <span class="comment">//      candidate.Add(l2[prevLen - 1]);</span></div>
+<div class="line"></div>
+<div class="line">            <span class="comment">//      candidates.Add(candidate, 0);</span></div>
+<div class="line">            <span class="comment">//      if (progressOutput)</span></div>
+<div class="line">            <span class="comment">//          if (candidates.Count &gt; 0 &amp;&amp; candidates.Count % 50000 == 0)</span></div>
+<div class="line">            <span class="comment">//              Trace.WriteLine(String.Format(&quot;   {0} and counting...&quot;, candidates.Count));</span></div>
+<div class="line">            <span class="comment">//  }</span></div>
+<div class="line">            <span class="comment">//}</span></div>
+<div class="line">            <span class="comment">//generationWatch.Stop();</span></div>
 <div class="line"></div>
 <div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                Console.Out.WriteLine(<span class="stringliteral">&quot;Found {0} candidates, checking if they are valid...&quot;</span>, candidates.Count);</div>
+<div class="line">                Trace.Write(String.Format(<span class="stringliteral">&quot;Found {0} candidates&quot;</span>, candidates.Count));</div>
+<div class="line"></div>
+<div class="line">            <span class="keywordflow">if</span> (candidates.Count == 0 || prevLen == 1)</div>
+<div class="line">            {</div>
+<div class="line">                <span class="keywordflow">if</span> (progressOutput)</div>
+<div class="line">                    Trace.WriteLine(<span class="stringliteral">&quot;.&quot;</span>);</div>
+<div class="line">                <span class="keywordflow">return</span> candidates;</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
+<div class="line">                Trace.Write(<span class="stringliteral">&quot;,&quot;</span>);</div>
 <div class="line"></div>
 <div class="line">            RadixTree radixTree = <span class="keyword">new</span> RadixTree(litemsetCount + 1); <span class="comment">// litemsets IDs are starting from 1</span></div>
+<div class="line"></div>
+<div class="line">            Stopwatch sw3 = <span class="keyword">new</span> Stopwatch();</div>
+<div class="line">            sw3.Start();</div>
 <div class="line"></div>
 <div class="line">            <span class="keywordflow">foreach</span> (List&lt;int&gt; onePrev <span class="keywordflow">in</span> prev)</div>
 <div class="line">                <span class="keywordflow">if</span> (!radixTree.TryAdd(onePrev))</div>
 <div class="line">                    <span class="keywordflow">throw</span> <span class="keyword">new</span> ArgumentException(<span class="stringliteral">&quot;found duplicates in previous k-sequences&quot;</span>, <span class="stringliteral">&quot;prev&quot;</span>);</div>
 <div class="line"></div>
+<div class="line">            sw3.Stop();</div>
+<div class="line"></div>
+<div class="line">            Stopwatch sw2 = <span class="keyword">new</span> Stopwatch();</div>
+<div class="line">            sw2.Start();</div>
+<div class="line"></div>
 <div class="line">            <span class="comment">// build a list of candidates that haven&#39;t got all their sub-sequences</span></div>
 <div class="line">            <span class="comment">// in set of previous k-sequences</span></div>
 <div class="line">            Dictionary&lt;List&lt;int&gt;, <span class="keywordtype">int</span>&gt;.KeyCollection keys = candidates.Keys;</div>
+<div class="line">            var keysEnum = keys.GetEnumerator();</div>
 <div class="line">            List&lt;List&lt;int&gt;&gt; keysToRemove = <span class="keyword">new</span> List&lt;List&lt;int&gt;&gt;();</div>
 <div class="line">            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> ic = keys.Count - 1; ic &gt;= 0; --ic)</div>
 <div class="line">            {</div>
+<div class="line">                keysEnum.MoveNext();</div>
+<div class="line">                List&lt;int&gt; currentList = keysEnum.Current;</div>
+<div class="line"></div>
+<div class="line">                <span class="comment">//if (currentList.Count == 3 &amp;&amp; currentList.SequenceEqual(new int[] { 11, 5, 8 }))</span></div>
+<div class="line">                <span class="comment">//  ic = ic;</span></div>
+<div class="line"></div>
 <div class="line">                <span class="keywordtype">bool</span> invalidCandidate = <span class="keyword">false</span>;</div>
 <div class="line">                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> not = prevLen; not &gt;= 0; --not)</div>
 <div class="line">                {</div>
-<div class="line">                    List&lt;int&gt; sublist = <span class="keyword">new</span> List&lt;int&gt;(keys.ElementAt(ic));</div>
-<div class="line">                    sublist.RemoveAt(not);</div>
+<div class="line">                    <span class="comment">//List&lt;int&gt; sublist = new List&lt;int&gt;(keys.ElementAt(ic));</span></div>
+<div class="line">                    <span class="comment">//sublist.RemoveAt(not);</span></div>
 <div class="line"></div>
-<div class="line">                    <span class="keywordflow">if</span> (radixTree.Check(sublist))</div>
-<div class="line">                    {</div>
-<div class="line">                        invalidCandidate = <span class="keyword">true</span>;</div>
-<div class="line">                        <span class="keywordflow">break</span>;</div>
-<div class="line">                    }</div>
+<div class="line">                    <span class="keywordflow">if</span> (!radixTree.Check(currentList, not))</div>
+<div class="line">                        <span class="keywordflow">continue</span>; <span class="comment">// if it cannot be added, then it exists in the tree</span></div>
 <div class="line"></div>
-<div class="line">                    <span class="comment">//bool foundInPrevious = false;</span></div>
-<div class="line">                    <span class="comment">//for (int i = 0; i &lt; prevCount; ++i)</span></div>
-<div class="line">                    <span class="comment">//{</span></div>
-<div class="line">                    <span class="comment">//  bool foundEqual = true;</span></div>
-<div class="line">                    <span class="comment">//  for (int n = 0; n &lt; prevLen; ++n)</span></div>
-<div class="line">                    <span class="comment">//  {</span></div>
-<div class="line">                    <span class="comment">//      if (sublist[n] != prev[i][n])</span></div>
-<div class="line">                    <span class="comment">//      {</span></div>
-<div class="line">                    <span class="comment">//          foundEqual = false;</span></div>
-<div class="line">                    <span class="comment">//          break;</span></div>
-<div class="line">                    <span class="comment">//      }</span></div>
-<div class="line">                    <span class="comment">//  }</span></div>
-<div class="line">                    <span class="comment">//  if (foundEqual)</span></div>
-<div class="line">                    <span class="comment">//  {</span></div>
-<div class="line">                    <span class="comment">//      foundInPrevious = true;</span></div>
-<div class="line">                    <span class="comment">//      break;</span></div>
-<div class="line">                    <span class="comment">//  }</span></div>
-<div class="line">                    <span class="comment">//}</span></div>
-<div class="line">                    <span class="comment">//if (!foundInPrevious)</span></div>
-<div class="line">                    <span class="comment">//{</span></div>
-<div class="line">                    <span class="comment">//  invalidCandidate = true;</span></div>
-<div class="line">                    <span class="comment">//  break;</span></div>
-<div class="line">                    <span class="comment">//}</span></div>
+<div class="line">                    invalidCandidate = <span class="keyword">true</span>;</div>
+<div class="line">                    <span class="keywordflow">break</span>;</div>
 <div class="line">                }</div>
 <div class="line">                <span class="keywordflow">if</span> (invalidCandidate)</div>
-<div class="line">                    keysToRemove.Add(keys.ElementAt(ic));</div>
+<div class="line">                    keysToRemove.Add(currentList);</div>
 <div class="line">                <span class="keywordflow">if</span> (progressOutput)</div>
 <div class="line">                    <span class="keywordflow">if</span> (ic &gt; 0 &amp;&amp; ic % 50000 == 0)</div>
-<div class="line">                        Console.Out.WriteLine(<span class="stringliteral">&quot;   {0} remaining...&quot;</span>, ic);</div>
+<div class="line">                        Trace.WriteLine(String.Format(<span class="stringliteral">&quot;   {0} remaining...&quot;</span>, ic));</div>
 <div class="line">            }</div>
+<div class="line"></div>
+<div class="line">            sw2.Stop();</div>
 <div class="line"></div>
 <div class="line">            <span class="comment">//remove invalid candidates</span></div>
 <div class="line">            <span class="keywordflow">foreach</span> (List&lt;int&gt; key <span class="keywordflow">in</span> keysToRemove)</div>
 <div class="line">                candidates.Remove(key);</div>
 <div class="line"></div>
 <div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                Console.Out.WriteLine(<span class="stringliteral">&quot;Found {0} valid candidates, previous sequences did not contain {1}.&quot;</span>,</div>
-<div class="line">                    candidates.Count, keysToRemove.Count);</div>
+<div class="line">            {</div>
+<div class="line">                Trace.WriteLine(String.Format(<span class="stringliteral">&quot; {0} valid, previous sequences did not contain {1}.&quot;</span>,</div>
+<div class="line">                    candidates.Count, keysToRemove.Count));</div>
+<div class="line">                Trace.WriteLine(String.Format(<span class="stringliteral">&quot; generation: {0}ms, prev-to-tree: {1}ms, containment check: {2}ms&quot;</span>,</div>
+<div class="line">                    generationWatch.ElapsedMilliseconds, sw3.ElapsedMilliseconds, sw2.ElapsedMilliseconds));</div>
+<div class="line">            }</div>
 <div class="line"></div>
 <div class="line">            <span class="keywordflow">return</span> candidates;</div>
 <div class="line">        }</div>
@@ -778,13 +815,13 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_apriori_all_lib_1_1_apriori_all_ab713206403728597418b85b971cceb68_icgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_apriori_all_ab713206403728597418b85b971cceb68_icgraph" alt=""/></div>
 <map name="class_apriori_all_lib_1_1_apriori_all_ab713206403728597418b85b971cceb68_icgraph" id="class_apriori_all_lib_1_1_apriori_all_ab713206403728597418b85b971cceb68_icgraph">
-<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori_all.html#ab87e3f4c49f61051af5c85b7d6cde14e" title="Corresponds to 4th step of Apriori All algorithm, namely &quot;Sequence Phase&quot;. " alt="" coords="205,38,384,79"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_apriori_all.html#a719d1c07f93fa2e82e1ae6dcacbb8efe" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. " alt="" coords="433,5,583,46"/><area shape="rect" id="node7" href="class_apriori_all_lib_1_1_apriori_all.html#a1abf95c25d82e6b9ff1bf26184d6c5e4" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. It uses parallel version..." alt="" coords="433,70,583,111"/></map>
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori_all.html#ab87e3f4c49f61051af5c85b7d6cde14e" title="Corresponds to 4th step of Apriori All algorithm, namely &quot;Sequence Phase&quot;. " alt="" coords="205,5,384,46"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_apriori_all.html#a719d1c07f93fa2e82e1ae6dcacbb8efe" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. " alt="" coords="433,5,583,46"/></map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a5df23984f4c14ccba3f0456673123934"></a>
+<a class="anchor" id="a15b51c2de9a3d1a84559c2f3fb642b3d"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -792,7 +829,85 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void AprioriAllLib.AprioriAll.GenerateEncoding </td>
+          <td class="memname">Dictionary&lt;int, List&lt;int&gt; &gt; AprioriAllLib.AprioriAll.GenerateContainmentRules </td>
+          <td>(</td>
+          <td class="paramtype">List&lt; <a class="el" href="class_apriori_all_lib_1_1_litemset.html">Litemset</a> &gt;&#160;</td>
+          <td class="paramname"><em>oneLitemsets</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Dictionary&lt; <a class="el" href="class_apriori_all_lib_1_1_litemset.html">Litemset</a>, int &gt;&#160;</td>
+          <td class="paramname"><em>encoding</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Generates a dictionary that remembers for every litemset x: litemsets that contain x. </p>
+<p>For example: if {milk} =&gt; 1, {water} =&gt; 2, {milk, water} =&gt; 3, {milk, water, juice} =&gt; 4 then 1 is-contained-in {3, 4}, 2 is-contained-in {3, 4}, 3 is-contained-in {4} </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">oneLitemsets</td><td>large itemests (i.e. 1-sequences)</td></tr>
+    <tr><td class="paramname">encoding</td><td>encoding dictionary for the </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<div class="fragment"><div class="line">        {</div>
+<div class="line">            Dictionary&lt;int, List&lt;int&gt;&gt; litemsetsContaining = <span class="keyword">new</span> Dictionary&lt;int, List&lt;int&gt;&gt;();</div>
+<div class="line"></div>
+<div class="line">            <span class="keywordflow">foreach</span> (Litemset l <span class="keywordflow">in</span> oneLitemsets)</div>
+<div class="line">            {</div>
+<div class="line">                <span class="keywordflow">foreach</span> (Litemset other <span class="keywordflow">in</span> oneLitemsets)</div>
+<div class="line">                {</div>
+<div class="line">                    <span class="keywordflow">if</span> (ReferenceEquals(other, l))</div>
+<div class="line">                        <span class="keywordflow">continue</span>;</div>
+<div class="line"></div>
+<div class="line">                    <span class="keywordflow">if</span> (l.Items.All(item =&gt; other.Items.Contains(item)))</div>
+<div class="line">                    {</div>
+<div class="line">                        <span class="keywordtype">int</span> encoded = encoding[l];</div>
+<div class="line">                        <span class="keywordflow">if</span> (!litemsetsContaining.ContainsKey(encoded))</div>
+<div class="line">                            litemsetsContaining[encoded] = <span class="keyword">new</span> List&lt;int&gt;();</div>
+<div class="line">                        <span class="keywordtype">int</span> otherEncoded = encoding[other];</div>
+<div class="line">                        <span class="keywordflow">if</span> (!litemsetsContaining[encoded].Contains(otherEncoded))</div>
+<div class="line">                            litemsetsContaining[encoded].Add(otherEncoded);</div>
+<div class="line">                    }</div>
+<div class="line">                }</div>
+<div class="line">            }</div>
+<div class="line"></div>
+<div class="line">            <span class="keywordflow">return</span> litemsetsContaining;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_apriori_all_lib_1_1_apriori_all_a15b51c2de9a3d1a84559c2f3fb642b3d_icgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_apriori_all_a15b51c2de9a3d1a84559c2f3fb642b3d_icgraph" alt=""/></div>
+<map name="class_apriori_all_lib_1_1_apriori_all_a15b51c2de9a3d1a84559c2f3fb642b3d_icgraph" id="class_apriori_all_lib_1_1_apriori_all_a15b51c2de9a3d1a84559c2f3fb642b3d_icgraph">
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori_all.html#a719d1c07f93fa2e82e1ae6dcacbb8efe" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. " alt="" coords="235,5,386,46"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a1d9069babd9e846baf093edb597ee35f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AprioriAllLib.AprioriAll.GenerateEncoding </td>
           <td>(</td>
           <td class="paramtype">List&lt; <a class="el" href="class_apriori_all_lib_1_1_litemset.html">Litemset</a> &gt;&#160;</td>
           <td class="paramname"><em>oneLitemsets</em>, </td>
@@ -817,7 +932,7 @@ Here is the caller graph for this function:</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -848,9 +963,9 @@ Here is the caller graph for this function:</div>
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_apriori_all_lib_1_1_apriori_all_a5df23984f4c14ccba3f0456673123934_icgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_apriori_all_a5df23984f4c14ccba3f0456673123934_icgraph" alt=""/></div>
-<map name="class_apriori_all_lib_1_1_apriori_all_a5df23984f4c14ccba3f0456673123934_icgraph" id="class_apriori_all_lib_1_1_apriori_all_a5df23984f4c14ccba3f0456673123934_icgraph">
-<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori_all.html#a719d1c07f93fa2e82e1ae6dcacbb8efe" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. " alt="" coords="206,5,357,46"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_apriori_all.html#a1abf95c25d82e6b9ff1bf26184d6c5e4" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. It uses parallel version..." alt="" coords="206,70,357,111"/></map>
+<div class="center"><img src="class_apriori_all_lib_1_1_apriori_all_a1d9069babd9e846baf093edb597ee35f_icgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_apriori_all_a1d9069babd9e846baf093edb597ee35f_icgraph" alt=""/></div>
+<map name="class_apriori_all_lib_1_1_apriori_all_a1d9069babd9e846baf093edb597ee35f_icgraph" id="class_apriori_all_lib_1_1_apriori_all_a1d9069babd9e846baf093edb597ee35f_icgraph">
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori_all.html#a719d1c07f93fa2e82e1ae6dcacbb8efe" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. " alt="" coords="206,5,357,46"/></map>
 </div>
 </p>
 
@@ -894,16 +1009,16 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p></p>
+<p>Prepares cleaned-up and user-ready data that can be used as final output of <a class="el" href="class_apriori_all_lib_1_1_apriori_all.html" title="AprioriAll algorithm implementation. ">AprioriAll</a> algoritm. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">encodedList</td><td></td></tr>
-    <tr><td class="paramname">kSequences</td><td></td></tr>
-    <tr><td class="paramname">decoding</td><td></td></tr>
+    <tr><td class="paramname">encodedList</td><td>encoded input</td></tr>
+    <tr><td class="paramname">kSequences</td><td>all found maximal k-sequences, partitioned by k</td></tr>
+    <tr><td class="paramname">decoding</td><td>decoding dictionary</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>cleaned-up data that can be used as final output of <a class="el" href="class_apriori_all_lib_1_1_apriori_all.html" title="AprioriAll algorithm implementation. ">AprioriAll</a></dd></dl>
 <div class="fragment"><div class="line">        {</div>
 <div class="line">            var decodedList = <span class="keyword">new</span> List&lt;Customer&gt;();</div>
 <div class="line"></div>
@@ -920,48 +1035,49 @@ Here is the caller graph for this function:</div>
 <div class="line">                decodedList.Add(c);</div>
 <div class="line">            }</div>
 <div class="line"></div>
-<div class="line">            <span class="keywordflow">foreach</span> (Customer customer <span class="keywordflow">in</span> decodedList)</div>
-<div class="line">            {</div>
-<div class="line">                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> tn = customer.Transactions.Count - 1; tn &gt;= 0; --tn)</div>
-<div class="line">                {</div>
-<div class="line">                    <span class="comment">// tn : transaction no.</span></div>
-<div class="line">                    Transaction t = customer.Transactions[tn];</div>
-<div class="line">                    <span class="keywordflow">foreach</span> (Transaction comparedTransaction <span class="keywordflow">in</span> customer.Transactions)</div>
-<div class="line">                    {</div>
-<div class="line">                        <span class="keywordflow">if</span> (Object.ReferenceEquals(t, comparedTransaction))</div>
-<div class="line">                            <span class="keywordflow">continue</span>;</div>
-<div class="line">                        <span class="keywordflow">if</span> (t.Items.Count &gt;= comparedTransaction.Items.Count)</div>
-<div class="line">                            <span class="keywordflow">continue</span>;</div>
-<div class="line">                        <span class="keywordflow">if</span> (IsSubSequence&lt;Item&gt;(t.Items, comparedTransaction.Items))</div>
-<div class="line">                        {</div>
-<div class="line">                            customer.Transactions.RemoveAt(tn);</div>
-<div class="line">                            <span class="keywordflow">break</span>;</div>
-<div class="line">                        }</div>
-<div class="line">                    }</div>
-<div class="line">                }</div>
-<div class="line">            }</div>
+<div class="line">            <span class="comment">// it seems that the below code is obsolete:</span></div>
 <div class="line"></div>
-<div class="line">            <span class="comment">// compare each pair of customers for equality</span></div>
-<div class="line">            List&lt;int&gt; duplicateCustomers = <span class="keyword">new</span> List&lt;int&gt;();</div>
-<div class="line">            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i1 = 0; i1 &lt; decodedList.Count; i1++)</div>
-<div class="line">            {</div>
-<div class="line">                Customer customer1 = decodedList[i1];</div>
-<div class="line">                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i2 = i1 + 1; i2 &lt; decodedList.Count; i2++)</div>
-<div class="line">                {</div>
-<div class="line">                    <span class="comment">//if (i1 == i2)</span></div>
-<div class="line">                    <span class="comment">//  continue;</span></div>
-<div class="line">                    Customer customer2 = decodedList[i2];</div>
-<div class="line">                    <span class="keywordflow">if</span> (customer1.Transactions.Count != customer2.Transactions.Count)</div>
-<div class="line">                        <span class="keywordflow">continue</span>;</div>
-<div class="line">                    <span class="keywordflow">if</span> (customer1.Equals(customer2))</div>
-<div class="line">                    {</div>
-<div class="line">                        duplicateCustomers.Add(i1);</div>
-<div class="line">                        <span class="keywordflow">break</span>;</div>
-<div class="line">                    }</div>
-<div class="line">                }</div>
-<div class="line">            }</div>
-<div class="line">            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> index = duplicateCustomers.Count - 1; index &gt;= 0; --index)</div>
-<div class="line">                decodedList.RemoveAt(duplicateCustomers[index]);</div>
+<div class="line">            <span class="comment">//foreach (Customer customer in decodedList)</span></div>
+<div class="line">            <span class="comment">//{</span></div>
+<div class="line">            <span class="comment">//  for (int tn = customer.Transactions.Count - 1; tn &gt;= 0; --tn)</span></div>
+<div class="line">            <span class="comment">//  {</span></div>
+<div class="line">            <span class="comment">//      // tn : transaction no.</span></div>
+<div class="line">            <span class="comment">//      Transaction t = customer.Transactions[tn];</span></div>
+<div class="line">            <span class="comment">//      foreach (Transaction comparedTransaction in customer.Transactions)</span></div>
+<div class="line">            <span class="comment">//      {</span></div>
+<div class="line">            <span class="comment">//          if (Object.ReferenceEquals(t, comparedTransaction))</span></div>
+<div class="line">            <span class="comment">//              continue;</span></div>
+<div class="line">            <span class="comment">//          if (t.Items.Count &gt;= comparedTransaction.Items.Count)</span></div>
+<div class="line">            <span class="comment">//              continue;</span></div>
+<div class="line">            <span class="comment">//          if (IsSubSequence&lt;Item&gt;(t.Items, comparedTransaction.Items))</span></div>
+<div class="line">            <span class="comment">//          {</span></div>
+<div class="line">            <span class="comment">//              customer.Transactions.RemoveAt(tn);</span></div>
+<div class="line">            <span class="comment">//              break;</span></div>
+<div class="line">            <span class="comment">//          }</span></div>
+<div class="line">            <span class="comment">//      }</span></div>
+<div class="line">            <span class="comment">//  }</span></div>
+<div class="line">            <span class="comment">//}</span></div>
+<div class="line"></div>
+<div class="line">            <span class="comment">//List&lt;int&gt; duplicateCustomers = new List&lt;int&gt;();</span></div>
+<div class="line">            <span class="comment">//for (int i1 = 0; i1 &lt; decodedList.Count; i1++)</span></div>
+<div class="line">            <span class="comment">//{</span></div>
+<div class="line">            <span class="comment">//  Customer customer1 = decodedList[i1];</span></div>
+<div class="line">            <span class="comment">//  for (int i2 = i1 + 1; i2 &lt; decodedList.Count; i2++)</span></div>
+<div class="line">            <span class="comment">//  {</span></div>
+<div class="line">            <span class="comment">//      //if (i1 == i2)</span></div>
+<div class="line">            <span class="comment">//      //  continue;</span></div>
+<div class="line">            <span class="comment">//      Customer customer2 = decodedList[i2];</span></div>
+<div class="line">            <span class="comment">//      if (customer1.Transactions.Count != customer2.Transactions.Count)</span></div>
+<div class="line">            <span class="comment">//          continue;</span></div>
+<div class="line">            <span class="comment">//      if (customer1.Equals(customer2))</span></div>
+<div class="line">            <span class="comment">//      {</span></div>
+<div class="line">            <span class="comment">//          duplicateCustomers.Add(i1);</span></div>
+<div class="line">            <span class="comment">//          break;</span></div>
+<div class="line">            <span class="comment">//      }</span></div>
+<div class="line">            <span class="comment">//  }</span></div>
+<div class="line">            <span class="comment">//}</span></div>
+<div class="line">            <span class="comment">//for (int index = duplicateCustomers.Count - 1; index &gt;= 0; --index)</span></div>
+<div class="line">            <span class="comment">//  decodedList.RemoveAt(duplicateCustomers[index]);</span></div>
 <div class="line"></div>
 <div class="line">            <span class="keywordflow">return</span> decodedList;</div>
 <div class="line">        }</div>
@@ -971,7 +1087,7 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_apriori_all_lib_1_1_apriori_all_ad0e1764626e9c890583e7f1e5783d51e_cgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_apriori_all_ad0e1764626e9c890583e7f1e5783d51e_cgraph" alt=""/></div>
 <map name="class_apriori_all_lib_1_1_apriori_all_ad0e1764626e9c890583e7f1e5783d51e_cgraph" id="class_apriori_all_lib_1_1_apriori_all_ad0e1764626e9c890583e7f1e5783d51e_cgraph">
-<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori_all.html#aa0a08ca2d1a6ddcd4eb86812c67eb0a8" title="Concatenates all lists of k&#45;sequences into a single list. Does nothing else. " alt="" coords="223,5,383,46"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_customer.html#a8036f14573c62b0e4785e7157a1f547b" title="AprioriAllLib.Customer.Equals" alt="" coords="205,71,400,97"/><area shape="rect" id="node7" href="class_apriori_all_lib_1_1_customer.html#af02616d948989c7ff6161efc2488ecab" title="Constructor " alt="" coords="448,71,659,97"/></map>
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori_all.html#aa0a08ca2d1a6ddcd4eb86812c67eb0a8" title="Concatenates all lists of k&#45;sequences into a single list. Does nothing else. " alt="" coords="205,5,365,46"/></map>
 </div>
 </p>
 
@@ -980,7 +1096,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_apriori_all_lib_1_1_apriori_all_ad0e1764626e9c890583e7f1e5783d51e_icgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_apriori_all_ad0e1764626e9c890583e7f1e5783d51e_icgraph" alt=""/></div>
 <map name="class_apriori_all_lib_1_1_apriori_all_ad0e1764626e9c890583e7f1e5783d51e_icgraph" id="class_apriori_all_lib_1_1_apriori_all_ad0e1764626e9c890583e7f1e5783d51e_icgraph">
-<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori_all.html#a719d1c07f93fa2e82e1ae6dcacbb8efe" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. " alt="" coords="206,5,357,46"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_apriori_all.html#a1abf95c25d82e6b9ff1bf26184d6c5e4" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. It uses parallel version..." alt="" coords="206,70,357,111"/></map>
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori_all.html#a719d1c07f93fa2e82e1ae6dcacbb8efe" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. " alt="" coords="206,5,357,46"/></map>
 </div>
 </p>
 
@@ -1040,7 +1156,58 @@ Here is the caller graph for this function:</div>
 </table>
 </dl>
 </div>
-<div class="fragment"><div class="line">                        : <a class="code" href="class_i_comparable.html">IComparable</a></div>
+<div class="fragment"><div class="line">                    : <a class="code" href="class_i_comparable.html">IComparable</a></div>
+<div class="line">        {</div>
+<div class="line">            <span class="keywordflow">return</span> <a class="code" href="class_apriori_all_lib_1_1_apriori_all.html#ab050bf4b5201a10b0ad39c1d6b5e868c" title="Checks if one sequence is a subsequence of the other. ">IsSubSequence&lt;T&gt;</a>(hyptheticalSubSequence, sequence, null);</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a3f70a1886ae1b31c381f14fba0961cc2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AprioriAllLib.AprioriAll.IsSubSequence&lt; T &gt; </td>
+          <td>(</td>
+          <td class="paramtype">List&lt; T &gt;&#160;</td>
+          <td class="paramname"><em>hyptheticalSubSequence</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">List&lt; T &gt;&#160;</td>
+          <td class="paramname"><em>sequence</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Dictionary&lt; T, List&lt; T &gt;&gt;&#160;</td>
+          <td class="paramname"><em>containmentRules</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="typeconstraint">
+<dl><dt><b>Type Constraints</b><dt><dd>
+<table border="0" cellspacing="2" cellpadding="0">
+<tr><td valign="top"><em>T</em></td><td>&#160;:</td><td valign="top"><em><a class="el" href="class_i_comparable.html">IComparable</a></em></td><td>&#160;</td></tr>
+</table>
+</dl>
+</div>
+<div class="fragment"><div class="line">                    : <a class="code" href="class_i_comparable.html">IComparable</a></div>
 <div class="line">        {</div>
 <div class="line">            <span class="keywordflow">if</span> (hyptheticalSubSequence.Count == 0)</div>
 <div class="line">                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
@@ -1070,17 +1237,37 @@ Here is the caller graph for this function:</div>
 <div class="line"></div>
 <div class="line">            <span class="keywordtype">bool</span> found;</div>
 <div class="line">            <span class="keywordtype">int</span> found_index = -1;</div>
-<div class="line">            List&lt;T&gt;.Enumerator en = sequence.GetEnumerator();</div>
-<div class="line">            <span class="keywordflow">foreach</span> (T element <span class="keywordflow">in</span> hyptheticalSubSequence)</div>
+<div class="line">            <span class="keywordtype">bool</span> previousWasContainment = <span class="keyword">false</span>;</div>
+<div class="line">            <span class="keywordtype">bool</span> sequenceContainsElementOfSubsequence = <span class="keyword">false</span>;</div>
+<div class="line">            List&lt;T&gt;.Enumerator sequenceEnumerator = sequence.GetEnumerator();</div>
+<div class="line">            <span class="keywordflow">foreach</span> (T elementOfHypotheticalSubsequence <span class="keywordflow">in</span> hyptheticalSubSequence)</div>
 <div class="line">            {</div>
 <div class="line">                found = <span class="keyword">false</span>;</div>
 <div class="line">                <span class="comment">//int i = found_index + 1;</span></div>
-<div class="line">                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = found_index + 1; en.MoveNext() <span class="comment">/*&amp;&amp; i &lt; sequence.Count*/</span>; ++i)</div>
+<div class="line">                <span class="keywordtype">int</span> nextDiff = previousWasContainment ? 0 : 1;</div>
+<div class="line">                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = found_index + nextDiff;</div>
+<div class="line">                    ((sequenceContainsElementOfSubsequence &amp;&amp; previousWasContainment) ? <span class="keyword">true</span> : sequenceEnumerator.MoveNext())</div>
+<div class="line">                    <span class="comment">/*&amp;&amp; i &lt; sequence.Count*/</span>; ++i)</div>
 <div class="line">                {</div>
-<div class="line">                    T e = en.Current;</div>
-<div class="line">                    <span class="comment">//en.MoveNext();</span></div>
-<div class="line">                    <span class="comment">//T e = sequence[i];</span></div>
-<div class="line">                    <span class="keywordflow">if</span> (element.Equals(e))</div>
+<div class="line">                    T elementOfSequence = sequenceEnumerator.Current;</div>
+<div class="line">                    <span class="comment">//sequenceEnumerator.MoveNext();</span></div>
+<div class="line">                    <span class="comment">//T elementOfSequence = sequence[i];</span></div>
+<div class="line">                    sequenceContainsElementOfSubsequence = <span class="keyword">false</span>;</div>
+<div class="line"></div>
+<div class="line">                    <span class="keywordflow">if</span> (elementOfHypotheticalSubsequence.Equals(elementOfSequence))</div>
+<div class="line">                    {</div>
+<div class="line">                        sequenceContainsElementOfSubsequence = <span class="keyword">true</span>;</div>
+<div class="line">                        previousWasContainment = <span class="keyword">false</span>;</div>
+<div class="line">                    }</div>
+<div class="line"></div>
+<div class="line">                    <span class="keywordflow">if</span> (containmentRules != null &amp;&amp; containmentRules.ContainsKey(elementOfHypotheticalSubsequence)</div>
+<div class="line">                        &amp;&amp; containmentRules[elementOfHypotheticalSubsequence].Contains(elementOfSequence))</div>
+<div class="line">                    {</div>
+<div class="line">                        sequenceContainsElementOfSubsequence = <span class="keyword">true</span>;</div>
+<div class="line">                        previousWasContainment = <span class="keyword">true</span>;</div>
+<div class="line">                    }</div>
+<div class="line"></div>
+<div class="line">                    <span class="keywordflow">if</span> (sequenceContainsElementOfSubsequence)</div>
 <div class="line">                    {</div>
 <div class="line">                        found = <span class="keyword">true</span>;</div>
 <div class="line">                        found_index = i;</div>
@@ -1088,7 +1275,12 @@ Here is the caller graph for this function:</div>
 <div class="line">                    }</div>
 <div class="line">                }</div>
 <div class="line">                <span class="keywordflow">if</span> (!found)</div>
-<div class="line">                    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">                {</div>
+<div class="line">                    <span class="keywordflow">if</span> (previousWasContainment)</div>
+<div class="line">                        previousWasContainment = <span class="keyword">false</span>;</div>
+<div class="line">                    <span class="keywordflow">else</span></div>
+<div class="line">                        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">                }</div>
 <div class="line">            }</div>
 <div class="line"></div>
 <div class="line">            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
@@ -1142,13 +1334,6 @@ Here is the caller graph for this function:</div>
 <div class="line">            <span class="comment">//if (encodedCustomer.Count &lt; candidate.Count)</span></div>
 <div class="line">            <span class="comment">//   return false; // the candidate is too long to possibly match the customer</span></div>
 <div class="line"></div>
-<div class="line">            <span class="comment">//int maxOmit = encodedCustomer.Count - candidate.Count;</span></div>
-<div class="line">            <span class="comment">//for (int omitted = 0; omitted &lt;= maxOmit; ++omitted) {</span></div>
-<div class="line">            <span class="comment">// variable omitted decides how many initial transactions are omitted when matching is perfromed,</span></div>
-<div class="line">            <span class="comment">//  i.e. how wide is the interval put on the customer&#39;s transaction list, to which the candidate is matched</span></div>
-<div class="line">            <span class="comment">// finding procedure fails if and only if for none of the interval lengths</span></div>
-<div class="line">            <span class="comment">//  the match was found</span></div>
-<div class="line"></div>
 <div class="line">            <span class="keywordtype">bool</span> allNeededItemsArePresent = <span class="keyword">true</span>;</div>
 <div class="line">            <span class="keywordtype">int</span> prevFoundIndex = 0<span class="comment">/*-1*/</span>;</div>
 <div class="line">            List&lt;int&gt; usedProductsFromCurrentCandidate = <span class="keyword">new</span> List&lt;int&gt;();</div>
@@ -1169,6 +1354,7 @@ Here is the caller graph for this function:</div>
 <div class="line">                        <span class="keywordflow">if</span> (ithTransaction[k] == jthCandidateElem)</div>
 <div class="line">                        {</div>
 <div class="line">                            foundJthItemInIthTransaction = <span class="keyword">true</span>;</div>
+<div class="line">                            prevFoundIndex = i;</div>
 <div class="line">                            usedProductsFromCurrentCandidate.Add(k);</div>
 <div class="line">                            jthCandidateFound = <span class="keyword">true</span>;</div>
 <div class="line">                            <span class="keywordflow">break</span>;</div>
@@ -1187,7 +1373,7 @@ Here is the caller graph for this function:</div>
 <div class="line">                <span class="keywordflow">if</span> (!jthCandidateFound)</div>
 <div class="line">                {</div>
 <div class="line">                    allNeededItemsArePresent = <span class="keyword">false</span>;</div>
-<div class="line">                    <span class="keywordflow">return</span> <span class="keyword">false</span>; <span class="comment">//break;</span></div>
+<div class="line">                    <span class="keywordflow">break</span>; <span class="comment">//return false;</span></div>
 <div class="line">                }</div>
 <div class="line">            }</div>
 <div class="line">            <span class="keywordflow">if</span> (allNeededItemsArePresent)</div>
@@ -1201,13 +1387,13 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_apriori_all_lib_1_1_apriori_all_afa7ed1829de9dc0de0b522e41905e300_icgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_apriori_all_afa7ed1829de9dc0de0b522e41905e300_icgraph" alt=""/></div>
 <map name="class_apriori_all_lib_1_1_apriori_all_afa7ed1829de9dc0de0b522e41905e300_icgraph" id="class_apriori_all_lib_1_1_apriori_all_afa7ed1829de9dc0de0b522e41905e300_icgraph">
-<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori_all.html#ab87e3f4c49f61051af5c85b7d6cde14e" title="Corresponds to 4th step of Apriori All algorithm, namely &quot;Sequence Phase&quot;. " alt="" coords="291,38,469,79"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_apriori_all.html#a719d1c07f93fa2e82e1ae6dcacbb8efe" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. " alt="" coords="518,5,669,46"/><area shape="rect" id="node7" href="class_apriori_all_lib_1_1_apriori_all.html#a1abf95c25d82e6b9ff1bf26184d6c5e4" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. It uses parallel version..." alt="" coords="518,70,669,111"/></map>
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori_all.html#ab87e3f4c49f61051af5c85b7d6cde14e" title="Corresponds to 4th step of Apriori All algorithm, namely &quot;Sequence Phase&quot;. " alt="" coords="291,5,469,46"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_apriori_all.html#a719d1c07f93fa2e82e1ae6dcacbb8efe" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. " alt="" coords="518,5,669,46"/></map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="ad68b617b7a2a945291c9b06efce61e4c"></a>
+<a class="anchor" id="a3f249064efd36fb92129668da2d9f6f1"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -1218,8 +1404,24 @@ Here is the caller graph for this function:</div>
           <td class="memname">void AprioriAllLib.AprioriAll.PurgeAllNonMax </td>
           <td>(</td>
           <td class="paramtype">List&lt; List&lt; List&lt; int &gt;&gt;&gt;&#160;</td>
-          <td class="paramname"><em>kSequences</em></td><td>)</td>
+          <td class="paramname"><em>kSequences</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">Dictionary&lt; int, List&lt; int &gt;&gt;&#160;</td>
+          <td class="paramname"><em>containmentRules</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>progressOutput</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -1234,54 +1436,68 @@ Here is the caller graph for this function:</div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">kSequences</td><td>list of all k-sequences, partitioned by k</td></tr>
+    <tr><td class="paramname">containmentRules</td><td>rules of inclusion between encoded litemsets</td></tr>
+    <tr><td class="paramname">progressOutput</td><td>if true, information about progress is sent to standard output</td></tr>
   </table>
   </dd>
 </dl>
 <div class="fragment"><div class="line">        {</div>
 <div class="line">            <span class="keywordflow">if</span> (kSequences == null || kSequences.Count == 0)</div>
 <div class="line">                <span class="keywordflow">return</span>;</div>
-<div class="line">            <span class="comment">// additional &quot;-1&quot; because all largest k-sequences are for sure maximal</span></div>
-<div class="line">            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> k = kSequences.Count - 1 - 1; k &gt;= 0; --k)</div>
+<div class="line"></div>
+<div class="line">            Stopwatch purgingStopwatch = <span class="keyword">new</span> Stopwatch();</div>
+<div class="line"></div>
+<div class="line">            <span class="keywordtype">bool</span> shouldKeepRunning = <span class="keyword">true</span>;</div>
+<div class="line">            <span class="keywordflow">while</span> (shouldKeepRunning)</div>
 <div class="line">            {</div>
-<div class="line">                List&lt;List&lt;int&gt;&gt; sequencesOfLengthK = kSequences[k];</div>
-<div class="line">                <span class="keywordflow">if</span> (sequencesOfLengthK == null || sequencesOfLengthK.Count == 0)</div>
-<div class="line">                    <span class="keywordflow">continue</span>;</div>
-<div class="line">                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> n = sequencesOfLengthK.Count - 1; n &gt;= 0; --n)</div>
-<div class="line">                {</div>
-<div class="line">                    <span class="comment">// we analyze n-th k-sequence:</span></div>
-<div class="line">                    List&lt;int&gt; sequence = sequencesOfLengthK[n];</div>
-<div class="line">                    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = k + 1; i &lt; kSequences.Count; ++i)</div>
-<div class="line">                    {</div>
+<div class="line">                <span class="keywordflow">if</span> (progressOutput)</div>
+<div class="line">                    Trace.Write(<span class="stringliteral">&quot; started new run,&quot;</span>);</div>
+<div class="line">                shouldKeepRunning = <span class="keyword">false</span>;</div>
 <div class="line"></div>
-<div class="line">                        <span class="keywordflow">foreach</span> (List&lt;int&gt; longerSequence <span class="keywordflow">in</span> kSequences[i])</div>
-<div class="line">                            <span class="keywordflow">if</span> (IsSubSequence(sequence, longerSequence))</div>
-<div class="line">                            {</div>
-<div class="line">                                <span class="comment">// if &#39;sequence&#39; is a sub-seqence of &#39;longerSequence&#39;</span></div>
-<div class="line">                                <a class="code" href="class_apriori_all_lib_1_1_apriori_all.html#ad5fc82d557718ca9ba150b3fbda3ea75" title="Deletes all subsequences of ii-th kk-sequence from the list of k-sequences. ">PurgeAllSubSeqsOf</a>(kSequences, k, n);</div>
-<div class="line">                                sequencesOfLengthK.RemoveAt(n);</div>
-<div class="line">                                <span class="keywordflow">break</span>;</div>
-<div class="line">                            }</div>
+<div class="line">                purgingStopwatch.Reset();</div>
+<div class="line">                purgingStopwatch.Start();</div>
+<div class="line">                <span class="keywordflow">if</span> (<a class="code" href="class_apriori_all_lib_1_1_apriori_all.html#a5f60478981222609aeecf3660d8b3450">PurgeUsingInclusionRules</a>(kSequences, containmentRules))</div>
+<div class="line">                    shouldKeepRunning = <span class="keyword">true</span>;</div>
+<div class="line">                purgingStopwatch.Stop();</div>
 <div class="line"></div>
-<div class="line">                    }</div>
-<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">if</span> (progressOutput)</div>
+<div class="line">                    Trace.Write(String.Format(<span class="stringliteral">&quot; inclusion of smaller: {0}ms,&quot;</span>, purgingStopwatch.ElapsedMilliseconds));</div>
+<div class="line"></div>
+<div class="line">                purgingStopwatch.Reset();</div>
+<div class="line">                purgingStopwatch.Start();</div>
+<div class="line">                <span class="keywordflow">if</span> (<a class="code" href="class_apriori_all_lib_1_1_apriori_all.html#a5e7e5f4c697bfd2571276b7bb89255d2">PurgeUsingSequenceInnerRedundancy</a>(kSequences, containmentRules))</div>
+<div class="line">                    shouldKeepRunning = <span class="keyword">true</span>;</div>
+<div class="line">                purgingStopwatch.Stop();</div>
+<div class="line"></div>
+<div class="line">                <span class="keywordflow">if</span> (progressOutput)</div>
+<div class="line">                    Trace.Write(String.Format(<span class="stringliteral">&quot; inner redundancy: {0}ms,&quot;</span>, purgingStopwatch.ElapsedMilliseconds));</div>
+<div class="line"></div>
+<div class="line">                purgingStopwatch.Reset();</div>
+<div class="line">                purgingStopwatch.Start();</div>
+<div class="line">                <span class="keywordflow">if</span> (<a class="code" href="class_apriori_all_lib_1_1_apriori_all.html#ada7deafd303a0ca62e38a5cb5d7baad0">PurgeUsingInclusionRulesWithinSameSize</a>(kSequences, containmentRules))</div>
+<div class="line">                    shouldKeepRunning = <span class="keyword">true</span>;</div>
+<div class="line">                purgingStopwatch.Stop();</div>
+<div class="line"></div>
+<div class="line">                <span class="keywordflow">if</span> (progressOutput)</div>
+<div class="line">                    Trace.WriteLine(String.Format(<span class="stringliteral">&quot; same size: {0}ms&quot;</span>, purgingStopwatch.ElapsedMilliseconds));</div>
 <div class="line">            }</div>
 <div class="line">        }</div>
 </div><!-- fragment -->
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_apriori_all_lib_1_1_apriori_all_ad68b617b7a2a945291c9b06efce61e4c_cgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_apriori_all_ad68b617b7a2a945291c9b06efce61e4c_cgraph" alt=""/></div>
-<map name="class_apriori_all_lib_1_1_apriori_all_ad68b617b7a2a945291c9b06efce61e4c_cgraph" id="class_apriori_all_lib_1_1_apriori_all_ad68b617b7a2a945291c9b06efce61e4c_cgraph">
-<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori_all.html#ad5fc82d557718ca9ba150b3fbda3ea75" title="Deletes all subsequences of ii&#45;th kk&#45;sequence from the list of k&#45;sequences. " alt="" coords="206,5,357,46"/></map>
+<div class="center"><img src="class_apriori_all_lib_1_1_apriori_all_a3f249064efd36fb92129668da2d9f6f1_cgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_apriori_all_a3f249064efd36fb92129668da2d9f6f1_cgraph" alt=""/></div>
+<map name="class_apriori_all_lib_1_1_apriori_all_a3f249064efd36fb92129668da2d9f6f1_cgraph" id="class_apriori_all_lib_1_1_apriori_all_a3f249064efd36fb92129668da2d9f6f1_cgraph">
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori_all.html#a5f60478981222609aeecf3660d8b3450" title="AprioriAllLib.AprioriAll.\lPurgeUsingInclusionRules" alt="" coords="243,5,416,46"/><area shape="rect" id="node7" href="class_apriori_all_lib_1_1_apriori_all.html#a5e7e5f4c697bfd2571276b7bb89255d2" title="AprioriAllLib.AprioriAll.\lPurgeUsingSequenceInnerRedundancy" alt="" coords="206,70,453,111"/><area shape="rect" id="node9" href="class_apriori_all_lib_1_1_apriori_all.html#ada7deafd303a0ca62e38a5cb5d7baad0" title="AprioriAllLib.AprioriAll.\lPurgeUsingInclusionRulesWithin\lSameSize" alt="" coords="224,136,435,192"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_apriori_all.html#ad5fc82d557718ca9ba150b3fbda3ea75" title="Deletes all subsequences of ii&#45;th kk&#45;sequence from the list of k&#45;sequences. " alt="" coords="502,5,653,46"/></map>
 </div>
 </p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_apriori_all_lib_1_1_apriori_all_ad68b617b7a2a945291c9b06efce61e4c_icgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_apriori_all_ad68b617b7a2a945291c9b06efce61e4c_icgraph" alt=""/></div>
-<map name="class_apriori_all_lib_1_1_apriori_all_ad68b617b7a2a945291c9b06efce61e4c_icgraph" id="class_apriori_all_lib_1_1_apriori_all_ad68b617b7a2a945291c9b06efce61e4c_icgraph">
-<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori_all.html#a719d1c07f93fa2e82e1ae6dcacbb8efe" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. " alt="" coords="206,5,357,46"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_apriori_all.html#a1abf95c25d82e6b9ff1bf26184d6c5e4" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. It uses parallel version..." alt="" coords="206,70,357,111"/></map>
+<div class="center"><img src="class_apriori_all_lib_1_1_apriori_all_a3f249064efd36fb92129668da2d9f6f1_icgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_apriori_all_a3f249064efd36fb92129668da2d9f6f1_icgraph" alt=""/></div>
+<map name="class_apriori_all_lib_1_1_apriori_all_a3f249064efd36fb92129668da2d9f6f1_icgraph" id="class_apriori_all_lib_1_1_apriori_all_a3f249064efd36fb92129668da2d9f6f1_icgraph">
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori_all.html#a719d1c07f93fa2e82e1ae6dcacbb8efe" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. " alt="" coords="206,5,357,46"/></map>
 </div>
 </p>
 
@@ -1335,6 +1551,9 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 <div class="fragment"><div class="line">        {</div>
+<div class="line">            <span class="comment">//if (ii &lt; 0)</span></div>
+<div class="line">            <span class="comment">//  throw new ArgumentException(String.Format(&quot;kSequences.Count={2}, kk={1} ii={0}&quot;,</span></div>
+<div class="line">            <span class="comment">//      ii, kk, kSequences.Count), &quot;ii&quot;);</span></div>
 <div class="line">            <span class="keywordflow">if</span> (kk &lt;= 1)</div>
 <div class="line">                <span class="keywordflow">return</span>;</div>
 <div class="line">            List&lt;int&gt; sequence = kSequences[kk][ii];</div>
@@ -1360,7 +1579,306 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_apriori_all_lib_1_1_apriori_all_ad5fc82d557718ca9ba150b3fbda3ea75_icgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_apriori_all_ad5fc82d557718ca9ba150b3fbda3ea75_icgraph" alt=""/></div>
 <map name="class_apriori_all_lib_1_1_apriori_all_ad5fc82d557718ca9ba150b3fbda3ea75_icgraph" id="class_apriori_all_lib_1_1_apriori_all_ad5fc82d557718ca9ba150b3fbda3ea75_icgraph">
-<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori_all.html#ad68b617b7a2a945291c9b06efce61e4c" title="Deletes all non&#45;maximal seqences from list of k&#45;sequences." alt="" coords="206,38,357,79"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_apriori_all.html#a719d1c07f93fa2e82e1ae6dcacbb8efe" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. " alt="" coords="406,5,557,46"/><area shape="rect" id="node7" href="class_apriori_all_lib_1_1_apriori_all.html#a1abf95c25d82e6b9ff1bf26184d6c5e4" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. It uses parallel version..." alt="" coords="406,70,557,111"/></map>
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori_all.html#a5f60478981222609aeecf3660d8b3450" title="AprioriAllLib.AprioriAll.\lPurgeUsingInclusionRules" alt="" coords="205,5,379,46"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_apriori_all.html#a3f249064efd36fb92129668da2d9f6f1" title="Deletes all non&#45;maximal seqences from list of k&#45;sequences." alt="" coords="427,5,578,46"/><area shape="rect" id="node7" href="class_apriori_all_lib_1_1_apriori_all.html#a719d1c07f93fa2e82e1ae6dcacbb8efe" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. " alt="" coords="627,5,778,46"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a5f60478981222609aeecf3660d8b3450"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AprioriAllLib.AprioriAll.PurgeUsingInclusionRules </td>
+          <td>(</td>
+          <td class="paramtype">List&lt; List&lt; List&lt; int &gt;&gt;&gt;&#160;</td>
+          <td class="paramname"><em>kSequences</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Dictionary&lt; int, List&lt; int &gt;&gt;&#160;</td>
+          <td class="paramname"><em>containmentRules</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line">        {</div>
+<div class="line">            <span class="keywordflow">if</span> (kSequences == null || kSequences.Count == 0)</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">            <span class="keywordtype">int</span> initialK = kSequences.Count - 1</div>
+<div class="line">                - 1 <span class="comment">// additional &quot;-1&quot; because all largest k-sequences are for sure maximal</span></div>
+<div class="line">                - 1; <span class="comment">// additional &quot;-1&quot; because the last entry in the list is empty</span></div>
+<div class="line">            <span class="keywordflow">if</span> (kSequences[kSequences.Count - 1].Count &gt; 0)</div>
+<div class="line">                <span class="keywordflow">throw</span> <span class="keyword">new</span> ArgumentException(<span class="stringliteral">&quot;last entry of kSequences is supposed to be empty&quot;</span>, <span class="stringliteral">&quot;kSequences&quot;</span>);</div>
+<div class="line"></div>
+<div class="line">            <span class="keywordtype">bool</span> somethingChanged = <span class="keyword">false</span>;</div>
+<div class="line"></div>
+<div class="line">            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> k = initialK; k &gt;= 0; --k)</div>
+<div class="line">            {</div>
+<div class="line">                List&lt;List&lt;int&gt;&gt; sequencesOfLengthK = kSequences[k];</div>
+<div class="line">                <span class="keywordflow">if</span> (sequencesOfLengthK == null || sequencesOfLengthK.Count == 0)</div>
+<div class="line">                    <span class="keywordflow">continue</span>;</div>
+<div class="line">                <span class="comment">// we need a flag not to fall behind allowed memebers</span></div>
+<div class="line">                <span class="keywordtype">bool</span> removedAny = <span class="keyword">false</span>;</div>
+<div class="line">                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> n = sequencesOfLengthK.Count - 1; n &gt;= 0; --n)</div>
+<div class="line">                {</div>
+<div class="line">                    <span class="comment">// we analyze n-th k-sequence:</span></div>
+<div class="line">                    List&lt;int&gt; sequence = sequencesOfLengthK[n];</div>
+<div class="line">                    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = k + 1; i &lt; kSequences.Count; ++i)</div>
+<div class="line">                    {</div>
+<div class="line">                        <span class="keywordflow">foreach</span> (List&lt;int&gt; longerSequence <span class="keywordflow">in</span> kSequences[i])</div>
+<div class="line">                        {</div>
+<div class="line">                            <span class="comment">//if (n &lt; 0)</span></div>
+<div class="line">                            <span class="comment">//  break;</span></div>
+<div class="line">                            <span class="comment">//if (i == 5</span></div>
+<div class="line">                            <span class="comment">//  &amp;&amp; sequence.Count == 1</span></div>
+<div class="line">                            <span class="comment">//  //&amp;&amp; sequence.Contains(4) &amp;&amp; sequence.Contains(8) </span></div>
+<div class="line">                            <span class="comment">//  &amp;&amp; sequence.Contains(5)</span></div>
+<div class="line">                            <span class="comment">//  //&amp;&amp; !sequence.Contains(17)</span></div>
+<div class="line">                            <span class="comment">//  &amp;&amp; longerSequence.Count == 2</span></div>
+<div class="line">                            <span class="comment">//  &amp;&amp; longerSequence.Contains(1) &amp;&amp; longerSequence.Contains(5)</span></div>
+<div class="line">                            <span class="comment">//  //&amp;&amp; longerSequence.Contains(9)</span></div>
+<div class="line">                            <span class="comment">//  //&amp;&amp; longerSequence.Contains(7) &amp;&amp; longerSequence.Contains(17)</span></div>
+<div class="line">                            <span class="comment">//  )</span></div>
+<div class="line">                            <span class="comment">//  i = i;</span></div>
+<div class="line">                            <span class="keywordflow">if</span> (IsSubSequence(sequence, longerSequence, containmentRules))</div>
+<div class="line">                            {</div>
+<div class="line">                                <span class="comment">// if &#39;sequence&#39; is a sub-seqence of &#39;longerSequence&#39;</span></div>
+<div class="line">                                <a class="code" href="class_apriori_all_lib_1_1_apriori_all.html#ad5fc82d557718ca9ba150b3fbda3ea75" title="Deletes all subsequences of ii-th kk-sequence from the list of k-sequences. ">PurgeAllSubSeqsOf</a>(kSequences, k, n);</div>
+<div class="line">                                sequencesOfLengthK.RemoveAt(n);</div>
+<div class="line">                                --n;</div>
+<div class="line">                                removedAny = <span class="keyword">true</span>;</div>
+<div class="line">                                <span class="keywordflow">break</span>;</div>
+<div class="line">                            }</div>
+<div class="line">                        }</div>
+<div class="line">                        <span class="keywordflow">if</span> (removedAny)</div>
+<div class="line">                            <span class="keywordflow">break</span>;</div>
+<div class="line">                    }</div>
+<div class="line">                    <span class="keywordflow">if</span> (removedAny)</div>
+<div class="line">                    {</div>
+<div class="line">                        somethingChanged = <span class="keyword">true</span>;</div>
+<div class="line">                        ++n;</div>
+<div class="line">                        removedAny = <span class="keyword">false</span>;</div>
+<div class="line">                    }</div>
+<div class="line">                }</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">return</span> somethingChanged;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_apriori_all_lib_1_1_apriori_all_a5f60478981222609aeecf3660d8b3450_cgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_apriori_all_a5f60478981222609aeecf3660d8b3450_cgraph" alt=""/></div>
+<map name="class_apriori_all_lib_1_1_apriori_all_a5f60478981222609aeecf3660d8b3450_cgraph" id="class_apriori_all_lib_1_1_apriori_all_a5f60478981222609aeecf3660d8b3450_cgraph">
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori_all.html#ad5fc82d557718ca9ba150b3fbda3ea75" title="Deletes all subsequences of ii&#45;th kk&#45;sequence from the list of k&#45;sequences. " alt="" coords="227,5,378,46"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_apriori_all_lib_1_1_apriori_all_a5f60478981222609aeecf3660d8b3450_icgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_apriori_all_a5f60478981222609aeecf3660d8b3450_icgraph" alt=""/></div>
+<map name="class_apriori_all_lib_1_1_apriori_all_a5f60478981222609aeecf3660d8b3450_icgraph" id="class_apriori_all_lib_1_1_apriori_all_a5f60478981222609aeecf3660d8b3450_icgraph">
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori_all.html#a3f249064efd36fb92129668da2d9f6f1" title="Deletes all non&#45;maximal seqences from list of k&#45;sequences." alt="" coords="227,5,378,46"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_apriori_all.html#a719d1c07f93fa2e82e1ae6dcacbb8efe" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. " alt="" coords="427,5,578,46"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ada7deafd303a0ca62e38a5cb5d7baad0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AprioriAllLib.AprioriAll.PurgeUsingInclusionRulesWithinSameSize </td>
+          <td>(</td>
+          <td class="paramtype">List&lt; List&lt; List&lt; int &gt;&gt;&gt;&#160;</td>
+          <td class="paramname"><em>kSequences</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Dictionary&lt; int, List&lt; int &gt;&gt;&#160;</td>
+          <td class="paramname"><em>containmentRules</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line">        {</div>
+<div class="line">            <span class="keywordflow">if</span> (kSequences == null || kSequences.Count == 0)</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">            <span class="keywordtype">int</span> initialK = kSequences.Count - 1</div>
+<div class="line">                - 1 <span class="comment">// additional &quot;-1&quot; because all largest k-sequences are for sure maximal</span></div>
+<div class="line">                - 1; <span class="comment">// additional &quot;-1&quot; because the last entry in the list is empty</span></div>
+<div class="line">            <span class="keywordflow">if</span> (kSequences[kSequences.Count - 1].Count &gt; 0)</div>
+<div class="line">                <span class="keywordflow">throw</span> <span class="keyword">new</span> ArgumentException(<span class="stringliteral">&quot;last entry of kSequences is supposed to be empty&quot;</span>, <span class="stringliteral">&quot;kSequences&quot;</span>);</div>
+<div class="line"></div>
+<div class="line">            <span class="keywordtype">bool</span> somethingChanged = <span class="keyword">false</span>;</div>
+<div class="line"></div>
+<div class="line">            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> k = initialK; k &gt;= 0; --k)</div>
+<div class="line">            {</div>
+<div class="line">                List&lt;List&lt;int&gt;&gt; sequencesOfLengthK = kSequences[k];</div>
+<div class="line">                <span class="keywordflow">if</span> (sequencesOfLengthK == null || sequencesOfLengthK.Count == 0)</div>
+<div class="line">                    <span class="keywordflow">continue</span>;</div>
+<div class="line"></div>
+<div class="line">                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> n1 = sequencesOfLengthK.Count - 1; n1 &gt;= 0; --n1)</div>
+<div class="line">                {</div>
+<div class="line">                    var sequence = sequencesOfLengthK[n1];</div>
+<div class="line">                    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> n2 = n1 - 1; n2 &gt;= 0; --n2)</div>
+<div class="line">                    {</div>
+<div class="line">                        var maybeSubsequence = sequencesOfLengthK[n2];</div>
+<div class="line">                        <span class="keywordflow">if</span> (IsSubSequence(maybeSubsequence, sequence, containmentRules))</div>
+<div class="line">                        {</div>
+<div class="line">                            sequencesOfLengthK.RemoveAt(n2);</div>
+<div class="line">                            --n1;</div>
+<div class="line">                            somethingChanged = <span class="keyword">true</span>;</div>
+<div class="line">                        }</div>
+<div class="line">                    }</div>
+<div class="line">                }</div>
+<div class="line">            }</div>
+<div class="line"></div>
+<div class="line">            <span class="keywordflow">return</span> somethingChanged;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_apriori_all_lib_1_1_apriori_all_ada7deafd303a0ca62e38a5cb5d7baad0_icgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_apriori_all_ada7deafd303a0ca62e38a5cb5d7baad0_icgraph" alt=""/></div>
+<map name="class_apriori_all_lib_1_1_apriori_all_ada7deafd303a0ca62e38a5cb5d7baad0_icgraph" id="class_apriori_all_lib_1_1_apriori_all_ada7deafd303a0ca62e38a5cb5d7baad0_icgraph">
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori_all.html#a3f249064efd36fb92129668da2d9f6f1" title="Deletes all non&#45;maximal seqences from list of k&#45;sequences." alt="" coords="265,13,415,54"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_apriori_all.html#a719d1c07f93fa2e82e1ae6dcacbb8efe" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. " alt="" coords="465,13,615,54"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a5e7e5f4c697bfd2571276b7bb89255d2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AprioriAllLib.AprioriAll.PurgeUsingSequenceInnerRedundancy </td>
+          <td>(</td>
+          <td class="paramtype">List&lt; List&lt; List&lt; int &gt;&gt;&gt;&#160;</td>
+          <td class="paramname"><em>kSequences</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Dictionary&lt; int, List&lt; int &gt;&gt;&#160;</td>
+          <td class="paramname"><em>containmentRules</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line">        {</div>
+<div class="line">            <span class="keywordtype">bool</span> somethingChanged = <span class="keyword">false</span>;</div>
+<div class="line">            <span class="comment">// remove elements contained in other elements of the same maximal sequence</span></div>
+<div class="line">            <span class="keywordflow">foreach</span> (List&lt;List&lt;int&gt;&gt; seqs <span class="keywordflow">in</span> kSequences)</div>
+<div class="line">            {</div>
+<div class="line">                <span class="keywordflow">foreach</span> (List&lt;int&gt; seq <span class="keywordflow">in</span> seqs)</div>
+<div class="line">                {</div>
+<div class="line">                    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> n = seq.Count - 1; n &gt;= 0; --n)</div>
+<div class="line">                    {</div>
+<div class="line">                        var currentLitem = seq[n];</div>
+<div class="line">                        <span class="keywordflow">if</span> (!containmentRules.ContainsKey(currentLitem))</div>
+<div class="line">                            <span class="keywordflow">continue</span>;</div>
+<div class="line"></div>
+<div class="line">                        var litemsContainingCurrentLitem = containmentRules[currentLitem];</div>
+<div class="line">                        <span class="keywordflow">if</span> (n &gt; 0 &amp;&amp; litemsContainingCurrentLitem.Contains(seq[n - 1]))</div>
+<div class="line">                        {</div>
+<div class="line">                            <span class="comment">// current element is contained in the earlier element</span></div>
+<div class="line">                            seq.RemoveAt(n);</div>
+<div class="line">                            <span class="keywordflow">if</span> (n &lt;= seq.Count - 1)</div>
+<div class="line">                                ++n;</div>
+<div class="line">                            somethingChanged = <span class="keyword">true</span>;</div>
+<div class="line">                        }</div>
+<div class="line">                        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (n &lt; seq.Count - 1 &amp;&amp; litemsContainingCurrentLitem.Contains(seq[n + 1]))</div>
+<div class="line">                        {</div>
+<div class="line">                            <span class="comment">// current element is contained in the later element</span></div>
+<div class="line">                            seq.RemoveAt(n);</div>
+<div class="line">                            ++n;</div>
+<div class="line">                            somethingChanged = <span class="keyword">true</span>;</div>
+<div class="line">                        }</div>
+<div class="line">                    }</div>
+<div class="line">                }</div>
+<div class="line">            }</div>
+<div class="line"></div>
+<div class="line">            <span class="keywordflow">if</span> (!somethingChanged)</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"></div>
+<div class="line">            <span class="comment">// rearrange sequences to reflect recent changes</span></div>
+<div class="line">            <span class="comment">// at the same time removes the duplicate sequences created by removal process</span></div>
+<div class="line">            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> k = kSequences.Count - 2; k &gt;= 0; --k)</div>
+<div class="line">            {</div>
+<div class="line">                List&lt;List&lt;int&gt;&gt; sequencesOfLengthK = kSequences[k];</div>
+<div class="line">                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> n = sequencesOfLengthK.Count - 1; n &gt;= 0; --n)</div>
+<div class="line">                {</div>
+<div class="line">                    List&lt;int&gt; sequence = sequencesOfLengthK[n];</div>
+<div class="line">                    <span class="keywordtype">int</span> sequenceCount = sequence.Count;</div>
+<div class="line">                    <span class="keywordflow">if</span> (sequenceCount &lt; k)</div>
+<div class="line">                    {</div>
+<div class="line">                        <span class="keywordtype">bool</span> alreadyExists = <span class="keyword">false</span>;</div>
+<div class="line">                        <span class="keywordflow">foreach</span> (List&lt;int&gt; existingSequence <span class="keywordflow">in</span> kSequences[sequenceCount])</div>
+<div class="line">                            <span class="keywordflow">if</span> (IsSubSequence(sequence, existingSequence))</div>
+<div class="line">                            {</div>
+<div class="line">                                alreadyExists = <span class="keyword">true</span>;</div>
+<div class="line">                                <span class="keywordflow">break</span>;</div>
+<div class="line">                            }</div>
+<div class="line">                        <span class="keywordflow">if</span> (!alreadyExists)</div>
+<div class="line">                            kSequences[sequenceCount].Add(sequence);</div>
+<div class="line">                        sequencesOfLengthK.RemoveAt(n);</div>
+<div class="line">                    }</div>
+<div class="line">                }</div>
+<div class="line">            }</div>
+<div class="line"></div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"></div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_apriori_all_lib_1_1_apriori_all_a5e7e5f4c697bfd2571276b7bb89255d2_icgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_apriori_all_a5e7e5f4c697bfd2571276b7bb89255d2_icgraph" alt=""/></div>
+<map name="class_apriori_all_lib_1_1_apriori_all_a5e7e5f4c697bfd2571276b7bb89255d2_icgraph" id="class_apriori_all_lib_1_1_apriori_all_a5e7e5f4c697bfd2571276b7bb89255d2_icgraph">
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori_all.html#a3f249064efd36fb92129668da2d9f6f1" title="Deletes all non&#45;maximal seqences from list of k&#45;sequences." alt="" coords="302,5,453,46"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_apriori_all.html#a719d1c07f93fa2e82e1ae6dcacbb8efe" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. " alt="" coords="502,5,653,46"/></map>
 </div>
 </p>
 
@@ -1397,7 +1915,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_apriori_all_lib_1_1_apriori_all_a9a05f0ff368d6dfea768ce19f09505b2_icgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_apriori_all_a9a05f0ff368d6dfea768ce19f09505b2_icgraph" alt=""/></div>
 <map name="class_apriori_all_lib_1_1_apriori_all_a9a05f0ff368d6dfea768ce19f09505b2_icgraph" id="class_apriori_all_lib_1_1_apriori_all_a9a05f0ff368d6dfea768ce19f09505b2_icgraph">
-<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_console_test_1_1_console_app.html#a6fc5d5c554cf790919e83523d28841f1" title="AprioriAllLib.ConsoleTest.\lConsoleApp.Main" alt="" coords="205,5,376,46"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_console_test_1_1_test___apriori_all.html#a1cf91c94b32a1f2a3ec448fd87aa6103" title="AprioriAllLib.ConsoleTest.\lTest_AprioriAll.Main" alt="" coords="205,70,376,111"/><area shape="rect" id="node7" href="class_apriori_all_lib_1_1_apriori_all.html#a1abf95c25d82e6b9ff1bf26184d6c5e4" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. It uses parallel version..." alt="" coords="215,135,366,177"/><area shape="rect" id="node9" href="class_apriori_all_lib_1_1_test_1_1_apriori_all_test.html#af4236d14847b7f16a1f589be096179ac" title="AprioriAllLib.Test.Apriori\lAllTest.Test_AprioriAll\l_Example1_HighSupport" alt="" coords="208,201,373,257"/><area shape="rect" id="node11" href="class_apriori_all_lib_1_1_test_1_1_apriori_all_test.html#afb3de91a75a20d32f79576bf11c9ffb2" title="AprioriAllLib.Test.Apriori\lAllTest.Test_AprioriAll\l_DataSet1" alt="" coords="210,281,371,337"/><area shape="rect" id="node13" href="class_apriori_all_lib_1_1_test_1_1_apriori_all_test.html#a75e18f7133db4a4b2d711c06b0d2ff01" title="AprioriAllLib.Test.Apriori\lAllTest.Test_AprioriAll\l_DataSet2_LowSupport" alt="" coords="210,361,371,417"/><area shape="rect" id="node15" href="class_apriori_all_lib_1_1_test_1_1_apriori_all_test.html#a0395eb377a1bbad81d3a065d95f61500" title="AprioriAllLib.Test.Apriori\lAllTest.Test_AprioriAll\l_DataSet2_HighSupport" alt="" coords="210,441,371,497"/><area shape="rect" id="node17" href="class_apriori_all_lib_1_1_test_1_1_apriori_all_test.html#a3bcb4c447ed2e4cc9d9d583545bc7e0e" title="AprioriAllLib.Test.Apriori\lAllTest.Test_AprioriAll\l_DataSet3_LowSupport" alt="" coords="210,521,371,577"/><area shape="rect" id="node19" href="class_apriori_all_lib_1_1_test_1_1_apriori_all_test.html#af00e8ea64046f937107239b87618bb73" title="AprioriAllLib.Test.Apriori\lAllTest.Test_AprioriAll\l_DataSet3_HighSupport" alt="" coords="210,601,371,657"/></map>
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_console_test_1_1_console_app.html#a6fc5d5c554cf790919e83523d28841f1" title="AprioriAllLib.ConsoleTest.\lConsoleApp.Main" alt="" coords="213,5,384,46"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_console_test_1_1_test___apriori_all.html#a1cf91c94b32a1f2a3ec448fd87aa6103" title="AprioriAllLib.ConsoleTest.\lTest_AprioriAll.Main" alt="" coords="213,70,384,111"/><area shape="rect" id="node7" href="class_apriori_all_lib_1_1_apriori_all.html#a1abf95c25d82e6b9ff1bf26184d6c5e4" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. It uses parallel version..." alt="" coords="223,135,374,177"/><area shape="rect" id="node9" href="class_apriori_all_lib_1_1_test_1_1_apriori_all_test.html#a0efbf1e646f5c1e0a53c005fccc62ea9" title="AprioriAllLib.Test.Apriori\lAllTest.Test_AprioriAll\l_Example1_LowSupport" alt="" coords="217,201,380,257"/><area shape="rect" id="node11" href="class_apriori_all_lib_1_1_test_1_1_apriori_all_test.html#a187dc993b3cf23b3065f21a1ee06185a" title="AprioriAllLib.Test.Apriori\lAllTest.Test_AprioriAll\l_Example1_MediumSupport" alt="" coords="206,281,391,337"/><area shape="rect" id="node13" href="class_apriori_all_lib_1_1_test_1_1_apriori_all_test.html#af4236d14847b7f16a1f589be096179ac" title="AprioriAllLib.Test.Apriori\lAllTest.Test_AprioriAll\l_Example1_HighSupport" alt="" coords="216,361,381,417"/><area shape="rect" id="node15" href="class_apriori_all_lib_1_1_test_1_1_apriori_all_test.html#afb3de91a75a20d32f79576bf11c9ffb2" title="AprioriAllLib.Test.Apriori\lAllTest.Test_AprioriAll\l_DataSet1" alt="" coords="218,441,379,497"/><area shape="rect" id="node17" href="class_apriori_all_lib_1_1_test_1_1_apriori_all_test.html#a75e18f7133db4a4b2d711c06b0d2ff01" title="AprioriAllLib.Test.Apriori\lAllTest.Test_AprioriAll\l_DataSet2_LowSupport" alt="" coords="218,521,379,577"/><area shape="rect" id="node19" href="class_apriori_all_lib_1_1_test_1_1_apriori_all_test.html#a0395eb377a1bbad81d3a065d95f61500" title="AprioriAllLib.Test.Apriori\lAllTest.Test_AprioriAll\l_DataSet2_HighSupport" alt="" coords="218,601,379,657"/><area shape="rect" id="node21" href="class_apriori_all_lib_1_1_test_1_1_apriori_all_test.html#a3bcb4c447ed2e4cc9d9d583545bc7e0e" title="AprioriAllLib.Test.Apriori\lAllTest.Test_AprioriAll\l_DataSet3_LowSupport" alt="" coords="218,681,379,737"/><area shape="rect" id="node23" href="class_apriori_all_lib_1_1_test_1_1_apriori_all_test.html#af00e8ea64046f937107239b87618bb73" title="AprioriAllLib.Test.Apriori\lAllTest.Test_AprioriAll\l_DataSet3_HighSupport" alt="" coords="218,761,379,817"/></map>
 </div>
 </p>
 
@@ -1444,14 +1962,14 @@ Here is the caller graph for this function:</div>
 <div class="line"></div>
 <div class="line">            <span class="keywordtype">int</span> minSupport = (int)Math.Ceiling((<span class="keywordtype">double</span>)<a class="code" href="class_apriori_all_lib_1_1_apriori.html#abbca8be3761136e76782ce10ebd61638" title="Input data for the algorithm. ">customerList</a>.<a class="code" href="class_apriori_all_lib_1_1_customer_list.html#a4fd2a16a984844e61ffc60b327e6534a" title="List of Customers ">Customers</a>.Count * threshold);</div>
 <div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                Console.Out.WriteLine(<span class="stringliteral">&quot;Threshold = {0}  =&gt;  Minimum support = {1}&quot;</span>, threshold, minSupport);</div>
+<div class="line">                Trace.WriteLine(String.Format(<span class="stringliteral">&quot;Threshold = {0}  =&gt;  Minimum support = {1}&quot;</span>, threshold, minSupport));</div>
 <div class="line"></div>
 <div class="line">            <span class="keywordflow">if</span> (minSupport &lt;= 0)</div>
 <div class="line">                <span class="keywordflow">throw</span> <span class="keyword">new</span> ArgumentException(<span class="stringliteral">&quot;minimum support must be positive&quot;</span>, <span class="stringliteral">&quot;minSupport&quot;</span>);</div>
 <div class="line"></div>
 <div class="line">            <span class="comment">// 1. sort the input!</span></div>
 <div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                Console.Out.WriteLine(<span class="stringliteral">&quot;1) Sort Phase - list is already sorted as user sees fit&quot;</span>);</div>
+<div class="line">                Trace.WriteLine(<span class="stringliteral">&quot;1) Sort Phase - list is already sorted as user sees fit&quot;</span>);</div>
 <div class="line"></div>
 <div class="line">            <span class="comment">// corresponds to 1st step of Apriori All algorithm, namely &quot;Sort Phase&quot;.</span></div>
 <div class="line"></div>
@@ -1459,27 +1977,45 @@ Here is the caller graph for this function:</div>
 <div class="line"></div>
 <div class="line">            <span class="comment">// 2. find all frequent 1-sequences</span></div>
 <div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                Console.Out.WriteLine(<span class="stringliteral">&quot;2) Litemset Phase&quot;</span>);</div>
+<div class="line">                Trace.WriteLine(<span class="stringliteral">&quot;2) Litemset Phase&quot;</span>);</div>
 <div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                Console.Out.WriteLine(<span class="stringliteral">&quot;Launching Apriori...&quot;</span>);</div>
+<div class="line">                Trace.WriteLine(<span class="stringliteral">&quot;Launching Apriori...&quot;</span>);</div>
 <div class="line">            <span class="comment">// this corresponds to 2nd step of Apriori All algorithm, namely &quot;Litemset Phase&quot;.</span></div>
 <div class="line">            List&lt;Litemset&gt; oneLitemsets = <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a91d0b11de53dab28769f1d7fda0542c6" title="Finds all litemsets that have the minimal support. ">RunApriori</a>(threshold, progressOutput);</div>
-<div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">            {</div>
-<div class="line">                Console.Out.WriteLine(<span class="stringliteral">&quot;Litemsets:&quot;</span>);</div>
-<div class="line">                <span class="keywordflow">foreach</span> (Litemset l <span class="keywordflow">in</span> oneLitemsets)</div>
-<div class="line">                    Console.Out.WriteLine(<span class="stringliteral">&quot; - {0}&quot;</span>, l);</div>
-<div class="line">            }</div>
 <div class="line"></div>
 <div class="line">            <span class="comment">// 3. transform input into list of IDs</span></div>
 <div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                Console.Out.WriteLine(<span class="stringliteral">&quot;3) Transformation Phase&quot;</span>);</div>
+<div class="line">                Trace.WriteLine(<span class="stringliteral">&quot;3) Transformation Phase&quot;</span>);</div>
 <div class="line"></div>
 <div class="line">            <span class="comment">// 3.a) give an ID to each 1-seq</span></div>
 <div class="line">            Dictionary&lt;Litemset, int&gt; encoding;</div>
 <div class="line">            Dictionary&lt;int, Litemset&gt; decoding;</div>
 <div class="line"></div>
-<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori_all.html#a5df23984f4c14ccba3f0456673123934" title="Generates encoding and decoding dictionaries for a given set of 1-sequences (large itemsets)...">GenerateEncoding</a>(oneLitemsets, out encoding, out decoding);</div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori_all.html#a1d9069babd9e846baf093edb597ee35f" title="Generates encoding and decoding dictionaries for a given set of 1-sequences (large itemsets)...">GenerateEncoding</a>(oneLitemsets, out encoding, out decoding);</div>
+<div class="line"></div>
+<div class="line">            Dictionary&lt;int, List&lt;int&gt;&gt; litemsetsContaining = <a class="code" href="class_apriori_all_lib_1_1_apriori_all.html#a15b51c2de9a3d1a84559c2f3fb642b3d" title="Generates a dictionary that remembers for every litemset x: litemsets that contain x...">GenerateContainmentRules</a>(oneLitemsets, encoding);</div>
+<div class="line"></div>
+<div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
+<div class="line">            {</div>
+<div class="line">                Trace.WriteLine(<span class="stringliteral">&quot;Encoding dictionary for litemsets:&quot;</span>);</div>
+<div class="line">                <span class="keywordflow">foreach</span> (KeyValuePair&lt;int, Litemset&gt; kv <span class="keywordflow">in</span> decoding)</div>
+<div class="line">                {</div>
+<div class="line">                    Trace.Write(String.Format(<span class="stringliteral">&quot; {0} &lt;= {1}&quot;</span>, kv.Key, kv.Value));</div>
+<div class="line">                    <span class="keywordflow">if</span> (litemsetsContaining.ContainsKey(kv.Key))</div>
+<div class="line">                    {</div>
+<div class="line">                        List&lt;int&gt; superLitemsets = litemsetsContaining[kv.Key];</div>
+<div class="line">                        Trace.Write(String.Format(<span class="stringliteral">&quot;; {0} is in {1}&quot;</span>, kv.Key, String.Join(<span class="stringliteral">&quot;, &quot;</span>, superLitemsets.ToArray())));</div>
+<div class="line">                    }</div>
+<div class="line">                    Trace.WriteLine(<span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line">                }</div>
+<div class="line">            }</div>
+<div class="line"></div>
+<div class="line">            <span class="comment">//if (progressOutput)</span></div>
+<div class="line">            <span class="comment">//{</span></div>
+<div class="line">            <span class="comment">//  Console.Out.WriteLine(&quot;Containment rules for litemsets:&quot;);</span></div>
+<div class="line">            <span class="comment">//  foreach (KeyValuePair&lt;int, List&lt;int&gt;&gt; kv in litemsetsContaining)</span></div>
+<div class="line">            <span class="comment">//      Console.Out.WriteLine(&quot; {0} is in {1}&quot;, kv.Key, String.Join(&quot;, &quot;, kv.Value.ToArray()));</span></div>
+<div class="line">            <span class="comment">//}</span></div>
 <div class="line"></div>
 <div class="line">            <span class="comment">// 3.b) using created IDs, transform the input</span></div>
 <div class="line"></div>
@@ -1491,51 +2027,85 @@ Here is the caller graph for this function:</div>
 <div class="line">            <span class="comment">// - outer list means list of customers</span></div>
 <div class="line"></div>
 <div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                Console.Out.WriteLine(<span class="stringliteral">&quot;Encoding input data...&quot;</span>);</div>
+<div class="line">                Trace.WriteLine(<span class="stringliteral">&quot;Encoding input data...&quot;</span>);</div>
 <div class="line">            var encodedList = <a class="code" href="class_apriori_all_lib_1_1_apriori_all.html#a4030f2db6e2216c8adc5b9e182f14769" title="Corresponds to 3rd step of Apriori All algorithm, namely &quot;Transformation Phase&quot;. ">EncodeCustomerList</a>(oneLitemsets, encoding);</div>
 <div class="line"></div>
-<div class="line">            <span class="keywordflow">foreach</span> (List&lt;List&lt;int&gt;&gt; c <span class="keywordflow">in</span> encodedList)</div>
+<div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
 <div class="line">            {</div>
-<div class="line">                Console.Out.Write(<span class="stringliteral">&quot; - (&quot;</span>);</div>
-<div class="line">                <span class="keywordflow">foreach</span> (List&lt;int&gt; t <span class="keywordflow">in</span> c)</div>
+<div class="line">                var customersEnumerator = <a class="code" href="class_apriori_all_lib_1_1_apriori.html#abbca8be3761136e76782ce10ebd61638" title="Input data for the algorithm. ">customerList</a>.<a class="code" href="class_apriori_all_lib_1_1_customer_list.html#a4fd2a16a984844e61ffc60b327e6534a" title="List of Customers ">Customers</a>.GetEnumerator();</div>
+<div class="line">                Trace.WriteLine(<span class="stringliteral">&quot;How the input is encoded:&quot;</span>);</div>
+<div class="line">                <span class="keywordflow">foreach</span> (List&lt;List&lt;int&gt;&gt; c <span class="keywordflow">in</span> encodedList)</div>
 <div class="line">                {</div>
-<div class="line">                    Console.Out.Write(<span class="stringliteral">&quot;{&quot;</span>);</div>
-<div class="line">                    <span class="keywordtype">bool</span> first = <span class="keyword">true</span>;</div>
-<div class="line">                    <span class="keywordflow">foreach</span> (<span class="keywordtype">int</span> i <span class="keywordflow">in</span> t)</div>
+<div class="line">                    customersEnumerator.MoveNext();</div>
+<div class="line">                    <span class="comment">//var transactionsEnumerator = customersEnumerator.Current.Transactions.GetEnumerator();</span></div>
+<div class="line">                    Trace.Write(String.Format(<span class="stringliteral">&quot; - {0} =&gt; (&quot;</span>, customersEnumerator.Current));</div>
+<div class="line">                    <span class="keywordflow">foreach</span> (List&lt;int&gt; t <span class="keywordflow">in</span> c)</div>
 <div class="line">                    {</div>
-<div class="line">                        <span class="keywordflow">if</span> (!first)</div>
-<div class="line">                            Console.Out.Write(<span class="stringliteral">&quot; &quot;</span>);</div>
-<div class="line">                        <span class="keywordflow">if</span> (first)</div>
-<div class="line">                            first = <span class="keyword">false</span>;</div>
-<div class="line">                        Console.Out.Write(<span class="stringliteral">&quot;{0}&quot;</span>, i);</div>
+<div class="line">                        <span class="comment">//transactionsEnumerator.MoveNext();</span></div>
+<div class="line">                        <span class="comment">//var itemsEnumerator = transactionsEnumerator.Current.Items.GetEnumerator();</span></div>
+<div class="line">                        Trace.Write(<span class="stringliteral">&quot;{&quot;</span>);</div>
+<div class="line">                        <span class="keywordtype">bool</span> first = <span class="keyword">true</span>;</div>
+<div class="line">                        <span class="keywordflow">foreach</span> (<span class="keywordtype">int</span> i <span class="keywordflow">in</span> t)</div>
+<div class="line">                        {</div>
+<div class="line">                            <span class="comment">//itemsEnumerator.MoveNext();</span></div>
+<div class="line">                            <span class="keywordflow">if</span> (!first)</div>
+<div class="line">                                Trace.Write(<span class="stringliteral">&quot; &quot;</span>);</div>
+<div class="line">                            <span class="keywordflow">if</span> (first)</div>
+<div class="line">                                first = <span class="keyword">false</span>;</div>
+<div class="line">                            Trace.Write(String.Format(<span class="stringliteral">&quot;{0}&quot;</span>, i));</div>
+<div class="line">                        }</div>
+<div class="line">                        Trace.Write(<span class="stringliteral">&quot;}&quot;</span>);</div>
 <div class="line">                    }</div>
-<div class="line">                    Console.Out.Write(<span class="stringliteral">&quot;}&quot;</span>);</div>
+<div class="line">                    Trace.WriteLine(<span class="stringliteral">&quot;)&quot;</span>);</div>
 <div class="line">                }</div>
-<div class="line">                Console.Out.WriteLine(<span class="stringliteral">&quot;)&quot;</span>);</div>
 <div class="line">            }</div>
 <div class="line"></div>
 <div class="line">            <span class="comment">// 4. find all frequent sequences in the input</span></div>
 <div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                Console.Out.WriteLine(<span class="stringliteral">&quot;4) Sequence Phase&quot;</span>);</div>
+<div class="line">                Trace.WriteLine(<span class="stringliteral">&quot;4) Sequence Phase&quot;</span>);</div>
 <div class="line"></div>
 <div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                Console.Out.WriteLine(<span class="stringliteral">&quot;Searching for all possible k-sequences&quot;</span>);</div>
+<div class="line">                Trace.WriteLine(<span class="stringliteral">&quot;Searching for all possible k-sequences&quot;</span>);</div>
 <div class="line">            var kSequences = <a class="code" href="class_apriori_all_lib_1_1_apriori_all.html#ab87e3f4c49f61051af5c85b7d6cde14e" title="Corresponds to 4th step of Apriori All algorithm, namely &quot;Sequence Phase&quot;. ">FindAllFrequentSequences</a>(oneLitemsets, encoding, encodedList, minSupport, progressOutput);</div>
 <div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                Console.Out.WriteLine(<span class="stringliteral">&quot;Maximal k is {0}.&quot;</span>, kSequences.Count - 2);</div>
+<div class="line">                Trace.WriteLine(String.Format(<span class="stringliteral">&quot;Maximal k is {0}.&quot;</span>, kSequences.Count - 2));</div>
 <div class="line"></div>
 <div class="line">            <span class="comment">// 5. purge all non-maximal sequences</span></div>
 <div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                Console.Out.WriteLine(<span class="stringliteral">&quot;5) Maximal Phase&quot;</span>);</div>
+<div class="line">                Trace.WriteLine(<span class="stringliteral">&quot;5) Maximal Phase&quot;</span>);</div>
 <div class="line"></div>
 <div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                Console.Out.WriteLine(<span class="stringliteral">&quot;Purging all non-maximal sequences...&quot;</span>);</div>
-<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori_all.html#ad68b617b7a2a945291c9b06efce61e4c" title="Deletes all non-maximal seqences from list of k-sequences.">PurgeAllNonMax</a>(kSequences);</div>
+<div class="line">                Trace.WriteLine(<span class="stringliteral">&quot;Purging all non-maximal sequences...&quot;</span>);</div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori_all.html#a3f249064efd36fb92129668da2d9f6f1" title="Deletes all non-maximal seqences from list of k-sequences.">PurgeAllNonMax</a>(kSequences, litemsetsContaining, progressOutput);</div>
 <div class="line"></div>
 <div class="line">            <span class="comment">// 6. decode results</span></div>
 <div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                Console.Out.WriteLine(<span class="stringliteral">&quot;Decoding results and purging again...&quot;</span>);</div>
-<div class="line">            var decodedList = <a class="code" href="class_apriori_all_lib_1_1_apriori_all.html#ad0e1764626e9c890583e7f1e5783d51e">InferRealResults</a>(encodedList, kSequences, decoding);</div>
+<div class="line">                Trace.WriteLine(<span class="stringliteral">&quot;Decoding results and purging again...&quot;</span>);</div>
+<div class="line">            var decodedList = <a class="code" href="class_apriori_all_lib_1_1_apriori_all.html#ad0e1764626e9c890583e7f1e5783d51e" title="Prepares cleaned-up and user-ready data that can be used as final output of AprioriAll algoritm...">InferRealResults</a>(encodedList, kSequences, decoding);</div>
+<div class="line"></div>
+<div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
+<div class="line">            {</div>
+<div class="line">                var decodedEnumerator = decodedList.GetEnumerator();</div>
+<div class="line">                Trace.WriteLine(<span class="stringliteral">&quot;How maximal sequences are decoded:&quot;</span>);</div>
+<div class="line">                <span class="keywordflow">foreach</span> (List&lt;List&lt;int&gt;&gt; kSequencesPartition <span class="keywordflow">in</span> kSequences)</div>
+<div class="line">                    <span class="keywordflow">foreach</span> (List&lt;int&gt; sequene <span class="keywordflow">in</span> kSequencesPartition)</div>
+<div class="line">                    {</div>
+<div class="line">                        Trace.Write(<span class="stringliteral">&quot; - &lt;&quot;</span>);</div>
+<div class="line">                        <span class="keywordtype">bool</span> first = <span class="keyword">true</span>;</div>
+<div class="line">                        <span class="keywordflow">foreach</span> (<span class="keywordtype">int</span> i <span class="keywordflow">in</span> sequene)</div>
+<div class="line">                        {</div>
+<div class="line">                            <span class="keywordflow">if</span> (!first)</div>
+<div class="line">                                Trace.Write(<span class="stringliteral">&quot; &quot;</span>);</div>
+<div class="line">                            <span class="keywordflow">if</span> (first)</div>
+<div class="line">                                first = <span class="keyword">false</span>;</div>
+<div class="line">                            Trace.Write(String.Format(<span class="stringliteral">&quot;{0}&quot;</span>, i));</div>
+<div class="line">                        }</div>
+<div class="line">                        Trace.Write(<span class="stringliteral">&quot;&gt;&quot;</span>);</div>
+<div class="line">                        <span class="keywordflow">if</span> (decodedEnumerator.MoveNext())</div>
+<div class="line">                            Trace.Write(String.Format(<span class="stringliteral">&quot; =&gt; {0}&quot;</span>, decodedEnumerator.Current));</div>
+<div class="line">                        Trace.WriteLine(<span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line">                    }</div>
+<div class="line">            }</div>
 <div class="line"></div>
 <div class="line">            <span class="comment">// 7. return results</span></div>
 <div class="line">            <span class="keywordflow">return</span> decodedList;</div>
@@ -1546,7 +2116,7 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_apriori_all_lib_1_1_apriori_all_a719d1c07f93fa2e82e1ae6dcacbb8efe_cgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_apriori_all_a719d1c07f93fa2e82e1ae6dcacbb8efe_cgraph" alt=""/></div>
 <map name="class_apriori_all_lib_1_1_apriori_all_a719d1c07f93fa2e82e1ae6dcacbb8efe_cgraph" id="class_apriori_all_lib_1_1_apriori_all_a719d1c07f93fa2e82e1ae6dcacbb8efe_cgraph">
-<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori.html#a91d0b11de53dab28769f1d7fda0542c6" title="Finds all litemsets that have the minimal support. " alt="" coords="215,5,374,46"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_apriori_all.html#a5df23984f4c14ccba3f0456673123934" title="Generates encoding and decoding dictionaries for a given set of 1&#45;sequences (large itemsets)..." alt="" coords="219,70,370,111"/><area shape="rect" id="node7" href="class_apriori_all_lib_1_1_apriori_all.html#a4030f2db6e2216c8adc5b9e182f14769" title="Corresponds to 3rd step of Apriori All algorithm, namely &quot;Transformation Phase&quot;. " alt="" coords="219,135,370,177"/><area shape="rect" id="node11" href="class_apriori_all_lib_1_1_apriori_all.html#ab87e3f4c49f61051af5c85b7d6cde14e" title="Corresponds to 4th step of Apriori All algorithm, namely &quot;Sequence Phase&quot;. " alt="" coords="205,201,384,242"/><area shape="rect" id="node17" href="class_apriori_all_lib_1_1_apriori_all.html#ad68b617b7a2a945291c9b06efce61e4c" title="Deletes all non&#45;maximal seqences from list of k&#45;sequences." alt="" coords="219,266,370,307"/><area shape="rect" id="node21" href="class_apriori_all_lib_1_1_apriori_all.html#ad0e1764626e9c890583e7f1e5783d51e" title="AprioriAllLib.AprioriAll.\lInferRealResults" alt="" coords="219,331,370,373"/><area shape="rect" id="node9" href="class_apriori_all_lib_1_1_item.html#a69489ac60415029faf0dc3e7dc926e62" title="AprioriAllLib.Item.Equals" alt="" coords="469,84,633,111"/><area shape="rect" id="node13" href="class_apriori_all_lib_1_1_apriori_all.html#ab713206403728597418b85b971cceb68" title="Generates all candidates for k&#45;sequences, basing on set of (k&#45;1)&#45;sequences. " alt="" coords="475,135,626,177"/><area shape="rect" id="node15" href="class_apriori_all_lib_1_1_apriori_all.html#afa7ed1829de9dc0de0b522e41905e300" title="Tries to match the candidate k&#45;sequence to an encoded customer, and returns true if the customer cont..." alt="" coords="432,201,669,242"/><area shape="rect" id="node19" href="class_apriori_all_lib_1_1_apriori_all.html#ad5fc82d557718ca9ba150b3fbda3ea75" title="Deletes all subsequences of ii&#45;th kk&#45;sequence from the list of k&#45;sequences. " alt="" coords="475,266,626,307"/><area shape="rect" id="node23" href="class_apriori_all_lib_1_1_apriori_all.html#aa0a08ca2d1a6ddcd4eb86812c67eb0a8" title="Concatenates all lists of k&#45;sequences into a single list. Does nothing else. " alt="" coords="471,331,631,373"/><area shape="rect" id="node25" href="class_apriori_all_lib_1_1_customer.html#a8036f14573c62b0e4785e7157a1f547b" title="AprioriAllLib.Customer.Equals" alt="" coords="453,397,648,424"/><area shape="rect" id="node27" href="class_apriori_all_lib_1_1_customer.html#af02616d948989c7ff6161efc2488ecab" title="Constructor " alt="" coords="717,397,928,424"/></map>
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori.html#a91d0b11de53dab28769f1d7fda0542c6" title="Finds all litemsets that have the minimal support. " alt="" coords="217,5,375,46"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_apriori_all.html#a1d9069babd9e846baf093edb597ee35f" title="Generates encoding and decoding dictionaries for a given set of 1&#45;sequences (large itemsets)..." alt="" coords="221,70,371,111"/><area shape="rect" id="node7" href="class_apriori_all_lib_1_1_apriori_all.html#a15b51c2de9a3d1a84559c2f3fb642b3d" title="Generates a dictionary that remembers for every litemset x: litemsets that contain x..." alt="" coords="205,135,387,177"/><area shape="rect" id="node9" href="class_apriori_all_lib_1_1_apriori_all.html#a4030f2db6e2216c8adc5b9e182f14769" title="Corresponds to 3rd step of Apriori All algorithm, namely &quot;Transformation Phase&quot;. " alt="" coords="221,201,371,242"/><area shape="rect" id="node13" href="class_apriori_all_lib_1_1_apriori_all.html#ab87e3f4c49f61051af5c85b7d6cde14e" title="Corresponds to 4th step of Apriori All algorithm, namely &quot;Sequence Phase&quot;. " alt="" coords="207,266,385,307"/><area shape="rect" id="node19" href="class_apriori_all_lib_1_1_apriori_all.html#a3f249064efd36fb92129668da2d9f6f1" title="Deletes all non&#45;maximal seqences from list of k&#45;sequences." alt="" coords="221,365,371,406"/><area shape="rect" id="node29" href="class_apriori_all_lib_1_1_apriori_all.html#ad0e1764626e9c890583e7f1e5783d51e" title="Prepares cleaned&#45;up and user&#45;ready data that can be used as final output of AprioriAll algoritm..." alt="" coords="221,470,371,511"/><area shape="rect" id="node11" href="class_apriori_all_lib_1_1_item.html#a69489ac60415029faf0dc3e7dc926e62" title="AprioriAllLib.Item.Equals" alt="" coords="477,149,641,176"/><area shape="rect" id="node15" href="class_apriori_all_lib_1_1_apriori_all.html#ab713206403728597418b85b971cceb68" title="Generates all candidates for k&#45;sequences, basing on set of (k&#45;1)&#45;sequences. " alt="" coords="483,201,634,242"/><area shape="rect" id="node17" href="class_apriori_all_lib_1_1_apriori_all.html#afa7ed1829de9dc0de0b522e41905e300" title="Tries to match the candidate k&#45;sequence to an encoded customer, and returns true if the customer cont..." alt="" coords="440,266,677,307"/><area shape="rect" id="node21" href="class_apriori_all_lib_1_1_apriori_all.html#a5f60478981222609aeecf3660d8b3450" title="AprioriAllLib.AprioriAll.\lPurgeUsingInclusionRules" alt="" coords="472,331,645,373"/><area shape="rect" id="node25" href="class_apriori_all_lib_1_1_apriori_all.html#a5e7e5f4c697bfd2571276b7bb89255d2" title="AprioriAllLib.AprioriAll.\lPurgeUsingSequenceInnerRedundancy" alt="" coords="435,397,682,438"/><area shape="rect" id="node27" href="class_apriori_all_lib_1_1_apriori_all.html#ada7deafd303a0ca62e38a5cb5d7baad0" title="AprioriAllLib.AprioriAll.\lPurgeUsingInclusionRulesWithin\lSameSize" alt="" coords="453,463,664,519"/><area shape="rect" id="node23" href="class_apriori_all_lib_1_1_apriori_all.html#ad5fc82d557718ca9ba150b3fbda3ea75" title="Deletes all subsequences of ii&#45;th kk&#45;sequence from the list of k&#45;sequences. " alt="" coords="731,331,882,373"/><area shape="rect" id="node31" href="class_apriori_all_lib_1_1_apriori_all.html#aa0a08ca2d1a6ddcd4eb86812c67eb0a8" title="Concatenates all lists of k&#45;sequences into a single list. Does nothing else. " alt="" coords="479,543,639,585"/></map>
 </div>
 </p>
 
@@ -1623,60 +2193,15 @@ Here is the call graph for this function:</div>
 <div class="line">                <span class="keywordflow">throw</span> <span class="keyword">new</span> ArgumentException(<span class="stringliteral">&quot;threshold&quot;</span>, <span class="stringliteral">&quot;threshold is out of range = (0,1]&quot;</span>);</div>
 <div class="line"></div>
 <div class="line">            <span class="keywordtype">int</span> minSupport = (int)Math.Ceiling((<span class="keywordtype">double</span>)<a class="code" href="class_apriori_all_lib_1_1_apriori.html#abbca8be3761136e76782ce10ebd61638" title="Input data for the algorithm. ">customerList</a>.<a class="code" href="class_apriori_all_lib_1_1_customer_list.html#a4fd2a16a984844e61ffc60b327e6534a" title="List of Customers ">Customers</a>.Count * threshold);</div>
-<div class="line"></div>
 <div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">            {</div>
-<div class="line">                Console.Out.WriteLine(<span class="stringliteral">&quot;Threshold = {0}  =&gt;  Minimum support = {1}&quot;</span>, threshold, minSupport);</div>
-<div class="line">                Console.Out.WriteLine(<span class="stringliteral">&quot;1) Sort Phase - list is already sorted as user sees fit&quot;</span>);</div>
-<div class="line">                Console.Out.WriteLine(<span class="stringliteral">&quot;2) Litemset Phase&quot;</span>);</div>
-<div class="line">                Console.Out.WriteLine(<span class="stringliteral">&quot;Launching Apriori...&quot;</span>);</div>
-<div class="line">            }</div>
+<div class="line">                Trace.WriteLine(String.Format(<span class="stringliteral">&quot;Threshold = {0}  =&gt;  Minimum support = {1}&quot;</span>, threshold, minSupport));</div>
+<div class="line"></div>
+<div class="line">            <span class="keywordflow">if</span> (minSupport &lt;= 0)</div>
+<div class="line">                <span class="keywordflow">throw</span> <span class="keyword">new</span> ArgumentException(<span class="stringliteral">&quot;minimum support must be positive&quot;</span>, <span class="stringliteral">&quot;minSupport&quot;</span>);</div>
 <div class="line"></div>
 <div class="line">            List&lt;Litemset&gt; oneLitemsets = <a class="code" href="class_apriori_all_lib_1_1_apriori.html#abf88e1f78883083cd20760cb43029738" title="Executes parallel version of the Apriori algorithm. ">RunParallelApriori</a>(threshold, progressOutput);</div>
 <div class="line"></div>
-<div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">            {</div>
-<div class="line">                Console.Out.WriteLine(<span class="stringliteral">&quot;Litemsets:&quot;</span>);</div>
-<div class="line">                <span class="keywordflow">foreach</span> (Litemset l <span class="keywordflow">in</span> oneLitemsets)</div>
-<div class="line">                    Console.Out.WriteLine(<span class="stringliteral">&quot; - {0}&quot;</span>, l);</div>
-<div class="line">            }</div>
-<div class="line"></div>
-<div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                Console.Out.WriteLine(<span class="stringliteral">&quot;3) Transformation Phase&quot;</span>);</div>
-<div class="line"></div>
-<div class="line">            Dictionary&lt;Litemset, int&gt; encoding;</div>
-<div class="line">            Dictionary&lt;int, Litemset&gt; decoding;</div>
-<div class="line"></div>
-<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori_all.html#a5df23984f4c14ccba3f0456673123934" title="Generates encoding and decoding dictionaries for a given set of 1-sequences (large itemsets)...">GenerateEncoding</a>(oneLitemsets, out encoding, out decoding);</div>
-<div class="line"></div>
-<div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                Console.Out.WriteLine(<span class="stringliteral">&quot;Encoding input data...&quot;</span>);</div>
-<div class="line">            var encodedList = <a class="code" href="class_apriori_all_lib_1_1_apriori_all.html#a4030f2db6e2216c8adc5b9e182f14769" title="Corresponds to 3rd step of Apriori All algorithm, namely &quot;Transformation Phase&quot;. ">EncodeCustomerList</a>(oneLitemsets, encoding);</div>
-<div class="line"></div>
-<div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">            {</div>
-<div class="line">                Console.Out.WriteLine(<span class="stringliteral">&quot;4) Sequence Phase&quot;</span>);</div>
-<div class="line">                Console.Out.WriteLine(<span class="stringliteral">&quot;Searching for all possible k-sequences&quot;</span>);</div>
-<div class="line">            }</div>
-<div class="line"></div>
-<div class="line">            var kSequences = <a class="code" href="class_apriori_all_lib_1_1_apriori_all.html#ab87e3f4c49f61051af5c85b7d6cde14e" title="Corresponds to 4th step of Apriori All algorithm, namely &quot;Sequence Phase&quot;. ">FindAllFrequentSequences</a>(oneLitemsets, encoding, encodedList, minSupport, progressOutput);</div>
-<div class="line"></div>
-<div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">            {</div>
-<div class="line">                Console.Out.WriteLine(<span class="stringliteral">&quot;Maximal k is {0}.&quot;</span>, kSequences.Count - 2);</div>
-<div class="line">                Console.Out.WriteLine(<span class="stringliteral">&quot;5) Maximal Phase&quot;</span>);</div>
-<div class="line">                Console.Out.WriteLine(<span class="stringliteral">&quot;Purging all non-maximal sequences...&quot;</span>);</div>
-<div class="line">            }</div>
-<div class="line"></div>
-<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori_all.html#ad68b617b7a2a945291c9b06efce61e4c" title="Deletes all non-maximal seqences from list of k-sequences.">PurgeAllNonMax</a>(kSequences);</div>
-<div class="line"></div>
-<div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                Console.Out.WriteLine(<span class="stringliteral">&quot;Decoding results and purging again...&quot;</span>);</div>
-<div class="line"></div>
-<div class="line">            var decodedList = <a class="code" href="class_apriori_all_lib_1_1_apriori_all.html#ad0e1764626e9c890583e7f1e5783d51e">InferRealResults</a>(encodedList, kSequences, decoding);</div>
-<div class="line"></div>
-<div class="line">            <span class="comment">// 7. return results</span></div>
-<div class="line">            <span class="keywordflow">return</span> decodedList;</div>
+<div class="line">            <span class="keywordflow">return</span> null;</div>
 <div class="line">        }</div>
 </div><!-- fragment -->
 <p><div class="dynheader">
@@ -1684,7 +2209,7 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_apriori_all_lib_1_1_apriori_all_a1abf95c25d82e6b9ff1bf26184d6c5e4_cgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_apriori_all_a1abf95c25d82e6b9ff1bf26184d6c5e4_cgraph" alt=""/></div>
 <map name="class_apriori_all_lib_1_1_apriori_all_a1abf95c25d82e6b9ff1bf26184d6c5e4_cgraph" id="class_apriori_all_lib_1_1_apriori_all_a1abf95c25d82e6b9ff1bf26184d6c5e4_cgraph">
-<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_open_c_l_checker.html#adf47c7b99e651e7fb42b5a6ff28d3df9" title="Determines and returns number of available OpenCL platforms. " alt="" coords="205,5,400,46"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_apriori_all.html#a9a05f0ff368d6dfea768ce19f09505b2" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. " alt="" coords="227,70,378,111"/><area shape="rect" id="node7" href="class_apriori_all_lib_1_1_apriori.html#abf88e1f78883083cd20760cb43029738" title="Executes parallel version of the Apriori algorithm. " alt="" coords="223,135,382,177"/><area shape="rect" id="node9" href="class_apriori_all_lib_1_1_apriori_all.html#a5df23984f4c14ccba3f0456673123934" title="Generates encoding and decoding dictionaries for a given set of 1&#45;sequences (large itemsets)..." alt="" coords="227,201,378,242"/><area shape="rect" id="node11" href="class_apriori_all_lib_1_1_apriori_all.html#a4030f2db6e2216c8adc5b9e182f14769" title="Corresponds to 3rd step of Apriori All algorithm, namely &quot;Transformation Phase&quot;. " alt="" coords="227,266,378,307"/><area shape="rect" id="node15" href="class_apriori_all_lib_1_1_apriori_all.html#ab87e3f4c49f61051af5c85b7d6cde14e" title="Corresponds to 4th step of Apriori All algorithm, namely &quot;Sequence Phase&quot;. " alt="" coords="213,331,392,373"/><area shape="rect" id="node21" href="class_apriori_all_lib_1_1_apriori_all.html#ad68b617b7a2a945291c9b06efce61e4c" title="Deletes all non&#45;maximal seqences from list of k&#45;sequences." alt="" coords="227,397,378,438"/><area shape="rect" id="node25" href="class_apriori_all_lib_1_1_apriori_all.html#ad0e1764626e9c890583e7f1e5783d51e" title="AprioriAllLib.AprioriAll.\lInferRealResults" alt="" coords="227,462,378,503"/><area shape="rect" id="node13" href="class_apriori_all_lib_1_1_item.html#a69489ac60415029faf0dc3e7dc926e62" title="AprioriAllLib.Item.Equals" alt="" coords="485,215,649,241"/><area shape="rect" id="node17" href="class_apriori_all_lib_1_1_apriori_all.html#ab713206403728597418b85b971cceb68" title="Generates all candidates for k&#45;sequences, basing on set of (k&#45;1)&#45;sequences. " alt="" coords="491,266,642,307"/><area shape="rect" id="node19" href="class_apriori_all_lib_1_1_apriori_all.html#afa7ed1829de9dc0de0b522e41905e300" title="Tries to match the candidate k&#45;sequence to an encoded customer, and returns true if the customer cont..." alt="" coords="448,331,685,373"/><area shape="rect" id="node23" href="class_apriori_all_lib_1_1_apriori_all.html#ad5fc82d557718ca9ba150b3fbda3ea75" title="Deletes all subsequences of ii&#45;th kk&#45;sequence from the list of k&#45;sequences. " alt="" coords="491,397,642,438"/><area shape="rect" id="node27" href="class_apriori_all_lib_1_1_apriori_all.html#aa0a08ca2d1a6ddcd4eb86812c67eb0a8" title="Concatenates all lists of k&#45;sequences into a single list. Does nothing else. " alt="" coords="487,462,647,503"/><area shape="rect" id="node29" href="class_apriori_all_lib_1_1_customer.html#a8036f14573c62b0e4785e7157a1f547b" title="AprioriAllLib.Customer.Equals" alt="" coords="469,528,664,555"/><area shape="rect" id="node31" href="class_apriori_all_lib_1_1_customer.html#af02616d948989c7ff6161efc2488ecab" title="Constructor " alt="" coords="733,528,944,555"/></map>
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_open_c_l_checker.html#adf47c7b99e651e7fb42b5a6ff28d3df9" title="Determines and returns number of available OpenCL platforms. " alt="" coords="205,5,400,46"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_apriori_all.html#a9a05f0ff368d6dfea768ce19f09505b2" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. " alt="" coords="227,70,378,111"/><area shape="rect" id="node7" href="class_apriori_all_lib_1_1_apriori.html#abf88e1f78883083cd20760cb43029738" title="Executes parallel version of the Apriori algorithm. " alt="" coords="223,135,382,177"/></map>
 </div>
 </p>
 

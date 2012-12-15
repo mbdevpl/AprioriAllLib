@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Data Mining project - AprioriAll implementation: AprioriAllLib.Apriori Class Reference</title>
+<title>Apriori and AprioriAll in C#: AprioriAllLib.Apriori Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Data Mining project - AprioriAll implementation
+   <div id="projectname">Apriori and AprioriAll in C#
    &#160;<span id="projectnumber">version 1.0</span>
    </div>
    <div id="projectbrief">authors: Karolina Baltyn, Mateusz Bysiek</div>
@@ -121,7 +121,7 @@ Inheritance diagram for AprioriAllLib.Apriori:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_apriori_all_lib_1_1_apriori__inherit__graph.png" border="0" usemap="#_apriori_all_lib_8_apriori_inherit__map" alt="Inheritance graph"/></div>
 <map name="_apriori_all_lib_8_apriori_inherit__map" id="_apriori_all_lib_8_apriori_inherit__map">
-<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori_all.html" title="AprioriAll algorithm implementation. " alt="" coords="5,365,261,648"/></map>
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori_all.html" title="AprioriAll algorithm implementation. " alt="" coords="5,365,272,736"/></map>
 </div>
 <div class="dynheader">
 Collaboration diagram for AprioriAllLib.Apriori:</div>
@@ -168,6 +168,7 @@ Protected Attributes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a3e27bfc3293bb018f793c1b19df112e3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#a3e27bfc3293bb018f793c1b19df112e3">clInitialized</a></td></tr>
+<tr class="memdesc:a3e27bfc3293bb018f793c1b19df112e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicator whether OpenCL platorm and device information is alread gathered by this instance of <a class="el" href="class_apriori_all_lib_1_1_apriori.html" title="This class is used for calculating litemsets from a set of customers&#39; transactions">Apriori</a>, and whether context was created for it.  <a href="#a3e27bfc3293bb018f793c1b19df112e3"></a><br/></td></tr>
 <tr class="separator:a3e27bfc3293bb018f793c1b19df112e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab2d6d8f3f2b34ac27f51ca60738d448c"><td class="memItemLeft" align="right" valign="top">Cl.Platform&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#ab2d6d8f3f2b34ac27f51ca60738d448c">platform</a></td></tr>
 <tr class="separator:ab2d6d8f3f2b34ac27f51ca60738d448c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -178,6 +179,7 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a5d8b5f3eb0d9e2509a23626ad07cd02c"><td class="memItemLeft" align="right" valign="top">Cl.Context&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#a5d8b5f3eb0d9e2509a23626ad07cd02c">context</a></td></tr>
 <tr class="separator:a5d8b5f3eb0d9e2509a23626ad07cd02c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a345b5beaaa4b430e0dc5a034a00bad81"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#a345b5beaaa4b430e0dc5a034a00bad81">clProgramsInitialized</a></td></tr>
+<tr class="memdesc:a345b5beaaa4b430e0dc5a034a00bad81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inditator whether source code of OpenCL kernels was already read by this instance.  <a href="#a345b5beaaa4b430e0dc5a034a00bad81"></a><br/></td></tr>
 <tr class="separator:a345b5beaaa4b430e0dc5a034a00bad81"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0985df9891c156e195a9af2dfefa7087"><td class="memItemLeft" align="right" valign="top">Cl.Program&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#a0985df9891c156e195a9af2dfefa7087">program</a></td></tr>
 <tr class="separator:a0985df9891c156e195a9af2dfefa7087"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -214,8 +216,8 @@ Private Attributes</h2></td></tr>
 <div class="fragment"><div class="line">        {</div>
 <div class="line">            this.<a class="code" href="class_apriori_all_lib_1_1_apriori.html#abbca8be3761136e76782ce10ebd61638" title="Input data for the algorithm. ">customerList</a> = <a class="code" href="class_apriori_all_lib_1_1_apriori.html#abbca8be3761136e76782ce10ebd61638" title="Input data for the algorithm. ">customerList</a>;</div>
 <div class="line"></div>
-<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a3e27bfc3293bb018f793c1b19df112e3">clInitialized</a> = <span class="keyword">false</span>;</div>
-<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a345b5beaaa4b430e0dc5a034a00bad81">clProgramsInitialized</a> = <span class="keyword">false</span>;</div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a3e27bfc3293bb018f793c1b19df112e3" title="Indicator whether OpenCL platorm and device information is alread gathered by this instance of Aprior...">clInitialized</a> = <span class="keyword">false</span>;</div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a345b5beaaa4b430e0dc5a034a00bad81" title="Inditator whether source code of OpenCL kernels was already read by this instance. ">clProgramsInitialized</a> = <span class="keyword">false</span>;</div>
 <div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a13238b5db6315e5af92081b8de4001c1">clKernelsInitialized</a> = <span class="keyword">false</span>;</div>
 <div class="line">        }</div>
 </div><!-- fragment -->
@@ -316,7 +318,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 <div class="fragment"><div class="line">        {</div>
-<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a3e27bfc3293bb018f793c1b19df112e3">clInitialized</a>)</div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a3e27bfc3293bb018f793c1b19df112e3" title="Indicator whether OpenCL platorm and device information is alread gathered by this instance of Aprior...">clInitialized</a>)</div>
 <div class="line">                <span class="keywordflow">return</span>; <span class="comment">// already initialized</span></div>
 <div class="line"></div>
 <div class="line">            Cl.ErrorCode err;</div>
@@ -341,9 +343,9 @@ Here is the caller graph for this function:</div>
 <div class="line">                <span class="keywordflow">throw</span> <span class="keyword">new</span> Cl.Exception(err, <span class="stringliteral">&quot;could not create context&quot;</span>);</div>
 <div class="line"></div>
 <div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                Console.Out.WriteLine(<span class="stringliteral">&quot;Initialized OpenCL.&quot;</span>);</div>
+<div class="line">                Trace.WriteLine(<span class="stringliteral">&quot;Initialized OpenCL.&quot;</span>);</div>
 <div class="line"></div>
-<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a3e27bfc3293bb018f793c1b19df112e3">clInitialized</a> = <span class="keyword">true</span>;</div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a3e27bfc3293bb018f793c1b19df112e3" title="Indicator whether OpenCL platorm and device information is alread gathered by this instance of Aprior...">clInitialized</a> = <span class="keyword">true</span>;</div>
 <div class="line">        }</div>
 </div><!-- fragment -->
 <p><div class="dynheader">
@@ -379,59 +381,25 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 <div class="fragment"><div class="line">        {</div>
-<div class="line">            Cl.ErrorCode err;</div>
+<div class="line">            <span class="comment">//Cl.ErrorCode err;</span></div>
 <div class="line"></div>
-<div class="line">            <span class="keywordflow">if</span> (!<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a345b5beaaa4b430e0dc5a034a00bad81">clProgramsInitialized</a>)</div>
-<div class="line">            {</div>
-<div class="line"></div>
-<div class="line">                <span class="keywordtype">string</span>[] sourceCode = System.IO.File.ReadAllLines(<span class="stringliteral">&quot;subsets.cl&quot;</span>);</div>
-<div class="line">                IntPtr[] lenghts = <span class="keyword">new</span> IntPtr[sourceCode.Length];</div>
-<div class="line"></div>
-<div class="line">                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; sourceCode.Length; ++i)</div>
-<div class="line">                {</div>
-<div class="line">                    sourceCode[i] += <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line">                    lenghts[i] = <span class="keyword">new</span> IntPtr(sourceCode[i].Length);</div>
-<div class="line">                }</div>
-<div class="line"></div>
-<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a0985df9891c156e195a9af2dfefa7087">program</a> = Cl.CreateProgramWithSource(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a5d8b5f3eb0d9e2509a23626ad07cd02c">context</a>, (uint)sourceCode.Length, sourceCode, lenghts, out err);</div>
-<div class="line">                <span class="keywordflow">if</span> (!err.Equals(Cl.ErrorCode.Success))</div>
-<div class="line">                    <span class="keywordflow">throw</span> <span class="keyword">new</span> Cl.Exception(err, <span class="stringliteral">&quot;could not create program&quot;</span>);</div>
-<div class="line"></div>
-<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a345b5beaaa4b430e0dc5a034a00bad81">clProgramsInitialized</a> = <span class="keyword">true</span>;</div>
-<div class="line">            }</div>
 <div class="line">            <span class="keywordflow">if</span> (!<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a13238b5db6315e5af92081b8de4001c1">clKernelsInitialized</a>)</div>
 <div class="line">            {</div>
-<div class="line">                err = Cl.BuildProgram(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a0985df9891c156e195a9af2dfefa7087">program</a>, 1, <a class="code" href="class_apriori_all_lib_1_1_apriori.html#aea39ed1929ca59c4e4f395069f26ed50">devices</a>, <span class="stringliteral">&quot;&quot;</span>, null, IntPtr.Zero);</div>
-<div class="line">                <span class="keywordflow">if</span> (!err.Equals(Cl.ErrorCode.Success))</div>
+<div class="line">                <span class="keywordflow">if</span> (!<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a345b5beaaa4b430e0dc5a034a00bad81" title="Inditator whether source code of OpenCL kernels was already read by this instance. ">clProgramsInitialized</a>)</div>
 <div class="line">                {</div>
+<div class="line">                    <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a0985df9891c156e195a9af2dfefa7087">program</a> = OpenCLToolkit.GetAndBuildProgramFromLocalResource(<span class="stringliteral">&quot;subsets.cl&quot;</span>, <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a5d8b5f3eb0d9e2509a23626ad07cd02c">context</a>, <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a297b321a5b1fd50d9da8678848aed8b9">device</a>,</div>
+<div class="line">                        progressOutput ? Console.Out : null);</div>
+<div class="line"></div>
 <div class="line">                    <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                    {</div>
-<div class="line">                        Console.Out.WriteLine(<span class="stringliteral">&quot;Build failed.&quot;</span>);</div>
-<div class="line">                        Console.Out.WriteLine(OpenCLChecker.GetBuildInfo(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a0985df9891c156e195a9af2dfefa7087">program</a>, <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a297b321a5b1fd50d9da8678848aed8b9">device</a>));</div>
-<div class="line">                    }</div>
-<div class="line">                    <span class="keywordflow">throw</span> <span class="keyword">new</span> Cl.Exception(err, <span class="stringliteral">&quot;could not build program&quot;</span>);</div>
+<div class="line">                        Trace.WriteLine(<span class="stringliteral">&quot;Built OpenCL programs.&quot;</span>);</div>
+<div class="line"></div>
+<div class="line">                    <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a345b5beaaa4b430e0dc5a034a00bad81" title="Inditator whether source code of OpenCL kernels was already read by this instance. ">clProgramsInitialized</a> = <span class="keyword">true</span>;</div>
 <div class="line">                }</div>
-<div class="line"></div>
-<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#afd4d28c93369b28121a358090bb50818">kernel</a> = Cl.CreateKernel(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a0985df9891c156e195a9af2dfefa7087">program</a>, <span class="stringliteral">&quot;countSubsetsSupport&quot;</span>, out err);</div>
-<div class="line">                <span class="keywordflow">if</span> (!err.Equals(Cl.ErrorCode.Success))</div>
-<div class="line">                    <span class="keywordflow">throw</span> <span class="keyword">new</span> Cl.Exception(err, <span class="stringliteral">&quot;could not create kernel&quot;</span>);</div>
-<div class="line"></div>
-<div class="line">                <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                    Console.Out.WriteLine(<span class="stringliteral">&quot;Compiled kernels.&quot;</span>);</div>
 <div class="line"></div>
 <div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a13238b5db6315e5af92081b8de4001c1">clKernelsInitialized</a> = <span class="keyword">true</span>;</div>
 <div class="line">            }</div>
 <div class="line">        }</div>
 </div><!-- fragment -->
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_apriori_all_lib_1_1_apriori_a18cf381897f6f8d622bd6ba57b6ab46b_cgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_apriori_a18cf381897f6f8d622bd6ba57b6ab46b_cgraph" alt=""/></div>
-<map name="class_apriori_all_lib_1_1_apriori_a18cf381897f6f8d622bd6ba57b6ab46b_cgraph" id="class_apriori_all_lib_1_1_apriori_a18cf381897f6f8d622bd6ba57b6ab46b_cgraph">
-<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_open_c_l_checker.html#ae52ccff5d63aba27e9c5932c281ed494" title="AprioriAllLib.OpenCLChecker.\lGetBuildInfo" alt="" coords="208,5,403,46"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_open_c_l_checker.html#a07d311d65baca6836000be716fc575e2" title="AprioriAllLib.OpenCLChecker.\lTrueIfError" alt="" coords="451,5,645,46"/></map>
-</div>
-</p>
-
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -557,7 +525,7 @@ Here is the caller graph for this function:</div>
 <div class="line">            }</div>
 <div class="line"></div>
 <div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                Console.Out.WriteLine(<span class="stringliteral">&quot;Finished subset generation, found {0}.&quot;</span>, litemsets.Count);</div>
+<div class="line">                Trace.WriteLine(String.Format(<span class="stringliteral">&quot;Finished subset generation, found {0}.&quot;</span>, litemsets.Count));</div>
 <div class="line"></div>
 <div class="line">            <span class="comment">// rewrite the litemsets with support &gt;= minimum to a new list</span></div>
 <div class="line">            List&lt;Litemset&gt; properLitemsets = <span class="keyword">new</span> List&lt;Litemset&gt;();</div>
@@ -566,12 +534,12 @@ Here is the caller graph for this function:</div>
 <div class="line">                    properLitemsets.Add(litemset);</div>
 <div class="line"></div>
 <div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                Console.Out.WriteLine(<span class="stringliteral">&quot;Purged unsupported litemsets, {0} remain.&quot;</span>, properLitemsets.Count);</div>
+<div class="line">                Trace.WriteLine(String.Format(<span class="stringliteral">&quot;Purged unsupported litemsets, {0} remain.&quot;</span>, properLitemsets.Count));</div>
 <div class="line"></div>
 <div class="line">            properLitemsets.Sort();</div>
 <div class="line"></div>
 <div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                Console.Out.WriteLine(<span class="stringliteral">&quot;Sorted output.&quot;</span>);</div>
+<div class="line">                Trace.WriteLine(<span class="stringliteral">&quot;Sorted output.&quot;</span>);</div>
 <div class="line"></div>
 <div class="line">            <span class="keywordflow">return</span> properLitemsets;</div>
 <div class="line">        }</div>
@@ -668,10 +636,17 @@ Here is the caller graph for this function:</div>
 <div class="line">            List&lt;Litemset&gt; litemsets = <span class="keyword">new</span> List&lt;Litemset&gt;();</div>
 <div class="line"></div>
 <div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a6421baeff907e6e56568e277f3bafd6b">InitOpenCL</a>(progressOutput);</div>
-<div class="line"></div>
 <div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a18cf381897f6f8d622bd6ba57b6ab46b">InitOpenCLKernels</a>(progressOutput);</div>
 <div class="line"></div>
 <div class="line">            Cl.ErrorCode err;</div>
+<div class="line"></div>
+<div class="line">            Cl.GetKernelInfo(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#afd4d28c93369b28121a358090bb50818">kernel</a>, Cl.KernelInfo.FunctionName, out err);</div>
+<div class="line">            <span class="keywordflow">if</span>(err.Equals(Cl.ErrorCode.Success))</div>
+<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#afd4d28c93369b28121a358090bb50818">kernel</a>.Dispose();</div>
+<div class="line"></div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#afd4d28c93369b28121a358090bb50818">kernel</a> = Cl.CreateKernel(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a0985df9891c156e195a9af2dfefa7087">program</a>, <span class="stringliteral">&quot;countSubsetsSupport&quot;</span>, out err);</div>
+<div class="line">            <span class="keywordflow">if</span> (!err.Equals(Cl.ErrorCode.Success))</div>
+<div class="line">                <span class="keywordflow">throw</span> <span class="keyword">new</span> Cl.Exception(err, <span class="stringliteral">&quot;could not create kernel&quot;</span>);</div>
 <div class="line"></div>
 <div class="line">            Cl.CommandQueue queue = Cl.CreateCommandQueue(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a5d8b5f3eb0d9e2509a23626ad07cd02c">context</a>, <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a297b321a5b1fd50d9da8678848aed8b9">device</a>, Cl.CommandQueueProperties.None, out err);</div>
 <div class="line">            <span class="keywordflow">if</span> (!err.Equals(Cl.ErrorCode.Success))</div>
@@ -737,7 +712,7 @@ Here is the caller graph for this function:</div>
 <div class="line">                <span class="keywordflow">throw</span> <span class="keyword">new</span> Cl.Exception(err, <span class="stringliteral">&quot;could not initialize buffer&quot;</span>);</div>
 <div class="line"></div>
 <div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                Console.Out.WriteLine(<span class="stringliteral">&quot;Copied input data to device memory.&quot;</span>);</div>
+<div class="line">                Trace.WriteLine(<span class="stringliteral">&quot;Copied input data to device memory.&quot;</span>);</div>
 <div class="line"></div>
 <div class="line">            err = Cl.SetKernelArg(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#afd4d28c93369b28121a358090bb50818">kernel</a>, 0, setsCountBuf); <span class="comment">//setsCount</span></div>
 <div class="line">            <span class="keywordflow">if</span> (!err.Equals(Cl.ErrorCode.Success))</div>
@@ -767,7 +742,7 @@ Here is the caller graph for this function:</div>
 <div class="line">                    <span class="keywordflow">throw</span> <span class="keyword">new</span> Cl.Exception(err, <span class="stringliteral">&quot;error while launching kernel&quot;</span>);</div>
 <div class="line"></div>
 <div class="line">                <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                    Console.Out.WriteLine(<span class="stringliteral">&quot;launched kernel for subset size n-{0}.&quot;</span>, subsetSize[0]);</div>
+<div class="line">                    Trace.WriteLine(String.Format(<span class="stringliteral">&quot;launched kernel for subset size n-{0}.&quot;</span>, subsetSize[0]));</div>
 <div class="line"></div>
 <div class="line">                subsetSize[0] += 1;</div>
 <div class="line">                err = Cl.EnqueueWriteBuffer(queue, subsetSizeBuf, Cl.Bool.True, IntPtr.Zero, subsetSizeLen, subsetSize,</div>
@@ -777,7 +752,7 @@ Here is the caller graph for this function:</div>
 <div class="line">            }</div>
 <div class="line"></div>
 <div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                Console.Out.WriteLine(<span class="stringliteral">&quot;Finished subset generation.&quot;</span>);</div>
+<div class="line">                Trace.WriteLine(<span class="stringliteral">&quot;Finished subset generation.&quot;</span>);</div>
 <div class="line"></div>
 <div class="line">            <span class="comment">//Cl.InfoBuffer buf3 = Cl.GetMemObjectInfo(supportsBuf, Cl.MemInfo.HostPtr, out err);</span></div>
 <div class="line">            <span class="comment">//Cl.InfoBuffer buf = Cl.GetMemObjectInfo(supportsBuf, Cl.MemInfo.Size, out err);</span></div>
@@ -797,7 +772,7 @@ Here is the caller graph for this function:</div>
 <div class="line">            }</div>
 <div class="line"></div>
 <div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                Console.Out.WriteLine(<span class="stringliteral">&quot;Generated all litemsets, found {0}.&quot;</span>, litemsets.Count);</div>
+<div class="line">                Trace.WriteLine(String.Format(<span class="stringliteral">&quot;Generated all litemsets, found {0}.&quot;</span>, litemsets.Count));</div>
 <div class="line"></div>
 <div class="line">            <span class="keywordflow">return</span> litemsets;</div>
 <div class="line">        }</div>
@@ -807,7 +782,7 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_apriori_all_lib_1_1_apriori_acc814f1f0486ef94181556bb96750b95_cgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_apriori_acc814f1f0486ef94181556bb96750b95_cgraph" alt=""/></div>
 <map name="class_apriori_all_lib_1_1_apriori_acc814f1f0486ef94181556bb96750b95_cgraph" id="class_apriori_all_lib_1_1_apriori_acc814f1f0486ef94181556bb96750b95_cgraph">
-<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_open_c_l_checker.html#adf47c7b99e651e7fb42b5a6ff28d3df9" title="Determines and returns number of available OpenCL platforms. " alt="" coords="213,5,408,46"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_apriori.html#a91d0b11de53dab28769f1d7fda0542c6" title="Finds all litemsets that have the minimal support. " alt="" coords="231,70,390,111"/><area shape="rect" id="node7" href="class_apriori_all_lib_1_1_apriori.html#a6421baeff907e6e56568e277f3bafd6b" title="AprioriAllLib.Apriori.Init\lOpenCL" alt="" coords="234,135,387,177"/><area shape="rect" id="node9" href="class_apriori_all_lib_1_1_apriori.html#a18cf381897f6f8d622bd6ba57b6ab46b" title="AprioriAllLib.Apriori.Init\lOpenCLKernels" alt="" coords="234,201,387,242"/><area shape="rect" id="node11" href="class_apriori_all_lib_1_1_open_c_l_checker.html#ae52ccff5d63aba27e9c5932c281ed494" title="AprioriAllLib.OpenCLChecker.\lGetBuildInfo" alt="" coords="456,201,651,242"/><area shape="rect" id="node13" href="class_apriori_all_lib_1_1_open_c_l_checker.html#a07d311d65baca6836000be716fc575e2" title="AprioriAllLib.OpenCLChecker.\lTrueIfError" alt="" coords="699,201,893,242"/></map>
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_open_c_l_checker.html#adf47c7b99e651e7fb42b5a6ff28d3df9" title="Determines and returns number of available OpenCL platforms. " alt="" coords="213,5,408,46"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_apriori.html#a91d0b11de53dab28769f1d7fda0542c6" title="Finds all litemsets that have the minimal support. " alt="" coords="231,70,390,111"/><area shape="rect" id="node7" href="class_apriori_all_lib_1_1_apriori.html#a6421baeff907e6e56568e277f3bafd6b" title="AprioriAllLib.Apriori.Init\lOpenCL" alt="" coords="234,135,387,177"/><area shape="rect" id="node9" href="class_apriori_all_lib_1_1_apriori.html#a18cf381897f6f8d622bd6ba57b6ab46b" title="AprioriAllLib.Apriori.Init\lOpenCLKernels" alt="" coords="234,201,387,242"/></map>
 </div>
 </p>
 
@@ -831,6 +806,8 @@ Here is the call graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Indicator whether OpenCL platorm and device information is alread gathered by this instance of <a class="el" href="class_apriori_all_lib_1_1_apriori.html" title="This class is used for calculating litemsets from a set of customers&#39; transactions">Apriori</a>, and whether context was created for it. </p>
 
 </div>
 </div>
@@ -871,6 +848,8 @@ Here is the call graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Inditator whether source code of OpenCL kernels was already read by this instance. </p>
 
 </div>
 </div>

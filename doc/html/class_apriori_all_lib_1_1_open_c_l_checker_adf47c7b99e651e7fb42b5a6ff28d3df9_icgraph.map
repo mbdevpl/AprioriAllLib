@@ -1,6 +1,6 @@
 <map id="AprioriAllLib.OpenCLChecker.PlatformsCount" name="AprioriAllLib.OpenCLChecker.PlatformsCount">
-<area shape="rect" id="node3" href="$class_apriori_all_lib_1_1_apriori.html#acc814f1f0486ef94181556bb96750b95" title="Executes parallel version of the Apriori algorithm. " alt="" coords="255,5,414,46"/>
-<area shape="rect" id="node5" href="$class_apriori_all_lib_1_1_apriori_all.html#a1abf95c25d82e6b9ff1bf26184d6c5e4" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. It uses parallel version..." alt="" coords="259,70,410,111"/>
-<area shape="rect" id="node7" href="$class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test.html#a22505b627464f78b30171ef28b16ca1d" title="AprioriAllLib.Test.Apriori\lParallelTest.Test_OpenCL\l_PlatformsCount" alt="" coords="248,136,421,192"/>
-<area shape="rect" id="node9" href="$class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test.html#ae8bd9720beba247a09289a135d895144" title="AprioriAllLib.Test.Apriori\lParallelTest.Test_OpenCL\l_DevicesCount" alt="" coords="248,216,421,272"/>
+<area shape="rect" id="node3" href="$class_apriori_all_lib_1_1_apriori.html#acc814f1f0486ef94181556bb96750b95" title="Executes parallel version of the Apriori algorithm. " alt="" coords="269,5,427,46"/>
+<area shape="rect" id="node5" href="$class_apriori_all_lib_1_1_apriori_all.html#a1abf95c25d82e6b9ff1bf26184d6c5e4" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. It uses parallel version..." alt="" coords="273,70,423,111"/>
+<area shape="rect" id="node7" href="$class_apriori_all_lib_1_1_test_1_1_open_c_l_test.html#a2b74ad9d2fa22677ff418a722f629019" title="AprioriAllLib.Test.OpenCLTest.\lTest_OpenCL_PlatformsCount" alt="" coords="248,135,448,177"/>
+<area shape="rect" id="node9" href="$class_apriori_all_lib_1_1_test_1_1_open_c_l_test.html#a02a5417a4427e7321313b8e022b44141" title="AprioriAllLib.Test.OpenCLTest.\lTest_OpenCL_DevicesCount" alt="" coords="248,201,448,242"/>
 </map>
