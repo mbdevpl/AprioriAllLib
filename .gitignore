@@ -1,6 +1,7 @@
 Thumbs.db
 *.suo
 *.csproj.user
+/bin/Debug
 /src/*/obj
 /src/*/bin
 /src/TestResults
