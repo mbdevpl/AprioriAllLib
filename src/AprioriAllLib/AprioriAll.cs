@@ -342,7 +342,7 @@ namespace AprioriAllLib
 			List<int> temporaryContainingList = null;
 			bool allNeededItemsArePresent = true;
 			int prevFoundIndex = 0/*-1*/;
-			List<int> usedProductsFromCurrentCandidate = new List<int>();
+			List<int> usedLitemsetsFromCurrentCandidate = new List<int>();
 			for (int j = 0; j < candidate.Count; ++j)
 			{
 				int jthCandidateElem = candidate[j];
@@ -355,13 +355,16 @@ namespace AprioriAllLib
 					bool foundJthItemInIthTransaction = false;
 					for (int k = 0; k < ithTransaction.Count; ++k)
 					{
-						if (usedProductsFromCurrentCandidate.Contains(k))
+						int kthLitemsetOfIthTransaction = ithTransaction[k];
+
+						if (usedLitemsetsFromCurrentCandidate.Contains(kthLitemsetOfIthTransaction))
 							continue;
-						if (ithTransaction[k] == jthCandidateElem)
+
+						if (kthLitemsetOfIthTransaction == jthCandidateElem)
 						{
 							foundJthItemInIthTransaction = true;
 							prevFoundIndex = i;
-							usedProductsFromCurrentCandidate.Add(k);
+							usedLitemsetsFromCurrentCandidate.Add(kthLitemsetOfIthTransaction);
 							jthCandidateFound = true;
 							if (containmentRules != null)
 							{
@@ -369,9 +372,9 @@ namespace AprioriAllLib
 								{
 									foreach (int containingLitemset in temporaryContainingList)
 									{
-										int index = ithTransaction.FindIndex(x => x == containingLitemset);
-										if (index > 0)
-											usedProductsFromCurrentCandidate.Add(index);
+										//int index = ithTransaction.FindIndex(x => x == containingLitemset);
+										//if (index > 0)
+										usedLitemsetsFromCurrentCandidate.Add(containingLitemset);
 									}
 								}
 							}
@@ -386,7 +389,7 @@ namespace AprioriAllLib
 					//	jthCandidateFound = true;
 					//	break;
 					//}
-					usedProductsFromCurrentCandidate.Clear();
+					usedLitemsetsFromCurrentCandidate.Clear();
 				}
 				if (!jthCandidateFound)
 				{
@@ -425,6 +428,8 @@ namespace AprioriAllLib
 				kSequences[1].Add(lst);
 			}
 
+			Stopwatch matchingWatch = new Stopwatch();
+
 			for (int k = 2; kSequences.Count >= k && kSequences[k - 1].Count > 0; ++k)
 			{
 				if (progressOutput)
@@ -438,6 +443,7 @@ namespace AprioriAllLib
 
 				// calculate support of each candidate by analyzing the whole encoded input
 
+				matchingWatch.Restart();
 				Dictionary<List<int>, int>.KeyCollection keysOrig = candidates.Keys;
 				List<List<int>> keys = new List<List<int>>(keysOrig);
 				for (int n = 0; n < keys.Count; ++n)
@@ -486,8 +492,10 @@ namespace AprioriAllLib
 						kSequences[k].Add(candidate);
 
 				}
+				matchingWatch.Stop();
 				if (progressOutput)
-					Trace.WriteLine(String.Format(" Found {0} sequences that have sufficient support.", kSequences[k].Count));
+					Trace.WriteLine(String.Format(" Found {0} sequences that have sufficient support, in {1}ms.",
+						kSequences[k].Count, matchingWatch.ElapsedMilliseconds));
 			}
 
 			return kSequences;
@@ -1096,7 +1104,7 @@ namespace AprioriAllLib
 				Trace.WriteLine("Encoding input data...");
 			var encodedList = EncodeCustomerList(oneLitemsets, encoding);
 
-			if (progressOutput)
+			if (progressOutput && encodedList.Count <= 100)
 			{
 				var customersEnumerator = customerList.Customers.GetEnumerator();
 				Trace.WriteLine("How the input is encoded:");

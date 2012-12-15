@@ -18,14 +18,14 @@ namespace AprioriAllLib.Test.InConsole
 
 			Console.Out.WriteLine("Serialized AprioriAll algorithm test");
 
-			//Arrange
 			CustomerList input
-				//= InputGenerator.GenerateRandomList(700, 7, 7);
 				//= XmlReader.ReadFromXmlFile("dataset3.xml");
-				= Data.DataSet3;
-			double support = 0.2;
+				//= Data.DataSet3;
+				= InputGenerator.GenerateRandomList(2000, 5, 5);
+			double support = 0.6;
 
-			program.PrintInput(input);
+			if (input.Customers.Count <= 100)
+				program.PrintInput(input);
 
 			Console.Out.WriteLine("\nComputation:");
 			AprioriAll all = new AprioriAll(input);
