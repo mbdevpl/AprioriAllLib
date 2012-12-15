@@ -1,5 +1,5 @@
-Apriori All algorithm implementation {#mainpage}
-====================================
+Apriori and AprioriAll in C# {#mainpage}
+============================
 
 Authors: Karolina Baltyn and Mateusz Bysiek
 of Faculty of Mathematics and Information Sciences
@@ -22,10 +22,14 @@ at Warsaw University of Technology
 
 ## How to use the application
 
-Launch <code>/bin/Release/AprioriAll.bat</code> to see an example.
+Launch <code>/bin/Release/AprioriAll.bat</code> 
+or <code>/bin/Release/Apriori.bat</code>
+to see an example.
 
-Launch <code>/bin/Release/AprioriAll.exe</code> with correct command line arguments 
-to execute AprioriAll algorithm for an arbitrary input data. When the program is run without any options,
+Launch <code>/bin/Release/AprioriAll.exe</code> 
+or <code>/bin/Release/Apriori.exe</code>
+with correct command line arguments to execute AprioriAll algorithm 
+for an arbitrary input data. When the program is run without any options,
 it displays information about available options.
 
 ### Examples

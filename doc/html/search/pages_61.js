@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['apriori_20all_20algorithm_20implementation',['Apriori All algorithm implementation',['../index.html',1,'']]]
+  ['apriori_20and_20aprioriall_20in_20c_23',['Apriori and AprioriAll in C#',['../index.html',1,'']]]
 ];

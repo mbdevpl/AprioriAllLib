@@ -28,6 +28,6 @@ var searchData=
   ['availableplatformswithdevices',['AvailablePlatformsWithDevices',['../class_apriori_all_lib_1_1_open_c_l_checker.html#a148326e54e04c29b067ad42d1b245b81',1,'AprioriAllLib::OpenCLChecker']]],
   ['availableplatfroms',['AvailablePlatfroms',['../class_apriori_all_lib_1_1_open_c_l_checker.html#a87b058b5c16c68126b71e18ad5593afa',1,'AprioriAllLib::OpenCLChecker']]],
   ['inconsole',['InConsole',['../namespace_apriori_all_lib_1_1_test_1_1_in_console.html',1,'AprioriAllLib::Test']]],
-  ['apriori_20all_20algorithm_20implementation',['Apriori All algorithm implementation',['../index.html',1,'']]],
+  ['apriori_20and_20aprioriall_20in_20c_23',['Apriori and AprioriAll in C#',['../index.html',1,'']]],
   ['test',['Test',['../namespace_apriori_all_lib_1_1_test.html',1,'AprioriAllLib']]]
 ];
