@@ -103,7 +103,7 @@ namespace AprioriAllLib
 			return currentNode.CheckEnd();
 		}
 
-		internal PrefixTreeNode GetNode(List<int> list, int omittedIndex)
+		public PrefixTreeNode GetNode(List<int> list, int omittedIndex)
 		{
 			if (root == null)
 				return null;
@@ -122,5 +122,24 @@ namespace AprioriAllLib
 			return currentNode;
 		}
 
+		//public bool CheckSubPath(List<int> path)
+		//{
+		//	return CheckSubPath(path, 0);
+		//}
+
+		///// <summary>
+		///// Checks if a given path exists (at least partially) in the tree.
+		///// </summary>
+		///// <param name="path"></param>
+		///// <param name="maxSkippedNodes">maximum number of nodes that can be skipped over;
+		///// each skipped node increases time complexity by width of the tree, 
+		///// i.e. for 1 skipped node and path length 5, the checking time is $5(width^1)$
+		///// and for 2 skipped nodes, path 7, the time is $7(width^2)$
+		///// </param>
+		///// <returns></returns>
+		//public bool CheckSubPath(List<int> path, int maxSkippedNodes)
+		//{
+		//	return false;
+		//}
 	}
 }

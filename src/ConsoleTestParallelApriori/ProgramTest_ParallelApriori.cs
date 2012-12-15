@@ -15,7 +15,7 @@ namespace AprioriAllLib.Test.InConsole
 
 		private static void Main(string[] args)
 		{
-			TestBaseInitialize();
+			var program = new ProgramTest_ParallelApriori();
 
 			Console.Out.WriteLine("Parallel Apriori algorithm test");
 

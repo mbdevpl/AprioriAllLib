@@ -8,7 +8,7 @@ namespace AprioriAllLib
 	/// <summary>
 	/// Represents a single node of PrefixTree.
 	/// </summary>
-	internal class PrefixTreeNode
+	public class PrefixTreeNode
 	{
 		/// <summary>
 		/// True if this node is a leaf.

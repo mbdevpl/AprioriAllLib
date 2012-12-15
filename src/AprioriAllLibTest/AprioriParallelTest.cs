@@ -13,28 +13,16 @@ namespace AprioriAllLib.Test
 	public class AprioriParallelTest : AprioriTestBase
 	{
 
-		//Use ClassInitialize to run code before running the first test in the class
-		[ClassInitialize]
-		public static void MyClassInitialize(TestContext testContext)
-		{
-			TestBaseInitialize();
-		}
-
-		[ClassCleanup]
-		public static void CleanupTestSuite()
-		{
-		}
-
 		[TestMethod]
 		public void Test_AprioriParallel_Example1_LowSupport()
 		{
 			//Arrange
-			Apriori aprioriSerialized = new Apriori(data.Example1);
+			Apriori aprioriSerialized = new Apriori(Data.Example1);
 			List<Litemset> expected = aprioriSerialized.RunApriori(0.2);
 			Assert.AreEqual(19, expected.Count);
 
 			//Act
-			Apriori apriori = new Apriori(data.Example1);
+			Apriori apriori = new Apriori(Data.Example1);
 			List<Litemset> oneLitemsets = apriori.RunParallelApriori(0.2, true);
 
 			//Assert
@@ -51,7 +39,7 @@ namespace AprioriAllLib.Test
 			Assert.AreEqual(2, expected.Count);
 
 			//Act
-			Apriori apriori = new Apriori(data.Example1);
+			Apriori apriori = new Apriori(Data.Example1);
 			List<Litemset> oneLitemsets = apriori.RunParallelApriori(0.6, true);
 
 			//Assert

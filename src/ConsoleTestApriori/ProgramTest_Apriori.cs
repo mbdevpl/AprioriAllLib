@@ -10,6 +10,8 @@ namespace AprioriAllLib.Test.InConsole
 	{
 		static void Main(string[] args)
 		{
+			Console.Write("End.");
+			Console.ReadKey();
 		}
 	}
 }

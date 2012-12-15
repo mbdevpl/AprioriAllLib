@@ -5,8 +5,10 @@ using System.Text;
 
 namespace AprioriAllLib.Test
 {
+
 	public class AprioriAllTestBase : AprioriTestBase
 	{
+
 		public string GetAprioriAllTestResults(List<Customer> expected, List<Customer> actual)
 		{
 			StringBuilder result = new StringBuilder();
@@ -21,5 +23,17 @@ namespace AprioriAllLib.Test
 
 			return result.ToString();
 		}
+
+		//public void RunAprioriAll(CustomerList input, double support)
+		//{
+		//}
+
+		public void PrintAprioriAllOutput(List<Customer> results)
+		{
+			Console.Out.WriteLine("\nResults:");
+			foreach (Customer c in results)
+				Console.Out.WriteLine(" - {0}", c);
+		}
+
 	}
 }

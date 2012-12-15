@@ -12,16 +12,5 @@ namespace AprioriAllLib.Test
 	public class AprioriAllParallelTest : AprioriAllTestBase
 	{
 
-		[ClassInitialize]
-		public static void InitializeTestSuite(TestContext testContext)
-		{
-			TestBaseInitialize();
-		}
-
-		[ClassCleanup]
-		public static void CleanupTestSuite()
-		{
-		}
-
 	}
 }

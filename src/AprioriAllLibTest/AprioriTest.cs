@@ -15,13 +15,13 @@ namespace AprioriAllLib.Test
 	{
 
 		// Use ClassInitialize to run code before running the first test in the class.
-		[ClassInitialize]
-		public static void MyClassInitialize(TestContext testContext)
-		{
-			TestBaseInitialize();
-		}
+		//[ClassInitialize]
+		//public static void MyClassInitialize(TestContext testContext)
+		//{
+		//	TestBaseInitialize();
+		//}
 
-		[TestMethod]
+		[TestMethod, TestCategory("Apriori"), TestCategory("Serialized")]
 		public void Test_Apriori_Example1_LowSupport()
 		{
 			//Arrange
@@ -48,7 +48,7 @@ namespace AprioriAllLib.Test
 			Assert.AreEqual(19, expected.Count);
 
 			//Act
-			Apriori apriori = new Apriori(data.Example1);
+			Apriori apriori = new Apriori(Data.Example1);
 			List<Litemset> oneLitemsets = apriori.RunApriori(0.2);
 
 			//Assert
@@ -56,7 +56,7 @@ namespace AprioriAllLib.Test
 			CollectionAssert.AreEqual(expected, oneLitemsets, GetAprioriTestResults(expected, oneLitemsets));
 		}
 
-		[TestMethod]
+		[TestMethod, TestCategory("Apriori"), TestCategory("Serialized")]
 		public void Test_Apriori_Example1_HighSupport()
 		{
 			//Arrange
@@ -66,14 +66,14 @@ namespace AprioriAllLib.Test
 			Assert.AreEqual(2, expected.Count);
 
 			//Act
-			Apriori apriori = new Apriori(data.Example1);
+			Apriori apriori = new Apriori(Data.Example1);
 			List<Litemset> oneLitemsets = apriori.RunApriori(0.6);
 
 			//Assert
 			CollectionAssert.AreEqual(expected, oneLitemsets, GetAprioriTestResults(expected, oneLitemsets));
 		}
 
-		[TestMethod]
+		[TestMethod, TestCategory("Apriori"), TestCategory("Serialized")]
 		public void Test_Apriori_DataSet2_LowSupport()
 		{
 			//Arrange
@@ -93,14 +93,14 @@ namespace AprioriAllLib.Test
 			Assert.AreEqual(12, expected.Count);
 
 			//Act
-			Apriori apriori = new Apriori(data.DataSet2);
+			Apriori apriori = new Apriori(Data.DataSet2);
 			List<Litemset> oneLitemsets = apriori.RunApriori(0.2);
 
 			//Assert
 			CollectionAssert.AreEqual(expected, oneLitemsets, GetAprioriTestResults(expected, oneLitemsets));
 		}
 
-		[TestMethod]
+		[TestMethod, TestCategory("Apriori"), TestCategory("Serialized")]
 		public void Test_Apriori_DataSet2_HighSupport()
 		{
 			//Arrange
@@ -115,14 +115,14 @@ namespace AprioriAllLib.Test
 			Assert.AreEqual(7, expected.Count);
 
 			//Act
-			Apriori apriori = new Apriori(data.DataSet2);
+			Apriori apriori = new Apriori(Data.DataSet2);
 			List<Litemset> oneLitemsets = apriori.RunApriori(0.5);
 
 			//Assert
 			CollectionAssert.AreEqual(expected, oneLitemsets, GetAprioriTestResults(expected, oneLitemsets));
 		}
 
-		[TestMethod]
+		[TestMethod, TestCategory("Apriori"), TestCategory("Serialized")]
 		public void Test_Apriori_DataSet3_LowSupport()
 		{
 			//Arrange
@@ -144,14 +144,14 @@ namespace AprioriAllLib.Test
 			Assert.AreEqual(14, expected.Count);
 
 			//Act
-			Apriori apriori = new Apriori(data.DataSet3);
+			Apriori apriori = new Apriori(Data.DataSet3);
 			List<Litemset> oneLitemsets = apriori.RunApriori(0.2);
 
 			//Assert
 			CollectionAssert.AreEqual(expected, oneLitemsets, GetAprioriTestResults(expected, oneLitemsets));
 		}
 
-		[TestMethod]
+		[TestMethod, TestCategory("Apriori"), TestCategory("Serialized")]
 		public void Test_Apriori_DataSet3_HighSupport()
 		{
 			//Arrange
@@ -167,7 +167,7 @@ namespace AprioriAllLib.Test
 			Assert.AreEqual(8, expected.Count);
 
 			//Act
-			Apriori apriori = new Apriori(data.DataSet3);
+			Apriori apriori = new Apriori(Data.DataSet3);
 			List<Litemset> oneLitemsets = apriori.RunApriori(0.5);
 
 			//Assert

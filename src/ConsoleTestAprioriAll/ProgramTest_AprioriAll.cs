@@ -14,29 +14,24 @@ namespace AprioriAllLib.Test.InConsole
 
 		private static void Main(string[] args)
 		{
-			TestBaseInitialize();
+			var program = new ProgramTest_AprioriAll();
+
 			Console.Out.WriteLine("Serialized AprioriAll algorithm test");
 
 			//Arrange
 			CustomerList input
 				//= InputGenerator.GenerateRandomList(700, 7, 7);
 				//= XmlReader.ReadFromXmlFile("dataset3.xml");
-				= data.Example1;
+				= Data.DataSet3;
 			double support = 0.2;
 
-			Console.Out.WriteLine("\nInput:");
-			foreach (Customer c in input.Customers)
-				Console.Out.WriteLine(" - {0}", c);
+			program.PrintInput(input);
 
-			//Act
 			Console.Out.WriteLine("\nComputation:");
 			AprioriAll all = new AprioriAll(input);
 			List<Customer> results = all.RunAprioriAll(support, true);
 
-			//Assert
-			Console.Out.WriteLine("\nResults:");
-			foreach (Customer c in results)
-				Console.Out.WriteLine(" - {0}", c);
+			program.PrintAprioriAllOutput(results);
 
 			Console.Write("End.");
 			Console.ReadKey();

@@ -6,14 +6,50 @@ using System.Text;
 
 namespace AprioriAllLib.Test
 {
+
 	public class AprioriTestBase
 	{
-		protected static InputData data;
 
-		protected static void TestBaseInitialize()
+		private static bool initialized = false;
+
+		private static object aprioriTestBaseLock = new object();
+
+		private static InputData data;
+
+		/// <summary>
+		/// Contains several example data sets made for testing.
+		/// </summary>
+		public static InputData Data
 		{
-			data = new InputData();
-			Trace.Listeners.Add(new TextWriterTraceListener(Console.Out));
+			get { return AprioriTestBase.data; }
+			//set { AprioriTestBase.data = value; }
+		}
+
+		private static void AprioriTestBaseInitialize()
+		{
+			lock (aprioriTestBaseLock)
+			{
+				if (initialized)
+					return;
+				data = new InputData();
+
+				initialized = true;
+			}
+		}
+
+		private TextWriterTraceListener traceListener;
+
+		public AprioriTestBase()
+		{
+			if (!initialized)
+				AprioriTestBaseInitialize();
+			traceListener = new TextWriterTraceListener(Console.Out);
+			Trace.Listeners.Add(traceListener);
+		}
+
+		~AprioriTestBase()
+		{
+			Trace.Listeners.Remove(traceListener);
 		}
 
 		public string GetAprioriTestResults(List<Litemset> expected, List<Litemset> actual)
@@ -30,5 +66,20 @@ namespace AprioriAllLib.Test
 
 			return result.ToString();
 		}
+
+		public void PrintInput(CustomerList customerList)
+		{
+			Console.Out.WriteLine("\nInput:");
+			foreach (Customer c in customerList.Customers)
+				Console.Out.WriteLine(" - {0}", c);
+		}
+
+		public void PrintAprioriOutput(List<Litemset> results)
+		{
+			Console.Out.WriteLine("\nResults:");
+			foreach (Litemset l in results)
+				Console.Out.WriteLine(" - {0}", l);
+		}
+
 	}
 }

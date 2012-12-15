@@ -333,11 +333,13 @@ namespace AprioriAllLib
 		/// <param name="candidate">a candidate k-sequence</param>
 		/// <param name="encodedCustomer">encoded customer, i.e. a sequence of sets of items</param>
 		/// <returns>true if the customer supports the candidate</returns>
-		protected bool MatchCandidateToEncodedCustomer(List<int> candidate, List<List<int>> encodedCustomer)
+		protected bool MatchCandidateToEncodedCustomer(List<int> candidate, List<List<int>> encodedCustomer,
+			Dictionary<int, List<int>> containmentRules)
 		{
 			//if (encodedCustomer.Count < candidate.Count)
 			//   return false; // the candidate is too long to possibly match the customer
 
+			List<int> temporaryContainingList = null;
 			bool allNeededItemsArePresent = true;
 			int prevFoundIndex = 0/*-1*/;
 			List<int> usedProductsFromCurrentCandidate = new List<int>();
@@ -361,6 +363,18 @@ namespace AprioriAllLib
 							prevFoundIndex = i;
 							usedProductsFromCurrentCandidate.Add(k);
 							jthCandidateFound = true;
+							if (containmentRules != null)
+							{
+								if (containmentRules.TryGetValue(jthCandidateElem, out temporaryContainingList))
+								{
+									foreach (int containingLitemset in temporaryContainingList)
+									{
+										int index = ithTransaction.FindIndex(x => x == containingLitemset);
+										if (index > 0)
+											usedProductsFromCurrentCandidate.Add(index);
+									}
+								}
+							}
 							break;
 						}
 					}
@@ -397,7 +411,8 @@ namespace AprioriAllLib
 		/// <returns>list of k-sequences, partitioned by k. i.e. i-th element of resulting List 
 		/// contains all i-sequences</returns>
 		protected List<List<List<int>>> FindAllFrequentSequences(List<Litemset> oneLitemsets,
-			Dictionary<Litemset, int> encoding, List<List<List<int>>> encodedList, int minSupport, bool progressOutput)
+			Dictionary<Litemset, int> encoding, List<List<List<int>>> encodedList,
+			Dictionary<int, List<int>> containmentRules, int minSupport, bool progressOutput)
 		{
 			var kSequences = new List<List<List<int>>>();
 
@@ -432,8 +447,13 @@ namespace AprioriAllLib
 					// check every customer for compatibility with the current candidate
 					foreach (List<List<int>> encodedCustomer in encodedList)
 					{
+						//if (candidate.Count == 2
+						//	&& candidate.SequenceEqual(new int[] { 5, 1 })
+						//	&& encodedCustomer.Count == 2
+						//	)
+						//	n = n;
 
-						if (MatchCandidateToEncodedCustomer(candidate, encodedCustomer))
+						if (MatchCandidateToEncodedCustomer(candidate, encodedCustomer, containmentRules))
 						{
 							candidates[candidate] += 1;
 						}
@@ -474,7 +494,7 @@ namespace AprioriAllLib
 		}
 
 		protected bool PurgeUsingInclusionRules(List<List<List<int>>> kSequences, Dictionary<int, List<int>> containmentRules,
-			bool progressOutput)
+			int litemsetCount, bool progressOutput)
 		{
 			if (kSequences == null || kSequences.Count == 0)
 				return false;
@@ -494,27 +514,57 @@ namespace AprioriAllLib
 				List<List<int>> sequencesOfLengthK = kSequences[k];
 				if (sequencesOfLengthK == null || sequencesOfLengthK.Count == 0)
 					continue;
+
+				// build the tree of longer sequences, i.e. (k+1)-sequences
+				PrefixTree treeOfLongerSequences = new PrefixTree(litemsetCount + 1);
+				int nextK = k + 1;
+				foreach (List<int> longerSequence in kSequences[nextK])
+					for (int omitted = 0; omitted < nextK; ++omitted)
+						treeOfLongerSequences.TryAdd(longerSequence, omitted);
+
+				// confront the tree with k-sequences
 				for (int n = sequencesOfLengthK.Count - 1; n >= 0; --n)
 				{
-					// we analyze n-th k-sequence:
 					List<int> sequence = sequencesOfLengthK[n];
-					// compare it to every k+1-sequence:
-					foreach (List<int> longerSequence in kSequences[k + 1])
-						if (IsSubSequence(sequence, longerSequence, containmentRules))
-						{
-							// 'sequence' is a sub-seqence of 'longerSequence'
-							sequencesOfLengthK.RemoveAt(n);
-							somethingChanged = true;
-							++totalRemoved;
-							break;
-						}
+					if (!treeOfLongerSequences.Check(sequence))
+					{
+						sequencesOfLengthK.RemoveAt(n);
+						somethingChanged = true;
+						++totalRemoved;
+					}
 				}
 				watchForEachK.Stop();
+
+				//older & slower code, without prefix tree:
+
+				//watchForEachK.Restart();
+				//List<List<int>> sequencesOfLengthK = kSequences[k];
+				//if (sequencesOfLengthK == null || sequencesOfLengthK.Count == 0)
+				//	continue;
+
+				//for (int n = sequencesOfLengthK.Count - 1; n >= 0; --n)
+				//{
+				//	// we analyze n-th k-sequence:
+				//	List<int> sequence = sequencesOfLengthK[n];
+				//	// compare it to every k+1-sequence:
+				//	foreach (List<int> longerSequence in kSequences[k + 1])
+				//		if (IsSubSequence(sequence, longerSequence/*, containmentRules*/))
+				//		{
+				//			// 'sequence' is a sub-seqence of 'longerSequence'
+				//			sequencesOfLengthK.RemoveAt(n);
+				//			somethingChanged = true;
+				//			++totalRemoved;
+				//			break;
+				//		}
+				//}
+				//watchForEachK.Stop();
+
 				if (progressOutput)
 					Trace.Write(String.Format(" k={0}: {1}ms,", k, watchForEachK.ElapsedMilliseconds));
 			}
 			if (progressOutput)
 				Trace.Write(String.Format(" removed {0} non-maximal in total", totalRemoved));
+
 			//for (int k = initialK; k >= 0; --k)
 			//{
 			//	List<List<int>> sequencesOfLengthK = kSequences[k];
@@ -679,9 +729,10 @@ namespace AprioriAllLib
 		/// </summary>
 		/// <param name="kSequences">list of all k-sequences, partitioned by k</param>
 		/// <param name="containmentRules">rules of inclusion between encoded litemsets</param>
+		/// <param name="litemsetCount">number of distinct litemsets</param>
 		/// <param name="progressOutput">if true, information about progress is sent to standard output</param>
 		protected void PurgeAllNonMax(List<List<List<int>>> kSequences, Dictionary<int, List<int>> containmentRules,
-			bool progressOutput)
+			int litemsetCount, bool progressOutput)
 		{
 			if (kSequences == null || kSequences.Count == 0)
 				return;
@@ -695,17 +746,15 @@ namespace AprioriAllLib
 					Trace.Write(" started new run,");
 				shouldKeepRunning = false;
 
-				purgingStopwatch.Reset();
-				purgingStopwatch.Start();
-				if (PurgeUsingInclusionRules(kSequences, containmentRules, progressOutput))
+				purgingStopwatch.Restart();
+				if (PurgeUsingInclusionRules(kSequences, containmentRules, litemsetCount, progressOutput))
 					shouldKeepRunning = true;
 				purgingStopwatch.Stop();
 
 				if (progressOutput)
 					Trace.Write(String.Format("\n inclusion of smaller: {0}ms,", purgingStopwatch.ElapsedMilliseconds));
 
-				purgingStopwatch.Reset();
-				purgingStopwatch.Start();
+				purgingStopwatch.Restart();
 				if (PurgeUsingSequenceInnerRedundancy(kSequences, containmentRules))
 					shouldKeepRunning = true;
 				purgingStopwatch.Stop();
@@ -713,8 +762,7 @@ namespace AprioriAllLib
 				if (progressOutput)
 					Trace.Write(String.Format(" inner redundancy: {0}ms,", purgingStopwatch.ElapsedMilliseconds));
 
-				purgingStopwatch.Reset();
-				purgingStopwatch.Start();
+				purgingStopwatch.Restart();
 				if (PurgeUsingInclusionRulesWithinSameSize(kSequences, containmentRules))
 					shouldKeepRunning = true;
 				purgingStopwatch.Stop();
@@ -772,8 +820,10 @@ namespace AprioriAllLib
 			bool previousWasContainment = false;
 			bool sequenceContainsElementOfSubsequence = false;
 			List<T>.Enumerator sequenceEnumerator = sequence.GetEnumerator();
+			int subsequenceIndex = -1;
 			foreach (T elementOfHypotheticalSubsequence in hyptheticalSubSequence)
 			{
+				++subsequenceIndex;
 				found = false;
 				//int i = found_index + 1;
 				int nextDiff = previousWasContainment ? 0 : 1;
@@ -808,7 +858,7 @@ namespace AprioriAllLib
 				}
 				if (!found)
 				{
-					if (previousWasContainment)
+					if (previousWasContainment && subsequenceIndex < hyptheticalSubSequence.Count - 1)
 						previousWasContainment = false;
 					else
 						return false;
@@ -980,6 +1030,9 @@ namespace AprioriAllLib
 			if (minSupport <= 0)
 				throw new ArgumentException("minimum support must be positive", "minSupport");
 
+			Stopwatch totalTimeTaken = new Stopwatch();
+			totalTimeTaken.Start();
+
 			// 1. sort the input!
 			if (progressOutput)
 				Trace.WriteLine("1) Sort Phase - list is already sorted as user sees fit");
@@ -1079,7 +1132,8 @@ namespace AprioriAllLib
 
 			if (progressOutput)
 				Trace.WriteLine("Searching for all possible k-sequences");
-			var kSequences = FindAllFrequentSequences(oneLitemsets, encoding, encodedList, minSupport, progressOutput);
+			var kSequences = FindAllFrequentSequences(oneLitemsets, encoding, encodedList, litemsetsContaining,
+				minSupport, progressOutput);
 			if (progressOutput)
 				Trace.WriteLine(String.Format("Maximal k is {0}.", kSequences.Count - 2));
 
@@ -1089,7 +1143,7 @@ namespace AprioriAllLib
 
 			if (progressOutput)
 				Trace.WriteLine("Purging all non-maximal sequences...");
-			PurgeAllNonMax(kSequences, litemsetsContaining, progressOutput);
+			PurgeAllNonMax(kSequences, litemsetsContaining, oneLitemsets.Count, progressOutput);
 
 			// 6. decode results
 			if (progressOutput)
@@ -1119,6 +1173,10 @@ namespace AprioriAllLib
 						Trace.WriteLine("");
 					}
 			}
+
+			totalTimeTaken.Stop();
+
+			Trace.WriteLine(String.Format(" total time taken to complete the algorithm: {0}ms", totalTimeTaken.ElapsedMilliseconds));
 
 			// 7. return results
 			return decodedList;
