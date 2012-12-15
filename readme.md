@@ -28,13 +28,25 @@ Launch <code>/bin/Release/AprioriAll.exe</code> with correct command line argume
 to execute AprioriAll algorithm for an arbitrary input data. When the program is run without any options,
 it displays information about available options.
 
+### Examples
+
+<code>AprioriAll dataset1.xml 0.2</code> runs AprioriAll algorithm with support 0.2 on given data set
+
+<code>Apriori dataset2.xml 0.3</code> runs Apriori algorithm with support 0.3 on given data set
+
+## Timeline
+
+6 Nov 2012: project started
+7 Dec 2012: version 1.0.0
+
 ## Where is everything, i.e. structure of the repository
 
-* */bin/Release* - binaries compiled for .NET 4.0
-* */doc/pdf* - general documentation describing main principles of the algorithm and this application
+* */bin/Release* - binaries of applications and the library, compiled for .NET 4.0
 * */doc/html* - documentation of source code
+* */doc/pdf* - general documentation describing main principles of the algorithm and this application
 * */src* - source code
-* */src/AprioriAllLib* - library that implements the algorithm
-* */src/AprioriAllTest* - unit tests, which check correctness of the implementation
-* */src/AprioriAllConsole* - console application which accepts user-defined input
-* */src/AprioriAllConsoleTest* - a test console application that generates random input data and runs the algorithm on this data
+* */src/Apriori* - console application that runs Apriori algorithm on user-defined input
+* */src/AprioriAll* - console application that runs AprioriAll algorithm on user-defined input
+* */src/AprioriAllLib* - library that implements the algorithms
+* */src/AprioriAllLibTest* - unit tests, which check correctness of the implementation
+* */src/ConsoleTest(...)* - console applications that run the specific algorithm only on specific test data
