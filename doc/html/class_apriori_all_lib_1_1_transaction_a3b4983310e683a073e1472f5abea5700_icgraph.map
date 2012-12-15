@@ -1,0 +1,5 @@
+<map id="AprioriAllLib.Transaction.AddItem" name="AprioriAllLib.Transaction.AddItem">
+<area shape="rect" id="node3" href="$class_apriori_all_lib_1_1_input_generator.html#af4d27a9352dff265fe1d6f012f33f2b8" title="Generates a random list of customers. Randomization is parameterized. " alt="" coords="221,38,405,79"/>
+<area shape="rect" id="node5" href="$class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program_test___apriori_all.html#a0b052756e042b22565f21c773e29954e" title="AprioriAllLib.Test.InConsole.\lProgramTest_AprioriAll.Main" alt="" coords="468,5,655,46"/>
+<area shape="rect" id="node7" href="$class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program_test___parallel_apriori.html#a81452427e86f0b8e84715bc7162bf8e9" title="AprioriAllLib.Test.InConsole.\lProgramTest_ParallelApriori.Main" alt="" coords="454,70,669,111"/>
+</map>

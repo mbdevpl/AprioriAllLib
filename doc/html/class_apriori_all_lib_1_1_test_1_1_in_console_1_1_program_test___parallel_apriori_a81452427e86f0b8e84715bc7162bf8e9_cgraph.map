@@ -1,0 +1,10 @@
+<map id="AprioriAllLib.Test.InConsole.ProgramTest_ParallelApriori.Main" name="AprioriAllLib.Test.InConsole.ProgramTest_ParallelApriori.Main">
+<area shape="rect" id="node3" href="$class_apriori_all_lib_1_1_open_c_l_checker.html#a87b058b5c16c68126b71e18ad5593afa" title="Lists details of all available OpenCL platforms. " alt="" coords="517,5,712,46"/>
+<area shape="rect" id="node7" href="$class_apriori_all_lib_1_1_open_c_l_checker.html#a148326e54e04c29b067ad42d1b245b81" title="Lists details and devices of all available OpenCL platforms. " alt="" coords="269,63,469,105"/>
+<area shape="rect" id="node11" href="$class_apriori_all_lib_1_1_input_generator.html#af4d27a9352dff265fe1d6f012f33f2b8" title="Generates a random list of customers. Randomization is parameterized. " alt="" coords="277,129,461,170"/>
+<area shape="rect" id="node19" href="$class_apriori_all_lib_1_1_apriori.html#abf88e1f78883083cd20760cb43029738" title="Executes parallel version of the Apriori algorithm. " alt="" coords="290,194,449,235"/>
+<area shape="rect" id="node5" href="$class_apriori_all_lib_1_1_open_c_l_base.html#aa91e6a838348b8ec898a202403bfa08f" title="AprioriAllLib.OpenCLBase.\lTrueIfError" alt="" coords="760,34,936,75"/>
+<area shape="rect" id="node13" href="$class_apriori_all_lib_1_1_transaction.html#ac736c8e2fd896d89a0d57258e27beed4" title="AprioriAllLib.Transaction.\lContains" alt="" coords="531,122,698,163"/>
+<area shape="rect" id="node15" href="$class_apriori_all_lib_1_1_transaction.html#a3b4983310e683a073e1472f5abea5700" title="AprioriAllLib.Transaction.\lAddItem" alt="" coords="531,187,698,229"/>
+<area shape="rect" id="node17" href="$class_apriori_all_lib_1_1_customer.html#a222005fd9e9134325409b26f30d1be40" title="AprioriAllLib.Customer.Add\lTransaction" alt="" coords="525,253,704,294"/>
+</map>

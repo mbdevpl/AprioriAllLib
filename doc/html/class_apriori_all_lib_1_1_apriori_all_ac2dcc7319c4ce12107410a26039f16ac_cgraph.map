@@ -1,0 +1,4 @@
+<map id="AprioriAllLib.AprioriAll.FindAllFrequentSequences" name="AprioriAllLib.AprioriAll.FindAllFrequentSequences">
+<area shape="rect" id="node3" href="$class_apriori_all_lib_1_1_apriori_all.html#ab713206403728597418b85b971cceb68" title="Generates all candidates for k&#45;sequences, basing on set of (k&#45;1)&#45;sequences. " alt="" coords="275,5,426,46"/>
+<area shape="rect" id="node5" href="$class_apriori_all_lib_1_1_apriori_all.html#af4fb4eb42f8678f318d77638306fc27c" title="Tries to match the candidate k&#45;sequence to an encoded customer, and returns true if the customer cont..." alt="" coords="232,70,469,111"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="AprioriAllLib.Test.AprioriAllTestBase" name="AprioriAllLib.Test.AprioriAllTestBase">
+<area shape="rect" id="node5" href="$class_apriori_all_lib_1_1_test_1_1_apriori_all_parallel_test.html" title="Unit tests for parallel version of AprioriAll. " alt="" coords="5,522,165,614"/>
+<area shape="rect" id="node7" href="$class_apriori_all_lib_1_1_test_1_1_apriori_all_test.html" title="Unit tests for serialized version of AprioriAll algorithm. " alt="" coords="191,419,377,717"/>
+<area shape="rect" id="node9" href="$class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program_test___apriori_all.html" title="Runs AprioriAll algorithm on random input. " alt="" coords="402,522,587,614"/>
+<area shape="rect" id="node11" href="$class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program_test___parallel_apriori_all.html" title="Runs parallel AprioriAll algorithm on a fixed data set. " alt="" coords="611,522,809,614"/>
+<area shape="rect" id="node2" href="$class_apriori_all_lib_1_1_test_1_1_apriori_test_base.html" title="Basic routines needed to test Apriori algorithm. AprioriAll tests are also derived from this class..." alt="" coords="301,6,477,215"/>
+</map>

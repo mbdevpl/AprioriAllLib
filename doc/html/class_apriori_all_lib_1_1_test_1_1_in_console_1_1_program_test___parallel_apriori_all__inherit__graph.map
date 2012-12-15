@@ -1,0 +1,4 @@
+<map id="AprioriAllLib.Test.InConsole.ProgramTest_ParallelAprioriAll" name="AprioriAllLib.Test.InConsole.ProgramTest_ParallelAprioriAll">
+<area shape="rect" id="node2" href="$class_apriori_all_lib_1_1_test_1_1_apriori_all_test_base.html" title="Base class for all AprioriAll tests. Defines common routines used by the tests. " alt="" coords="12,265,196,357"/>
+<area shape="rect" id="node4" href="$class_apriori_all_lib_1_1_test_1_1_apriori_test_base.html" title="Basic routines needed to test Apriori algorithm. AprioriAll tests are also derived from this class..." alt="" coords="15,6,192,215"/>
+</map>

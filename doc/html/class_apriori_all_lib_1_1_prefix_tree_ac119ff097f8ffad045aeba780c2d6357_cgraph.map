@@ -1,0 +1,6 @@
+<map id="AprioriAllLib.PrefixTree.TryAdd" name="AprioriAllLib.PrefixTree.TryAdd">
+<area shape="rect" id="node3" href="$class_apriori_all_lib_1_1_prefix_tree_node.html#a77b5dc6f02610fe8b0ca6a8c245de53c" title="Gets a sub&#45;node at a specified index. " alt="" coords="211,5,365,46"/>
+<area shape="rect" id="node5" href="$class_apriori_all_lib_1_1_prefix_tree_node.html#a28727a0f15dd4255bb7516441cb7350a" title="Sets a reference of sub&#45;node at specified index to a new one. " alt="" coords="211,70,365,111"/>
+<area shape="rect" id="node7" href="$class_apriori_all_lib_1_1_prefix_tree_node.html#a7caa5c99f484b17dad93fa5fdafb61bc" title="Stores a value in this node. This value has undefined purpose, and is totally optional. " alt="" coords="211,135,365,177"/>
+<area shape="rect" id="node9" href="$class_apriori_all_lib_1_1_prefix_tree_node.html#ae8983879900163f6b8d9e9e5b9f8f481" title="AprioriAllLib.PrefixTree\lNode.SetEnd" alt="" coords="211,201,365,242"/>
+</map>
