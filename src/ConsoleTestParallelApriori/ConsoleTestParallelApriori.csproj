@@ -67,8 +67,8 @@
     <ProjectGuid>{F2FCC80D-FA47-4F15-A60B-ED141F07911A}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AprioriAllLib.ConsoleTest</RootNamespace>
-    <AssemblyName>AprioriParallelConsoleTest</AssemblyName>
+    <RootNamespace>AprioriAllLib.Test.InConsole</RootNamespace>
+    <AssemblyName>ConsoleTestParallelApriori</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -102,13 +102,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Test_AprioriParallel.cs" />
+    <Compile Include="ProgramTest_AprioriParallel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AprioriAllLibTest\AprioriAllLibTest.csproj">
+      <Project>{8b7069ab-e7d4-4a0f-82b6-f1d6831a51c3}</Project>
+      <Name>AprioriAllLibTest</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AprioriAllLib\AprioriAllLib.csproj">
       <Project>{8eb6f2da-e671-4227-be88-da183a0c227b}</Project>
       <Name>AprioriAllLib</Name>

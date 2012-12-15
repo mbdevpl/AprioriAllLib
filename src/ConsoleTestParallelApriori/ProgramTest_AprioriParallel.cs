@@ -5,17 +5,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AprioriAllLib.ConsoleTest
+namespace AprioriAllLib.Test.InConsole
 {
 	/// <summary>
 	/// An example program that runs the parallel version of the Apriori algorithm.
 	/// </summary>
-	public class Test_AprioriParallel
+	public class ProgramTest_AprioriParallel : AprioriTestBase
 	{
 
 		private static void Main(string[] args)
 		{
-			Trace.Listeners.Add(new TextWriterTraceListener(Console.Out));
+			TestBaseInitialize();
 
 			Console.Out.WriteLine("Parallel Apriori algorithm test");
 

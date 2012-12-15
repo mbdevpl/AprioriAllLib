@@ -8,8 +8,8 @@
     <ProjectGuid>{06F7A442-147B-4C57-8729-643E59A03310}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AprioriAllLib.ConsoleTest</RootNamespace>
-    <AssemblyName>AprioriAllConsoleTest</AssemblyName>
+    <RootNamespace>AprioriAllLib.Test.InConsole</RootNamespace>
+    <AssemblyName>ConsoleTestAprioriAll</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
@@ -106,10 +106,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Test_AprioriAll.cs" />
+    <Compile Include="ProgramTest_AprioriAll.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AprioriAllLibTest\AprioriAllLibTest.csproj">
+      <Project>{8b7069ab-e7d4-4a0f-82b6-f1d6831a51c3}</Project>
+      <Name>AprioriAllLibTest</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AprioriAllLib\AprioriAllLib.csproj">
       <Project>{8EB6F2DA-E671-4227-BE88-DA183A0C227B}</Project>
       <Name>AprioriAllLib</Name>
@@ -117,17 +121,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="dataset1.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="dataset2.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="dataset3.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -175,7 +175,7 @@ namespace AprioriAllLib
 
 			generationWatch.Start();
 			{
-				RadixTree withoutFirst = new RadixTree(litemsetCount+1);
+				RadixTree withoutFirst = new RadixTree(litemsetCount + 1);
 				foreach (List<int> prevList in prev)
 					withoutFirst.TryAdd(prevList, 0, true);
 				//if (!withoutFirst.TryAdd(prevList, 0, true))
@@ -183,7 +183,7 @@ namespace AprioriAllLib
 
 				foreach (List<int> prevList in prev)
 				{
-					RadixTreeNode node = withoutFirst.GetNode(prevList, prevLen-1);
+					RadixTreeNode node = withoutFirst.GetNode(prevList, prevLen - 1);
 					if (node != null)
 					{
 						foreach (int value in node.Values)
@@ -473,7 +473,8 @@ namespace AprioriAllLib
 			return kSequences;
 		}
 
-		protected bool PurgeUsingInclusionRules(List<List<List<int>>> kSequences, Dictionary<int, List<int>> containmentRules)
+		protected bool PurgeUsingInclusionRules(List<List<List<int>>> kSequences, Dictionary<int, List<int>> containmentRules,
+			bool progressOutput)
 		{
 			if (kSequences == null || kSequences.Count == 0)
 				return false;
@@ -483,57 +484,86 @@ namespace AprioriAllLib
 			if (kSequences[kSequences.Count - 1].Count > 0)
 				throw new ArgumentException("last entry of kSequences is supposed to be empty", "kSequences");
 
+			Stopwatch watchForEachK = new Stopwatch();
 			bool somethingChanged = false;
+			int totalRemoved = 0;
 
-			for (int k = initialK; k >= 0; --k)
+			for (int k = 1; k <= initialK; ++k)
 			{
+				watchForEachK.Restart();
 				List<List<int>> sequencesOfLengthK = kSequences[k];
 				if (sequencesOfLengthK == null || sequencesOfLengthK.Count == 0)
 					continue;
-				// we need a flag not to fall behind allowed memebers
-				bool removedAny = false;
 				for (int n = sequencesOfLengthK.Count - 1; n >= 0; --n)
 				{
 					// we analyze n-th k-sequence:
 					List<int> sequence = sequencesOfLengthK[n];
-					for (int i = k + 1; i < kSequences.Count; ++i)
-					{
-						foreach (List<int> longerSequence in kSequences[i])
+					// compare it to every k+1-sequence:
+					foreach (List<int> longerSequence in kSequences[k + 1])
+						if (IsSubSequence(sequence, longerSequence, containmentRules))
 						{
-							//if (n < 0)
-							//	break;
-							//if (i == 5
-							//	&& sequence.Count == 1
-							//	//&& sequence.Contains(4) && sequence.Contains(8) 
-							//	&& sequence.Contains(5)
-							//	//&& !sequence.Contains(17)
-							//	&& longerSequence.Count == 2
-							//	&& longerSequence.Contains(1) && longerSequence.Contains(5)
-							//	//&& longerSequence.Contains(9)
-							//	//&& longerSequence.Contains(7) && longerSequence.Contains(17)
-							//	)
-							//	i = i;
-							if (IsSubSequence(sequence, longerSequence, containmentRules))
-							{
-								// if 'sequence' is a sub-seqence of 'longerSequence'
-								PurgeAllSubSeqsOf(kSequences, k, n);
-								sequencesOfLengthK.RemoveAt(n);
-								--n;
-								removedAny = true;
-								break;
-							}
-						}
-						if (removedAny)
+							// 'sequence' is a sub-seqence of 'longerSequence'
+							sequencesOfLengthK.RemoveAt(n);
+							somethingChanged = true;
+							++totalRemoved;
 							break;
-					}
-					if (removedAny)
-					{
-						somethingChanged = true;
-						++n;
-						removedAny = false;
-					}
+						}
 				}
+				watchForEachK.Stop();
+				if (progressOutput)
+					Trace.Write(String.Format(" k={0}: {1}ms,", k, watchForEachK.ElapsedMilliseconds));
 			}
+			if (progressOutput)
+				Trace.Write(String.Format(" removed {0} non-maximal in total", totalRemoved));
+			//for (int k = initialK; k >= 0; --k)
+			//{
+			//	List<List<int>> sequencesOfLengthK = kSequences[k];
+			//	if (sequencesOfLengthK == null || sequencesOfLengthK.Count == 0)
+			//		continue;
+			//	// we need a flag not to fall behind allowed memebers
+			//	bool removedAny = false;
+			//	for (int n = sequencesOfLengthK.Count - 1; n >= 0; --n)
+			//	{
+			//		// we analyze n-th k-sequence:
+			//		List<int> sequence = sequencesOfLengthK[n];
+			//		for (int i = k + 1; i < kSequences.Count; ++i)
+			//		{
+			//			foreach (List<int> longerSequence in kSequences[i])
+			//			{
+			//				//if (n < 0)
+			//				//	break;
+			//				//if (i == 5
+			//				//	&& sequence.Count == 1
+			//				//	//&& sequence.Contains(4) && sequence.Contains(8) 
+			//				//	&& sequence.Contains(5)
+			//				//	//&& !sequence.Contains(17)
+			//				//	&& longerSequence.Count == 2
+			//				//	&& longerSequence.Contains(1) && longerSequence.Contains(5)
+			//				//	//&& longerSequence.Contains(9)
+			//				//	//&& longerSequence.Contains(7) && longerSequence.Contains(17)
+			//				//	)
+			//				//	i = i;
+			//				if (IsSubSequence(sequence, longerSequence, containmentRules))
+			//				{
+			//					// if 'sequence' is a sub-seqence of 'longerSequence'
+			//					PurgeAllSubSeqsOf(kSequences, k, n);
+			//					sequencesOfLengthK.RemoveAt(n);
+			//					--n;
+			//					removedAny = true;
+			//					break;
+			//				}
+			//			}
+			//			if (removedAny)
+			//				break;
+			//		}
+			//		if (removedAny)
+			//		{
+			//			somethingChanged = true;
+			//			++n;
+			//			removedAny = false;
+			//		}
+			//	}
+			//}
 			return somethingChanged;
 		}
 
@@ -667,12 +697,12 @@ namespace AprioriAllLib
 
 				purgingStopwatch.Reset();
 				purgingStopwatch.Start();
-				if (PurgeUsingInclusionRules(kSequences, containmentRules))
+				if (PurgeUsingInclusionRules(kSequences, containmentRules, progressOutput))
 					shouldKeepRunning = true;
 				purgingStopwatch.Stop();
 
 				if (progressOutput)
-					Trace.Write(String.Format(" inclusion of smaller: {0}ms,", purgingStopwatch.ElapsedMilliseconds));
+					Trace.Write(String.Format("\n inclusion of smaller: {0}ms,", purgingStopwatch.ElapsedMilliseconds));
 
 				purgingStopwatch.Reset();
 				purgingStopwatch.Start();

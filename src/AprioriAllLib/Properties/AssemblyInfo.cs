@@ -36,4 +36,4 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyFileVersion("1.0.0.0")]
 
 // add visibility of internal classes and methods to AprioriAllTest
-[assembly: InternalsVisibleTo("AprioriAllTest")]
+[assembly: InternalsVisibleTo("AprioriAllLibTest")]

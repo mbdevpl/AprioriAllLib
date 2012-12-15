@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 
-namespace AprioriAllLib.ConsoleTest
+namespace AprioriAllLib.Test.InConsole
 {
 	/// <summary>
 	/// Defines a console application that runs AprioriAll on input given in command line parameters.
 	/// 
 	/// This is modified version of application by Karolina Baltyn.
 	/// </summary>
-	public class ConsoleApp
+	public class Program_AprioriAll
 	{
 
 		private static void Main(string[] args)

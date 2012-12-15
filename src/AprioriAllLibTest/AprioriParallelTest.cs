@@ -10,15 +10,14 @@ namespace AprioriAllLib.Test
 	/// Unit tests for parallel version of Apriori.
 	/// </summary>
 	[TestClass]
-	public class AprioriParallelTest
+	public class AprioriParallelTest : AprioriTestBase
 	{
-		private static InputData data;
 
 		//Use ClassInitialize to run code before running the first test in the class
 		[ClassInitialize]
 		public static void MyClassInitialize(TestContext testContext)
 		{
-			data = new InputData();
+			TestBaseInitialize();
 		}
 
 		[ClassCleanup]
@@ -39,7 +38,7 @@ namespace AprioriAllLib.Test
 			List<Litemset> oneLitemsets = apriori.RunParallelApriori(0.2, true);
 
 			//Assert
-			CollectionAssert.AreEqual(expected, oneLitemsets);
+			CollectionAssert.AreEqual(expected, oneLitemsets, GetAprioriTestResults(expected, oneLitemsets));
 		}
 
 		[TestMethod]
@@ -56,7 +55,7 @@ namespace AprioriAllLib.Test
 			List<Litemset> oneLitemsets = apriori.RunParallelApriori(0.6, true);
 
 			//Assert
-			CollectionAssert.AreEqual(expected, oneLitemsets);
+			CollectionAssert.AreEqual(expected, oneLitemsets, GetAprioriTestResults(expected, oneLitemsets));
 		}
 
 	}

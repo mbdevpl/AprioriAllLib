@@ -8,21 +8,21 @@ namespace AprioriAllLib.Test
 	/// <summary>
 	/// Defines some example inputs for Apriori and AprioriAll tests.
 	/// </summary>
-	class InputData
+	public class InputData
 	{
 		/// <summary>
 		/// Example data set.
 		/// </summary>
-		public CustomerList Example1;
+		public readonly CustomerList Example1;
 
 		/// <summary>
 		/// Another data set.
 		/// </summary>
-		public CustomerList DataSet1;
+		public readonly CustomerList DataSet1;
 
-		public CustomerList DataSet2;
+		public readonly CustomerList DataSet2;
 
-		public CustomerList DataSet3;
+		public readonly CustomerList DataSet3;
 
 		/// <summary>
 		/// Constructs a new instance of input data.

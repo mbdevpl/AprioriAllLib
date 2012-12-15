@@ -11,16 +11,14 @@ namespace AprioriAllLib.Test
 	/// Unit tests for serialized version of Apriori algorithm.
 	/// </summary>
 	[TestClass]
-	public class AprioriTest
+	public class AprioriTest : AprioriTestBase
 	{
-		private static InputData data;
 
 		// Use ClassInitialize to run code before running the first test in the class.
 		[ClassInitialize]
 		public static void MyClassInitialize(TestContext testContext)
 		{
-			data = new InputData();
-			Trace.Listeners.Add(new TextWriterTraceListener(Console.Out));
+			TestBaseInitialize();
 		}
 
 		[TestMethod]
@@ -54,7 +52,8 @@ namespace AprioriAllLib.Test
 			List<Litemset> oneLitemsets = apriori.RunApriori(0.2);
 
 			//Assert
-			CollectionAssert.AreEqual(expected, oneLitemsets);
+			// areEquivalent doesn't work ?!
+			CollectionAssert.AreEqual(expected, oneLitemsets, GetAprioriTestResults(expected, oneLitemsets));
 		}
 
 		[TestMethod]
@@ -71,7 +70,7 @@ namespace AprioriAllLib.Test
 			List<Litemset> oneLitemsets = apriori.RunApriori(0.6);
 
 			//Assert
-			CollectionAssert.AreEqual(expected, oneLitemsets);
+			CollectionAssert.AreEqual(expected, oneLitemsets, GetAprioriTestResults(expected, oneLitemsets));
 		}
 
 		[TestMethod]
@@ -98,7 +97,7 @@ namespace AprioriAllLib.Test
 			List<Litemset> oneLitemsets = apriori.RunApriori(0.2);
 
 			//Assert
-			CollectionAssert.AreEqual(expected, oneLitemsets); // areEquivalent doesn't work
+			CollectionAssert.AreEqual(expected, oneLitemsets, GetAprioriTestResults(expected, oneLitemsets));
 		}
 
 		[TestMethod]
@@ -120,7 +119,7 @@ namespace AprioriAllLib.Test
 			List<Litemset> oneLitemsets = apriori.RunApriori(0.5);
 
 			//Assert
-			CollectionAssert.AreEqual(expected, oneLitemsets);
+			CollectionAssert.AreEqual(expected, oneLitemsets, GetAprioriTestResults(expected, oneLitemsets));
 		}
 
 		[TestMethod]
@@ -149,7 +148,7 @@ namespace AprioriAllLib.Test
 			List<Litemset> oneLitemsets = apriori.RunApriori(0.2);
 
 			//Assert
-			CollectionAssert.AreEqual(expected, oneLitemsets); // areEquivalent doesn't work
+			CollectionAssert.AreEqual(expected, oneLitemsets, GetAprioriTestResults(expected, oneLitemsets));
 		}
 
 		[TestMethod]
@@ -172,7 +171,7 @@ namespace AprioriAllLib.Test
 			List<Litemset> oneLitemsets = apriori.RunApriori(0.5);
 
 			//Assert
-			CollectionAssert.AreEqual(expected, oneLitemsets);
+			CollectionAssert.AreEqual(expected, oneLitemsets, GetAprioriTestResults(expected, oneLitemsets));
 		}
 
 	}

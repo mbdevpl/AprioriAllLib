@@ -9,14 +9,13 @@ namespace AprioriAllLib.Test
 	/// Unit tests for parallel version of AprioriAll.
 	/// </summary>
 	[TestClass]
-	public class AprioriAllParallelTest
+	public class AprioriAllParallelTest : AprioriAllTestBase
 	{
-		private static InputData data;
 
 		[ClassInitialize]
 		public static void InitializeTestSuite(TestContext testContext)
 		{
-			data = new InputData();
+			TestBaseInitialize();
 		}
 
 		[ClassCleanup]
