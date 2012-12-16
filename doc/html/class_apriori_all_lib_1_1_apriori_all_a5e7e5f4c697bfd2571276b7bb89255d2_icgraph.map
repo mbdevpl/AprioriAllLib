@@ -1,4 +1,4 @@
 <map id="AprioriAllLib.AprioriAll.PurgeUsingSequenceInnerRedundancy" name="AprioriAllLib.AprioriAll.PurgeUsingSequenceInnerRedundancy">
 <area shape="rect" id="node3" href="$class_apriori_all_lib_1_1_apriori_all.html#a9f96a735cce2f04d31f0d82345ef6f7d" title="Deletes all non&#45;maximal seqences from list of k&#45;sequences." alt="" coords="302,5,453,46"/>
-<area shape="rect" id="node5" href="$class_apriori_all_lib_1_1_apriori_all.html#a719d1c07f93fa2e82e1ae6dcacbb8efe" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. " alt="" coords="502,5,653,46"/>
+<area shape="rect" id="node5" href="$group__aprioriandall.html#ga719d1c07f93fa2e82e1ae6dcacbb8efe" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. " alt="" coords="502,5,653,46"/>
 </map>

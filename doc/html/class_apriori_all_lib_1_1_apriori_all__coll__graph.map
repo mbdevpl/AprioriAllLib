@@ -1,4 +1,4 @@
 <map id="AprioriAllLib.AprioriAll" name="AprioriAllLib.AprioriAll">
-<area shape="rect" id="node2" href="$class_apriori_all_lib_1_1_apriori.html" title="This class is used for calculating litemsets from a set of customers&#39; transactions" alt="" coords="294,334,503,543"/>
-<area shape="rect" id="node14" href="$class_apriori_all_lib_1_1_customer_list.html" title="Class that represents a total set of customers " alt="" coords="497,147,668,239"/>
+<area shape="rect" id="node2" href="$class_apriori_all_lib_1_1_apriori.html" title="Used to get list of large itemsets from a set of customers&#39; transactions." alt="" coords="307,334,516,573"/>
+<area shape="rect" id="node14" href="$class_apriori_all_lib_1_1_customer_list.html" title="Class that represents a total set of customers " alt="" coords="501,147,672,239"/>
 </map>

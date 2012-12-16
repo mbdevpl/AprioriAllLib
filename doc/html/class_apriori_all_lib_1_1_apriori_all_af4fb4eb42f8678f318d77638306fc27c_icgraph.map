@@ -1,4 +1,4 @@
 <map id="AprioriAllLib.AprioriAll.MatchCandidateToEncodedCustomer" name="AprioriAllLib.AprioriAll.MatchCandidateToEncodedCustomer">
 <area shape="rect" id="node3" href="$class_apriori_all_lib_1_1_apriori_all.html#ac2dcc7319c4ce12107410a26039f16ac" title="Corresponds to 4th step of AprioriAll algorithm, namely &quot;Sequence Phase&quot;. " alt="" coords="291,5,469,46"/>
-<area shape="rect" id="node5" href="$class_apriori_all_lib_1_1_apriori_all.html#a719d1c07f93fa2e82e1ae6dcacbb8efe" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. " alt="" coords="518,5,669,46"/>
+<area shape="rect" id="node5" href="$group__aprioriandall.html#ga719d1c07f93fa2e82e1ae6dcacbb8efe" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. " alt="" coords="518,5,669,46"/>
 </map>

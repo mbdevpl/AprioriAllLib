@@ -2,6 +2,7 @@ var NAVTREE =
 [
   [ "Apriori and AprioriAll in C#", "index.html", [
     [ "Apriori and AprioriAll in C#", "index.html", null ],
+    [ "Modules", "modules.html", "modules" ],
     [ "Packages", null, [
       [ "Packages", "namespaces.html", "namespaces" ]
     ] ],
@@ -17,14 +18,19 @@ var NAVTREE =
       ] ]
     ] ],
     [ "Files", null, [
-      [ "File List", "files.html", "files" ]
+      [ "File List", "files.html", "files" ],
+      [ "File Members", "globals.html", [
+        [ "All", "globals.html", null ],
+        [ "Functions", "globals_func.html", null ]
+      ] ]
     ] ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
-"_apriori_8cs.html"
+"_apriori_8cs.html",
+"pages.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

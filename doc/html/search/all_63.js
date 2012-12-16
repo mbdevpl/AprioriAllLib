@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['calculatesupport',['calculateSupport',['../group__opencl.html#ga36386ac84b5dcbedaedcd8d0bc45c9cc',1,'support.cl']]],
   ['check',['Check',['../class_apriori_all_lib_1_1_prefix_tree.html#a6cfa34202b98956c0e0d5e3cffbb2f21',1,'AprioriAllLib.PrefixTree.Check(List&lt; int &gt; list)'],['../class_apriori_all_lib_1_1_prefix_tree.html#a0d3383b642e0069ff2494e375da38e8f',1,'AprioriAllLib.PrefixTree.Check(List&lt; int &gt; list, int omittedIndex)']]],
   ['checkend',['CheckEnd',['../class_apriori_all_lib_1_1_prefix_tree_node.html#a0af2185a34d4fbdb7bdc4c204ea2c199',1,'AprioriAllLib::PrefixTreeNode']]],
   ['clinitialized',['clInitialized',['../class_apriori_all_lib_1_1_apriori.html#a3e27bfc3293bb018f793c1b19df112e3',1,'AprioriAllLib::Apriori']]],

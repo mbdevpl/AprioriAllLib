@@ -45,6 +45,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Packages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
@@ -94,7 +95,7 @@ $(document).ready(function(){initNavTree('class_apriori_all_lib_1_1_apriori.html
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Properties</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Properties</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -111,25 +112,25 @@ $(document).ready(function(){initNavTree('class_apriori_all_lib_1_1_apriori.html
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_apriori_all_lib_1_1_apriori-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">AprioriAllLib.Apriori Class Reference</div>  </div>
+<div class="title">AprioriAllLib.Apriori Class Reference<div class="ingroups"><a class="el" href="group__aprioriandall.html">Apriori and AprioriAll</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This class is used for calculating litemsets from a set of customers' transactions  
+<p>Used to get list of large itemsets from a set of customers' transactions.  
  <a href="class_apriori_all_lib_1_1_apriori.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for AprioriAllLib.Apriori:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_apriori_all_lib_1_1_apriori__inherit__graph.png" border="0" usemap="#_apriori_all_lib_8_apriori_inherit__map" alt="Inheritance graph"/></div>
 <map name="_apriori_all_lib_8_apriori_inherit__map" id="_apriori_all_lib_8_apriori_inherit__map">
-<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori_all.html" title="AprioriAll algorithm implementation. " alt="" coords="5,365,272,736"/></map>
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori_all.html" title="AprioriAll algorithm implementation. " alt="" coords="5,381,272,752"/></map>
 </div>
 <div class="dynheader">
 Collaboration diagram for AprioriAllLib.Apriori:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_apriori_all_lib_1_1_apriori__coll__graph.png" border="0" usemap="#_apriori_all_lib_8_apriori_coll__map" alt="Collaboration graph"/></div>
 <map name="_apriori_all_lib_8_apriori_coll__map" id="_apriori_all_lib_8_apriori_coll__map">
-<area shape="rect" id="node12" href="class_apriori_all_lib_1_1_customer_list.html" title="Class that represents a total set of customers " alt="" coords="497,147,668,239"/></map>
+<area shape="rect" id="node12" href="class_apriori_all_lib_1_1_customer_list.html" title="Class that represents a total set of customers " alt="" coords="501,147,672,239"/></map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -140,22 +141,22 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a91d0b11de53dab28769f1d7fda0542c6"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_apriori_all_lib_1_1_litemset.html">Litemset</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#a91d0b11de53dab28769f1d7fda0542c6">RunApriori</a> (double minimalSupport)</td></tr>
 <tr class="memdesc:a91d0b11de53dab28769f1d7fda0542c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds all litemsets that have the minimal support.  <a href="#a91d0b11de53dab28769f1d7fda0542c6"></a><br/></td></tr>
 <tr class="separator:a91d0b11de53dab28769f1d7fda0542c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a534be538e02769b9ad37ef30271396c9"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_apriori_all_lib_1_1_litemset.html">Litemset</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#a534be538e02769b9ad37ef30271396c9">RunApriori</a> (double minimalSupport, bool progressOutput)</td></tr>
-<tr class="memdesc:a534be538e02769b9ad37ef30271396c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds all litemsets that have the minimal support.  <a href="#a534be538e02769b9ad37ef30271396c9"></a><br/></td></tr>
-<tr class="separator:a534be538e02769b9ad37ef30271396c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga534be538e02769b9ad37ef30271396c9"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_apriori_all_lib_1_1_litemset.html">Litemset</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__aprioriandall.html#ga534be538e02769b9ad37ef30271396c9">RunApriori</a> (double minimalSupport, bool progressOutput)</td></tr>
+<tr class="memdesc:ga534be538e02769b9ad37ef30271396c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds all litemsets that have the minimal support.  <a href="group__aprioriandall.html#ga534be538e02769b9ad37ef30271396c9"></a><br/></td></tr>
+<tr class="separator:ga534be538e02769b9ad37ef30271396c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf88e1f78883083cd20760cb43029738"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_apriori_all_lib_1_1_litemset.html">Litemset</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#abf88e1f78883083cd20760cb43029738">RunParallelApriori</a> (double minimalSupport)</td></tr>
-<tr class="memdesc:abf88e1f78883083cd20760cb43029738"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes parallel version of the <a class="el" href="class_apriori_all_lib_1_1_apriori.html" title="This class is used for calculating litemsets from a set of customers&#39; transactions">Apriori</a> algorithm.  <a href="#abf88e1f78883083cd20760cb43029738"></a><br/></td></tr>
+<tr class="memdesc:abf88e1f78883083cd20760cb43029738"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes parallel version of the <a class="el" href="class_apriori_all_lib_1_1_apriori.html" title="Used to get list of large itemsets from a set of customers&#39; transactions.">Apriori</a> algorithm.  <a href="#abf88e1f78883083cd20760cb43029738"></a><br/></td></tr>
 <tr class="separator:abf88e1f78883083cd20760cb43029738"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc814f1f0486ef94181556bb96750b95"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_apriori_all_lib_1_1_litemset.html">Litemset</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#acc814f1f0486ef94181556bb96750b95">RunParallelApriori</a> (double minimalSupport, bool progressOutput)</td></tr>
-<tr class="memdesc:acc814f1f0486ef94181556bb96750b95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes parallel version of the <a class="el" href="class_apriori_all_lib_1_1_apriori.html" title="This class is used for calculating litemsets from a set of customers&#39; transactions">Apriori</a> algorithm.  <a href="#acc814f1f0486ef94181556bb96750b95"></a><br/></td></tr>
+<tr class="memdesc:acc814f1f0486ef94181556bb96750b95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes parallel version of the <a class="el" href="class_apriori_all_lib_1_1_apriori.html" title="Used to get list of large itemsets from a set of customers&#39; transactions.">Apriori</a> algorithm.  <a href="#acc814f1f0486ef94181556bb96750b95"></a><br/></td></tr>
 <tr class="separator:acc814f1f0486ef94181556bb96750b95"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:a6421baeff907e6e56568e277f3bafd6b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#a6421baeff907e6e56568e277f3bafd6b">InitOpenCL</a> (bool progressOutput)</td></tr>
 <tr class="separator:a6421baeff907e6e56568e277f3bafd6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18cf381897f6f8d622bd6ba57b6ab46b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#a18cf381897f6f8d622bd6ba57b6ab46b">InitOpenCLKernels</a> (bool progressOutput)</td></tr>
-<tr class="separator:a18cf381897f6f8d622bd6ba57b6ab46b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16f1dd784baf7b93f1194da49aa7986a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#a16f1dd784baf7b93f1194da49aa7986a">InitOpenCLPrograms</a> (bool progressOutput)</td></tr>
+<tr class="separator:a16f1dd784baf7b93f1194da49aa7986a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a992b4de76d19dcef78a45a0752725977"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_apriori_all_lib_1_1_litemset.html">Litemset</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#a992b4de76d19dcef78a45a0752725977">GenerateCandidateLitemsets</a> (List&lt; <a class="el" href="class_apriori_all_lib_1_1_item.html">Item</a> &gt; items)</td></tr>
 <tr class="memdesc:a992b4de76d19dcef78a45a0752725977"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produces all subsets of a given list of items in a transaction.  <a href="#a992b4de76d19dcef78a45a0752725977"></a><br/></td></tr>
 <tr class="separator:a992b4de76d19dcef78a45a0752725977"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -169,7 +170,7 @@ Protected Attributes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a3e27bfc3293bb018f793c1b19df112e3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#a3e27bfc3293bb018f793c1b19df112e3">clInitialized</a></td></tr>
-<tr class="memdesc:a3e27bfc3293bb018f793c1b19df112e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicator whether OpenCL platorm and device information is alread gathered by this instance of <a class="el" href="class_apriori_all_lib_1_1_apriori.html" title="This class is used for calculating litemsets from a set of customers&#39; transactions">Apriori</a>, and whether context was created for it.  <a href="#a3e27bfc3293bb018f793c1b19df112e3"></a><br/></td></tr>
+<tr class="memdesc:a3e27bfc3293bb018f793c1b19df112e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicator whether OpenCL platorm and device information is alread gathered by this instance of <a class="el" href="class_apriori_all_lib_1_1_apriori.html" title="Used to get list of large itemsets from a set of customers&#39; transactions.">Apriori</a>, and whether context was created for it.  <a href="#a3e27bfc3293bb018f793c1b19df112e3"></a><br/></td></tr>
 <tr class="separator:a3e27bfc3293bb018f793c1b19df112e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab2d6d8f3f2b34ac27f51ca60738d448c"><td class="memItemLeft" align="right" valign="top">Cl.Platform&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#ab2d6d8f3f2b34ac27f51ca60738d448c">platform</a></td></tr>
 <tr class="separator:ab2d6d8f3f2b34ac27f51ca60738d448c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -182,16 +183,22 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a345b5beaaa4b430e0dc5a034a00bad81"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#a345b5beaaa4b430e0dc5a034a00bad81">clProgramsInitialized</a></td></tr>
 <tr class="memdesc:a345b5beaaa4b430e0dc5a034a00bad81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inditator whether source code of OpenCL kernels was already read by this instance.  <a href="#a345b5beaaa4b430e0dc5a034a00bad81"></a><br/></td></tr>
 <tr class="separator:a345b5beaaa4b430e0dc5a034a00bad81"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0985df9891c156e195a9af2dfefa7087"><td class="memItemLeft" align="right" valign="top">Cl.Program&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#a0985df9891c156e195a9af2dfefa7087">program</a></td></tr>
-<tr class="separator:a0985df9891c156e195a9af2dfefa7087"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66e578bc7a5c8b8e5fd706bb2d9420a4"><td class="memItemLeft" align="right" valign="top">Cl.Program&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#a66e578bc7a5c8b8e5fd706bb2d9420a4">programDistinct</a></td></tr>
+<tr class="separator:a66e578bc7a5c8b8e5fd706bb2d9420a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a575e69f62a96b3789ea6ee401d95a102"><td class="memItemLeft" align="right" valign="top">Cl.Program&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#a575e69f62a96b3789ea6ee401d95a102">programSupport</a></td></tr>
+<tr class="separator:a575e69f62a96b3789ea6ee401d95a102"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a13238b5db6315e5af92081b8de4001c1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#a13238b5db6315e5af92081b8de4001c1">clKernelsInitialized</a></td></tr>
 <tr class="separator:a13238b5db6315e5af92081b8de4001c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afd4d28c93369b28121a358090bb50818"><td class="memItemLeft" align="right" valign="top">Cl.Kernel&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#afd4d28c93369b28121a358090bb50818">kernel</a></td></tr>
 <tr class="separator:afd4d28c93369b28121a358090bb50818"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This class is used for calculating litemsets from a set of customers' transactions </p>
-<p>Authors of the implementation: Serialized version by Karolina Baltyn Parallel version by Mateusz Bysiek </p>
+<div class="textblock"><p>Used to get list of large itemsets from a set of customers' transactions. </p>
+<p>Authors of the implementation:</p>
+<ul>
+<li>serialized version by Karolina Baltyn</li>
+<li>parallel version by Mateusz Bysiek </li>
+</ul>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a07c440217ce84e547c31c71ba9a2742e"></a>
 <div class="memitem">
@@ -291,7 +298,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_apriori_all_lib_1_1_apriori_a992b4de76d19dcef78a45a0752725977_icgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_apriori_a992b4de76d19dcef78a45a0752725977_icgraph" alt=""/></div>
 <map name="class_apriori_all_lib_1_1_apriori_a992b4de76d19dcef78a45a0752725977_icgraph" id="class_apriori_all_lib_1_1_apriori_a992b4de76d19dcef78a45a0752725977_icgraph">
-<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori.html#a534be538e02769b9ad37ef30271396c9" title="Finds all litemsets that have the minimal support. " alt="" coords="243,5,402,46"/></map>
+<area shape="rect" id="node3" href="group__aprioriandall.html#ga534be538e02769b9ad37ef30271396c9" title="Finds all litemsets that have the minimal support. " alt="" coords="243,5,402,46"/></map>
 </div>
 </p>
 
@@ -360,7 +367,7 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a class="anchor" id="a18cf381897f6f8d622bd6ba57b6ab46b"></a>
+<a class="anchor" id="a16f1dd784baf7b93f1194da49aa7986a"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -368,7 +375,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void AprioriAllLib.Apriori.InitOpenCLKernels </td>
+          <td class="memname">void AprioriAllLib.Apriori.InitOpenCLPrograms </td>
           <td>(</td>
           <td class="paramtype">bool&#160;</td>
           <td class="paramname"><em>progressOutput</em></td><td>)</td>
@@ -388,7 +395,10 @@ Here is the caller graph for this function:</div>
 <div class="line">            {</div>
 <div class="line">                <span class="keywordflow">if</span> (!<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a345b5beaaa4b430e0dc5a034a00bad81" title="Inditator whether source code of OpenCL kernels was already read by this instance. ">clProgramsInitialized</a>)</div>
 <div class="line">                {</div>
-<div class="line">                    <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a0985df9891c156e195a9af2dfefa7087">program</a> = OpenCLToolkit.GetAndBuildProgramFromLocalResource(<span class="stringliteral">&quot;subsets.cl&quot;</span>, <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a5d8b5f3eb0d9e2509a23626ad07cd02c">context</a>, <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a297b321a5b1fd50d9da8678848aed8b9">device</a>,</div>
+<div class="line">                    <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a66e578bc7a5c8b8e5fd706bb2d9420a4">programDistinct</a> = OpenCLToolkit.GetAndBuildProgramFromLocalResource(<span class="stringliteral">&quot;distinct.cl&quot;</span>, <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a5d8b5f3eb0d9e2509a23626ad07cd02c">context</a>, <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a297b321a5b1fd50d9da8678848aed8b9">device</a>,</div>
+<div class="line">                        progressOutput ? Console.Out : null);</div>
+<div class="line"></div>
+<div class="line">                    <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a575e69f62a96b3789ea6ee401d95a102">programSupport</a> = OpenCLToolkit.GetAndBuildProgramFromLocalResource(<span class="stringliteral">&quot;support.cl&quot;</span>, <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a5d8b5f3eb0d9e2509a23626ad07cd02c">context</a>, <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a297b321a5b1fd50d9da8678848aed8b9">device</a>,</div>
 <div class="line">                        progressOutput ? Console.Out : null);</div>
 <div class="line"></div>
 <div class="line">                    <span class="keywordflow">if</span> (progressOutput)</div>
@@ -404,8 +414,8 @@ Here is the caller graph for this function:</div>
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_apriori_all_lib_1_1_apriori_a18cf381897f6f8d622bd6ba57b6ab46b_icgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_apriori_a18cf381897f6f8d622bd6ba57b6ab46b_icgraph" alt=""/></div>
-<map name="class_apriori_all_lib_1_1_apriori_a18cf381897f6f8d622bd6ba57b6ab46b_icgraph" id="class_apriori_all_lib_1_1_apriori_a18cf381897f6f8d622bd6ba57b6ab46b_icgraph">
+<div class="center"><img src="class_apriori_all_lib_1_1_apriori_a16f1dd784baf7b93f1194da49aa7986a_icgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_apriori_a16f1dd784baf7b93f1194da49aa7986a_icgraph" alt=""/></div>
+<map name="class_apriori_all_lib_1_1_apriori_a16f1dd784baf7b93f1194da49aa7986a_icgraph" id="class_apriori_all_lib_1_1_apriori_a16f1dd784baf7b93f1194da49aa7986a_icgraph">
 <area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori.html#acc814f1f0486ef94181556bb96750b95" title="Executes parallel version of the Apriori algorithm. " alt="" coords="209,5,367,46"/></map>
 </div>
 </p>
@@ -443,114 +453,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_apriori_all_lib_1_1_apriori_a91d0b11de53dab28769f1d7fda0542c6_icgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_apriori_a91d0b11de53dab28769f1d7fda0542c6_icgraph" alt=""/></div>
 <map name="class_apriori_all_lib_1_1_apriori_a91d0b11de53dab28769f1d7fda0542c6_icgraph" id="class_apriori_all_lib_1_1_apriori_a91d0b11de53dab28769f1d7fda0542c6_icgraph">
-<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program___apriori.html#a5c0a41b94b7926da567ed5ad12718991" title="Main function. " alt="" coords="225,5,410,46"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_apriori.html#acc814f1f0486ef94181556bb96750b95" title="Executes parallel version of the Apriori algorithm. " alt="" coords="238,70,397,111"/><area shape="rect" id="node7" href="class_apriori_all_lib_1_1_apriori_all.html#a719d1c07f93fa2e82e1ae6dcacbb8efe" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. " alt="" coords="242,135,393,177"/><area shape="rect" id="node9" href="class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test.html#a34f97425d8fa423d69e2a0b17cee8e28" title="AprioriAllLib.Test.Apriori\lParallelTest.Test_AprioriParallel\l_Example1_LowSupport" alt="" coords="214,201,421,257"/><area shape="rect" id="node11" href="class_apriori_all_lib_1_1_test_1_1_apriori_test.html#a7f88088aa49b8a59ae72e5c6b8c10603" title="AprioriAllLib.Test.Apriori\lTest.Test_Apriori_Example1\l_LowSupport" alt="" coords="225,281,410,337"/><area shape="rect" id="node13" href="class_apriori_all_lib_1_1_test_1_1_apriori_test.html#ab672e1f34760b67a025d2b6385e85cf2" title="AprioriAllLib.Test.Apriori\lTest.Test_Apriori_Example1\l_HighSupport" alt="" coords="225,361,410,417"/><area shape="rect" id="node15" href="class_apriori_all_lib_1_1_test_1_1_apriori_test.html#a995e2e9976503df6750aaa6cdbbd9dd9" title="AprioriAllLib.Test.Apriori\lTest.Test_Apriori_DataSet2\l_LowSupport" alt="" coords="227,441,408,497"/><area shape="rect" id="node17" href="class_apriori_all_lib_1_1_test_1_1_apriori_test.html#ad622c7c743a4b038c2703c6ba6082d6d" title="AprioriAllLib.Test.Apriori\lTest.Test_Apriori_DataSet2\l_HighSupport" alt="" coords="227,521,408,577"/><area shape="rect" id="node19" href="class_apriori_all_lib_1_1_test_1_1_apriori_test.html#a320b15a0355574b4a219f6a775d59fa2" title="AprioriAllLib.Test.Apriori\lTest.Test_Apriori_DataSet3\l_LowSupport" alt="" coords="227,601,408,657"/><area shape="rect" id="node21" href="class_apriori_all_lib_1_1_test_1_1_apriori_test.html#a6e3ab7bce063150d94d925fe9427d0d5" title="AprioriAllLib.Test.Apriori\lTest.Test_Apriori_DataSet3\l_HighSupport" alt="" coords="227,681,408,737"/></map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a534be538e02769b9ad37ef30271396c9"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">List&lt;<a class="el" href="class_apriori_all_lib_1_1_litemset.html">Litemset</a>&gt; AprioriAllLib.Apriori.RunApriori </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>minimalSupport</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>progressOutput</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Finds all litemsets that have the minimal support. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">minimalSupport</td><td>minimal support</td></tr>
-    <tr><td class="paramname">progressOutput</td><td>if true, information about progress is sent to standard output</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A list of Litemsets with support &gt;= minimalSupport</dd></dl>
-<div class="fragment"><div class="line">        {</div>
-<div class="line">            <span class="keywordflow">if</span> (minimalSupport &gt; 1 || minimalSupport &lt;= 0)</div>
-<div class="line">                <span class="keywordflow">return</span> null;</div>
-<div class="line"></div>
-<div class="line">            <span class="comment">//common part - initialization</span></div>
-<div class="line">            minimalSupport *= <a class="code" href="class_apriori_all_lib_1_1_apriori.html#abbca8be3761136e76782ce10ebd61638" title="Input data for the algorithm. ">customerList</a>.<a class="code" href="class_apriori_all_lib_1_1_customer_list.html#a4fd2a16a984844e61ffc60b327e6534a" title="List of Customers ">Customers</a>.Count;</div>
-<div class="line">            List&lt;Litemset&gt; litemsets = <span class="keyword">new</span> List&lt;Litemset&gt;();</div>
-<div class="line"></div>
-<div class="line">            <span class="comment">// serialized version of the algorithm</span></div>
-<div class="line"></div>
-<div class="line">            <span class="keywordflow">foreach</span> (Customer c <span class="keywordflow">in</span> <a class="code" href="class_apriori_all_lib_1_1_apriori.html#abbca8be3761136e76782ce10ebd61638" title="Input data for the algorithm. ">customerList</a>.<a class="code" href="class_apriori_all_lib_1_1_customer_list.html#a4fd2a16a984844e61ffc60b327e6534a" title="List of Customers ">Customers</a>)</div>
-<div class="line">            {</div>
-<div class="line">                <span class="keywordflow">foreach</span> (Transaction t <span class="keywordflow">in</span> c.Transactions)</div>
-<div class="line">                {</div>
-<div class="line">                    <span class="comment">//generate subsets (candidates for litemsets)</span></div>
-<div class="line">                    List&lt;Litemset&gt; candidateLitemsets = <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a992b4de76d19dcef78a45a0752725977" title="Produces all subsets of a given list of items in a transaction. ">GenerateCandidateLitemsets</a>(t.Items);</div>
-<div class="line"></div>
-<div class="line">                    <span class="comment">//check if they already exist in litemsets list; if not, add a litemset to litemsets</span></div>
-<div class="line">                    <span class="keywordflow">foreach</span> (Litemset lset <span class="keywordflow">in</span> candidateLitemsets)</div>
-<div class="line">                    {</div>
-<div class="line">                        IEnumerable&lt;Litemset&gt; l = litemsets.Where(litemset =&gt; (litemset.Items.Count == lset.Items.Count) &amp;&amp;</div>
-<div class="line">                             litemset.Items.All(item =&gt; lset.Items.Exists(lsetItem =&gt; lsetItem.CompareTo(item) == 0)));</div>
-<div class="line"></div>
-<div class="line">                        <span class="keywordtype">int</span> custID = <a class="code" href="class_apriori_all_lib_1_1_apriori.html#abbca8be3761136e76782ce10ebd61638" title="Input data for the algorithm. ">customerList</a>.<a class="code" href="class_apriori_all_lib_1_1_customer_list.html#a4fd2a16a984844e61ffc60b327e6534a" title="List of Customers ">Customers</a>.IndexOf(c);</div>
-<div class="line">                        <span class="keywordflow">if</span> (l.Count() == 0 &amp;&amp; !lset.IDs.Contains(custID))</div>
-<div class="line">                        {</div>
-<div class="line">                            litemsets.Add(lset);</div>
-<div class="line">                            lset.Support++;</div>
-<div class="line">                            lset.IDs.Add(custID);</div>
-<div class="line">                        }</div>
-<div class="line">                        <span class="keywordflow">else</span></div>
-<div class="line">                        {</div>
-<div class="line">                            Litemset litset = l.FirstOrDefault();</div>
-<div class="line">                            <span class="keywordflow">if</span> (!litset.IDs.Contains(custID))</div>
-<div class="line">                            {</div>
-<div class="line">                                litset.Support++;</div>
-<div class="line">                                litset.IDs.Add(custID);</div>
-<div class="line">                            }</div>
-<div class="line">                        }</div>
-<div class="line">                    }</div>
-<div class="line">                }</div>
-<div class="line">            }</div>
-<div class="line"></div>
-<div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                Trace.WriteLine(String.Format(<span class="stringliteral">&quot;Finished subset generation, found {0}.&quot;</span>, litemsets.Count));</div>
-<div class="line"></div>
-<div class="line">            <span class="comment">// rewrite the litemsets with support &gt;= minimum to a new list</span></div>
-<div class="line">            List&lt;Litemset&gt; properLitemsets = <span class="keyword">new</span> List&lt;Litemset&gt;();</div>
-<div class="line">            <span class="keywordflow">foreach</span> (Litemset litemset <span class="keywordflow">in</span> litemsets)</div>
-<div class="line">                <span class="keywordflow">if</span> (litemset.Support &gt;= minimalSupport)</div>
-<div class="line">                    properLitemsets.Add(litemset);</div>
-<div class="line"></div>
-<div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                Trace.WriteLine(String.Format(<span class="stringliteral">&quot;Purged unsupported litemsets, {0} remain.&quot;</span>, properLitemsets.Count));</div>
-<div class="line"></div>
-<div class="line">            properLitemsets.Sort();</div>
-<div class="line"></div>
-<div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                Trace.WriteLine(<span class="stringliteral">&quot;Sorted output.&quot;</span>);</div>
-<div class="line"></div>
-<div class="line">            <span class="keywordflow">return</span> properLitemsets;</div>
-<div class="line">        }</div>
-</div><!-- fragment -->
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_apriori_all_lib_1_1_apriori_a534be538e02769b9ad37ef30271396c9_cgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_apriori_a534be538e02769b9ad37ef30271396c9_cgraph" alt=""/></div>
-<map name="class_apriori_all_lib_1_1_apriori_a534be538e02769b9ad37ef30271396c9_cgraph" id="class_apriori_all_lib_1_1_apriori_a534be538e02769b9ad37ef30271396c9_cgraph">
-<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori.html#a992b4de76d19dcef78a45a0752725977" title="Produces all subsets of a given list of items in a transaction. " alt="" coords="213,5,403,46"/></map>
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program___apriori.html#a5c0a41b94b7926da567ed5ad12718991" title="Main function. " alt="" coords="225,5,410,46"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_apriori.html#acc814f1f0486ef94181556bb96750b95" title="Executes parallel version of the Apriori algorithm. " alt="" coords="238,70,397,111"/><area shape="rect" id="node7" href="group__aprioriandall.html#ga719d1c07f93fa2e82e1ae6dcacbb8efe" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. " alt="" coords="242,135,393,177"/><area shape="rect" id="node9" href="class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test.html#a34f97425d8fa423d69e2a0b17cee8e28" title="AprioriAllLib.Test.Apriori\lParallelTest.Test_AprioriParallel\l_Example1_LowSupport" alt="" coords="214,201,421,257"/><area shape="rect" id="node11" href="class_apriori_all_lib_1_1_test_1_1_apriori_test.html#a7f88088aa49b8a59ae72e5c6b8c10603" title="AprioriAllLib.Test.Apriori\lTest.Test_Apriori_Example1\l_LowSupport" alt="" coords="225,281,410,337"/><area shape="rect" id="node13" href="class_apriori_all_lib_1_1_test_1_1_apriori_test.html#ab672e1f34760b67a025d2b6385e85cf2" title="AprioriAllLib.Test.Apriori\lTest.Test_Apriori_Example1\l_HighSupport" alt="" coords="225,361,410,417"/><area shape="rect" id="node15" href="class_apriori_all_lib_1_1_test_1_1_apriori_test.html#a995e2e9976503df6750aaa6cdbbd9dd9" title="AprioriAllLib.Test.Apriori\lTest.Test_Apriori_DataSet2\l_LowSupport" alt="" coords="227,441,408,497"/><area shape="rect" id="node17" href="class_apriori_all_lib_1_1_test_1_1_apriori_test.html#ad622c7c743a4b038c2703c6ba6082d6d" title="AprioriAllLib.Test.Apriori\lTest.Test_Apriori_DataSet2\l_HighSupport" alt="" coords="227,521,408,577"/><area shape="rect" id="node19" href="class_apriori_all_lib_1_1_test_1_1_apriori_test.html#a320b15a0355574b4a219f6a775d59fa2" title="AprioriAllLib.Test.Apriori\lTest.Test_Apriori_DataSet3\l_LowSupport" alt="" coords="227,601,408,657"/><area shape="rect" id="node21" href="class_apriori_all_lib_1_1_test_1_1_apriori_test.html#a6e3ab7bce063150d94d925fe9427d0d5" title="AprioriAllLib.Test.Apriori\lTest.Test_Apriori_DataSet3\l_HighSupport" alt="" coords="227,681,408,737"/></map>
 </div>
 </p>
 
@@ -570,7 +473,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Executes parallel version of the <a class="el" href="class_apriori_all_lib_1_1_apriori.html" title="This class is used for calculating litemsets from a set of customers&#39; transactions">Apriori</a> algorithm. </p>
+<p>Executes parallel version of the <a class="el" href="class_apriori_all_lib_1_1_apriori.html" title="Used to get list of large itemsets from a set of customers&#39; transactions.">Apriori</a> algorithm. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">minimalSupport</td><td>minimal support</td></tr>
@@ -587,7 +490,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_apriori_all_lib_1_1_apriori_abf88e1f78883083cd20760cb43029738_icgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_apriori_abf88e1f78883083cd20760cb43029738_icgraph" alt=""/></div>
 <map name="class_apriori_all_lib_1_1_apriori_abf88e1f78883083cd20760cb43029738_icgraph" id="class_apriori_all_lib_1_1_apriori_abf88e1f78883083cd20760cb43029738_icgraph">
-<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori_all.html#a1abf95c25d82e6b9ff1bf26184d6c5e4" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. It uses parallel version..." alt="" coords="246,5,397,46"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test.html#a34f97425d8fa423d69e2a0b17cee8e28" title="AprioriAllLib.Test.Apriori\lParallelTest.Test_AprioriParallel\l_Example1_LowSupport" alt="" coords="218,71,425,127"/><area shape="rect" id="node7" href="class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test.html#a52657a5b9ce9b2fbe98d9420e9f40806" title="AprioriAllLib.Test.Apriori\lParallelTest.Test_AprioriParallel\l_Example1_HighSupport" alt="" coords="218,151,425,207"/><area shape="rect" id="node9" href="class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program_test___parallel_apriori.html#a81452427e86f0b8e84715bc7162bf8e9" title="AprioriAllLib.Test.InConsole.\lProgramTest_ParallelApriori.Main" alt="" coords="214,231,429,273"/></map>
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori_all.html#a1abf95c25d82e6b9ff1bf26184d6c5e4" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. It uses parallel version..." alt="" coords="246,5,397,46"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test.html#a34f97425d8fa423d69e2a0b17cee8e28" title="AprioriAllLib.Test.Apriori\lParallelTest.Test_AprioriParallel\l_Example1_LowSupport" alt="" coords="218,71,425,127"/><area shape="rect" id="node7" href="class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test.html#a52657a5b9ce9b2fbe98d9420e9f40806" title="AprioriAllLib.Test.Apriori\lParallelTest.Test_AprioriParallel\l_Example1_HighSupport" alt="" coords="218,151,425,207"/><area shape="rect" id="node9" href="class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program_test___parallel_apriori.html#a81452427e86f0b8e84715bc7162bf8e9" title="Main function. " alt="" coords="214,231,429,273"/></map>
 </div>
 </p>
 
@@ -617,7 +520,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Executes parallel version of the <a class="el" href="class_apriori_all_lib_1_1_apriori.html" title="This class is used for calculating litemsets from a set of customers&#39; transactions">Apriori</a> algorithm. </p>
+<p>Executes parallel version of the <a class="el" href="class_apriori_all_lib_1_1_apriori.html" title="Used to get list of large itemsets from a set of customers&#39; transactions.">Apriori</a> algorithm. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">minimalSupport</td><td></td></tr>
@@ -637,7 +540,7 @@ Here is the caller graph for this function:</div>
 <div class="line">            List&lt;Litemset&gt; litemsets = <span class="keyword">new</span> List&lt;Litemset&gt;();</div>
 <div class="line"></div>
 <div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a6421baeff907e6e56568e277f3bafd6b">InitOpenCL</a>(progressOutput);</div>
-<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a18cf381897f6f8d622bd6ba57b6ab46b">InitOpenCLKernels</a>(progressOutput);</div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a16f1dd784baf7b93f1194da49aa7986a">InitOpenCLPrograms</a>(progressOutput);</div>
 <div class="line"></div>
 <div class="line">            Cl.ErrorCode err;</div>
 <div class="line"></div>
@@ -645,7 +548,7 @@ Here is the caller graph for this function:</div>
 <div class="line">            <span class="keywordflow">if</span>(err.Equals(Cl.ErrorCode.Success))</div>
 <div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#afd4d28c93369b28121a358090bb50818">kernel</a>.Dispose();</div>
 <div class="line"></div>
-<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#afd4d28c93369b28121a358090bb50818">kernel</a> = Cl.CreateKernel(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a0985df9891c156e195a9af2dfefa7087">program</a>, <span class="stringliteral">&quot;countSubsetsSupport&quot;</span>, out err);</div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#afd4d28c93369b28121a358090bb50818">kernel</a> = Cl.CreateKernel(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a66e578bc7a5c8b8e5fd706bb2d9420a4">programDistinct</a>, <span class="stringliteral">&quot;findDistinctItems&quot;</span>, out err);</div>
 <div class="line">            <span class="keywordflow">if</span> (!err.Equals(Cl.ErrorCode.Success))</div>
 <div class="line">                <span class="keywordflow">throw</span> <span class="keyword">new</span> Cl.Exception(err, <span class="stringliteral">&quot;could not create kernel&quot;</span>);</div>
 <div class="line"></div>
@@ -783,7 +686,7 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_apriori_all_lib_1_1_apriori_acc814f1f0486ef94181556bb96750b95_cgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_apriori_acc814f1f0486ef94181556bb96750b95_cgraph" alt=""/></div>
 <map name="class_apriori_all_lib_1_1_apriori_acc814f1f0486ef94181556bb96750b95_cgraph" id="class_apriori_all_lib_1_1_apriori_acc814f1f0486ef94181556bb96750b95_cgraph">
-<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_open_c_l_checker.html#adf47c7b99e651e7fb42b5a6ff28d3df9" title="Determines and returns number of available OpenCL platforms. " alt="" coords="213,5,408,46"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_apriori.html#a91d0b11de53dab28769f1d7fda0542c6" title="Finds all litemsets that have the minimal support. " alt="" coords="231,70,390,111"/><area shape="rect" id="node7" href="class_apriori_all_lib_1_1_apriori.html#a6421baeff907e6e56568e277f3bafd6b" title="AprioriAllLib.Apriori.Init\lOpenCL" alt="" coords="234,135,387,177"/><area shape="rect" id="node9" href="class_apriori_all_lib_1_1_apriori.html#a18cf381897f6f8d622bd6ba57b6ab46b" title="AprioriAllLib.Apriori.Init\lOpenCLKernels" alt="" coords="234,201,387,242"/></map>
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_open_c_l_checker.html#adf47c7b99e651e7fb42b5a6ff28d3df9" title="Determines and returns number of available OpenCL platforms. " alt="" coords="213,5,408,46"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_apriori.html#a91d0b11de53dab28769f1d7fda0542c6" title="Finds all litemsets that have the minimal support. " alt="" coords="231,70,390,111"/><area shape="rect" id="node7" href="class_apriori_all_lib_1_1_apriori.html#a6421baeff907e6e56568e277f3bafd6b" title="AprioriAllLib.Apriori.Init\lOpenCL" alt="" coords="234,135,387,177"/><area shape="rect" id="node9" href="class_apriori_all_lib_1_1_apriori.html#a16f1dd784baf7b93f1194da49aa7986a" title="AprioriAllLib.Apriori.Init\lOpenCLPrograms" alt="" coords="234,201,387,242"/></map>
 </div>
 </p>
 
@@ -808,7 +711,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Indicator whether OpenCL platorm and device information is alread gathered by this instance of <a class="el" href="class_apriori_all_lib_1_1_apriori.html" title="This class is used for calculating litemsets from a set of customers&#39; transactions">Apriori</a>, and whether context was created for it. </p>
+<p>Indicator whether OpenCL platorm and device information is alread gathered by this instance of <a class="el" href="class_apriori_all_lib_1_1_apriori.html" title="Used to get list of large itemsets from a set of customers&#39; transactions.">Apriori</a>, and whether context was created for it. </p>
 
 </div>
 </div>
@@ -976,7 +879,7 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a class="anchor" id="a0985df9891c156e195a9af2dfefa7087"></a>
+<a class="anchor" id="a66e578bc7a5c8b8e5fd706bb2d9420a4"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -984,7 +887,27 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Cl.Program AprioriAllLib.Apriori.program</td>
+          <td class="memname">Cl.Program AprioriAllLib.Apriori.programDistinct</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a575e69f62a96b3789ea6ee401d95a102"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Cl.Program AprioriAllLib.Apriori.programSupport</td>
         </tr>
       </table>
   </td>

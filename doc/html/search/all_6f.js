@@ -1,5 +1,7 @@
 var searchData=
 [
+  ['opencl_20kernels',['OpenCL kernels',['../group__opencl.html',1,'']]],
+  ['opencl_2ecl',['opencl.cl',['../opencl_8cl.html',1,'']]],
   ['openclbase',['OpenCLBase',['../class_apriori_all_lib_1_1_open_c_l_base.html',1,'AprioriAllLib']]],
   ['openclbase_2ecs',['OpenCLBase.cs',['../_open_c_l_base_8cs.html',1,'']]],
   ['openclchecker',['OpenCLChecker',['../class_apriori_all_lib_1_1_open_c_l_checker.html',1,'AprioriAllLib']]],

@@ -3,7 +3,7 @@ var class_apriori_all_lib_1_1_apriori =
     [ "Apriori", "class_apriori_all_lib_1_1_apriori.html#a07c440217ce84e547c31c71ba9a2742e", null ],
     [ "GenerateCandidateLitemsets", "class_apriori_all_lib_1_1_apriori.html#a992b4de76d19dcef78a45a0752725977", null ],
     [ "InitOpenCL", "class_apriori_all_lib_1_1_apriori.html#a6421baeff907e6e56568e277f3bafd6b", null ],
-    [ "InitOpenCLKernels", "class_apriori_all_lib_1_1_apriori.html#a18cf381897f6f8d622bd6ba57b6ab46b", null ],
+    [ "InitOpenCLPrograms", "class_apriori_all_lib_1_1_apriori.html#a16f1dd784baf7b93f1194da49aa7986a", null ],
     [ "RunApriori", "class_apriori_all_lib_1_1_apriori.html#a91d0b11de53dab28769f1d7fda0542c6", null ],
     [ "RunApriori", "class_apriori_all_lib_1_1_apriori.html#a534be538e02769b9ad37ef30271396c9", null ],
     [ "RunParallelApriori", "class_apriori_all_lib_1_1_apriori.html#abf88e1f78883083cd20760cb43029738", null ],
@@ -17,5 +17,6 @@ var class_apriori_all_lib_1_1_apriori =
     [ "devices", "class_apriori_all_lib_1_1_apriori.html#aea39ed1929ca59c4e4f395069f26ed50", null ],
     [ "kernel", "class_apriori_all_lib_1_1_apriori.html#afd4d28c93369b28121a358090bb50818", null ],
     [ "platform", "class_apriori_all_lib_1_1_apriori.html#ab2d6d8f3f2b34ac27f51ca60738d448c", null ],
-    [ "program", "class_apriori_all_lib_1_1_apriori.html#a0985df9891c156e195a9af2dfefa7087", null ]
+    [ "programDistinct", "class_apriori_all_lib_1_1_apriori.html#a66e578bc7a5c8b8e5fd706bb2d9420a4", null ],
+    [ "programSupport", "class_apriori_all_lib_1_1_apriori.html#a575e69f62a96b3789ea6ee401d95a102", null ]
 ];

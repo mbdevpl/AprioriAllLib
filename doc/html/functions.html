@@ -45,6 +45,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Packages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
@@ -124,7 +125,7 @@ $(document).ready(function(){initNavTree('functions.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Properties</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Properties</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -330,8 +331,8 @@ $(document).ready(function(){initNavTree('functions.html','');});
 <li>InitOpenCL()
 : <a class="el" href="class_apriori_all_lib_1_1_apriori.html#a6421baeff907e6e56568e277f3bafd6b">AprioriAllLib.Apriori</a>
 </li>
-<li>InitOpenCLKernels()
-: <a class="el" href="class_apriori_all_lib_1_1_apriori.html#a18cf381897f6f8d622bd6ba57b6ab46b">AprioriAllLib.Apriori</a>
+<li>InitOpenCLPrograms()
+: <a class="el" href="class_apriori_all_lib_1_1_apriori.html#a16f1dd784baf7b93f1194da49aa7986a">AprioriAllLib.Apriori</a>
 </li>
 <li>InputData()
 : <a class="el" href="class_apriori_all_lib_1_1_test_1_1_input_data.html#a9468969b7234c036b01dba6b5c7ad32c">AprioriAllLib.Test.InputData</a>
@@ -410,8 +411,11 @@ $(document).ready(function(){initNavTree('functions.html','');});
 <li>PrintInput()
 : <a class="el" href="class_apriori_all_lib_1_1_test_1_1_apriori_test_base.html#ac919f218df6469dc268dec5dd5a81f4d">AprioriAllLib.Test.AprioriTestBase</a>
 </li>
-<li>program
-: <a class="el" href="class_apriori_all_lib_1_1_apriori.html#a0985df9891c156e195a9af2dfefa7087">AprioriAllLib.Apriori</a>
+<li>programDistinct
+: <a class="el" href="class_apriori_all_lib_1_1_apriori.html#a66e578bc7a5c8b8e5fd706bb2d9420a4">AprioriAllLib.Apriori</a>
+</li>
+<li>programSupport
+: <a class="el" href="class_apriori_all_lib_1_1_apriori.html#a575e69f62a96b3789ea6ee401d95a102">AprioriAllLib.Apriori</a>
 </li>
 <li>PurgeAllNonMax()
 : <a class="el" href="class_apriori_all_lib_1_1_apriori_all.html#a9f96a735cce2f04d31f0d82345ef6f7d">AprioriAllLib.AprioriAll</a>
@@ -439,7 +443,7 @@ $(document).ready(function(){initNavTree('functions.html','');});
 : <a class="el" href="class_apriori_all_lib_1_1_prefix_tree.html#a9154a1377f0fce18a219d0c4bea53144">AprioriAllLib.PrefixTree</a>
 </li>
 <li>RunApriori()
-: <a class="el" href="class_apriori_all_lib_1_1_apriori.html#a534be538e02769b9ad37ef30271396c9">AprioriAllLib.Apriori</a>
+: <a class="el" href="group__aprioriandall.html#ga534be538e02769b9ad37ef30271396c9">AprioriAllLib.Apriori</a>
 </li>
 <li>RunAprioriAll()
 : <a class="el" href="class_apriori_all_lib_1_1_apriori_all.html#a9a05f0ff368d6dfea768ce19f09505b2">AprioriAllLib.AprioriAll</a>

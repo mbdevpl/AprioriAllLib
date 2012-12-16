@@ -16,6 +16,7 @@ var searchData=
   ['apriorialltest_2ecs',['AprioriAllTest.cs',['../_apriori_all_test_8cs.html',1,'']]],
   ['apriorialltestbase',['AprioriAllTestBase',['../class_apriori_all_lib_1_1_test_1_1_apriori_all_test_base.html',1,'AprioriAllLib::Test']]],
   ['apriorialltestbase_2ecs',['AprioriAllTestBase.cs',['../_apriori_all_test_base_8cs.html',1,'']]],
+  ['apriori_20and_20aprioriall',['Apriori and AprioriAll',['../group__aprioriandall.html',1,'']]],
   ['aprioriparalleltest',['AprioriParallelTest',['../class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test.html',1,'AprioriAllLib::Test']]],
   ['aprioriparalleltest_2ecs',['AprioriParallelTest.cs',['../_apriori_parallel_test_8cs.html',1,'']]],
   ['aprioritest',['AprioriTest',['../class_apriori_all_lib_1_1_test_1_1_apriori_test.html',1,'AprioriAllLib::Test']]],

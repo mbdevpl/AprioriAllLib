@@ -1,4 +1,4 @@
 <map id="AprioriAllLib.AprioriAll.CompactSequencesList" name="AprioriAllLib.AprioriAll.CompactSequencesList">
 <area shape="rect" id="node3" href="$class_apriori_all_lib_1_1_apriori_all.html#ad0e1764626e9c890583e7f1e5783d51e" title="Prepares cleaned&#45;up and user&#45;ready data that can be used as final output of AprioriAll algoritm..." alt="" coords="214,5,365,46"/>
-<area shape="rect" id="node5" href="$class_apriori_all_lib_1_1_apriori_all.html#a719d1c07f93fa2e82e1ae6dcacbb8efe" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. " alt="" coords="414,5,565,46"/>
+<area shape="rect" id="node5" href="$group__aprioriandall.html#ga719d1c07f93fa2e82e1ae6dcacbb8efe" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. " alt="" coords="414,5,565,46"/>
 </map>
