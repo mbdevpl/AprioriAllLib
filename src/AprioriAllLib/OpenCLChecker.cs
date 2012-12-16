@@ -8,7 +8,7 @@ namespace AprioriAllLib
 {
 	/// <summary>
 	/// Utility class that is capable of basic diagnostics of presence of certain OpenCL features 
-	/// via OpenCL.NET bindings.
+	/// via OpenCL.Net bindings.
 	/// </summary>
 	public class OpenCLChecker : OpenCLBase
 	{

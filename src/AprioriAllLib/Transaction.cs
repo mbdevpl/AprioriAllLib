@@ -5,6 +5,11 @@ using System.Linq;
 
 namespace AprioriAllLib
 {
+	/*!
+	 * \addtogroup input
+	 * @{
+	 */
+
 	/// <summary>
 	/// Single client's transaction having a list of items
 	/// </summary>
@@ -19,10 +24,12 @@ namespace AprioriAllLib
 		public List<Item> Items
 		{
 			get { return items; }
-			set { items = value; }
+			//set { items = value; }
 		}
 
-		// the result of apriori appplied to those items
+		/// <summary>
+		/// The result of apriori appplied to Items.
+		/// </summary>
 		public List<List<Item>> FrequentItems;
 
 		/// <summary>
@@ -90,4 +97,6 @@ namespace AprioriAllLib
 		}
 
 	}
+
+	/// @}
 }

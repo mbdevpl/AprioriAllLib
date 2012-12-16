@@ -63,9 +63,19 @@ namespace AprioriAllLib.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] cl_subsets {
+        internal static byte[] cl_distinct {
             get {
-                object obj = ResourceManager.GetObject("cl_subsets", resourceCulture);
+                object obj = ResourceManager.GetObject("cl_distinct", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] cl_support {
+            get {
+                object obj = ResourceManager.GetObject("cl_support", resourceCulture);
                 return ((byte[])(obj));
             }
         }

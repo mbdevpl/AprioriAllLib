@@ -5,6 +5,11 @@ using System.Text;
 
 namespace AprioriAllLib
 {
+	/*!
+	 * \addtogroup prefixtree
+	 * @{
+	 */
+
 	/// <summary>
 	/// Represents a single node of PrefixTree.
 	/// </summary>
@@ -93,4 +98,6 @@ namespace AprioriAllLib
 		}
 
 	}
+
+	/// @}
 }

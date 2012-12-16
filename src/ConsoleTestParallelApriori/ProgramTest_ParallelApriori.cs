@@ -12,40 +12,34 @@ namespace AprioriAllLib.Test.InConsole
 	/// </summary>
 	public class ProgramTest_ParallelApriori : AprioriTestBase
 	{
-
+		/// <summary>
+		/// Main function.
+		/// </summary>
+		/// <param name="args">not used</param>
 		private static void Main(string[] args)
 		{
 			var program = new ProgramTest_ParallelApriori();
 
 			Console.Out.WriteLine("Parallel Apriori algorithm test");
 
-			Console.Out.WriteLine("OpenCL plaforms:");
-			foreach (String s in OpenCLChecker.AvailablePlatfroms())
-				Console.Out.WriteLine("{0}", s);
-
 			Console.Out.WriteLine("\nOpenCL platforms with devices:");
 			foreach (String s in OpenCLChecker.AvailablePlatformsWithDevices())
 				Console.Out.WriteLine("{0}", s);
 
-			CustomerList randomExample = InputGenerator.GenerateRandomList(4, 2, 2);
+			CustomerList input
+				//= InputGenerator.GenerateRandomList(6, 2, 2);
+				= Data.DataSet1;
+			double support = 0.1;
 
-			Console.Out.WriteLine("\nInput:");
-			foreach (Customer c in randomExample.Customers)
-				Console.Out.WriteLine(" - {0}", c);
+			program.PrintInput(input);
 
 			Console.Out.WriteLine("\nComputation:");
-			Apriori apriori = new Apriori(randomExample);
-			List<Litemset> litemsets = apriori.RunParallelApriori(0.001, true);
-			//AprioriAll all = new AprioriAll(randomExample);
-			//List<Customer> results = all.RunParallelApriori(0.5, true);
+			Apriori apriori = new Apriori(input);
+			List<Litemset> litemsets = apriori.RunParallelApriori(support, true);
 
-			Console.Out.WriteLine("\nResults:");
-			foreach (Litemset l in litemsets)
-				Console.Out.WriteLine(" - {0}", l);
-			//foreach (Customer c in results)
-			//	Console.Out.WriteLine(" - {0}", c);
+			program.PrintAprioriOutput(litemsets);
 
-			Console.Out.Write("Fin.");
+			Console.Out.Write("End.");
 			Console.ReadKey();
 		}
 

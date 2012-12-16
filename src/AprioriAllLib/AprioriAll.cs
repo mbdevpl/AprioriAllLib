@@ -5,15 +5,27 @@ using System.Linq;
 using OpenCL.Net;
 using System.Diagnostics;
 
+/*!
+ * \defgroup aprioriandall Apriori and AprioriAll
+ * \brief The core part of the implementation.
+ * 
+ * Although the algorithm utilizes many classes, the following entries are the most important and can give
+ * an overview of the whole implementation.
+ */
+
 //! Apriori and AprioriAll algorithms implementation (serialized and parallel), together with supporting classes.
 namespace AprioriAllLib
 {
+	/*!
+	 * \addtogroup aprioriandall
+	 * @{
+	 */
+
 	/// <summary>
 	/// AprioriAll algorithm implementation. 
 	/// </summary>
 	public class AprioriAll : Apriori
 	{
-
 		/// <summary>
 		/// Constructs a new AprioriAll instance.
 		/// </summary>
@@ -1022,6 +1034,8 @@ namespace AprioriAllLib
 		}
 
 		/// <summary>
+		/// \ingroup aprioriandall
+		/// 
 		/// Executes AprioriAll algorithm on a given input and minimum suport threshold.
 		/// </summary>
 		/// <param name="threshold">greater than 0, and less or equal 1</param>
@@ -1234,4 +1248,6 @@ namespace AprioriAllLib
 		}
 
 	}
+
+	/// @}
 }

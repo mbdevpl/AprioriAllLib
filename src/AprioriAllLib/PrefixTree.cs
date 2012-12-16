@@ -3,8 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+/*!
+ * \defgroup prefixtree Prefix tree
+ * \brief It enables the algorithm to work really fast.
+ * 
+ * Although the implementation would have worked without the use of prefix tree,
+ * it would have been terribly slow. And it was, until the PrefixTree class was introduced.
+ * It is used in many places in the serialized implementation.
+ */
+
 namespace AprioriAllLib
 {
+	/*!
+	 * \addtogroup prefixtree
+	 * @{
+	 */
+
 	/// <summary>
 	/// Simple prefix tree implementation.
 	/// </summary>
@@ -142,4 +156,6 @@ namespace AprioriAllLib
 		//	return false;
 		//}
 	}
+
+	/// @}
 }

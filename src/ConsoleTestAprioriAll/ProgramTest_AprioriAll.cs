@@ -11,7 +11,10 @@ namespace AprioriAllLib.Test.InConsole
 	/// </summary>
 	public class ProgramTest_AprioriAll : AprioriAllTestBase
 	{
-
+		/// <summary>
+		/// Main function.
+		/// </summary>
+		/// <param name="args">not used</param>
 		private static void Main(string[] args)
 		{
 			var program = new ProgramTest_AprioriAll();

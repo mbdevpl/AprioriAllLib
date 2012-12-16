@@ -3,15 +3,25 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 
+/*!
+ * \defgroup input Input data structures
+ * \brief Group of classes that are used as input and output of both algorithms.
+ * 
+ * The format of input will be almost certainly changed in future versions.
+ */
+
 namespace AprioriAllLib
 {
+	/*!
+	 * \addtogroup input
+	 * @{
+	 */
 
 	/// <summary>
 	/// Class that represents a total set of customers
 	/// </summary>
 	public class CustomerList
 	{
-
 		/// <summary>
 		/// List of Customers 
 		/// </summary>
@@ -37,4 +47,5 @@ namespace AprioriAllLib
 
 	}
 
+	/// @}
 }

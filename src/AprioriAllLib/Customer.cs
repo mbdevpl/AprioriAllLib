@@ -5,6 +5,10 @@ using System.Linq;
 
 namespace AprioriAllLib
 {
+	/*!
+	 * \addtogroup input
+	 * @{
+	 */
 
 	/// <summary>
 	/// Class which represents a customer from database having a list of transactions
@@ -80,4 +84,5 @@ namespace AprioriAllLib
 
 	}
 
+	/// @}
 }

@@ -4,13 +4,16 @@ using System.Text;
 
 namespace AprioriAllLib
 {
+	/*!
+	 * \addtogroup input
+	 * @{
+	 */
 
 	/// <summary>
 	/// Single item of a transaction.
 	/// </summary>
 	public class Item : IComparable
 	{
-
 		/// <summary>
 		/// Integer value (id) of the item
 		/// </summary>
@@ -53,4 +56,5 @@ namespace AprioriAllLib
 
 	}
 
+	/// @}
 }

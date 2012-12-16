@@ -11,6 +11,10 @@ namespace AprioriAllLib.Test.InConsole
 	/// </summary>
 	class ProgramTest_Apriori : AprioriTestBase
 	{
+		/// <summary>
+		/// Main function.
+		/// </summary>
+		/// <param name="args">not used</param>
 		static void Main(string[] args)
 		{
 			Console.Write("End.");

@@ -56,10 +56,10 @@ namespace AprioriAllLib.Test
 			IntPtr[] lenghts = null;
 
 			//Act
-			OpenCLToolkit.GetSourceCodeFromLocalResource("subsets.cl", out source, out lenghts);
+			OpenCLToolkit.GetSourceCodeFromLocalResource("distinct.cl", out source, out lenghts);
 			
 			//Assert
-			Assert.IsTrue(source.Length > 0, "the resource 'subsets.cl' should not be empty");
+			Assert.IsTrue(source.Length > 0, "the resource 'distinct.cl' should not be empty");
 			Assert.AreEqual(source.Length, lenghts.Length);
 		}
 

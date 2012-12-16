@@ -9,14 +9,16 @@ namespace AprioriAllLib.Test.InConsole
 	/// <summary>
 	/// Defines a console application that runs AprioriAll on input given in command line parameters.
 	/// 
-	/// This is modified version of application by Karolina Baltyn.
+	/// This is modified version of application originally by Karolina Baltyn.
 	/// </summary>
 	public class Program_AprioriAll
 	{
 		/// <summary>
 		/// Main function.
 		/// </summary>
-		/// <param name="args"></param>
+		/// <param name="args">exactly 2 command line arguments are needed by the program:
+		/// 1. <code>path</code> - path to the XML file with customers database
+		/// 2. <code>support</code> - minimum support, value from range (0,1]</param>
 		private static void Main(string[] args)
 		{
 			Trace.Listeners.Add(new TextWriterTraceListener(Console.Out));

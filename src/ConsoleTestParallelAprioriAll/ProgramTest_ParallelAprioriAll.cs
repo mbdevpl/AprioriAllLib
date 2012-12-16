@@ -11,6 +11,10 @@ namespace AprioriAllLib.Test.InConsole
 	/// </summary>
 	class ProgramTest_ParallelAprioriAll : AprioriAllTestBase
 	{
+		/// <summary>
+		/// Main function.
+		/// </summary>
+		/// <param name="args">not used</param>
 		static void Main(string[] args)
 		{
 		}

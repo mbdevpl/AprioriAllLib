@@ -6,12 +6,17 @@ using OpenCL.Net;
 
 namespace AprioriAllLib
 {
+	/*!
+	 * \addtogroup aprioriandall
+	 * @{
+	 */
+
 	/// <summary>
-	/// This class is used for calculating litemsets from a set of customers' transactions
+	/// Used to get list of large itemsets from a set of customers' transactions.
 	/// 
 	/// Authors of the implementation:
-	/// Serialized version by Karolina Baltyn
-	/// Parallel version by Mateusz Bysiek
+	/// - serialized version by Karolina Baltyn
+	/// - parallel version by Mateusz Bysiek
 	/// </summary>
 	public class Apriori
 	{
@@ -39,7 +44,9 @@ namespace AprioriAllLib
 		/// </summary>
 		private bool clProgramsInitialized;
 
-		private Cl.Program program;
+		private Cl.Program programDistinct;
+
+		private Cl.Program programSupport;
 
 		private bool clKernelsInitialized;
 
@@ -90,7 +97,7 @@ namespace AprioriAllLib
 			clInitialized = true;
 		}
 
-		protected void InitOpenCLKernels(bool progressOutput)
+		protected void InitOpenCLPrograms(bool progressOutput)
 		{
 			//Cl.ErrorCode err;
 
@@ -98,7 +105,10 @@ namespace AprioriAllLib
 			{
 				if (!clProgramsInitialized)
 				{
-					program = OpenCLToolkit.GetAndBuildProgramFromLocalResource("subsets.cl", context, device,
+					programDistinct = OpenCLToolkit.GetAndBuildProgramFromLocalResource("distinct.cl", context, device,
+						progressOutput ? Console.Out : null);
+
+					programSupport = OpenCLToolkit.GetAndBuildProgramFromLocalResource("support.cl", context, device,
 						progressOutput ? Console.Out : null);
 
 					if (progressOutput)
@@ -159,6 +169,8 @@ namespace AprioriAllLib
 		}
 
 		/// <summary>
+		/// \ingroup aprioriandall
+		/// 
 		/// Finds all litemsets that have the minimal support.
 		/// </summary>
 		/// <param name="minimalSupport">minimal support</param>
@@ -256,7 +268,7 @@ namespace AprioriAllLib
 			List<Litemset> litemsets = new List<Litemset>();
 
 			InitOpenCL(progressOutput);
-			InitOpenCLKernels(progressOutput);
+			InitOpenCLPrograms(progressOutput);
 
 			Cl.ErrorCode err;
 
@@ -264,7 +276,7 @@ namespace AprioriAllLib
 			if(err.Equals(Cl.ErrorCode.Success))
 				kernel.Dispose();
 
-			kernel = Cl.CreateKernel(program, "countSubsetsSupport", out err);
+			kernel = Cl.CreateKernel(programDistinct, "findDistinctItems", out err);
 			if (!err.Equals(Cl.ErrorCode.Success))
 				throw new Cl.Exception(err, "could not create kernel");
 
@@ -398,4 +410,7 @@ namespace AprioriAllLib
 		}
 
 	}
+
+	/// @}
 }
+

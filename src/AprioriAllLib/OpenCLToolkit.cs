@@ -185,5 +185,4 @@ namespace AprioriAllLib
 		}
 
 	}
-
 }
