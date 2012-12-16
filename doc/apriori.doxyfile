@@ -676,6 +676,7 @@ WARN_LOGFILE           =
 # with spaces.
 
 INPUT                  = ../src/AprioriAllLib \
+                         ../src/AprioriAllLib/OpenCL \
                          ../src/AprioriAllLibTest \
                          ../src/Apriori \
                          ../src/AprioriAll \
@@ -705,6 +706,7 @@ FILE_PATTERNS          = *.c \
                          *.cc \
                          *.cxx \
                          *.cpp \
+                         *.cl \
                          *.c++ \
                          *.d \
                          *.java \
