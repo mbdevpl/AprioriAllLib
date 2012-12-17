@@ -109,16 +109,98 @@ $(document).ready(function(){initNavTree('group__opencl.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:gaa4423e1116021df0c52c8d002667e21a"><td class="memItemLeft" align="right" valign="top">__kernel void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__opencl.html#gaa4423e1116021df0c52c8d002667e21a">findDistinctItems</a> (__global const int *itemList, __global const int *itemListLength, __global const int *itemListLimits, __global const int *itemLitsLimitsCount, __global int *ids)</td></tr>
-<tr class="separator:gaa4423e1116021df0c52c8d002667e21a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga36386ac84b5dcbedaedcd8d0bc45c9cc"><td class="memItemLeft" align="right" valign="top">__kernel void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__opencl.html#ga36386ac84b5dcbedaedcd8d0bc45c9cc">calculateSupport</a> (__global const int *itemList, __global const int *itemListLength, __global const int *itemListLimits, __global const int *itemLitsLimitsCount, __global int *supports)</td></tr>
-<tr class="separator:ga36386ac84b5dcbedaedcd8d0bc45c9cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1ae070a41f2822766573e525483c33e9"><td class="memItemLeft" align="right" valign="top">__kernel void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__opencl.html#ga1ae070a41f2822766573e525483c33e9">assignZero</a> (__global int *values, __global const int *valuesCount)</td></tr>
+<tr class="separator:ga1ae070a41f2822766573e525483c33e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5fde24f598802b1b0a0bc19e868c3bbf"><td class="memItemLeft" align="right" valign="top">__kernel void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__opencl.html#ga5fde24f598802b1b0a0bc19e868c3bbf">assignSingleValue</a> (__global int *values, __global const int *valuesCount, __global const int *assignedValue)</td></tr>
+<tr class="separator:ga5fde24f598802b1b0a0bc19e868c3bbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5788b17d8e807a7432cfa4287118db1a"><td class="memItemLeft" align="right" valign="top">__kernel void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__opencl.html#ga5788b17d8e807a7432cfa4287118db1a">logicOr</a> (__global const int *sourceValues, __global int *resultingValues, __global const int *valuesCount)</td></tr>
+<tr class="separator:ga5788b17d8e807a7432cfa4287118db1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac33449128fd2cc0facf27dee2e734d98"><td class="memItemLeft" align="right" valign="top">__kernel void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__opencl.html#gac33449128fd2cc0facf27dee2e734d98">findNewDistinctItem</a> (__global const int *items, __global const int *itemsCount, __global const int *itemsExcluded, __global int *newItemsExcluded, __global int *discovered, __global const int *step)</td></tr>
+<tr class="separator:gac33449128fd2cc0facf27dee2e734d98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac19d209eee78bd4256d314d7d6e714ab"><td class="memItemLeft" align="right" valign="top">__kernel void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__opencl.html#gac19d209eee78bd4256d314d7d6e714ab">excludeLatestDistinctItem</a> (__global const int *items, __global const int *itemsCount, __global int *itemsExcluded, __global const int *uniqueItems, __global const int *uniqueItemsCount)</td></tr>
+<tr class="separator:gac19d209eee78bd4256d314d7d6e714ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab46afc91c27c945c9e70e1ae1bf986c9"><td class="memItemLeft" align="right" valign="top">__kernel void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__opencl.html#gab46afc91c27c945c9e70e1ae1bf986c9">separateUniqueItems</a> (__global const int *items, __global const int *itemsCount, __global const int *uniqueItems, __global const int *uniqueItemsCount, __global int *supports)</td></tr>
+<tr class="separator:gab46afc91c27c945c9e70e1ae1bf986c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac96c6e040b76ae64a2008dab3abdc106"><td class="memItemLeft" align="right" valign="top">__kernel void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__opencl.html#gac96c6e040b76ae64a2008dab3abdc106">calculateSupport</a> (__global const int *items, __global const int *itemsCount, __global const int *itemsTransactions, __global const int *uniqueItemsCount, __global const int *step, __global int *supports)</td></tr>
+<tr class="separator:gac96c6e040b76ae64a2008dab3abdc106"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>All OpenCL kernels used by parallel implementations. </p>
 <p>Source code of these kernels is embedded into AprioriAllLib.dll and is compiled at runtime in order to optimize the resulting machine code to a specific environment. The word environment in this case should be understood as local CPU, GPU and operating system configuration. </p>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="ga36386ac84b5dcbedaedcd8d0bc45c9cc"></a>
+<a class="anchor" id="ga5fde24f598802b1b0a0bc19e868c3bbf"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">__kernel void assignSingleValue </td>
+          <td>(</td>
+          <td class="paramtype">__global int *&#160;</td>
+          <td class="paramname"><em>values</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">__global const int *&#160;</td>
+          <td class="paramname"><em>valuesCount</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">__global const int *&#160;</td>
+          <td class="paramname"><em>assignedValue</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line">{</div>
+<div class="line">    <span class="keywordtype">int</span> x = get_global_id(0);</div>
+<div class="line">    <span class="keywordflow">if</span>(x &lt; *valuesCount)</div>
+<div class="line">    {</div>
+<div class="line">        values[x] = *assignedValue;</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="ga1ae070a41f2822766573e525483c33e9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">__kernel void assignZero </td>
+          <td>(</td>
+          <td class="paramtype">__global int *&#160;</td>
+          <td class="paramname"><em>values</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">__global const int *&#160;</td>
+          <td class="paramname"><em>valuesCount</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line">{</div>
+<div class="line">    <span class="keywordtype">int</span> x = get_global_id(0);</div>
+<div class="line">    <span class="keywordflow">if</span>(x &lt; *valuesCount)</div>
+<div class="line">    {</div>
+<div class="line">        values[x] = 0;</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="gac96c6e040b76ae64a2008dab3abdc106"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -126,25 +208,31 @@ Functions</h2></td></tr>
           <td class="memname">__kernel void calculateSupport </td>
           <td>(</td>
           <td class="paramtype">__global const int *&#160;</td>
-          <td class="paramname"><em>itemList</em>, </td>
+          <td class="paramname"><em>items</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">__global const int *&#160;</td>
-          <td class="paramname"><em>itemListLength</em>, </td>
+          <td class="paramname"><em>itemsCount</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">__global const int *&#160;</td>
-          <td class="paramname"><em>itemListLimits</em>, </td>
+          <td class="paramname"><em>itemsTransactions</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">__global const int *&#160;</td>
-          <td class="paramname"><em>itemLitsLimitsCount</em>, </td>
+          <td class="paramname"><em>uniqueItemsCount</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">__global const int *&#160;</td>
+          <td class="paramname"><em>step</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -159,49 +247,64 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Calculates support of single items, i.e. counts how many of each is stored if <em>different</em> transactions. </p>
+<p>Calculates support of single items, i.e. counts how many of each is stored if <em>different</em> transactions.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">items</td><td>array of all items of all transactions of input </td></tr>
+    <tr><td class="paramname">itemsCount</td><td>length of items array </td></tr>
+    <tr><td class="paramname">itemsTransactions</td><td>array with numbers from zero onward that indicates, to which transaction a corresponding element of items array belongs </td></tr>
+    <tr><td class="paramname">step</td><td>current distance between two compared items, a power of 2 </td></tr>
+  </table>
+  </dd>
+</dl>
 <div class="fragment"><div class="line">{</div>
-<div class="line">    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> index = get_global_id(0); <span class="comment">// * get_global_size(0) + get_local_id(0);</span></div>
-<div class="line">    <span class="comment">//if(index &gt;= *itemList)</span></div>
-<div class="line">    <span class="comment">//  return;</span></div>
-<div class="line">    <span class="comment">//supports[index] = index;</span></div>
+<div class="line">    <span class="keywordtype">int</span> x = get_global_id(0);</div>
+<div class="line">    <span class="keywordtype">int</span> y = get_global_id(1);</div>
+<div class="line">    <span class="keywordflow">if</span>(x &lt; *itemsCount &amp;&amp; y &lt; *uniqueItemsCount &amp;&amp; *step &gt; 0 &amp;&amp; x % (2 * *step) == 0)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keywordtype">int</span> supportsIndex = y * *itemsCount + x;</div>
+<div class="line">        <span class="keywordflow">if</span>(itemsTransactions[x] == itemsTransactions[x + *step])</div>
+<div class="line">            supports[supportsIndex] = fmax(supports[supportsIndex], supports[supportsIndex + *step]);</div>
+<div class="line">        <span class="keywordflow">else</span></div>
+<div class="line">            supports[supportsIndex] = supports[supportsIndex] + supports[supportsIndex + *step];</div>
+<div class="line">    }</div>
 <div class="line">}</div>
 </div><!-- fragment -->
 </div>
 </div>
-<a class="anchor" id="gaa4423e1116021df0c52c8d002667e21a"></a>
+<a class="anchor" id="gac19d209eee78bd4256d314d7d6e714ab"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">__kernel void findDistinctItems </td>
+          <td class="memname">__kernel void excludeLatestDistinctItem </td>
           <td>(</td>
           <td class="paramtype">__global const int *&#160;</td>
-          <td class="paramname"><em>itemList</em>, </td>
+          <td class="paramname"><em>items</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">__global const int *&#160;</td>
-          <td class="paramname"><em>itemListLength</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">__global const int *&#160;</td>
-          <td class="paramname"><em>itemListLimits</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">__global const int *&#160;</td>
-          <td class="paramname"><em>itemLitsLimitsCount</em>, </td>
+          <td class="paramname"><em>itemsCount</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">__global int *&#160;</td>
-          <td class="paramname"><em>ids</em>&#160;</td>
+          <td class="paramname"><em>itemsExcluded</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">__global const int *&#160;</td>
+          <td class="paramname"><em>uniqueItems</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">__global const int *&#160;</td>
+          <td class="paramname"><em>uniqueItemsCount</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -210,10 +313,208 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Counts distinct item values in a list, and creates an ID for each unique value. </p>
+<p>Excludes latest discovered distinct value from items.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">items</td><td>array of all items of all transactions of input </td></tr>
+    <tr><td class="paramname">itemsCount</td><td>length of items array </td></tr>
+    <tr><td class="paramname">itemsExcluded</td><td>when 1, a corresponding element from items array is already present in uniqueItems array </td></tr>
+    <tr><td class="paramname">step</td><td>current step number </td></tr>
+  </table>
+  </dd>
+</dl>
 <div class="fragment"><div class="line">{</div>
-<div class="line"></div>
-<div class="line"></div>
+<div class="line">    <span class="keywordtype">int</span> x = get_global_id(0);</div>
+<div class="line">    <span class="keywordflow">if</span>(x &lt; *itemsCount)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keywordflow">if</span>(*uniqueItemsCount == 0)</div>
+<div class="line">            itemsExcluded[x] = 0;</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span>(items[x] == uniqueItems[*uniqueItemsCount - 1])</div>
+<div class="line">            itemsExcluded[x] = 1;</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="gac33449128fd2cc0facf27dee2e734d98"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">__kernel void findNewDistinctItem </td>
+          <td>(</td>
+          <td class="paramtype">__global const int *&#160;</td>
+          <td class="paramname"><em>items</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">__global const int *&#160;</td>
+          <td class="paramname"><em>itemsCount</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">__global const int *&#160;</td>
+          <td class="paramname"><em>itemsExcluded</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">__global int *&#160;</td>
+          <td class="paramname"><em>newItemsExcluded</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">__global int *&#160;</td>
+          <td class="paramname"><em>discovered</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">__global const int *&#160;</td>
+          <td class="paramname"><em>step</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Counts distinct item values in a list, and creates an ID for each unique value.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">items</td><td>array of all items of all transactions of input </td></tr>
+    <tr><td class="paramname">itemsCount</td><td>length of items array </td></tr>
+    <tr><td class="paramname">itemsExcluded</td><td>when 1, a corresponding element from items array is already established as a distinct item </td></tr>
+    <tr><td class="paramname">step</td><td>current distance between two compared items, a power of 2 </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line">{</div>
+<div class="line">    <span class="keywordtype">int</span> x = get_global_id(0);</div>
+<div class="line">    <span class="keywordflow">if</span>(x &lt; *itemsCount &amp;&amp; discovered[x] == 0 &amp;&amp; *step &gt; 0 &amp;&amp; x % (2 * *step) == 0)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keywordflow">if</span>(itemsExcluded[x] == 0)</div>
+<div class="line">            discovered[x] = items[x];</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span>(itemsExcluded[x + *step] == 0)</div>
+<div class="line">        {</div>
+<div class="line">            discovered[x] = items[x + *step];</div>
+<div class="line">            newItemsExcluded[x] = 0;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span>(newItemsExcluded[x + *step] == 0)</div>
+<div class="line">        {</div>
+<div class="line">            discovered[x] = discovered[x + *step];</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="ga5788b17d8e807a7432cfa4287118db1a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">__kernel void logicOr </td>
+          <td>(</td>
+          <td class="paramtype">__global const int *&#160;</td>
+          <td class="paramname"><em>sourceValues</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">__global int *&#160;</td>
+          <td class="paramname"><em>resultingValues</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">__global const int *&#160;</td>
+          <td class="paramname"><em>valuesCount</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Executes bitwise 'or' functions on two given arrays, and stores the result in the second array. </p>
+<div class="fragment"><div class="line">{</div>
+<div class="line">    <span class="keywordtype">int</span> x = get_global_id(0);</div>
+<div class="line">    <span class="keywordflow">if</span>(x &lt; *valuesCount)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keywordflow">if</span>(sourceValues[x] == 1)</div>
+<div class="line">            resultingValues[x] = 1;</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="gab46afc91c27c945c9e70e1ae1bf986c9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">__kernel void separateUniqueItems </td>
+          <td>(</td>
+          <td class="paramtype">__global const int *&#160;</td>
+          <td class="paramname"><em>items</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">__global const int *&#160;</td>
+          <td class="paramname"><em>itemsCount</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">__global const int *&#160;</td>
+          <td class="paramname"><em>uniqueItems</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">__global const int *&#160;</td>
+          <td class="paramname"><em>uniqueItemsCount</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">__global int *&#160;</td>
+          <td class="paramname"><em>supports</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Puts 1 in supports array where the unique item exists.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">items</td><td>array of all items of all transactions of input </td></tr>
+    <tr><td class="paramname">itemsCount</td><td>length of items array </td></tr>
+    <tr><td class="paramname">supports</td><td>output </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line">{</div>
+<div class="line">    <span class="keywordtype">int</span> x = get_global_id(0);</div>
+<div class="line">    <span class="keywordtype">int</span> y = get_global_id(1);</div>
+<div class="line">    <span class="keywordflow">if</span>(x &lt; *itemsCount &amp;&amp; y &lt; *uniqueItemsCount)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keywordtype">int</span> supportsIndex = y * *itemsCount + x;</div>
+<div class="line">        <span class="keywordflow">if</span>(items[x] == uniqueItems[y])</div>
+<div class="line">            supports[supportsIndex] = 1;</div>
+<div class="line">        <span class="keywordflow">else</span></div>
+<div class="line">            supports[supportsIndex] = 0;</div>
+<div class="line">    }</div>
 <div class="line">}</div>
 </div><!-- fragment -->
 </div>

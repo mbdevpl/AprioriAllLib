@@ -3,4 +3,9 @@
 <area shape="rect" id="node5" href="$class_apriori_all_lib_1_1_apriori.html#a91d0b11de53dab28769f1d7fda0542c6" title="Finds all litemsets that have the minimal support. " alt="" coords="231,70,390,111"/>
 <area shape="rect" id="node7" href="$class_apriori_all_lib_1_1_apriori.html#a6421baeff907e6e56568e277f3bafd6b" title="AprioriAllLib.Apriori.Init\lOpenCL" alt="" coords="234,135,387,177"/>
 <area shape="rect" id="node9" href="$class_apriori_all_lib_1_1_apriori.html#a16f1dd784baf7b93f1194da49aa7986a" title="AprioriAllLib.Apriori.Init\lOpenCLPrograms" alt="" coords="234,201,387,242"/>
+<area shape="rect" id="node11" href="$class_apriori_all_lib_1_1_open_c_l_toolkit.html#a83a109c1815137f85a1ac5106929070a" title="AprioriAllLib.OpenCLToolkit.\lCreateBuffer" alt="" coords="219,266,403,307"/>
+<area shape="rect" id="node13" href="$class_apriori_all_lib_1_1_open_c_l_toolkit.html#a17ddb6c6e18bc50e49641cd6a8640cac" title="AprioriAllLib.OpenCLToolkit.\lSetKernelArgs" alt="" coords="219,331,403,373"/>
+<area shape="rect" id="node15" href="$class_apriori_all_lib_1_1_open_c_l_toolkit.html#a10825663785a5a85125d87ce8339f0d0" title="AprioriAllLib.OpenCLToolkit.\lWriteBuffer" alt="" coords="219,397,403,438"/>
+<area shape="rect" id="node17" href="$class_apriori_all_lib_1_1_open_c_l_toolkit.html#a897e967bc44990face82790a2d5cba54" title="AprioriAllLib.OpenCLToolkit.\lLaunchKernel1D" alt="" coords="219,462,403,503"/>
+<area shape="rect" id="node19" href="$class_apriori_all_lib_1_1_open_c_l_toolkit.html#a11b8d6c0846ebab37fe05f6a466d149f" title="AprioriAllLib.OpenCLToolkit.\lReadBuffer" alt="" coords="219,527,403,569"/>
 </map>

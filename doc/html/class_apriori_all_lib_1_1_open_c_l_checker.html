@@ -195,7 +195,8 @@ Additional Inherited Members</h2></td></tr>
 <div class="line">                Cl.Device[] devices = Cl.GetDeviceIDs(p, Cl.DeviceType.All, out error);</div>
 <div class="line">                <span class="keywordflow">if</span> (<a class="code" href="class_apriori_all_lib_1_1_open_c_l_base.html#aa91e6a838348b8ec898a202403bfa08f">TrueIfError</a>(error)) <span class="keywordflow">continue</span>;</div>
 <div class="line"></div>
-<div class="line">                String s = <span class="stringliteral">&quot; devices={&quot;</span>;</div>
+<div class="line">                StringBuilder s = <span class="keyword">new</span> StringBuilder(<span class="stringliteral">&quot; devices={&quot;</span>);</div>
+<div class="line">                <span class="comment">//String s = &quot; devices={&quot;;</span></div>
 <div class="line">                <span class="keywordflow">foreach</span> (Cl.Device d in devices)</div>
 <div class="line">                {</div>
 <div class="line">                    Cl.InfoBuffer type = Cl.GetDeviceInfo(d, Cl.DeviceInfo.Type, out error);</div>
@@ -204,30 +205,55 @@ Additional Inherited Members</h2></td></tr>
 <div class="line">                    <span class="keywordflow">if</span> (<a class="code" href="class_apriori_all_lib_1_1_open_c_l_base.html#aa91e6a838348b8ec898a202403bfa08f">TrueIfError</a>(error)) <span class="keywordflow">continue</span>;</div>
 <div class="line">                    Cl.InfoBuffer vendor = Cl.GetDeviceInfo(d, Cl.DeviceInfo.Vendor, out error);</div>
 <div class="line">                    <span class="keywordflow">if</span> (<a class="code" href="class_apriori_all_lib_1_1_open_c_l_base.html#aa91e6a838348b8ec898a202403bfa08f">TrueIfError</a>(error)) <span class="keywordflow">continue</span>;</div>
-<div class="line">                    Cl.InfoBuffer cores = Cl.GetDeviceInfo(d, Cl.DeviceInfo.MaxComputeUnits, out error);</div>
+<div class="line"></div>
+<div class="line">                    s.AppendFormat(<span class="stringliteral">&quot;\n {0}. {1} name=&#39;{2}&#39; vendor=&#39;{3}&#39;&quot;</span>,</div>
+<div class="line">                        i, type.CastTo&lt;Cl.DeviceType&gt;().ToString(), name, vendor);</div>
+<div class="line"></div>
+<div class="line">                    Cl.InfoBuffer computeUnits = Cl.GetDeviceInfo(d, Cl.DeviceInfo.MaxComputeUnits, out error);</div>
 <div class="line">                    <span class="keywordflow">if</span> (<a class="code" href="class_apriori_all_lib_1_1_open_c_l_base.html#aa91e6a838348b8ec898a202403bfa08f">TrueIfError</a>(error)) <span class="keywordflow">continue</span>;</div>
 <div class="line">                    Cl.InfoBuffer clock = Cl.GetDeviceInfo(d, Cl.DeviceInfo.MaxClockFrequency, out error);</div>
 <div class="line">                    <span class="keywordflow">if</span> (<a class="code" href="class_apriori_all_lib_1_1_open_c_l_base.html#aa91e6a838348b8ec898a202403bfa08f">TrueIfError</a>(error)) <span class="keywordflow">continue</span>;</div>
-<div class="line">                    Cl.InfoBuffer memoryType = Cl.GetDeviceInfo(d, Cl.DeviceInfo.LocalMemType, out error);</div>
-<div class="line">                    <span class="keywordflow">if</span> (<a class="code" href="class_apriori_all_lib_1_1_open_c_l_base.html#aa91e6a838348b8ec898a202403bfa08f">TrueIfError</a>(error)) <span class="keywordflow">continue</span>;</div>
-<div class="line">                    Cl.InfoBuffer memory = Cl.GetDeviceInfo(d, Cl.DeviceInfo.LocalMemSize, out error);</div>
-<div class="line">                    <span class="keywordflow">if</span> (<a class="code" href="class_apriori_all_lib_1_1_open_c_l_base.html#aa91e6a838348b8ec898a202403bfa08f">TrueIfError</a>(error)) <span class="keywordflow">continue</span>;</div>
+<div class="line"></div>
+<div class="line">                    s.AppendFormat(<span class="stringliteral">&quot;\n    computeUnits={0} clock={1}MHz&quot;</span>,</div>
+<div class="line">                        computeUnits.CastTo&lt;uint&gt;(), clock.CastTo&lt;uint&gt;());</div>
+<div class="line"></div>
 <div class="line">                    Cl.InfoBuffer workGroupSize = Cl.GetDeviceInfo(d, Cl.DeviceInfo.MaxWorkGroupSize, out error);</div>
 <div class="line">                    <span class="keywordflow">if</span> (<a class="code" href="class_apriori_all_lib_1_1_open_c_l_base.html#aa91e6a838348b8ec898a202403bfa08f">TrueIfError</a>(error)) <span class="keywordflow">continue</span>;</div>
+<div class="line">                    Cl.InfoBuffer workItemDimensions = Cl.GetDeviceInfo(d, Cl.DeviceInfo.MaxWorkItemDimensions, out error);</div>
+<div class="line">                    <span class="keywordflow">if</span> (<a class="code" href="class_apriori_all_lib_1_1_open_c_l_base.html#aa91e6a838348b8ec898a202403bfa08f">TrueIfError</a>(error)) <span class="keywordflow">continue</span>;</div>
+<div class="line">                    Cl.InfoBuffer workItemSizes = Cl.GetDeviceInfo(d, Cl.DeviceInfo.MaxWorkItemSizes, out error);</div>
+<div class="line">                    <span class="keywordflow">if</span> (<a class="code" href="class_apriori_all_lib_1_1_open_c_l_base.html#aa91e6a838348b8ec898a202403bfa08f">TrueIfError</a>(error)) <span class="keywordflow">continue</span>;</div>
 <div class="line"></div>
-<div class="line">                    uint memType = memoryType.CastTo&lt;uint&gt;();</div>
+<div class="line">                    uint dims = workItemDimensions.CastTo&lt;uint&gt;();</div>
+<div class="line">                    uint[] sizes = workItemSizes.CastToArray&lt;uint&gt;((int)dims);</div>
 <div class="line"></div>
-<div class="line">                    s += String.Format(<span class="stringliteral">&quot;\n {0}. {1} name=&#39;{2}&#39; vendor=&#39;{3}&#39; cores={4} clock={5}&quot;</span>,</div>
-<div class="line">                        i, type.CastTo&lt;Cl.DeviceType&gt;().ToString(), name, vendor, cores.CastTo&lt;uint&gt;(),</div>
-<div class="line">                        clock.CastTo&lt;uint&gt;());</div>
+<div class="line">                    s.AppendFormat(<span class="stringliteral">&quot;\n    workGroupSize={0} workItemDimensions={1} workItemSizes={2}&quot;</span>,</div>
+<div class="line">                        workGroupSize.CastTo&lt;uint&gt;(), dims, String.Join(<span class="stringliteral">&quot;/&quot;</span>, sizes));</div>
+<div class="line">                    </div>
+<div class="line">                    Cl.InfoBuffer addressBits = Cl.GetDeviceInfo(d, Cl.DeviceInfo.AddressBits, out error);</div>
+<div class="line">                    <span class="keywordflow">if</span> (<a class="code" href="class_apriori_all_lib_1_1_open_c_l_base.html#aa91e6a838348b8ec898a202403bfa08f">TrueIfError</a>(error)) <span class="keywordflow">continue</span>;</div>
+<div class="line">                    Cl.InfoBuffer globalMemory = Cl.GetDeviceInfo(d, Cl.DeviceInfo.GlobalMemSize, out error);</div>
+<div class="line">                    <span class="keywordflow">if</span> (<a class="code" href="class_apriori_all_lib_1_1_open_c_l_base.html#aa91e6a838348b8ec898a202403bfa08f">TrueIfError</a>(error)) <span class="keywordflow">continue</span>;</div>
+<div class="line">                    Cl.InfoBuffer globalCache = Cl.GetDeviceInfo(d, Cl.DeviceInfo.GlobalMemCacheSize, out error);</div>
+<div class="line">                    <span class="keywordflow">if</span> (<a class="code" href="class_apriori_all_lib_1_1_open_c_l_base.html#aa91e6a838348b8ec898a202403bfa08f">TrueIfError</a>(error)) <span class="keywordflow">continue</span>;</div>
 <div class="line"></div>
-<div class="line">                    s += String.Format(<span class="stringliteral">&quot;\n    memoryType={0} memory={1} workGroupSize={2}&quot;</span>,</div>
+<div class="line">                    s.AppendFormat(<span class="stringliteral">&quot;\n    addressBits={0} globalMemory={1} globalCache={2}&quot;</span>,</div>
+<div class="line">                        addressBits.CastTo&lt;uint&gt;(), globalMemory.CastTo&lt;ulong&gt;(), globalCache.CastTo&lt;ulong&gt;());</div>
+<div class="line"></div>
+<div class="line">                    Cl.InfoBuffer localMemoryType = Cl.GetDeviceInfo(d, Cl.DeviceInfo.LocalMemType, out error);</div>
+<div class="line">                    <span class="keywordflow">if</span> (<a class="code" href="class_apriori_all_lib_1_1_open_c_l_base.html#aa91e6a838348b8ec898a202403bfa08f">TrueIfError</a>(error)) <span class="keywordflow">continue</span>;</div>
+<div class="line">                    Cl.InfoBuffer localMemory = Cl.GetDeviceInfo(d, Cl.DeviceInfo.LocalMemSize, out error);</div>
+<div class="line">                    <span class="keywordflow">if</span> (<a class="code" href="class_apriori_all_lib_1_1_open_c_l_base.html#aa91e6a838348b8ec898a202403bfa08f">TrueIfError</a>(error)) <span class="keywordflow">continue</span>;</div>
+<div class="line"></div>
+<div class="line">                    uint memType = localMemoryType.CastTo&lt;uint&gt;();</div>
+<div class="line"></div>
+<div class="line">                    s.AppendFormat(<span class="stringliteral">&quot; localMemoryType={0} localMemory={1} &quot;</span>,</div>
 <div class="line">                        memType == 1 ? <span class="stringliteral">&quot;LOCAL&quot;</span> : (memType == 2 ? <span class="stringliteral">&quot;GLOBAL&quot;</span> : <span class="stringliteral">&quot;unknown&quot;</span>),</div>
-<div class="line">                        memory.CastTo&lt;ulong&gt;(), workGroupSize.CastTo&lt;uint&gt;());</div>
+<div class="line">                        localMemory.CastTo&lt;ulong&gt;());</div>
 <div class="line">                }</div>
 <div class="line">                <span class="keywordflow">if</span> (devices.Length &gt; 0)</div>
-<div class="line">                    s += <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line">                s += <span class="stringliteral">&quot;}&quot;</span>;</div>
+<div class="line">                    s.Append(<span class="stringliteral">&quot;\n&quot;</span>);</div>
+<div class="line">                s.Append(<span class="stringliteral">&quot;}&quot;</span>);</div>
 <div class="line"></div>
 <div class="line">                results[i] += s;</div>
 <div class="line">            }</div>

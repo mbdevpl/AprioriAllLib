@@ -1,6 +1,8 @@
 var searchData=
 [
+  ['readbuffer',['ReadBuffer',['../class_apriori_all_lib_1_1_open_c_l_toolkit.html#a11b8d6c0846ebab37fe05f6a466d149f',1,'AprioriAllLib::OpenCLToolkit']]],
   ['readfromxmlfile',['ReadFromXmlFile',['../class_apriori_all_lib_1_1_xml_reader.html#ac8254897758b96fbc8e8e65ccf1103f9',1,'AprioriAllLib::XmlReader']]],
+  ['resetkernelargs',['ResetKernelArgs',['../class_apriori_all_lib_1_1_open_c_l_toolkit.html#af2c27e460adc64bc64aadb1097e542ef',1,'AprioriAllLib::OpenCLToolkit']]],
   ['runapriori',['RunApriori',['../class_apriori_all_lib_1_1_apriori.html#a91d0b11de53dab28769f1d7fda0542c6',1,'AprioriAllLib.Apriori.RunApriori(double minimalSupport)'],['../group__aprioriandall.html#ga534be538e02769b9ad37ef30271396c9',1,'AprioriAllLib.Apriori.RunApriori(double minimalSupport, bool progressOutput)']]],
   ['runaprioriall',['RunAprioriAll',['../class_apriori_all_lib_1_1_apriori_all.html#a9a05f0ff368d6dfea768ce19f09505b2',1,'AprioriAllLib.AprioriAll.RunAprioriAll(double threshold)'],['../group__aprioriandall.html#ga719d1c07f93fa2e82e1ae6dcacbb8efe',1,'AprioriAllLib.AprioriAll.RunAprioriAll(double threshold, bool progressOutput)']]],
   ['runparallelapriori',['RunParallelApriori',['../class_apriori_all_lib_1_1_apriori.html#abf88e1f78883083cd20760cb43029738',1,'AprioriAllLib.Apriori.RunParallelApriori(double minimalSupport)'],['../class_apriori_all_lib_1_1_apriori.html#acc814f1f0486ef94181556bb96750b95',1,'AprioriAllLib.Apriori.RunParallelApriori(double minimalSupport, bool progressOutput)']]],

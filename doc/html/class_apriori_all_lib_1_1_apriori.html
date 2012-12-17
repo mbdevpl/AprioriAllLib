@@ -130,7 +130,7 @@ Collaboration diagram for AprioriAllLib.Apriori:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_apriori_all_lib_1_1_apriori__coll__graph.png" border="0" usemap="#_apriori_all_lib_8_apriori_coll__map" alt="Collaboration graph"/></div>
 <map name="_apriori_all_lib_8_apriori_coll__map" id="_apriori_all_lib_8_apriori_coll__map">
-<area shape="rect" id="node12" href="class_apriori_all_lib_1_1_customer_list.html" title="Class that represents a total set of customers " alt="" coords="501,147,672,239"/></map>
+<area shape="rect" id="node10" href="class_apriori_all_lib_1_1_customer_list.html" title="Class that represents a total set of customers " alt="" coords="445,147,616,239"/></map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -183,14 +183,17 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a345b5beaaa4b430e0dc5a034a00bad81"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#a345b5beaaa4b430e0dc5a034a00bad81">clProgramsInitialized</a></td></tr>
 <tr class="memdesc:a345b5beaaa4b430e0dc5a034a00bad81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inditator whether source code of OpenCL kernels was already read by this instance.  <a href="#a345b5beaaa4b430e0dc5a034a00bad81"></a><br/></td></tr>
 <tr class="separator:a345b5beaaa4b430e0dc5a034a00bad81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd11689a0181f75e73610dfb48d148df"><td class="memItemLeft" align="right" valign="top">Cl.Program&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#abd11689a0181f75e73610dfb48d148df">programBasicFunctions</a></td></tr>
+<tr class="separator:abd11689a0181f75e73610dfb48d148df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a66e578bc7a5c8b8e5fd706bb2d9420a4"><td class="memItemLeft" align="right" valign="top">Cl.Program&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#a66e578bc7a5c8b8e5fd706bb2d9420a4">programDistinct</a></td></tr>
+<tr class="memdesc:a66e578bc7a5c8b8e5fd706bb2d9420a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Program created from file '<a class="el" href="distinct_8cl.html">distinct.cl</a>'.  <a href="#a66e578bc7a5c8b8e5fd706bb2d9420a4"></a><br/></td></tr>
 <tr class="separator:a66e578bc7a5c8b8e5fd706bb2d9420a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac990e89d5931004309bc7d99e16c8386"><td class="memItemLeft" align="right" valign="top">Cl.Program&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#ac990e89d5931004309bc7d99e16c8386">programSeparation</a></td></tr>
+<tr class="memdesc:ac990e89d5931004309bc7d99e16c8386"><td class="mdescLeft">&#160;</td><td class="mdescRight">Program created from file '<a class="el" href="separation_8cl.html">separation.cl</a>'.  <a href="#ac990e89d5931004309bc7d99e16c8386"></a><br/></td></tr>
+<tr class="separator:ac990e89d5931004309bc7d99e16c8386"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a575e69f62a96b3789ea6ee401d95a102"><td class="memItemLeft" align="right" valign="top">Cl.Program&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#a575e69f62a96b3789ea6ee401d95a102">programSupport</a></td></tr>
+<tr class="memdesc:a575e69f62a96b3789ea6ee401d95a102"><td class="mdescLeft">&#160;</td><td class="mdescRight">Program created from file '<a class="el" href="support_8cl.html">support.cl</a>'.  <a href="#a575e69f62a96b3789ea6ee401d95a102"></a><br/></td></tr>
 <tr class="separator:a575e69f62a96b3789ea6ee401d95a102"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a13238b5db6315e5af92081b8de4001c1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#a13238b5db6315e5af92081b8de4001c1">clKernelsInitialized</a></td></tr>
-<tr class="separator:a13238b5db6315e5af92081b8de4001c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd4d28c93369b28121a358090bb50818"><td class="memItemLeft" align="right" valign="top">Cl.Kernel&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#afd4d28c93369b28121a358090bb50818">kernel</a></td></tr>
-<tr class="separator:afd4d28c93369b28121a358090bb50818"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Used to get list of large itemsets from a set of customers' transactions. </p>
@@ -226,7 +229,7 @@ Private Attributes</h2></td></tr>
 <div class="line"></div>
 <div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a3e27bfc3293bb018f793c1b19df112e3" title="Indicator whether OpenCL platorm and device information is alread gathered by this instance of Aprior...">clInitialized</a> = <span class="keyword">false</span>;</div>
 <div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a345b5beaaa4b430e0dc5a034a00bad81" title="Inditator whether source code of OpenCL kernels was already read by this instance. ">clProgramsInitialized</a> = <span class="keyword">false</span>;</div>
-<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a13238b5db6315e5af92081b8de4001c1">clKernelsInitialized</a> = <span class="keyword">false</span>;</div>
+<div class="line">            <span class="comment">//clKernelsInitialized = false;</span></div>
 <div class="line">        }</div>
 </div><!-- fragment -->
 </div>
@@ -329,6 +332,9 @@ Here is the caller graph for this function:</div>
 <div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a3e27bfc3293bb018f793c1b19df112e3" title="Indicator whether OpenCL platorm and device information is alread gathered by this instance of Aprior...">clInitialized</a>)</div>
 <div class="line">                <span class="keywordflow">return</span>; <span class="comment">// already initialized</span></div>
 <div class="line"></div>
+<div class="line">            Stopwatch initWatch = <span class="keyword">new</span> Stopwatch();</div>
+<div class="line">            initWatch.Start();</div>
+<div class="line"></div>
 <div class="line">            Cl.ErrorCode err;</div>
 <div class="line"></div>
 <div class="line">            Cl.Platform[] platforms = Cl.GetPlatformIDs(out err);</div>
@@ -350,8 +356,10 @@ Here is the caller graph for this function:</div>
 <div class="line">            <span class="keywordflow">if</span> (!err.Equals(Cl.ErrorCode.Success))</div>
 <div class="line">                <span class="keywordflow">throw</span> <span class="keyword">new</span> Cl.Exception(err, <span class="stringliteral">&quot;could not create context&quot;</span>);</div>
 <div class="line"></div>
+<div class="line">            initWatch.Stop();</div>
+<div class="line"></div>
 <div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                Trace.WriteLine(<span class="stringliteral">&quot;Initialized OpenCL.&quot;</span>);</div>
+<div class="line">                Trace.WriteLine(String.Format(<span class="stringliteral">&quot;Initialized OpenCL in {0}ms.&quot;</span>, initWatch.ElapsedMilliseconds));</div>
 <div class="line"></div>
 <div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a3e27bfc3293bb018f793c1b19df112e3" title="Indicator whether OpenCL platorm and device information is alread gathered by this instance of Aprior...">clInitialized</a> = <span class="keyword">true</span>;</div>
 <div class="line">        }</div>
@@ -389,26 +397,30 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 <div class="fragment"><div class="line">        {</div>
-<div class="line">            <span class="comment">//Cl.ErrorCode err;</span></div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a345b5beaaa4b430e0dc5a034a00bad81" title="Inditator whether source code of OpenCL kernels was already read by this instance. ">clProgramsInitialized</a>)</div>
+<div class="line">                <span class="keywordflow">return</span>;</div>
 <div class="line"></div>
-<div class="line">            <span class="keywordflow">if</span> (!<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a13238b5db6315e5af92081b8de4001c1">clKernelsInitialized</a>)</div>
-<div class="line">            {</div>
-<div class="line">                <span class="keywordflow">if</span> (!<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a345b5beaaa4b430e0dc5a034a00bad81" title="Inditator whether source code of OpenCL kernels was already read by this instance. ">clProgramsInitialized</a>)</div>
-<div class="line">                {</div>
-<div class="line">                    <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a66e578bc7a5c8b8e5fd706bb2d9420a4">programDistinct</a> = OpenCLToolkit.GetAndBuildProgramFromLocalResource(<span class="stringliteral">&quot;distinct.cl&quot;</span>, <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a5d8b5f3eb0d9e2509a23626ad07cd02c">context</a>, <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a297b321a5b1fd50d9da8678848aed8b9">device</a>,</div>
-<div class="line">                        progressOutput ? Console.Out : null);</div>
+<div class="line">            Stopwatch buildWatch = <span class="keyword">new</span> Stopwatch();</div>
+<div class="line">            buildWatch.Start();</div>
 <div class="line"></div>
-<div class="line">                    <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a575e69f62a96b3789ea6ee401d95a102">programSupport</a> = OpenCLToolkit.GetAndBuildProgramFromLocalResource(<span class="stringliteral">&quot;support.cl&quot;</span>, <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a5d8b5f3eb0d9e2509a23626ad07cd02c">context</a>, <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a297b321a5b1fd50d9da8678848aed8b9">device</a>,</div>
-<div class="line">                        progressOutput ? Console.Out : null);</div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#abd11689a0181f75e73610dfb48d148df">programBasicFunctions</a> = OpenCLToolkit.GetAndBuildProgramFromLocalResource(<span class="stringliteral">&quot;basicFunctions.cl&quot;</span>, <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a5d8b5f3eb0d9e2509a23626ad07cd02c">context</a>, <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a297b321a5b1fd50d9da8678848aed8b9">device</a>,</div>
+<div class="line">                progressOutput ? Console.Out : null);</div>
 <div class="line"></div>
-<div class="line">                    <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                        Trace.WriteLine(<span class="stringliteral">&quot;Built OpenCL programs.&quot;</span>);</div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a66e578bc7a5c8b8e5fd706bb2d9420a4" title="Program created from file &#39;distinct.cl&#39;. ">programDistinct</a> = OpenCLToolkit.GetAndBuildProgramFromLocalResource(<span class="stringliteral">&quot;distinct.cl&quot;</span>, <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a5d8b5f3eb0d9e2509a23626ad07cd02c">context</a>, <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a297b321a5b1fd50d9da8678848aed8b9">device</a>,</div>
+<div class="line">                progressOutput ? Console.Out : null);</div>
 <div class="line"></div>
-<div class="line">                    <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a345b5beaaa4b430e0dc5a034a00bad81" title="Inditator whether source code of OpenCL kernels was already read by this instance. ">clProgramsInitialized</a> = <span class="keyword">true</span>;</div>
-<div class="line">                }</div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#ac990e89d5931004309bc7d99e16c8386" title="Program created from file &#39;separation.cl&#39;. ">programSeparation</a> = OpenCLToolkit.GetAndBuildProgramFromLocalResource(<span class="stringliteral">&quot;separation.cl&quot;</span>, <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a5d8b5f3eb0d9e2509a23626ad07cd02c">context</a>, <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a297b321a5b1fd50d9da8678848aed8b9">device</a>,</div>
+<div class="line">                progressOutput ? Console.Out : null);</div>
 <div class="line"></div>
-<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a13238b5db6315e5af92081b8de4001c1">clKernelsInitialized</a> = <span class="keyword">true</span>;</div>
-<div class="line">            }</div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a575e69f62a96b3789ea6ee401d95a102" title="Program created from file &#39;support.cl&#39;. ">programSupport</a> = OpenCLToolkit.GetAndBuildProgramFromLocalResource(<span class="stringliteral">&quot;support.cl&quot;</span>, <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a5d8b5f3eb0d9e2509a23626ad07cd02c">context</a>, <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a297b321a5b1fd50d9da8678848aed8b9">device</a>,</div>
+<div class="line">                progressOutput ? Console.Out : null);</div>
+<div class="line"></div>
+<div class="line">            buildWatch.Stop();</div>
+<div class="line"></div>
+<div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
+<div class="line">                Trace.WriteLine(String.Format(<span class="stringliteral">&quot;Built OpenCL programs in {0}ms.&quot;</span>, buildWatch.ElapsedMilliseconds));</div>
+<div class="line"></div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a345b5beaaa4b430e0dc5a034a00bad81" title="Inditator whether source code of OpenCL kernels was already read by this instance. ">clProgramsInitialized</a> = <span class="keyword">true</span>;</div>
 <div class="line">        }</div>
 </div><!-- fragment -->
 <p><div class="dynheader">
@@ -544,14 +556,6 @@ Here is the caller graph for this function:</div>
 <div class="line"></div>
 <div class="line">            Cl.ErrorCode err;</div>
 <div class="line"></div>
-<div class="line">            Cl.GetKernelInfo(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#afd4d28c93369b28121a358090bb50818">kernel</a>, Cl.KernelInfo.FunctionName, out err);</div>
-<div class="line">            <span class="keywordflow">if</span>(err.Equals(Cl.ErrorCode.Success))</div>
-<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#afd4d28c93369b28121a358090bb50818">kernel</a>.Dispose();</div>
-<div class="line"></div>
-<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#afd4d28c93369b28121a358090bb50818">kernel</a> = Cl.CreateKernel(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a66e578bc7a5c8b8e5fd706bb2d9420a4">programDistinct</a>, <span class="stringliteral">&quot;findDistinctItems&quot;</span>, out err);</div>
-<div class="line">            <span class="keywordflow">if</span> (!err.Equals(Cl.ErrorCode.Success))</div>
-<div class="line">                <span class="keywordflow">throw</span> <span class="keyword">new</span> Cl.Exception(err, <span class="stringliteral">&quot;could not create kernel&quot;</span>);</div>
-<div class="line"></div>
 <div class="line">            Cl.CommandQueue queue = Cl.CreateCommandQueue(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a5d8b5f3eb0d9e2509a23626ad07cd02c">context</a>, <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a297b321a5b1fd50d9da8678848aed8b9">device</a>, Cl.CommandQueueProperties.None, out err);</div>
 <div class="line">            <span class="keywordflow">if</span> (!err.Equals(Cl.ErrorCode.Success))</div>
 <div class="line">                <span class="keywordflow">throw</span> <span class="keyword">new</span> Cl.Exception(err, <span class="stringliteral">&quot;could not create command queue&quot;</span>);</div>
@@ -579,84 +583,205 @@ Here is the caller graph for this function:</div>
 <div class="line">            <span class="comment">//int transactionsCount = allTransactions.Count;</span></div>
 <div class="line">            <span class="comment">//Cl.CreateImage2D(context, Cl.MemFlags.ReadOnly | Cl.MemFlags.UseHostPtr,</span></div>
 <div class="line"></div>
+<div class="line"><span class="preprocessor">            #region buffers initialization</span></div>
+<div class="line"><span class="preprocessor"></span></div>
+<div class="line">            <span class="keywordtype">int</span>[] items = flatTransactions.ToArray();</div>
+<div class="line">            IntPtr itemsBytes;</div>
+<div class="line">            Cl.Mem itemsBuf = OpenCLToolkit.CreateBuffer(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a5d8b5f3eb0d9e2509a23626ad07cd02c">context</a>, Cl.MemFlags.ReadOnly | Cl.MemFlags.UseHostPtr,</div>
+<div class="line">                items, out itemsBytes);</div>
 <div class="line"></div>
-<div class="line">            <span class="keywordtype">int</span>[] setsCount = <span class="keyword">new</span> <span class="keywordtype">int</span>[] { allTransactions.Count };</div>
-<div class="line">            IntPtr setsCountLen = <span class="keyword">new</span> IntPtr(setsCount.Length * <span class="keyword">sizeof</span>(<span class="keywordtype">int</span>));</div>
-<div class="line">            Cl.Mem setsCountBuf = Cl.CreateBuffer(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a5d8b5f3eb0d9e2509a23626ad07cd02c">context</a>, Cl.MemFlags.ReadOnly | Cl.MemFlags.UseHostPtr,</div>
-<div class="line">                setsCountLen, setsCount, out err);</div>
-<div class="line">            <span class="keywordflow">if</span> (!err.Equals(Cl.ErrorCode.Success))</div>
-<div class="line">                <span class="keywordflow">throw</span> <span class="keyword">new</span> Cl.Exception(err, <span class="stringliteral">&quot;could not initialize buffer&quot;</span>);</div>
+<div class="line">            <span class="keywordtype">int</span>[] itemsCount = <span class="keyword">new</span> <span class="keywordtype">int</span>[] { items.Length };</div>
+<div class="line">            IntPtr itemsCountBytes;</div>
+<div class="line">            Cl.Mem itemsCountBuf = OpenCLToolkit.CreateBuffer(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a5d8b5f3eb0d9e2509a23626ad07cd02c">context</a>, Cl.MemFlags.ReadOnly | Cl.MemFlags.UseHostPtr,</div>
+<div class="line">                itemsCount, out itemsCountBytes);</div>
 <div class="line"></div>
-<div class="line">            <span class="keywordtype">int</span>[] sets = flatTransactions.ToArray();</div>
-<div class="line">            IntPtr setsLen = <span class="keyword">new</span> IntPtr(sets.Length * <span class="keyword">sizeof</span>(<span class="keywordtype">int</span>));</div>
-<div class="line">            Cl.Mem setsBuf = Cl.CreateBuffer(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a5d8b5f3eb0d9e2509a23626ad07cd02c">context</a>, Cl.MemFlags.ReadOnly | Cl.MemFlags.UseHostPtr,</div>
-<div class="line">                setsLen, sets, out err);</div>
-<div class="line">            <span class="keywordflow">if</span> (!err.Equals(Cl.ErrorCode.Success))</div>
-<div class="line">                <span class="keywordflow">throw</span> <span class="keyword">new</span> Cl.Exception(err, <span class="stringliteral">&quot;could not initialize buffer&quot;</span>);</div>
+<div class="line">            <span class="keywordtype">int</span>[] itemsExcluded = <span class="keyword">new</span> <span class="keywordtype">int</span>[itemsCount[0]];</div>
+<div class="line">            IntPtr itemsExcludedBytes;</div>
+<div class="line">            Cl.Mem itemsExcludedBuf = OpenCLToolkit.CreateBuffer(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a5d8b5f3eb0d9e2509a23626ad07cd02c">context</a>, Cl.MemFlags.ReadWrite | Cl.MemFlags.UseHostPtr,</div>
+<div class="line">                itemsExcluded, out itemsExcludedBytes);</div>
 <div class="line"></div>
-<div class="line">            <span class="keywordtype">int</span>[] setSizes = transactionsLimits.ToArray();</div>
-<div class="line">            IntPtr setSizesLen = <span class="keyword">new</span> IntPtr(setSizes.Length * <span class="keyword">sizeof</span>(<span class="keywordtype">int</span>));</div>
-<div class="line">            Cl.Mem setSizesBuf = Cl.CreateBuffer(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a5d8b5f3eb0d9e2509a23626ad07cd02c">context</a>, Cl.MemFlags.ReadOnly | Cl.MemFlags.UseHostPtr,</div>
-<div class="line">                <span class="keyword">new</span> IntPtr(transactionsLimits.Count * <span class="keyword">sizeof</span>(<span class="keywordtype">int</span>)), setSizes, out err);</div>
-<div class="line">            <span class="keywordflow">if</span> (!err.Equals(Cl.ErrorCode.Success))</div>
-<div class="line">                <span class="keywordflow">throw</span> <span class="keyword">new</span> Cl.Exception(err, <span class="stringliteral">&quot;could not initialize buffer&quot;</span>);</div>
+<div class="line">            <span class="keywordtype">int</span>[] newItemsExcluded = <span class="keyword">new</span> <span class="keywordtype">int</span>[itemsCount[0]];</div>
+<div class="line">            IntPtr newItemsExcludedBytes;</div>
+<div class="line">            Cl.Mem newItemsExcludedBuf = OpenCLToolkit.CreateBuffer(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a5d8b5f3eb0d9e2509a23626ad07cd02c">context</a>, Cl.MemFlags.ReadWrite | Cl.MemFlags.UseHostPtr,</div>
+<div class="line">                newItemsExcluded, out newItemsExcludedBytes);</div>
 <div class="line"></div>
-<div class="line">            <span class="keywordtype">int</span>[] subsetSize = <span class="keyword">new</span> <span class="keywordtype">int</span>[] { 1 };</div>
-<div class="line">            IntPtr subsetSizeLen = <span class="keyword">new</span> IntPtr(subsetSize.Length * <span class="keyword">sizeof</span>(<span class="keywordtype">int</span>));</div>
-<div class="line">            Cl.Mem subsetSizeBuf = Cl.CreateBuffer(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a5d8b5f3eb0d9e2509a23626ad07cd02c">context</a>, Cl.MemFlags.ReadOnly | Cl.MemFlags.UseHostPtr,</div>
-<div class="line">                subsetSizeLen, subsetSize, out err);</div>
-<div class="line">            <span class="keywordflow">if</span> (!err.Equals(Cl.ErrorCode.Success))</div>
-<div class="line">                <span class="keywordflow">throw</span> <span class="keyword">new</span> Cl.Exception(err, <span class="stringliteral">&quot;could not initialize buffer&quot;</span>);</div>
+<div class="line">            <span class="keywordtype">int</span>[] uniqueItems = <span class="keyword">new</span> <span class="keywordtype">int</span>[itemsCount[0]];</div>
+<div class="line">            IntPtr uniqueItemsBytes;</div>
+<div class="line">            Cl.Mem uniqueItemsBuf = OpenCLToolkit.CreateBuffer(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a5d8b5f3eb0d9e2509a23626ad07cd02c">context</a>, Cl.MemFlags.ReadWrite | Cl.MemFlags.UseHostPtr,</div>
+<div class="line">                uniqueItems, out uniqueItemsBytes);</div>
 <div class="line"></div>
-<div class="line">            <span class="keywordtype">int</span>[] supports = <span class="keyword">new</span> <span class="keywordtype">int</span>[allTransactions.Count];</div>
-<div class="line">            IntPtr supportsLen = <span class="keyword">new</span> IntPtr(supports.Length * <span class="keyword">sizeof</span>(<span class="keywordtype">int</span>));</div>
-<div class="line">            Cl.Mem supportsBuf = Cl.CreateBuffer(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a5d8b5f3eb0d9e2509a23626ad07cd02c">context</a>, Cl.MemFlags.ReadWrite | Cl.MemFlags.UseHostPtr,</div>
-<div class="line">                supportsLen, supports, out err);</div>
-<div class="line">            <span class="keywordflow">if</span> (!err.Equals(Cl.ErrorCode.Success))</div>
-<div class="line">                <span class="keywordflow">throw</span> <span class="keyword">new</span> Cl.Exception(err, <span class="stringliteral">&quot;could not initialize buffer&quot;</span>);</div>
+<div class="line">            <span class="keywordtype">int</span>[] uniqueItemsCount = <span class="keyword">new</span> <span class="keywordtype">int</span>[] { 0 };</div>
+<div class="line">            IntPtr uniqueItemsCountBytes;</div>
+<div class="line">            Cl.Mem uniqueItemsCountBuf = OpenCLToolkit.CreateBuffer(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a5d8b5f3eb0d9e2509a23626ad07cd02c">context</a>, Cl.MemFlags.ReadWrite | Cl.MemFlags.UseHostPtr,</div>
+<div class="line">                uniqueItemsCount, out uniqueItemsCountBytes);</div>
 <div class="line"></div>
-<div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                Trace.WriteLine(<span class="stringliteral">&quot;Copied input data to device memory.&quot;</span>);</div>
+<div class="line">            <span class="keywordtype">int</span>[] discovered = <span class="keyword">new</span> <span class="keywordtype">int</span>[itemsCount[0]];</div>
+<div class="line">            IntPtr discoveredBytes;</div>
+<div class="line">            Cl.Mem discoveredBuf = OpenCLToolkit.CreateBuffer(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a5d8b5f3eb0d9e2509a23626ad07cd02c">context</a>, Cl.MemFlags.ReadWrite | Cl.MemFlags.UseHostPtr,</div>
+<div class="line">                discovered, out discoveredBytes);</div>
 <div class="line"></div>
-<div class="line">            err = Cl.SetKernelArg(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#afd4d28c93369b28121a358090bb50818">kernel</a>, 0, setsCountBuf); <span class="comment">//setsCount</span></div>
-<div class="line">            <span class="keywordflow">if</span> (!err.Equals(Cl.ErrorCode.Success))</div>
-<div class="line">                <span class="keywordflow">throw</span> <span class="keyword">new</span> Cl.Exception(err, <span class="stringliteral">&quot;could not set kernel argument&quot;</span>);</div>
-<div class="line">            err = Cl.SetKernelArg(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#afd4d28c93369b28121a358090bb50818">kernel</a>, 1, setsBuf); <span class="comment">//sets</span></div>
-<div class="line">            <span class="keywordflow">if</span> (!err.Equals(Cl.ErrorCode.Success))</div>
-<div class="line">                <span class="keywordflow">throw</span> <span class="keyword">new</span> Cl.Exception(err, <span class="stringliteral">&quot;could not set kernel argument&quot;</span>);</div>
-<div class="line">            err = Cl.SetKernelArg(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#afd4d28c93369b28121a358090bb50818">kernel</a>, 2, setSizesBuf); <span class="comment">//setSizes</span></div>
-<div class="line">            <span class="keywordflow">if</span> (!err.Equals(Cl.ErrorCode.Success))</div>
-<div class="line">                <span class="keywordflow">throw</span> <span class="keyword">new</span> Cl.Exception(err, <span class="stringliteral">&quot;could not set kernel argument&quot;</span>);</div>
-<div class="line">            err = Cl.SetKernelArg(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#afd4d28c93369b28121a358090bb50818">kernel</a>, 3, subsetSizeBuf); <span class="comment">//subsetSize</span></div>
-<div class="line">            <span class="keywordflow">if</span> (!err.Equals(Cl.ErrorCode.Success))</div>
-<div class="line">                <span class="keywordflow">throw</span> <span class="keyword">new</span> Cl.Exception(err, <span class="stringliteral">&quot;could not set kernel argument&quot;</span>);</div>
-<div class="line">            err = Cl.SetKernelArg(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#afd4d28c93369b28121a358090bb50818">kernel</a>, 4, supportsBuf); <span class="comment">//supports</span></div>
-<div class="line">            <span class="keywordflow">if</span> (!err.Equals(Cl.ErrorCode.Success))</div>
-<div class="line">                <span class="keywordflow">throw</span> <span class="keyword">new</span> Cl.Exception(err, <span class="stringliteral">&quot;could not set kernel argument&quot;</span>);</div>
+<div class="line">            <span class="keywordtype">int</span>[] step = <span class="keyword">new</span> <span class="keywordtype">int</span>[] { 1 };</div>
+<div class="line">            IntPtr stepBytes;</div>
+<div class="line">            Cl.Mem stepBuf = OpenCLToolkit.CreateBuffer(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a5d8b5f3eb0d9e2509a23626ad07cd02c">context</a>, Cl.MemFlags.ReadOnly | Cl.MemFlags.UseHostPtr,</div>
+<div class="line">                step, out stepBytes);</div>
 <div class="line"></div>
+<div class="line"><span class="preprocessor">            #endregion</span></div>
+<div class="line"><span class="preprocessor"></span></div>
+<div class="line"><span class="preprocessor">            #region kernels of basicFunctions initialization</span></div>
+<div class="line"><span class="preprocessor"></span></div>
+<div class="line">            Cl.Kernel kernelZero = Cl.CreateKernel(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#abd11689a0181f75e73610dfb48d148df">programBasicFunctions</a>, <span class="stringliteral">&quot;assignZero&quot;</span>, out err);</div>
+<div class="line">            <span class="keywordflow">if</span> (!err.Equals(Cl.ErrorCode.Success))</div>
+<div class="line">                <span class="keywordflow">throw</span> <span class="keyword">new</span> Cl.Exception(err, <span class="stringliteral">&quot;could not create kernel&quot;</span>);</div>
+<div class="line"></div>
+<div class="line">            Cl.Kernel kernelOr = Cl.CreateKernel(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#abd11689a0181f75e73610dfb48d148df">programBasicFunctions</a>, <span class="stringliteral">&quot;logicOr&quot;</span>, out err);</div>
+<div class="line">            <span class="keywordflow">if</span> (!err.Equals(Cl.ErrorCode.Success))</div>
+<div class="line">                <span class="keywordflow">throw</span> <span class="keyword">new</span> Cl.Exception(err, <span class="stringliteral">&quot;could not create kernel&quot;</span>);</div>
+<div class="line"></div>
+<div class="line">            <span class="comment">//OpenCLToolkit.UnsetKernelArgs(kernelZero);</span></div>
+<div class="line"></div>
+<div class="line">            <span class="comment">//OpenCLToolkit.SetKernelArgs(kernelZero, itemsBuf, itemsCountBuf, itemsExcludedBuf,</span></div>
+<div class="line">            <span class="comment">//  uniqueItemsBuf, uniqueItemsCountBuf, discoveredBuf, stepBuf);</span></div>
+<div class="line"></div>
+<div class="line"><span class="preprocessor">            #endregion</span></div>
+<div class="line"><span class="preprocessor"></span></div>
+<div class="line"><span class="preprocessor">            #region kernelDistinct initialization</span></div>
+<div class="line"><span class="preprocessor"></span></div>
+<div class="line">            Cl.Kernel kernelDistinct = Cl.CreateKernel(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a66e578bc7a5c8b8e5fd706bb2d9420a4" title="Program created from file &#39;distinct.cl&#39;. ">programDistinct</a>, <span class="stringliteral">&quot;findNewDistinctItem&quot;</span>, out err);</div>
+<div class="line">            <span class="keywordflow">if</span> (!err.Equals(Cl.ErrorCode.Success))</div>
+<div class="line">                <span class="keywordflow">throw</span> <span class="keyword">new</span> Cl.Exception(err, <span class="stringliteral">&quot;could not create kernel&quot;</span>);</div>
+<div class="line"></div>
+<div class="line">            OpenCLToolkit.SetKernelArgs(kernelDistinct, itemsBuf, itemsCountBuf, itemsExcludedBuf, newItemsExcludedBuf,</div>
+<div class="line">                <span class="comment">/*uniqueItemsBuf, uniqueItemsCountBuf,*/</span> discoveredBuf, stepBuf);</div>
+<div class="line"></div>
+<div class="line"><span class="preprocessor">            #endregion</span></div>
+<div class="line"><span class="preprocessor"></span></div>
+<div class="line"><span class="preprocessor">            #region kernelExcludeDistinct initialization</span></div>
+<div class="line"><span class="preprocessor"></span></div>
+<div class="line">            Cl.Kernel kernelExcludeDistinct = Cl.CreateKernel(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a66e578bc7a5c8b8e5fd706bb2d9420a4" title="Program created from file &#39;distinct.cl&#39;. ">programDistinct</a>, <span class="stringliteral">&quot;excludeLatestDistinctItem&quot;</span>, out err);</div>
+<div class="line">            <span class="keywordflow">if</span> (!err.Equals(Cl.ErrorCode.Success))</div>
+<div class="line">                <span class="keywordflow">throw</span> <span class="keyword">new</span> Cl.Exception(err, <span class="stringliteral">&quot;could not create kernel&quot;</span>);</div>
+<div class="line"></div>
+<div class="line">            OpenCLToolkit.SetKernelArgs(kernelExcludeDistinct, itemsBuf, itemsCountBuf, itemsExcludedBuf,</div>
+<div class="line">                uniqueItemsBuf, uniqueItemsCountBuf);</div>
+<div class="line"></div>
+<div class="line"><span class="preprocessor">            #endregion</span></div>
+<div class="line"><span class="preprocessor"></span></div>
 <div class="line">            Cl.Event ev;</div>
-<div class="line">            IntPtr[] globalWorkSize = <span class="keyword">new</span> IntPtr[] { setsLen };</div>
+<div class="line">            IntPtr[] globalWorkSize = <span class="keyword">new</span> IntPtr[] { <span class="keyword">new</span> IntPtr(items.Length) };</div>
 <div class="line">            IntPtr[] localWorkSize = <span class="keyword">new</span> IntPtr[] { <span class="keyword">new</span> IntPtr(1) };</div>
 <div class="line"></div>
-<div class="line">            <span class="keywordflow">while</span> (subsetSize[0] &lt;= 5)</div>
+<div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
+<div class="line">                Trace.WriteLine(<span class="stringliteral">&quot;Looking for unique items in all transactions.&quot;</span>);</div>
+<div class="line"></div>
+<div class="line">            <span class="keywordflow">while</span> (<span class="keyword">true</span>)</div>
 <div class="line">            {</div>
-<div class="line">                err = Cl.EnqueueNDRangeKernel(queue, <a class="code" href="class_apriori_all_lib_1_1_apriori.html#afd4d28c93369b28121a358090bb50818">kernel</a>, 1, null, globalWorkSize, localWorkSize,</div>
-<div class="line">                    0, null, out ev);</div>
-<div class="line">                <span class="keywordflow">if</span> (!err.Equals(Cl.ErrorCode.Success))</div>
-<div class="line">                    <span class="keywordflow">throw</span> <span class="keyword">new</span> Cl.Exception(err, <span class="stringliteral">&quot;error while launching kernel&quot;</span>);</div>
+<div class="line"><span class="preprocessor">                #region kernelDistinct launch</span></div>
+<div class="line"><span class="preprocessor"></span></div>
+<div class="line">                <span class="keywordflow">if</span> (progressOutput)</div>
+<div class="line">                    Trace.Write(<span class="stringliteral">&quot; launching kernelDistinct&quot;</span>);</div>
+<div class="line"></div>
+<div class="line">                step[0] = 1;</div>
+<div class="line">                OpenCLToolkit.WriteBuffer(queue, stepBuf, stepBytes, step);</div>
+<div class="line">                <span class="keywordflow">while</span> (step[0] &lt;= itemsCount[0])</div>
+<div class="line">                {</div>
+<div class="line">                    OpenCLToolkit.LaunchKernel1D(queue, kernelDistinct, globalWorkSize, localWorkSize);</div>
+<div class="line"></div>
+<div class="line">                    OpenCLToolkit.ReadBuffer(queue, newItemsExcludedBuf, newItemsExcludedBytes, newItemsExcluded);</div>
+<div class="line">                    OpenCLToolkit.ReadBuffer(queue, discoveredBuf, discoveredBytes, discovered);</div>
+<div class="line"></div>
+<div class="line">                    <span class="keywordflow">if</span> (progressOutput)</div>
+<div class="line">                        Trace.Write(String.Format(<span class="stringliteral">&quot;, step {0}&quot;</span>, step[0]));</div>
+<div class="line"></div>
+<div class="line">                    step[0] *= 2;</div>
+<div class="line">                    OpenCLToolkit.WriteBuffer(queue, stepBuf, stepBytes, step);</div>
+<div class="line">                }</div>
 <div class="line"></div>
 <div class="line">                <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                    Trace.WriteLine(String.Format(<span class="stringliteral">&quot;launched kernel for subset size n-{0}.&quot;</span>, subsetSize[0]));</div>
+<div class="line">                    Trace.WriteLine(<span class="stringliteral">&quot;&quot;</span>);</div>
 <div class="line"></div>
-<div class="line">                subsetSize[0] += 1;</div>
-<div class="line">                err = Cl.EnqueueWriteBuffer(queue, subsetSizeBuf, Cl.Bool.True, IntPtr.Zero, subsetSizeLen, subsetSize,</div>
-<div class="line">                    0, null, out ev);</div>
+<div class="line"><span class="preprocessor">                #endregion</span></div>
+<div class="line"><span class="preprocessor"></span></div>
+<div class="line">                <span class="comment">// TODO: read 1 byte in a proper way, i.e. not using &#39;itemsCountBytes&#39;</span></div>
+<div class="line">                err = Cl.EnqueueReadBuffer(queue, discoveredBuf, Cl.Bool.True, IntPtr.Zero,</div>
+<div class="line">                    itemsBytes, discovered, 0, null, out ev);</div>
+<div class="line">                <span class="keywordflow">if</span> (!err.Equals(Cl.ErrorCode.Success))</div>
+<div class="line">                    <span class="keywordflow">throw</span> <span class="keyword">new</span> Cl.Exception(err, <span class="stringliteral">&quot;could not read results from device memory&quot;</span>);</div>
+<div class="line"></div>
+<div class="line">                <span class="keywordflow">if</span> (discovered[0] == 0)</div>
+<div class="line">                    <span class="keywordflow">break</span>;</div>
+<div class="line"></div>
+<div class="line">                uniqueItems[uniqueItemsCount[0]] = discovered[0];</div>
+<div class="line">                err = Cl.EnqueueWriteBuffer(queue, uniqueItemsBuf, Cl.Bool.True, IntPtr.Zero,</div>
+<div class="line">                    uniqueItemsBytes, uniqueItems, 0, null, out ev);</div>
 <div class="line">                <span class="keywordflow">if</span> (!err.Equals(Cl.ErrorCode.Success))</div>
 <div class="line">                    <span class="keywordflow">throw</span> <span class="keyword">new</span> Cl.Exception(err, <span class="stringliteral">&quot;could not write to device memory&quot;</span>);</div>
+<div class="line"></div>
+<div class="line">                uniqueItemsCount[0] += 1;</div>
+<div class="line">                err = Cl.EnqueueWriteBuffer(queue, uniqueItemsCountBuf, Cl.Bool.True, IntPtr.Zero,</div>
+<div class="line">                    uniqueItemsCountBytes, uniqueItemsCount, 0, null, out ev);</div>
+<div class="line">                <span class="keywordflow">if</span> (!err.Equals(Cl.ErrorCode.Success))</div>
+<div class="line">                    <span class="keywordflow">throw</span> <span class="keyword">new</span> Cl.Exception(err, <span class="stringliteral">&quot;could not write to device memory&quot;</span>);</div>
+<div class="line"></div>
+<div class="line"><span class="preprocessor">                #region kernel &#39;zero&#39;</span></div>
+<div class="line"><span class="preprocessor"></span></div>
+<div class="line">                OpenCLToolkit.SetKernelArgs(kernelZero, discoveredBuf, itemsCountBuf);</div>
+<div class="line"></div>
+<div class="line">                <span class="keywordflow">if</span> (progressOutput)</div>
+<div class="line">                    Trace.Write(<span class="stringliteral">&quot; launching kernelZero&quot;</span>);</div>
+<div class="line"></div>
+<div class="line">                OpenCLToolkit.LaunchKernel1D(queue, kernelZero, globalWorkSize, localWorkSize);</div>
+<div class="line"></div>
+<div class="line">                <span class="comment">//err = Cl.EnqueueReadBuffer(queue, discoveredBuf, Cl.Bool.True, IntPtr.Zero,</span></div>
+<div class="line">                <span class="comment">//  itemsBytes, discovered, 0, null, out ev);</span></div>
+<div class="line">                <span class="comment">//if (!err.Equals(Cl.ErrorCode.Success))</span></div>
+<div class="line">                <span class="comment">//  throw new Cl.Exception(err, &quot;could not read results from device memory&quot;);</span></div>
+<div class="line"></div>
+<div class="line"><span class="preprocessor">                #endregion</span></div>
+<div class="line"><span class="preprocessor"></span></div>
+<div class="line"><span class="preprocessor">                #region kernel exclude launch</span></div>
+<div class="line"><span class="preprocessor"></span></div>
+<div class="line">                <span class="keywordflow">if</span> (progressOutput)</div>
+<div class="line">                    Trace.WriteLine(<span class="stringliteral">&quot; launching kernelExcludeDistinct&quot;</span>);</div>
+<div class="line"></div>
+<div class="line">                OpenCLToolkit.LaunchKernel1D(queue, kernelExcludeDistinct, globalWorkSize, localWorkSize);</div>
+<div class="line"></div>
+<div class="line"><span class="preprocessor">                #endregion</span></div>
+<div class="line"><span class="preprocessor"></span></div>
+<div class="line">                <span class="comment">//err = Cl.EnqueueReadBuffer(queue, uniqueItemsBuf, Cl.Bool.True, IntPtr.Zero,</span></div>
+<div class="line">                <span class="comment">//  uniqueItemsBytes, uniqueItems, 0, null, out ev);</span></div>
+<div class="line">                <span class="comment">//if (!err.Equals(Cl.ErrorCode.Success))</span></div>
+<div class="line">                <span class="comment">//  throw new Cl.Exception(err, &quot;could not read results from device memory&quot;);</span></div>
+<div class="line"></div>
+<div class="line">                OpenCLToolkit.ReadBuffer(queue, itemsExcludedBuf, itemsExcludedBytes, itemsExcluded);</div>
+<div class="line"></div>
+<div class="line">                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; itemsCount[0]; ++i)</div>
+<div class="line">                    newItemsExcluded[i] = itemsExcluded[i];</div>
+<div class="line"></div>
+<div class="line">                OpenCLToolkit.WriteBuffer(queue, newItemsExcludedBuf, newItemsExcludedBytes, newItemsExcluded);</div>
+<div class="line"></div>
+<div class="line">                <span class="comment">//OpenCLToolkit.ReadBuffer(queue, newItemsExcludedBuf, newItemsExcludedBytes, newItemsExcluded);</span></div>
+<div class="line"></div>
+<div class="line">                <span class="comment">// add new excluded to those already existing</span></div>
+<div class="line">                <span class="comment">//OpenCLToolkit.SetKernelArgs(kernelOr, newItemsExcludedBuf, itemsExcludedBuf, itemsCountBuf);</span></div>
+<div class="line">                <span class="comment">//OpenCLToolkit.LaunchKernel1D(queue, kernelOr, globalWorkSize, localWorkSize);</span></div>
+<div class="line"></div>
+<div class="line">            }</div>
+<div class="line"></div>
+<div class="line">            kernelDistinct.Dispose();</div>
+<div class="line"></div>
+<div class="line">            kernelExcludeDistinct.Dispose();</div>
+<div class="line"></div>
+<div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
+<div class="line">            {</div>
+<div class="line">                Trace.WriteLine(String.Format(<span class="stringliteral">&quot;Found all unique items: {0}.&quot;</span>, </div>
+<div class="line">                    String.Join(<span class="stringliteral">&quot;, &quot;</span>, uniqueItems)));</div>
 <div class="line">            }</div>
 <div class="line"></div>
 <div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                Trace.WriteLine(<span class="stringliteral">&quot;Finished subset generation.&quot;</span>);</div>
+<div class="line">                Trace.WriteLine(<span class="stringliteral">&quot;Calculating support.&quot;</span>);</div>
+<div class="line"></div>
+<div class="line">            <span class="comment">//if (progressOutput)</span></div>
+<div class="line">            <span class="comment">//  Trace.WriteLine(&quot;Finished subset generation.&quot;);</span></div>
 <div class="line"></div>
 <div class="line">            <span class="comment">//Cl.InfoBuffer buf3 = Cl.GetMemObjectInfo(supportsBuf, Cl.MemInfo.HostPtr, out err);</span></div>
 <div class="line">            <span class="comment">//Cl.InfoBuffer buf = Cl.GetMemObjectInfo(supportsBuf, Cl.MemInfo.Size, out err);</span></div>
@@ -664,8 +789,17 @@ Here is the caller graph for this function:</div>
 <div class="line"></div>
 <div class="line">            <span class="comment">//int x = buf.CastTo&lt;int&gt;();</span></div>
 <div class="line"></div>
-<div class="line">            err = Cl.EnqueueReadBuffer(queue, supportsBuf, Cl.Bool.True, IntPtr.Zero, supportsLen, supports,</div>
-<div class="line">                0, null, out ev);</div>
+<div class="line"><span class="preprocessor">            #region more buffers initialization</span></div>
+<div class="line"><span class="preprocessor"></span></div>
+<div class="line">            <span class="keywordtype">int</span>[] supports = <span class="keyword">new</span> <span class="keywordtype">int</span>[itemsCount[0] * uniqueItemsCount[0]];</div>
+<div class="line">            IntPtr supportsBytes;</div>
+<div class="line">            Cl.Mem supportsBuf = OpenCLToolkit.CreateBuffer(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a5d8b5f3eb0d9e2509a23626ad07cd02c">context</a>, Cl.MemFlags.ReadWrite | Cl.MemFlags.UseHostPtr,</div>
+<div class="line">                supports, out supportsBytes);</div>
+<div class="line"></div>
+<div class="line"><span class="preprocessor">            #endregion</span></div>
+<div class="line"><span class="preprocessor"></span></div>
+<div class="line">            err = Cl.EnqueueReadBuffer(queue, supportsBuf, Cl.Bool.True, IntPtr.Zero,</div>
+<div class="line">                supportsBytes, supports, 0, null, out ev);</div>
 <div class="line">            <span class="keywordflow">if</span> (!err.Equals(Cl.ErrorCode.Success))</div>
 <div class="line">                <span class="keywordflow">throw</span> <span class="keyword">new</span> Cl.Exception(err, <span class="stringliteral">&quot;could not read results from device memory&quot;</span>);</div>
 <div class="line"></div>
@@ -686,7 +820,7 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_apriori_all_lib_1_1_apriori_acc814f1f0486ef94181556bb96750b95_cgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_apriori_acc814f1f0486ef94181556bb96750b95_cgraph" alt=""/></div>
 <map name="class_apriori_all_lib_1_1_apriori_acc814f1f0486ef94181556bb96750b95_cgraph" id="class_apriori_all_lib_1_1_apriori_acc814f1f0486ef94181556bb96750b95_cgraph">
-<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_open_c_l_checker.html#adf47c7b99e651e7fb42b5a6ff28d3df9" title="Determines and returns number of available OpenCL platforms. " alt="" coords="213,5,408,46"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_apriori.html#a91d0b11de53dab28769f1d7fda0542c6" title="Finds all litemsets that have the minimal support. " alt="" coords="231,70,390,111"/><area shape="rect" id="node7" href="class_apriori_all_lib_1_1_apriori.html#a6421baeff907e6e56568e277f3bafd6b" title="AprioriAllLib.Apriori.Init\lOpenCL" alt="" coords="234,135,387,177"/><area shape="rect" id="node9" href="class_apriori_all_lib_1_1_apriori.html#a16f1dd784baf7b93f1194da49aa7986a" title="AprioriAllLib.Apriori.Init\lOpenCLPrograms" alt="" coords="234,201,387,242"/></map>
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_open_c_l_checker.html#adf47c7b99e651e7fb42b5a6ff28d3df9" title="Determines and returns number of available OpenCL platforms. " alt="" coords="213,5,408,46"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_apriori.html#a91d0b11de53dab28769f1d7fda0542c6" title="Finds all litemsets that have the minimal support. " alt="" coords="231,70,390,111"/><area shape="rect" id="node7" href="class_apriori_all_lib_1_1_apriori.html#a6421baeff907e6e56568e277f3bafd6b" title="AprioriAllLib.Apriori.Init\lOpenCL" alt="" coords="234,135,387,177"/><area shape="rect" id="node9" href="class_apriori_all_lib_1_1_apriori.html#a16f1dd784baf7b93f1194da49aa7986a" title="AprioriAllLib.Apriori.Init\lOpenCLPrograms" alt="" coords="234,201,387,242"/><area shape="rect" id="node11" href="class_apriori_all_lib_1_1_open_c_l_toolkit.html#a83a109c1815137f85a1ac5106929070a" title="AprioriAllLib.OpenCLToolkit.\lCreateBuffer" alt="" coords="219,266,403,307"/><area shape="rect" id="node13" href="class_apriori_all_lib_1_1_open_c_l_toolkit.html#a17ddb6c6e18bc50e49641cd6a8640cac" title="AprioriAllLib.OpenCLToolkit.\lSetKernelArgs" alt="" coords="219,331,403,373"/><area shape="rect" id="node15" href="class_apriori_all_lib_1_1_open_c_l_toolkit.html#a10825663785a5a85125d87ce8339f0d0" title="AprioriAllLib.OpenCLToolkit.\lWriteBuffer" alt="" coords="219,397,403,438"/><area shape="rect" id="node17" href="class_apriori_all_lib_1_1_open_c_l_toolkit.html#a897e967bc44990face82790a2d5cba54" title="AprioriAllLib.OpenCLToolkit.\lLaunchKernel1D" alt="" coords="219,462,403,503"/><area shape="rect" id="node19" href="class_apriori_all_lib_1_1_open_c_l_toolkit.html#a11b8d6c0846ebab37fe05f6a466d149f" title="AprioriAllLib.OpenCLToolkit.\lReadBuffer" alt="" coords="219,527,403,569"/></map>
 </div>
 </p>
 
@@ -712,26 +846,6 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Indicator whether OpenCL platorm and device information is alread gathered by this instance of <a class="el" href="class_apriori_all_lib_1_1_apriori.html" title="Used to get list of large itemsets from a set of customers&#39; transactions.">Apriori</a>, and whether context was created for it. </p>
-
-</div>
-</div>
-<a class="anchor" id="a13238b5db6315e5af92081b8de4001c1"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool AprioriAllLib.Apriori.clKernelsInitialized</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
 
 </div>
 </div>
@@ -839,7 +953,7 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a class="anchor" id="afd4d28c93369b28121a358090bb50818"></a>
+<a class="anchor" id="ab2d6d8f3f2b34ac27f51ca60738d448c"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -847,7 +961,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Cl.Kernel AprioriAllLib.Apriori.kernel</td>
+          <td class="memname">Cl.Platform AprioriAllLib.Apriori.platform</td>
         </tr>
       </table>
   </td>
@@ -859,7 +973,7 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a class="anchor" id="ab2d6d8f3f2b34ac27f51ca60738d448c"></a>
+<a class="anchor" id="abd11689a0181f75e73610dfb48d148df"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -867,7 +981,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Cl.Platform AprioriAllLib.Apriori.platform</td>
+          <td class="memname">Cl.Program AprioriAllLib.Apriori.programBasicFunctions</td>
         </tr>
       </table>
   </td>
@@ -897,6 +1011,30 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
+<p>Program created from file '<a class="el" href="distinct_8cl.html">distinct.cl</a>'. </p>
+
+</div>
+</div>
+<a class="anchor" id="ac990e89d5931004309bc7d99e16c8386"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Cl.Program AprioriAllLib.Apriori.programSeparation</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Program created from file '<a class="el" href="separation_8cl.html">separation.cl</a>'. </p>
+
 </div>
 </div>
 <a class="anchor" id="a575e69f62a96b3789ea6ee401d95a102"></a>
@@ -916,6 +1054,8 @@ Here is the call graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Program created from file '<a class="el" href="support_8cl.html">support.cl</a>'. </p>
 
 </div>
 </div>
