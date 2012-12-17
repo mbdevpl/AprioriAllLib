@@ -175,13 +175,101 @@ namespace AprioriAllLib
 					string[] source = null;
 					IntPtr[] lenghts = null;
 					GetSourceCodeFromLocalResource(path, out source, out lenghts);
-					WriteSourceCode("subsets.cl", source, lenghts, writer);
+					WriteSourceCode(path, source, lenghts, writer);
 					writer.WriteLine();
 				}
 				throw new Cl.Exception(error, "could not build program");
 			}
 
 			return program;
+		}
+
+		public static Cl.Mem CreateBuffer(Cl.Context context, Cl.MemFlags memFlags, int[] values,
+			out IntPtr valuesLengthInBytes)
+		{
+			Cl.ErrorCode error;
+
+			valuesLengthInBytes = new IntPtr(values.Length * sizeof(int));
+
+			Cl.Mem buffer = Cl.CreateBuffer(context, memFlags, valuesLengthInBytes, values, out error);
+			if (!error.Equals(Cl.ErrorCode.Success))
+				throw new Cl.Exception(error, "could not initialize buffer");
+
+			return buffer;
+		}
+
+		public static void SetKernelArgs(Cl.Kernel kernel, params Cl.Mem[] buffers)
+		{
+			Cl.ErrorCode error;
+			uint currentArgument = 0;
+			foreach (Cl.Mem buffer in buffers)
+			{
+				error = Cl.SetKernelArg(kernel, currentArgument++, buffer);
+				if (!error.Equals(Cl.ErrorCode.Success))
+					throw new Cl.Exception(error, "could not set kernel argument");
+			}
+		}
+
+		//public static Cl.Mem CreateBuffer(Cl.Context context, Cl.MemFlags memFlags, List<int> valuesList, out int[] valuesArray)
+		//{
+		//	valuesArray = valuesList.ToArray();
+		//	return CreateBuffer(context, memFlags, valuesArray);
+		//}
+
+		public static void UnsetKernelArgs(Cl.Kernel kernel)
+		{
+			Cl.ErrorCode error;
+
+			Cl.InfoBuffer argsCount = Cl.GetKernelInfo(kernel, Cl.KernelInfo.NumArgs, out error);
+			if (TrueIfError(error))
+				throw new Cl.Exception(error, "could not determine kernel argument count");
+
+			uint count = argsCount.CastTo<uint>();
+
+			for (uint i = 0; i < count; ++i)
+				error = Cl.SetKernelArg(kernel, i, new Cl.Mem());
+		}
+
+		public static void ResetKernelArgs(Cl.Kernel kernel, params Cl.Mem[] buffers)
+		{
+			UnsetKernelArgs(kernel);
+			SetKernelArgs(kernel, buffers);
+		}
+
+		public static void LaunchKernel1D(Cl.CommandQueue queue, Cl.Kernel kernel,
+			IntPtr[] globalWorkSize, IntPtr[] localWorkSize)
+		{
+			Cl.ErrorCode error;
+			Cl.Event eventHandler;
+
+			error = Cl.EnqueueNDRangeKernel(queue, kernel, 1, null, globalWorkSize, localWorkSize,
+				0, null, out eventHandler);
+			if (TrueIfError(error))
+				throw new Cl.Exception(error, "error while launching kernel");
+
+		}
+
+		public static void ReadBuffer(Cl.CommandQueue queue, Cl.Mem buffer,
+			IntPtr numberOfReadBytes, int[] arrayForValues)
+		{
+			Cl.ErrorCode error;
+			Cl.Event eventHandler;
+
+			error = Cl.EnqueueReadBuffer(queue, buffer, Cl.Bool.True, IntPtr.Zero,
+				numberOfReadBytes, arrayForValues, 0, null, out eventHandler);
+			if (TrueIfError(error))
+				throw new Cl.Exception(error, "could not read results from device memory");
+		}
+
+		public static void WriteBuffer(Cl.CommandQueue queue, Cl.Mem buffer, IntPtr numberOfWrittenBytes, int[] valuesWritten)
+		{
+			Cl.ErrorCode error;
+			Cl.Event eventHandler;
+
+			error = Cl.EnqueueWriteBuffer(queue, buffer, Cl.Bool.True, IntPtr.Zero,
+				numberOfWrittenBytes, valuesWritten, 0, null, out eventHandler);
+			if (TrueIfError(error))
+				throw new Cl.Exception(error, "could not write to device memory");
 		}
 
 	}

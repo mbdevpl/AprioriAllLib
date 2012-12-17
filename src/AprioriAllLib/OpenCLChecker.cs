@@ -95,7 +95,8 @@ namespace AprioriAllLib
 				Cl.Device[] devices = Cl.GetDeviceIDs(p, Cl.DeviceType.All, out error);
 				if (TrueIfError(error)) continue;
 
-				String s = " devices={";
+				StringBuilder s = new StringBuilder(" devices={");
+				//String s = " devices={";
 				foreach (Cl.Device d in devices)
 				{
 					Cl.InfoBuffer type = Cl.GetDeviceInfo(d, Cl.DeviceInfo.Type, out error);
@@ -104,30 +105,55 @@ namespace AprioriAllLib
 					if (TrueIfError(error)) continue;
 					Cl.InfoBuffer vendor = Cl.GetDeviceInfo(d, Cl.DeviceInfo.Vendor, out error);
 					if (TrueIfError(error)) continue;
-					Cl.InfoBuffer cores = Cl.GetDeviceInfo(d, Cl.DeviceInfo.MaxComputeUnits, out error);
+
+					s.AppendFormat("\n {0}. {1} name='{2}' vendor='{3}'",
+						i, type.CastTo<Cl.DeviceType>().ToString(), name, vendor);
+
+					Cl.InfoBuffer computeUnits = Cl.GetDeviceInfo(d, Cl.DeviceInfo.MaxComputeUnits, out error);
 					if (TrueIfError(error)) continue;
 					Cl.InfoBuffer clock = Cl.GetDeviceInfo(d, Cl.DeviceInfo.MaxClockFrequency, out error);
 					if (TrueIfError(error)) continue;
-					Cl.InfoBuffer memoryType = Cl.GetDeviceInfo(d, Cl.DeviceInfo.LocalMemType, out error);
-					if (TrueIfError(error)) continue;
-					Cl.InfoBuffer memory = Cl.GetDeviceInfo(d, Cl.DeviceInfo.LocalMemSize, out error);
-					if (TrueIfError(error)) continue;
+
+					s.AppendFormat("\n    computeUnits={0} clock={1}MHz",
+						computeUnits.CastTo<uint>(), clock.CastTo<uint>());
+
 					Cl.InfoBuffer workGroupSize = Cl.GetDeviceInfo(d, Cl.DeviceInfo.MaxWorkGroupSize, out error);
 					if (TrueIfError(error)) continue;
+					Cl.InfoBuffer workItemDimensions = Cl.GetDeviceInfo(d, Cl.DeviceInfo.MaxWorkItemDimensions, out error);
+					if (TrueIfError(error)) continue;
+					Cl.InfoBuffer workItemSizes = Cl.GetDeviceInfo(d, Cl.DeviceInfo.MaxWorkItemSizes, out error);
+					if (TrueIfError(error)) continue;
 
-					uint memType = memoryType.CastTo<uint>();
+					uint dims = workItemDimensions.CastTo<uint>();
+					uint[] sizes = workItemSizes.CastToArray<uint>((int)dims);
 
-					s += String.Format("\n {0}. {1} name='{2}' vendor='{3}' cores={4} clock={5}",
-						i, type.CastTo<Cl.DeviceType>().ToString(), name, vendor, cores.CastTo<uint>(),
-						clock.CastTo<uint>());
+					s.AppendFormat("\n    workGroupSize={0} workItemDimensions={1} workItemSizes={2}",
+						workGroupSize.CastTo<uint>(), dims, String.Join("/", sizes));
+					
+					Cl.InfoBuffer addressBits = Cl.GetDeviceInfo(d, Cl.DeviceInfo.AddressBits, out error);
+					if (TrueIfError(error)) continue;
+					Cl.InfoBuffer globalMemory = Cl.GetDeviceInfo(d, Cl.DeviceInfo.GlobalMemSize, out error);
+					if (TrueIfError(error)) continue;
+					Cl.InfoBuffer globalCache = Cl.GetDeviceInfo(d, Cl.DeviceInfo.GlobalMemCacheSize, out error);
+					if (TrueIfError(error)) continue;
 
-					s += String.Format("\n    memoryType={0} memory={1} workGroupSize={2}",
+					s.AppendFormat("\n    addressBits={0} globalMemory={1} globalCache={2}",
+						addressBits.CastTo<uint>(), globalMemory.CastTo<ulong>(), globalCache.CastTo<ulong>());
+
+					Cl.InfoBuffer localMemoryType = Cl.GetDeviceInfo(d, Cl.DeviceInfo.LocalMemType, out error);
+					if (TrueIfError(error)) continue;
+					Cl.InfoBuffer localMemory = Cl.GetDeviceInfo(d, Cl.DeviceInfo.LocalMemSize, out error);
+					if (TrueIfError(error)) continue;
+
+					uint memType = localMemoryType.CastTo<uint>();
+
+					s.AppendFormat(" localMemoryType={0} localMemory={1} ",
 						memType == 1 ? "LOCAL" : (memType == 2 ? "GLOBAL" : "unknown"),
-						memory.CastTo<ulong>(), workGroupSize.CastTo<uint>());
+						localMemory.CastTo<ulong>());
 				}
 				if (devices.Length > 0)
-					s += "\n";
-				s += "}";
+					s.Append("\n");
+				s.Append("}");
 
 				results[i] += s;
 			}
