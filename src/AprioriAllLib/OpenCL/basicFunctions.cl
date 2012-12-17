@@ -1,4 +1,6 @@
-﻿
+﻿/// \addtogroup opencl
+/// @{
+
 __kernel void assignZero(
 	__global int* values,
 	__global const int* valuesCount
@@ -41,3 +43,5 @@ __kernel void logicOr(
 			resultingValues[x] = 1;
 	}
 }
+
+/// @}
