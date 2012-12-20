@@ -22,9 +22,9 @@ namespace AprioriAllLib.Test.InConsole
 
 			Console.Out.WriteLine("Parallel Apriori algorithm test");
 
-			Console.Out.WriteLine("\nOpenCL platforms with devices:");
-			foreach (String s in OpenCLChecker.AvailablePlatformsWithDevices())
-				Console.Out.WriteLine("{0}", s);
+			//Console.Out.WriteLine("\nOpenCL platforms with devices:");
+			//foreach (String s in OpenCLChecker.AvailablePlatformsWithDevices())
+			//	Console.Out.WriteLine("{0}", s);
 
 			CustomerList input
 				//= InputGenerator.GenerateRandomList(6, 2, 2);

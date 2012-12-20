@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Text;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace AprioriAllLib.Test
 {
 	/// <summary>
 	/// Basic routines needed to test Apriori algorithm. AprioriAll tests are also derived from this class.
 	/// </summary>
+	[TestClass]
 	public class AprioriTestBase
 	{
 
@@ -45,13 +46,27 @@ namespace AprioriAllLib.Test
 		{
 			if (!initialized)
 				AprioriTestBaseInitialize();
-			traceListener = new TextWriterTraceListener(Console.Out);
-			Trace.Listeners.Add(traceListener);
+			//traceListener = new TextWriterTraceListener(Console.Out);
+			//Trace.Listeners.Add(traceListener);
 		}
 
 		~AprioriTestBase()
 		{
+			//Trace.Listeners.Remove(traceListener);
+		}
+
+		[TestInitialize]
+		public virtual void TestInitialize()
+		{
+			traceListener = new TextWriterTraceListener(Console.Out);
+			Trace.Listeners.Add(traceListener);
+		}
+
+		[TestCleanup]
+		public virtual void TestCleanup()
+		{
 			Trace.Listeners.Remove(traceListener);
+			traceListener = null;
 		}
 
 		public string GetAprioriTestResults(List<Litemset> expected, List<Litemset> actual)

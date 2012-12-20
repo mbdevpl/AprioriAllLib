@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
-using OpenCL.Net;
 using System.Diagnostics;
+using OpenCL.Abstract;
 
 /*!
  * \defgroup aprioriandall Apriori and AprioriAll
@@ -1227,7 +1227,7 @@ namespace AprioriAllLib
 		/// <returns>list of frequently occurring customers transaction's patters</returns>
 		public List<Customer> RunParallelAprioriAll(double threshold, bool progressOutput)
 		{
-			if (OpenCLChecker.PlatformsCount() == 0)
+			if (Platforms.InitializeAll().Length == 0)
 				return RunAprioriAll(threshold, progressOutput);
 
 			if (customerList == null)

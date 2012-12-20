@@ -96,8 +96,12 @@
     <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="OpenCL.Net">
-      <HintPath>..\packages\OpenCL.Net.1.0.4337.25848\lib\net40-Client\OpenCL.Net.dll</HintPath>
+    <Reference Include="AbstractOpenCL">
+      <HintPath>..\lib\AbstractOpenCL.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenCL.Net, Version=1.0.4337.25848, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\OpenCL.Net.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -110,8 +114,6 @@
     <Compile Include="InputGenerator.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="Litemset.cs" />
-    <Compile Include="OpenCLBase.cs" />
-    <Compile Include="OpenCLChecker.cs" />
     <Compile Include="OpenCLToolkit.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -131,7 +133,6 @@
     <None Include="OpenCL\opencl.cl" />
     <None Include="OpenCL\separation.cl" />
     <None Include="OpenCL\basicFunctions.cl" />
-    <None Include="packages.config" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

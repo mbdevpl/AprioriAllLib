@@ -27,7 +27,7 @@ __kernel void assignSingleValue(
 }
 
 /*!
-	Executes bitwise 'or' functions on two given arrays, 
+	Executes pairwise 'or' functions on two given arrays, 
 	and stores the result in the second array.
  */
 __kernel void logicOr(

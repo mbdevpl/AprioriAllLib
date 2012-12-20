@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using OpenCL.Net;
+using System.Resources;
+using OpenCL.Abstract;
 
 namespace AprioriAllLib
 {
@@ -31,35 +32,33 @@ namespace AprioriAllLib
 		/// </summary>
 		private bool clInitialized;
 
-		private Cl.Platform platform;
+		private Platform platform;
 
-		private Cl.Device[] devices;
+		private Device device;
 
-		private Cl.Device device;
-
-		private Cl.Context context;
+		private Context context;
 
 		/// <summary>
 		/// Inditator whether source code of OpenCL kernels was already read by this instance.
 		/// </summary>
 		private bool clProgramsInitialized;
 
-		private Cl.Program programBasicFunctions;
+		private Program programBasicFunctions;
 
 		/// <summary>
 		/// Program created from file 'distinct.cl'.
 		/// </summary>
-		private Cl.Program programDistinct;
+		private Program programDistinct;
 
 		/// <summary>
 		/// Program created from file 'separation.cl'.
 		/// </summary>
-		private Cl.Program programSeparation;
+		private Program programSeparation;
 
 		/// <summary>
 		/// Program created from file 'support.cl'.
 		/// </summary>
-		private Cl.Program programSupport;
+		private Program programSupport;
 
 		//private bool clKernelsInitialized;
 
@@ -86,26 +85,28 @@ namespace AprioriAllLib
 			Stopwatch initWatch = new Stopwatch();
 			initWatch.Start();
 
-			Cl.ErrorCode err;
+			//Cl.ErrorCode err;
 
-			Cl.Platform[] platforms = Cl.GetPlatformIDs(out err);
-			if (!err.Equals(Cl.ErrorCode.Success))
-				throw new Cl.Exception(err, "could not get list of platforms");
+			//Cl.Platform[] platforms = Cl.GetPlatformIDs(out err);
+			//if (!err.Equals(Cl.ErrorCode.Success))
+			//	throw new Cl.Exception(err, "could not get list of platforms");
 
-			platform = platforms[0];
+			platform = new Platform();
 
-			devices = Cl.GetDeviceIDs(platform, Cl.DeviceType.All, out err);
-			if (!err.Equals(Cl.ErrorCode.Success))
-				throw new Cl.Exception(err, "could not get list of devices");
+			//devices = Cl.GetDeviceIDs(platform, Cl.DeviceType.All, out err);
+			//if (!err.Equals(Cl.ErrorCode.Success))
+			//	throw new Cl.Exception(err, "could not get list of devices");
 
-			device = devices[0];
+			device = new Device(platform, DeviceType.Any);
 
 			//Cl.ContextProperty[] contextProperties = new Cl.ContextProperty[1];
 			//contextProperties[0] = Cl.ContextProperties.Platform;
 
-			context = Cl.CreateContext(null, 1, devices, null, IntPtr.Zero, out err);
-			if (!err.Equals(Cl.ErrorCode.Success))
-				throw new Cl.Exception(err, "could not create context");
+			context = new Context(device);
+
+			//context = Cl.CreateContext(null, 1, devices, null, IntPtr.Zero, out err);
+			//if (!err.Equals(Cl.ErrorCode.Success))
+			//	throw new Cl.Exception(err, "could not create context");
 
 			initWatch.Stop();
 
@@ -123,17 +124,16 @@ namespace AprioriAllLib
 			Stopwatch buildWatch = new Stopwatch();
 			buildWatch.Start();
 
-			programBasicFunctions = OpenCLToolkit.GetAndBuildProgramFromLocalResource("basicFunctions.cl", context, device,
-				progressOutput ? Console.Out : null);
+			ResourceManager manager = AprioriAllLib.Properties.Resources.ResourceManager;
 
-			programDistinct = OpenCLToolkit.GetAndBuildProgramFromLocalResource("distinct.cl", context, device,
-				progressOutput ? Console.Out : null);
-
-			programSeparation = OpenCLToolkit.GetAndBuildProgramFromLocalResource("separation.cl", context, device,
-				progressOutput ? Console.Out : null);
-
-			programSupport = OpenCLToolkit.GetAndBuildProgramFromLocalResource("support.cl", context, device,
-				progressOutput ? Console.Out : null);
+			programBasicFunctions = new Program(context, new SourceCode(manager, "cl_basicFunctions"));
+			programBasicFunctions.Build(device);
+			programDistinct = new Program(context, new SourceCode(manager, "cl_distinct"));
+			programDistinct.Build(device);
+			programSeparation = new Program(context, new SourceCode(manager, "cl_separation"));
+			programSeparation.Build(device);
+			programSupport = new Program(context, new SourceCode(manager, "cl_support"));
+			programSupport.Build(device);
 
 			buildWatch.Stop();
 
@@ -280,133 +280,89 @@ namespace AprioriAllLib
 		/// <returns>A list of Litemsets with support >= minimalSupport</returns>
 		public List<Litemset> RunParallelApriori(double minimalSupport, bool progressOutput)
 		{
-			if (OpenCLChecker.PlatformsCount() == 0)
+			if (Platforms.InitializeAll().Length == 0)
 				return RunApriori(minimalSupport, progressOutput);
 
 			if (minimalSupport > 1 || minimalSupport <= 0)
 				return null;
 
-			minimalSupport *= customerList.Customers.Count;
-			List<Litemset> litemsets = new List<Litemset>();
+			int minSupport = (int)Math.Ceiling((double)customerList.Customers.Count * minimalSupport);
 
 			InitOpenCL(progressOutput);
 			InitOpenCLPrograms(progressOutput);
 
-			Cl.ErrorCode err;
+			CommandQueue queue = new CommandQueue(device, context);
 
-			Cl.CommandQueue queue = Cl.CreateCommandQueue(context, device, Cl.CommandQueueProperties.None, out err);
-			if (!err.Equals(Cl.ErrorCode.Success))
-				throw new Cl.Exception(err, "could not create command queue");
+			#region conversion of input data to regular int arrays
 
-			List<List<int>> allTransactions = new List<List<int>>();
+			//List<List<int>> allTransactions = new List<List<int>>();
 			List<int> flatTransactions = new List<int>();
-			List<int> transactionsLimits = new List<int>();
+			List<int> flatTransactionsIds = new List<int>();
+			//List<int> transactionsLimits = new List<int>();
 			{
-				int limit = 0;
+				int currentId = 0;
 				foreach (Customer c in customerList.Customers)
 					foreach (Transaction t in c.Transactions)
 					{
-						List<int> transaction = new List<int>();
-						transactionsLimits.Add(limit);
+						//List<int> transaction = new List<int>();
+						//transactionsLimits.Add(limit);
 						foreach (Item item in t.Items)
 						{
-							transaction.Add(item.Value);
+							//transaction.Add(item.Value);
 							flatTransactions.Add(item.Value);
-							++limit;
+							flatTransactionsIds.Add(currentId);
+							//++limit;
 						}
-						allTransactions.Add(transaction);
+						++currentId;
+						//allTransactions.Add(transaction);
 					}
 			}
 
-			//int transactionsCount = allTransactions.Count;
-			//Cl.CreateImage2D(context, Cl.MemFlags.ReadOnly | Cl.MemFlags.UseHostPtr,
+			#endregion
 
 			#region buffers initialization
 
 			int[] items = flatTransactions.ToArray();
-			IntPtr itemsBytes;
-			Cl.Mem itemsBuf = OpenCLToolkit.CreateBuffer(context, Cl.MemFlags.ReadOnly | Cl.MemFlags.UseHostPtr,
-				items, out itemsBytes);
+			Buffer<int> itemsBuf = new Buffer<int>(context, queue, items);
 
 			int[] itemsCount = new int[] { items.Length };
-			IntPtr itemsCountBytes;
-			Cl.Mem itemsCountBuf = OpenCLToolkit.CreateBuffer(context, Cl.MemFlags.ReadOnly | Cl.MemFlags.UseHostPtr,
-				itemsCount, out itemsCountBytes);
+			Buffer<int> itemsCountBuf = new Buffer<int>(context, queue, itemsCount);
 
 			int[] itemsExcluded = new int[itemsCount[0]];
-			IntPtr itemsExcludedBytes;
-			Cl.Mem itemsExcludedBuf = OpenCLToolkit.CreateBuffer(context, Cl.MemFlags.ReadWrite | Cl.MemFlags.UseHostPtr,
-				itemsExcluded, out itemsExcludedBytes);
+			Buffer<int> itemsExcludedBuf = new Buffer<int>(context, queue, itemsExcluded);
 
 			int[] newItemsExcluded = new int[itemsCount[0]];
-			IntPtr newItemsExcludedBytes;
-			Cl.Mem newItemsExcludedBuf = OpenCLToolkit.CreateBuffer(context, Cl.MemFlags.ReadWrite | Cl.MemFlags.UseHostPtr,
-				newItemsExcluded, out newItemsExcludedBytes);
+			Buffer<int> newItemsExcludedBuf = new Buffer<int>(context, queue, newItemsExcluded);
 
 			int[] uniqueItems = new int[itemsCount[0]];
-			IntPtr uniqueItemsBytes;
-			Cl.Mem uniqueItemsBuf = OpenCLToolkit.CreateBuffer(context, Cl.MemFlags.ReadWrite | Cl.MemFlags.UseHostPtr,
-				uniqueItems, out uniqueItemsBytes);
+			Buffer<int> uniqueItemsBuf = new Buffer<int>(context, queue, uniqueItems);
 
 			int[] uniqueItemsCount = new int[] { 0 };
-			IntPtr uniqueItemsCountBytes;
-			Cl.Mem uniqueItemsCountBuf = OpenCLToolkit.CreateBuffer(context, Cl.MemFlags.ReadWrite | Cl.MemFlags.UseHostPtr,
-				uniqueItemsCount, out uniqueItemsCountBytes);
+			Buffer<int> uniqueItemsCountBuf = new Buffer<int>(context, queue, uniqueItemsCount);
 
 			int[] discovered = new int[itemsCount[0]];
-			IntPtr discoveredBytes;
-			Cl.Mem discoveredBuf = OpenCLToolkit.CreateBuffer(context, Cl.MemFlags.ReadWrite | Cl.MemFlags.UseHostPtr,
-				discovered, out discoveredBytes);
+			Buffer<int> discoveredBuf = new Buffer<int>(context, queue, discovered);
 
 			int[] step = new int[] { 1 };
-			IntPtr stepBytes;
-			Cl.Mem stepBuf = OpenCLToolkit.CreateBuffer(context, Cl.MemFlags.ReadOnly | Cl.MemFlags.UseHostPtr,
-				step, out stepBytes);
+			Buffer<int> stepBuf = new Buffer<int>(context, queue, step);
 
 			#endregion
 
-			#region kernels of basicFunctions initialization
+			Kernel kernelZero = new Kernel(programBasicFunctions, "assignZero");
+			Kernel kernelOr = new Kernel(programBasicFunctions, "logicOr");
 
-			Cl.Kernel kernelZero = Cl.CreateKernel(programBasicFunctions, "assignZero", out err);
-			if (!err.Equals(Cl.ErrorCode.Success))
-				throw new Cl.Exception(err, "could not create kernel");
-
-			Cl.Kernel kernelOr = Cl.CreateKernel(programBasicFunctions, "logicOr", out err);
-			if (!err.Equals(Cl.ErrorCode.Success))
-				throw new Cl.Exception(err, "could not create kernel");
-
-			//OpenCLToolkit.UnsetKernelArgs(kernelZero);
-
-			//OpenCLToolkit.SetKernelArgs(kernelZero, itemsBuf, itemsCountBuf, itemsExcludedBuf,
-			//	uniqueItemsBuf, uniqueItemsCountBuf, discoveredBuf, stepBuf);
-
-			#endregion
-
-			#region kernelDistinct initialization
-
-			Cl.Kernel kernelDistinct = Cl.CreateKernel(programDistinct, "findNewDistinctItem", out err);
-			if (!err.Equals(Cl.ErrorCode.Success))
-				throw new Cl.Exception(err, "could not create kernel");
-
-			OpenCLToolkit.SetKernelArgs(kernelDistinct, itemsBuf, itemsCountBuf, itemsExcludedBuf, newItemsExcludedBuf,
+			Kernel kernelDistinct = new Kernel(programDistinct, "findNewDistinctItem");
+			kernelDistinct.SetArguments(itemsBuf, itemsCountBuf, itemsExcludedBuf, newItemsExcludedBuf,
 				/*uniqueItemsBuf, uniqueItemsCountBuf,*/ discoveredBuf, stepBuf);
 
-			#endregion
-
-			#region kernelExcludeDistinct initialization
-
-			Cl.Kernel kernelExcludeDistinct = Cl.CreateKernel(programDistinct, "excludeLatestDistinctItem", out err);
-			if (!err.Equals(Cl.ErrorCode.Success))
-				throw new Cl.Exception(err, "could not create kernel");
-
-			OpenCLToolkit.SetKernelArgs(kernelExcludeDistinct, itemsBuf, itemsCountBuf, itemsExcludedBuf,
+			Kernel kernelExcludeDistinct = new Kernel(programDistinct, "excludeLatestDistinctItem");
+			kernelExcludeDistinct.SetArguments(itemsBuf, itemsCountBuf, itemsExcludedBuf,
 				uniqueItemsBuf, uniqueItemsCountBuf);
 
-			#endregion
+			//IntPtr[] globalWorkSize = new IntPtr[] { new IntPtr() };
+			//IntPtr[] localWorkSize = new IntPtr[] { new IntPtr() };
 
-			Cl.Event ev;
-			IntPtr[] globalWorkSize = new IntPtr[] { new IntPtr(items.Length) };
-			IntPtr[] localWorkSize = new IntPtr[] { new IntPtr(1) };
+			#region distinct items finding
 
 			if (progressOutput)
 				Trace.WriteLine("Looking for unique items in all transactions.");
@@ -419,19 +375,19 @@ namespace AprioriAllLib
 					Trace.Write(" launching kernelDistinct");
 
 				step[0] = 1;
-				OpenCLToolkit.WriteBuffer(queue, stepBuf, stepBytes, step);
+				stepBuf.Write();
 				while (step[0] <= itemsCount[0])
 				{
-					OpenCLToolkit.LaunchKernel1D(queue, kernelDistinct, globalWorkSize, localWorkSize);
+					kernelDistinct.Launch1D(queue, (uint)items.Length, (uint)1);
 
-					OpenCLToolkit.ReadBuffer(queue, newItemsExcludedBuf, newItemsExcludedBytes, newItemsExcluded);
-					OpenCLToolkit.ReadBuffer(queue, discoveredBuf, discoveredBytes, discovered);
+					newItemsExcludedBuf.Read();
+					discoveredBuf.Read();
 
 					if (progressOutput)
 						Trace.Write(String.Format(", step {0}", step[0]));
 
 					step[0] *= 2;
-					OpenCLToolkit.WriteBuffer(queue, stepBuf, stepBytes, step);
+					stepBuf.Write();
 				}
 
 				if (progressOutput)
@@ -440,62 +396,35 @@ namespace AprioriAllLib
 				#endregion
 
 				// TODO: read 1 byte in a proper way, i.e. not using 'itemsCountBytes'
-				err = Cl.EnqueueReadBuffer(queue, discoveredBuf, Cl.Bool.True, IntPtr.Zero,
-					itemsBytes, discovered, 0, null, out ev);
-				if (!err.Equals(Cl.ErrorCode.Success))
-					throw new Cl.Exception(err, "could not read results from device memory");
+				discoveredBuf.Read(0, 1);
 
 				if (discovered[0] == 0)
 					break;
 
 				uniqueItems[uniqueItemsCount[0]] = discovered[0];
-				err = Cl.EnqueueWriteBuffer(queue, uniqueItemsBuf, Cl.Bool.True, IntPtr.Zero,
-					uniqueItemsBytes, uniqueItems, 0, null, out ev);
-				if (!err.Equals(Cl.ErrorCode.Success))
-					throw new Cl.Exception(err, "could not write to device memory");
+				uniqueItemsBuf.Write();
 
 				uniqueItemsCount[0] += 1;
-				err = Cl.EnqueueWriteBuffer(queue, uniqueItemsCountBuf, Cl.Bool.True, IntPtr.Zero,
-					uniqueItemsCountBytes, uniqueItemsCount, 0, null, out ev);
-				if (!err.Equals(Cl.ErrorCode.Success))
-					throw new Cl.Exception(err, "could not write to device memory");
+				uniqueItemsCountBuf.Write();
 
-				#region kernel 'zero'
-
-				OpenCLToolkit.SetKernelArgs(kernelZero, discoveredBuf, itemsCountBuf);
+				kernelZero.SetArguments(discoveredBuf, itemsCountBuf);
 
 				if (progressOutput)
 					Trace.Write(" launching kernelZero");
 
-				OpenCLToolkit.LaunchKernel1D(queue, kernelZero, globalWorkSize, localWorkSize);
-
-				//err = Cl.EnqueueReadBuffer(queue, discoveredBuf, Cl.Bool.True, IntPtr.Zero,
-				//	itemsBytes, discovered, 0, null, out ev);
-				//if (!err.Equals(Cl.ErrorCode.Success))
-				//	throw new Cl.Exception(err, "could not read results from device memory");
-
-				#endregion
-
-				#region kernel exclude launch
+				kernelZero.Launch1D(queue, (uint)itemsCount[0], 1);
 
 				if (progressOutput)
 					Trace.WriteLine(" launching kernelExcludeDistinct");
 
-				OpenCLToolkit.LaunchKernel1D(queue, kernelExcludeDistinct, globalWorkSize, localWorkSize);
+				kernelExcludeDistinct.Launch1D(queue, (uint)itemsCount[0], 1);
 
-				#endregion
-
-				//err = Cl.EnqueueReadBuffer(queue, uniqueItemsBuf, Cl.Bool.True, IntPtr.Zero,
-				//	uniqueItemsBytes, uniqueItems, 0, null, out ev);
-				//if (!err.Equals(Cl.ErrorCode.Success))
-				//	throw new Cl.Exception(err, "could not read results from device memory");
-
-				OpenCLToolkit.ReadBuffer(queue, itemsExcludedBuf, itemsExcludedBytes, itemsExcluded);
+				itemsExcludedBuf.Read();
 
 				for (int i = 0; i < itemsCount[0]; ++i)
 					newItemsExcluded[i] = itemsExcluded[i];
 
-				OpenCLToolkit.WriteBuffer(queue, newItemsExcludedBuf, newItemsExcludedBytes, newItemsExcluded);
+				newItemsExcludedBuf.Write();
 
 				//OpenCLToolkit.ReadBuffer(queue, newItemsExcludedBuf, newItemsExcludedBytes, newItemsExcluded);
 
@@ -510,13 +439,13 @@ namespace AprioriAllLib
 			kernelExcludeDistinct.Dispose();
 
 			if (progressOutput)
-			{
-				Trace.WriteLine(String.Format("Found all unique items: {0}.", 
+				Trace.WriteLine(String.Format("Found all unique items: {0}.",
 					String.Join(", ", uniqueItems)));
-			}
+
+			#endregion
 
 			if (progressOutput)
-				Trace.WriteLine("Calculating support.");
+				Trace.WriteLine("Calculating support of each unique item.");
 
 			//if (progressOutput)
 			//	Trace.WriteLine("Finished subset generation.");
@@ -529,23 +458,61 @@ namespace AprioriAllLib
 
 			#region more buffers initialization
 
+			int[] itemsTransactions = flatTransactionsIds.ToArray();
+			Buffer<int> itemsTransactionsBuf = new Buffer<int>(context, queue, itemsTransactions);
+
 			int[] supports = new int[itemsCount[0] * uniqueItemsCount[0]];
-			IntPtr supportsBytes;
-			Cl.Mem supportsBuf = OpenCLToolkit.CreateBuffer(context, Cl.MemFlags.ReadWrite | Cl.MemFlags.UseHostPtr,
-				supports, out supportsBytes);
+			Buffer<int> supportsBuf = new Buffer<int>(context, queue, supports);
 
 			#endregion
 
-			err = Cl.EnqueueReadBuffer(queue, supportsBuf, Cl.Bool.True, IntPtr.Zero,
-				supportsBytes, supports, 0, null, out ev);
-			if (!err.Equals(Cl.ErrorCode.Success))
-				throw new Cl.Exception(err, "could not read results from device memory");
+			Kernel kernelInitSupports = new Kernel(queue, programSupport, "supportInitial");
+			kernelInitSupports.SetArguments(itemsBuf, itemsCountBuf, uniqueItemsBuf, uniqueItemsCountBuf,
+				supportsBuf);
 
-			for (int i = 0; i < supports.Length; ++i)
+			kernelInitSupports.Launch2D((uint)itemsCount[0], 1, (uint)uniqueItemsCount[0], 1);
+
+			supportsBuf.Read(); // only for debugging
+
+			Kernel kernelSupports = new Kernel(queue, programSupport, "supportReduction");
+			kernelSupports.SetArguments(itemsBuf, itemsCountBuf, itemsTransactionsBuf,
+				uniqueItemsBuf, uniqueItemsCountBuf, stepBuf, supportsBuf);
+
+			step[0] = 1;
+			while (step[0] < itemsCount[0])
 			{
-				if (supports[i] >= minimalSupport)
-					litemsets.Add(new Litemset(supports[i], allTransactions.ElementAt(i).ToArray()));
+				stepBuf.Write();
+
+				//globalWorkSize = new IntPtr[] { new IntPtr(itemsCount[0]), new IntPtr(uniqueItemsCount[0]) };
+				//localWorkSize = new IntPtr[] { new IntPtr(1), new IntPtr(1) };
+
+				kernelSupports.Launch2D((uint)itemsCount[0], 1, (uint)uniqueItemsCount[0], 1);
+
+				supportsBuf.Read(); // only for debugging
+				step[0] *= 2;
 			}
+
+			List<Litemset> litemsets = new List<Litemset>();
+			int index = 0;
+			for (int i = 0; i < uniqueItemsCount[0]; ++i)
+			{
+				supportsBuf.Read((uint)index, 1);
+				if (supports[index] >= minSupport)
+					litemsets.Add(new Litemset(supports[index], uniqueItems[i]));
+				index += itemsCount[0];
+			}
+
+			//for (int i = 0; i < uniqueItemsCount[0]; ++i)
+			//{
+			//	int unique = uniqueItems[i];
+			//	litemsets.Add(new Litemset(1, unique));
+			//}
+
+			//for (int i = 0; i < supports.Length; ++i)
+			//{
+			//	if (supports[i] >= minimalSupport)
+			//		litemsets.Add(new Litemset(supports[i], allTransactions.ElementAt(i).ToArray()));
+			//}
 
 			if (progressOutput)
 				Trace.WriteLine(String.Format("Generated all litemsets, found {0}.", litemsets.Count));
