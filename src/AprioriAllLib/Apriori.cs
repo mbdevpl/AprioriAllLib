@@ -85,28 +85,9 @@ namespace AprioriAllLib
 			Stopwatch initWatch = new Stopwatch();
 			initWatch.Start();
 
-			//Cl.ErrorCode err;
-
-			//Cl.Platform[] platforms = Cl.GetPlatformIDs(out err);
-			//if (!err.Equals(Cl.ErrorCode.Success))
-			//	throw new Cl.Exception(err, "could not get list of platforms");
-
 			platform = new Platform();
-
-			//devices = Cl.GetDeviceIDs(platform, Cl.DeviceType.All, out err);
-			//if (!err.Equals(Cl.ErrorCode.Success))
-			//	throw new Cl.Exception(err, "could not get list of devices");
-
 			device = new Device(platform, DeviceType.Any);
-
-			//Cl.ContextProperty[] contextProperties = new Cl.ContextProperty[1];
-			//contextProperties[0] = Cl.ContextProperties.Platform;
-
 			context = new Context(device);
-
-			//context = Cl.CreateContext(null, 1, devices, null, IntPtr.Zero, out err);
-			//if (!err.Equals(Cl.ErrorCode.Success))
-			//	throw new Cl.Exception(err, "could not create context");
 
 			initWatch.Stop();
 
@@ -288,8 +269,12 @@ namespace AprioriAllLib
 
 			int minSupport = (int)Math.Ceiling((double)customerList.Customers.Count * minimalSupport);
 
+			Abstract.Diagnostics = true;
+
 			InitOpenCL(progressOutput);
 			InitOpenCLPrograms(progressOutput);
+
+			Abstract.Diagnostics = false;
 
 			CommandQueue queue = new CommandQueue(device, context);
 
@@ -324,24 +309,31 @@ namespace AprioriAllLib
 
 			int[] items = flatTransactions.ToArray();
 			Buffer<int> itemsBuf = new Buffer<int>(context, queue, items);
+			itemsBuf.Write();
 
 			int[] itemsCount = new int[] { items.Length };
 			Buffer<int> itemsCountBuf = new Buffer<int>(context, queue, itemsCount);
+			itemsCountBuf.Write();
 
 			int[] itemsExcluded = new int[itemsCount[0]];
 			Buffer<int> itemsExcludedBuf = new Buffer<int>(context, queue, itemsExcluded);
+			itemsCountBuf.Write(); // TODO: kernelZero here
 
 			int[] newItemsExcluded = new int[itemsCount[0]];
 			Buffer<int> newItemsExcludedBuf = new Buffer<int>(context, queue, newItemsExcluded);
+			newItemsExcludedBuf.Write(); // TODO: kernelZero here
 
 			int[] uniqueItems = new int[itemsCount[0]];
 			Buffer<int> uniqueItemsBuf = new Buffer<int>(context, queue, uniqueItems);
+			uniqueItemsBuf.Write(); // TODO: kernelZero here
 
 			int[] uniqueItemsCount = new int[] { 0 };
 			Buffer<int> uniqueItemsCountBuf = new Buffer<int>(context, queue, uniqueItemsCount);
+			uniqueItemsCountBuf.Write(); // TODO: kernelZero here
 
 			int[] discovered = new int[itemsCount[0]];
 			Buffer<int> discoveredBuf = new Buffer<int>(context, queue, discovered);
+			discoveredBuf.Write(); // TODO: kernelZero here
 
 			int[] step = new int[] { 1 };
 			Buffer<int> stepBuf = new Buffer<int>(context, queue, step);
@@ -351,18 +343,15 @@ namespace AprioriAllLib
 			Kernel kernelZero = new Kernel(programBasicFunctions, "assignZero");
 			Kernel kernelOr = new Kernel(programBasicFunctions, "logicOr");
 
+			#region distinct items finding
+
 			Kernel kernelDistinct = new Kernel(programDistinct, "findNewDistinctItem");
 			kernelDistinct.SetArguments(itemsBuf, itemsCountBuf, itemsExcludedBuf, newItemsExcludedBuf,
-				/*uniqueItemsBuf, uniqueItemsCountBuf,*/ discoveredBuf, stepBuf);
+				discoveredBuf, stepBuf);
 
 			Kernel kernelExcludeDistinct = new Kernel(programDistinct, "excludeLatestDistinctItem");
 			kernelExcludeDistinct.SetArguments(itemsBuf, itemsCountBuf, itemsExcludedBuf,
 				uniqueItemsBuf, uniqueItemsCountBuf);
-
-			//IntPtr[] globalWorkSize = new IntPtr[] { new IntPtr() };
-			//IntPtr[] localWorkSize = new IntPtr[] { new IntPtr() };
-
-			#region distinct items finding
 
 			if (progressOutput)
 				Trace.WriteLine("Looking for unique items in all transactions.");
@@ -425,13 +414,6 @@ namespace AprioriAllLib
 					newItemsExcluded[i] = itemsExcluded[i];
 
 				newItemsExcludedBuf.Write();
-
-				//OpenCLToolkit.ReadBuffer(queue, newItemsExcludedBuf, newItemsExcludedBytes, newItemsExcluded);
-
-				// add new excluded to those already existing
-				//OpenCLToolkit.SetKernelArgs(kernelOr, newItemsExcludedBuf, itemsExcludedBuf, itemsCountBuf);
-				//OpenCLToolkit.LaunchKernel1D(queue, kernelOr, globalWorkSize, localWorkSize);
-
 			}
 
 			kernelDistinct.Dispose();

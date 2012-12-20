@@ -114,7 +114,6 @@
     <Compile Include="InputGenerator.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="Litemset.cs" />
-    <Compile Include="OpenCLToolkit.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -136,6 +135,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="OpenCL\support.cl" />
   </ItemGroup>
@@ -143,6 +143,7 @@
   <PropertyGroup>
     <PostBuildEvent>copy $(TargetPath) $(SolutionDir)..\bin\$(ConfigurationName)\
 copy $(TargetDir)OpenCL.Net.dll $(SolutionDir)..\bin\$(ConfigurationName)\
+copy $(TargetDir)AbstractOpenCL.dll $(SolutionDir)..\bin\$(ConfigurationName)\
 </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
