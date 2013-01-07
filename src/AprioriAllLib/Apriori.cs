@@ -363,12 +363,12 @@ namespace AprioriAllLib
 
 			#endregion
 
+			#region distinct items finding
+
 			Kernel kernelZero = new Kernel(programBasicFunctions, "assignZero");
 			Kernel kernelOr = new Kernel(programBasicFunctions, "logicOr");
 
 			//Abstract.Diagnostics = true;
-
-			#region distinct items finding
 
 			Kernel kernelDistinct = new Kernel(programDistinct, "findNewDistinctItem");
 			kernelDistinct.SetArguments(itemsBuf, itemsCountBuf, itemsExcludedBuf, newItemsExcludedBuf,
@@ -389,19 +389,20 @@ namespace AprioriAllLib
 					Trace.Write(" launching kernelDistinct");
 
 				step[0] = 1;
-				stepBuf.Write();
 				while (step[0] <= itemsCount[0])
 				{
+					stepBuf.Write();
 					kernelDistinct.Launch1D(queue, (uint)items.Length, (uint)1);
 
-					newItemsExcludedBuf.Read();
-					discoveredBuf.Read();
+					//queue.Finish();
+
+					//newItemsExcludedBuf.Read(); // only for debugging
+					//discoveredBuf.Read(); // only for debugging
 
 					if (progressOutput)
 						Trace.Write(String.Format(", step {0}", step[0]));
 
 					step[0] *= 2;
-					stepBuf.Write();
 				}
 
 				if (progressOutput)
@@ -409,7 +410,8 @@ namespace AprioriAllLib
 
 				#endregion
 
-				// TODO: read 1 byte in a proper way, i.e. not using 'itemsCountBytes'
+				queue.Finish();
+
 				discoveredBuf.Read(0, 1);
 
 				if (discovered[0] == 0)
@@ -433,6 +435,8 @@ namespace AprioriAllLib
 
 				kernelExcludeDistinct.Launch1D(queue, (uint)itemsCount[0], 1);
 
+				queue.Finish();
+
 				itemsExcludedBuf.Read();
 
 				for (int i = 0; i < itemsCount[0]; ++i)
@@ -441,13 +445,17 @@ namespace AprioriAllLib
 				newItemsExcludedBuf.Write();
 			}
 
-			kernelDistinct.Dispose();
-
-			kernelExcludeDistinct.Dispose();
+			queue.Finish();
 
 			if (progressOutput)
 				Trace.WriteLine(String.Format("Found all unique items: {0}.",
 					String.Join(", ", uniqueItems)));
+
+			kernelDistinct.Dispose();
+			kernelExcludeDistinct.Dispose();
+
+			kernelOr.Dispose();
+			kernelZero.Dispose();
 
 			#endregion
 
@@ -456,12 +464,6 @@ namespace AprioriAllLib
 
 			//if (progressOutput)
 			//	Trace.WriteLine("Finished subset generation.");
-
-			//Cl.InfoBuffer buf3 = Cl.GetMemObjectInfo(supportsBuf, Cl.MemInfo.HostPtr, out err);
-			//Cl.InfoBuffer buf = Cl.GetMemObjectInfo(supportsBuf, Cl.MemInfo.Size, out err);
-			//Cl.InfoBuffer buf2 = Cl.GetMemObjectInfo(supportsBuf, Cl.MemInfo.Type, out err);
-
-			//int x = buf.CastTo<int>();
 
 			#region more buffers initialization
 
@@ -472,6 +474,8 @@ namespace AprioriAllLib
 			Buffer<int> supportsBuf = new Buffer<int>(context, queue, supports);
 
 			#endregion
+
+			#region finding support for single items
 
 			Kernel kernelInitSupports = new Kernel(queue, programSupport, "supportInitial");
 			kernelInitSupports.SetArguments(itemsBuf, itemsCountBuf, uniqueItemsBuf, uniqueItemsCountBuf,
@@ -490,26 +494,30 @@ namespace AprioriAllLib
 			{
 				stepBuf.Write();
 
-				//globalWorkSize = new IntPtr[] { new IntPtr(itemsCount[0]), new IntPtr(uniqueItemsCount[0]) };
-				//localWorkSize = new IntPtr[] { new IntPtr(1), new IntPtr(1) };
-
 				kernelSupports.Launch2D((uint)itemsCount[0], 1, (uint)uniqueItemsCount[0], 1);
 
-				supportsBuf.Read(); // only for debugging
+				//supportsBuf.Read(); // only for debugging
 				step[0] *= 2;
 			}
 
 			queue.Finish();
 
+			kernelInitSupports.Dispose();
+			kernelSupports.Dispose();
+
 			Kernels.Device = device;
 			Kernels.Context = context;
 			Kernels.Sum sumSupports = new Kernels.Sum();
 			uint itemsCountUint = (uint)itemsCount[0];
-			for(uint offset = 0; offset < supports.Length; offset += itemsCountUint)
+			for (uint offset = 0; offset < supports.Length; offset += itemsCountUint)
 				sumSupports.Launch(queue, supportsBuf, offset, itemsCountUint);
 			supportsBuf.Read();
 
 			queue.Finish();
+
+			sumSupports.Dispose();
+
+			#endregion
 
 			List<Litemset> litemsets = new List<Litemset>();
 			int index = 0;
@@ -537,14 +545,6 @@ namespace AprioriAllLib
 				Trace.WriteLine(String.Format("Generated all litemsets, found {0}.", litemsets.Count));
 
 			queue.Finish();
-
-			sumSupports.Dispose();
-			kernelDistinct.Dispose();
-			kernelExcludeDistinct.Dispose();
-			kernelInitSupports.Dispose();
-			kernelOr.Dispose();
-			kernelSupports.Dispose();
-			kernelZero.Dispose();
 
 			itemsBuf.Dispose();
 			itemsCountBuf.Dispose();
