@@ -40,7 +40,7 @@ namespace AprioriAllLib.Test
 			}
 		}
 
-		private TextWriterTraceListener traceListener;
+		//private TextWriterTraceListener traceListener;
 
 		public AprioriTestBase()
 		{
@@ -58,15 +58,15 @@ namespace AprioriAllLib.Test
 		[TestInitialize]
 		public virtual void TestInitialize()
 		{
-			traceListener = new TextWriterTraceListener(Console.Out);
-			Trace.Listeners.Add(traceListener);
+			//traceListener = new TextWriterTraceListener(Console.Out);
+			//Trace.Listeners.Add(traceListener);
 		}
 
 		[TestCleanup]
 		public virtual void TestCleanup()
 		{
-			Trace.Listeners.Remove(traceListener);
-			traceListener = null;
+			//Trace.Listeners.Remove(traceListener);
+			//traceListener = null;
 		}
 
 		public string GetAprioriTestResults(List<Litemset> expected, List<Litemset> actual)

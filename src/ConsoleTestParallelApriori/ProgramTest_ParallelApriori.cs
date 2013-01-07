@@ -24,7 +24,7 @@ namespace AprioriAllLib.Test.InConsole
 
 			CustomerList input
 				//= InputGenerator.GenerateRandomList(6, 2, 2);
-				= Data.DataSet1;
+				= Data.Example1;
 			double support = 0.1;
 
 			program.PrintInput(input);
@@ -32,6 +32,7 @@ namespace AprioriAllLib.Test.InConsole
 			Console.Out.WriteLine("\nComputation:");
 			Apriori apriori = new Apriori(input);
 			List<Litemset> litemsets = apriori.RunParallelApriori(support, true);
+			apriori.Dispose();
 
 			program.PrintAprioriOutput(litemsets);
 

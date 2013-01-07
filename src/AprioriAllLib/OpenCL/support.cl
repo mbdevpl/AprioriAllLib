@@ -37,7 +37,7 @@ __kernel void supportInitial(
 		to which transaction a corresponding element of items array belongs
 	\param step current distance between two compared items, a power of 2
  */
-__kernel void supportReduction(
+__kernel void supportDuplicatesRemoval(
 	__global const int* items,
 	__global const int* itemsCount,
 	__global const int* itemsTransactions,
@@ -52,14 +52,37 @@ __kernel void supportReduction(
 	if(x < *itemsCount && y < *uniqueItemsCount && *step > 0 && x % (2 * *step) == 0)
 	{
 		int supportsIndex = y * *itemsCount + x;
-		//supports[supportsIndex] = 21;
-		if(itemsTransactions[x] != itemsTransactions[x + *step])
-			supports[supportsIndex] = supports[supportsIndex] + supports[supportsIndex + *step];
-		else if(itemsTransactions[x + *step] != itemsTransactions[x + (*step / 2)])
-			supports[supportsIndex] = supports[supportsIndex] + supports[supportsIndex + *step];
-		else
-			supports[supportsIndex] = fmax(supports[supportsIndex], supports[supportsIndex + *step]);
+		if(itemsTransactions[x] == itemsTransactions[x + *step] == uniqueItems[y]
+			&& supports[supportsIndex + *step] == 1)
+		{
+			supports[supportsIndex] = 1;
+			supports[supportsIndex + *step] = 0;
+		}
+		//if(itemsTransactions[x] != itemsTransactions[x + *step])
+		//	supports[supportsIndex] = supports[supportsIndex];  + supports[supportsIndex + *step];
+		//else if(itemsTransactions[x + *step] != itemsTransactions[x + (*step / 2)])
+		//	supports[supportsIndex] = supports[supportsIndex] + supports[supportsIndex + *step];
+		//else
+		//	supports[supportsIndex] = fmax(supports[supportsIndex], supports[supportsIndex + *step]);
 	}
 }
+
+//__kernel void supportSumUp(
+//	__global const int* itemsCount,
+//	__global const int* uniqueItems,
+//	__global const int* uniqueItemsCount,
+//	__global const int* step,
+//	__global int* supports
+//	)
+//{
+//	int x = get_global_id(0);
+//	int y = get_global_id(1);
+//	if(x < *itemsCount && y < *uniqueItemsCount && *step > 0 && x % (2 * *step) == 0)
+//	{
+//		int supportsIndex = y * *itemsCount + x;
+//		supports[supportsIndex] = 1;
+//		values[x] += values[x + *step];
+//	}
+//}
 
 /// @}

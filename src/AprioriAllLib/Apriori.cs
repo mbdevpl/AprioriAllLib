@@ -19,7 +19,7 @@ namespace AprioriAllLib
 	/// - serialized version by Karolina Baltyn
 	/// - parallel version by Mateusz Bysiek
 	/// </summary>
-	public class Apriori
+	public class Apriori : IDisposable
 	{
 		/// <summary>
 		/// Input data for the algorithm.
@@ -122,6 +122,23 @@ namespace AprioriAllLib
 				Trace.WriteLine(String.Format("Built OpenCL programs in {0}ms.", buildWatch.ElapsedMilliseconds));
 
 			clProgramsInitialized = true;
+		}
+
+		public void Dispose()
+		{
+			if (clProgramsInitialized)
+			{
+				programBasicFunctions.Dispose();
+				programDistinct.Dispose();
+				programSeparation.Dispose();
+				programSupport.Dispose();
+				clProgramsInitialized = false;
+			}
+			if (clInitialized)
+			{
+				context.Dispose();
+				clInitialized = false;
+			}
 		}
 
 		/// <summary>
@@ -269,12 +286,10 @@ namespace AprioriAllLib
 
 			int minSupport = (int)Math.Ceiling((double)customerList.Customers.Count * minimalSupport);
 
-			Abstract.Diagnostics = true;
+			//Abstract.Diagnostics = false;
 
 			InitOpenCL(progressOutput);
 			InitOpenCLPrograms(progressOutput);
-
-			Abstract.Diagnostics = false;
 
 			CommandQueue queue = new CommandQueue(device, context);
 
@@ -283,10 +298,14 @@ namespace AprioriAllLib
 			//List<List<int>> allTransactions = new List<List<int>>();
 			List<int> flatTransactions = new List<int>();
 			List<int> flatTransactionsIds = new List<int>();
+			List<int> flatUsersIds = new List<int>();
 			//List<int> transactionsLimits = new List<int>();
 			{
-				int currentId = 0;
+				int currentUserId = 0;
+				int currentTransactionId;
 				foreach (Customer c in customerList.Customers)
+				{
+					currentTransactionId = 0;
 					foreach (Transaction t in c.Transactions)
 					{
 						//List<int> transaction = new List<int>();
@@ -295,12 +314,15 @@ namespace AprioriAllLib
 						{
 							//transaction.Add(item.Value);
 							flatTransactions.Add(item.Value);
-							flatTransactionsIds.Add(currentId);
+							flatTransactionsIds.Add(currentTransactionId);
+							flatUsersIds.Add(currentUserId);
 							//++limit;
 						}
-						++currentId;
 						//allTransactions.Add(transaction);
+						++currentTransactionId;
 					}
+					++currentUserId;
+				}
 			}
 
 			#endregion
@@ -317,6 +339,7 @@ namespace AprioriAllLib
 
 			int[] itemsExcluded = new int[itemsCount[0]];
 			Buffer<int> itemsExcludedBuf = new Buffer<int>(context, queue, itemsExcluded);
+			Console.Out.WriteLine(String.Join(" ", itemsExcluded));
 			itemsCountBuf.Write(); // TODO: kernelZero here
 
 			int[] newItemsExcluded = new int[itemsCount[0]];
@@ -342,6 +365,8 @@ namespace AprioriAllLib
 
 			Kernel kernelZero = new Kernel(programBasicFunctions, "assignZero");
 			Kernel kernelOr = new Kernel(programBasicFunctions, "logicOr");
+
+			//Abstract.Diagnostics = true;
 
 			#region distinct items finding
 
@@ -440,7 +465,7 @@ namespace AprioriAllLib
 
 			#region more buffers initialization
 
-			int[] itemsTransactions = flatTransactionsIds.ToArray();
+			int[] itemsTransactions = flatUsersIds.ToArray();
 			Buffer<int> itemsTransactionsBuf = new Buffer<int>(context, queue, itemsTransactions);
 
 			int[] supports = new int[itemsCount[0] * uniqueItemsCount[0]];
@@ -454,9 +479,9 @@ namespace AprioriAllLib
 
 			kernelInitSupports.Launch2D((uint)itemsCount[0], 1, (uint)uniqueItemsCount[0], 1);
 
-			supportsBuf.Read(); // only for debugging
+			//supportsBuf.Read(); // only for debugging
 
-			Kernel kernelSupports = new Kernel(queue, programSupport, "supportReduction");
+			Kernel kernelSupports = new Kernel(queue, programSupport, "supportDuplicatesRemoval");
 			kernelSupports.SetArguments(itemsBuf, itemsCountBuf, itemsTransactionsBuf,
 				uniqueItemsBuf, uniqueItemsCountBuf, stepBuf, supportsBuf);
 
@@ -473,6 +498,18 @@ namespace AprioriAllLib
 				supportsBuf.Read(); // only for debugging
 				step[0] *= 2;
 			}
+
+			queue.Finish();
+
+			Kernels.Device = device;
+			Kernels.Context = context;
+			Kernels.Sum sumSupports = new Kernels.Sum();
+			uint itemsCountUint = (uint)itemsCount[0];
+			for(uint offset = 0; offset < supports.Length; offset += itemsCountUint)
+				sumSupports.Launch(queue, supportsBuf, offset, itemsCountUint);
+			supportsBuf.Read();
+
+			queue.Finish();
 
 			List<Litemset> litemsets = new List<Litemset>();
 			int index = 0;
@@ -498,6 +535,31 @@ namespace AprioriAllLib
 
 			if (progressOutput)
 				Trace.WriteLine(String.Format("Generated all litemsets, found {0}.", litemsets.Count));
+
+			queue.Finish();
+
+			sumSupports.Dispose();
+			kernelDistinct.Dispose();
+			kernelExcludeDistinct.Dispose();
+			kernelInitSupports.Dispose();
+			kernelOr.Dispose();
+			kernelSupports.Dispose();
+			kernelZero.Dispose();
+
+			itemsBuf.Dispose();
+			itemsCountBuf.Dispose();
+			itemsExcludedBuf.Dispose();
+			newItemsExcludedBuf.Dispose();
+			uniqueItemsBuf.Dispose();
+			uniqueItemsCountBuf.Dispose();
+			discoveredBuf.Dispose();
+			stepBuf.Dispose();
+
+			itemsTransactionsBuf.Dispose();
+			supportsBuf.Dispose();
+
+			Kernels.Dispose();
+			queue.Dispose();
 
 			return litemsets;
 		}
