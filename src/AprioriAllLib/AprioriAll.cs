@@ -209,7 +209,7 @@ namespace AprioriAllLib
 
 							if (progressOutput)
 								if (candidates.Count > 0 && candidates.Count % 50000 == 0)
-									Trace.WriteLine(String.Format("   {0} and counting...", candidates.Count));
+									Log.WriteLine("   {0} and counting...", candidates.Count);
 						}
 					}
 				}
@@ -258,22 +258,22 @@ namespace AprioriAllLib
 			//		candidates.Add(candidate, 0);
 			//		if (progressOutput)
 			//			if (candidates.Count > 0 && candidates.Count % 50000 == 0)
-			//				Trace.WriteLine(String.Format("   {0} and counting...", candidates.Count));
+			//				Log.WriteLine(String.Format("   {0} and counting...", candidates.Count));
 			//	}
 			//}
 			//generationWatch.Stop();
 
 			if (progressOutput)
-				Trace.Write(String.Format("Found {0} candidates", candidates.Count));
+				Log.Write("Found {0} candidates", candidates.Count);
 
 			if (candidates.Count == 0 || prevLen == 1)
 			{
 				if (progressOutput)
-					Trace.WriteLine(".");
+					Log.WriteLine(".");
 				return candidates;
 			}
 			if (progressOutput)
-				Trace.Write(",");
+				Log.Write(",");
 
 			PrefixTree radixTree = new PrefixTree(litemsetCount + 1); // litemsets IDs are starting from 1
 
@@ -318,7 +318,7 @@ namespace AprioriAllLib
 					keysToRemove.Add(currentList);
 				if (progressOutput)
 					if (ic > 0 && ic % 50000 == 0)
-						Trace.WriteLine(String.Format("   {0} remaining...", ic));
+						Log.WriteLine("   {0} remaining...", ic);
 			}
 
 			sw2.Stop();
@@ -329,10 +329,10 @@ namespace AprioriAllLib
 
 			if (progressOutput)
 			{
-				Trace.WriteLine(String.Format(" {0} valid, previous sequences did not contain {1}.",
-					candidates.Count, keysToRemove.Count));
-				Trace.WriteLine(String.Format(" generation: {0}ms, prev-to-tree: {1}ms, containment check: {2}ms",
-					generationWatch.ElapsedMilliseconds, sw3.ElapsedMilliseconds, sw2.ElapsedMilliseconds));
+				Log.WriteLine(" {0} valid, previous sequences did not contain {1}.",
+					candidates.Count, keysToRemove.Count);
+				Log.WriteLine(" generation: {0}ms, prev-to-tree: {1}ms, containment check: {2}ms",
+					generationWatch.ElapsedMilliseconds, sw3.ElapsedMilliseconds, sw2.ElapsedMilliseconds);
 			}
 
 			return candidates;
@@ -448,7 +448,7 @@ namespace AprioriAllLib
 			for (int k = 2; kSequences.Count >= k && kSequences[k - 1].Count > 0; ++k)
 			{
 				if (progressOutput)
-					Trace.WriteLine(String.Format("Looking for {0}-sequences...", k));
+					Log.WriteLine("Looking for {0}-sequences...", k);
 				// list of kSequences, initially empty
 				kSequences.Add(new List<List<int>>());
 				var prev = kSequences[k - 1];
@@ -509,8 +509,8 @@ namespace AprioriAllLib
 				}
 				matchingWatch.Stop();
 				if (progressOutput)
-					Trace.WriteLine(String.Format(" Found {0} sequences that have sufficient support, in {1}ms.",
-						kSequences[k].Count, matchingWatch.ElapsedMilliseconds));
+					Log.WriteLine(" Found {0} sequences that have sufficient support, in {1}ms.",
+						kSequences[k].Count, matchingWatch.ElapsedMilliseconds);
 			}
 
 			return kSequences;
@@ -583,10 +583,10 @@ namespace AprioriAllLib
 				//watchForEachK.Stop();
 
 				if (progressOutput)
-					Trace.Write(String.Format(" k={0}: {1}ms,", k, watchForEachK.ElapsedMilliseconds));
+					Log.Write(" k={0}: {1}ms,", k, watchForEachK.ElapsedMilliseconds);
 			}
 			if (progressOutput)
-				Trace.Write(String.Format(" removed {0} non-maximal in total", totalRemoved));
+				Log.Write(" removed {0} non-maximal in total", totalRemoved);
 
 			//for (int k = initialK; k >= 0; --k)
 			//{
@@ -766,7 +766,7 @@ namespace AprioriAllLib
 			while (shouldKeepRunning)
 			{
 				if (progressOutput)
-					Trace.Write(" started new run,");
+					Log.Write(" started new run,");
 				shouldKeepRunning = false;
 
 				purgingStopwatch.Restart();
@@ -775,7 +775,7 @@ namespace AprioriAllLib
 				purgingStopwatch.Stop();
 
 				if (progressOutput)
-					Trace.Write(String.Format("\n inclusion of smaller: {0}ms,", purgingStopwatch.ElapsedMilliseconds));
+					Log.Write("\n inclusion of smaller: {0}ms,", purgingStopwatch.ElapsedMilliseconds);
 
 				purgingStopwatch.Restart();
 				if (PurgeUsingSequenceInnerRedundancy(kSequences, containmentRules))
@@ -783,7 +783,7 @@ namespace AprioriAllLib
 				purgingStopwatch.Stop();
 
 				if (progressOutput)
-					Trace.Write(String.Format(" inner redundancy: {0}ms,", purgingStopwatch.ElapsedMilliseconds));
+					Log.Write(" inner redundancy: {0}ms,", purgingStopwatch.ElapsedMilliseconds);
 
 				purgingStopwatch.Restart();
 				if (PurgeUsingInclusionRulesWithinSameSize(kSequences, containmentRules))
@@ -791,7 +791,7 @@ namespace AprioriAllLib
 				purgingStopwatch.Stop();
 
 				if (progressOutput)
-					Trace.WriteLine(String.Format(" same size: {0}ms", purgingStopwatch.ElapsedMilliseconds));
+					Log.WriteLine(" same size: {0}ms", purgingStopwatch.ElapsedMilliseconds);
 			}
 		}
 
@@ -1050,7 +1050,7 @@ namespace AprioriAllLib
 
 			int minSupport = (int)Math.Ceiling((double)customerList.Customers.Count * threshold);
 			if (progressOutput)
-				Trace.WriteLine(String.Format("Threshold = {0}  =>  Minimum support = {1}", threshold, minSupport));
+				Log.WriteLine("Threshold = {0}  =>  Minimum support = {1}", threshold, minSupport);
 
 			if (minSupport <= 0)
 				throw new ArgumentException("minimum support must be positive", "minSupport");
@@ -1060,7 +1060,7 @@ namespace AprioriAllLib
 
 			// 1. sort the input!
 			if (progressOutput)
-				Trace.WriteLine("1) Sort Phase - list is already sorted as user sees fit");
+				Log.WriteLine("1) Sort Phase - list is already sorted as user sees fit");
 
 			// corresponds to 1st step of AprioriAll algorithm, namely "Sort Phase".
 
@@ -1068,15 +1068,15 @@ namespace AprioriAllLib
 
 			// 2. find all frequent 1-sequences
 			if (progressOutput)
-				Trace.WriteLine("2) Litemset Phase");
+				Log.WriteLine("2) Litemset Phase");
 			if (progressOutput)
-				Trace.WriteLine("Launching Apriori...");
+				Log.WriteLine("Launching Apriori...");
 			// this corresponds to 2nd step of AprioriAll algorithm, namely "Litemset Phase".
 			List<Litemset> oneLitemsets = RunApriori(threshold, progressOutput);
 
 			// 3. transform input into list of IDs
 			if (progressOutput)
-				Trace.WriteLine("3) Transformation Phase");
+				Log.WriteLine("3) Transformation Phase");
 
 			// 3.a) give an ID to each 1-seq
 			Dictionary<Litemset, int> encoding;
@@ -1088,16 +1088,16 @@ namespace AprioriAllLib
 
 			if (progressOutput)
 			{
-				Trace.WriteLine("Encoding dictionary for litemsets:");
+				Log.WriteLine("Encoding dictionary for litemsets:");
 				foreach (KeyValuePair<int, Litemset> kv in decoding)
 				{
-					Trace.Write(String.Format(" {0} <= {1}", kv.Key, kv.Value));
+					Log.Write(" {0} <= {1}", kv.Key, kv.Value);
 					if (litemsetsContaining.ContainsKey(kv.Key))
 					{
 						List<int> superLitemsets = litemsetsContaining[kv.Key];
-						Trace.Write(String.Format("; {0} is in {1}", kv.Key, String.Join(", ", superLitemsets.ToArray())));
+						Log.Write("; {0} is in {1}", kv.Key, String.Join(", ", superLitemsets.ToArray()));
 					}
-					Trace.WriteLine("");
+					Log.WriteLine("");
 				}
 			}
 
@@ -1118,90 +1118,90 @@ namespace AprioriAllLib
 			// - outer list means list of customers
 
 			if (progressOutput)
-				Trace.WriteLine("Encoding input data...");
+				Log.WriteLine("Encoding input data...");
 			var encodedList = EncodeCustomerList(oneLitemsets, encoding);
 
 			if (progressOutput && encodedList.Count <= 100)
 			{
 				var customersEnumerator = customerList.Customers.GetEnumerator();
-				Trace.WriteLine("How the input is encoded:");
+				Log.WriteLine("How the input is encoded:");
 				foreach (List<List<int>> c in encodedList)
 				{
 					customersEnumerator.MoveNext();
 					//var transactionsEnumerator = customersEnumerator.Current.Transactions.GetEnumerator();
-					Trace.Write(String.Format(" - {0} => (", customersEnumerator.Current));
+					Log.Write(" - {0} => (", customersEnumerator.Current);
 					foreach (List<int> t in c)
 					{
 						//transactionsEnumerator.MoveNext();
 						//var itemsEnumerator = transactionsEnumerator.Current.Items.GetEnumerator();
-						Trace.Write("{");
+						Log.Write("{");
 						bool first = true;
 						foreach (int i in t)
 						{
 							//itemsEnumerator.MoveNext();
 							if (!first)
-								Trace.Write(" ");
+								Log.Write(" ");
 							if (first)
 								first = false;
-							Trace.Write(String.Format("{0}", i));
+							Log.Write("{0}", i);
 						}
-						Trace.Write("}");
+						Log.Write("}");
 					}
-					Trace.WriteLine(")");
+					Log.WriteLine(")");
 				}
 			}
 
 			// 4. find all frequent sequences in the input
 			if (progressOutput)
-				Trace.WriteLine("4) Sequence Phase");
+				Log.WriteLine("4) Sequence Phase");
 
 			if (progressOutput)
-				Trace.WriteLine("Searching for all possible k-sequences");
+				Log.WriteLine("Searching for all possible k-sequences");
 			var kSequences = FindAllFrequentSequences(oneLitemsets, encoding, encodedList, litemsetsContaining,
 				minSupport, progressOutput);
 			if (progressOutput)
-				Trace.WriteLine(String.Format("Maximal k is {0}.", kSequences.Count - 2));
+				Log.WriteLine("Maximal k is {0}.", kSequences.Count - 2);
 
 			// 5. purge all non-maximal sequences
 			if (progressOutput)
-				Trace.WriteLine("5) Maximal Phase");
+				Log.WriteLine("5) Maximal Phase");
 
 			if (progressOutput)
-				Trace.WriteLine("Purging all non-maximal sequences...");
+				Log.WriteLine("Purging all non-maximal sequences...");
 			PurgeAllNonMax(kSequences, litemsetsContaining, oneLitemsets.Count, progressOutput);
 
 			// 6. decode results
 			if (progressOutput)
-				Trace.WriteLine("Decoding results and purging again...");
+				Log.WriteLine("Decoding results and purging again...");
 			var decodedList = InferRealResults(encodedList, kSequences, decoding);
 
 			if (progressOutput)
 			{
 				var decodedEnumerator = decodedList.GetEnumerator();
-				Trace.WriteLine("How maximal sequences are decoded:");
+				Log.WriteLine("How maximal sequences are decoded:");
 				foreach (List<List<int>> kSequencesPartition in kSequences)
 					foreach (List<int> sequene in kSequencesPartition)
 					{
-						Trace.Write(" - <");
+						Log.Write(" - <");
 						bool first = true;
 						foreach (int i in sequene)
 						{
 							if (!first)
-								Trace.Write(" ");
+								Log.Write(" ");
 							if (first)
 								first = false;
-							Trace.Write(String.Format("{0}", i));
+							Log.Write("{0}", i);
 						}
-						Trace.Write(">");
+						Log.Write(">");
 						if (decodedEnumerator.MoveNext())
-							Trace.Write(String.Format(" => {0}", decodedEnumerator.Current));
-						Trace.WriteLine("");
+							Log.Write(" => {0}", decodedEnumerator.Current);
+						Log.WriteLine("");
 					}
 			}
 
 			totalTimeTaken.Stop();
 
-			Trace.WriteLine(String.Format(" total time taken to complete the algorithm: {0}ms", totalTimeTaken.ElapsedMilliseconds));
+			Log.WriteLine(" total time taken to complete the algorithm: {0}ms", totalTimeTaken.ElapsedMilliseconds);
 
 			// 7. return results
 			return decodedList;
@@ -1237,7 +1237,7 @@ namespace AprioriAllLib
 
 			int minSupport = (int)Math.Ceiling((double)customerList.Customers.Count * threshold);
 			if (progressOutput)
-				Trace.WriteLine(String.Format("Threshold = {0}  =>  Minimum support = {1}", threshold, minSupport));
+				Log.WriteLine("Threshold = {0}  =>  Minimum support = {1}", threshold, minSupport);
 
 			if (minSupport <= 0)
 				throw new ArgumentException("minimum support must be positive", "minSupport");

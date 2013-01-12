@@ -110,6 +110,7 @@
   <ItemGroup>
     <Compile Include="Apriori.cs" />
     <Compile Include="AprioriAll.cs" />
+    <Compile Include="AprioriLog.cs" />
     <Compile Include="CustomerList.cs" />
     <Compile Include="InputGenerator.cs" />
     <Compile Include="Item.cs" />
@@ -131,7 +132,6 @@
     <None Include="OpenCL\distinct.cl" />
     <None Include="OpenCL\opencl.cl" />
     <None Include="OpenCL\separation.cl" />
-    <None Include="OpenCL\basicFunctions.cl" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

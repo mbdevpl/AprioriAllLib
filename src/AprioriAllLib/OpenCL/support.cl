@@ -52,7 +52,7 @@ __kernel void supportDuplicatesRemoval(
 	if(x < *itemsCount && y < *uniqueItemsCount && *step > 0 && x % (2 * *step) == 0)
 	{
 		int supportsIndex = y * *itemsCount + x;
-		if(itemsTransactions[x] == itemsTransactions[x + *step] == uniqueItems[y]
+		if(itemsTransactions[x] == uniqueItems[y] && itemsTransactions[x] == itemsTransactions[x + *step]
 			&& supports[supportsIndex + *step] == 1)
 		{
 			supports[supportsIndex] = 1;

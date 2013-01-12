@@ -43,7 +43,7 @@ namespace AprioriAllLib
 		/// </summary>
 		private bool clProgramsInitialized;
 
-		private Program programBasicFunctions;
+		//private Program programBasicFunctions;
 
 		/// <summary>
 		/// Program created from file 'distinct.cl'.
@@ -88,11 +88,13 @@ namespace AprioriAllLib
 			platform = new Platform();
 			device = new Device(platform, DeviceType.Any);
 			context = new Context(device);
+			Kernels.Device = device;
+			Kernels.Context = context;
 
 			initWatch.Stop();
 
 			if (progressOutput)
-				Trace.WriteLine(String.Format("Initialized OpenCL in {0}ms.", initWatch.ElapsedMilliseconds));
+				Log.WriteLine("Initialized OpenCL in {0}ms.", initWatch.ElapsedMilliseconds);
 
 			clInitialized = true;
 		}
@@ -107,8 +109,8 @@ namespace AprioriAllLib
 
 			ResourceManager manager = AprioriAllLib.Properties.Resources.ResourceManager;
 
-			programBasicFunctions = new Program(context, new SourceCode(manager, "cl_basicFunctions"));
-			programBasicFunctions.Build(device);
+			//programBasicFunctions = new Program(context, new SourceCode(manager, "cl_basicFunctions"));
+			//programBasicFunctions.Build(device);
 			programDistinct = new Program(context, new SourceCode(manager, "cl_distinct"));
 			programDistinct.Build(device);
 			programSeparation = new Program(context, new SourceCode(manager, "cl_separation"));
@@ -119,7 +121,7 @@ namespace AprioriAllLib
 			buildWatch.Stop();
 
 			if (progressOutput)
-				Trace.WriteLine(String.Format("Built OpenCL programs in {0}ms.", buildWatch.ElapsedMilliseconds));
+				Log.WriteLine("Built OpenCL programs in {0}ms.", buildWatch.ElapsedMilliseconds);
 
 			clProgramsInitialized = true;
 		}
@@ -128,7 +130,7 @@ namespace AprioriAllLib
 		{
 			if (clProgramsInitialized)
 			{
-				programBasicFunctions.Dispose();
+				//programBasicFunctions.Dispose();
 				programDistinct.Dispose();
 				programSeparation.Dispose();
 				programSupport.Dispose();
@@ -241,7 +243,7 @@ namespace AprioriAllLib
 			}
 
 			if (progressOutput)
-				Trace.WriteLine(String.Format("Finished subset generation, found {0}.", litemsets.Count));
+				Log.WriteLine("Finished subset generation, found {0}.", litemsets.Count);
 
 			// rewrite the litemsets with support >= minimum to a new list
 			List<Litemset> properLitemsets = new List<Litemset>();
@@ -250,12 +252,12 @@ namespace AprioriAllLib
 					properLitemsets.Add(litemset);
 
 			if (progressOutput)
-				Trace.WriteLine(String.Format("Purged unsupported litemsets, {0} remain.", properLitemsets.Count));
+				Log.WriteLine("Purged unsupported litemsets, {0} remain.", properLitemsets.Count);
 
 			properLitemsets.Sort();
 
 			if (progressOutput)
-				Trace.WriteLine("Sorted output.");
+				Log.WriteLine("Sorted output.");
 
 			return properLitemsets;
 		}
@@ -286,28 +288,35 @@ namespace AprioriAllLib
 
 			int minSupport = (int)Math.Ceiling((double)customerList.Customers.Count * minimalSupport);
 
-			//Abstract.Diagnostics = false;
-
-			InitOpenCL(progressOutput);
-			InitOpenCLPrograms(progressOutput);
-
-			CommandQueue queue = new CommandQueue(device, context);
+			//Abstract.Diagnostics = true;
 
 			#region conversion of input data to regular int arrays
 
+			Stopwatch watchConversion = null;
+			if (progressOutput)
+			{
+				watchConversion = new Stopwatch();
+				watchConversion.Start();
+			}
 			//List<List<int>> allTransactions = new List<List<int>>();
 			List<int> flatTransactions = new List<int>();
 			List<int> flatTransactionsIds = new List<int>();
 			List<int> flatUsersIds = new List<int>();
+			List<int> transactionCounts = new List<int>();
+			List<int> userCounts = new List<int>();
 			//List<int> transactionsLimits = new List<int>();
 			{
 				int currentUserId = 0;
-				int currentTransactionId;
+				int currentTransactionId = 0;
+				int currentUserCount = 0;
+				int currentTransactionCount = 0;
 				foreach (Customer c in customerList.Customers)
 				{
+					currentUserCount = 0;
 					currentTransactionId = 0;
 					foreach (Transaction t in c.Transactions)
 					{
+						currentTransactionCount = 0;
 						//List<int> transaction = new List<int>();
 						//transactionsLimits.Add(limit);
 						foreach (Item item in t.Items)
@@ -317,211 +326,352 @@ namespace AprioriAllLib
 							flatTransactionsIds.Add(currentTransactionId);
 							flatUsersIds.Add(currentUserId);
 							//++limit;
+							++currentTransactionCount;
+							++currentUserCount;
 						}
 						//allTransactions.Add(transaction);
 						++currentTransactionId;
+						transactionCounts.Add(currentTransactionCount);
 					}
 					++currentUserId;
+					userCounts.Add(currentUserCount);
 				}
+			}
+			if (progressOutput)
+			{
+				watchConversion.Stop();
+				Log.WriteLine(" input conversion {0}ms", watchConversion.ElapsedMilliseconds);
 			}
 
 			#endregion
 
-			#region buffers initialization
+			#region opencl initialization and initial buffers allocation
+
+			InitOpenCL(progressOutput);
+			CommandQueue queue = new CommandQueue(device, context);
 
 			int[] items = flatTransactions.ToArray();
 			Buffer<int> itemsBuf = new Buffer<int>(context, queue, items);
-			itemsBuf.Write();
+			itemsBuf.Write(false);
 
 			int[] itemsCount = new int[] { items.Length };
 			Buffer<int> itemsCountBuf = new Buffer<int>(context, queue, itemsCount);
-			itemsCountBuf.Write();
+			itemsCountBuf.Write(false);
 
-			int[] itemsExcluded = new int[itemsCount[0]];
-			Buffer<int> itemsExcludedBuf = new Buffer<int>(context, queue, itemsExcluded);
-			Console.Out.WriteLine(String.Join(" ", itemsExcluded));
-			itemsCountBuf.Write(); // TODO: kernelZero here
+			Kernels.PairwiseCopy kernelCopy = new Kernels.PairwiseCopy();
 
-			int[] newItemsExcluded = new int[itemsCount[0]];
-			Buffer<int> newItemsExcludedBuf = new Buffer<int>(context, queue, newItemsExcluded);
-			newItemsExcludedBuf.Write(); // TODO: kernelZero here
+			Buffer<int> itemsTempBuf = new Buffer<int>(context, queue, (uint)items.Length);
+			kernelCopy.Launch(queue, itemsBuf, itemsTempBuf);
 
-			int[] uniqueItems = new int[itemsCount[0]];
-			Buffer<int> uniqueItemsBuf = new Buffer<int>(context, queue, uniqueItems);
-			uniqueItemsBuf.Write(); // TODO: kernelZero here
+			//int[] itemsExcluded = new int[itemsCount[0]];
+			//Buffer<int> itemsExcludedBuf = new Buffer<int>(context, queue, itemsExcluded);
+			////Console.Out.WriteLine(String.Join(" ", itemsExcluded));
+			//itemsCountBuf.Write(false);
 
-			int[] uniqueItemsCount = new int[] { 0 };
-			Buffer<int> uniqueItemsCountBuf = new Buffer<int>(context, queue, uniqueItemsCount);
-			uniqueItemsCountBuf.Write(); // TODO: kernelZero here
-
-			int[] discovered = new int[itemsCount[0]];
-			Buffer<int> discoveredBuf = new Buffer<int>(context, queue, discovered);
-			discoveredBuf.Write(); // TODO: kernelZero here
-
-			int[] step = new int[] { 1 };
-			Buffer<int> stepBuf = new Buffer<int>(context, queue, step);
+			//int[] newItemsExcluded = new int[itemsCount[0]];
+			//Buffer<int> newItemsExcludedBuf = new Buffer<int>(context, queue, newItemsExcluded);
+			//newItemsExcludedBuf.Write(false);
 
 			#endregion
 
-			#region distinct items finding
+			#region finding empty id
 
-			Kernel kernelZero = new Kernel(programBasicFunctions, "assignZero");
-			Kernel kernelOr = new Kernel(programBasicFunctions, "logicOr");
+			Kernels.Max kernelMax = new Kernels.Max();
 
-			//Abstract.Diagnostics = true;
+			queue.Finish();
+			kernelMax.Launch(queue, itemsTempBuf);
 
-			Kernel kernelDistinct = new Kernel(programDistinct, "findNewDistinctItem");
-			kernelDistinct.SetArguments(itemsBuf, itemsCountBuf, itemsExcludedBuf, newItemsExcludedBuf,
-				discoveredBuf, stepBuf);
+			queue.Finish();
+			itemsTempBuf.Read(0, 1);
 
-			Kernel kernelExcludeDistinct = new Kernel(programDistinct, "excludeLatestDistinctItem");
-			kernelExcludeDistinct.SetArguments(itemsBuf, itemsCountBuf, itemsExcludedBuf,
-				uniqueItemsBuf, uniqueItemsCountBuf);
+			int emptyId = itemsTempBuf.BackingCollection[0] + 1;
+			Buffer<int> emptyIdBuf = new Buffer<int>(context, queue, 1);
+			emptyIdBuf.BackingCollection[0] = emptyId;
+			emptyIdBuf.Write(false);
 
-			if (progressOutput)
-				Trace.WriteLine("Looking for unique items in all transactions.");
+			#endregion
 
-			while (true)
-			{
-				#region kernelDistinct launch
+			#region finding distinct item ids
 
-				if (progressOutput)
-					Trace.Write(" launching kernelDistinct");
+			Buffer<int> itemsRemainingBuf = new Buffer<int>(context, queue, (uint)items.Length);
+			kernelCopy.Launch(queue, itemsBuf, itemsRemainingBuf);
 
-				step[0] = 1;
-				while (step[0] <= itemsCount[0])
-				{
-					stepBuf.Write();
-					kernelDistinct.Launch1D(queue, (uint)items.Length, (uint)1);
+			int uniqueItemsCount = 0;
+			//Buffer<int> uniqueItemsCountBuf = new Buffer<int>(context, queue, uniqueItemsCount);
+			//uniqueItemsCountBuf.Write(false);
 
-					//queue.Finish();
+			int[] uniqueItems = new int[items.Length];
+			Buffer<int> uniqueItemsBuf = new Buffer<int>(context, queue, uniqueItems);
+			//uniqueItemsBuf.Write(false);
 
-					//newItemsExcludedBuf.Read(); // only for debugging
-					//discoveredBuf.Read(); // only for debugging
+			Kernels.AssignZero kernelZero = new Kernels.AssignZero();
 
-					if (progressOutput)
-						Trace.Write(String.Format(", step {0}", step[0]));
+			kernelZero.Launch(queue, uniqueItemsBuf);
 
-					step[0] *= 2;
-				}
+			Kernels.Min kernelMin = new Kernels.Min();
 
-				if (progressOutput)
-					Trace.WriteLine("");
-
-				#endregion
-
-				queue.Finish();
-
-				discoveredBuf.Read(0, 1);
-
-				if (discovered[0] == 0)
-					break;
-
-				uniqueItems[uniqueItemsCount[0]] = discovered[0];
-				uniqueItemsBuf.Write();
-
-				uniqueItemsCount[0] += 1;
-				uniqueItemsCountBuf.Write();
-
-				kernelZero.SetArguments(discoveredBuf, itemsCountBuf);
-
-				if (progressOutput)
-					Trace.Write(" launching kernelZero");
-
-				kernelZero.Launch1D(queue, (uint)itemsCount[0], 1);
-
-				if (progressOutput)
-					Trace.WriteLine(" launching kernelExcludeDistinct");
-
-				kernelExcludeDistinct.Launch1D(queue, (uint)itemsCount[0], 1);
-
-				queue.Finish();
-
-				itemsExcludedBuf.Read();
-
-				for (int i = 0; i < itemsCount[0]; ++i)
-					newItemsExcluded[i] = itemsExcluded[i];
-
-				newItemsExcludedBuf.Write();
-			}
+			Kernels.SubstituteIfEqual kernelSubstitute = new Kernels.SubstituteIfEqual();
 
 			queue.Finish();
 
-			if (progressOutput)
-				Trace.WriteLine(String.Format("Found all unique items: {0}.",
-					String.Join(", ", uniqueItems)));
+			while (true)
+			{
+				kernelCopy.Launch(queue, itemsRemainingBuf, itemsTempBuf);
 
-			kernelDistinct.Dispose();
-			kernelExcludeDistinct.Dispose();
+				queue.Finish();
+				kernelMin.Launch(queue, itemsTempBuf);
 
-			kernelOr.Dispose();
-			kernelZero.Dispose();
+				queue.Finish();
+				itemsTempBuf.Read(0, 1);
+
+				int foundValue = itemsTempBuf.BackingCollection[0];
+				if (foundValue == emptyId)
+					break; // reached end of computation
+
+				uniqueItems[uniqueItemsCount] = foundValue;
+				uniqueItemsBuf.Write(false);
+
+				uniqueItemsCount += 1;
+				//uniqueItemsCountBuf.Write(false);
+
+				kernelSubstitute.Launch(queue, itemsRemainingBuf, emptyIdBuf, itemsTempBuf);
+			}
 
 			#endregion
 
-			if (progressOutput)
-				Trace.WriteLine("Calculating support of each unique item.");
+			#region comments
+
+			//int[] discovered = new int[itemsCount[0]];
+			//Buffer<int> discoveredBuf = new Buffer<int>(context, queue, discovered);
+			//discoveredBuf.Write(false);
+
+			//int[] step = new int[] { 1 };
+			//Buffer<int> stepBuf = new Buffer<int>(context, queue, step);
+
+			//kernelZero.Launch(queue, itemsExcludedBuf);
+			//kernelZero.Launch(queue, newItemsExcludedBuf);
+			//kernelZero.Launch(queue, discoveredBuf); 
+
+			//InitOpenCLPrograms(progressOutput);
+
+			//#region distinct items finding
+
+			//Kernel kernelDistinct = new Kernel(programDistinct, "findNewDistinctItem");
+			//kernelDistinct.SetArguments(itemsBuf, itemsCountBuf, itemsExcludedBuf, newItemsExcludedBuf,
+			//	discoveredBuf, stepBuf);
+
+			//Kernel kernelExcludeDistinct = new Kernel(programDistinct, "excludeLatestDistinctItem");
+			//kernelExcludeDistinct.SetArguments(itemsBuf, itemsCountBuf, itemsExcludedBuf,
+			//	uniqueItemsBuf, uniqueItemsCountBuf);
 
 			//if (progressOutput)
-			//	Trace.WriteLine("Finished subset generation.");
+			//	Log.WriteLine("Looking for unique items in all transactions.");
 
-			#region more buffers initialization
+			//queue.Finish();
+			//while (true)
+			//{
+			//	#region kernelDistinct launch
 
-			int[] itemsTransactions = flatUsersIds.ToArray();
-			Buffer<int> itemsTransactionsBuf = new Buffer<int>(context, queue, itemsTransactions);
+			//	step[0] = 1;
+			//	while (step[0] <= itemsCount[0])
+			//	{
+			//		stepBuf.Write();
+			//		kernelDistinct.Launch1D(queue, (uint)items.Length, (uint)1);
 
-			int[] supports = new int[itemsCount[0] * uniqueItemsCount[0]];
-			Buffer<int> supportsBuf = new Buffer<int>(context, queue, supports);
+			//		//queue.Finish();
+
+			//		itemsExcludedBuf.Read(); // only for debugging
+			//		newItemsExcludedBuf.Read(); // only for debugging
+			//		discoveredBuf.Read(); // only for debugging
+
+			//		//if (progressOutput)
+			//		//	Log.Write(String.Format(", step {0}", step[0]));
+
+			//		step[0] *= 2;
+			//	}
+
+			//	//if (progressOutput)
+			//	//	Log.WriteLine("");
+
+			//	#endregion
+
+			//	queue.Finish();
+
+			//	discoveredBuf.Read(0, 1);
+
+			//	if (discovered[0] == 0)
+			//		break;
+
+			//	if (progressOutput)
+			//		Log.WriteLine(" found new unique item: {0}", discovered[0]);
+
+			//	queue.Finish(); // only for debug
+			//	discoveredBuf.Read(); // only for debug
+
+			//	if (uniqueItems.Length <= uniqueItemsCount[0])
+			//		throw new IndexOutOfRangeException(String.Format("at most {0} unique items expected but got {1}: {2}",
+			//						uniqueItems.Length, uniqueItemsCount[0], String.Join(",", uniqueItems)));
+
+			//	uniqueItems[uniqueItemsCount[0]] = discovered[0];
+			//	uniqueItemsBuf.Write();
+
+			//	uniqueItemsCount[0] += 1;
+			//	uniqueItemsCountBuf.Write();
+
+			//	//if (progressOutput)
+			//	//	Log.Write(" launching kernelZero");
+
+			//	kernelZero.Launch(queue, discoveredBuf);
+			//	queue.Finish();
+
+			//	kernelExcludeDistinct.Launch1D(queue, (uint)itemsCount[0], 1);
+
+			//	queue.Finish();
+
+			//	if (progressOutput)
+			//		Log.WriteLine(" excluded distinct from future findings");
+
+			//	//itemsExcludedBuf.Read();
+			//	//for (int i = 0; i < itemsCount[0]; ++i)
+			//	//	newItemsExcluded[i] = itemsExcluded[i];
+			//	//newItemsExcludedBuf.Write();
+			//	kernelCopy.Launch(queue, itemsExcludedBuf, newItemsExcludedBuf);
+
+			//	queue.Finish();
+			//}
+
+			//queue.Finish();
+
+			//if (progressOutput)
+			//	Log.WriteLine("Found all unique items: {0}.", String.Join(", ", uniqueItems));
+
+			//kernelDistinct.Dispose();
+			//kernelExcludeDistinct.Dispose();
+
+			////kernelOr.Dispose();
+			////kernelZero.Dispose();
+
+			//#endregion
+
+			//if (progressOutput)
+			//	Log.WriteLine("Calculating support of each unique item.");
+
+			////if (progressOutput)
+			////	Log.WriteLine("Finished subset generation.");
+
+			//#region more buffers initialization
+
+			//int[] itemsTransactions = flatUsersIds.ToArray();
+			//Buffer<int> itemsTransactionsBuf = new Buffer<int>(context, queue, itemsTransactions);
+
+			//#endregion
+
+			//if (progressOutput)
+			//{
+			//	//Console.Out.WriteLine(String.Join(" ", items));
+			//	//Console.Out.WriteLine(String.Join("  ", itemsTransactions));
+			//}
 
 			#endregion
 
 			#region finding support for single items
 
-			Kernel kernelInitSupports = new Kernel(queue, programSupport, "supportInitial");
-			kernelInitSupports.SetArguments(itemsBuf, itemsCountBuf, uniqueItemsBuf, uniqueItemsCountBuf,
-				supportsBuf);
+			int[] supports = new int[itemsCount[0] * uniqueItemsCount];
+			Buffer<int> supportsBuf = new Buffer<int>(context, queue, supports);
+			kernelZero.Launch(queue, supportsBuf);
 
-			kernelInitSupports.Launch2D((uint)itemsCount[0], 1, (uint)uniqueItemsCount[0], 1);
+			//Kernel kernelInitSupports = new Kernel(queue, programSupport, "supportInitial");
+			//kernelInitSupports.SetArguments(itemsBuf, itemsCountBuf, uniqueItemsBuf, uniqueItemsCountBuf,
+			//	supportsBuf);
 
-			//supportsBuf.Read(); // only for debugging
+			//queue.Finish();
+			//kernelInitSupports.Launch2D((uint)itemsCount[0], 1, (uint)uniqueItemsCount[0], 1);
 
-			Kernel kernelSupports = new Kernel(queue, programSupport, "supportDuplicatesRemoval");
-			kernelSupports.SetArguments(itemsBuf, itemsCountBuf, itemsTransactionsBuf,
-				uniqueItemsBuf, uniqueItemsCountBuf, stepBuf, supportsBuf);
+			Buffer<int>[] uniqueItemBufs = new Buffer<int>[uniqueItemsCount];
+			//for 
+			//uniqueItemsCountBuf.Write(false);
 
-			step[0] = 1;
-			while (step[0] < itemsCount[0])
-			{
-				stepBuf.Write();
-
-				kernelSupports.Launch2D((uint)itemsCount[0], 1, (uint)uniqueItemsCount[0], 1);
-
-				//supportsBuf.Read(); // only for debugging
-				step[0] *= 2;
-			}
+			Kernels.PairwiseCopyIfEqual kernelCopyIfEqual = new Kernels.PairwiseCopyIfEqual();
 
 			queue.Finish();
 
-			kernelInitSupports.Dispose();
-			kernelSupports.Dispose();
+			{
+				int uniqueItemIndex = 0;
+				for (int supportsOffset = 0; supportsOffset < supports.Length; supportsOffset += items.Length)
+				{
+					uniqueItemBufs[uniqueItemIndex] = new Buffer<int>(context, queue, 1);
+					uniqueItemBufs[uniqueItemIndex].BackingCollection[0] = uniqueItems[uniqueItemIndex];
+					uniqueItemBufs[uniqueItemIndex].Write(false);
 
-			Kernels.Device = device;
-			Kernels.Context = context;
-			Kernels.Sum sumSupports = new Kernels.Sum();
+					queue.Finish();
+					kernelCopyIfEqual.SetCopiedValue(uniqueItemBufs[uniqueItemIndex]);
+					kernelCopyIfEqual.Launch(queue, itemsBuf, 0, (uint)items.Length, 
+						supportsBuf, (uint)supportsOffset, (uint)items.Length);
+
+					supportsBuf.Read(); // debug
+					++uniqueItemIndex;
+				}
+			}
+
+			Kernels.SubstituteIfNotEqual kernelSubstituteIfNotEqual = new Kernels.SubstituteIfNotEqual();
+
+			Buffer<int> Zero = new Buffer<int>(context, queue, new int[] { 0 });
+			Zero.Write(false);
+
+			Buffer<int> One = new Buffer<int>(context, queue, new int[] { 1 });
+			Zero.Write(false);
+
+			queue.Finish();
+			//supportsBuf.Read(); // debug
+			kernelSubstituteIfNotEqual.Launch(queue, supportsBuf, One, Zero);
+
+			//queue.Finish(); // debug
+			//supportsBuf.Read(); // debug
+
+			Kernels.Or kernelOr = new Kernels.Or();
+			{
+				int offset = 0;
+				for (int i = 0; i < uniqueItems.Length; ++i) // for each unique item
+				{
+					offset = i * uniqueItems.Length;
+					for (int t = 0; t < userCounts.Count; ++t) // for each user
+					{
+						kernelOr.Launch(queue, supportsBuf, (uint)offset, (uint)userCounts[t]);
+						offset += userCounts[t];
+					}
+				}
+			}
+
+			Kernels.Sum kernelSum = new Kernels.Sum();
+
+			//Kernel kernelSupports = new Kernel(queue, programSupport, "supportDuplicatesRemoval");
+			//kernelSupports.SetArguments(itemsBuf, itemsCountBuf, itemsTransactionsBuf,
+			//	uniqueItemsBuf, uniqueItemsCountBuf, stepBuf, supportsBuf);
+
+			//step[0] = 1;
+			//while (step[0] < itemsCount[0])
+			//{
+			//	stepBuf.Write();
+
+			//	kernelSupports.Launch2D((uint)itemsCount[0], 1, (uint)uniqueItemsCount[0], 1);
+
+			//	//supportsBuf.Read(); // only for debugging
+			//	step[0] *= 2;
+			//}
+
 			uint itemsCountUint = (uint)itemsCount[0];
+			queue.Finish();
 			for (uint offset = 0; offset < supports.Length; offset += itemsCountUint)
-				sumSupports.Launch(queue, supportsBuf, offset, itemsCountUint);
+				kernelSum.Launch(queue, supportsBuf, offset, itemsCountUint);
 			supportsBuf.Read();
 
 			queue.Finish();
-
-			sumSupports.Dispose();
 
 			#endregion
 
 			List<Litemset> litemsets = new List<Litemset>();
 			int index = 0;
-			for (int i = 0; i < uniqueItemsCount[0]; ++i)
+			for (int i = 0; i < uniqueItemsCount; ++i)
 			{
 				supportsBuf.Read((uint)index, 1);
 				if (supports[index] >= minSupport)
@@ -542,26 +692,34 @@ namespace AprioriAllLib
 			//}
 
 			if (progressOutput)
-				Trace.WriteLine(String.Format("Generated all litemsets, found {0}.", litemsets.Count));
+				Log.WriteLine("Generated all litemsets, found {0}.", litemsets.Count);
 
 			queue.Finish();
 
 			itemsBuf.Dispose();
 			itemsCountBuf.Dispose();
-			itemsExcludedBuf.Dispose();
-			newItemsExcludedBuf.Dispose();
+			itemsTempBuf.Dispose();
+			itemsRemainingBuf.Dispose();
+			//itemsExcludedBuf.Dispose();
+			//newItemsExcludedBuf.Dispose();
 			uniqueItemsBuf.Dispose();
-			uniqueItemsCountBuf.Dispose();
-			discoveredBuf.Dispose();
-			stepBuf.Dispose();
+			//uniqueItemsCountBuf.Dispose();
+			//discoveredBuf.Dispose();
+			//stepBuf.Dispose();
 
-			itemsTransactionsBuf.Dispose();
+			//itemsTransactionsBuf.Dispose();
 			supportsBuf.Dispose();
+			foreach (var buf in uniqueItemBufs)
+				buf.Dispose();
+
+			Zero.Dispose();
+			One.Dispose();
 
 			Kernels.Dispose();
 			queue.Dispose();
 
 			return litemsets;
+			//return null;
 		}
 
 	}

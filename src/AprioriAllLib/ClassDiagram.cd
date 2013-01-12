@@ -1,14 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="AprioriAllLib.Apriori">
-    <Position X="0.75" Y="0.5" Width="2.25" />
+    <Position X="1" Y="0.5" Width="2.25" />
+    <Members>
+      <Field Name="clInitialized" Hidden="true" />
+      <Field Name="clProgramsInitialized" Hidden="true" />
+      <Field Name="context" Hidden="true" />
+      <Field Name="device" Hidden="true" />
+      <Field Name="platform" Hidden="true" />
+      <Field Name="programDistinct" Hidden="true" />
+      <Field Name="programSeparation" Hidden="true" />
+      <Field Name="programSupport" Hidden="true" />
+    </Members>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAIAAAAAAAAAAAAAEAACAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAACBAICACAAAAIAIAAAAAAAEAAEAAEACCACAAgAgAA=</HashCode>
       <FileName>Apriori.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Field Name="customerList" />
     </ShowAsAssociation>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="AprioriAllLib.Customer">
     <Position X="7.25" Y="0.5" Width="2.25" />
@@ -39,7 +50,7 @@
     <Lollipop Position="0.881" />
   </Class>
   <Class Name="AprioriAllLib.Litemset" BaseTypeListCollapsed="true">
-    <Position X="4.5" Y="6" Width="2" />
+    <Position X="4.75" Y="6" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAiAQEgAAAAAAAAAAAAIgAAAAAAAAAAAA=</HashCode>
       <FileName>Litemset.cs</FileName>
@@ -64,15 +75,11 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="AprioriAllLib.AprioriAll">
-    <Position X="0.5" Y="3.25" Width="3.5" />
+    <Position X="0.5" Y="4.25" Width="3.5" />
     <TypeIdentifier>
-      <HashCode>AAAAJAAAAAAAACQCAAAAABAgEAAAAAAICAkKAAAAAAA=</HashCode>
+      <HashCode>AAAAIAAABAAAACACAAAAAAAggAAAAIAICUkKAAAABAA=</HashCode>
       <FileName>AprioriAll.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="apriori" />
-      <Field Name="customerList" />
-    </ShowAsAssociation>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
