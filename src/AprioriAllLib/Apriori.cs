@@ -375,6 +375,7 @@ namespace AprioriAllLib
 				watch.Start();
 			}
 
+			int cIndex = 0;
 			foreach (Customer c in customerList.Customers)
 			{
 				foreach (Transaction t in c.Transactions)
@@ -406,7 +407,24 @@ namespace AprioriAllLib
 						}
 					}
 				}
+
+				if (progressOutput)
+				{
+					if (cIndex % 10 == 9)
+					{
+						watch.Stop();
+						Log.Write("{0}ms ", watch.ElapsedMilliseconds);
+						watch.Start();
+					}
+					++cIndex;
+				}
+
 			}
+			if (progressOutput)
+			{
+				Log.WriteLine();
+			}
+
 
 			if (progressOutput)
 				Log.WriteLine("Found {0} subsets.", litemsets.Count);

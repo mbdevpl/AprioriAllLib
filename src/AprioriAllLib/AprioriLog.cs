@@ -67,12 +67,22 @@ namespace AprioriAllLib
 					++msgNumber;
 
 				if (UseTrace)
-					Trace.Write(s);
+				{
+					if (LogMsgNumber)
+						Trace.Write(String.Format(msgNumberWithMsgFormat, msgNumber, s));
+					else
+						Trace.Write(s);
+				}
 				else
 					HandleMsgNumberIndicator_Trace();
 
 				if (UseConsoleOut)
-					Console.Out.Write(s);
+				{
+					if (LogMsgNumber)
+						Console.Out.Write(msgNumberWithMsgFormat, msgNumber, s);
+					else
+						Console.Out.Write(s);
+				}
 				else
 					HandleMsgNumberIndicator_ConsoleOut();
 			}
@@ -86,12 +96,22 @@ namespace AprioriAllLib
 					++msgNumber;
 
 				if (UseTrace)
-					Trace.Write(o);
+				{
+					if (LogMsgNumber)
+						Trace.Write(String.Format(msgNumberWithMsgFormat, msgNumber, o));
+					else
+						Trace.Write(o);
+				}
 				else
 					HandleMsgNumberIndicator_Trace();
 
 				if (UseConsoleOut)
-					Console.Out.Write(o);
+				{
+					if (LogMsgNumber)
+						Console.Out.Write(msgNumberWithMsgFormat, msgNumber, o);
+					else
+						Console.Out.Write(o);
+				}
 				else
 					HandleMsgNumberIndicator_ConsoleOut();
 			}
@@ -105,12 +125,51 @@ namespace AprioriAllLib
 					++msgNumber;
 
 				if (UseTrace)
-					Trace.Write(String.Format(format, args));
+				{
+					if (LogMsgNumber)
+						Trace.Write(String.Format(msgNumberWithMsgFormat, msgNumber, String.Format(format, args)));
+					else
+						Trace.Write(String.Format(format, args));
+				}
 				else
 					HandleMsgNumberIndicator_Trace();
 
 				if (UseConsoleOut)
-					Console.Out.Write(format, args);
+				{
+					if (LogMsgNumber)
+						Console.Out.Write(msgNumberWithMsgFormat, msgNumber, String.Format(format, args));
+					else
+						Console.Out.Write(format, args);
+				}
+				else
+					HandleMsgNumberIndicator_ConsoleOut();
+			}
+		}
+
+		public static void WriteLine()
+		{
+			lock (_lock)
+			{
+				if (LogMsgNumber)
+					++msgNumber;
+
+				if (UseTrace)
+				{
+					if (LogMsgNumber)
+						Trace.WriteLine(String.Format(msgNumberFormat, msgNumber));
+					else
+						Trace.WriteLine(String.Empty);
+				}
+				else
+					HandleMsgNumberIndicator_Trace();
+
+				if (UseConsoleOut)
+				{
+					if (LogMsgNumber)
+						Console.Out.WriteLine(msgNumberFormat, msgNumber);
+					else
+						Console.Out.WriteLine();
+				}
 				else
 					HandleMsgNumberIndicator_ConsoleOut();
 			}
