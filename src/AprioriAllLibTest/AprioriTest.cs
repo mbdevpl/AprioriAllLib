@@ -49,7 +49,7 @@ namespace AprioriAllLib.Test
 
 			//Act
 			Apriori apriori = new Apriori(Data.Example1);
-			List<Litemset> oneLitemsets = apriori.RunApriori(0.2);
+			List<Litemset> oneLitemsets = apriori.RunApriori(0.2, true);
 
 			//Assert
 			// areEquivalent doesn't work ?!
@@ -67,7 +67,7 @@ namespace AprioriAllLib.Test
 
 			//Act
 			Apriori apriori = new Apriori(Data.Example1);
-			List<Litemset> oneLitemsets = apriori.RunApriori(0.6);
+			List<Litemset> oneLitemsets = apriori.RunApriori(0.6, true);
 
 			//Assert
 			CollectionAssert.AreEqual(expected, oneLitemsets, GetAprioriTestResults(expected, oneLitemsets));

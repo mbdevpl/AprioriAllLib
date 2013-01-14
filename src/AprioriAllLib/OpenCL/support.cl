@@ -67,22 +67,6 @@ __kernel void supportDuplicatesRemoval(
 	}
 }
 
-//__kernel void supportSumUp(
-//	__global const int* itemsCount,
-//	__global const int* uniqueItems,
-//	__global const int* uniqueItemsCount,
-//	__global const int* step,
-//	__global int* supports
-//	)
-//{
-//	int x = get_global_id(0);
-//	int y = get_global_id(1);
-//	if(x < *itemsCount && y < *uniqueItemsCount && *step > 0 && x % (2 * *step) == 0)
-//	{
-//		int supportsIndex = y * *itemsCount + x;
-//		supports[supportsIndex] = 1;
-//		values[x] += values[x + *step];
-//	}
-//}
+
 
 /// @}
