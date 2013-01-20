@@ -18,7 +18,15 @@ namespace AprioriAllLib
 		/// <param name="maxTransactionCount">limit of number of transactions for each customer</param>
 		/// <param name="maxTransactionLength">limit of number of items per transaction</param>
 		/// <returns></returns>
-		public static CustomerList GenerateRandomList(int customersCount, int maxTransactionCount, int maxTransactionLength)
+		public static CustomerList GenerateRandomList(int customersCount, int maxTransactionCount,
+			int maxTransactionLength)
+		{
+			return GenerateRandomList(customersCount, maxTransactionCount,
+				maxTransactionLength, maxTransactionLength);
+		}
+
+		public static CustomerList GenerateRandomList(int customersCount, int maxTransactionCount,
+			int maxTransactionLength, int maxUniqueItemsCount)
 		{
 			Random random = new Random();
 			CustomerList randomCustomerList = new CustomerList();
@@ -35,7 +43,7 @@ namespace AprioriAllLib
 					t = new Transaction();
 					for (int it = 0; it < n; ++it)
 					{
-						int itemVal = (random.Next() % maxTransactionLength + 10) * 10;
+						int itemVal = ((random.Next() % maxUniqueItemsCount) + 10) * 10;
 						if (t.Contains(itemVal))
 						{
 							--it;

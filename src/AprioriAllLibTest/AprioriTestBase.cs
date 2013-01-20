@@ -87,8 +87,31 @@ namespace AprioriAllLib.Test
 		public void PrintInput(CustomerList customerList)
 		{
 			Console.Out.WriteLine("\nInput:");
-			foreach (Customer c in customerList.Customers)
-				Console.Out.WriteLine(" - {0}", c);
+			if (customerList.Customers.Count < 50)
+			{
+				foreach (Customer c in customerList.Customers)
+					Console.Out.WriteLine(" - {0}", c);
+			}
+			else
+			{
+				const int header = 10;
+				int i;
+
+				for (i = 0; i < header; ++i)
+				{
+					Customer c = customerList.Customers[i];
+					Console.Out.WriteLine(" - {0}", c);
+				}
+
+				Console.Out.WriteLine(" ... {0} entries omitted", customerList.Customers.Count - 2 * header);
+
+				for (i = customerList.Customers.Count - header; i < customerList.Customers.Count; ++i)
+				{
+					Customer c = customerList.Customers[i];
+					Console.Out.WriteLine(" - {0}", c);
+				}
+
+			}
 		}
 
 		public void PrintAprioriOutput(List<Litemset> results)

@@ -115,6 +115,7 @@
     <Compile Include="InputGenerator.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="Litemset.cs" />
+    <Compile Include="OpenCL\AprioriKernels.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -131,7 +132,7 @@
     <None Include="ClassDiagram.cd" />
     <None Include="OpenCL\distinct.cl" />
     <None Include="OpenCL\opencl.cl" />
-    <None Include="OpenCL\separation.cl" />
+    <None Include="OpenCL\apriori.cl" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

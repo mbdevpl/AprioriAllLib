@@ -34,10 +34,12 @@ namespace AprioriAllLib.Test
 		public void Test_AprioriParallel_Example1_HighSupport()
 		{
 			//Arrange
-			List<Litemset> expected = new List<Litemset>();
-			expected.Add(new Litemset(4, 30));
-			expected.Add(new Litemset(3, 70));
-			Assert.AreEqual(2, expected.Count);
+			//List<Litemset> expected = new List<Litemset>();
+			//expected.Add(new Litemset(4, 30));
+			//expected.Add(new Litemset(3, 70));
+			//Assert.AreEqual(2, expected.Count);
+			Apriori aprioriSerialized = new Apriori(Data.Example1);
+			List<Litemset> expected = aprioriSerialized.RunApriori(0.6);
 
 			//Act
 			Apriori apriori = new Apriori(Data.Example1);

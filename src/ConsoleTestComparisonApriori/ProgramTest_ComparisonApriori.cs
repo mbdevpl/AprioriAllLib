@@ -20,11 +20,15 @@ namespace ConsoleTestComparisonApriori
 			Console.Out.WriteLine("Apriori Serialized and Parallel versions comparison");
 
 			CustomerList input
-				= InputGenerator.GenerateRandomList(16, 1, 16);
+				//= InputGenerator.GenerateRandomList(15, 1, 9, 40);
+				= Data.Example2;
+			//= InputGenerator.GenerateRandomList(500000, 1, 1, 1);
+			//= Data.Example1;
 
-			//double[] supports = new double[] { 0.1, 0.3, 0.5, 0.8 };
-			double[] supports = new double[] { 0.8, 0.5, 0.3, 0.1 };
-			string[] editions = new string[] { "Parallel", "Serialized", "ParallelNewEachTime", "SerializedNewEachTime" };
+			//double[] supports = new double[] { 0.001, 0.1, 0.3 };
+			//double[] supports = new double[] { 0.9, 0.8, 0.7, 0.5, 0.3, 0.2, 0.1, 0.001 };
+			double[] supports = new double[] { 0.3, 0.2, 0.1 };
+			string[] editions = new string[] { "Parallel"/*, "Serialized", "ParallelNewEachTime", "SerializedNewEachTime"*/ };
 
 			program.PrintInput(input);
 
@@ -68,13 +72,25 @@ namespace ConsoleTestComparisonApriori
 						Console.Out.WriteLine("{0}, {1}: {2}ms", result.Item1, result.Item2, result.Item3);
 				}
 
-			apriori3.Dispose();
+			Stopwatch timer2 = new Stopwatch();
+			if (editions.Contains("Parallel"))
+			{
+				timer2.Start();
+				apriori3.Dispose();
+				timer2.Stop();
+				if (!Diagnostics)
+					Console.Out.WriteLine("Parallel, disposing: {0} ms", timer2.ElapsedMilliseconds);
+			}
 
 			if (Diagnostics)
+			{
+				Console.Out.WriteLine();
 				foreach (Tuple<string, double, long> result in results)
 					Console.Out.WriteLine("{0}, {1}: {2}ms", result.Item1, result.Item2, result.Item3);
+				Console.Out.WriteLine("Parallel, disposing: {0} ms", timer2.ElapsedMilliseconds);
+			}
 
-			Console.Out.Write("End.");
+			Console.Out.Write("\nEnd.");
 			Console.ReadKey();
 		}
 	}
