@@ -19,16 +19,28 @@ namespace ConsoleTestComparisonApriori
 
 			Console.Out.WriteLine("Apriori Serialized and Parallel versions comparison");
 
-			CustomerList input
-				//= InputGenerator.GenerateRandomList(15, 1, 9, 40);
-				= Data.Example2;
-			//= InputGenerator.GenerateRandomList(500000, 1, 1, 1);
-			//= Data.Example1;
+			CustomerList input =
+				//Data.Example1;
+				Data.Example2;
+				//InputGenerator.GenerateRandomList(500000, 1, 1, 1);
+				//InputGenerator.GenerateRandomList(1, 1, 15, 40);
+				//InputGenerator.GenerateRandomList(20, 15, 15, 40);
 
-			//double[] supports = new double[] { 0.001, 0.1, 0.3 };
-			//double[] supports = new double[] { 0.9, 0.8, 0.7, 0.5, 0.3, 0.2, 0.1, 0.001 };
-			double[] supports = new double[] { 0.3, 0.2, 0.1 };
-			string[] editions = new string[] { "Parallel"/*, "Serialized", "ParallelNewEachTime", "SerializedNewEachTime"*/ };
+			//new CustomerList();
+			//input.Customers.Add(new Customer(new int[] { 10, 20 }, new int[] { 20, 10 }));
+			//input.Customers.Add(new Customer(new int[] { 20, 10 }, new int[] { 10, 20 }));
+			//input.Customers.Add(new Customer(new int[] { 30 }, new int[] { 20 }));
+
+			double[] supports =
+				//new double[] { 0.001, 0.1, 0.3 };
+				//new double[] { 0.9, 0.8, 0.7, 0.5, 0.3, 0.2, 0.1, 0.001 };
+				new double[] { 0.3, 0.2, 0.1 };
+				//new double[] { 0.5, 0.3 };
+				//new double[] { 0.1 };
+			string[] editions =
+				//new string[] { "Parallel", "Serialized", "ParallelNewEachTime", "SerializedNewEachTime" };
+				new string[] { "Parallel" };
+				//new string[] { "Parallel", "Serialized" };
 
 			program.PrintInput(input);
 

@@ -72,6 +72,8 @@ namespace AprioriAllLib
 
 		Kernels.Or kernelOr;
 
+		Kernels.And kernelAnd;
+
 		Kernels.SegmentedOr kernelSegmentedOr;
 
 		#endregion
@@ -204,6 +206,7 @@ namespace AprioriAllLib
 				{
 					sem[4].WaitOne();
 					kernelOr = new Kernels.Or();
+					kernelAnd = new Kernels.And();
 					kernelSegmentedOr = new Kernels.SegmentedOr();
 					sem[4].Release();
 				}
@@ -277,6 +280,8 @@ namespace AprioriAllLib
 
 				kernelOr = new Kernels.Or();
 
+				kernelAnd = new Kernels.And();
+
 				kernelSegmentedOr = new Kernels.SegmentedOr();
 			}
 
@@ -302,6 +307,7 @@ namespace AprioriAllLib
 				kernelSum.Dispose();
 				kernelPairwiseAnd.Dispose();
 				kernelOr.Dispose();
+				kernelAnd.Dispose();
 				kernelSegmentedOr.Dispose();
 
 				// own kernels
@@ -529,8 +535,6 @@ namespace AprioriAllLib
 
 			int minSupport = (int)Math.Ceiling((double)customerList.Customers.Count * minimalSupport);
 
-			//Abstract.Diagnostics = true;
-
 			Stopwatch watch = null;
 			if (progressOutput)
 			{
@@ -566,8 +570,8 @@ namespace AprioriAllLib
 			int[] itemsCustomers = new int[itemsCountInt];
 			int[] transactionsStarts = new int[transactionsCountInt];
 			int[] transactionsLengths = new int[transactionsCountInt];
-			int[] customersStarts = new int[customersCountInt];
-			int[] customersLengths = new int[customersCountInt];
+			int[] customersStarts = new int[customersCountInt]; // in terms of transactions!
+			int[] customersLengths = new int[customersCountInt]; // in terms of transactions!
 			//List<int> itemsList = new List<int>();
 			//List<int> itemsTransactionsList = new List<int>();
 			//List<int> itemsCustomersList = new List<int>();
@@ -585,8 +589,7 @@ namespace AprioriAllLib
 				foreach (Customer c in customerList.Customers)
 				{
 					currCustomerLength = 0;
-					currTransaction = 0;
-					customersStarts[currCustomer] = currItem; // customersStartsList.Add(currItem);
+					customersStarts[currCustomer] = currTransaction; // customersStartsList.Add(currItem);
 					foreach (Transaction t in c.Transactions)
 					{
 						currTransactionLenth = 0;
@@ -598,8 +601,8 @@ namespace AprioriAllLib
 							itemsCustomers[currItem] = currCustomer; // itemsCustomersList.Add(currCustomer);
 							++currItem;
 							++currTransactionLenth;
-							++currCustomerLength;
 						}
+						++currCustomerLength;
 						transactionsLengths[currTransaction] = currTransactionLenth; // transactionsLengthsList.Add(currTransactionLenth);
 						++currTransaction;
 					}
@@ -616,6 +619,8 @@ namespace AprioriAllLib
 				Log.WriteLine("input converted @ {0}ms", watch.ElapsedMilliseconds);
 				watch.Start();
 			}
+
+			//Abstract.Diagnostics = true;
 
 			InitOpenCL(progressOutput);
 
@@ -787,138 +792,7 @@ namespace AprioriAllLib
 				kernelCopy.Launch(queue, itemsCountUInt);
 			}
 
-			#endregion
-
-			#region comments
-
-			//int[] discovered = new int[itemsCount[0]];
-			//Buffer<int> discoveredBuf = new Buffer<int>(context, queue, discovered);
-			//discoveredBuf.Write(false);
-
-			//int[] step = new int[] { 1 };
-			//Buffer<int> stepBuf = new Buffer<int>(context, queue, step);
-
-			//kernelZero.Launch(queue, itemsExcludedBuf);
-			//kernelZero.Launch(queue, newItemsExcludedBuf);
-			//kernelZero.Launch(queue, discoveredBuf); 
-
-			//#region distinct items finding
-
-			//Kernel kernelDistinct = new Kernel(programDistinct, "findNewDistinctItem");
-			//kernelDistinct.SetArguments(itemsBuf, itemsCountBuf, itemsExcludedBuf, newItemsExcludedBuf,
-			//	discoveredBuf, stepBuf);
-
-			//Kernel kernelExcludeDistinct = new Kernel(programDistinct, "excludeLatestDistinctItem");
-			//kernelExcludeDistinct.SetArguments(itemsBuf, itemsCountBuf, itemsExcludedBuf,
-			//	uniqueItemsBuf, uniqueItemsCountBuf);
-
-			//if (progressOutput)
-			//	Log.WriteLine("Looking for unique items in all transactions.");
-
-			//queue.Finish();
-			//while (true)
-			//{
-			//	#region kernelDistinct launch
-
-			//	step[0] = 1;
-			//	while (step[0] <= itemsCount[0])
-			//	{
-			//		stepBuf.Write();
-			//		kernelDistinct.Launch1D(queue, (uint)items.Length, (uint)1);
-
-			//		//queue.Finish();
-
-			//		itemsExcludedBuf.Read(); // only for debugging
-			//		newItemsExcludedBuf.Read(); // only for debugging
-			//		discoveredBuf.Read(); // only for debugging
-
-			//		//if (progressOutput)
-			//		//	Log.Write(String.Format(", step {0}", step[0]));
-
-			//		step[0] *= 2;
-			//	}
-
-			//	//if (progressOutput)
-			//	//	Log.WriteLine("");
-
-			//	#endregion
-
-			//	queue.Finish();
-
-			//	discoveredBuf.Read(0, 1);
-
-			//	if (discovered[0] == 0)
-			//		break;
-
-			//	if (progressOutput)
-			//		Log.WriteLine(" found new unique item: {0}", discovered[0]);
-
-			//	queue.Finish(); // only for debug
-			//	discoveredBuf.Read(); // only for debug
-
-			//	if (uniqueItems.Length <= uniqueItemsCount[0])
-			//		throw new IndexOutOfRangeException(String.Format("at most {0} unique items expected but got {1}: {2}",
-			//						uniqueItems.Length, uniqueItemsCount[0], String.Join(",", uniqueItems)));
-
-			//	uniqueItems[uniqueItemsCount[0]] = discovered[0];
-			//	uniqueItemsBuf.Write();
-
-			//	uniqueItemsCount[0] += 1;
-			//	uniqueItemsCountBuf.Write();
-
-			//	//if (progressOutput)
-			//	//	Log.Write(" launching kernelZero");
-
-			//	kernelZero.Launch(queue, discoveredBuf);
-			//	queue.Finish();
-
-			//	kernelExcludeDistinct.Launch1D(queue, (uint)itemsCount[0], 1);
-
-			//	queue.Finish();
-
-			//	if (progressOutput)
-			//		Log.WriteLine(" excluded distinct from future findings");
-
-			//	//itemsExcludedBuf.Read();
-			//	//for (int i = 0; i < itemsCount[0]; ++i)
-			//	//	newItemsExcluded[i] = itemsExcluded[i];
-			//	//newItemsExcludedBuf.Write();
-			//	kernelCopy.Launch(queue, itemsExcludedBuf, newItemsExcludedBuf);
-
-			//	queue.Finish();
-			//}
-
-			//queue.Finish();
-
-			//if (progressOutput)
-			//	Log.WriteLine("Found all unique items: {0}.", String.Join(", ", uniqueItems));
-
-			//kernelDistinct.Dispose();
-			//kernelExcludeDistinct.Dispose();
-
-			////kernelOr.Dispose();
-			////kernelZero.Dispose();
-
-			//#endregion
-
-			//if (progressOutput)
-			//	Log.WriteLine("Calculating support of each unique item.");
-
-			////if (progressOutput)
-			////	Log.WriteLine("Finished subset generation.");
-
-			//#region more buffers initialization
-
-			//int[] itemsTransactions = itemsCustomersList.ToArray();
-			//Buffer<int> itemsTransactionsBuf = new Buffer<int>(context, queue, itemsTransactions);
-
-			//#endregion
-
-			//if (progressOutput)
-			//{
-			//	//Console.Out.WriteLine(String.Join(" ", items));
-			//	//Console.Out.WriteLine(String.Join("  ", itemsTransactions));
-			//}
+			uint uniqueItemsCountUInt = (uint)uniqueItemsCount;
 
 			#endregion
 
@@ -929,19 +803,26 @@ namespace AprioriAllLib
 				watch.Start();
 			}
 
-			// TODO: optimize all code below this line
+			#region finding supports for items
 
-			kernelMax.RestoreInternalArguments();
-			kernelCopy.RestoreInternalArguments();
-			kernelZero.RestoreInternalArguments();
-			kernelSubstitute.RestoreInternalArguments();
-			kernelMin.RestoreInternalArguments();
+			int itemsSupportsCountInt = itemsCountInt * uniqueItemsCount;
+			uint itemsSupportsCountUInt = (uint)itemsSupportsCountInt;
 
-			#region finding support for single items
+			int[] itemsSupportsCount = new int[] { itemsSupportsCountInt };
+			Buffer<int> itemsSupportsCountBuf = new Buffer<int>(context, queue, itemsSupportsCount);
+			itemsSupportsCountBuf.Write(false);
 
-			int[] supports = new int[itemsCount[0] * uniqueItemsCount];
-			Buffer<int> supportsBuf = new Buffer<int>(context, queue, supports);
-			kernelZero.Launch(queue, supportsBuf);
+			int[] itemsSupports = new int[itemsSupportsCountInt];
+			Buffer<int> itemsSupportsBuf = new Buffer<int>(context, queue, itemsSupports);
+
+			//Abstract.Diagnostics = true;
+
+			queue.Finish();
+			kernelZero.SetArguments(itemsSupportsBuf, itemsSupportsCountBuf, null, itemsSupportsCountBuf);
+			kernelZero.Launch(queue, itemsSupportsCountUInt);
+
+			//Buffer<int> supportsBuf = new Buffer<int>(context, queue, itemsSupports);
+			//kernelZero.Launch(queue, supportsBuf);
 
 			//Kernel kernelInitSupports = new Kernel(queue, programSupport, "supportInitial");
 			//kernelInitSupports.SetArguments(itemsBuf, itemsCountBuf, uniqueItemsBuf, uniqueItemsCountBuf,
@@ -952,87 +833,239 @@ namespace AprioriAllLib
 
 			//Buffer<int>[] uniqueItemBufs = new Buffer<int>[uniqueItemsCount];
 			Buffer<int> uniqueItemBuf = new Buffer<int>(context, queue, 1);
-			kernelCopyIfEqual.SetCopiedValue(uniqueItemBuf);
+			Buffer<int> offsetBuf = new Buffer<int>(context, queue, 1);
+
+			kernelCopyIfEqual.SetArguments(itemsBuf, itemsCountBuf, Zero, itemsCountBuf,
+			itemsSupportsBuf, itemsSupportsCountBuf, offsetBuf, itemsCountBuf,
+				uniqueItemBuf);
+			//kernelCopy.SetArguments(itemsBuf, itemsCountBuf, Zero, itemsCountBuf,
+			//	itemsSupportsBuf, itemsSupportsCountBuf, Zero, itemsCountBuf);
+			//kernelCopyIfEqual.SetCopiedValue(uniqueItemBuf);
 
 			queue.Finish();
+			int uniqueItemIndex = 0;
+			for (int supportsOffset = 0; supportsOffset < itemsSupports.Length; supportsOffset += items.Length)
 			{
-				int uniqueItemIndex = 0;
-				for (int supportsOffset = 0; supportsOffset < supports.Length; supportsOffset += items.Length)
-				{
-					//uniqueItemBufs[uniqueItemIndex] = new Buffer<int>(context, queue, 1);
-					//uniqueItemBufs[uniqueItemIndex].BackingCollection[0] = uniqueItems[uniqueItemIndex];
-					//uniqueItemBufs[uniqueItemIndex].Write(false);
-					uniqueItemBuf.BackingCollection[0] = uniqueItems[uniqueItemIndex];
-					uniqueItemBuf.Write(false);
+				//uniqueItemBufs[uniqueItemIndex] = new Buffer<int>(context, queue, 1);
+				//uniqueItemBufs[uniqueItemIndex].BackingCollection[0] = uniqueItems[uniqueItemIndex];
+				//uniqueItemBufs[uniqueItemIndex].Write(false);
+				uniqueItemBuf.Array[0] = uniqueItems[uniqueItemIndex];
+				uniqueItemBuf.Write(false);
+				offsetBuf.Array[0] = supportsOffset;
+				offsetBuf.Write(false);
 
-					queue.Finish();
-					kernelCopyIfEqual.Launch(queue, itemsBuf, 0, (uint)items.Length,
-						supportsBuf, (uint)supportsOffset, (uint)items.Length);
+				queue.Finish();
+				kernelCopyIfEqual.Launch(queue, itemsCountUInt);
+				//kernelCopy.Launch(queue, itemsCountUInt);
 
-					//supportsBuf.Read(); // debug
-					++uniqueItemIndex;
-				}
+				//kernelCopyIfEqual.Launch(queue, itemsBuf, 0, (uint)items.Length,
+				//	itemsSupportsBuf, (uint)supportsOffset, (uint)items.Length);
+
+				//queue.Finish(); // debug
+				//uniqueItemBuf.Read(); // debug
+				//offsetBuf.Read(); // debug
+				//itemsSupportsBuf.Read(); // debug
+				++uniqueItemIndex;
 			}
 
 			queue.Finish();
-			//supportsBuf.Read(); // debug
-			kernelSubstituteIfNotEqual.Launch(queue, supportsBuf, One, Zero);
+			//itemsSupportsBuf.Read(); // debug
+			kernelSubstituteIfNotEqual.SetArguments(itemsSupportsBuf, itemsSupportsCountBuf, Zero, itemsSupportsCountBuf,
+				One, Zero);
+			kernelSubstituteIfNotEqual.Launch(queue, itemsSupportsCountUInt);
+			//kernelSubstituteIfNotEqual.Launch(queue, supportsBuf, One, Zero);
 
 			//queue.Finish(); // debug
-			//supportsBuf.Read(); // debug
+			//itemsSupportsBuf.Read(); // debug
 
-			// TODO: optimize this scope, it is the slowest part
+			//if (progressOutput)
+			//{
+			//	watch.Stop();
+			//	Log.WriteLine("supports array @ {0}ms", watch.ElapsedMilliseconds);
+			//	watch.Start();
+			//}
+
+			#endregion
+
+			#region finding supports for transactions
+
+			int transactionsSupportsCountInt = transactionsCountInt * uniqueItemsCount;
+			uint transactionsSupportsCountUInt = (uint)transactionsSupportsCountInt;
+
+			int[] transactionsSupportsCount = new int[] { transactionsSupportsCountInt };
+			Buffer<int> transactionsSupportsCountBuf = new Buffer<int>(context, queue, transactionsSupportsCount);
+			transactionsSupportsCountBuf.Write(false);
+
+			int[] transactionsSupports = new int[transactionsSupportsCountInt];
+			Buffer<int> transactionsSupportsBuf = new Buffer<int>(context, queue, transactionsSupports);
+
+			queue.Finish();
+			kernelZero.SetArguments(transactionsSupportsBuf, transactionsSupportsCountBuf, null, transactionsSupportsCountBuf);
+			kernelZero.Launch(queue, transactionsSupportsCountUInt);
+
+			Buffer<int> itemsSupportsBufCopy = new Buffer<int>(context, queue, itemsSupports);
+
+			kernelCopy.SetArguments(itemsSupportsBuf, itemsSupportsCountBuf, Zero, itemsSupportsCountBuf,
+				itemsSupportsBufCopy, itemsSupportsCountBuf, Zero, itemsSupportsCountBuf);
+			kernelCopy.Launch(queue, itemsSupportsCountUInt);
+
+			Buffer<int> includedCountBuf = new Buffer<int>(context, queue, 1);
+			Buffer<int> outputOffsetBuf = new Buffer<int>(context, queue, 1);
+
+			kernelSegmentedOr.SetArguments(itemsSupportsBufCopy, itemsSupportsCountBuf, offsetBuf, includedCountBuf,
+				null, itemsCountBuf);
+			kernelCopy.SetArguments(itemsSupportsBufCopy, itemsSupportsCountBuf, offsetBuf, One,
+				transactionsSupportsBuf, transactionsSupportsCountBuf, outputOffsetBuf, One);
+
+			//queue.Finish(); // debug
+			//itemsSupportsBufCopy.Read(); // debug
+
+			for (int tn = 0; tn < transactionsCountInt; ++tn)
 			{
-				kernelSegmentedOr.SegmentStep = items.Length;
-				kernelSegmentedOr.SegmentsCount = uniqueItemsCount;
-				int offset = 0;
-				//for (int i = 0; i < uniqueItemsCount; ++i) // for each unique item
-				//{
-				//offset = i * items.Length;
-				for (int t = 0; t < customersLengths.Length; ++t) // for each user
-				{
-					kernelSegmentedOr.Launch(queue, supportsBuf, (uint)offset, (uint)customersLengths[t]);
-					//kernelOr.Launch(queue, supportsBuf, (uint)offset, (uint)customersLengthsList[t]);
-					offset += customersLengths[t];
+				offsetBuf.Value = transactionsStarts[tn];
+				offsetBuf.Write(false);
+				includedCountBuf.Value = transactionsLengths[tn];
+				includedCountBuf.Write(false);
 
-					//if (progressOutput)
-					//{
-					//	watch.Stop();
-					//	Log.WriteLine("@ {0}ms", watch.ElapsedMilliseconds);
-					//	watch.Start();
-					//}
+				queue.Finish();
+				//for (int i = 0; i < uniqueItemsCount; ++i)
+				//	kernelOr.Launch();
+				kernelSegmentedOr.Launch(queue, (uint)transactionsLengths[tn], uniqueItemsCountUInt);
+
+				//queue.Finish(); // debug
+				//itemsSupportsBufCopy.Read(); // debug ONLY - causes incorrect results
+
+				outputOffsetBuf.Value = tn;
+				outputOffsetBuf.Write(false);
+				for (int i = 0; i < uniqueItemsCount; ++i)
+				{
+					queue.Finish();
+					kernelCopy.Launch(queue, 1);
+
+					//queue.Finish(); // debug
+					//transactionsSupportsBuf.Read(); // debug
+
+					if (i == uniqueItemsCount - 1)
+						break;
+
+					offsetBuf.Value += itemsCountInt;
+					offsetBuf.Write(false);
+
+					outputOffsetBuf.Value += transactionsCountInt;
+					outputOffsetBuf.Write(false);
 				}
-				//}
 			}
 
-			// copy data to a new buffer for use in multi-item support calculations
-			int[] supportsBak = new int[supports.Length];
-			Buffer<int> supportsBakBuf = new Buffer<int>(context, queue, supportsBak);
-			queue.Finish();
-			kernelCopy.Launch(queue, supportsBuf, supportsBakBuf);
+			#endregion
 
-			uint itemsCountUint = (uint)itemsCount[0];
-			queue.Finish();
-			for (uint offset = 0; offset < supports.Length; offset += itemsCountUint)
-				kernelSum.Launch(queue, supportsBuf, offset, itemsCountUint);
-			//supportsBuf.Read();
+			#region finding supports for customers
 
-			queue.Finish();
-			for (uint n = 1; n < uniqueItemsCount; ++n)
-				kernelCopy.Launch(queue, supportsBuf, (uint)(n * items.Length), 1, supportsBuf, n, 1);
+			int customersSupportsCountInt = customersCountInt * uniqueItemsCount;
+			uint customersSupportsCountUInt = (uint)customersSupportsCountInt;
+
+			int[] customersSupportsCount = new int[] { customersSupportsCountInt };
+			Buffer<int> customersSupportsCountBuf = new Buffer<int>(context, queue, customersSupportsCount);
+			customersSupportsCountBuf.Write(false);
+
+			int[] customersSupports = new int[customersSupportsCountInt];
+			Buffer<int> customersSupportsBuf = new Buffer<int>(context, queue, customersSupports);
 
 			queue.Finish();
-			supportsBuf.Read(false, 0, (uint)uniqueItemsCount);
+			kernelZero.SetArguments(customersSupportsBuf, customersSupportsCountBuf, null, customersSupportsCountBuf);
+			kernelZero.Launch(queue, customersSupportsCountUInt);
 
-			List<Litemset> litemsets = new List<Litemset>();
-			queue.Finish();
-			List<int> supportedLocations = new List<int>();
-			for (int i = 0; i < uniqueItemsCount; ++i)
+			Buffer<int> transactionsSupportsBufCopy = new Buffer<int>(context, queue, transactionsSupports);
+
+			kernelCopy.SetArguments(transactionsSupportsBuf, transactionsSupportsCountBuf, Zero, transactionsSupportsCountBuf,
+				transactionsSupportsBufCopy, transactionsSupportsCountBuf, Zero, transactionsSupportsCountBuf);
+			kernelCopy.Launch(queue, transactionsSupportsCountUInt);
+
+			kernelCopy.SetArguments(transactionsSupportsBuf, transactionsSupportsCountBuf, Zero, transactionsSupportsCountBuf,
+				transactionsSupportsBufCopy, transactionsSupportsCountBuf, Zero, transactionsSupportsCountBuf);
+			kernelCopy.Launch(queue, transactionsSupportsCountUInt);
+
+			kernelSegmentedOr.SetArguments(transactionsSupportsBufCopy, transactionsSupportsCountBuf, offsetBuf, includedCountBuf,
+				null, transactionsCountBuf);
+			kernelCopy.SetArguments(transactionsSupportsBufCopy, transactionsSupportsCountBuf, offsetBuf, One,
+				customersSupportsBuf, customersSupportsCountBuf, outputOffsetBuf, One);
+
+			//queue.Finish(); // debug
+			//transactionsSupportsBufCopy.Read(); // debug
+
+			for (int cn = 0; cn < customersCountInt; ++cn)
 			{
-				if (supports[i] < minSupport)
+				offsetBuf.Value = customersStarts[cn];
+				offsetBuf.Write(false);
+				includedCountBuf.Value = customersLengths[cn];
+				includedCountBuf.Write(false);
+
+				queue.Finish();
+				kernelSegmentedOr.Launch(queue, (uint)customersLengths[cn], uniqueItemsCountUInt);
+
+				//queue.Finish(); // debug
+				//transactionsSupportsBufCopy.Read(); // debug ONLY - causes incorrect results
+
+				outputOffsetBuf.Value = cn;
+				outputOffsetBuf.Write(false);
+				for (int i = 0; i < uniqueItemsCount; ++i)
+				{
+					queue.Finish();
+					kernelCopy.Launch(queue, 1);
+
+					//queue.Finish(); // debug
+					//customersSupportsBuf.Read(); // debug
+
+					if (i == uniqueItemsCount - 1)
+						break;
+
+					offsetBuf.Value += transactionsCountInt;
+					offsetBuf.Write(false);
+
+					outputOffsetBuf.Value += customersCountInt;
+					outputOffsetBuf.Write(false);
+				}
+			}
+
+			#endregion
+
+			#region litemsets of size 1
+
+			Buffer<int> customersSupportsBufCopy = new Buffer<int>(context, queue, customersSupports);
+
+			kernelCopy.SetArguments(customersSupportsBuf, customersSupportsCountBuf, Zero, customersSupportsCountBuf,
+				customersSupportsBufCopy, customersSupportsCountBuf, Zero, customersSupportsCountBuf);
+			kernelCopy.Launch(queue, customersSupportsCountUInt);
+
+			includedCountBuf.Value = customersCountInt;
+			includedCountBuf.Write(false);
+
+			kernelSum.SetArguments(customersSupportsBufCopy, customersSupportsCountBuf, offsetBuf, includedCountBuf);
+
+			queue.Finish();
+			List<Litemset> litemsets = new List<Litemset>();
+			List<int> supportedLocations = new List<int>();
+
+			for (int un = 0; un < uniqueItemsCount; ++un)
+			{
+				offsetBuf.Value = un * customersCountInt;
+				offsetBuf.Write(false);
+
+				queue.Finish();
+				kernelSum.Launch(queue, customersCountUInt);
+
+				//queue.Finish(); // debug
+				//customersSupportsBufCopy.Read(); // debug
+
+				queue.Finish();
+				customersSupportsBufCopy.Read(false, tempValue, (uint)offsetBuf.Value, 1);
+
+				queue.Finish();
+				int support = tempValue[0];
+				if (support < minSupport)
 					continue;
-				litemsets.Add(new Litemset(supports[i], uniqueItems[i]));
-				supportedLocations.Add(i);
+
+				litemsets.Add(new Litemset(support, uniqueItems[un]));
+				supportedLocations.Add(un);
 			}
 
 			#endregion
@@ -1044,160 +1077,238 @@ namespace AprioriAllLib
 				watch.Start();
 			}
 
-			#region finding support for paris, triples, ... of items
+			#region litemsets of size 2 and above
 
-			int[] tempSupport = new int[] { 0 };
+			//int[] tempSupport = new int[] { 0 };
 			bool moreCanBeFound = true;
 
 			queue.Finish();
-			kernelMax.Launch(queue, supportsBuf, 0, (uint)uniqueItemsCount);
+			kernelMax.SetArguments(customersSupportsBufCopy, customersSupportsCountBuf, null, customersSupportsCountBuf);
+			kernelMax.Launch(queue, customersSupportsCountUInt);
 
 			bool[] newSupportedLocations = new bool[uniqueItemsCount];
 			for (int i = 0; i < uniqueItemsCount; ++i)
 				newSupportedLocations[i] = false;
 
 			queue.Finish();
-			supportsBuf.Read(false, tempSupport, 0, 1);
+			customersSupportsBufCopy.Read(false, tempValue, 0, 1);
 
 			queue.Finish();
-			if (tempSupport[0] < minSupport)
+			if (tempValue[0] < minSupport)
 				moreCanBeFound = false;
 
 			if (supportedLocations.Count == 1)
 				moreCanBeFound = false;
 
-			//Buffer<int> supportsCopyBuf = null;
-			//int[] supportsCopy = new int[supports.Length];
-			//Buffer<int> supportsLenBuf = null;
-			//Buffer<int> itemsTimesUniqueSequenceBuf = null;
-			//Buffer<int> uniqueItemsCountBuf = null;
-			//Buffer<int> candidateSequenceBuf = null;
-			//Buffer<int> candidateSequenceLengthBuf = null;
-			//Buffer<int> reductionStepBuf = null;
-			//if (moreCanBeFound)
-			//{
-			//	supportsCopyBuf = new Buffer<int>(context, supportsCopy);
-
-			//	supportsCopyBuf = new Buffer<int>(context, supportsCopy);
-			//	supportsCopyBuf = new Buffer<int>(context, supportsCopy);
-
-			//	kernelMulitItemSupport.SetArguments(queue, supportsCopyBuf, supportsLenBuf, itemsCountBuf, itemsTimesUniqueSequenceBuf,
-			//		uniqueItemsCountBuf, candidateSequenceBuf, candidateSequenceLengthBuf, reductionStepBuf);
-			//}
-
-			int currLength = 1;
-			while (moreCanBeFound)
+			if (moreCanBeFound)
 			{
-				++currLength;
-				uint itemsLength = (uint)items.Length;
-				uint litemsetOffset = (uint)litemsets.Count;
+				int[] indices = new int[uniqueItemsCount];
+				Buffer<int> indicesBuf = new Buffer<int>(context, queue, indices);
 
-				List<int> indices = new List<int>();
-				for (int i = 0; i < currLength; ++i)
-					indices.Add(i);
-				int currIndex = indices.Count - 1;
-				queue.Finish();
-				//supportsBuf.Read(); // debug only
-				//supportsBakBuf.Read(); // debug only
-				while (true)
+				int currLength = 1;
+				//int[] currLengthArr = new int[]{ currLength };
+				Buffer<int> currLengthBuf = new Buffer<int>(context, queue, 1);
+
+				Buffer<int> stepBuf = new Buffer<int>(context, queue, 1);
+
+				kernelMulitItemSupport.SetArguments(transactionsSupportsBufCopy, transactionsSupportsCountBuf,
+					transactionsCountBuf, /*uniqueItemsBuf,*/ indicesBuf, currLengthBuf, stepBuf);
+
+				kernelCopy.SetArguments(transactionsSupportsBuf, transactionsSupportsCountBuf, offsetBuf, includedCountBuf,
+					transactionsSupportsBufCopy, transactionsSupportsCountBuf, offsetBuf, includedCountBuf);
+
+				kernelOr.SetArguments(transactionsSupportsBufCopy, transactionsSupportsCountBuf, offsetBuf, includedCountBuf);
+
+				kernelSum.SetArguments(transactionsSupportsBufCopy, transactionsSupportsCountBuf, offsetBuf, transactionsCountBuf);
+
+				while (moreCanBeFound)
 				{
-					int locInit = supportedLocations[indices[0]];
-					kernelCopy.Launch(queue, supportsBakBuf, (uint)locInit * itemsLength, itemsLength,
-						supportsBuf, 0, itemsLength);
+					++currLength;
+					currLengthBuf.Value = currLength;
+					currLengthBuf.Write(false);
 
-					for (int n = 1; n < indices.Count; ++n)
+					//uint itemsLength = (uint)items.Length;
+					uint litemsetOffset = (uint)litemsets.Count;
+
+					//indices.Clear();
+					for (int i = 0; i < currLength; ++i)
+						indices[i] = i;
+					int currIndex = currLength - 1;
+
+					//queue.Finish(); // debug
+					//supportsBuf.Read(); // debug only
+					//supportsBakBuf.Read(); // debug only
+
+					//{ // debug
+					//	indices[0] = 0;
+					//	indices[1] = 5;
+					//	indices[2] = 6;
+					//	currLength = 3;
+					//	currLengthBuf.Value = currLength;
+					//	currLengthBuf.Write();
+					//}
+
+					//queue.Finish(); // debug
+					//transactionsSupportsBufCopy.Read(); // debug
+
+					while (true)
 					{
-						int locN = supportedLocations[indices[n]];
+						indicesBuf.Write(false, 0, (uint)currLength);
+
+						for (int i = 0; i < currLength; ++i)
+						{
+							offsetBuf.Value = indices[i] * transactionsCountInt;
+							offsetBuf.Write(false);
+							includedCountBuf.Value = transactionsCountInt;
+							includedCountBuf.Write(false);
+							queue.Finish();
+							kernelCopy.Launch(queue, transactionsCountUInt);
+						}
+
+						//queue.Finish(); // debug
+						//transactionsSupportsBufCopy.Read(); // debug
+
+						queue.Finish();
+						stepBuf.Value = 1;
+						while (stepBuf.Value < currLength)
+						{
+							stepBuf.Write(queue);
+							kernelMulitItemSupport.Launch(queue, transactionsCountUInt, (uint)currLength);
+							stepBuf.BackingCollection[0] *= 2;
+
+							//queue.Finish(); // debug
+							//transactionsSupportsBufCopy.Read(); // debug
+						}
+
+						for (int cn = 0; cn < customersCountInt; ++cn)
+						{
+							offsetBuf.Value = indices[0] * transactionsCountInt + customersStarts[cn];
+							offsetBuf.Write(false);
+							includedCountBuf.Value = customersLengths[cn];
+							includedCountBuf.Write(false);
+
+							queue.Finish();
+							kernelOr.Launch(queue, (uint)customersLengths[cn]);
+
+							//queue.Finish(); // debug
+							//transactionsSupportsBufCopy.Read(); // debug
+						}
+
+						offsetBuf.Value = indices[0] * transactionsCountInt;
+						offsetBuf.Write(false);
+
+						queue.Finish();
+						kernelSum.Launch(queue, transactionsCountUInt);
+
+						queue.Finish();
+						transactionsSupportsBufCopy.Read(false, tempValue, (uint)offsetBuf.Value, 1);
+
+						//int locInit = supportedLocations[indices[0]];
+						//kernelCopy.Launch(queue, supportsBakBuf, (uint)locInit * itemsLength, itemsLength,
+						//	itemsSupportsBuf, 0, itemsLength);
+
+						//for (int n = 1; n < indices.Count; ++n)
+						//{
+						//	int locN = supportedLocations[indices[n]];
+						//	queue.Finish();
+						//	//supportsBuf.Read(); // debug only
+						//	//supportsBakBuf.Read(); // debug only
+						//	kernelPairwiseAnd.Launch(queue, supportsBakBuf, (uint)locN * itemsLength, itemsLength,
+						//		itemsSupportsBuf, 0, itemsLength,
+						//		itemsSupportsBuf, 0, itemsLength);
+						//}
+
+						//queue.Finish();
+						//kernelSum.Launch(queue, itemsSupportsBuf, 0, itemsLength);
+
+						//queue.Finish();
+						//itemsSupportsBuf.Read(false, 0, 1);
+
 						queue.Finish();
 						//supportsBuf.Read(); // debug only
 						//supportsBakBuf.Read(); // debug only
-						kernelPairwiseAnd.Launch(queue, supportsBakBuf, (uint)locN * itemsLength, itemsLength,
-							supportsBuf, 0, itemsLength,
-							supportsBuf, 0, itemsLength);
-					}
-
-					queue.Finish();
-					kernelSum.Launch(queue, supportsBuf, 0, itemsLength);
-
-					queue.Finish();
-					supportsBuf.Read(false, 0, 1);
-
-					queue.Finish();
-					//supportsBuf.Read(); // debug only
-					//supportsBakBuf.Read(); // debug only
-					if (supports[0] >= minSupport)
-					{
-						Litemset l = new Litemset(new List<Item>());
-						l.Support = supports[0];
-						foreach (int index in indices)
+						if (tempValue[0] >= minSupport)
 						{
-							l.Items.Add(new Item(uniqueItems[supportedLocations[index]]));
-							newSupportedLocations[supportedLocations[index]] = true;
-						}
-						litemsets.Add(l);
-					}
-
-					if ((currIndex == 0 && indices[currIndex] == supportedLocations.Count - indices.Count)
-						|| indices.Count == supportedLocations.Count)
-						break;
-					if (indices[currIndex] == supportedLocations.Count - indices.Count + currIndex)
-					{
-						++indices[currIndex - 1];
-						if (indices[currIndex - 1] + 1 < indices[currIndex])
-						{
-							while (currIndex < indices.Count - 1)
+							Litemset l = new Litemset(new List<Item>());
+							l.Support = tempValue[0];
+							for (int i = 0; i < currLength; ++i)
+							//foreach (int index in indices)
 							{
-								indices[currIndex] = indices[currIndex - 1] + 1;
-								++currIndex;
+								int index = indices[i];
+								//int spprtd = supportedLocations[index];
+								l.Items.Add(new Item(uniqueItems[index]));
+								newSupportedLocations[index] = true;
 							}
-							indices[currIndex] = indices[currIndex - 1] + 1;
+							litemsets.Add(l);
 						}
-						else
+
+						if ((currIndex == 0 && indices[currIndex] == supportedLocations.Count - currLength)
+							|| currLength == supportedLocations.Count)
+							break;
+						if (indices[currIndex] == supportedLocations.Count - currLength + currIndex)
 						{
-							--currIndex;
+							++indices[currIndex - 1];
+							if (indices[currIndex - 1] + 1 < indices[currIndex])
+							{
+								while (currIndex < currLength - 1)
+								{
+									indices[currIndex] = indices[currIndex - 1] + 1;
+									++currIndex;
+								}
+								indices[currIndex] = indices[currIndex - 1] + 1;
+							}
+							else
+							{
+								--currIndex;
+							}
+							continue;
 						}
-						continue;
+						indices[currIndex] += 1;
 					}
-					indices[currIndex] += 1;
+
+					if (litemsets.Count <= litemsetOffset || currLength >= uniqueItemsCount)
+					{
+						moreCanBeFound = false;
+						break;
+					}
+
+					supportedLocations.Clear();
+					for (int i = 0; i < uniqueItemsCount; ++i)
+					{
+						if (newSupportedLocations[i])
+						{
+							supportedLocations.Add(i);
+							newSupportedLocations[i] = false;
+						}
+					}
+
+					if (currLength >= supportedLocations.Count)
+					{
+						// too few supported single elements to make a candidate of required length
+						moreCanBeFound = false;
+						break;
+					}
+
+					//break; // only temporarily
 				}
 
-				if (litemsets.Count == litemsetOffset || indices.Count == uniqueItems.Length)
-				{
-					moreCanBeFound = false;
-					break;
-				}
+				queue.Finish();
 
-				supportedLocations.Clear();
-				for (int i = 0; i < uniqueItemsCount; ++i)
-				{
-					if (newSupportedLocations[i])
-						supportedLocations.Add(i);
-					newSupportedLocations[i] = false;
-				}
-
-				if (currLength >= supportedLocations.Count)
-				{
-					// too few supported single elements to make a candidate of required length
-					moreCanBeFound = false;
-					break;
-				}
-
-				//break; // only temporarily
+				stepBuf.Dispose();
+				currLengthBuf.Dispose();
+				indicesBuf.Dispose();
 			}
-
 			#endregion
 
-			//for (int i = 0; i < uniqueItemsCount[0]; ++i)
-			//{
-			//	int unique = uniqueItems[i];
-			//	litemsets.Add(new Litemset(1, unique));
-			//}
-
-			//for (int i = 0; i < supports.Length; ++i)
-			//{
-			//	if (supports[i] >= minimalSupport)
-			//		litemsets.Add(new Litemset(supports[i], allTransactions.ElementAt(i).ToArray()));
-			//}
+			//kernelMax.RestoreInternalArguments();
+			//kernelCopy.RestoreInternalArguments();
+			//kernelZero.RestoreInternalArguments();
+			//kernelSubstitute.RestoreInternalArguments();
+			//kernelMin.RestoreInternalArguments();
+			//kernelCopyIfEqual.RestoreInternalArguments();
+			//kernelSubstituteIfNotEqual.RestoreInternalArguments();
+			//kernelSegmentedOr.RestoreInternalArguments();
+			//kernelSum.RestoreInternalArguments();
 
 			if (progressOutput)
 			{
@@ -1207,15 +1318,7 @@ namespace AprioriAllLib
 
 			queue.Finish();
 
-			supportsBuf.Dispose();
-			supportsBakBuf.Dispose();
-			//foreach (var buf in uniqueItemBufs)
-			//	buf.Dispose();
-			uniqueItemBuf.Dispose();
-
-			// TODO: optimize all disposal above
-
-			#region disposing of buffers 
+			#region disposing of buffers
 
 			// input buffers
 			itemsBuf.Dispose();
@@ -1225,12 +1328,31 @@ namespace AprioriAllLib
 			transactionsCountBuf.Dispose();
 			customersCountBuf.Dispose();
 
-			// 
+			// building itemsSupports
+			emptyIdBuf.Dispose();
+
+			// unique items storage
 			uniqueItemsBuf.Dispose();
+
+			// supports storage
+			itemsSupportsBuf.Dispose();
+			itemsSupportsCountBuf.Dispose();
+			itemsSupportsBufCopy.Dispose();
+			transactionsSupportsBuf.Dispose();
+			transactionsSupportsCountBuf.Dispose();
+			transactionsSupportsBufCopy.Dispose();
+			customersSupportsBuf.Dispose();
+			customersSupportsCountBuf.Dispose();
+			customersSupportsBufCopy.Dispose();
 
 			// temporary memory
 			tempItemsBuf.Dispose();
 			itemsRemainingBuf.Dispose();
+
+			includedCountBuf.Dispose();
+			offsetBuf.Dispose();
+			outputOffsetBuf.Dispose();
+
 
 			// constants
 			Zero.Dispose();

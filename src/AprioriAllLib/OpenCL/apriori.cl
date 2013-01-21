@@ -16,30 +16,35 @@
 	multiItemSupport
 */
 __kernel void multiItemSupport(
-	__global int* values, // supports
-	__global const int* valuesCount, // supportsCount
-	__global const int* zoneLength, // itemsCount
-	__global const int* zonesStarts, // sequence of products used by 2nd dim
-	__global const int* zonesCount, // currently NOT USED // uniqueItemsCount
-	__global const int* includedZones, // current candidate set
-	__global const int* includedZonesCount, // length of current candidate set
+	__global int* values, // transactionsSupports
+	__global const int* valuesCount, // transactionsSupportsCount
+	__global const int* transactionsCount,
+	//__global const int* uniqueItems,
+	//__global const int* uniqueItemsCount,
+	__global const int* candidate, // current candidate set
+	__global const int* candidateCount, // length of current candidate set
 	__global const int* step // reduction step
 	)
 {
-	int valueId = get_global_id(0);
-	int zoneId = get_global_id(1);
+	int x = get_global_id(0);
+	int y = get_global_id(1);
 
-	if(valueId < *zoneLength && zoneId < *includedZonesCount
-		&& zoneId + *step < *includedZonesCount
-		&& *step > 0 && valueId % (2 * *step) == 0)
+	if(*step > 0 && y % (2 * *step) == 0
+		&& x < *transactionsCount && y < *candidateCount && y + *step < *candidateCount)
 	{
-		int index = valueId + zonesStarts[ includedZones[zoneId] ];
-		int indexNext = valueId + zonesStarts[ includedZones[zoneId + *step] ];
+		int transactionId = x;
+		int uniqueItemId = candidate[y];
+		int uniqueItemIdNext = candidate[y + *step];
 
-		if(index < *valuesCount && indexNext < *valuesCount)
+		int index = transactionId + *transactionsCount * uniqueItemId;
+		int indexNext = transactionId + *transactionsCount * uniqueItemIdNext;
+
+		if(index < *valuesCount && indexNext < *valuesCount
+			&& index < *transactionsCount * (uniqueItemId + 1)
+			&& indexNext < *transactionsCount * (uniqueItemIdNext + 1))
 		{
-			if(values[index] == 0 && values[indexNext] != 0)
-				values[index] = values[indexNext];
+			if(values[index] == 0 || values[indexNext] == 0)
+				values[index] = 0;
 			values[indexNext] = 0;
 		}
 	}
