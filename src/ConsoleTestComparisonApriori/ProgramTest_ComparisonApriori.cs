@@ -4,10 +4,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AprioriAllLib;
-using AprioriAllLib.Test;
 
-namespace ConsoleTestComparisonApriori
+namespace AprioriAllLib.Test.InConsole
 {
 	public class ProgramTest_ComparisonApriori : AprioriTestBase
 	{

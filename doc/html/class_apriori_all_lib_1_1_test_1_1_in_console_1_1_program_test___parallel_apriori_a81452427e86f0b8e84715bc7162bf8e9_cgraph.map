@@ -1,6 +1,4 @@
 <map id="AprioriAllLib.Test.InConsole.ProgramTest_ParallelApriori.Main" name="AprioriAllLib.Test.InConsole.ProgramTest_ParallelApriori.Main">
-<area shape="rect" id="node3" href="$class_apriori_all_lib_1_1_open_c_l_checker.html#a148326e54e04c29b067ad42d1b245b81" title="Lists details and devices of all available OpenCL platforms. " alt="" coords="269,34,469,75"/>
-<area shape="rect" id="node10" href="$class_apriori_all_lib_1_1_apriori.html#abf88e1f78883083cd20760cb43029738" title="Executes parallel version of the Apriori algorithm. " alt="" coords="290,99,449,141"/>
-<area shape="rect" id="node5" href="$class_apriori_all_lib_1_1_open_c_l_checker.html#a87b058b5c16c68126b71e18ad5593afa" title="Lists details of all available OpenCL platforms. " alt="" coords="517,5,712,46"/>
-<area shape="rect" id="node7" href="$class_apriori_all_lib_1_1_open_c_l_base.html#aa91e6a838348b8ec898a202403bfa08f" title="AprioriAllLib.OpenCLBase.\lTrueIfError" alt="" coords="760,34,936,75"/>
+<area shape="rect" id="node3" href="$class_apriori_all_lib_1_1_apriori.html#abf88e1f78883083cd20760cb43029738" title="Executes parallel version of the Apriori algorithm. " alt="" coords="282,5,441,46"/>
+<area shape="rect" id="node5" href="$class_apriori_all_lib_1_1_apriori.html#a055ceb7a6ff652d10c34ddce89e899ac" title="AprioriAllLib.Apriori.Dispose" alt="" coords="270,71,453,97"/>
 </map>

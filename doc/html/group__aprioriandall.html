@@ -29,7 +29,7 @@
   <td id="projectlogo"><img alt="Logo" src="project_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">Apriori and AprioriAll in C#
-   &#160;<span id="projectnumber">version 1.5.0</span>
+   &#160;<span id="projectnumber">version 2.0.0</span>
    </div>
    <div id="projectbrief">serialized version with prefix trees, parallel version with OpenCL</div>
   </td>
@@ -167,12 +167,26 @@ Functions</h2></td></tr>
 <div class="line">            <span class="keywordflow">if</span> (minimalSupport &gt; 1 || minimalSupport &lt;= 0)</div>
 <div class="line">                <span class="keywordflow">return</span> null;</div>
 <div class="line"></div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_apriori_all_lib_1_1_apriori.html#abbca8be3761136e76782ce10ebd61638" title="Input data for the algorithm. ">customerList</a> == null)</div>
+<div class="line">                <span class="keywordflow">return</span> null;</div>
+<div class="line"></div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_apriori_all_lib_1_1_apriori.html#abbca8be3761136e76782ce10ebd61638" title="Input data for the algorithm. ">customerList</a>.<a class="code" href="class_apriori_all_lib_1_1_customer_list.html#a4fd2a16a984844e61ffc60b327e6534a" title="List of Customers ">Customers</a>.Count == 0)</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">new</span> List&lt;Litemset&gt;();</div>
+<div class="line"></div>
 <div class="line">            <span class="comment">//common part - initialization</span></div>
 <div class="line">            minimalSupport *= <a class="code" href="class_apriori_all_lib_1_1_apriori.html#abbca8be3761136e76782ce10ebd61638" title="Input data for the algorithm. ">customerList</a>.<a class="code" href="class_apriori_all_lib_1_1_customer_list.html#a4fd2a16a984844e61ffc60b327e6534a" title="List of Customers ">Customers</a>.Count;</div>
 <div class="line">            List&lt;Litemset&gt; litemsets = <span class="keyword">new</span> List&lt;Litemset&gt;();</div>
 <div class="line"></div>
 <div class="line">            <span class="comment">// serialized version of the algorithm</span></div>
 <div class="line"></div>
+<div class="line">            Stopwatch watch = null;</div>
+<div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
+<div class="line">            {</div>
+<div class="line">                watch = <span class="keyword">new</span> Stopwatch();</div>
+<div class="line">                watch.Start();</div>
+<div class="line">            }</div>
+<div class="line"></div>
+<div class="line">            <span class="keywordtype">int</span> cIndex = 0;</div>
 <div class="line">            <span class="keywordflow">foreach</span> (Customer c <span class="keywordflow">in</span> <a class="code" href="class_apriori_all_lib_1_1_apriori.html#abbca8be3761136e76782ce10ebd61638" title="Input data for the algorithm. ">customerList</a>.<a class="code" href="class_apriori_all_lib_1_1_customer_list.html#a4fd2a16a984844e61ffc60b327e6534a" title="List of Customers ">Customers</a>)</div>
 <div class="line">            {</div>
 <div class="line">                <span class="keywordflow">foreach</span> (Transaction t <span class="keywordflow">in</span> c.Transactions)</div>
@@ -204,10 +218,27 @@ Functions</h2></td></tr>
 <div class="line">                        }</div>
 <div class="line">                    }</div>
 <div class="line">                }</div>
+<div class="line"></div>
+<div class="line">                <span class="keywordflow">if</span> (progressOutput)</div>
+<div class="line">                {</div>
+<div class="line">                    <span class="keywordflow">if</span> (cIndex % 10 == 9)</div>
+<div class="line">                    {</div>
+<div class="line">                        watch.Stop();</div>
+<div class="line">                        Log.Write(<span class="stringliteral">&quot;{0}ms &quot;</span>, watch.ElapsedMilliseconds);</div>
+<div class="line">                        watch.Start();</div>
+<div class="line">                    }</div>
+<div class="line">                    ++cIndex;</div>
+<div class="line">                }</div>
+<div class="line"></div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
+<div class="line">            {</div>
+<div class="line">                Log.WriteLine();</div>
 <div class="line">            }</div>
 <div class="line"></div>
+<div class="line"></div>
 <div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                Trace.WriteLine(String.Format(<span class="stringliteral">&quot;Finished subset generation, found {0}.&quot;</span>, litemsets.Count));</div>
+<div class="line">                Log.WriteLine(<span class="stringliteral">&quot;Found {0} subsets.&quot;</span>, litemsets.Count);</div>
 <div class="line"></div>
 <div class="line">            <span class="comment">// rewrite the litemsets with support &gt;= minimum to a new list</span></div>
 <div class="line">            List&lt;Litemset&gt; properLitemsets = <span class="keyword">new</span> List&lt;Litemset&gt;();</div>
@@ -216,12 +247,18 @@ Functions</h2></td></tr>
 <div class="line">                    properLitemsets.Add(litemset);</div>
 <div class="line"></div>
 <div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                Trace.WriteLine(String.Format(<span class="stringliteral">&quot;Purged unsupported litemsets, {0} remain.&quot;</span>, properLitemsets.Count));</div>
+<div class="line">                Log.WriteLine(<span class="stringliteral">&quot;Purged unsupported, {0} remain.&quot;</span>, properLitemsets.Count);</div>
 <div class="line"></div>
 <div class="line">            properLitemsets.Sort();</div>
 <div class="line"></div>
 <div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                Trace.WriteLine(<span class="stringliteral">&quot;Sorted output.&quot;</span>);</div>
+<div class="line">                Log.WriteLine(<span class="stringliteral">&quot;Sorted output.&quot;</span>);</div>
+<div class="line"></div>
+<div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
+<div class="line">            {</div>
+<div class="line">                watch.Stop();</div>
+<div class="line">                Log.WriteLine(<span class="stringliteral">&quot;Generated all litemsets, found {0} in {1}ms.&quot;</span>, properLitemsets.Count, watch.ElapsedMilliseconds);</div>
+<div class="line">            }</div>
 <div class="line"></div>
 <div class="line">            <span class="keywordflow">return</span> properLitemsets;</div>
 <div class="line">        }</div>
@@ -278,7 +315,7 @@ Here is the call graph for this function:</div>
 <div class="line"></div>
 <div class="line">            <span class="keywordtype">int</span> minSupport = (int)Math.Ceiling((<span class="keywordtype">double</span>)<a class="code" href="class_apriori_all_lib_1_1_apriori.html#abbca8be3761136e76782ce10ebd61638" title="Input data for the algorithm. ">customerList</a>.<a class="code" href="class_apriori_all_lib_1_1_customer_list.html#a4fd2a16a984844e61ffc60b327e6534a" title="List of Customers ">Customers</a>.Count * threshold);</div>
 <div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                Trace.WriteLine(String.Format(<span class="stringliteral">&quot;Threshold = {0}  =&gt;  Minimum support = {1}&quot;</span>, threshold, minSupport));</div>
+<div class="line">                Log.WriteLine(<span class="stringliteral">&quot;Threshold = {0}  =&gt;  Minimum support = {1}&quot;</span>, threshold, minSupport);</div>
 <div class="line"></div>
 <div class="line">            <span class="keywordflow">if</span> (minSupport &lt;= 0)</div>
 <div class="line">                <span class="keywordflow">throw</span> <span class="keyword">new</span> ArgumentException(<span class="stringliteral">&quot;minimum support must be positive&quot;</span>, <span class="stringliteral">&quot;minSupport&quot;</span>);</div>
@@ -288,7 +325,7 @@ Here is the call graph for this function:</div>
 <div class="line"></div>
 <div class="line">            <span class="comment">// 1. sort the input!</span></div>
 <div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                Trace.WriteLine(<span class="stringliteral">&quot;1) Sort Phase - list is already sorted as user sees fit&quot;</span>);</div>
+<div class="line">                Log.WriteLine(<span class="stringliteral">&quot;1) Sort Phase - list is already sorted as user sees fit&quot;</span>);</div>
 <div class="line"></div>
 <div class="line">            <span class="comment">// corresponds to 1st step of AprioriAll algorithm, namely &quot;Sort Phase&quot;.</span></div>
 <div class="line"></div>
@@ -296,15 +333,15 @@ Here is the call graph for this function:</div>
 <div class="line"></div>
 <div class="line">            <span class="comment">// 2. find all frequent 1-sequences</span></div>
 <div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                Trace.WriteLine(<span class="stringliteral">&quot;2) Litemset Phase&quot;</span>);</div>
+<div class="line">                Log.WriteLine(<span class="stringliteral">&quot;2) Litemset Phase&quot;</span>);</div>
 <div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                Trace.WriteLine(<span class="stringliteral">&quot;Launching Apriori...&quot;</span>);</div>
+<div class="line">                Log.WriteLine(<span class="stringliteral">&quot;Launching Apriori...&quot;</span>);</div>
 <div class="line">            <span class="comment">// this corresponds to 2nd step of AprioriAll algorithm, namely &quot;Litemset Phase&quot;.</span></div>
 <div class="line">            List&lt;Litemset&gt; oneLitemsets = <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a91d0b11de53dab28769f1d7fda0542c6" title="Finds all litemsets that have the minimal support. ">RunApriori</a>(threshold, progressOutput);</div>
 <div class="line"></div>
 <div class="line">            <span class="comment">// 3. transform input into list of IDs</span></div>
 <div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                Trace.WriteLine(<span class="stringliteral">&quot;3) Transformation Phase&quot;</span>);</div>
+<div class="line">                Log.WriteLine(<span class="stringliteral">&quot;3) Transformation Phase&quot;</span>);</div>
 <div class="line"></div>
 <div class="line">            <span class="comment">// 3.a) give an ID to each 1-seq</span></div>
 <div class="line">            Dictionary&lt;Litemset, int&gt; encoding;</div>
@@ -316,16 +353,16 @@ Here is the call graph for this function:</div>
 <div class="line"></div>
 <div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
 <div class="line">            {</div>
-<div class="line">                Trace.WriteLine(<span class="stringliteral">&quot;Encoding dictionary for litemsets:&quot;</span>);</div>
+<div class="line">                Log.WriteLine(<span class="stringliteral">&quot;Encoding dictionary for litemsets:&quot;</span>);</div>
 <div class="line">                <span class="keywordflow">foreach</span> (KeyValuePair&lt;int, Litemset&gt; kv <span class="keywordflow">in</span> decoding)</div>
 <div class="line">                {</div>
-<div class="line">                    Trace.Write(String.Format(<span class="stringliteral">&quot; {0} &lt;= {1}&quot;</span>, kv.Key, kv.Value));</div>
+<div class="line">                    Log.Write(<span class="stringliteral">&quot; {0} &lt;= {1}&quot;</span>, kv.Key, kv.Value);</div>
 <div class="line">                    <span class="keywordflow">if</span> (litemsetsContaining.ContainsKey(kv.Key))</div>
 <div class="line">                    {</div>
 <div class="line">                        List&lt;int&gt; superLitemsets = litemsetsContaining[kv.Key];</div>
-<div class="line">                        Trace.Write(String.Format(<span class="stringliteral">&quot;; {0} is in {1}&quot;</span>, kv.Key, String.Join(<span class="stringliteral">&quot;, &quot;</span>, superLitemsets.ToArray())));</div>
+<div class="line">                        Log.Write(<span class="stringliteral">&quot;; {0} is in {1}&quot;</span>, kv.Key, String.Join(<span class="stringliteral">&quot;, &quot;</span>, superLitemsets.ToArray()));</div>
 <div class="line">                    }</div>
-<div class="line">                    Trace.WriteLine(<span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line">                    Log.WriteLine(<span class="stringliteral">&quot;&quot;</span>);</div>
 <div class="line">                }</div>
 <div class="line">            }</div>
 <div class="line"></div>
@@ -346,90 +383,90 @@ Here is the call graph for this function:</div>
 <div class="line">            <span class="comment">// - outer list means list of customers</span></div>
 <div class="line"></div>
 <div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                Trace.WriteLine(<span class="stringliteral">&quot;Encoding input data...&quot;</span>);</div>
+<div class="line">                Log.WriteLine(<span class="stringliteral">&quot;Encoding input data...&quot;</span>);</div>
 <div class="line">            var encodedList = <a class="code" href="class_apriori_all_lib_1_1_apriori_all.html#a4030f2db6e2216c8adc5b9e182f14769" title="Corresponds to 3rd step of AprioriAll algorithm, namely &quot;Transformation Phase&quot;. ">EncodeCustomerList</a>(oneLitemsets, encoding);</div>
 <div class="line"></div>
 <div class="line">            <span class="keywordflow">if</span> (progressOutput &amp;&amp; encodedList.Count &lt;= 100)</div>
 <div class="line">            {</div>
 <div class="line">                var customersEnumerator = <a class="code" href="class_apriori_all_lib_1_1_apriori.html#abbca8be3761136e76782ce10ebd61638" title="Input data for the algorithm. ">customerList</a>.<a class="code" href="class_apriori_all_lib_1_1_customer_list.html#a4fd2a16a984844e61ffc60b327e6534a" title="List of Customers ">Customers</a>.GetEnumerator();</div>
-<div class="line">                Trace.WriteLine(<span class="stringliteral">&quot;How the input is encoded:&quot;</span>);</div>
+<div class="line">                Log.WriteLine(<span class="stringliteral">&quot;How the input is encoded:&quot;</span>);</div>
 <div class="line">                <span class="keywordflow">foreach</span> (List&lt;List&lt;int&gt;&gt; c <span class="keywordflow">in</span> encodedList)</div>
 <div class="line">                {</div>
 <div class="line">                    customersEnumerator.MoveNext();</div>
 <div class="line">                    <span class="comment">//var transactionsEnumerator = customersEnumerator.Current.Transactions.GetEnumerator();</span></div>
-<div class="line">                    Trace.Write(String.Format(<span class="stringliteral">&quot; - {0} =&gt; (&quot;</span>, customersEnumerator.Current));</div>
+<div class="line">                    Log.Write(<span class="stringliteral">&quot; - {0} =&gt; (&quot;</span>, customersEnumerator.Current);</div>
 <div class="line">                    <span class="keywordflow">foreach</span> (List&lt;int&gt; t <span class="keywordflow">in</span> c)</div>
 <div class="line">                    {</div>
 <div class="line">                        <span class="comment">//transactionsEnumerator.MoveNext();</span></div>
 <div class="line">                        <span class="comment">//var itemsEnumerator = transactionsEnumerator.Current.Items.GetEnumerator();</span></div>
-<div class="line">                        Trace.Write(<span class="stringliteral">&quot;{&quot;</span>);</div>
+<div class="line">                        Log.Write(<span class="stringliteral">&quot;{&quot;</span>);</div>
 <div class="line">                        <span class="keywordtype">bool</span> first = <span class="keyword">true</span>;</div>
 <div class="line">                        <span class="keywordflow">foreach</span> (<span class="keywordtype">int</span> i <span class="keywordflow">in</span> t)</div>
 <div class="line">                        {</div>
 <div class="line">                            <span class="comment">//itemsEnumerator.MoveNext();</span></div>
 <div class="line">                            <span class="keywordflow">if</span> (!first)</div>
-<div class="line">                                Trace.Write(<span class="stringliteral">&quot; &quot;</span>);</div>
+<div class="line">                                Log.Write(<span class="stringliteral">&quot; &quot;</span>);</div>
 <div class="line">                            <span class="keywordflow">if</span> (first)</div>
 <div class="line">                                first = <span class="keyword">false</span>;</div>
-<div class="line">                            Trace.Write(String.Format(<span class="stringliteral">&quot;{0}&quot;</span>, i));</div>
+<div class="line">                            Log.Write(<span class="stringliteral">&quot;{0}&quot;</span>, i);</div>
 <div class="line">                        }</div>
-<div class="line">                        Trace.Write(<span class="stringliteral">&quot;}&quot;</span>);</div>
+<div class="line">                        Log.Write(<span class="stringliteral">&quot;}&quot;</span>);</div>
 <div class="line">                    }</div>
-<div class="line">                    Trace.WriteLine(<span class="stringliteral">&quot;)&quot;</span>);</div>
+<div class="line">                    Log.WriteLine(<span class="stringliteral">&quot;)&quot;</span>);</div>
 <div class="line">                }</div>
 <div class="line">            }</div>
 <div class="line"></div>
 <div class="line">            <span class="comment">// 4. find all frequent sequences in the input</span></div>
 <div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                Trace.WriteLine(<span class="stringliteral">&quot;4) Sequence Phase&quot;</span>);</div>
+<div class="line">                Log.WriteLine(<span class="stringliteral">&quot;4) Sequence Phase&quot;</span>);</div>
 <div class="line"></div>
 <div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                Trace.WriteLine(<span class="stringliteral">&quot;Searching for all possible k-sequences&quot;</span>);</div>
+<div class="line">                Log.WriteLine(<span class="stringliteral">&quot;Searching for all possible k-sequences&quot;</span>);</div>
 <div class="line">            var kSequences = <a class="code" href="class_apriori_all_lib_1_1_apriori_all.html#ac2dcc7319c4ce12107410a26039f16ac" title="Corresponds to 4th step of AprioriAll algorithm, namely &quot;Sequence Phase&quot;. ">FindAllFrequentSequences</a>(oneLitemsets, encoding, encodedList, litemsetsContaining,</div>
 <div class="line">                minSupport, progressOutput);</div>
 <div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                Trace.WriteLine(String.Format(<span class="stringliteral">&quot;Maximal k is {0}.&quot;</span>, kSequences.Count - 2));</div>
+<div class="line">                Log.WriteLine(<span class="stringliteral">&quot;Maximal k is {0}.&quot;</span>, kSequences.Count - 2);</div>
 <div class="line"></div>
 <div class="line">            <span class="comment">// 5. purge all non-maximal sequences</span></div>
 <div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                Trace.WriteLine(<span class="stringliteral">&quot;5) Maximal Phase&quot;</span>);</div>
+<div class="line">                Log.WriteLine(<span class="stringliteral">&quot;5) Maximal Phase&quot;</span>);</div>
 <div class="line"></div>
 <div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                Trace.WriteLine(<span class="stringliteral">&quot;Purging all non-maximal sequences...&quot;</span>);</div>
+<div class="line">                Log.WriteLine(<span class="stringliteral">&quot;Purging all non-maximal sequences...&quot;</span>);</div>
 <div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori_all.html#a9f96a735cce2f04d31f0d82345ef6f7d" title="Deletes all non-maximal seqences from list of k-sequences.">PurgeAllNonMax</a>(kSequences, litemsetsContaining, oneLitemsets.Count, progressOutput);</div>
 <div class="line"></div>
 <div class="line">            <span class="comment">// 6. decode results</span></div>
 <div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                Trace.WriteLine(<span class="stringliteral">&quot;Decoding results and purging again...&quot;</span>);</div>
+<div class="line">                Log.WriteLine(<span class="stringliteral">&quot;Decoding results and purging again...&quot;</span>);</div>
 <div class="line">            var decodedList = <a class="code" href="class_apriori_all_lib_1_1_apriori_all.html#ad0e1764626e9c890583e7f1e5783d51e" title="Prepares cleaned-up and user-ready data that can be used as final output of AprioriAll algoritm...">InferRealResults</a>(encodedList, kSequences, decoding);</div>
 <div class="line"></div>
 <div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
 <div class="line">            {</div>
 <div class="line">                var decodedEnumerator = decodedList.GetEnumerator();</div>
-<div class="line">                Trace.WriteLine(<span class="stringliteral">&quot;How maximal sequences are decoded:&quot;</span>);</div>
+<div class="line">                Log.WriteLine(<span class="stringliteral">&quot;How maximal sequences are decoded:&quot;</span>);</div>
 <div class="line">                <span class="keywordflow">foreach</span> (List&lt;List&lt;int&gt;&gt; kSequencesPartition <span class="keywordflow">in</span> kSequences)</div>
 <div class="line">                    <span class="keywordflow">foreach</span> (List&lt;int&gt; sequene <span class="keywordflow">in</span> kSequencesPartition)</div>
 <div class="line">                    {</div>
-<div class="line">                        Trace.Write(<span class="stringliteral">&quot; - &lt;&quot;</span>);</div>
+<div class="line">                        Log.Write(<span class="stringliteral">&quot; - &lt;&quot;</span>);</div>
 <div class="line">                        <span class="keywordtype">bool</span> first = <span class="keyword">true</span>;</div>
 <div class="line">                        <span class="keywordflow">foreach</span> (<span class="keywordtype">int</span> i <span class="keywordflow">in</span> sequene)</div>
 <div class="line">                        {</div>
 <div class="line">                            <span class="keywordflow">if</span> (!first)</div>
-<div class="line">                                Trace.Write(<span class="stringliteral">&quot; &quot;</span>);</div>
+<div class="line">                                Log.Write(<span class="stringliteral">&quot; &quot;</span>);</div>
 <div class="line">                            <span class="keywordflow">if</span> (first)</div>
 <div class="line">                                first = <span class="keyword">false</span>;</div>
-<div class="line">                            Trace.Write(String.Format(<span class="stringliteral">&quot;{0}&quot;</span>, i));</div>
+<div class="line">                            Log.Write(<span class="stringliteral">&quot;{0}&quot;</span>, i);</div>
 <div class="line">                        }</div>
-<div class="line">                        Trace.Write(<span class="stringliteral">&quot;&gt;&quot;</span>);</div>
+<div class="line">                        Log.Write(<span class="stringliteral">&quot;&gt;&quot;</span>);</div>
 <div class="line">                        <span class="keywordflow">if</span> (decodedEnumerator.MoveNext())</div>
-<div class="line">                            Trace.Write(String.Format(<span class="stringliteral">&quot; =&gt; {0}&quot;</span>, decodedEnumerator.Current));</div>
-<div class="line">                        Trace.WriteLine(<span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line">                            Log.Write(<span class="stringliteral">&quot; =&gt; {0}&quot;</span>, decodedEnumerator.Current);</div>
+<div class="line">                        Log.WriteLine(<span class="stringliteral">&quot;&quot;</span>);</div>
 <div class="line">                    }</div>
 <div class="line">            }</div>
 <div class="line"></div>
 <div class="line">            totalTimeTaken.Stop();</div>
 <div class="line"></div>
-<div class="line">            Trace.WriteLine(String.Format(<span class="stringliteral">&quot; total time taken to complete the algorithm: {0}ms&quot;</span>, totalTimeTaken.ElapsedMilliseconds));</div>
+<div class="line">            Log.WriteLine(<span class="stringliteral">&quot; total time taken to complete the algorithm: {0}ms&quot;</span>, totalTimeTaken.ElapsedMilliseconds);</div>
 <div class="line"></div>
 <div class="line">            <span class="comment">// 7. return results</span></div>
 <div class="line">            <span class="keywordflow">return</span> decodedList;</div>

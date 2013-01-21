@@ -46,7 +46,6 @@ __kernel void findNewDistinctItem(
 	\param itemsCount length of items array
 	\param itemsExcluded when 1, a corresponding element from items array 
 		is already present in uniqueItems array
-	\param step current step number
  */
 __kernel void excludeLatestDistinctItem(
 	__global const int* items,

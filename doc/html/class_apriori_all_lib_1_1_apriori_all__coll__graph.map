@@ -1,4 +1,7 @@
 <map id="AprioriAllLib.AprioriAll" name="AprioriAllLib.AprioriAll">
-<area shape="rect" id="node2" href="$class_apriori_all_lib_1_1_apriori.html" title="Used to get list of large itemsets from a set of customers&#39; transactions." alt="" coords="293,347,501,600"/>
-<area shape="rect" id="node12" href="$class_apriori_all_lib_1_1_customer_list.html" title="Class that represents a total set of customers " alt="" coords="445,147,616,239"/>
+<area shape="rect" id="node2" href="$class_apriori_all_lib_1_1_apriori.html" title="Used to get list of large itemsets from a set of customers&#39; transactions." alt="" coords="1401,331,1617,599"/>
+<area shape="rect" id="node4" href="$class_i_disposable.html" title="{IDisposable\n||}" alt="" coords="5,161,93,239"/>
+<area shape="rect" id="node22" href="$class_apriori_all_lib_1_1_multi_item_support_kernel.html" title="{AprioriAllLib.MultiItemSupport\lKernel\n||+ MultiItemSupportKernel()\l+ Launch()\l}" alt="" coords="1253,147,1445,253"/>
+<area shape="rect" id="node24" href="$class_kernel.html" title="{Kernel\n||}" alt="" coords="1320,5,1379,83"/>
+<area shape="rect" id="node38" href="$class_apriori_all_lib_1_1_customer_list.html" title="Class that represents a total set of customers " alt="" coords="2121,154,2292,246"/>
 </map>

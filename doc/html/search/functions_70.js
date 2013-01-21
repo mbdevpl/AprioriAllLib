@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['platformscount',['PlatformsCount',['../class_apriori_all_lib_1_1_open_c_l_checker.html#adf47c7b99e651e7fb42b5a6ff28d3df9',1,'AprioriAllLib::OpenCLChecker']]],
   ['prefixtree',['PrefixTree',['../class_apriori_all_lib_1_1_prefix_tree.html#acf7fb71c2ffd3f5a977cfde6aad295b7',1,'AprioriAllLib::PrefixTree']]],
   ['prefixtreenode',['PrefixTreeNode',['../class_apriori_all_lib_1_1_prefix_tree_node.html#a6b4f2b4de1f3576ef2546005755ff89c',1,'AprioriAllLib::PrefixTreeNode']]],
   ['printapriorialloutput',['PrintAprioriAllOutput',['../class_apriori_all_lib_1_1_test_1_1_apriori_all_test_base.html#a27dfa4baa91aecec8dc86a98bb159229',1,'AprioriAllLib::Test::AprioriAllTestBase']]],

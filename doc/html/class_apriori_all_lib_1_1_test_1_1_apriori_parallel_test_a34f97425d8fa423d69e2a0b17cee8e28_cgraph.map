@@ -1,4 +1,5 @@
 <map id="AprioriAllLib.Test.AprioriParallelTest.Test_AprioriParallel_Example1_LowSupport" name="AprioriAllLib.Test.AprioriParallelTest.Test_AprioriParallel_Example1_LowSupport">
-<area shape="rect" id="node3" href="$class_apriori_all_lib_1_1_apriori.html#a91d0b11de53dab28769f1d7fda0542c6" title="Finds all litemsets that have the minimal support. " alt="" coords="262,5,421,46"/>
-<area shape="rect" id="node5" href="$class_apriori_all_lib_1_1_apriori.html#abf88e1f78883083cd20760cb43029738" title="Executes parallel version of the Apriori algorithm. " alt="" coords="262,70,421,111"/>
+<area shape="rect" id="node3" href="$class_apriori_all_lib_1_1_apriori.html#a91d0b11de53dab28769f1d7fda0542c6" title="Finds all litemsets that have the minimal support. " alt="" coords="274,5,433,46"/>
+<area shape="rect" id="node5" href="$class_apriori_all_lib_1_1_apriori.html#abf88e1f78883083cd20760cb43029738" title="Executes parallel version of the Apriori algorithm. " alt="" coords="274,70,433,111"/>
+<area shape="rect" id="node7" href="$class_apriori_all_lib_1_1_apriori.html#a055ceb7a6ff652d10c34ddce89e899ac" title="AprioriAllLib.Apriori.Dispose" alt="" coords="262,136,445,163"/>
 </map>

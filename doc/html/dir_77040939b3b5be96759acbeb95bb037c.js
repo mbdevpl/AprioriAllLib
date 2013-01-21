@@ -20,8 +20,5 @@ var dir_77040939b3b5be96759acbeb95bb037c =
     ] ],
     [ "InputData.cs", "_input_data_8cs.html", [
       [ "InputData", "class_apriori_all_lib_1_1_test_1_1_input_data.html", "class_apriori_all_lib_1_1_test_1_1_input_data" ]
-    ] ],
-    [ "OpenCLTest.cs", "_open_c_l_test_8cs.html", [
-      [ "OpenCLTest", "class_apriori_all_lib_1_1_test_1_1_open_c_l_test.html", "class_apriori_all_lib_1_1_test_1_1_open_c_l_test" ]
     ] ]
 ];

@@ -29,7 +29,7 @@
   <td id="projectlogo"><img alt="Logo" src="project_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">Apriori and AprioriAll in C#
-   &#160;<span id="projectnumber">version 1.5.0</span>
+   &#160;<span id="projectnumber">version 2.0.0</span>
    </div>
    <div id="projectbrief">serialized version with prefix trees, parallel version with OpenCL</div>
   </td>
@@ -123,14 +123,14 @@ Inheritance diagram for AprioriAllLib.Apriori:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_apriori_all_lib_1_1_apriori__inherit__graph.png" border="0" usemap="#_apriori_all_lib_8_apriori_inherit__map" alt="Inheritance graph"/></div>
 <map name="_apriori_all_lib_8_apriori_inherit__map" id="_apriori_all_lib_8_apriori_inherit__map">
-<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori_all.html" title="AprioriAll algorithm implementation. " alt="" coords="5,381,272,752"/></map>
+<area shape="rect" id="node5" href="class_apriori_all_lib_1_1_apriori_all.html" title="AprioriAll algorithm implementation. " alt="" coords="5,595,272,965"/><area shape="rect" id="node2" href="class_i_disposable.html" title="{IDisposable\n||}" alt="" coords="94,5,183,83"/></map>
 </div>
 <div class="dynheader">
 Collaboration diagram for AprioriAllLib.Apriori:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_apriori_all_lib_1_1_apriori__coll__graph.png" border="0" usemap="#_apriori_all_lib_8_apriori_coll__map" alt="Collaboration graph"/></div>
 <map name="_apriori_all_lib_8_apriori_coll__map" id="_apriori_all_lib_8_apriori_coll__map">
-<area shape="rect" id="node10" href="class_apriori_all_lib_1_1_customer_list.html" title="Class that represents a total set of customers " alt="" coords="445,147,616,239"/></map>
+<area shape="rect" id="node2" href="class_i_disposable.html" title="{IDisposable\n||}" alt="" coords="5,161,93,239"/><area shape="rect" id="node20" href="class_apriori_all_lib_1_1_multi_item_support_kernel.html" title="{AprioriAllLib.MultiItemSupport\lKernel\n||+ MultiItemSupportKernel()\l+ Launch()\l}" alt="" coords="1253,147,1445,253"/><area shape="rect" id="node22" href="class_kernel.html" title="{Kernel\n||}" alt="" coords="1320,5,1379,83"/><area shape="rect" id="node36" href="class_apriori_all_lib_1_1_customer_list.html" title="Class that represents a total set of customers " alt="" coords="2121,154,2292,246"/></map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -138,15 +138,21 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a07c440217ce84e547c31c71ba9a2742e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#a07c440217ce84e547c31c71ba9a2742e">Apriori</a> (<a class="el" href="class_apriori_all_lib_1_1_customer_list.html">CustomerList</a> <a class="el" href="class_apriori_all_lib_1_1_apriori.html#abbca8be3761136e76782ce10ebd61638">customerList</a>)</td></tr>
 <tr class="memdesc:a07c440217ce84e547c31c71ba9a2742e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a07c440217ce84e547c31c71ba9a2742e"></a><br/></td></tr>
 <tr class="separator:a07c440217ce84e547c31c71ba9a2742e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a055ceb7a6ff652d10c34ddce89e899ac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#a055ceb7a6ff652d10c34ddce89e899ac">Dispose</a> ()</td></tr>
+<tr class="separator:a055ceb7a6ff652d10c34ddce89e899ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a91d0b11de53dab28769f1d7fda0542c6"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_apriori_all_lib_1_1_litemset.html">Litemset</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#a91d0b11de53dab28769f1d7fda0542c6">RunApriori</a> (double minimalSupport)</td></tr>
 <tr class="memdesc:a91d0b11de53dab28769f1d7fda0542c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds all litemsets that have the minimal support.  <a href="#a91d0b11de53dab28769f1d7fda0542c6"></a><br/></td></tr>
 <tr class="separator:a91d0b11de53dab28769f1d7fda0542c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga534be538e02769b9ad37ef30271396c9"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_apriori_all_lib_1_1_litemset.html">Litemset</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__aprioriandall.html#ga534be538e02769b9ad37ef30271396c9">RunApriori</a> (double minimalSupport, bool progressOutput)</td></tr>
 <tr class="memdesc:ga534be538e02769b9ad37ef30271396c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds all litemsets that have the minimal support.  <a href="group__aprioriandall.html#ga534be538e02769b9ad37ef30271396c9"></a><br/></td></tr>
 <tr class="separator:ga534be538e02769b9ad37ef30271396c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9193560129d6127879603a772d520506"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_apriori_all_lib_1_1_litemset.html">Litemset</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#a9193560129d6127879603a772d520506">RunAprioriWithPruning</a> (double minimalSupport, bool progressOutput)</td></tr>
+<tr class="separator:a9193560129d6127879603a772d520506"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf88e1f78883083cd20760cb43029738"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_apriori_all_lib_1_1_litemset.html">Litemset</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#abf88e1f78883083cd20760cb43029738">RunParallelApriori</a> (double minimalSupport)</td></tr>
 <tr class="memdesc:abf88e1f78883083cd20760cb43029738"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes parallel version of the <a class="el" href="class_apriori_all_lib_1_1_apriori.html" title="Used to get list of large itemsets from a set of customers&#39; transactions.">Apriori</a> algorithm.  <a href="#abf88e1f78883083cd20760cb43029738"></a><br/></td></tr>
 <tr class="separator:abf88e1f78883083cd20760cb43029738"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15ffd8ff3283d42db3caac5400f68e05"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_apriori_all_lib_1_1_litemset.html">Litemset</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#a15ffd8ff3283d42db3caac5400f68e05">RunParallelAprioriWithPruning</a> (double minimalSupport, bool progressOutput)</td></tr>
+<tr class="separator:a15ffd8ff3283d42db3caac5400f68e05"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc814f1f0486ef94181556bb96750b95"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_apriori_all_lib_1_1_litemset.html">Litemset</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#acc814f1f0486ef94181556bb96750b95">RunParallelApriori</a> (double minimalSupport, bool progressOutput)</td></tr>
 <tr class="memdesc:acc814f1f0486ef94181556bb96750b95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes parallel version of the <a class="el" href="class_apriori_all_lib_1_1_apriori.html" title="Used to get list of large itemsets from a set of customers&#39; transactions.">Apriori</a> algorithm.  <a href="#acc814f1f0486ef94181556bb96750b95"></a><br/></td></tr>
 <tr class="separator:acc814f1f0486ef94181556bb96750b95"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -155,11 +161,15 @@ Public Member Functions</h2></td></tr>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:a6421baeff907e6e56568e277f3bafd6b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#a6421baeff907e6e56568e277f3bafd6b">InitOpenCL</a> (bool progressOutput)</td></tr>
 <tr class="separator:a6421baeff907e6e56568e277f3bafd6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a16f1dd784baf7b93f1194da49aa7986a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#a16f1dd784baf7b93f1194da49aa7986a">InitOpenCLPrograms</a> (bool progressOutput)</td></tr>
-<tr class="separator:a16f1dd784baf7b93f1194da49aa7986a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4418e5a5ed2964f0f34b7656004d8320"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#a4418e5a5ed2964f0f34b7656004d8320">InitOpenCLPrograms</a> (bool parallelBuild, bool progressOutput)</td></tr>
+<tr class="separator:a4418e5a5ed2964f0f34b7656004d8320"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a992b4de76d19dcef78a45a0752725977"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_apriori_all_lib_1_1_litemset.html">Litemset</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#a992b4de76d19dcef78a45a0752725977">GenerateCandidateLitemsets</a> (List&lt; <a class="el" href="class_apriori_all_lib_1_1_item.html">Item</a> &gt; items)</td></tr>
 <tr class="memdesc:a992b4de76d19dcef78a45a0752725977"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produces all subsets of a given list of items in a transaction.  <a href="#a992b4de76d19dcef78a45a0752725977"></a><br/></td></tr>
 <tr class="separator:a992b4de76d19dcef78a45a0752725977"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52a508279a4057bf07fa645a267f03a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#a52a508279a4057bf07fa645a267f03a2">RemoveNonMaximal</a> (List&lt; <a class="el" href="class_apriori_all_lib_1_1_litemset.html">Litemset</a> &gt; litemsets, bool progressOutput)</td></tr>
+<tr class="separator:a52a508279a4057bf07fa645a267f03a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa011bf9f2f72999b62f663ae52f55e3a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#aa011bf9f2f72999b62f663ae52f55e3a">RemoveNonMaximal</a> (List&lt; <a class="el" href="class_apriori_all_lib_1_1_litemset.html">Litemset</a> &gt; litemsets, bool useOpenCL, bool progressOutput)</td></tr>
+<tr class="separator:aa011bf9f2f72999b62f663ae52f55e3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -172,28 +182,46 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a3e27bfc3293bb018f793c1b19df112e3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#a3e27bfc3293bb018f793c1b19df112e3">clInitialized</a></td></tr>
 <tr class="memdesc:a3e27bfc3293bb018f793c1b19df112e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicator whether OpenCL platorm and device information is alread gathered by this instance of <a class="el" href="class_apriori_all_lib_1_1_apriori.html" title="Used to get list of large itemsets from a set of customers&#39; transactions.">Apriori</a>, and whether context was created for it.  <a href="#a3e27bfc3293bb018f793c1b19df112e3"></a><br/></td></tr>
 <tr class="separator:a3e27bfc3293bb018f793c1b19df112e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab2d6d8f3f2b34ac27f51ca60738d448c"><td class="memItemLeft" align="right" valign="top">Cl.Platform&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#ab2d6d8f3f2b34ac27f51ca60738d448c">platform</a></td></tr>
-<tr class="separator:ab2d6d8f3f2b34ac27f51ca60738d448c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea39ed1929ca59c4e4f395069f26ed50"><td class="memItemLeft" align="right" valign="top">Cl.Device[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#aea39ed1929ca59c4e4f395069f26ed50">devices</a></td></tr>
-<tr class="separator:aea39ed1929ca59c4e4f395069f26ed50"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a297b321a5b1fd50d9da8678848aed8b9"><td class="memItemLeft" align="right" valign="top">Cl.Device&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#a297b321a5b1fd50d9da8678848aed8b9">device</a></td></tr>
-<tr class="separator:a297b321a5b1fd50d9da8678848aed8b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d8b5f3eb0d9e2509a23626ad07cd02c"><td class="memItemLeft" align="right" valign="top">Cl.Context&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#a5d8b5f3eb0d9e2509a23626ad07cd02c">context</a></td></tr>
-<tr class="separator:a5d8b5f3eb0d9e2509a23626ad07cd02c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2181af1f62cbe335ef2b4c43acf9e5b"><td class="memItemLeft" align="right" valign="top">Platform&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#aa2181af1f62cbe335ef2b4c43acf9e5b">platform</a></td></tr>
+<tr class="separator:aa2181af1f62cbe335ef2b4c43acf9e5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe2ab9a5df8c398ebbc1612320717253"><td class="memItemLeft" align="right" valign="top">Device&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#afe2ab9a5df8c398ebbc1612320717253">device</a></td></tr>
+<tr class="separator:afe2ab9a5df8c398ebbc1612320717253"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31accf2381865b9159941e6005ac14a6"><td class="memItemLeft" align="right" valign="top">Context&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#a31accf2381865b9159941e6005ac14a6">context</a></td></tr>
+<tr class="separator:a31accf2381865b9159941e6005ac14a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a345b5beaaa4b430e0dc5a034a00bad81"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#a345b5beaaa4b430e0dc5a034a00bad81">clProgramsInitialized</a></td></tr>
 <tr class="memdesc:a345b5beaaa4b430e0dc5a034a00bad81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inditator whether source code of OpenCL kernels was already read by this instance.  <a href="#a345b5beaaa4b430e0dc5a034a00bad81"></a><br/></td></tr>
 <tr class="separator:a345b5beaaa4b430e0dc5a034a00bad81"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd11689a0181f75e73610dfb48d148df"><td class="memItemLeft" align="right" valign="top">Cl.Program&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#abd11689a0181f75e73610dfb48d148df">programBasicFunctions</a></td></tr>
-<tr class="separator:abd11689a0181f75e73610dfb48d148df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a66e578bc7a5c8b8e5fd706bb2d9420a4"><td class="memItemLeft" align="right" valign="top">Cl.Program&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#a66e578bc7a5c8b8e5fd706bb2d9420a4">programDistinct</a></td></tr>
-<tr class="memdesc:a66e578bc7a5c8b8e5fd706bb2d9420a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Program created from file '<a class="el" href="distinct_8cl.html">distinct.cl</a>'.  <a href="#a66e578bc7a5c8b8e5fd706bb2d9420a4"></a><br/></td></tr>
-<tr class="separator:a66e578bc7a5c8b8e5fd706bb2d9420a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac990e89d5931004309bc7d99e16c8386"><td class="memItemLeft" align="right" valign="top">Cl.Program&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#ac990e89d5931004309bc7d99e16c8386">programSeparation</a></td></tr>
-<tr class="memdesc:ac990e89d5931004309bc7d99e16c8386"><td class="mdescLeft">&#160;</td><td class="mdescRight">Program created from file '<a class="el" href="separation_8cl.html">separation.cl</a>'.  <a href="#ac990e89d5931004309bc7d99e16c8386"></a><br/></td></tr>
-<tr class="separator:ac990e89d5931004309bc7d99e16c8386"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a575e69f62a96b3789ea6ee401d95a102"><td class="memItemLeft" align="right" valign="top">Cl.Program&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#a575e69f62a96b3789ea6ee401d95a102">programSupport</a></td></tr>
-<tr class="memdesc:a575e69f62a96b3789ea6ee401d95a102"><td class="mdescLeft">&#160;</td><td class="mdescRight">Program created from file '<a class="el" href="support_8cl.html">support.cl</a>'.  <a href="#a575e69f62a96b3789ea6ee401d95a102"></a><br/></td></tr>
-<tr class="separator:a575e69f62a96b3789ea6ee401d95a102"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b88a73d11962a292c6204b801b0fad8"><td class="memItemLeft" align="right" valign="top">Semaphore[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#a7b88a73d11962a292c6204b801b0fad8">sem</a></td></tr>
+<tr class="separator:a7b88a73d11962a292c6204b801b0fad8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a275538578e75d54750e8e38fa6c89f64"><td class="memItemLeft" align="right" valign="top">Kernels.PairwiseCopy&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#a275538578e75d54750e8e38fa6c89f64">kernelCopy</a></td></tr>
+<tr class="separator:a275538578e75d54750e8e38fa6c89f64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7bd0e1483a2eb0453cf988866d915b2c"><td class="memItemLeft" align="right" valign="top">Kernels.Max&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#a7bd0e1483a2eb0453cf988866d915b2c">kernelMax</a></td></tr>
+<tr class="separator:a7bd0e1483a2eb0453cf988866d915b2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4d9ba45dedf2b9ea09e38f8d41e8a27"><td class="memItemLeft" align="right" valign="top">Kernels.AssignZero&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#ac4d9ba45dedf2b9ea09e38f8d41e8a27">kernelZero</a></td></tr>
+<tr class="separator:ac4d9ba45dedf2b9ea09e38f8d41e8a27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae8cc40037ec35ed2fa8a052eb1d3be3"><td class="memItemLeft" align="right" valign="top">Kernels.Min&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#aae8cc40037ec35ed2fa8a052eb1d3be3">kernelMin</a></td></tr>
+<tr class="separator:aae8cc40037ec35ed2fa8a052eb1d3be3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab58cbfdf308bcfc7bc0e28ee5bcbc8a7"><td class="memItemLeft" align="right" valign="top">Kernels.SubstituteIfEqual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#ab58cbfdf308bcfc7bc0e28ee5bcbc8a7">kernelSubstitute</a></td></tr>
+<tr class="separator:ab58cbfdf308bcfc7bc0e28ee5bcbc8a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00e4599ad7ada3928563440c836eb64b"><td class="memItemLeft" align="right" valign="top">Kernels.PairwiseCopyIfEqual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#a00e4599ad7ada3928563440c836eb64b">kernelCopyIfEqual</a></td></tr>
+<tr class="separator:a00e4599ad7ada3928563440c836eb64b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac26f175379d88845f051ea2127147b2d"><td class="memItemLeft" align="right" valign="top">Kernels.SubstituteIfNotEqual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#ac26f175379d88845f051ea2127147b2d">kernelSubstituteIfNotEqual</a></td></tr>
+<tr class="separator:ac26f175379d88845f051ea2127147b2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae87c93c8f0baacda4fdc38ec56312e11"><td class="memItemLeft" align="right" valign="top">Kernels.Sum&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#ae87c93c8f0baacda4fdc38ec56312e11">kernelSum</a></td></tr>
+<tr class="separator:ae87c93c8f0baacda4fdc38ec56312e11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a576fca575e3554d1f8dfc44ea442c440"><td class="memItemLeft" align="right" valign="top">Kernels.PairwiseAnd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#a576fca575e3554d1f8dfc44ea442c440">kernelPairwiseAnd</a></td></tr>
+<tr class="separator:a576fca575e3554d1f8dfc44ea442c440"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ab4994207f489a88f87a168c5a22d7c"><td class="memItemLeft" align="right" valign="top">Kernels.Or&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#a9ab4994207f489a88f87a168c5a22d7c">kernelOr</a></td></tr>
+<tr class="separator:a9ab4994207f489a88f87a168c5a22d7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7161aa7562c0eb566d7a310abf57036"><td class="memItemLeft" align="right" valign="top">Kernels.And&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#ab7161aa7562c0eb566d7a310abf57036">kernelAnd</a></td></tr>
+<tr class="separator:ab7161aa7562c0eb566d7a310abf57036"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a075cd84da62feb6579107f82374699a0"><td class="memItemLeft" align="right" valign="top">Kernels.SegmentedOr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#a075cd84da62feb6579107f82374699a0">kernelSegmentedOr</a></td></tr>
+<tr class="separator:a075cd84da62feb6579107f82374699a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae4047b4e4860e25fc33500ea5ffc2ff"><td class="memItemLeft" align="right" valign="top">Program&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#aae4047b4e4860e25fc33500ea5ffc2ff">programApriori</a></td></tr>
+<tr class="memdesc:aae4047b4e4860e25fc33500ea5ffc2ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Program created from file '<a class="el" href="apriori_8cl.html">apriori.cl</a>'.  <a href="#aae4047b4e4860e25fc33500ea5ffc2ff"></a><br/></td></tr>
+<tr class="separator:aae4047b4e4860e25fc33500ea5ffc2ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf741de3150b7cca6b5b76674ff4188f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_apriori_all_lib_1_1_multi_item_support_kernel.html">MultiItemSupportKernel</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_apriori.html#adf741de3150b7cca6b5b76674ff4188f">kernelMulitItemSupport</a></td></tr>
+<tr class="separator:adf741de3150b7cca6b5b76674ff4188f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Used to get list of large itemsets from a set of customers' transactions. </p>
@@ -235,6 +263,59 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a055ceb7a6ff652d10c34ddce89e899ac"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AprioriAllLib.Apriori.Dispose </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line">        {</div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a345b5beaaa4b430e0dc5a034a00bad81" title="Inditator whether source code of OpenCL kernels was already read by this instance. ">clProgramsInitialized</a>)</div>
+<div class="line">            {</div>
+<div class="line">                <span class="comment">// kernels from abstraction layer</span></div>
+<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a275538578e75d54750e8e38fa6c89f64">kernelCopy</a>.Dispose();</div>
+<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a7bd0e1483a2eb0453cf988866d915b2c">kernelMax</a>.Dispose();</div>
+<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#ac4d9ba45dedf2b9ea09e38f8d41e8a27">kernelZero</a>.Dispose();</div>
+<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#aae8cc40037ec35ed2fa8a052eb1d3be3">kernelMin</a>.Dispose();</div>
+<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#ab58cbfdf308bcfc7bc0e28ee5bcbc8a7">kernelSubstitute</a>.Dispose();</div>
+<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a00e4599ad7ada3928563440c836eb64b">kernelCopyIfEqual</a>.Dispose();</div>
+<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#ac26f175379d88845f051ea2127147b2d">kernelSubstituteIfNotEqual</a>.Dispose();</div>
+<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#ae87c93c8f0baacda4fdc38ec56312e11">kernelSum</a>.Dispose();</div>
+<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a576fca575e3554d1f8dfc44ea442c440">kernelPairwiseAnd</a>.Dispose();</div>
+<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a9ab4994207f489a88f87a168c5a22d7c">kernelOr</a>.Dispose();</div>
+<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#ab7161aa7562c0eb566d7a310abf57036">kernelAnd</a>.Dispose();</div>
+<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a075cd84da62feb6579107f82374699a0">kernelSegmentedOr</a>.Dispose();</div>
+<div class="line"></div>
+<div class="line">                <span class="comment">// own kernels</span></div>
+<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#adf741de3150b7cca6b5b76674ff4188f">kernelMulitItemSupport</a>.Dispose();</div>
+<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#aae4047b4e4860e25fc33500ea5ffc2ff" title="Program created from file &#39;apriori.cl&#39;. ">programApriori</a>.Dispose();</div>
+<div class="line"></div>
+<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a345b5beaaa4b430e0dc5a034a00bad81" title="Inditator whether source code of OpenCL kernels was already read by this instance. ">clProgramsInitialized</a> = <span class="keyword">false</span>;</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a3e27bfc3293bb018f793c1b19df112e3" title="Indicator whether OpenCL platorm and device information is alread gathered by this instance of Aprior...">clInitialized</a>)</div>
+<div class="line">            {</div>
+<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a31accf2381865b9159941e6005ac14a6">context</a>.Dispose();</div>
+<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a3e27bfc3293bb018f793c1b19df112e3" title="Indicator whether OpenCL platorm and device information is alread gathered by this instance of Aprior...">clInitialized</a> = <span class="keyword">false</span>;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_apriori_all_lib_1_1_apriori_a055ceb7a6ff652d10c34ddce89e899ac_icgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_apriori_a055ceb7a6ff652d10c34ddce89e899ac_icgraph" alt=""/></div>
+<map name="class_apriori_all_lib_1_1_apriori_a055ceb7a6ff652d10c34ddce89e899ac_icgraph" id="class_apriori_all_lib_1_1_apriori_a055ceb7a6ff652d10c34ddce89e899ac_icgraph">
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test.html#a34f97425d8fa423d69e2a0b17cee8e28" title="AprioriAllLib.Test.Apriori\lParallelTest.Test_AprioriParallel\l_Example1_LowSupport" alt="" coords="242,5,449,61"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test.html#a52657a5b9ce9b2fbe98d9420e9f40806" title="AprioriAllLib.Test.Apriori\lParallelTest.Test_AprioriParallel\l_Example1_HighSupport" alt="" coords="242,85,449,141"/><area shape="rect" id="node7" href="class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program_test___parallel_apriori.html#a81452427e86f0b8e84715bc7162bf8e9" title="Main function. " alt="" coords="238,166,453,207"/></map>
+</div>
+</p>
+
+</div>
+</div>
 <a class="anchor" id="a992b4de76d19dcef78a45a0752725977"></a>
 <div class="memitem">
 <div class="memproto">
@@ -332,34 +413,18 @@ Here is the caller graph for this function:</div>
 <div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a3e27bfc3293bb018f793c1b19df112e3" title="Indicator whether OpenCL platorm and device information is alread gathered by this instance of Aprior...">clInitialized</a>)</div>
 <div class="line">                <span class="keywordflow">return</span>; <span class="comment">// already initialized</span></div>
 <div class="line"></div>
-<div class="line">            Stopwatch initWatch = <span class="keyword">new</span> Stopwatch();</div>
-<div class="line">            initWatch.Start();</div>
+<div class="line">            <span class="comment">//Stopwatch initWatch = new Stopwatch();</span></div>
+<div class="line">            <span class="comment">//initWatch.Start();</span></div>
 <div class="line"></div>
-<div class="line">            Cl.ErrorCode err;</div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#aa2181af1f62cbe335ef2b4c43acf9e5b">platform</a> = <span class="keyword">new</span> Platform();</div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#afe2ab9a5df8c398ebbc1612320717253">device</a> = <span class="keyword">new</span> Device(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#aa2181af1f62cbe335ef2b4c43acf9e5b">platform</a>, DeviceType.GPU);</div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a31accf2381865b9159941e6005ac14a6">context</a> = <span class="keyword">new</span> Context(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#afe2ab9a5df8c398ebbc1612320717253">device</a>);</div>
+<div class="line">            Kernels.Device = <a class="code" href="class_apriori_all_lib_1_1_apriori.html#afe2ab9a5df8c398ebbc1612320717253">device</a>;</div>
+<div class="line">            Kernels.Context = <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a31accf2381865b9159941e6005ac14a6">context</a>;</div>
 <div class="line"></div>
-<div class="line">            Cl.Platform[] platforms = Cl.GetPlatformIDs(out err);</div>
-<div class="line">            <span class="keywordflow">if</span> (!err.Equals(Cl.ErrorCode.Success))</div>
-<div class="line">                <span class="keywordflow">throw</span> <span class="keyword">new</span> Cl.Exception(err, <span class="stringliteral">&quot;could not get list of platforms&quot;</span>);</div>
-<div class="line"></div>
-<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#ab2d6d8f3f2b34ac27f51ca60738d448c">platform</a> = platforms[0];</div>
-<div class="line"></div>
-<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#aea39ed1929ca59c4e4f395069f26ed50">devices</a> = Cl.GetDeviceIDs(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#ab2d6d8f3f2b34ac27f51ca60738d448c">platform</a>, Cl.DeviceType.All, out err);</div>
-<div class="line">            <span class="keywordflow">if</span> (!err.Equals(Cl.ErrorCode.Success))</div>
-<div class="line">                <span class="keywordflow">throw</span> <span class="keyword">new</span> Cl.Exception(err, <span class="stringliteral">&quot;could not get list of devices&quot;</span>);</div>
-<div class="line"></div>
-<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a297b321a5b1fd50d9da8678848aed8b9">device</a> = <a class="code" href="class_apriori_all_lib_1_1_apriori.html#aea39ed1929ca59c4e4f395069f26ed50">devices</a>[0];</div>
-<div class="line"></div>
-<div class="line">            <span class="comment">//Cl.ContextProperty[] contextProperties = new Cl.ContextProperty[1];</span></div>
-<div class="line">            <span class="comment">//contextProperties[0] = Cl.ContextProperties.Platform;</span></div>
-<div class="line"></div>
-<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a5d8b5f3eb0d9e2509a23626ad07cd02c">context</a> = Cl.CreateContext(null, 1, <a class="code" href="class_apriori_all_lib_1_1_apriori.html#aea39ed1929ca59c4e4f395069f26ed50">devices</a>, null, IntPtr.Zero, out err);</div>
-<div class="line">            <span class="keywordflow">if</span> (!err.Equals(Cl.ErrorCode.Success))</div>
-<div class="line">                <span class="keywordflow">throw</span> <span class="keyword">new</span> Cl.Exception(err, <span class="stringliteral">&quot;could not create context&quot;</span>);</div>
-<div class="line"></div>
-<div class="line">            initWatch.Stop();</div>
-<div class="line"></div>
-<div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                Trace.WriteLine(String.Format(<span class="stringliteral">&quot;Initialized OpenCL in {0}ms.&quot;</span>, initWatch.ElapsedMilliseconds));</div>
+<div class="line">            <span class="comment">//initWatch.Stop();</span></div>
+<div class="line">            <span class="comment">//if (progressOutput)</span></div>
+<div class="line">            <span class="comment">//  Log.WriteLine(&quot;Initialized OpenCL in {0}ms.&quot;, initWatch.ElapsedMilliseconds);</span></div>
 <div class="line"></div>
 <div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a3e27bfc3293bb018f793c1b19df112e3" title="Indicator whether OpenCL platorm and device information is alread gathered by this instance of Aprior...">clInitialized</a> = <span class="keyword">true</span>;</div>
 <div class="line">        }</div>
@@ -375,7 +440,7 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a class="anchor" id="a16f1dd784baf7b93f1194da49aa7986a"></a>
+<a class="anchor" id="a4418e5a5ed2964f0f34b7656004d8320"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -386,8 +451,18 @@ Here is the caller graph for this function:</div>
           <td class="memname">void AprioriAllLib.Apriori.InitOpenCLPrograms </td>
           <td>(</td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>progressOutput</em></td><td>)</td>
+          <td class="paramname"><em>parallelBuild</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>progressOutput</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -400,25 +475,156 @@ Here is the caller graph for this function:</div>
 <div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a345b5beaaa4b430e0dc5a034a00bad81" title="Inditator whether source code of OpenCL kernels was already read by this instance. ">clProgramsInitialized</a>)</div>
 <div class="line">                <span class="keywordflow">return</span>;</div>
 <div class="line"></div>
-<div class="line">            Stopwatch buildWatch = <span class="keyword">new</span> Stopwatch();</div>
-<div class="line">            buildWatch.Start();</div>
+<div class="line">            <span class="comment">//Stopwatch buildWatch = new Stopwatch();</span></div>
+<div class="line">            <span class="comment">//buildWatch.Start();</span></div>
 <div class="line"></div>
-<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#abd11689a0181f75e73610dfb48d148df">programBasicFunctions</a> = OpenCLToolkit.GetAndBuildProgramFromLocalResource(<span class="stringliteral">&quot;basicFunctions.cl&quot;</span>, <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a5d8b5f3eb0d9e2509a23626ad07cd02c">context</a>, <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a297b321a5b1fd50d9da8678848aed8b9">device</a>,</div>
-<div class="line">                progressOutput ? Console.Out : null);</div>
+<div class="line">            ResourceManager manager = AprioriAllLib.Properties.Resources.ResourceManager;</div>
 <div class="line"></div>
-<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a66e578bc7a5c8b8e5fd706bb2d9420a4" title="Program created from file &#39;distinct.cl&#39;. ">programDistinct</a> = OpenCLToolkit.GetAndBuildProgramFromLocalResource(<span class="stringliteral">&quot;distinct.cl&quot;</span>, <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a5d8b5f3eb0d9e2509a23626ad07cd02c">context</a>, <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a297b321a5b1fd50d9da8678848aed8b9">device</a>,</div>
-<div class="line">                progressOutput ? Console.Out : null);</div>
+<div class="line">            <span class="comment">//  //programBasicFunctions = new Program(context, new SourceCode(manager, &quot;cl_basicFunctions&quot;));</span></div>
+<div class="line">            <span class="comment">//  //programBasicFunctions.Build(device);</span></div>
+<div class="line">            <span class="comment">//  programDistinct = new Program(context, new SourceCode(manager, &quot;cl_distinct&quot;));</span></div>
+<div class="line">            <span class="comment">//  programDistinct.Build(device);</span></div>
+<div class="line">            <span class="comment">//  programSeparation = new Program(context, new SourceCode(manager, &quot;cl_separation&quot;));</span></div>
+<div class="line">            <span class="comment">//  programSeparation.Build(device);</span></div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#aae4047b4e4860e25fc33500ea5ffc2ff" title="Program created from file &#39;apriori.cl&#39;. ">programApriori</a> = <span class="keyword">new</span> Program(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a31accf2381865b9159941e6005ac14a6">context</a>, <span class="keyword">new</span> SourceCode(manager, <span class="stringliteral">&quot;cl_apriori&quot;</span>));</div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#aae4047b4e4860e25fc33500ea5ffc2ff" title="Program created from file &#39;apriori.cl&#39;. ">programApriori</a>.Build(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#afe2ab9a5df8c398ebbc1612320717253">device</a>);</div>
 <div class="line"></div>
-<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#ac990e89d5931004309bc7d99e16c8386" title="Program created from file &#39;separation.cl&#39;. ">programSeparation</a> = OpenCLToolkit.GetAndBuildProgramFromLocalResource(<span class="stringliteral">&quot;separation.cl&quot;</span>, <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a5d8b5f3eb0d9e2509a23626ad07cd02c">context</a>, <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a297b321a5b1fd50d9da8678848aed8b9">device</a>,</div>
-<div class="line">                progressOutput ? Console.Out : null);</div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#adf741de3150b7cca6b5b76674ff4188f">kernelMulitItemSupport</a> = <span class="keyword">new</span> MultiItemSupportKernel(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#aae4047b4e4860e25fc33500ea5ffc2ff" title="Program created from file &#39;apriori.cl&#39;. ">programApriori</a>, <span class="stringliteral">&quot;multiItemSupport&quot;</span>);</div>
 <div class="line"></div>
-<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a575e69f62a96b3789ea6ee401d95a102" title="Program created from file &#39;support.cl&#39;. ">programSupport</a> = OpenCLToolkit.GetAndBuildProgramFromLocalResource(<span class="stringliteral">&quot;support.cl&quot;</span>, <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a5d8b5f3eb0d9e2509a23626ad07cd02c">context</a>, <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a297b321a5b1fd50d9da8678848aed8b9">device</a>,</div>
-<div class="line">                progressOutput ? Console.Out : null);</div>
+<div class="line">            <span class="keywordflow">if</span> (parallelBuild)</div>
+<div class="line">            {</div>
+<div class="line"><span class="preprocessor">                #region parallel program building</span></div>
+<div class="line"><span class="preprocessor"></span></div>
+<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a7b88a73d11962a292c6204b801b0fad8">sem</a> = <span class="keyword">new</span> Semaphore[5];</div>
 <div class="line"></div>
-<div class="line">            buildWatch.Stop();</div>
+<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a7b88a73d11962a292c6204b801b0fad8">sem</a>[0] = <span class="keyword">new</span> Semaphore(1, 1);</div>
+<div class="line">                <span class="keyword">new</span> Thread(() =&gt;</div>
+<div class="line">                {</div>
+<div class="line">                    <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a7b88a73d11962a292c6204b801b0fad8">sem</a>[0].WaitOne();</div>
+<div class="line">                    <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a275538578e75d54750e8e38fa6c89f64">kernelCopy</a> = <span class="keyword">new</span> Kernels.PairwiseCopy();</div>
+<div class="line">                    <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a00e4599ad7ada3928563440c836eb64b">kernelCopyIfEqual</a> = <span class="keyword">new</span> Kernels.PairwiseCopyIfEqual();</div>
+<div class="line">                    <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a7b88a73d11962a292c6204b801b0fad8">sem</a>[0].Release();</div>
+<div class="line">                }</div>
+<div class="line">                ).Start();</div>
 <div class="line"></div>
-<div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                Trace.WriteLine(String.Format(<span class="stringliteral">&quot;Built OpenCL programs in {0}ms.&quot;</span>, buildWatch.ElapsedMilliseconds));</div>
+<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a7b88a73d11962a292c6204b801b0fad8">sem</a>[1] = <span class="keyword">new</span> Semaphore(1, 1);</div>
+<div class="line">                <span class="keyword">new</span> Thread(() =&gt;</div>
+<div class="line">                {</div>
+<div class="line">                    <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a7b88a73d11962a292c6204b801b0fad8">sem</a>[1].WaitOne();</div>
+<div class="line">                    <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a7bd0e1483a2eb0453cf988866d915b2c">kernelMax</a> = <span class="keyword">new</span> Kernels.Max();</div>
+<div class="line">                    <a class="code" href="class_apriori_all_lib_1_1_apriori.html#aae8cc40037ec35ed2fa8a052eb1d3be3">kernelMin</a> = <span class="keyword">new</span> Kernels.Min();</div>
+<div class="line">                    <a class="code" href="class_apriori_all_lib_1_1_apriori.html#ae87c93c8f0baacda4fdc38ec56312e11">kernelSum</a> = <span class="keyword">new</span> Kernels.Sum();</div>
+<div class="line">                    <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a7b88a73d11962a292c6204b801b0fad8">sem</a>[1].Release();</div>
+<div class="line">                }</div>
+<div class="line">                ).Start();</div>
+<div class="line"></div>
+<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a7b88a73d11962a292c6204b801b0fad8">sem</a>[2] = <span class="keyword">new</span> Semaphore(1, 1);</div>
+<div class="line">                <span class="keyword">new</span> Thread(() =&gt;</div>
+<div class="line">                {</div>
+<div class="line">                    <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a7b88a73d11962a292c6204b801b0fad8">sem</a>[2].WaitOne();</div>
+<div class="line">                    <a class="code" href="class_apriori_all_lib_1_1_apriori.html#ac4d9ba45dedf2b9ea09e38f8d41e8a27">kernelZero</a> = <span class="keyword">new</span> Kernels.AssignZero();</div>
+<div class="line">                    <a class="code" href="class_apriori_all_lib_1_1_apriori.html#ab58cbfdf308bcfc7bc0e28ee5bcbc8a7">kernelSubstitute</a> = <span class="keyword">new</span> Kernels.SubstituteIfEqual();</div>
+<div class="line">                    <a class="code" href="class_apriori_all_lib_1_1_apriori.html#ac26f175379d88845f051ea2127147b2d">kernelSubstituteIfNotEqual</a> = <span class="keyword">new</span> Kernels.SubstituteIfNotEqual();</div>
+<div class="line">                    <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a7b88a73d11962a292c6204b801b0fad8">sem</a>[2].Release();</div>
+<div class="line">                }</div>
+<div class="line">                ).Start();</div>
+<div class="line"></div>
+<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a7b88a73d11962a292c6204b801b0fad8">sem</a>[3] = <span class="keyword">new</span> Semaphore(1, 1);</div>
+<div class="line">                <span class="keyword">new</span> Thread(() =&gt;</div>
+<div class="line">                {</div>
+<div class="line">                    <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a7b88a73d11962a292c6204b801b0fad8">sem</a>[3].WaitOne();</div>
+<div class="line">                    <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a576fca575e3554d1f8dfc44ea442c440">kernelPairwiseAnd</a> = <span class="keyword">new</span> Kernels.PairwiseAnd();</div>
+<div class="line">                    <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a7b88a73d11962a292c6204b801b0fad8">sem</a>[3].Release();</div>
+<div class="line">                }</div>
+<div class="line">                ).Start();</div>
+<div class="line"></div>
+<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a7b88a73d11962a292c6204b801b0fad8">sem</a>[4] = <span class="keyword">new</span> Semaphore(1, 1);</div>
+<div class="line">                <span class="keyword">new</span> Thread(() =&gt;</div>
+<div class="line">                {</div>
+<div class="line">                    <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a7b88a73d11962a292c6204b801b0fad8">sem</a>[4].WaitOne();</div>
+<div class="line">                    <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a9ab4994207f489a88f87a168c5a22d7c">kernelOr</a> = <span class="keyword">new</span> Kernels.Or();</div>
+<div class="line">                    <a class="code" href="class_apriori_all_lib_1_1_apriori.html#ab7161aa7562c0eb566d7a310abf57036">kernelAnd</a> = <span class="keyword">new</span> Kernels.And();</div>
+<div class="line">                    <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a075cd84da62feb6579107f82374699a0">kernelSegmentedOr</a> = <span class="keyword">new</span> Kernels.SegmentedOr();</div>
+<div class="line">                    <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a7b88a73d11962a292c6204b801b0fad8">sem</a>[4].Release();</div>
+<div class="line">                }</div>
+<div class="line">                ).Start();</div>
+<div class="line"></div>
+<div class="line">                <span class="comment">//sem[5] = new Semaphore(1, 1);</span></div>
+<div class="line">                <span class="comment">//new Thread(() =&gt;</span></div>
+<div class="line">                <span class="comment">//{</span></div>
+<div class="line">                <span class="comment">//  sem[5].WaitOne();</span></div>
+<div class="line">                <span class="comment">//  sem[5].Release();</span></div>
+<div class="line">                <span class="comment">//}</span></div>
+<div class="line">                <span class="comment">//).Start();</span></div>
+<div class="line"></div>
+<div class="line">                <span class="comment">//sem[6] = new Semaphore(1, 1);</span></div>
+<div class="line">                <span class="comment">//new Thread(() =&gt;</span></div>
+<div class="line">                <span class="comment">//{</span></div>
+<div class="line">                <span class="comment">//  sem[6].WaitOne();</span></div>
+<div class="line">                <span class="comment">//  sem[6].Release();</span></div>
+<div class="line">                <span class="comment">//}</span></div>
+<div class="line">                <span class="comment">//).Start();</span></div>
+<div class="line"></div>
+<div class="line">                <span class="comment">//sem[7] = new Semaphore(1, 1);</span></div>
+<div class="line">                <span class="comment">//new Thread(() =&gt;</span></div>
+<div class="line">                <span class="comment">//{</span></div>
+<div class="line">                <span class="comment">//  sem[7].WaitOne();</span></div>
+<div class="line">                <span class="comment">//  sem[7].Release();</span></div>
+<div class="line">                <span class="comment">//}</span></div>
+<div class="line">                <span class="comment">//).Start();</span></div>
+<div class="line"></div>
+<div class="line">                <span class="comment">//sem[8] = new Semaphore(1, 1);</span></div>
+<div class="line">                <span class="comment">//new Thread(() =&gt;</span></div>
+<div class="line">                <span class="comment">//{</span></div>
+<div class="line">                <span class="comment">//  sem[8].WaitOne();</span></div>
+<div class="line">                <span class="comment">//  sem[8].Release();</span></div>
+<div class="line">                <span class="comment">//}</span></div>
+<div class="line">                <span class="comment">//).Start();</span></div>
+<div class="line"></div>
+<div class="line">                <span class="comment">//Thread.Sleep(700);</span></div>
+<div class="line"></div>
+<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a7b88a73d11962a292c6204b801b0fad8">sem</a>[0].WaitOne();</div>
+<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a7b88a73d11962a292c6204b801b0fad8">sem</a>[1].WaitOne();</div>
+<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a7b88a73d11962a292c6204b801b0fad8">sem</a>[2].WaitOne();</div>
+<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a7b88a73d11962a292c6204b801b0fad8">sem</a>[3].WaitOne();</div>
+<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a7b88a73d11962a292c6204b801b0fad8">sem</a>[4].WaitOne();</div>
+<div class="line">                <span class="comment">//sem[5].WaitOne();</span></div>
+<div class="line">                <span class="comment">//sem[6].WaitOne();</span></div>
+<div class="line">                <span class="comment">//sem[7].WaitOne();</span></div>
+<div class="line">                <span class="comment">//sem[8].WaitOne();</span></div>
+<div class="line"></div>
+<div class="line"><span class="preprocessor">                #endregion</span></div>
+<div class="line"><span class="preprocessor"></span>            }</div>
+<div class="line">            <span class="keywordflow">else</span></div>
+<div class="line">            {</div>
+<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a275538578e75d54750e8e38fa6c89f64">kernelCopy</a> = <span class="keyword">new</span> Kernels.PairwiseCopy();</div>
+<div class="line"></div>
+<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a7bd0e1483a2eb0453cf988866d915b2c">kernelMax</a> = <span class="keyword">new</span> Kernels.Max();</div>
+<div class="line"></div>
+<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#ac4d9ba45dedf2b9ea09e38f8d41e8a27">kernelZero</a> = <span class="keyword">new</span> Kernels.AssignZero();</div>
+<div class="line"></div>
+<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#aae8cc40037ec35ed2fa8a052eb1d3be3">kernelMin</a> = <span class="keyword">new</span> Kernels.Min();</div>
+<div class="line"></div>
+<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#ab58cbfdf308bcfc7bc0e28ee5bcbc8a7">kernelSubstitute</a> = <span class="keyword">new</span> Kernels.SubstituteIfEqual();</div>
+<div class="line"></div>
+<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a00e4599ad7ada3928563440c836eb64b">kernelCopyIfEqual</a> = <span class="keyword">new</span> Kernels.PairwiseCopyIfEqual();</div>
+<div class="line"></div>
+<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#ac26f175379d88845f051ea2127147b2d">kernelSubstituteIfNotEqual</a> = <span class="keyword">new</span> Kernels.SubstituteIfNotEqual();</div>
+<div class="line"></div>
+<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#ae87c93c8f0baacda4fdc38ec56312e11">kernelSum</a> = <span class="keyword">new</span> Kernels.Sum();</div>
+<div class="line"></div>
+<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a576fca575e3554d1f8dfc44ea442c440">kernelPairwiseAnd</a> = <span class="keyword">new</span> Kernels.PairwiseAnd();</div>
+<div class="line"></div>
+<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a9ab4994207f489a88f87a168c5a22d7c">kernelOr</a> = <span class="keyword">new</span> Kernels.Or();</div>
+<div class="line"></div>
+<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#ab7161aa7562c0eb566d7a310abf57036">kernelAnd</a> = <span class="keyword">new</span> Kernels.And();</div>
+<div class="line"></div>
+<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a075cd84da62feb6579107f82374699a0">kernelSegmentedOr</a> = <span class="keyword">new</span> Kernels.SegmentedOr();</div>
+<div class="line">            }</div>
+<div class="line"></div>
+<div class="line">            <span class="comment">//buildWatch.Stop();</span></div>
+<div class="line">            <span class="comment">//if (progressOutput)</span></div>
+<div class="line">            <span class="comment">//  Log.WriteLine(&quot;Built OpenCL programs in {0}ms.&quot;, buildWatch.ElapsedMilliseconds);</span></div>
 <div class="line"></div>
 <div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a345b5beaaa4b430e0dc5a034a00bad81" title="Inditator whether source code of OpenCL kernels was already read by this instance. ">clProgramsInitialized</a> = <span class="keyword">true</span>;</div>
 <div class="line">        }</div>
@@ -426,12 +632,101 @@ Here is the caller graph for this function:</div>
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_apriori_all_lib_1_1_apriori_a16f1dd784baf7b93f1194da49aa7986a_icgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_apriori_a16f1dd784baf7b93f1194da49aa7986a_icgraph" alt=""/></div>
-<map name="class_apriori_all_lib_1_1_apriori_a16f1dd784baf7b93f1194da49aa7986a_icgraph" id="class_apriori_all_lib_1_1_apriori_a16f1dd784baf7b93f1194da49aa7986a_icgraph">
+<div class="center"><img src="class_apriori_all_lib_1_1_apriori_a4418e5a5ed2964f0f34b7656004d8320_icgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_apriori_a4418e5a5ed2964f0f34b7656004d8320_icgraph" alt=""/></div>
+<map name="class_apriori_all_lib_1_1_apriori_a4418e5a5ed2964f0f34b7656004d8320_icgraph" id="class_apriori_all_lib_1_1_apriori_a4418e5a5ed2964f0f34b7656004d8320_icgraph">
 <area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori.html#acc814f1f0486ef94181556bb96750b95" title="Executes parallel version of the Apriori algorithm. " alt="" coords="209,5,367,46"/></map>
 </div>
 </p>
 
+</div>
+</div>
+<a class="anchor" id="a52a508279a4057bf07fa645a267f03a2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AprioriAllLib.Apriori.RemoveNonMaximal </td>
+          <td>(</td>
+          <td class="paramtype">List&lt; <a class="el" href="class_apriori_all_lib_1_1_litemset.html">Litemset</a> &gt;&#160;</td>
+          <td class="paramname"><em>litemsets</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>progressOutput</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line">        {</div>
+<div class="line"></div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_apriori_all_lib_1_1_apriori_a52a508279a4057bf07fa645a267f03a2_icgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_apriori_a52a508279a4057bf07fa645a267f03a2_icgraph" alt=""/></div>
+<map name="class_apriori_all_lib_1_1_apriori_a52a508279a4057bf07fa645a267f03a2_icgraph" id="class_apriori_all_lib_1_1_apriori_a52a508279a4057bf07fa645a267f03a2_icgraph">
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori.html#a9193560129d6127879603a772d520506" title="AprioriAllLib.Apriori.Run\lAprioriWithPruning" alt="" coords="245,5,403,46"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_apriori.html#a15ffd8ff3283d42db3caac5400f68e05" title="AprioriAllLib.Apriori.Run\lParallelAprioriWithPruning" alt="" coords="237,70,411,111"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="aa011bf9f2f72999b62f663ae52f55e3a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AprioriAllLib.Apriori.RemoveNonMaximal </td>
+          <td>(</td>
+          <td class="paramtype">List&lt; <a class="el" href="class_apriori_all_lib_1_1_litemset.html">Litemset</a> &gt;&#160;</td>
+          <td class="paramname"><em>litemsets</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>useOpenCL</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>progressOutput</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line">        {</div>
+<div class="line"></div>
+<div class="line">        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a91d0b11de53dab28769f1d7fda0542c6"></a>
@@ -465,7 +760,47 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_apriori_all_lib_1_1_apriori_a91d0b11de53dab28769f1d7fda0542c6_icgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_apriori_a91d0b11de53dab28769f1d7fda0542c6_icgraph" alt=""/></div>
 <map name="class_apriori_all_lib_1_1_apriori_a91d0b11de53dab28769f1d7fda0542c6_icgraph" id="class_apriori_all_lib_1_1_apriori_a91d0b11de53dab28769f1d7fda0542c6_icgraph">
-<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program___apriori.html#a5c0a41b94b7926da567ed5ad12718991" title="Main function. " alt="" coords="225,5,410,46"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_apriori.html#acc814f1f0486ef94181556bb96750b95" title="Executes parallel version of the Apriori algorithm. " alt="" coords="238,70,397,111"/><area shape="rect" id="node7" href="group__aprioriandall.html#ga719d1c07f93fa2e82e1ae6dcacbb8efe" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. " alt="" coords="242,135,393,177"/><area shape="rect" id="node9" href="class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test.html#a34f97425d8fa423d69e2a0b17cee8e28" title="AprioriAllLib.Test.Apriori\lParallelTest.Test_AprioriParallel\l_Example1_LowSupport" alt="" coords="214,201,421,257"/><area shape="rect" id="node11" href="class_apriori_all_lib_1_1_test_1_1_apriori_test.html#a7f88088aa49b8a59ae72e5c6b8c10603" title="AprioriAllLib.Test.Apriori\lTest.Test_Apriori_Example1\l_LowSupport" alt="" coords="225,281,410,337"/><area shape="rect" id="node13" href="class_apriori_all_lib_1_1_test_1_1_apriori_test.html#ab672e1f34760b67a025d2b6385e85cf2" title="AprioriAllLib.Test.Apriori\lTest.Test_Apriori_Example1\l_HighSupport" alt="" coords="225,361,410,417"/><area shape="rect" id="node15" href="class_apriori_all_lib_1_1_test_1_1_apriori_test.html#a995e2e9976503df6750aaa6cdbbd9dd9" title="AprioriAllLib.Test.Apriori\lTest.Test_Apriori_DataSet2\l_LowSupport" alt="" coords="227,441,408,497"/><area shape="rect" id="node17" href="class_apriori_all_lib_1_1_test_1_1_apriori_test.html#ad622c7c743a4b038c2703c6ba6082d6d" title="AprioriAllLib.Test.Apriori\lTest.Test_Apriori_DataSet2\l_HighSupport" alt="" coords="227,521,408,577"/><area shape="rect" id="node19" href="class_apriori_all_lib_1_1_test_1_1_apriori_test.html#a320b15a0355574b4a219f6a775d59fa2" title="AprioriAllLib.Test.Apriori\lTest.Test_Apriori_DataSet3\l_LowSupport" alt="" coords="227,601,408,657"/><area shape="rect" id="node21" href="class_apriori_all_lib_1_1_test_1_1_apriori_test.html#a6e3ab7bce063150d94d925fe9427d0d5" title="AprioriAllLib.Test.Apriori\lTest.Test_Apriori_DataSet3\l_HighSupport" alt="" coords="227,681,408,737"/></map>
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program___apriori.html#a5c0a41b94b7926da567ed5ad12718991" title="Main function. " alt="" coords="225,5,410,46"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_apriori.html#a9193560129d6127879603a772d520506" title="AprioriAllLib.Apriori.Run\lAprioriWithPruning" alt="" coords="238,70,397,111"/><area shape="rect" id="node7" href="class_apriori_all_lib_1_1_apriori.html#acc814f1f0486ef94181556bb96750b95" title="Executes parallel version of the Apriori algorithm. " alt="" coords="238,135,397,177"/><area shape="rect" id="node9" href="group__aprioriandall.html#ga719d1c07f93fa2e82e1ae6dcacbb8efe" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. " alt="" coords="242,201,393,242"/><area shape="rect" id="node11" href="class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test.html#a34f97425d8fa423d69e2a0b17cee8e28" title="AprioriAllLib.Test.Apriori\lParallelTest.Test_AprioriParallel\l_Example1_LowSupport" alt="" coords="214,267,421,323"/><area shape="rect" id="node13" href="class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test.html#a52657a5b9ce9b2fbe98d9420e9f40806" title="AprioriAllLib.Test.Apriori\lParallelTest.Test_AprioriParallel\l_Example1_HighSupport" alt="" coords="214,347,421,403"/><area shape="rect" id="node15" href="class_apriori_all_lib_1_1_test_1_1_apriori_test.html#a7f88088aa49b8a59ae72e5c6b8c10603" title="AprioriAllLib.Test.Apriori\lTest.Test_Apriori_Example1\l_LowSupport" alt="" coords="225,427,410,483"/><area shape="rect" id="node17" href="class_apriori_all_lib_1_1_test_1_1_apriori_test.html#ab672e1f34760b67a025d2b6385e85cf2" title="AprioriAllLib.Test.Apriori\lTest.Test_Apriori_Example1\l_HighSupport" alt="" coords="225,507,410,563"/><area shape="rect" id="node19" href="class_apriori_all_lib_1_1_test_1_1_apriori_test.html#a995e2e9976503df6750aaa6cdbbd9dd9" title="AprioriAllLib.Test.Apriori\lTest.Test_Apriori_DataSet2\l_LowSupport" alt="" coords="227,587,408,643"/><area shape="rect" id="node21" href="class_apriori_all_lib_1_1_test_1_1_apriori_test.html#ad622c7c743a4b038c2703c6ba6082d6d" title="AprioriAllLib.Test.Apriori\lTest.Test_Apriori_DataSet2\l_HighSupport" alt="" coords="227,667,408,723"/><area shape="rect" id="node23" href="class_apriori_all_lib_1_1_test_1_1_apriori_test.html#a320b15a0355574b4a219f6a775d59fa2" title="AprioriAllLib.Test.Apriori\lTest.Test_Apriori_DataSet3\l_LowSupport" alt="" coords="227,747,408,803"/><area shape="rect" id="node25" href="class_apriori_all_lib_1_1_test_1_1_apriori_test.html#a6e3ab7bce063150d94d925fe9427d0d5" title="AprioriAllLib.Test.Apriori\lTest.Test_Apriori_DataSet3\l_HighSupport" alt="" coords="227,827,408,883"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a9193560129d6127879603a772d520506"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt;<a class="el" href="class_apriori_all_lib_1_1_litemset.html">Litemset</a>&gt; AprioriAllLib.Apriori.RunAprioriWithPruning </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>minimalSupport</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>progressOutput</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line">        {</div>
+<div class="line">            var results = <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a91d0b11de53dab28769f1d7fda0542c6" title="Finds all litemsets that have the minimal support. ">RunApriori</a>(minimalSupport, progressOutput);</div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a52a508279a4057bf07fa645a267f03a2">RemoveNonMaximal</a>(results, progressOutput);</div>
+<div class="line">            <span class="keywordflow">return</span> results;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_apriori_all_lib_1_1_apriori_a9193560129d6127879603a772d520506_cgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_apriori_a9193560129d6127879603a772d520506_cgraph" alt=""/></div>
+<map name="class_apriori_all_lib_1_1_apriori_a9193560129d6127879603a772d520506_cgraph" id="class_apriori_all_lib_1_1_apriori_a9193560129d6127879603a772d520506_cgraph">
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori.html#a91d0b11de53dab28769f1d7fda0542c6" title="Finds all litemsets that have the minimal support. " alt="" coords="226,5,385,46"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_apriori.html#a52a508279a4057bf07fa645a267f03a2" title="AprioriAllLib.Apriori.Remove\lNonMaximal" alt="" coords="214,70,397,111"/></map>
 </div>
 </p>
 
@@ -502,7 +837,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_apriori_all_lib_1_1_apriori_abf88e1f78883083cd20760cb43029738_icgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_apriori_abf88e1f78883083cd20760cb43029738_icgraph" alt=""/></div>
 <map name="class_apriori_all_lib_1_1_apriori_abf88e1f78883083cd20760cb43029738_icgraph" id="class_apriori_all_lib_1_1_apriori_abf88e1f78883083cd20760cb43029738_icgraph">
-<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori_all.html#a1abf95c25d82e6b9ff1bf26184d6c5e4" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. It uses parallel version..." alt="" coords="246,5,397,46"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test.html#a34f97425d8fa423d69e2a0b17cee8e28" title="AprioriAllLib.Test.Apriori\lParallelTest.Test_AprioriParallel\l_Example1_LowSupport" alt="" coords="218,71,425,127"/><area shape="rect" id="node7" href="class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test.html#a52657a5b9ce9b2fbe98d9420e9f40806" title="AprioriAllLib.Test.Apriori\lParallelTest.Test_AprioriParallel\l_Example1_HighSupport" alt="" coords="218,151,425,207"/><area shape="rect" id="node9" href="class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program_test___parallel_apriori.html#a81452427e86f0b8e84715bc7162bf8e9" title="Main function. " alt="" coords="214,231,429,273"/></map>
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori.html#a15ffd8ff3283d42db3caac5400f68e05" title="AprioriAllLib.Apriori.Run\lParallelAprioriWithPruning" alt="" coords="235,5,408,46"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_apriori_all.html#a1abf95c25d82e6b9ff1bf26184d6c5e4" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. It uses parallel version..." alt="" coords="246,70,397,111"/><area shape="rect" id="node7" href="class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test.html#a34f97425d8fa423d69e2a0b17cee8e28" title="AprioriAllLib.Test.Apriori\lParallelTest.Test_AprioriParallel\l_Example1_LowSupport" alt="" coords="218,136,425,192"/><area shape="rect" id="node9" href="class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test.html#a52657a5b9ce9b2fbe98d9420e9f40806" title="AprioriAllLib.Test.Apriori\lParallelTest.Test_AprioriParallel\l_Example1_HighSupport" alt="" coords="218,216,425,272"/><area shape="rect" id="node11" href="class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program_test___parallel_apriori.html#a81452427e86f0b8e84715bc7162bf8e9" title="Main function. " alt="" coords="214,297,429,338"/></map>
 </div>
 </p>
 
@@ -542,277 +877,849 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A list of Litemsets with support &gt;= minimalSupport</dd></dl>
 <div class="fragment"><div class="line">        {</div>
-<div class="line">            <span class="keywordflow">if</span> (OpenCLChecker.PlatformsCount() == 0)</div>
+<div class="line">            <span class="keywordflow">if</span> (Platforms.InitializeAll().Length == 0)</div>
 <div class="line">                <span class="keywordflow">return</span> <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a91d0b11de53dab28769f1d7fda0542c6" title="Finds all litemsets that have the minimal support. ">RunApriori</a>(minimalSupport, progressOutput);</div>
 <div class="line"></div>
 <div class="line">            <span class="keywordflow">if</span> (minimalSupport &gt; 1 || minimalSupport &lt;= 0)</div>
 <div class="line">                <span class="keywordflow">return</span> null;</div>
 <div class="line"></div>
-<div class="line">            minimalSupport *= <a class="code" href="class_apriori_all_lib_1_1_apriori.html#abbca8be3761136e76782ce10ebd61638" title="Input data for the algorithm. ">customerList</a>.<a class="code" href="class_apriori_all_lib_1_1_customer_list.html#a4fd2a16a984844e61ffc60b327e6534a" title="List of Customers ">Customers</a>.Count;</div>
-<div class="line">            List&lt;Litemset&gt; litemsets = <span class="keyword">new</span> List&lt;Litemset&gt;();</div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_apriori_all_lib_1_1_apriori.html#abbca8be3761136e76782ce10ebd61638" title="Input data for the algorithm. ">customerList</a> == null)</div>
+<div class="line">                <span class="keywordflow">return</span> null;</div>
 <div class="line"></div>
-<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a6421baeff907e6e56568e277f3bafd6b">InitOpenCL</a>(progressOutput);</div>
-<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a16f1dd784baf7b93f1194da49aa7986a">InitOpenCLPrograms</a>(progressOutput);</div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_apriori_all_lib_1_1_apriori.html#abbca8be3761136e76782ce10ebd61638" title="Input data for the algorithm. ">customerList</a>.<a class="code" href="class_apriori_all_lib_1_1_customer_list.html#a4fd2a16a984844e61ffc60b327e6534a" title="List of Customers ">Customers</a>.Count == 0)</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">new</span> List&lt;Litemset&gt;();</div>
 <div class="line"></div>
-<div class="line">            Cl.ErrorCode err;</div>
+<div class="line">            <span class="keywordtype">int</span> minSupport = (int)Math.Ceiling((<span class="keywordtype">double</span>)<a class="code" href="class_apriori_all_lib_1_1_apriori.html#abbca8be3761136e76782ce10ebd61638" title="Input data for the algorithm. ">customerList</a>.<a class="code" href="class_apriori_all_lib_1_1_customer_list.html#a4fd2a16a984844e61ffc60b327e6534a" title="List of Customers ">Customers</a>.Count * minimalSupport);</div>
 <div class="line"></div>
-<div class="line">            Cl.CommandQueue queue = Cl.CreateCommandQueue(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a5d8b5f3eb0d9e2509a23626ad07cd02c">context</a>, <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a297b321a5b1fd50d9da8678848aed8b9">device</a>, Cl.CommandQueueProperties.None, out err);</div>
-<div class="line">            <span class="keywordflow">if</span> (!err.Equals(Cl.ErrorCode.Success))</div>
-<div class="line">                <span class="keywordflow">throw</span> <span class="keyword">new</span> Cl.Exception(err, <span class="stringliteral">&quot;could not create command queue&quot;</span>);</div>
-<div class="line"></div>
-<div class="line">            List&lt;List&lt;int&gt;&gt; allTransactions = <span class="keyword">new</span> List&lt;List&lt;int&gt;&gt;();</div>
-<div class="line">            List&lt;int&gt; flatTransactions = <span class="keyword">new</span> List&lt;int&gt;();</div>
-<div class="line">            List&lt;int&gt; transactionsLimits = <span class="keyword">new</span> List&lt;int&gt;();</div>
+<div class="line">            Stopwatch watch = null;</div>
+<div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
 <div class="line">            {</div>
-<div class="line">                <span class="keywordtype">int</span> limit = 0;</div>
-<div class="line">                <span class="keywordflow">foreach</span> (Customer c <span class="keywordflow">in</span> <a class="code" href="class_apriori_all_lib_1_1_apriori.html#abbca8be3761136e76782ce10ebd61638" title="Input data for the algorithm. ">customerList</a>.<a class="code" href="class_apriori_all_lib_1_1_customer_list.html#a4fd2a16a984844e61ffc60b327e6534a" title="List of Customers ">Customers</a>)</div>
-<div class="line">                    <span class="keywordflow">foreach</span> (Transaction t <span class="keywordflow">in</span> c.Transactions)</div>
-<div class="line">                    {</div>
-<div class="line">                        List&lt;int&gt; transaction = <span class="keyword">new</span> List&lt;int&gt;();</div>
-<div class="line">                        transactionsLimits.Add(limit);</div>
-<div class="line">                        <span class="keywordflow">foreach</span> (Item item <span class="keywordflow">in</span> t.Items)</div>
-<div class="line">                        {</div>
-<div class="line">                            transaction.Add(item.Value);</div>
-<div class="line">                            flatTransactions.Add(item.Value);</div>
-<div class="line">                            ++limit;</div>
-<div class="line">                        }</div>
-<div class="line">                        allTransactions.Add(transaction);</div>
-<div class="line">                    }</div>
+<div class="line">                watch = <span class="keyword">new</span> Stopwatch();</div>
+<div class="line">                watch.Start();</div>
 <div class="line">            }</div>
 <div class="line"></div>
-<div class="line">            <span class="comment">//int transactionsCount = allTransactions.Count;</span></div>
-<div class="line">            <span class="comment">//Cl.CreateImage2D(context, Cl.MemFlags.ReadOnly | Cl.MemFlags.UseHostPtr,</span></div>
-<div class="line"></div>
-<div class="line"><span class="preprocessor">            #region buffers initialization</span></div>
+<div class="line"><span class="preprocessor">            #region conversion of input to int[]</span></div>
 <div class="line"><span class="preprocessor"></span></div>
-<div class="line">            <span class="keywordtype">int</span>[] items = flatTransactions.ToArray();</div>
-<div class="line">            IntPtr itemsBytes;</div>
-<div class="line">            Cl.Mem itemsBuf = OpenCLToolkit.CreateBuffer(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a5d8b5f3eb0d9e2509a23626ad07cd02c">context</a>, Cl.MemFlags.ReadOnly | Cl.MemFlags.UseHostPtr,</div>
-<div class="line">                items, out itemsBytes);</div>
+<div class="line">            <span class="keywordtype">int</span> itemsCountInt = 0;</div>
+<div class="line">            <span class="keywordtype">int</span> transactionsCountInt = 0;</div>
+<div class="line">            <span class="keywordtype">int</span> customersCountInt = 0;</div>
 <div class="line"></div>
-<div class="line">            <span class="keywordtype">int</span>[] itemsCount = <span class="keyword">new</span> <span class="keywordtype">int</span>[] { items.Length };</div>
-<div class="line">            IntPtr itemsCountBytes;</div>
-<div class="line">            Cl.Mem itemsCountBuf = OpenCLToolkit.CreateBuffer(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a5d8b5f3eb0d9e2509a23626ad07cd02c">context</a>, Cl.MemFlags.ReadOnly | Cl.MemFlags.UseHostPtr,</div>
-<div class="line">                itemsCount, out itemsCountBytes);</div>
+<div class="line">            <span class="keywordflow">foreach</span> (Customer c <span class="keywordflow">in</span> <a class="code" href="class_apriori_all_lib_1_1_apriori.html#abbca8be3761136e76782ce10ebd61638" title="Input data for the algorithm. ">customerList</a>.<a class="code" href="class_apriori_all_lib_1_1_customer_list.html#a4fd2a16a984844e61ffc60b327e6534a" title="List of Customers ">Customers</a>)</div>
+<div class="line">            {</div>
+<div class="line">                ++customersCountInt;</div>
+<div class="line">                <span class="keywordflow">foreach</span> (Transaction t <span class="keywordflow">in</span> c.Transactions)</div>
+<div class="line">                {</div>
+<div class="line">                    ++transactionsCountInt;</div>
+<div class="line">                    <span class="keywordflow">foreach</span> (Item item <span class="keywordflow">in</span> t.Items)</div>
+<div class="line">                    {</div>
+<div class="line">                        ++itemsCountInt;</div>
+<div class="line">                    }</div>
+<div class="line">                }</div>
+<div class="line">            }</div>
 <div class="line"></div>
-<div class="line">            <span class="keywordtype">int</span>[] itemsExcluded = <span class="keyword">new</span> <span class="keywordtype">int</span>[itemsCount[0]];</div>
-<div class="line">            IntPtr itemsExcludedBytes;</div>
-<div class="line">            Cl.Mem itemsExcludedBuf = OpenCLToolkit.CreateBuffer(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a5d8b5f3eb0d9e2509a23626ad07cd02c">context</a>, Cl.MemFlags.ReadWrite | Cl.MemFlags.UseHostPtr,</div>
-<div class="line">                itemsExcluded, out itemsExcludedBytes);</div>
+<div class="line">            uint itemsCountUInt = (uint)itemsCountInt;</div>
+<div class="line">            uint transactionsCountUInt = (uint)transactionsCountInt;</div>
+<div class="line">            uint customersCountUInt = (uint)customersCountInt;</div>
 <div class="line"></div>
-<div class="line">            <span class="keywordtype">int</span>[] newItemsExcluded = <span class="keyword">new</span> <span class="keywordtype">int</span>[itemsCount[0]];</div>
-<div class="line">            IntPtr newItemsExcludedBytes;</div>
-<div class="line">            Cl.Mem newItemsExcludedBuf = OpenCLToolkit.CreateBuffer(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a5d8b5f3eb0d9e2509a23626ad07cd02c">context</a>, Cl.MemFlags.ReadWrite | Cl.MemFlags.UseHostPtr,</div>
-<div class="line">                newItemsExcluded, out newItemsExcludedBytes);</div>
+<div class="line">            <span class="keywordtype">int</span>[] items = <span class="keyword">new</span> <span class="keywordtype">int</span>[itemsCountInt];</div>
+<div class="line">            <span class="keywordtype">int</span>[] itemsTransactions = <span class="keyword">new</span> <span class="keywordtype">int</span>[itemsCountInt];</div>
+<div class="line">            <span class="keywordtype">int</span>[] itemsCustomers = <span class="keyword">new</span> <span class="keywordtype">int</span>[itemsCountInt];</div>
+<div class="line">            <span class="keywordtype">int</span>[] transactionsStarts = <span class="keyword">new</span> <span class="keywordtype">int</span>[transactionsCountInt];</div>
+<div class="line">            <span class="keywordtype">int</span>[] transactionsLengths = <span class="keyword">new</span> <span class="keywordtype">int</span>[transactionsCountInt];</div>
+<div class="line">            <span class="keywordtype">int</span>[] customersStarts = <span class="keyword">new</span> <span class="keywordtype">int</span>[customersCountInt]; <span class="comment">// in terms of transactions!</span></div>
+<div class="line">            <span class="keywordtype">int</span>[] customersLengths = <span class="keyword">new</span> <span class="keywordtype">int</span>[customersCountInt]; <span class="comment">// in terms of transactions!</span></div>
+<div class="line">            <span class="comment">//List&lt;int&gt; itemsList = new List&lt;int&gt;();</span></div>
+<div class="line">            <span class="comment">//List&lt;int&gt; itemsTransactionsList = new List&lt;int&gt;();</span></div>
+<div class="line">            <span class="comment">//List&lt;int&gt; itemsCustomersList = new List&lt;int&gt;();</span></div>
+<div class="line">            <span class="comment">//List&lt;int&gt; transactionsStartsList = new List&lt;int&gt;();</span></div>
+<div class="line">            <span class="comment">//List&lt;int&gt; transactionsLengthsList = new List&lt;int&gt;();</span></div>
+<div class="line">            <span class="comment">//List&lt;int&gt; customersStartsList = new List&lt;int&gt;();</span></div>
+<div class="line">            <span class="comment">//List&lt;int&gt; customersLengthsList = new List&lt;int&gt;();</span></div>
+<div class="line">            {</div>
+<div class="line">                <span class="keywordtype">int</span> currItem = 0;</div>
+<div class="line">                <span class="keywordtype">int</span> currTransaction = 0;</div>
+<div class="line">                <span class="keywordtype">int</span> currCustomer = 0;</div>
 <div class="line"></div>
-<div class="line">            <span class="keywordtype">int</span>[] uniqueItems = <span class="keyword">new</span> <span class="keywordtype">int</span>[itemsCount[0]];</div>
-<div class="line">            IntPtr uniqueItemsBytes;</div>
-<div class="line">            Cl.Mem uniqueItemsBuf = OpenCLToolkit.CreateBuffer(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a5d8b5f3eb0d9e2509a23626ad07cd02c">context</a>, Cl.MemFlags.ReadWrite | Cl.MemFlags.UseHostPtr,</div>
-<div class="line">                uniqueItems, out uniqueItemsBytes);</div>
-<div class="line"></div>
-<div class="line">            <span class="keywordtype">int</span>[] uniqueItemsCount = <span class="keyword">new</span> <span class="keywordtype">int</span>[] { 0 };</div>
-<div class="line">            IntPtr uniqueItemsCountBytes;</div>
-<div class="line">            Cl.Mem uniqueItemsCountBuf = OpenCLToolkit.CreateBuffer(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a5d8b5f3eb0d9e2509a23626ad07cd02c">context</a>, Cl.MemFlags.ReadWrite | Cl.MemFlags.UseHostPtr,</div>
-<div class="line">                uniqueItemsCount, out uniqueItemsCountBytes);</div>
-<div class="line"></div>
-<div class="line">            <span class="keywordtype">int</span>[] discovered = <span class="keyword">new</span> <span class="keywordtype">int</span>[itemsCount[0]];</div>
-<div class="line">            IntPtr discoveredBytes;</div>
-<div class="line">            Cl.Mem discoveredBuf = OpenCLToolkit.CreateBuffer(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a5d8b5f3eb0d9e2509a23626ad07cd02c">context</a>, Cl.MemFlags.ReadWrite | Cl.MemFlags.UseHostPtr,</div>
-<div class="line">                discovered, out discoveredBytes);</div>
-<div class="line"></div>
-<div class="line">            <span class="keywordtype">int</span>[] step = <span class="keyword">new</span> <span class="keywordtype">int</span>[] { 1 };</div>
-<div class="line">            IntPtr stepBytes;</div>
-<div class="line">            Cl.Mem stepBuf = OpenCLToolkit.CreateBuffer(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a5d8b5f3eb0d9e2509a23626ad07cd02c">context</a>, Cl.MemFlags.ReadOnly | Cl.MemFlags.UseHostPtr,</div>
-<div class="line">                step, out stepBytes);</div>
+<div class="line">                <span class="keywordtype">int</span> currTransactionLenth = 0;</div>
+<div class="line">                <span class="keywordtype">int</span> currCustomerLength = 0;</div>
+<div class="line">                <span class="keywordflow">foreach</span> (Customer c <span class="keywordflow">in</span> <a class="code" href="class_apriori_all_lib_1_1_apriori.html#abbca8be3761136e76782ce10ebd61638" title="Input data for the algorithm. ">customerList</a>.<a class="code" href="class_apriori_all_lib_1_1_customer_list.html#a4fd2a16a984844e61ffc60b327e6534a" title="List of Customers ">Customers</a>)</div>
+<div class="line">                {</div>
+<div class="line">                    currCustomerLength = 0;</div>
+<div class="line">                    customersStarts[currCustomer] = currTransaction; <span class="comment">// customersStartsList.Add(currItem);</span></div>
+<div class="line">                    <span class="keywordflow">foreach</span> (Transaction t <span class="keywordflow">in</span> c.Transactions)</div>
+<div class="line">                    {</div>
+<div class="line">                        currTransactionLenth = 0;</div>
+<div class="line">                        transactionsStarts[currTransaction] = currItem; <span class="comment">// transactionsStartsList.Add(currItem);</span></div>
+<div class="line">                        <span class="keywordflow">foreach</span> (Item item <span class="keywordflow">in</span> t.Items)</div>
+<div class="line">                        {</div>
+<div class="line">                            items[currItem] = item.Value; <span class="comment">// itemsList.Add(item.Value);</span></div>
+<div class="line">                            itemsTransactions[currItem] = currTransaction; <span class="comment">// itemsTransactionsList.Add(currTransaction);</span></div>
+<div class="line">                            itemsCustomers[currItem] = currCustomer; <span class="comment">// itemsCustomersList.Add(currCustomer);</span></div>
+<div class="line">                            ++currItem;</div>
+<div class="line">                            ++currTransactionLenth;</div>
+<div class="line">                        }</div>
+<div class="line">                        ++currCustomerLength;</div>
+<div class="line">                        transactionsLengths[currTransaction] = currTransactionLenth; <span class="comment">// transactionsLengthsList.Add(currTransactionLenth);</span></div>
+<div class="line">                        ++currTransaction;</div>
+<div class="line">                    }</div>
+<div class="line">                    customersLengths[currCustomer] = currCustomerLength; <span class="comment">// customersLengthsList.Add(currCustomerLength);</span></div>
+<div class="line">                    ++currCustomer;</div>
+<div class="line">                }</div>
+<div class="line">            }</div>
 <div class="line"></div>
 <div class="line"><span class="preprocessor">            #endregion</span></div>
 <div class="line"><span class="preprocessor"></span></div>
-<div class="line"><span class="preprocessor">            #region kernels of basicFunctions initialization</span></div>
+<div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
+<div class="line">            {</div>
+<div class="line">                watch.Stop();</div>
+<div class="line">                Log.WriteLine(<span class="stringliteral">&quot;input converted @ {0}ms&quot;</span>, watch.ElapsedMilliseconds);</div>
+<div class="line">                watch.Start();</div>
+<div class="line">            }</div>
+<div class="line"></div>
+<div class="line">            <span class="comment">//Abstract.Diagnostics = true;</span></div>
+<div class="line"></div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a6421baeff907e6e56568e277f3bafd6b">InitOpenCL</a>(progressOutput);</div>
+<div class="line"></div>
+<div class="line">            CommandQueue queue = <span class="keyword">new</span> CommandQueue(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#afe2ab9a5df8c398ebbc1612320717253">device</a>, <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a31accf2381865b9159941e6005ac14a6">context</a>);</div>
+<div class="line"></div>
+<div class="line"><span class="preprocessor">            #region input buffers allocation and initialization</span></div>
 <div class="line"><span class="preprocessor"></span></div>
-<div class="line">            Cl.Kernel kernelZero = Cl.CreateKernel(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#abd11689a0181f75e73610dfb48d148df">programBasicFunctions</a>, <span class="stringliteral">&quot;assignZero&quot;</span>, out err);</div>
-<div class="line">            <span class="keywordflow">if</span> (!err.Equals(Cl.ErrorCode.Success))</div>
-<div class="line">                <span class="keywordflow">throw</span> <span class="keyword">new</span> Cl.Exception(err, <span class="stringliteral">&quot;could not create kernel&quot;</span>);</div>
+<div class="line">            <span class="comment">//int[] items = itemsList.ToArray();</span></div>
+<div class="line">            Buffer&lt;int&gt; itemsBuf = <span class="keyword">new</span> Buffer&lt;int&gt;(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a31accf2381865b9159941e6005ac14a6">context</a>, queue, items);</div>
+<div class="line">            itemsBuf.Write(<span class="keyword">false</span>);</div>
 <div class="line"></div>
-<div class="line">            Cl.Kernel kernelOr = Cl.CreateKernel(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#abd11689a0181f75e73610dfb48d148df">programBasicFunctions</a>, <span class="stringliteral">&quot;logicOr&quot;</span>, out err);</div>
-<div class="line">            <span class="keywordflow">if</span> (!err.Equals(Cl.ErrorCode.Success))</div>
-<div class="line">                <span class="keywordflow">throw</span> <span class="keyword">new</span> Cl.Exception(err, <span class="stringliteral">&quot;could not create kernel&quot;</span>);</div>
+<div class="line">            <span class="comment">//int[] transactionsStarts = transactionsStartsList.ToArray();</span></div>
+<div class="line">            Buffer&lt;int&gt; transactionsStartsBuf = <span class="keyword">new</span> Buffer&lt;int&gt;(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a31accf2381865b9159941e6005ac14a6">context</a>, queue, transactionsStarts);</div>
+<div class="line">            transactionsStartsBuf.Write(<span class="keyword">false</span>);</div>
 <div class="line"></div>
-<div class="line">            <span class="comment">//OpenCLToolkit.UnsetKernelArgs(kernelZero);</span></div>
+<div class="line">            <span class="comment">//int[] customersStarts = customersStartsList.ToArray();</span></div>
+<div class="line">            Buffer&lt;int&gt; customersStartsBuf = <span class="keyword">new</span> Buffer&lt;int&gt;(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a31accf2381865b9159941e6005ac14a6">context</a>, queue, customersStarts);</div>
+<div class="line">            customersStartsBuf.Write(<span class="keyword">false</span>);</div>
 <div class="line"></div>
-<div class="line">            <span class="comment">//OpenCLToolkit.SetKernelArgs(kernelZero, itemsBuf, itemsCountBuf, itemsExcludedBuf,</span></div>
-<div class="line">            <span class="comment">//  uniqueItemsBuf, uniqueItemsCountBuf, discoveredBuf, stepBuf);</span></div>
+<div class="line">            <span class="keywordtype">int</span>[] itemsCount = <span class="keyword">new</span> <span class="keywordtype">int</span>[] { itemsCountInt };</div>
+<div class="line">            Buffer&lt;int&gt; itemsCountBuf = <span class="keyword">new</span> Buffer&lt;int&gt;(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a31accf2381865b9159941e6005ac14a6">context</a>, queue, itemsCount);</div>
+<div class="line">            itemsCountBuf.Write(<span class="keyword">false</span>);</div>
+<div class="line"></div>
+<div class="line">            <span class="keywordtype">int</span>[] transactionsCount = <span class="keyword">new</span> <span class="keywordtype">int</span>[] { transactionsCountInt };</div>
+<div class="line">            Buffer&lt;int&gt; transactionsCountBuf = <span class="keyword">new</span> Buffer&lt;int&gt;(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a31accf2381865b9159941e6005ac14a6">context</a>, queue, transactionsCount);</div>
+<div class="line">            transactionsCountBuf.Write(<span class="keyword">false</span>);</div>
+<div class="line"></div>
+<div class="line">            <span class="keywordtype">int</span>[] customersCount = <span class="keyword">new</span> <span class="keywordtype">int</span>[] { customersCountInt };</div>
+<div class="line">            Buffer&lt;int&gt; customersCountBuf = <span class="keyword">new</span> Buffer&lt;int&gt;(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a31accf2381865b9159941e6005ac14a6">context</a>, queue, customersCount);</div>
+<div class="line">            customersCountBuf.Write(<span class="keyword">false</span>);</div>
 <div class="line"></div>
 <div class="line"><span class="preprocessor">            #endregion</span></div>
 <div class="line"><span class="preprocessor"></span></div>
-<div class="line"><span class="preprocessor">            #region kernelDistinct initialization</span></div>
-<div class="line"><span class="preprocessor"></span></div>
-<div class="line">            Cl.Kernel kernelDistinct = Cl.CreateKernel(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a66e578bc7a5c8b8e5fd706bb2d9420a4" title="Program created from file &#39;distinct.cl&#39;. ">programDistinct</a>, <span class="stringliteral">&quot;findNewDistinctItem&quot;</span>, out err);</div>
-<div class="line">            <span class="keywordflow">if</span> (!err.Equals(Cl.ErrorCode.Success))</div>
-<div class="line">                <span class="keywordflow">throw</span> <span class="keyword">new</span> Cl.Exception(err, <span class="stringliteral">&quot;could not create kernel&quot;</span>);</div>
-<div class="line"></div>
-<div class="line">            OpenCLToolkit.SetKernelArgs(kernelDistinct, itemsBuf, itemsCountBuf, itemsExcludedBuf, newItemsExcludedBuf,</div>
-<div class="line">                <span class="comment">/*uniqueItemsBuf, uniqueItemsCountBuf,*/</span> discoveredBuf, stepBuf);</div>
-<div class="line"></div>
-<div class="line"><span class="preprocessor">            #endregion</span></div>
-<div class="line"><span class="preprocessor"></span></div>
-<div class="line"><span class="preprocessor">            #region kernelExcludeDistinct initialization</span></div>
-<div class="line"><span class="preprocessor"></span></div>
-<div class="line">            Cl.Kernel kernelExcludeDistinct = Cl.CreateKernel(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a66e578bc7a5c8b8e5fd706bb2d9420a4" title="Program created from file &#39;distinct.cl&#39;. ">programDistinct</a>, <span class="stringliteral">&quot;excludeLatestDistinctItem&quot;</span>, out err);</div>
-<div class="line">            <span class="keywordflow">if</span> (!err.Equals(Cl.ErrorCode.Success))</div>
-<div class="line">                <span class="keywordflow">throw</span> <span class="keyword">new</span> Cl.Exception(err, <span class="stringliteral">&quot;could not create kernel&quot;</span>);</div>
-<div class="line"></div>
-<div class="line">            OpenCLToolkit.SetKernelArgs(kernelExcludeDistinct, itemsBuf, itemsCountBuf, itemsExcludedBuf,</div>
-<div class="line">                uniqueItemsBuf, uniqueItemsCountBuf);</div>
-<div class="line"></div>
-<div class="line"><span class="preprocessor">            #endregion</span></div>
-<div class="line"><span class="preprocessor"></span></div>
-<div class="line">            Cl.Event ev;</div>
-<div class="line">            IntPtr[] globalWorkSize = <span class="keyword">new</span> IntPtr[] { <span class="keyword">new</span> IntPtr(items.Length) };</div>
-<div class="line">            IntPtr[] localWorkSize = <span class="keyword">new</span> IntPtr[] { <span class="keyword">new</span> IntPtr(1) };</div>
+<div class="line">            <span class="comment">// the below is an anti-optimization used only to measure buffer initialization time</span></div>
+<div class="line">            <span class="comment">//queue.Finish(); </span></div>
 <div class="line"></div>
 <div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                Trace.WriteLine(<span class="stringliteral">&quot;Looking for unique items in all transactions.&quot;</span>);</div>
+<div class="line">            {</div>
+<div class="line">                watch.Stop();</div>
+<div class="line">                Log.WriteLine(<span class="stringliteral">&quot;buffers written @ {0}ms&quot;</span>, watch.ElapsedMilliseconds);</div>
+<div class="line">                watch.Start();</div>
+<div class="line">            }</div>
+<div class="line"></div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a4418e5a5ed2964f0f34b7656004d8320">InitOpenCLPrograms</a>(<span class="keyword">false</span>, progressOutput);</div>
+<div class="line"></div>
+<div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
+<div class="line">            {</div>
+<div class="line">                watch.Stop();</div>
+<div class="line">                Log.WriteLine(<span class="stringliteral">&quot;programs built @ {0}ms&quot;</span>, watch.ElapsedMilliseconds);</div>
+<div class="line">                watch.Start();</div>
+<div class="line">            }</div>
+<div class="line"></div>
+<div class="line"><span class="preprocessor">            #region empty buffers allocation and initialization</span></div>
+<div class="line"><span class="preprocessor"></span></div>
+<div class="line">            Buffer&lt;int&gt; Zero = <span class="keyword">new</span> Buffer&lt;int&gt;(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a31accf2381865b9159941e6005ac14a6">context</a>, queue, <span class="keyword">new</span> <span class="keywordtype">int</span>[] { 0 });</div>
+<div class="line">            Zero.Write(<span class="keyword">false</span>);</div>
+<div class="line"></div>
+<div class="line">            Buffer&lt;int&gt; One = <span class="keyword">new</span> Buffer&lt;int&gt;(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a31accf2381865b9159941e6005ac14a6">context</a>, queue, <span class="keyword">new</span> <span class="keywordtype">int</span>[] { 1 });</div>
+<div class="line">            Zero.Write(<span class="keyword">false</span>);</div>
+<div class="line"></div>
+<div class="line">            queue.Finish();</div>
+<div class="line"></div>
+<div class="line">            Buffer&lt;int&gt; tempItemsBuf = <span class="keyword">new</span> Buffer&lt;int&gt;(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a31accf2381865b9159941e6005ac14a6">context</a>, queue, itemsCountUInt);</div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a275538578e75d54750e8e38fa6c89f64">kernelCopy</a>.SetArguments(itemsBuf, itemsCountBuf, Zero, itemsCountBuf,</div>
+<div class="line">                tempItemsBuf, itemsCountBuf, Zero, itemsCountBuf);</div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a275538578e75d54750e8e38fa6c89f64">kernelCopy</a>.Launch(queue, itemsCountUInt);</div>
+<div class="line"></div>
+<div class="line">            <span class="comment">//Buffer&lt;int&gt; transactionsTempBuf = new Buffer&lt;int&gt;(context, queue, (uint)items.Length);</span></div>
+<div class="line"></div>
+<div class="line">            <span class="comment">//int[] itemsExcluded = new int[itemsCount[0]];</span></div>
+<div class="line">            <span class="comment">//Buffer&lt;int&gt; itemsExcludedBuf = new Buffer&lt;int&gt;(context, queue, itemsExcluded);</span></div>
+<div class="line"><span class="comment"></span>            <span class="comment">//itemsCountBuf.Write(false);</span></div>
+<div class="line"></div>
+<div class="line">            <span class="comment">//int[] newItemsExcluded = new int[itemsCount[0]];</span></div>
+<div class="line">            <span class="comment">//Buffer&lt;int&gt; newItemsExcludedBuf = new Buffer&lt;int&gt;(context, queue, newItemsExcluded);</span></div>
+<div class="line">            <span class="comment">//newItemsExcludedBuf.Write(false);</span></div>
+<div class="line"></div>
+<div class="line"><span class="preprocessor">            #endregion</span></div>
+<div class="line"><span class="preprocessor"></span></div>
+<div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
+<div class="line">            {</div>
+<div class="line">                watch.Stop();</div>
+<div class="line">                Log.WriteLine(<span class="stringliteral">&quot;Initialized OpenCL in {0}ms.&quot;</span>, watch.ElapsedMilliseconds);</div>
+<div class="line">                watch.Restart();</div>
+<div class="line">            }</div>
+<div class="line"></div>
+<div class="line"><span class="preprocessor">            #region finding empty id</span></div>
+<div class="line"><span class="preprocessor"></span></div>
+<div class="line">            <span class="keywordtype">int</span>[] tempValue = <span class="keyword">new</span> <span class="keywordtype">int</span>[] { -1 };</div>
+<div class="line">            queue.Finish();</div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a7bd0e1483a2eb0453cf988866d915b2c">kernelMax</a>.SetArguments(tempItemsBuf, itemsCountBuf, Zero, itemsCountBuf);</div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a7bd0e1483a2eb0453cf988866d915b2c">kernelMax</a>.Launch(queue, itemsCountUInt);</div>
+<div class="line"></div>
+<div class="line">            queue.Finish();</div>
+<div class="line">            tempItemsBuf.Read(tempValue, 0, 1);</div>
+<div class="line"></div>
+<div class="line">            <span class="keywordtype">int</span> emptyId = tempValue[0] + 1;</div>
+<div class="line">            Buffer&lt;int&gt; emptyIdBuf = <span class="keyword">new</span> Buffer&lt;int&gt;(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a31accf2381865b9159941e6005ac14a6">context</a>, queue, 1);</div>
+<div class="line">            emptyIdBuf.Array[0] = emptyId;</div>
+<div class="line">            emptyIdBuf.Write(<span class="keyword">false</span>);</div>
+<div class="line"></div>
+<div class="line"><span class="preprocessor">            #endregion</span></div>
+<div class="line"><span class="preprocessor"></span></div>
+<div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
+<div class="line">            {</div>
+<div class="line">                watch.Stop();</div>
+<div class="line">                Log.WriteLine(<span class="stringliteral">&quot;empty id @ {0}ms&quot;</span>, watch.ElapsedMilliseconds);</div>
+<div class="line">                watch.Start();</div>
+<div class="line">            }</div>
+<div class="line"></div>
+<div class="line"><span class="preprocessor">            #region finding distinct item ids</span></div>
+<div class="line"><span class="preprocessor"></span></div>
+<div class="line">            Buffer&lt;int&gt; itemsRemainingBuf = <span class="keyword">new</span> Buffer&lt;int&gt;(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a31accf2381865b9159941e6005ac14a6">context</a>, queue, itemsCountUInt);</div>
+<div class="line">            <span class="comment">//kernelCopy.SetArguments(itemsBuf, itemsCountBuf, Zero, itemsCountBuf,</span></div>
+<div class="line">            <span class="comment">//  itemsRemainingBuf, itemsCountBuf, Zero, itemsCountBuf);</span></div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a275538578e75d54750e8e38fa6c89f64">kernelCopy</a>.SetArgument(4, itemsRemainingBuf);</div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a275538578e75d54750e8e38fa6c89f64">kernelCopy</a>.Launch(queue, itemsCountUInt);</div>
+<div class="line"></div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a275538578e75d54750e8e38fa6c89f64">kernelCopy</a>.SetArgument(4, tempItemsBuf);</div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a275538578e75d54750e8e38fa6c89f64">kernelCopy</a>.Launch(queue, itemsCountUInt);</div>
+<div class="line"></div>
+<div class="line">            <span class="keywordtype">int</span> uniqueItemsCount = 0;</div>
+<div class="line">            <span class="comment">//Buffer&lt;int&gt; uniqueItemsCountBuf = new Buffer&lt;int&gt;(context, queue, uniqueItemsCount);</span></div>
+<div class="line">            <span class="comment">//uniqueItemsCountBuf.Write(false);</span></div>
+<div class="line"></div>
+<div class="line">            <span class="keywordtype">int</span>[] uniqueItems = <span class="keyword">new</span> <span class="keywordtype">int</span>[itemsCountInt];</div>
+<div class="line">            Buffer&lt;int&gt; uniqueItemsBuf = <span class="keyword">new</span> Buffer&lt;int&gt;(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a31accf2381865b9159941e6005ac14a6">context</a>, queue, uniqueItems);</div>
+<div class="line">            <span class="comment">//uniqueItemsBuf.Write(false);</span></div>
+<div class="line"></div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#ac4d9ba45dedf2b9ea09e38f8d41e8a27">kernelZero</a>.SetArguments(uniqueItemsBuf, itemsCountBuf, Zero, itemsCountBuf);</div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#ac4d9ba45dedf2b9ea09e38f8d41e8a27">kernelZero</a>.Launch(queue, itemsCountUInt);</div>
+<div class="line"></div>
+<div class="line">            <span class="comment">//queue.Finish();</span></div>
+<div class="line"></div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a275538578e75d54750e8e38fa6c89f64">kernelCopy</a>.SetArgument(0, itemsRemainingBuf);</div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a275538578e75d54750e8e38fa6c89f64">kernelCopy</a>.SetArgument(4, tempItemsBuf);</div>
+<div class="line"></div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#aae8cc40037ec35ed2fa8a052eb1d3be3">kernelMin</a>.SetArguments(tempItemsBuf, itemsCountBuf, Zero, itemsCountBuf);</div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#ab58cbfdf308bcfc7bc0e28ee5bcbc8a7">kernelSubstitute</a>.SetArguments(itemsRemainingBuf, itemsCountBuf, Zero, itemsCountBuf, emptyIdBuf, tempItemsBuf);</div>
 <div class="line"></div>
 <div class="line">            <span class="keywordflow">while</span> (<span class="keyword">true</span>)</div>
 <div class="line">            {</div>
-<div class="line"><span class="preprocessor">                #region kernelDistinct launch</span></div>
-<div class="line"><span class="preprocessor"></span></div>
-<div class="line">                <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                    Trace.Write(<span class="stringliteral">&quot; launching kernelDistinct&quot;</span>);</div>
+<div class="line">                queue.Finish();</div>
+<div class="line">                <span class="comment">//kernelMin.Launch(queue, tempItemsBuf);</span></div>
+<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#aae8cc40037ec35ed2fa8a052eb1d3be3">kernelMin</a>.Launch(queue, itemsCountUInt);</div>
 <div class="line"></div>
-<div class="line">                step[0] = 1;</div>
-<div class="line">                OpenCLToolkit.WriteBuffer(queue, stepBuf, stepBytes, step);</div>
-<div class="line">                <span class="keywordflow">while</span> (step[0] &lt;= itemsCount[0])</div>
-<div class="line">                {</div>
-<div class="line">                    OpenCLToolkit.LaunchKernel1D(queue, kernelDistinct, globalWorkSize, localWorkSize);</div>
+<div class="line">                queue.Finish();</div>
+<div class="line">                tempItemsBuf.Read(tempValue, 0, 1);</div>
 <div class="line"></div>
-<div class="line">                    OpenCLToolkit.ReadBuffer(queue, newItemsExcludedBuf, newItemsExcludedBytes, newItemsExcluded);</div>
-<div class="line">                    OpenCLToolkit.ReadBuffer(queue, discoveredBuf, discoveredBytes, discovered);</div>
+<div class="line">                <span class="keywordtype">int</span> foundValue = tempValue[0];</div>
+<div class="line">                <span class="keywordflow">if</span> (foundValue == emptyId)</div>
+<div class="line">                    <span class="keywordflow">break</span>; <span class="comment">// reached end of computation</span></div>
 <div class="line"></div>
-<div class="line">                    <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                        Trace.Write(String.Format(<span class="stringliteral">&quot;, step {0}&quot;</span>, step[0]));</div>
+<div class="line">                uniqueItems[uniqueItemsCount] = foundValue;</div>
+<div class="line">                uniqueItemsCount += 1;</div>
+<div class="line">                uniqueItemsBuf.Write(<span class="keyword">false</span>, 0, (uint)uniqueItemsCount);</div>
 <div class="line"></div>
-<div class="line">                    step[0] *= 2;</div>
-<div class="line">                    OpenCLToolkit.WriteBuffer(queue, stepBuf, stepBytes, step);</div>
-<div class="line">                }</div>
+<div class="line">                <span class="comment">//uniqueItemsCountBuf.Write(false);</span></div>
 <div class="line"></div>
-<div class="line">                <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                    Trace.WriteLine(<span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#ab58cbfdf308bcfc7bc0e28ee5bcbc8a7">kernelSubstitute</a>.Launch(queue, itemsCountUInt);</div>
+<div class="line">                <span class="comment">//kernelSubstitute.Launch(queue, itemsRemainingBuf, emptyIdBuf, tempItemsBuf);</span></div>
 <div class="line"></div>
-<div class="line"><span class="preprocessor">                #endregion</span></div>
-<div class="line"><span class="preprocessor"></span></div>
-<div class="line">                <span class="comment">// TODO: read 1 byte in a proper way, i.e. not using &#39;itemsCountBytes&#39;</span></div>
-<div class="line">                err = Cl.EnqueueReadBuffer(queue, discoveredBuf, Cl.Bool.True, IntPtr.Zero,</div>
-<div class="line">                    itemsBytes, discovered, 0, null, out ev);</div>
-<div class="line">                <span class="keywordflow">if</span> (!err.Equals(Cl.ErrorCode.Success))</div>
-<div class="line">                    <span class="keywordflow">throw</span> <span class="keyword">new</span> Cl.Exception(err, <span class="stringliteral">&quot;could not read results from device memory&quot;</span>);</div>
+<div class="line">                <span class="comment">//queue.Finish(); // debug only</span></div>
+<div class="line">                <span class="comment">//itemsRemainingBuf.Read(); // debug only</span></div>
+<div class="line">                <span class="comment">//tempItemsBuf.Read(); // debug only</span></div>
 <div class="line"></div>
-<div class="line">                <span class="keywordflow">if</span> (discovered[0] == 0)</div>
-<div class="line">                    <span class="keywordflow">break</span>;</div>
-<div class="line"></div>
-<div class="line">                uniqueItems[uniqueItemsCount[0]] = discovered[0];</div>
-<div class="line">                err = Cl.EnqueueWriteBuffer(queue, uniqueItemsBuf, Cl.Bool.True, IntPtr.Zero,</div>
-<div class="line">                    uniqueItemsBytes, uniqueItems, 0, null, out ev);</div>
-<div class="line">                <span class="keywordflow">if</span> (!err.Equals(Cl.ErrorCode.Success))</div>
-<div class="line">                    <span class="keywordflow">throw</span> <span class="keyword">new</span> Cl.Exception(err, <span class="stringliteral">&quot;could not write to device memory&quot;</span>);</div>
-<div class="line"></div>
-<div class="line">                uniqueItemsCount[0] += 1;</div>
-<div class="line">                err = Cl.EnqueueWriteBuffer(queue, uniqueItemsCountBuf, Cl.Bool.True, IntPtr.Zero,</div>
-<div class="line">                    uniqueItemsCountBytes, uniqueItemsCount, 0, null, out ev);</div>
-<div class="line">                <span class="keywordflow">if</span> (!err.Equals(Cl.ErrorCode.Success))</div>
-<div class="line">                    <span class="keywordflow">throw</span> <span class="keyword">new</span> Cl.Exception(err, <span class="stringliteral">&quot;could not write to device memory&quot;</span>);</div>
-<div class="line"></div>
-<div class="line"><span class="preprocessor">                #region kernel &#39;zero&#39;</span></div>
-<div class="line"><span class="preprocessor"></span></div>
-<div class="line">                OpenCLToolkit.SetKernelArgs(kernelZero, discoveredBuf, itemsCountBuf);</div>
-<div class="line"></div>
-<div class="line">                <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                    Trace.Write(<span class="stringliteral">&quot; launching kernelZero&quot;</span>);</div>
-<div class="line"></div>
-<div class="line">                OpenCLToolkit.LaunchKernel1D(queue, kernelZero, globalWorkSize, localWorkSize);</div>
-<div class="line"></div>
-<div class="line">                <span class="comment">//err = Cl.EnqueueReadBuffer(queue, discoveredBuf, Cl.Bool.True, IntPtr.Zero,</span></div>
-<div class="line">                <span class="comment">//  itemsBytes, discovered, 0, null, out ev);</span></div>
-<div class="line">                <span class="comment">//if (!err.Equals(Cl.ErrorCode.Success))</span></div>
-<div class="line">                <span class="comment">//  throw new Cl.Exception(err, &quot;could not read results from device memory&quot;);</span></div>
-<div class="line"></div>
-<div class="line"><span class="preprocessor">                #endregion</span></div>
-<div class="line"><span class="preprocessor"></span></div>
-<div class="line"><span class="preprocessor">                #region kernel exclude launch</span></div>
-<div class="line"><span class="preprocessor"></span></div>
-<div class="line">                <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                    Trace.WriteLine(<span class="stringliteral">&quot; launching kernelExcludeDistinct&quot;</span>);</div>
-<div class="line"></div>
-<div class="line">                OpenCLToolkit.LaunchKernel1D(queue, kernelExcludeDistinct, globalWorkSize, localWorkSize);</div>
-<div class="line"></div>
-<div class="line"><span class="preprocessor">                #endregion</span></div>
-<div class="line"><span class="preprocessor"></span></div>
-<div class="line">                <span class="comment">//err = Cl.EnqueueReadBuffer(queue, uniqueItemsBuf, Cl.Bool.True, IntPtr.Zero,</span></div>
-<div class="line">                <span class="comment">//  uniqueItemsBytes, uniqueItems, 0, null, out ev);</span></div>
-<div class="line">                <span class="comment">//if (!err.Equals(Cl.ErrorCode.Success))</span></div>
-<div class="line">                <span class="comment">//  throw new Cl.Exception(err, &quot;could not read results from device memory&quot;);</span></div>
-<div class="line"></div>
-<div class="line">                OpenCLToolkit.ReadBuffer(queue, itemsExcludedBuf, itemsExcludedBytes, itemsExcluded);</div>
-<div class="line"></div>
-<div class="line">                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; itemsCount[0]; ++i)</div>
-<div class="line">                    newItemsExcluded[i] = itemsExcluded[i];</div>
-<div class="line"></div>
-<div class="line">                OpenCLToolkit.WriteBuffer(queue, newItemsExcludedBuf, newItemsExcludedBytes, newItemsExcluded);</div>
-<div class="line"></div>
-<div class="line">                <span class="comment">//OpenCLToolkit.ReadBuffer(queue, newItemsExcludedBuf, newItemsExcludedBytes, newItemsExcluded);</span></div>
-<div class="line"></div>
-<div class="line">                <span class="comment">// add new excluded to those already existing</span></div>
-<div class="line">                <span class="comment">//OpenCLToolkit.SetKernelArgs(kernelOr, newItemsExcludedBuf, itemsExcludedBuf, itemsCountBuf);</span></div>
-<div class="line">                <span class="comment">//OpenCLToolkit.LaunchKernel1D(queue, kernelOr, globalWorkSize, localWorkSize);</span></div>
-<div class="line"></div>
+<div class="line">                <span class="comment">//kernelCopy.Launch(queue, itemsRemainingBuf, tempItemsBuf);</span></div>
+<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a275538578e75d54750e8e38fa6c89f64">kernelCopy</a>.Launch(queue, itemsCountUInt);</div>
 <div class="line">            }</div>
 <div class="line"></div>
-<div class="line">            kernelDistinct.Dispose();</div>
-<div class="line"></div>
-<div class="line">            kernelExcludeDistinct.Dispose();</div>
-<div class="line"></div>
-<div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">            {</div>
-<div class="line">                Trace.WriteLine(String.Format(<span class="stringliteral">&quot;Found all unique items: {0}.&quot;</span>, </div>
-<div class="line">                    String.Join(<span class="stringliteral">&quot;, &quot;</span>, uniqueItems)));</div>
-<div class="line">            }</div>
-<div class="line"></div>
-<div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                Trace.WriteLine(<span class="stringliteral">&quot;Calculating support.&quot;</span>);</div>
-<div class="line"></div>
-<div class="line">            <span class="comment">//if (progressOutput)</span></div>
-<div class="line">            <span class="comment">//  Trace.WriteLine(&quot;Finished subset generation.&quot;);</span></div>
-<div class="line"></div>
-<div class="line">            <span class="comment">//Cl.InfoBuffer buf3 = Cl.GetMemObjectInfo(supportsBuf, Cl.MemInfo.HostPtr, out err);</span></div>
-<div class="line">            <span class="comment">//Cl.InfoBuffer buf = Cl.GetMemObjectInfo(supportsBuf, Cl.MemInfo.Size, out err);</span></div>
-<div class="line">            <span class="comment">//Cl.InfoBuffer buf2 = Cl.GetMemObjectInfo(supportsBuf, Cl.MemInfo.Type, out err);</span></div>
-<div class="line"></div>
-<div class="line">            <span class="comment">//int x = buf.CastTo&lt;int&gt;();</span></div>
-<div class="line"></div>
-<div class="line"><span class="preprocessor">            #region more buffers initialization</span></div>
-<div class="line"><span class="preprocessor"></span></div>
-<div class="line">            <span class="keywordtype">int</span>[] supports = <span class="keyword">new</span> <span class="keywordtype">int</span>[itemsCount[0] * uniqueItemsCount[0]];</div>
-<div class="line">            IntPtr supportsBytes;</div>
-<div class="line">            Cl.Mem supportsBuf = OpenCLToolkit.CreateBuffer(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a5d8b5f3eb0d9e2509a23626ad07cd02c">context</a>, Cl.MemFlags.ReadWrite | Cl.MemFlags.UseHostPtr,</div>
-<div class="line">                supports, out supportsBytes);</div>
+<div class="line">            uint uniqueItemsCountUInt = (uint)uniqueItemsCount;</div>
 <div class="line"></div>
 <div class="line"><span class="preprocessor">            #endregion</span></div>
 <div class="line"><span class="preprocessor"></span></div>
-<div class="line">            err = Cl.EnqueueReadBuffer(queue, supportsBuf, Cl.Bool.True, IntPtr.Zero,</div>
-<div class="line">                supportsBytes, supports, 0, null, out ev);</div>
-<div class="line">            <span class="keywordflow">if</span> (!err.Equals(Cl.ErrorCode.Success))</div>
-<div class="line">                <span class="keywordflow">throw</span> <span class="keyword">new</span> Cl.Exception(err, <span class="stringliteral">&quot;could not read results from device memory&quot;</span>);</div>
-<div class="line"></div>
-<div class="line">            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; supports.Length; ++i)</div>
+<div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
 <div class="line">            {</div>
-<div class="line">                <span class="keywordflow">if</span> (supports[i] &gt;= minimalSupport)</div>
-<div class="line">                    litemsets.Add(<span class="keyword">new</span> Litemset(supports[i], allTransactions.ElementAt(i).ToArray()));</div>
+<div class="line">                watch.Stop();</div>
+<div class="line">                Log.WriteLine(<span class="stringliteral">&quot;distinct items @ {0}ms&quot;</span>, watch.ElapsedMilliseconds);</div>
+<div class="line">                watch.Start();</div>
 <div class="line">            }</div>
 <div class="line"></div>
+<div class="line"><span class="preprocessor">            #region finding supports for items</span></div>
+<div class="line"><span class="preprocessor"></span></div>
+<div class="line">            <span class="keywordtype">int</span> itemsSupportsCountInt = itemsCountInt * uniqueItemsCount;</div>
+<div class="line">            uint itemsSupportsCountUInt = (uint)itemsSupportsCountInt;</div>
+<div class="line"></div>
+<div class="line">            <span class="keywordtype">int</span>[] itemsSupportsCount = <span class="keyword">new</span> <span class="keywordtype">int</span>[] { itemsSupportsCountInt };</div>
+<div class="line">            Buffer&lt;int&gt; itemsSupportsCountBuf = <span class="keyword">new</span> Buffer&lt;int&gt;(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a31accf2381865b9159941e6005ac14a6">context</a>, queue, itemsSupportsCount);</div>
+<div class="line">            itemsSupportsCountBuf.Write(<span class="keyword">false</span>);</div>
+<div class="line"></div>
+<div class="line">            <span class="keywordtype">int</span>[] itemsSupports = <span class="keyword">new</span> <span class="keywordtype">int</span>[itemsSupportsCountInt];</div>
+<div class="line">            Buffer&lt;int&gt; itemsSupportsBuf = <span class="keyword">new</span> Buffer&lt;int&gt;(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a31accf2381865b9159941e6005ac14a6">context</a>, queue, itemsSupports);</div>
+<div class="line"></div>
+<div class="line">            <span class="comment">//Abstract.Diagnostics = true;</span></div>
+<div class="line"></div>
+<div class="line">            queue.Finish();</div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#ac4d9ba45dedf2b9ea09e38f8d41e8a27">kernelZero</a>.SetArguments(itemsSupportsBuf, itemsSupportsCountBuf, null, itemsSupportsCountBuf);</div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#ac4d9ba45dedf2b9ea09e38f8d41e8a27">kernelZero</a>.Launch(queue, itemsSupportsCountUInt);</div>
+<div class="line"></div>
+<div class="line">            <span class="comment">//Buffer&lt;int&gt; supportsBuf = new Buffer&lt;int&gt;(context, queue, itemsSupports);</span></div>
+<div class="line">            <span class="comment">//kernelZero.Launch(queue, supportsBuf);</span></div>
+<div class="line"></div>
+<div class="line">            <span class="comment">//Kernel kernelInitSupports = new Kernel(queue, programSupport, &quot;supportInitial&quot;);</span></div>
+<div class="line">            <span class="comment">//kernelInitSupports.SetArguments(itemsBuf, itemsCountBuf, uniqueItemsBuf, uniqueItemsCountBuf,</span></div>
+<div class="line">            <span class="comment">//  supportsBuf);</span></div>
+<div class="line"></div>
+<div class="line">            <span class="comment">//queue.Finish();</span></div>
+<div class="line">            <span class="comment">//kernelInitSupports.Launch2D((uint)itemsCount[0], 1, (uint)uniqueItemsCount[0], 1);</span></div>
+<div class="line"></div>
+<div class="line">            <span class="comment">//Buffer&lt;int&gt;[] uniqueItemBufs = new Buffer&lt;int&gt;[uniqueItemsCount];</span></div>
+<div class="line">            Buffer&lt;int&gt; uniqueItemBuf = <span class="keyword">new</span> Buffer&lt;int&gt;(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a31accf2381865b9159941e6005ac14a6">context</a>, queue, 1);</div>
+<div class="line">            Buffer&lt;int&gt; offsetBuf = <span class="keyword">new</span> Buffer&lt;int&gt;(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a31accf2381865b9159941e6005ac14a6">context</a>, queue, 1);</div>
+<div class="line"></div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a00e4599ad7ada3928563440c836eb64b">kernelCopyIfEqual</a>.SetArguments(itemsBuf, itemsCountBuf, Zero, itemsCountBuf,</div>
+<div class="line">            itemsSupportsBuf, itemsSupportsCountBuf, offsetBuf, itemsCountBuf,</div>
+<div class="line">                uniqueItemBuf);</div>
+<div class="line">            <span class="comment">//kernelCopy.SetArguments(itemsBuf, itemsCountBuf, Zero, itemsCountBuf,</span></div>
+<div class="line">            <span class="comment">//  itemsSupportsBuf, itemsSupportsCountBuf, Zero, itemsCountBuf);</span></div>
+<div class="line">            <span class="comment">//kernelCopyIfEqual.SetCopiedValue(uniqueItemBuf);</span></div>
+<div class="line"></div>
+<div class="line">            queue.Finish();</div>
+<div class="line">            <span class="keywordtype">int</span> uniqueItemIndex = 0;</div>
+<div class="line">            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> supportsOffset = 0; supportsOffset &lt; itemsSupports.Length; supportsOffset += items.Length)</div>
+<div class="line">            {</div>
+<div class="line">                <span class="comment">//uniqueItemBufs[uniqueItemIndex] = new Buffer&lt;int&gt;(context, queue, 1);</span></div>
+<div class="line">                <span class="comment">//uniqueItemBufs[uniqueItemIndex].BackingCollection[0] = uniqueItems[uniqueItemIndex];</span></div>
+<div class="line">                <span class="comment">//uniqueItemBufs[uniqueItemIndex].Write(false);</span></div>
+<div class="line">                uniqueItemBuf.Array[0] = uniqueItems[uniqueItemIndex];</div>
+<div class="line">                uniqueItemBuf.Write(<span class="keyword">false</span>);</div>
+<div class="line">                offsetBuf.Array[0] = supportsOffset;</div>
+<div class="line">                offsetBuf.Write(<span class="keyword">false</span>);</div>
+<div class="line"></div>
+<div class="line">                queue.Finish();</div>
+<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a00e4599ad7ada3928563440c836eb64b">kernelCopyIfEqual</a>.Launch(queue, itemsCountUInt);</div>
+<div class="line">                <span class="comment">//kernelCopy.Launch(queue, itemsCountUInt);</span></div>
+<div class="line"></div>
+<div class="line">                <span class="comment">//kernelCopyIfEqual.Launch(queue, itemsBuf, 0, (uint)items.Length,</span></div>
+<div class="line">                <span class="comment">//  itemsSupportsBuf, (uint)supportsOffset, (uint)items.Length);</span></div>
+<div class="line"></div>
+<div class="line">                <span class="comment">//queue.Finish(); // debug</span></div>
+<div class="line">                <span class="comment">//uniqueItemBuf.Read(); // debug</span></div>
+<div class="line">                <span class="comment">//offsetBuf.Read(); // debug</span></div>
+<div class="line">                <span class="comment">//itemsSupportsBuf.Read(); // debug</span></div>
+<div class="line">                ++uniqueItemIndex;</div>
+<div class="line">            }</div>
+<div class="line"></div>
+<div class="line">            queue.Finish();</div>
+<div class="line">            <span class="comment">//itemsSupportsBuf.Read(); // debug</span></div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#ac26f175379d88845f051ea2127147b2d">kernelSubstituteIfNotEqual</a>.SetArguments(itemsSupportsBuf, itemsSupportsCountBuf, Zero, itemsSupportsCountBuf,</div>
+<div class="line">                One, Zero);</div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#ac26f175379d88845f051ea2127147b2d">kernelSubstituteIfNotEqual</a>.Launch(queue, itemsSupportsCountUInt);</div>
+<div class="line">            <span class="comment">//kernelSubstituteIfNotEqual.Launch(queue, supportsBuf, One, Zero);</span></div>
+<div class="line"></div>
+<div class="line">            <span class="comment">//queue.Finish(); // debug</span></div>
+<div class="line">            <span class="comment">//itemsSupportsBuf.Read(); // debug</span></div>
+<div class="line"></div>
+<div class="line">            <span class="comment">//if (progressOutput)</span></div>
+<div class="line">            <span class="comment">//{</span></div>
+<div class="line">            <span class="comment">//  watch.Stop();</span></div>
+<div class="line">            <span class="comment">//  Log.WriteLine(&quot;supports array @ {0}ms&quot;, watch.ElapsedMilliseconds);</span></div>
+<div class="line">            <span class="comment">//  watch.Start();</span></div>
+<div class="line">            <span class="comment">//}</span></div>
+<div class="line"></div>
+<div class="line"><span class="preprocessor">            #endregion</span></div>
+<div class="line"><span class="preprocessor"></span></div>
+<div class="line"><span class="preprocessor">            #region finding supports for transactions</span></div>
+<div class="line"><span class="preprocessor"></span></div>
+<div class="line">            <span class="keywordtype">int</span> transactionsSupportsCountInt = transactionsCountInt * uniqueItemsCount;</div>
+<div class="line">            uint transactionsSupportsCountUInt = (uint)transactionsSupportsCountInt;</div>
+<div class="line"></div>
+<div class="line">            <span class="keywordtype">int</span>[] transactionsSupportsCount = <span class="keyword">new</span> <span class="keywordtype">int</span>[] { transactionsSupportsCountInt };</div>
+<div class="line">            Buffer&lt;int&gt; transactionsSupportsCountBuf = <span class="keyword">new</span> Buffer&lt;int&gt;(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a31accf2381865b9159941e6005ac14a6">context</a>, queue, transactionsSupportsCount);</div>
+<div class="line">            transactionsSupportsCountBuf.Write(<span class="keyword">false</span>);</div>
+<div class="line"></div>
+<div class="line">            <span class="keywordtype">int</span>[] transactionsSupports = <span class="keyword">new</span> <span class="keywordtype">int</span>[transactionsSupportsCountInt];</div>
+<div class="line">            Buffer&lt;int&gt; transactionsSupportsBuf = <span class="keyword">new</span> Buffer&lt;int&gt;(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a31accf2381865b9159941e6005ac14a6">context</a>, queue, transactionsSupports);</div>
+<div class="line"></div>
+<div class="line">            queue.Finish();</div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#ac4d9ba45dedf2b9ea09e38f8d41e8a27">kernelZero</a>.SetArguments(transactionsSupportsBuf, transactionsSupportsCountBuf, null, transactionsSupportsCountBuf);</div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#ac4d9ba45dedf2b9ea09e38f8d41e8a27">kernelZero</a>.Launch(queue, transactionsSupportsCountUInt);</div>
+<div class="line"></div>
+<div class="line">            Buffer&lt;int&gt; itemsSupportsBufCopy = <span class="keyword">new</span> Buffer&lt;int&gt;(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a31accf2381865b9159941e6005ac14a6">context</a>, queue, itemsSupports);</div>
+<div class="line"></div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a275538578e75d54750e8e38fa6c89f64">kernelCopy</a>.SetArguments(itemsSupportsBuf, itemsSupportsCountBuf, Zero, itemsSupportsCountBuf,</div>
+<div class="line">                itemsSupportsBufCopy, itemsSupportsCountBuf, Zero, itemsSupportsCountBuf);</div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a275538578e75d54750e8e38fa6c89f64">kernelCopy</a>.Launch(queue, itemsSupportsCountUInt);</div>
+<div class="line"></div>
+<div class="line">            Buffer&lt;int&gt; includedCountBuf = <span class="keyword">new</span> Buffer&lt;int&gt;(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a31accf2381865b9159941e6005ac14a6">context</a>, queue, 1);</div>
+<div class="line">            Buffer&lt;int&gt; outputOffsetBuf = <span class="keyword">new</span> Buffer&lt;int&gt;(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a31accf2381865b9159941e6005ac14a6">context</a>, queue, 1);</div>
+<div class="line"></div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a075cd84da62feb6579107f82374699a0">kernelSegmentedOr</a>.SetArguments(itemsSupportsBufCopy, itemsSupportsCountBuf, offsetBuf, includedCountBuf,</div>
+<div class="line">                null, itemsCountBuf);</div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a275538578e75d54750e8e38fa6c89f64">kernelCopy</a>.SetArguments(itemsSupportsBufCopy, itemsSupportsCountBuf, offsetBuf, One,</div>
+<div class="line">                transactionsSupportsBuf, transactionsSupportsCountBuf, outputOffsetBuf, One);</div>
+<div class="line"></div>
+<div class="line">            <span class="comment">//queue.Finish(); // debug</span></div>
+<div class="line">            <span class="comment">//itemsSupportsBufCopy.Read(); // debug</span></div>
+<div class="line"></div>
+<div class="line">            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> tn = 0; tn &lt; transactionsCountInt; ++tn)</div>
+<div class="line">            {</div>
+<div class="line">                offsetBuf.Value = transactionsStarts[tn];</div>
+<div class="line">                offsetBuf.Write(<span class="keyword">false</span>);</div>
+<div class="line">                includedCountBuf.Value = transactionsLengths[tn];</div>
+<div class="line">                includedCountBuf.Write(<span class="keyword">false</span>);</div>
+<div class="line"></div>
+<div class="line">                queue.Finish();</div>
+<div class="line">                <span class="comment">//for (int i = 0; i &lt; uniqueItemsCount; ++i)</span></div>
+<div class="line">                <span class="comment">//  kernelOr.Launch();</span></div>
+<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a075cd84da62feb6579107f82374699a0">kernelSegmentedOr</a>.Launch(queue, (uint)transactionsLengths[tn], uniqueItemsCountUInt);</div>
+<div class="line"></div>
+<div class="line">                <span class="comment">//queue.Finish(); // debug</span></div>
+<div class="line">                <span class="comment">//itemsSupportsBufCopy.Read(); // debug ONLY - causes incorrect results</span></div>
+<div class="line"></div>
+<div class="line">                outputOffsetBuf.Value = tn;</div>
+<div class="line">                outputOffsetBuf.Write(<span class="keyword">false</span>);</div>
+<div class="line">                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; uniqueItemsCount; ++i)</div>
+<div class="line">                {</div>
+<div class="line">                    queue.Finish();</div>
+<div class="line">                    <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a275538578e75d54750e8e38fa6c89f64">kernelCopy</a>.Launch(queue, 1);</div>
+<div class="line"></div>
+<div class="line">                    <span class="comment">//queue.Finish(); // debug</span></div>
+<div class="line">                    <span class="comment">//transactionsSupportsBuf.Read(); // debug</span></div>
+<div class="line"></div>
+<div class="line">                    <span class="keywordflow">if</span> (i == uniqueItemsCount - 1)</div>
+<div class="line">                        <span class="keywordflow">break</span>;</div>
+<div class="line"></div>
+<div class="line">                    offsetBuf.Value += itemsCountInt;</div>
+<div class="line">                    offsetBuf.Write(<span class="keyword">false</span>);</div>
+<div class="line"></div>
+<div class="line">                    outputOffsetBuf.Value += transactionsCountInt;</div>
+<div class="line">                    outputOffsetBuf.Write(<span class="keyword">false</span>);</div>
+<div class="line">                }</div>
+<div class="line">            }</div>
+<div class="line"></div>
+<div class="line"><span class="preprocessor">            #endregion</span></div>
+<div class="line"><span class="preprocessor"></span></div>
+<div class="line"><span class="preprocessor">            #region finding supports for customers</span></div>
+<div class="line"><span class="preprocessor"></span></div>
+<div class="line">            <span class="keywordtype">int</span> customersSupportsCountInt = customersCountInt * uniqueItemsCount;</div>
+<div class="line">            uint customersSupportsCountUInt = (uint)customersSupportsCountInt;</div>
+<div class="line"></div>
+<div class="line">            <span class="keywordtype">int</span>[] customersSupportsCount = <span class="keyword">new</span> <span class="keywordtype">int</span>[] { customersSupportsCountInt };</div>
+<div class="line">            Buffer&lt;int&gt; customersSupportsCountBuf = <span class="keyword">new</span> Buffer&lt;int&gt;(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a31accf2381865b9159941e6005ac14a6">context</a>, queue, customersSupportsCount);</div>
+<div class="line">            customersSupportsCountBuf.Write(<span class="keyword">false</span>);</div>
+<div class="line"></div>
+<div class="line">            <span class="keywordtype">int</span>[] customersSupports = <span class="keyword">new</span> <span class="keywordtype">int</span>[customersSupportsCountInt];</div>
+<div class="line">            Buffer&lt;int&gt; customersSupportsBuf = <span class="keyword">new</span> Buffer&lt;int&gt;(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a31accf2381865b9159941e6005ac14a6">context</a>, queue, customersSupports);</div>
+<div class="line"></div>
+<div class="line">            queue.Finish();</div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#ac4d9ba45dedf2b9ea09e38f8d41e8a27">kernelZero</a>.SetArguments(customersSupportsBuf, customersSupportsCountBuf, null, customersSupportsCountBuf);</div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#ac4d9ba45dedf2b9ea09e38f8d41e8a27">kernelZero</a>.Launch(queue, customersSupportsCountUInt);</div>
+<div class="line"></div>
+<div class="line">            Buffer&lt;int&gt; transactionsSupportsBufCopy = <span class="keyword">new</span> Buffer&lt;int&gt;(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a31accf2381865b9159941e6005ac14a6">context</a>, queue, transactionsSupports);</div>
+<div class="line"></div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a275538578e75d54750e8e38fa6c89f64">kernelCopy</a>.SetArguments(transactionsSupportsBuf, transactionsSupportsCountBuf, Zero, transactionsSupportsCountBuf,</div>
+<div class="line">                transactionsSupportsBufCopy, transactionsSupportsCountBuf, Zero, transactionsSupportsCountBuf);</div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a275538578e75d54750e8e38fa6c89f64">kernelCopy</a>.Launch(queue, transactionsSupportsCountUInt);</div>
+<div class="line"></div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a275538578e75d54750e8e38fa6c89f64">kernelCopy</a>.SetArguments(transactionsSupportsBuf, transactionsSupportsCountBuf, Zero, transactionsSupportsCountBuf,</div>
+<div class="line">                transactionsSupportsBufCopy, transactionsSupportsCountBuf, Zero, transactionsSupportsCountBuf);</div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a275538578e75d54750e8e38fa6c89f64">kernelCopy</a>.Launch(queue, transactionsSupportsCountUInt);</div>
+<div class="line"></div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a075cd84da62feb6579107f82374699a0">kernelSegmentedOr</a>.SetArguments(transactionsSupportsBufCopy, transactionsSupportsCountBuf, offsetBuf, includedCountBuf,</div>
+<div class="line">                null, transactionsCountBuf);</div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a275538578e75d54750e8e38fa6c89f64">kernelCopy</a>.SetArguments(transactionsSupportsBufCopy, transactionsSupportsCountBuf, offsetBuf, One,</div>
+<div class="line">                customersSupportsBuf, customersSupportsCountBuf, outputOffsetBuf, One);</div>
+<div class="line"></div>
+<div class="line">            <span class="comment">//queue.Finish(); // debug</span></div>
+<div class="line">            <span class="comment">//transactionsSupportsBufCopy.Read(); // debug</span></div>
+<div class="line"></div>
+<div class="line">            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> cn = 0; cn &lt; customersCountInt; ++cn)</div>
+<div class="line">            {</div>
+<div class="line">                offsetBuf.Value = customersStarts[cn];</div>
+<div class="line">                offsetBuf.Write(<span class="keyword">false</span>);</div>
+<div class="line">                includedCountBuf.Value = customersLengths[cn];</div>
+<div class="line">                includedCountBuf.Write(<span class="keyword">false</span>);</div>
+<div class="line"></div>
+<div class="line">                queue.Finish();</div>
+<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a075cd84da62feb6579107f82374699a0">kernelSegmentedOr</a>.Launch(queue, (uint)customersLengths[cn], uniqueItemsCountUInt);</div>
+<div class="line"></div>
+<div class="line">                <span class="comment">//queue.Finish(); // debug</span></div>
+<div class="line">                <span class="comment">//transactionsSupportsBufCopy.Read(); // debug ONLY - causes incorrect results</span></div>
+<div class="line"></div>
+<div class="line">                outputOffsetBuf.Value = cn;</div>
+<div class="line">                outputOffsetBuf.Write(<span class="keyword">false</span>);</div>
+<div class="line">                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; uniqueItemsCount; ++i)</div>
+<div class="line">                {</div>
+<div class="line">                    queue.Finish();</div>
+<div class="line">                    <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a275538578e75d54750e8e38fa6c89f64">kernelCopy</a>.Launch(queue, 1);</div>
+<div class="line"></div>
+<div class="line">                    <span class="comment">//queue.Finish(); // debug</span></div>
+<div class="line">                    <span class="comment">//customersSupportsBuf.Read(); // debug</span></div>
+<div class="line"></div>
+<div class="line">                    <span class="keywordflow">if</span> (i == uniqueItemsCount - 1)</div>
+<div class="line">                        <span class="keywordflow">break</span>;</div>
+<div class="line"></div>
+<div class="line">                    offsetBuf.Value += transactionsCountInt;</div>
+<div class="line">                    offsetBuf.Write(<span class="keyword">false</span>);</div>
+<div class="line"></div>
+<div class="line">                    outputOffsetBuf.Value += customersCountInt;</div>
+<div class="line">                    outputOffsetBuf.Write(<span class="keyword">false</span>);</div>
+<div class="line">                }</div>
+<div class="line">            }</div>
+<div class="line"></div>
+<div class="line"><span class="preprocessor">            #endregion</span></div>
+<div class="line"><span class="preprocessor"></span></div>
+<div class="line"><span class="preprocessor">            #region litemsets of size 1</span></div>
+<div class="line"><span class="preprocessor"></span></div>
+<div class="line">            Buffer&lt;int&gt; customersSupportsBufCopy = <span class="keyword">new</span> Buffer&lt;int&gt;(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a31accf2381865b9159941e6005ac14a6">context</a>, queue, customersSupports);</div>
+<div class="line"></div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a275538578e75d54750e8e38fa6c89f64">kernelCopy</a>.SetArguments(customersSupportsBuf, customersSupportsCountBuf, Zero, customersSupportsCountBuf,</div>
+<div class="line">                customersSupportsBufCopy, customersSupportsCountBuf, Zero, customersSupportsCountBuf);</div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a275538578e75d54750e8e38fa6c89f64">kernelCopy</a>.Launch(queue, customersSupportsCountUInt);</div>
+<div class="line"></div>
+<div class="line">            includedCountBuf.Value = customersCountInt;</div>
+<div class="line">            includedCountBuf.Write(<span class="keyword">false</span>);</div>
+<div class="line"></div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#ae87c93c8f0baacda4fdc38ec56312e11">kernelSum</a>.SetArguments(customersSupportsBufCopy, customersSupportsCountBuf, offsetBuf, includedCountBuf);</div>
+<div class="line"></div>
+<div class="line">            queue.Finish();</div>
+<div class="line">            List&lt;Litemset&gt; litemsets = <span class="keyword">new</span> List&lt;Litemset&gt;();</div>
+<div class="line">            List&lt;int&gt; supportedLocations = <span class="keyword">new</span> List&lt;int&gt;();</div>
+<div class="line"></div>
+<div class="line">            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> un = 0; un &lt; uniqueItemsCount; ++un)</div>
+<div class="line">            {</div>
+<div class="line">                offsetBuf.Value = un * customersCountInt;</div>
+<div class="line">                offsetBuf.Write(<span class="keyword">false</span>);</div>
+<div class="line"></div>
+<div class="line">                queue.Finish();</div>
+<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#ae87c93c8f0baacda4fdc38ec56312e11">kernelSum</a>.Launch(queue, customersCountUInt);</div>
+<div class="line"></div>
+<div class="line">                <span class="comment">//queue.Finish(); // debug</span></div>
+<div class="line">                <span class="comment">//customersSupportsBufCopy.Read(); // debug</span></div>
+<div class="line"></div>
+<div class="line">                queue.Finish();</div>
+<div class="line">                customersSupportsBufCopy.Read(<span class="keyword">false</span>, tempValue, (uint)offsetBuf.Value, 1);</div>
+<div class="line"></div>
+<div class="line">                queue.Finish();</div>
+<div class="line">                <span class="keywordtype">int</span> support = tempValue[0];</div>
+<div class="line">                <span class="keywordflow">if</span> (support &lt; minSupport)</div>
+<div class="line">                    <span class="keywordflow">continue</span>;</div>
+<div class="line"></div>
+<div class="line">                litemsets.Add(<span class="keyword">new</span> Litemset(support, uniqueItems[un]));</div>
+<div class="line">                supportedLocations.Add(un);</div>
+<div class="line">            }</div>
+<div class="line"></div>
+<div class="line"><span class="preprocessor">            #endregion</span></div>
+<div class="line"><span class="preprocessor"></span></div>
 <div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                Trace.WriteLine(String.Format(<span class="stringliteral">&quot;Generated all litemsets, found {0}.&quot;</span>, litemsets.Count));</div>
+<div class="line">            {</div>
+<div class="line">                watch.Stop();</div>
+<div class="line">                Log.WriteLine(<span class="stringliteral">&quot;single items @ {0}ms&quot;</span>, watch.ElapsedMilliseconds);</div>
+<div class="line">                watch.Start();</div>
+<div class="line">            }</div>
+<div class="line"></div>
+<div class="line"><span class="preprocessor">            #region litemsets of size 2 and above</span></div>
+<div class="line"><span class="preprocessor"></span></div>
+<div class="line">            <span class="comment">//int[] tempSupport = new int[] { 0 };</span></div>
+<div class="line">            <span class="keywordtype">bool</span> moreCanBeFound = <span class="keyword">true</span>;</div>
+<div class="line"></div>
+<div class="line">            queue.Finish();</div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a7bd0e1483a2eb0453cf988866d915b2c">kernelMax</a>.SetArguments(customersSupportsBufCopy, customersSupportsCountBuf, null, customersSupportsCountBuf);</div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a7bd0e1483a2eb0453cf988866d915b2c">kernelMax</a>.Launch(queue, customersSupportsCountUInt);</div>
+<div class="line"></div>
+<div class="line">            <span class="keywordtype">bool</span>[] newSupportedLocations = <span class="keyword">new</span> <span class="keywordtype">bool</span>[uniqueItemsCount];</div>
+<div class="line">            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; uniqueItemsCount; ++i)</div>
+<div class="line">                newSupportedLocations[i] = <span class="keyword">false</span>;</div>
+<div class="line"></div>
+<div class="line">            queue.Finish();</div>
+<div class="line">            customersSupportsBufCopy.Read(<span class="keyword">false</span>, tempValue, 0, 1);</div>
+<div class="line"></div>
+<div class="line">            queue.Finish();</div>
+<div class="line">            <span class="keywordflow">if</span> (tempValue[0] &lt; minSupport)</div>
+<div class="line">                moreCanBeFound = <span class="keyword">false</span>;</div>
+<div class="line"></div>
+<div class="line">            <span class="keywordflow">if</span> (supportedLocations.Count == 1)</div>
+<div class="line">                moreCanBeFound = <span class="keyword">false</span>;</div>
+<div class="line"></div>
+<div class="line">            <span class="keywordflow">if</span> (moreCanBeFound)</div>
+<div class="line">            {</div>
+<div class="line">                <span class="keywordtype">int</span>[] indices = <span class="keyword">new</span> <span class="keywordtype">int</span>[uniqueItemsCount];</div>
+<div class="line">                Buffer&lt;int&gt; indicesBuf = <span class="keyword">new</span> Buffer&lt;int&gt;(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a31accf2381865b9159941e6005ac14a6">context</a>, queue, indices);</div>
+<div class="line"></div>
+<div class="line">                <span class="keywordtype">int</span> currLength = 1;</div>
+<div class="line">                <span class="comment">//int[] currLengthArr = new int[]{ currLength };</span></div>
+<div class="line">                Buffer&lt;int&gt; currLengthBuf = <span class="keyword">new</span> Buffer&lt;int&gt;(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a31accf2381865b9159941e6005ac14a6">context</a>, queue, 1);</div>
+<div class="line"></div>
+<div class="line">                Buffer&lt;int&gt; stepBuf = <span class="keyword">new</span> Buffer&lt;int&gt;(<a class="code" href="class_apriori_all_lib_1_1_apriori.html#a31accf2381865b9159941e6005ac14a6">context</a>, queue, 1);</div>
+<div class="line"></div>
+<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#adf741de3150b7cca6b5b76674ff4188f">kernelMulitItemSupport</a>.SetArguments(transactionsSupportsBufCopy, transactionsSupportsCountBuf,</div>
+<div class="line">                    transactionsCountBuf, <span class="comment">/*uniqueItemsBuf,*/</span> indicesBuf, currLengthBuf, stepBuf);</div>
+<div class="line"></div>
+<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a275538578e75d54750e8e38fa6c89f64">kernelCopy</a>.SetArguments(transactionsSupportsBuf, transactionsSupportsCountBuf, offsetBuf, includedCountBuf,</div>
+<div class="line">                    transactionsSupportsBufCopy, transactionsSupportsCountBuf, offsetBuf, includedCountBuf);</div>
+<div class="line"></div>
+<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a9ab4994207f489a88f87a168c5a22d7c">kernelOr</a>.SetArguments(transactionsSupportsBufCopy, transactionsSupportsCountBuf, offsetBuf, includedCountBuf);</div>
+<div class="line"></div>
+<div class="line">                <a class="code" href="class_apriori_all_lib_1_1_apriori.html#ae87c93c8f0baacda4fdc38ec56312e11">kernelSum</a>.SetArguments(transactionsSupportsBufCopy, transactionsSupportsCountBuf, offsetBuf, transactionsCountBuf);</div>
+<div class="line"></div>
+<div class="line">                <span class="keywordflow">while</span> (moreCanBeFound)</div>
+<div class="line">                {</div>
+<div class="line">                    ++currLength;</div>
+<div class="line">                    currLengthBuf.Value = currLength;</div>
+<div class="line">                    currLengthBuf.Write(<span class="keyword">false</span>);</div>
+<div class="line"></div>
+<div class="line">                    <span class="comment">//uint itemsLength = (uint)items.Length;</span></div>
+<div class="line">                    uint litemsetOffset = (uint)litemsets.Count;</div>
+<div class="line"></div>
+<div class="line">                    <span class="comment">//indices.Clear();</span></div>
+<div class="line">                    for (<span class="keywordtype">int</span> i = 0; i &lt; currLength; ++i)</div>
+<div class="line">                        indices[i] = i;</div>
+<div class="line">                    <span class="keywordtype">int</span> currIndex = currLength - 1;</div>
+<div class="line"></div>
+<div class="line">                    <span class="comment">//queue.Finish(); // debug</span></div>
+<div class="line">                    <span class="comment">//supportsBuf.Read(); // debug only</span></div>
+<div class="line">                    <span class="comment">//supportsBakBuf.Read(); // debug only</span></div>
+<div class="line"></div>
+<div class="line">                    <span class="comment">//{ // debug</span></div>
+<div class="line">                    <span class="comment">//  indices[0] = 0;</span></div>
+<div class="line">                    <span class="comment">//  indices[1] = 5;</span></div>
+<div class="line">                    <span class="comment">//  indices[2] = 6;</span></div>
+<div class="line">                    <span class="comment">//  currLength = 3;</span></div>
+<div class="line">                    <span class="comment">//  currLengthBuf.Value = currLength;</span></div>
+<div class="line">                    <span class="comment">//  currLengthBuf.Write();</span></div>
+<div class="line">                    <span class="comment">//}</span></div>
+<div class="line"></div>
+<div class="line">                    <span class="comment">//queue.Finish(); // debug</span></div>
+<div class="line">                    <span class="comment">//transactionsSupportsBufCopy.Read(); // debug</span></div>
+<div class="line"></div>
+<div class="line">                    <span class="keywordflow">while</span> (<span class="keyword">true</span>)</div>
+<div class="line">                    {</div>
+<div class="line">                        indicesBuf.Write(<span class="keyword">false</span>, 0, (uint)currLength);</div>
+<div class="line"></div>
+<div class="line">                        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; currLength; ++i)</div>
+<div class="line">                        {</div>
+<div class="line">                            offsetBuf.Value = indices[i] * transactionsCountInt;</div>
+<div class="line">                            offsetBuf.Write(<span class="keyword">false</span>);</div>
+<div class="line">                            includedCountBuf.Value = transactionsCountInt;</div>
+<div class="line">                            includedCountBuf.Write(<span class="keyword">false</span>);</div>
+<div class="line">                            queue.Finish();</div>
+<div class="line">                            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a275538578e75d54750e8e38fa6c89f64">kernelCopy</a>.Launch(queue, transactionsCountUInt);</div>
+<div class="line">                        }</div>
+<div class="line"></div>
+<div class="line">                        <span class="comment">//queue.Finish(); // debug</span></div>
+<div class="line">                        <span class="comment">//transactionsSupportsBufCopy.Read(); // debug</span></div>
+<div class="line"></div>
+<div class="line">                        queue.Finish();</div>
+<div class="line">                        stepBuf.Value = 1;</div>
+<div class="line">                        <span class="keywordflow">while</span> (stepBuf.Value &lt; currLength)</div>
+<div class="line">                        {</div>
+<div class="line">                            stepBuf.Write(queue);</div>
+<div class="line">                            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#adf741de3150b7cca6b5b76674ff4188f">kernelMulitItemSupport</a>.<a class="code" href="class_apriori_all_lib_1_1_multi_item_support_kernel.html#a91ae89a2b8ffc187258b2a704d5b99be" title="Launches the Kernel on a given command queue. ">Launch</a>(queue, transactionsCountUInt, (uint)currLength);</div>
+<div class="line">                            stepBuf.BackingCollection[0] *= 2;</div>
+<div class="line"></div>
+<div class="line">                            <span class="comment">//queue.Finish(); // debug</span></div>
+<div class="line">                            <span class="comment">//transactionsSupportsBufCopy.Read(); // debug</span></div>
+<div class="line">                        }</div>
+<div class="line"></div>
+<div class="line">                        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> cn = 0; cn &lt; customersCountInt; ++cn)</div>
+<div class="line">                        {</div>
+<div class="line">                            offsetBuf.Value = indices[0] * transactionsCountInt + customersStarts[cn];</div>
+<div class="line">                            offsetBuf.Write(<span class="keyword">false</span>);</div>
+<div class="line">                            includedCountBuf.Value = customersLengths[cn];</div>
+<div class="line">                            includedCountBuf.Write(<span class="keyword">false</span>);</div>
+<div class="line"></div>
+<div class="line">                            queue.Finish();</div>
+<div class="line">                            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a9ab4994207f489a88f87a168c5a22d7c">kernelOr</a>.Launch(queue, (uint)customersLengths[cn]);</div>
+<div class="line"></div>
+<div class="line">                            <span class="comment">//queue.Finish(); // debug</span></div>
+<div class="line">                            <span class="comment">//transactionsSupportsBufCopy.Read(); // debug</span></div>
+<div class="line">                        }</div>
+<div class="line"></div>
+<div class="line">                        offsetBuf.Value = indices[0] * transactionsCountInt;</div>
+<div class="line">                        offsetBuf.Write(<span class="keyword">false</span>);</div>
+<div class="line"></div>
+<div class="line">                        queue.Finish();</div>
+<div class="line">                        <a class="code" href="class_apriori_all_lib_1_1_apriori.html#ae87c93c8f0baacda4fdc38ec56312e11">kernelSum</a>.Launch(queue, transactionsCountUInt);</div>
+<div class="line"></div>
+<div class="line">                        queue.Finish();</div>
+<div class="line">                        transactionsSupportsBufCopy.Read(<span class="keyword">false</span>, tempValue, (uint)offsetBuf.Value, 1);</div>
+<div class="line"></div>
+<div class="line">                        <span class="comment">//int locInit = supportedLocations[indices[0]];</span></div>
+<div class="line">                        <span class="comment">//kernelCopy.Launch(queue, supportsBakBuf, (uint)locInit * itemsLength, itemsLength,</span></div>
+<div class="line">                        <span class="comment">//  itemsSupportsBuf, 0, itemsLength);</span></div>
+<div class="line"></div>
+<div class="line">                        <span class="comment">//for (int n = 1; n &lt; indices.Count; ++n)</span></div>
+<div class="line">                        <span class="comment">//{</span></div>
+<div class="line">                        <span class="comment">//  int locN = supportedLocations[indices[n]];</span></div>
+<div class="line">                        <span class="comment">//  queue.Finish();</span></div>
+<div class="line">                        <span class="comment">//  //supportsBuf.Read(); // debug only</span></div>
+<div class="line">                        <span class="comment">//  //supportsBakBuf.Read(); // debug only</span></div>
+<div class="line">                        <span class="comment">//  kernelPairwiseAnd.Launch(queue, supportsBakBuf, (uint)locN * itemsLength, itemsLength,</span></div>
+<div class="line">                        <span class="comment">//      itemsSupportsBuf, 0, itemsLength,</span></div>
+<div class="line">                        <span class="comment">//      itemsSupportsBuf, 0, itemsLength);</span></div>
+<div class="line">                        <span class="comment">//}</span></div>
+<div class="line"></div>
+<div class="line">                        <span class="comment">//queue.Finish();</span></div>
+<div class="line">                        <span class="comment">//kernelSum.Launch(queue, itemsSupportsBuf, 0, itemsLength);</span></div>
+<div class="line"></div>
+<div class="line">                        <span class="comment">//queue.Finish();</span></div>
+<div class="line">                        <span class="comment">//itemsSupportsBuf.Read(false, 0, 1);</span></div>
+<div class="line"></div>
+<div class="line">                        queue.Finish();</div>
+<div class="line">                        <span class="comment">//supportsBuf.Read(); // debug only</span></div>
+<div class="line">                        <span class="comment">//supportsBakBuf.Read(); // debug only</span></div>
+<div class="line">                        <span class="keywordflow">if</span> (tempValue[0] &gt;= minSupport)</div>
+<div class="line">                        {</div>
+<div class="line">                            Litemset l = <span class="keyword">new</span> Litemset(<span class="keyword">new</span> List&lt;Item&gt;());</div>
+<div class="line">                            l.Support = tempValue[0];</div>
+<div class="line">                            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; currLength; ++i)</div>
+<div class="line">                            <span class="comment">//foreach (int index in indices)</span></div>
+<div class="line">                            {</div>
+<div class="line">                                <span class="keywordtype">int</span> index = indices[i];</div>
+<div class="line">                                <span class="comment">//int spprtd = supportedLocations[index];</span></div>
+<div class="line">                                l.Items.Add(<span class="keyword">new</span> Item(uniqueItems[index]));</div>
+<div class="line">                                newSupportedLocations[index] = <span class="keyword">true</span>;</div>
+<div class="line">                            }</div>
+<div class="line">                            litemsets.Add(l);</div>
+<div class="line">                        }</div>
+<div class="line"></div>
+<div class="line">                        <span class="keywordflow">if</span> ((currIndex == 0 &amp;&amp; indices[currIndex] == supportedLocations.Count - currLength)</div>
+<div class="line">                            || currLength == supportedLocations.Count)</div>
+<div class="line">                            <span class="keywordflow">break</span>;</div>
+<div class="line">                        <span class="keywordflow">if</span> (indices[currIndex] == supportedLocations.Count - currLength + currIndex)</div>
+<div class="line">                        {</div>
+<div class="line">                            ++indices[currIndex - 1];</div>
+<div class="line">                            <span class="keywordflow">if</span> (indices[currIndex - 1] + 1 &lt; indices[currIndex])</div>
+<div class="line">                            {</div>
+<div class="line">                                <span class="keywordflow">while</span> (currIndex &lt; currLength - 1)</div>
+<div class="line">                                {</div>
+<div class="line">                                    indices[currIndex] = indices[currIndex - 1] + 1;</div>
+<div class="line">                                    ++currIndex;</div>
+<div class="line">                                }</div>
+<div class="line">                                indices[currIndex] = indices[currIndex - 1] + 1;</div>
+<div class="line">                            }</div>
+<div class="line">                            <span class="keywordflow">else</span></div>
+<div class="line">                            {</div>
+<div class="line">                                --currIndex;</div>
+<div class="line">                            }</div>
+<div class="line">                            <span class="keywordflow">continue</span>;</div>
+<div class="line">                        }</div>
+<div class="line">                        indices[currIndex] += 1;</div>
+<div class="line">                    }</div>
+<div class="line"></div>
+<div class="line">                    <span class="keywordflow">if</span> (litemsets.Count &lt;= litemsetOffset || currLength &gt;= uniqueItemsCount)</div>
+<div class="line">                    {</div>
+<div class="line">                        moreCanBeFound = <span class="keyword">false</span>;</div>
+<div class="line">                        <span class="keywordflow">break</span>;</div>
+<div class="line">                    }</div>
+<div class="line"></div>
+<div class="line">                    supportedLocations.Clear();</div>
+<div class="line">                    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; uniqueItemsCount; ++i)</div>
+<div class="line">                    {</div>
+<div class="line">                        <span class="keywordflow">if</span> (newSupportedLocations[i])</div>
+<div class="line">                        {</div>
+<div class="line">                            supportedLocations.Add(i);</div>
+<div class="line">                            newSupportedLocations[i] = <span class="keyword">false</span>;</div>
+<div class="line">                        }</div>
+<div class="line">                    }</div>
+<div class="line"></div>
+<div class="line">                    <span class="keywordflow">if</span> (currLength &gt;= supportedLocations.Count)</div>
+<div class="line">                    {</div>
+<div class="line">                        <span class="comment">// too few supported single elements to make a candidate of required length</span></div>
+<div class="line">                        moreCanBeFound = <span class="keyword">false</span>;</div>
+<div class="line">                        <span class="keywordflow">break</span>;</div>
+<div class="line">                    }</div>
+<div class="line"></div>
+<div class="line">                    <span class="comment">//break; // only temporarily</span></div>
+<div class="line">                }</div>
+<div class="line"></div>
+<div class="line">                queue.Finish();</div>
+<div class="line"></div>
+<div class="line">                stepBuf.Dispose();</div>
+<div class="line">                currLengthBuf.Dispose();</div>
+<div class="line">                indicesBuf.Dispose();</div>
+<div class="line">            }</div>
+<div class="line"><span class="preprocessor">            #endregion</span></div>
+<div class="line"><span class="preprocessor"></span></div>
+<div class="line">            <span class="comment">//kernelMax.RestoreInternalArguments();</span></div>
+<div class="line">            <span class="comment">//kernelCopy.RestoreInternalArguments();</span></div>
+<div class="line">            <span class="comment">//kernelZero.RestoreInternalArguments();</span></div>
+<div class="line">            <span class="comment">//kernelSubstitute.RestoreInternalArguments();</span></div>
+<div class="line">            <span class="comment">//kernelMin.RestoreInternalArguments();</span></div>
+<div class="line">            <span class="comment">//kernelCopyIfEqual.RestoreInternalArguments();</span></div>
+<div class="line">            <span class="comment">//kernelSubstituteIfNotEqual.RestoreInternalArguments();</span></div>
+<div class="line">            <span class="comment">//kernelSegmentedOr.RestoreInternalArguments();</span></div>
+<div class="line">            <span class="comment">//kernelSum.RestoreInternalArguments();</span></div>
+<div class="line"></div>
+<div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
+<div class="line">            {</div>
+<div class="line">                watch.Stop();</div>
+<div class="line">                Log.WriteLine(<span class="stringliteral">&quot;Generated all litemsets, found {0} in {1}ms.&quot;</span>, litemsets.Count, watch.ElapsedMilliseconds);</div>
+<div class="line">            }</div>
+<div class="line"></div>
+<div class="line">            queue.Finish();</div>
+<div class="line"></div>
+<div class="line"><span class="preprocessor">            #region disposing of buffers</span></div>
+<div class="line"><span class="preprocessor"></span></div>
+<div class="line">            <span class="comment">// input buffers</span></div>
+<div class="line">            itemsBuf.Dispose();</div>
+<div class="line">            transactionsStartsBuf.Dispose();</div>
+<div class="line">            customersStartsBuf.Dispose();</div>
+<div class="line">            itemsCountBuf.Dispose();</div>
+<div class="line">            transactionsCountBuf.Dispose();</div>
+<div class="line">            customersCountBuf.Dispose();</div>
+<div class="line"></div>
+<div class="line">            <span class="comment">// building itemsSupports</span></div>
+<div class="line">            emptyIdBuf.Dispose();</div>
+<div class="line"></div>
+<div class="line">            <span class="comment">// unique items storage</span></div>
+<div class="line">            uniqueItemsBuf.Dispose();</div>
+<div class="line"></div>
+<div class="line">            <span class="comment">// supports storage</span></div>
+<div class="line">            itemsSupportsBuf.Dispose();</div>
+<div class="line">            itemsSupportsCountBuf.Dispose();</div>
+<div class="line">            itemsSupportsBufCopy.Dispose();</div>
+<div class="line">            transactionsSupportsBuf.Dispose();</div>
+<div class="line">            transactionsSupportsCountBuf.Dispose();</div>
+<div class="line">            transactionsSupportsBufCopy.Dispose();</div>
+<div class="line">            customersSupportsBuf.Dispose();</div>
+<div class="line">            customersSupportsCountBuf.Dispose();</div>
+<div class="line">            customersSupportsBufCopy.Dispose();</div>
+<div class="line"></div>
+<div class="line">            <span class="comment">// temporary memory</span></div>
+<div class="line">            tempItemsBuf.Dispose();</div>
+<div class="line">            itemsRemainingBuf.Dispose();</div>
+<div class="line"></div>
+<div class="line">            includedCountBuf.Dispose();</div>
+<div class="line">            offsetBuf.Dispose();</div>
+<div class="line">            outputOffsetBuf.Dispose();</div>
+<div class="line"></div>
+<div class="line"></div>
+<div class="line">            <span class="comment">// constants</span></div>
+<div class="line">            Zero.Dispose();</div>
+<div class="line">            One.Dispose();</div>
+<div class="line"></div>
+<div class="line"><span class="preprocessor">            #endregion</span></div>
+<div class="line"><span class="preprocessor"></span></div>
+<div class="line">            queue.Dispose();</div>
+<div class="line">            Kernels.Dispose();</div>
 <div class="line"></div>
 <div class="line">            <span class="keywordflow">return</span> litemsets;</div>
+<div class="line">            <span class="comment">//return null;</span></div>
 <div class="line">        }</div>
 </div><!-- fragment -->
 <p><div class="dynheader">
@@ -820,7 +1727,47 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_apriori_all_lib_1_1_apriori_acc814f1f0486ef94181556bb96750b95_cgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_apriori_acc814f1f0486ef94181556bb96750b95_cgraph" alt=""/></div>
 <map name="class_apriori_all_lib_1_1_apriori_acc814f1f0486ef94181556bb96750b95_cgraph" id="class_apriori_all_lib_1_1_apriori_acc814f1f0486ef94181556bb96750b95_cgraph">
-<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_open_c_l_checker.html#adf47c7b99e651e7fb42b5a6ff28d3df9" title="Determines and returns number of available OpenCL platforms. " alt="" coords="213,5,408,46"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_apriori.html#a91d0b11de53dab28769f1d7fda0542c6" title="Finds all litemsets that have the minimal support. " alt="" coords="231,70,390,111"/><area shape="rect" id="node7" href="class_apriori_all_lib_1_1_apriori.html#a6421baeff907e6e56568e277f3bafd6b" title="AprioriAllLib.Apriori.Init\lOpenCL" alt="" coords="234,135,387,177"/><area shape="rect" id="node9" href="class_apriori_all_lib_1_1_apriori.html#a16f1dd784baf7b93f1194da49aa7986a" title="AprioriAllLib.Apriori.Init\lOpenCLPrograms" alt="" coords="234,201,387,242"/><area shape="rect" id="node11" href="class_apriori_all_lib_1_1_open_c_l_toolkit.html#a83a109c1815137f85a1ac5106929070a" title="AprioriAllLib.OpenCLToolkit.\lCreateBuffer" alt="" coords="219,266,403,307"/><area shape="rect" id="node13" href="class_apriori_all_lib_1_1_open_c_l_toolkit.html#a17ddb6c6e18bc50e49641cd6a8640cac" title="AprioriAllLib.OpenCLToolkit.\lSetKernelArgs" alt="" coords="219,331,403,373"/><area shape="rect" id="node15" href="class_apriori_all_lib_1_1_open_c_l_toolkit.html#a10825663785a5a85125d87ce8339f0d0" title="AprioriAllLib.OpenCLToolkit.\lWriteBuffer" alt="" coords="219,397,403,438"/><area shape="rect" id="node17" href="class_apriori_all_lib_1_1_open_c_l_toolkit.html#a897e967bc44990face82790a2d5cba54" title="AprioriAllLib.OpenCLToolkit.\lLaunchKernel1D" alt="" coords="219,462,403,503"/><area shape="rect" id="node19" href="class_apriori_all_lib_1_1_open_c_l_toolkit.html#a11b8d6c0846ebab37fe05f6a466d149f" title="AprioriAllLib.OpenCLToolkit.\lReadBuffer" alt="" coords="219,527,403,569"/></map>
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori.html#a91d0b11de53dab28769f1d7fda0542c6" title="Finds all litemsets that have the minimal support. " alt="" coords="231,5,390,46"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_apriori.html#a6421baeff907e6e56568e277f3bafd6b" title="AprioriAllLib.Apriori.Init\lOpenCL" alt="" coords="234,70,387,111"/><area shape="rect" id="node7" href="class_apriori_all_lib_1_1_apriori.html#a4418e5a5ed2964f0f34b7656004d8320" title="AprioriAllLib.Apriori.Init\lOpenCLPrograms" alt="" coords="234,135,387,177"/><area shape="rect" id="node9" href="class_apriori_all_lib_1_1_multi_item_support_kernel.html#a91ae89a2b8ffc187258b2a704d5b99be" title="Launches the Kernel on a given command queue. " alt="" coords="214,201,407,242"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a15ffd8ff3283d42db3caac5400f68e05"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt;<a class="el" href="class_apriori_all_lib_1_1_litemset.html">Litemset</a>&gt; AprioriAllLib.Apriori.RunParallelAprioriWithPruning </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>minimalSupport</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>progressOutput</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line">        {</div>
+<div class="line">            var results = <a class="code" href="class_apriori_all_lib_1_1_apriori.html#abf88e1f78883083cd20760cb43029738" title="Executes parallel version of the Apriori algorithm. ">RunParallelApriori</a>(minimalSupport, progressOutput);</div>
+<div class="line">            <a class="code" href="class_apriori_all_lib_1_1_apriori.html#a52a508279a4057bf07fa645a267f03a2">RemoveNonMaximal</a>(results, <span class="keyword">true</span>, progressOutput);</div>
+<div class="line">            <span class="keywordflow">return</span> results;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_apriori_all_lib_1_1_apriori_a15ffd8ff3283d42db3caac5400f68e05_cgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_apriori_a15ffd8ff3283d42db3caac5400f68e05_cgraph" alt=""/></div>
+<map name="class_apriori_all_lib_1_1_apriori_a15ffd8ff3283d42db3caac5400f68e05_cgraph" id="class_apriori_all_lib_1_1_apriori_a15ffd8ff3283d42db3caac5400f68e05_cgraph">
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_apriori.html#abf88e1f78883083cd20760cb43029738" title="Executes parallel version of the Apriori algorithm. " alt="" coords="239,5,398,46"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_apriori.html#a52a508279a4057bf07fa645a267f03a2" title="AprioriAllLib.Apriori.Remove\lNonMaximal" alt="" coords="227,70,410,111"/></map>
 </div>
 </p>
 
@@ -871,7 +1818,7 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a class="anchor" id="a5d8b5f3eb0d9e2509a23626ad07cd02c"></a>
+<a class="anchor" id="a31accf2381865b9159941e6005ac14a6"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -879,7 +1826,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Cl.Context AprioriAllLib.Apriori.context</td>
+          <td class="memname">Context AprioriAllLib.Apriori.context</td>
         </tr>
       </table>
   </td>
@@ -913,7 +1860,7 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a class="anchor" id="a297b321a5b1fd50d9da8678848aed8b9"></a>
+<a class="anchor" id="afe2ab9a5df8c398ebbc1612320717253"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -921,7 +1868,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Cl.Device AprioriAllLib.Apriori.device</td>
+          <td class="memname">Device AprioriAllLib.Apriori.device</td>
         </tr>
       </table>
   </td>
@@ -933,7 +1880,7 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a class="anchor" id="aea39ed1929ca59c4e4f395069f26ed50"></a>
+<a class="anchor" id="ab7161aa7562c0eb566d7a310abf57036"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -941,7 +1888,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Cl.Device [] AprioriAllLib.Apriori.devices</td>
+          <td class="memname">Kernels.And AprioriAllLib.Apriori.kernelAnd</td>
         </tr>
       </table>
   </td>
@@ -953,7 +1900,7 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a class="anchor" id="ab2d6d8f3f2b34ac27f51ca60738d448c"></a>
+<a class="anchor" id="a275538578e75d54750e8e38fa6c89f64"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -961,7 +1908,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Cl.Platform AprioriAllLib.Apriori.platform</td>
+          <td class="memname">Kernels.PairwiseCopy AprioriAllLib.Apriori.kernelCopy</td>
         </tr>
       </table>
   </td>
@@ -973,7 +1920,7 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a class="anchor" id="abd11689a0181f75e73610dfb48d148df"></a>
+<a class="anchor" id="a00e4599ad7ada3928563440c836eb64b"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -981,7 +1928,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Cl.Program AprioriAllLib.Apriori.programBasicFunctions</td>
+          <td class="memname">Kernels.PairwiseCopyIfEqual AprioriAllLib.Apriori.kernelCopyIfEqual</td>
         </tr>
       </table>
   </td>
@@ -993,7 +1940,7 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a class="anchor" id="a66e578bc7a5c8b8e5fd706bb2d9420a4"></a>
+<a class="anchor" id="a7bd0e1483a2eb0453cf988866d915b2c"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -1001,7 +1948,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Cl.Program AprioriAllLib.Apriori.programDistinct</td>
+          <td class="memname">Kernels.Max AprioriAllLib.Apriori.kernelMax</td>
         </tr>
       </table>
   </td>
@@ -1011,11 +1958,9 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Program created from file '<a class="el" href="distinct_8cl.html">distinct.cl</a>'. </p>
-
 </div>
 </div>
-<a class="anchor" id="ac990e89d5931004309bc7d99e16c8386"></a>
+<a class="anchor" id="aae8cc40037ec35ed2fa8a052eb1d3be3"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -1023,7 +1968,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Cl.Program AprioriAllLib.Apriori.programSeparation</td>
+          <td class="memname">Kernels.Min AprioriAllLib.Apriori.kernelMin</td>
         </tr>
       </table>
   </td>
@@ -1033,11 +1978,9 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Program created from file '<a class="el" href="separation_8cl.html">separation.cl</a>'. </p>
-
 </div>
 </div>
-<a class="anchor" id="a575e69f62a96b3789ea6ee401d95a102"></a>
+<a class="anchor" id="adf741de3150b7cca6b5b76674ff4188f"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -1045,7 +1988,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Cl.Program AprioriAllLib.Apriori.programSupport</td>
+          <td class="memname"><a class="el" href="class_apriori_all_lib_1_1_multi_item_support_kernel.html">MultiItemSupportKernel</a> AprioriAllLib.Apriori.kernelMulitItemSupport</td>
         </tr>
       </table>
   </td>
@@ -1055,7 +1998,207 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Program created from file '<a class="el" href="support_8cl.html">support.cl</a>'. </p>
+</div>
+</div>
+<a class="anchor" id="a9ab4994207f489a88f87a168c5a22d7c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Kernels.Or AprioriAllLib.Apriori.kernelOr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a576fca575e3554d1f8dfc44ea442c440"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Kernels.PairwiseAnd AprioriAllLib.Apriori.kernelPairwiseAnd</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a075cd84da62feb6579107f82374699a0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Kernels.SegmentedOr AprioriAllLib.Apriori.kernelSegmentedOr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ab58cbfdf308bcfc7bc0e28ee5bcbc8a7"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Kernels.SubstituteIfEqual AprioriAllLib.Apriori.kernelSubstitute</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ac26f175379d88845f051ea2127147b2d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Kernels.SubstituteIfNotEqual AprioriAllLib.Apriori.kernelSubstituteIfNotEqual</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ae87c93c8f0baacda4fdc38ec56312e11"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Kernels.Sum AprioriAllLib.Apriori.kernelSum</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ac4d9ba45dedf2b9ea09e38f8d41e8a27"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Kernels.AssignZero AprioriAllLib.Apriori.kernelZero</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aa2181af1f62cbe335ef2b4c43acf9e5b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Platform AprioriAllLib.Apriori.platform</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aae4047b4e4860e25fc33500ea5ffc2ff"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Program AprioriAllLib.Apriori.programApriori</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Program created from file '<a class="el" href="apriori_8cl.html">apriori.cl</a>'. </p>
+
+</div>
+</div>
+<a class="anchor" id="a7b88a73d11962a292c6204b801b0fad8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Semaphore [] AprioriAllLib.Apriori.sem</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

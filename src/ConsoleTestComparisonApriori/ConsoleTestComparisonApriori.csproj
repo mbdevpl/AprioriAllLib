@@ -7,7 +7,7 @@
     <ProjectGuid>{01B88A35-6C61-4D61-9F4C-B54335800AE2}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ConsoleTestComparisonApriori</RootNamespace>
+    <RootNamespace>AprioriAllLib.Test.InConsole</RootNamespace>
     <AssemblyName>ConsoleTestComparisonApriori</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

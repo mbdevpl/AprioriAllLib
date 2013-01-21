@@ -1,11 +1,12 @@
 var searchData=
 [
   ['icomparable',['IComparable',['../class_i_comparable.html',1,'']]],
+  ['idisposable',['IDisposable',['../class_i_disposable.html',1,'']]],
   ['ids',['IDs',['../class_apriori_all_lib_1_1_litemset.html#a74c9ee16b225268e66ee77d69142bc1a',1,'AprioriAllLib::Litemset']]],
   ['inferrealresults',['InferRealResults',['../class_apriori_all_lib_1_1_apriori_all.html#ad0e1764626e9c890583e7f1e5783d51e',1,'AprioriAllLib::AprioriAll']]],
   ['initialized',['initialized',['../class_apriori_all_lib_1_1_test_1_1_apriori_test_base.html#aecbeae7557e83c084ea6c7570e607dd8',1,'AprioriAllLib::Test::AprioriTestBase']]],
   ['initopencl',['InitOpenCL',['../class_apriori_all_lib_1_1_apriori.html#a6421baeff907e6e56568e277f3bafd6b',1,'AprioriAllLib::Apriori']]],
-  ['initopenclprograms',['InitOpenCLPrograms',['../class_apriori_all_lib_1_1_apriori.html#a16f1dd784baf7b93f1194da49aa7986a',1,'AprioriAllLib::Apriori']]],
+  ['initopenclprograms',['InitOpenCLPrograms',['../class_apriori_all_lib_1_1_apriori.html#a4418e5a5ed2964f0f34b7656004d8320',1,'AprioriAllLib::Apriori']]],
   ['input_20data_20structures',['Input data structures',['../group__input.html',1,'']]],
   ['inputdata',['InputData',['../class_apriori_all_lib_1_1_test_1_1_input_data.html',1,'AprioriAllLib::Test']]],
   ['inputdata',['InputData',['../class_apriori_all_lib_1_1_test_1_1_input_data.html#a9468969b7234c036b01dba6b5c7ad32c',1,'AprioriAllLib::Test::InputData']]],

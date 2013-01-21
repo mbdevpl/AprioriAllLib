@@ -1,8 +1,5 @@
 var hierarchy =
 [
-    [ "AprioriAllLib.Apriori", "class_apriori_all_lib_1_1_apriori.html", [
-      [ "AprioriAllLib.AprioriAll", "class_apriori_all_lib_1_1_apriori_all.html", null ]
-    ] ],
     [ "AprioriAllLib.Test.AprioriTestBase", "class_apriori_all_lib_1_1_test_1_1_apriori_test_base.html", [
       [ "AprioriAllLib.Test.AprioriAllTestBase", "class_apriori_all_lib_1_1_test_1_1_apriori_all_test_base.html", [
         [ "AprioriAllLib.Test.AprioriAllParallelTest", "class_apriori_all_lib_1_1_test_1_1_apriori_all_parallel_test.html", null ],
@@ -21,13 +18,16 @@ var hierarchy =
       [ "AprioriAllLib.Item", "class_apriori_all_lib_1_1_item.html", null ],
       [ "AprioriAllLib.Litemset", "class_apriori_all_lib_1_1_litemset.html", null ]
     ] ],
+    [ "IDisposable", "class_i_disposable.html", [
+      [ "AprioriAllLib.Apriori", "class_apriori_all_lib_1_1_apriori.html", [
+        [ "AprioriAllLib.AprioriAll", "class_apriori_all_lib_1_1_apriori_all.html", null ]
+      ] ]
+    ] ],
     [ "AprioriAllLib.Test.InputData", "class_apriori_all_lib_1_1_test_1_1_input_data.html", null ],
     [ "AprioriAllLib.InputGenerator", "class_apriori_all_lib_1_1_input_generator.html", null ],
-    [ "AprioriAllLib.OpenCLBase", "class_apriori_all_lib_1_1_open_c_l_base.html", [
-      [ "AprioriAllLib.OpenCLChecker", "class_apriori_all_lib_1_1_open_c_l_checker.html", null ],
-      [ "AprioriAllLib.OpenCLToolkit", "class_apriori_all_lib_1_1_open_c_l_toolkit.html", null ]
+    [ "Kernel", "class_kernel.html", [
+      [ "AprioriAllLib.MultiItemSupportKernel", "class_apriori_all_lib_1_1_multi_item_support_kernel.html", null ]
     ] ],
-    [ "AprioriAllLib.Test.OpenCLTest", "class_apriori_all_lib_1_1_test_1_1_open_c_l_test.html", null ],
     [ "AprioriAllLib.PrefixTree", "class_apriori_all_lib_1_1_prefix_tree.html", null ],
     [ "AprioriAllLib.PrefixTreeNode", "class_apriori_all_lib_1_1_prefix_tree_node.html", null ],
     [ "AprioriAllLib.Test.InConsole.Program_Apriori", "class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program___apriori.html", null ],

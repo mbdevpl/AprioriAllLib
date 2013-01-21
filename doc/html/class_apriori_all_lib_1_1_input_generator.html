@@ -29,7 +29,7 @@
   <td id="projectlogo"><img alt="Logo" src="project_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">Apriori and AprioriAll in C#
-   &#160;<span id="projectnumber">version 1.5.0</span>
+   &#160;<span id="projectnumber">version 2.0.0</span>
    </div>
    <div id="projectbrief">serialized version with prefix trees, parallel version with OpenCL</div>
   </td>
@@ -126,6 +126,8 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:af4d27a9352dff265fe1d6f012f33f2b8"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_apriori_all_lib_1_1_customer_list.html">CustomerList</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_input_generator.html#af4d27a9352dff265fe1d6f012f33f2b8">GenerateRandomList</a> (int customersCount, int maxTransactionCount, int maxTransactionLength)</td></tr>
 <tr class="memdesc:af4d27a9352dff265fe1d6f012f33f2b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random list of customers. Randomization is parameterized.  <a href="#af4d27a9352dff265fe1d6f012f33f2b8"></a><br/></td></tr>
 <tr class="separator:af4d27a9352dff265fe1d6f012f33f2b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabf67468a8cd694528c0f26abddeafca"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_apriori_all_lib_1_1_customer_list.html">CustomerList</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_apriori_all_lib_1_1_input_generator.html#aabf67468a8cd694528c0f26abddeafca">GenerateRandomList</a> (int customersCount, int maxTransactionCount, int maxTransactionLength, int maxUniqueItemsCount)</td></tr>
+<tr class="separator:aabf67468a8cd694528c0f26abddeafca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Tool for generating random input for <a class="el" href="class_apriori_all_lib_1_1_apriori.html" title="Used to get list of large itemsets from a set of customers&#39; transactions.">Apriori</a> and <a class="el" href="class_apriori_all_lib_1_1_apriori_all.html" title="AprioriAll algorithm implementation. ">AprioriAll</a> algorithms. </p>
@@ -179,6 +181,65 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 <div class="fragment"><div class="line">        {</div>
+<div class="line">            <span class="keywordflow">return</span> <a class="code" href="class_apriori_all_lib_1_1_input_generator.html#af4d27a9352dff265fe1d6f012f33f2b8" title="Generates a random list of customers. Randomization is parameterized. ">GenerateRandomList</a>(customersCount, maxTransactionCount,</div>
+<div class="line">                maxTransactionLength, maxTransactionLength);</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_apriori_all_lib_1_1_input_generator_af4d27a9352dff265fe1d6f012f33f2b8_icgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_input_generator_af4d27a9352dff265fe1d6f012f33f2b8_icgraph" alt=""/></div>
+<map name="class_apriori_all_lib_1_1_input_generator_af4d27a9352dff265fe1d6f012f33f2b8_icgraph" id="class_apriori_all_lib_1_1_input_generator_af4d27a9352dff265fe1d6f012f33f2b8_icgraph">
+<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program_test___apriori_all.html#a0b052756e042b22565f21c773e29954e" title="Main function. " alt="" coords="237,5,424,46"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="aabf67468a8cd694528c0f26abddeafca"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="class_apriori_all_lib_1_1_customer_list.html">CustomerList</a> AprioriAllLib.InputGenerator.GenerateRandomList </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>customersCount</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>maxTransactionCount</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>maxTransactionLength</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>maxUniqueItemsCount</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line">        {</div>
 <div class="line">            Random random = <span class="keyword">new</span> Random();</div>
 <div class="line">            CustomerList randomCustomerList = <span class="keyword">new</span> CustomerList();</div>
 <div class="line"></div>
@@ -194,7 +255,7 @@ Static Public Member Functions</h2></td></tr>
 <div class="line">                    t = <span class="keyword">new</span> Transaction();</div>
 <div class="line">                    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> it = 0; it &lt; n; ++it)</div>
 <div class="line">                    {</div>
-<div class="line">                        <span class="keywordtype">int</span> itemVal = (random.Next() % maxTransactionLength + 10) * 10;</div>
+<div class="line">                        <span class="keywordtype">int</span> itemVal = ((random.Next() % maxUniqueItemsCount) + 10) * 10;</div>
 <div class="line">                        <span class="keywordflow">if</span> (t.Contains(itemVal))</div>
 <div class="line">                        {</div>
 <div class="line">                            --it;</div>
@@ -212,18 +273,9 @@ Static Public Member Functions</h2></td></tr>
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_apriori_all_lib_1_1_input_generator_af4d27a9352dff265fe1d6f012f33f2b8_cgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_input_generator_af4d27a9352dff265fe1d6f012f33f2b8_cgraph" alt=""/></div>
-<map name="class_apriori_all_lib_1_1_input_generator_af4d27a9352dff265fe1d6f012f33f2b8_cgraph" id="class_apriori_all_lib_1_1_input_generator_af4d27a9352dff265fe1d6f012f33f2b8_cgraph">
+<div class="center"><img src="class_apriori_all_lib_1_1_input_generator_aabf67468a8cd694528c0f26abddeafca_cgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_input_generator_aabf67468a8cd694528c0f26abddeafca_cgraph" alt=""/></div>
+<map name="class_apriori_all_lib_1_1_input_generator_aabf67468a8cd694528c0f26abddeafca_cgraph" id="class_apriori_all_lib_1_1_input_generator_aabf67468a8cd694528c0f26abddeafca_cgraph">
 <area shape="rect" id="node3" href="class_apriori_all_lib_1_1_transaction.html#ac736c8e2fd896d89a0d57258e27beed4" title="AprioriAllLib.Transaction.\lContains" alt="" coords="243,5,410,46"/><area shape="rect" id="node5" href="class_apriori_all_lib_1_1_transaction.html#a3b4983310e683a073e1472f5abea5700" title="AprioriAllLib.Transaction.\lAddItem" alt="" coords="243,70,410,111"/><area shape="rect" id="node7" href="class_apriori_all_lib_1_1_customer.html#a222005fd9e9134325409b26f30d1be40" title="AprioriAllLib.Customer.Add\lTransaction" alt="" coords="237,135,416,177"/></map>
-</div>
-</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_apriori_all_lib_1_1_input_generator_af4d27a9352dff265fe1d6f012f33f2b8_icgraph.png" border="0" usemap="#class_apriori_all_lib_1_1_input_generator_af4d27a9352dff265fe1d6f012f33f2b8_icgraph" alt=""/></div>
-<map name="class_apriori_all_lib_1_1_input_generator_af4d27a9352dff265fe1d6f012f33f2b8_icgraph" id="class_apriori_all_lib_1_1_input_generator_af4d27a9352dff265fe1d6f012f33f2b8_icgraph">
-<area shape="rect" id="node3" href="class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program_test___apriori_all.html#a0b052756e042b22565f21c773e29954e" title="Main function. " alt="" coords="237,5,424,46"/></map>
 </div>
 </p>
 

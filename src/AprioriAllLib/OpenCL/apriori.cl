@@ -14,6 +14,8 @@
 
 /*!
 	multiItemSupport
+
+	\param step reduction step number
 */
 __kernel void multiItemSupport(
 	__global int* values, // transactionsSupports
@@ -23,7 +25,7 @@ __kernel void multiItemSupport(
 	//__global const int* uniqueItemsCount,
 	__global const int* candidate, // current candidate set
 	__global const int* candidateCount, // length of current candidate set
-	__global const int* step // reduction step
+	__global const int* step // 
 	)
 {
 	int x = get_global_id(0);

@@ -1,5 +1,4 @@
 <map id="AprioriAllLib.AprioriAll.RunParallelAprioriAll" name="AprioriAllLib.AprioriAll.RunParallelAprioriAll">
-<area shape="rect" id="node3" href="$class_apriori_all_lib_1_1_open_c_l_checker.html#adf47c7b99e651e7fb42b5a6ff28d3df9" title="Determines and returns number of available OpenCL platforms. " alt="" coords="205,5,400,46"/>
-<area shape="rect" id="node5" href="$class_apriori_all_lib_1_1_apriori_all.html#a9a05f0ff368d6dfea768ce19f09505b2" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. " alt="" coords="227,70,378,111"/>
-<area shape="rect" id="node7" href="$class_apriori_all_lib_1_1_apriori.html#abf88e1f78883083cd20760cb43029738" title="Executes parallel version of the Apriori algorithm. " alt="" coords="223,135,382,177"/>
+<area shape="rect" id="node3" href="$class_apriori_all_lib_1_1_apriori_all.html#a9a05f0ff368d6dfea768ce19f09505b2" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. " alt="" coords="210,5,361,46"/>
+<area shape="rect" id="node5" href="$class_apriori_all_lib_1_1_apriori.html#abf88e1f78883083cd20760cb43029738" title="Executes parallel version of the Apriori algorithm. " alt="" coords="206,70,365,111"/>
 </map>

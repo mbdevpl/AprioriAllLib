@@ -1,6 +1,7 @@
 <map id="AprioriAllLib.Apriori.RunParallelApriori" name="AprioriAllLib.Apriori.RunParallelApriori">
-<area shape="rect" id="node3" href="$class_apriori_all_lib_1_1_apriori_all.html#a1abf95c25d82e6b9ff1bf26184d6c5e4" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. It uses parallel version..." alt="" coords="246,5,397,46"/>
-<area shape="rect" id="node5" href="$class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test.html#a34f97425d8fa423d69e2a0b17cee8e28" title="AprioriAllLib.Test.Apriori\lParallelTest.Test_AprioriParallel\l_Example1_LowSupport" alt="" coords="218,71,425,127"/>
-<area shape="rect" id="node7" href="$class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test.html#a52657a5b9ce9b2fbe98d9420e9f40806" title="AprioriAllLib.Test.Apriori\lParallelTest.Test_AprioriParallel\l_Example1_HighSupport" alt="" coords="218,151,425,207"/>
-<area shape="rect" id="node9" href="$class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program_test___parallel_apriori.html#a81452427e86f0b8e84715bc7162bf8e9" title="Main function. " alt="" coords="214,231,429,273"/>
+<area shape="rect" id="node3" href="$class_apriori_all_lib_1_1_apriori.html#a15ffd8ff3283d42db3caac5400f68e05" title="AprioriAllLib.Apriori.Run\lParallelAprioriWithPruning" alt="" coords="235,5,408,46"/>
+<area shape="rect" id="node5" href="$class_apriori_all_lib_1_1_apriori_all.html#a1abf95c25d82e6b9ff1bf26184d6c5e4" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. It uses parallel version..." alt="" coords="246,70,397,111"/>
+<area shape="rect" id="node7" href="$class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test.html#a34f97425d8fa423d69e2a0b17cee8e28" title="AprioriAllLib.Test.Apriori\lParallelTest.Test_AprioriParallel\l_Example1_LowSupport" alt="" coords="218,136,425,192"/>
+<area shape="rect" id="node9" href="$class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test.html#a52657a5b9ce9b2fbe98d9420e9f40806" title="AprioriAllLib.Test.Apriori\lParallelTest.Test_AprioriParallel\l_Example1_HighSupport" alt="" coords="218,216,425,272"/>
+<area shape="rect" id="node11" href="$class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program_test___parallel_apriori.html#a81452427e86f0b8e84715bc7162bf8e9" title="Main function. " alt="" coords="214,297,429,338"/>
 </map>

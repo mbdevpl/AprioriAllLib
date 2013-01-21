@@ -29,7 +29,7 @@
   <td id="projectlogo"><img alt="Logo" src="project_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">Apriori and AprioriAll in C#
-   &#160;<span id="projectnumber">version 1.5.0</span>
+   &#160;<span id="projectnumber">version 2.0.0</span>
    </div>
    <div id="projectbrief">serialized version with prefix trees, parallel version with OpenCL</div>
   </td>
@@ -112,8 +112,16 @@ $(document).ready(function(){initNavTree('support_8cl.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:gac96c6e040b76ae64a2008dab3abdc106"><td class="memItemLeft" align="right" valign="top">__kernel void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__opencl.html#gac96c6e040b76ae64a2008dab3abdc106">calculateSupport</a> (__global const int *items, __global const int *itemsCount, __global const int *itemsTransactions, __global const int *uniqueItemsCount, __global const int *step, __global int *supports)</td></tr>
-<tr class="separator:gac96c6e040b76ae64a2008dab3abdc106"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac33449128fd2cc0facf27dee2e734d98"><td class="memItemLeft" align="right" valign="top">__kernel void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__opencl.html#gac33449128fd2cc0facf27dee2e734d98">findNewDistinctItem</a> (__global const int *items, __global const int *itemsCount, __global const int *itemsExcluded, __global int *newItemsExcluded, __global int *discovered, __global const int *step)</td></tr>
+<tr class="separator:gac33449128fd2cc0facf27dee2e734d98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac19d209eee78bd4256d314d7d6e714ab"><td class="memItemLeft" align="right" valign="top">__kernel void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__opencl.html#gac19d209eee78bd4256d314d7d6e714ab">excludeLatestDistinctItem</a> (__global const int *items, __global const int *itemsCount, __global int *itemsExcluded, __global const int *uniqueItems, __global const int *uniqueItemsCount)</td></tr>
+<tr class="separator:gac19d209eee78bd4256d314d7d6e714ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab46afc91c27c945c9e70e1ae1bf986c9"><td class="memItemLeft" align="right" valign="top">__kernel void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__opencl.html#gab46afc91c27c945c9e70e1ae1bf986c9">separateUniqueItems</a> (__global const int *items, __global const int *itemsCount, __global const int *uniqueItems, __global const int *uniqueItemsCount, __global int *supports)</td></tr>
+<tr class="separator:gab46afc91c27c945c9e70e1ae1bf986c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf5338f3e735240ab44afc7d94c00857b"><td class="memItemLeft" align="right" valign="top">__kernel void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__opencl.html#gaf5338f3e735240ab44afc7d94c00857b">supportInitial</a> (__global const int *items, __global const int *itemsCount, __global const int *uniqueItems, __global const int *uniqueItemsCount, __global int *supports)</td></tr>
+<tr class="separator:gaf5338f3e735240ab44afc7d94c00857b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac414bd460a3edc4720738278ee06504e"><td class="memItemLeft" align="right" valign="top">__kernel void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__opencl.html#gac414bd460a3edc4720738278ee06504e">supportDuplicatesRemoval</a> (__global const int *items, __global const int *itemsCount, __global const int *itemsTransactions, __global const int *uniqueItems, __global const int *uniqueItemsCount, __global const int *step, __global int *supports)</td></tr>
+<tr class="separator:gac414bd460a3edc4720738278ee06504e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
