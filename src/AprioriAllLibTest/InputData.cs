@@ -17,6 +17,8 @@ namespace AprioriAllLib.Test
 
 		public readonly CustomerList Example2;
 
+		public readonly CustomerList Example3;
+
 		/// <summary>
 		/// Another data set.
 		/// </summary>
@@ -54,6 +56,37 @@ namespace AprioriAllLib.Test
 			Example2.Customers.Add(new Customer(new int[] { 18, 26, 35 }));
 			Example2.Customers.Add(new Customer(new int[] { 37, 11, 43, 13, 19, 27, 22, 44, 23 }));
 			Example2.Customers.Add(new Customer(new int[] { 38, 30, 35, 22 }));
+
+			Example3 = new CustomerList();
+			Example3.Customers.Add(new Customer(new int[] { 10001, 20000, 30001, 40000, 50000, 60002, 70004, 80004 }));
+			Example3.Customers.Add(new Customer(new int[] { 10002, 20005, 30003, 40007, 50002, 60002, 70004, 80004 }));
+			Example3.Customers.Add(new Customer(new int[] { 10001, 20005, 30002, 40012, 50003, 60002, 70004, 80004 }));
+			Example3.Customers.Add(new Customer(new int[] { 10002, 20000, 30006, 40000, 50000, 60002, 70004, 80004 }));
+			Example3.Customers.Add(new Customer(new int[] { 10001, 20005, 30005, 40008, 50002, 60002, 70004, 80004 }));
+			Example3.Customers.Add(new Customer(new int[] { 10001, 20001, 30003, 40007, 50002, 60002, 70004, 80004 }));
+			Example3.Customers.Add(new Customer(new int[] { 10002, 20000, 30004, 40008, 50002, 60002, 70004, 80004 }));
+			Example3.Customers.Add(new Customer(new int[] { 10001, 20002, 30002, 40006, 50001, 60002, 70004, 80004 }));
+			Example3.Customers.Add(new Customer(new int[] { 10002, 20005, 30001, 40000, 50000, 60002, 70004, 80004 }));
+			Example3.Customers.Add(new Customer(new int[] { 10002, 20005, 30005, 40008, 50002, 60002, 70004, 80004 }));
+			Example3.Customers.Add(new Customer(new int[] { 10001, 20000, 30003, 40008, 50002, 60002, 70004, 80004 }));
+			Example3.Customers.Add(new Customer(new int[] { 10001, 20002, 30004, 40008, 50002, 60002, 70004, 80004 }));
+			Example3.Customers.Add(new Customer(new int[] { 10001, 20005, 30002, 40000, 50000, 60002, 70004, 80004 }));
+			Example3.Customers.Add(new Customer(new int[] { 10002, 20000, 30001, 40003, 50001, 60002, 70004, 80004 }));
+			Example3.Customers.Add(new Customer(new int[] { 10002, 20005, 30007, 40007, 50002, 60002, 70004, 80004 }));
+			Example3.Customers.Add(new Customer(new int[] { 10001, 20002, 30005, 40005, 50001, 60002, 70004, 80004 }));
+			Example3.Customers.Add(new Customer(new int[] { 10001, 20001, 30003, 40007, 50002, 60002, 70004, 80004 }));
+			Example3.Customers.Add(new Customer(new int[] { 10002, 20000, 30002, 40013, 50003, 60002, 70004, 80004 }));
+			Example3.Customers.Add(new Customer(new int[] { 10002, 20004, 30005, 40000, 50000, 60002, 70004, 80004 }));
+			Example3.Customers.Add(new Customer(new int[] { 10001, 20005, 30003, 40014, 50003, 60002, 70004, 80004 }));
+			Example3.Customers.Add(new Customer(new int[] { 10001, 20000, 30002, 40007, 50002, 60002, 70004, 80004 }));
+			Example3.Customers.Add(new Customer(new int[] { 10001, 20001, 30005, 40010, 50002, 60002, 70004, 80004 }));
+			Example3.Customers.Add(new Customer(new int[] { 10002, 20003, 30004, 40007, 50002, 60002, 70004, 80004 }));
+			Example3.Customers.Add(new Customer(new int[] { 10001, 20004, 30007, 40004, 50001, 60002, 70004, 80004 }));
+			Example3.Customers.Add(new Customer(new int[] { 10002, 20005, 30001, 40007, 50002, 60002, 70004, 80004 }));
+			Example3.Customers.Add(new Customer(new int[] { 10002, 20001, 30004, 40004, 50001, 60002, 70004, 80004 }));
+			Example3.Customers.Add(new Customer(new int[] { 10002, 20003, 30003, 40010, 50002, 60002, 70004, 80004 }));
+			Example3.Customers.Add(new Customer(new int[] { 10002, 20003, 30005, 40002, 50001, 60002, 70004, 80004 }));
+			Example3.Customers.Add(new Customer(new int[] { 10001, 20008, 30003, 40011, 50002, 60002, 70004, 80004 }));
 
 			DataSet1 = new CustomerList();
 			DataSet1.Customers.Add(new Customer(new int[] { 30 }, new int[] { 90 }));

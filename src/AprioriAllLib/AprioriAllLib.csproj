@@ -142,7 +142,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy $(TargetPath) $(SolutionDir)..\bin\$(ConfigurationName)\
+    <PostBuildEvent>mkdir -p $(SolutionDir)..\bin\$(ConfigurationName)\
+copy $(TargetPath) $(SolutionDir)..\bin\$(ConfigurationName)\
 copy $(TargetDir)OpenCL.Net.dll $(SolutionDir)..\bin\$(ConfigurationName)\
 copy $(TargetDir)AbstractOpenCL.dll $(SolutionDir)..\bin\$(ConfigurationName)\
 </PostBuildEvent>

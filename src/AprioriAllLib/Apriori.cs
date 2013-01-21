@@ -1103,7 +1103,9 @@ namespace AprioriAllLib
 			if (moreCanBeFound)
 			{
 				int[] indices = new int[uniqueItemsCount];
-				Buffer<int> indicesBuf = new Buffer<int>(context, queue, indices);
+
+				int[] locations = new int[uniqueItemsCount];
+				Buffer<int> locationsBuf = new Buffer<int>(context, queue, locations);
 
 				int currLength = 1;
 				//int[] currLengthArr = new int[]{ currLength };
@@ -1112,7 +1114,7 @@ namespace AprioriAllLib
 				Buffer<int> stepBuf = new Buffer<int>(context, queue, 1);
 
 				kernelMulitItemSupport.SetArguments(transactionsSupportsBufCopy, transactionsSupportsCountBuf,
-					transactionsCountBuf, /*uniqueItemsBuf,*/ indicesBuf, currLengthBuf, stepBuf);
+					transactionsCountBuf, /*uniqueItemsBuf,*/ locationsBuf, currLengthBuf, stepBuf);
 
 				kernelCopy.SetArguments(transactionsSupportsBuf, transactionsSupportsCountBuf, offsetBuf, includedCountBuf,
 					transactionsSupportsBufCopy, transactionsSupportsCountBuf, offsetBuf, includedCountBuf);
@@ -1153,11 +1155,13 @@ namespace AprioriAllLib
 
 					while (true)
 					{
-						indicesBuf.Write(false, 0, (uint)currLength);
+						for (int i = 0; i < currLength; ++i)
+							locations[i] = supportedLocations[indices[i]];
+						locationsBuf.Write(false, 0, (uint)currLength);
 
 						for (int i = 0; i < currLength; ++i)
 						{
-							offsetBuf.Value = indices[i] * transactionsCountInt;
+							offsetBuf.Value = supportedLocations[indices[i]] * transactionsCountInt;
 							offsetBuf.Write(false);
 							includedCountBuf.Value = transactionsCountInt;
 							includedCountBuf.Write(false);
@@ -1165,8 +1169,8 @@ namespace AprioriAllLib
 							kernelCopy.Launch(queue, transactionsCountUInt);
 						}
 
-						//queue.Finish(); // debug
-						//transactionsSupportsBufCopy.Read(); // debug
+						queue.Finish(); // debug
+						transactionsSupportsBufCopy.Read(); // debug
 
 						queue.Finish();
 						stepBuf.Value = 1;
@@ -1182,19 +1186,19 @@ namespace AprioriAllLib
 
 						for (int cn = 0; cn < customersCountInt; ++cn)
 						{
-							offsetBuf.Value = indices[0] * transactionsCountInt + customersStarts[cn];
+							offsetBuf.Value = supportedLocations[indices[0]] * transactionsCountInt + customersStarts[cn];
 							offsetBuf.Write(false);
 							includedCountBuf.Value = customersLengths[cn];
 							includedCountBuf.Write(false);
 
 							queue.Finish();
 							kernelOr.Launch(queue, (uint)customersLengths[cn]);
-
-							//queue.Finish(); // debug
-							//transactionsSupportsBufCopy.Read(); // debug
 						}
 
-						offsetBuf.Value = indices[0] * transactionsCountInt;
+						queue.Finish(); // debug
+						transactionsSupportsBufCopy.Read(); // debug
+
+						offsetBuf.Value = supportedLocations[indices[0]] * transactionsCountInt;
 						offsetBuf.Write(false);
 
 						queue.Finish();
@@ -1235,9 +1239,9 @@ namespace AprioriAllLib
 							//foreach (int index in indices)
 							{
 								int index = indices[i];
-								//int spprtd = supportedLocations[index];
-								l.Items.Add(new Item(uniqueItems[index]));
-								newSupportedLocations[index] = true;
+								int spprtd = supportedLocations[index];
+								l.Items.Add(new Item(uniqueItems[spprtd]));
+								newSupportedLocations[spprtd] = true;
 							}
 							litemsets.Add(l);
 						}
@@ -1296,7 +1300,7 @@ namespace AprioriAllLib
 
 				stepBuf.Dispose();
 				currLengthBuf.Dispose();
-				indicesBuf.Dispose();
+				locationsBuf.Dispose();
 			}
 			#endregion
 
