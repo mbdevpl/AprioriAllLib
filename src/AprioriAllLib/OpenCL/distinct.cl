@@ -1,4 +1,4 @@
-﻿/// \addtogroup opencl
+/// \addtogroup opencl
 /// @{
 
 /// @}

@@ -445,22 +445,22 @@ namespace AprioriAllLib
 					}
 				}
 
-				if (progressOutput)
-				{
-					if (cIndex % 10 == 9)
-					{
-						watch.Stop();
-						Log.Write("{0}ms ", watch.ElapsedMilliseconds);
-						watch.Start();
-					}
-					++cIndex;
-				}
+				//if (progressOutput)
+				//{
+				//	if (cIndex % 10 == 9)
+				//	{
+				//		watch.Stop();
+				//		Log.Write("{0}ms ", watch.ElapsedMilliseconds);
+				//		watch.Start();
+				//	}
+				//	++cIndex;
+				//}
 
 			}
-			if (progressOutput)
-			{
-				Log.WriteLine();
-			}
+			//if (progressOutput)
+			//{
+			//	Log.WriteLine();
+			//}
 
 
 			if (progressOutput)

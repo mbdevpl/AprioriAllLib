@@ -18,8 +18,7 @@ namespace AprioriAllLib.Test.InConsole
 			Console.Out.WriteLine("Apriori Serialized and Parallel versions comparison");
 
 			CustomerList input =
-				//Data.Example1;
-				Data.Example3;
+				Data.Example2;
 				//InputGenerator.GenerateRandomList(500000, 1, 1, 1);
 				//InputGenerator.GenerateRandomList(1, 1, 15, 40);
 				//InputGenerator.GenerateRandomList(20, 15, 15, 40);
@@ -32,8 +31,8 @@ namespace AprioriAllLib.Test.InConsole
 			double[] supports =
 				//new double[] { 0.001, 0.1, 0.3 };
 				//new double[] { 0.9, 0.8, 0.7, 0.5, 0.3, 0.2, 0.1, 0.001 };
-				//new double[] { 0.3, 0.2, 0.1 };
-				new double[] { 0.7, 0.5, 0.4 };
+				new double[] { 0.3, 0.2, 0.1 };
+				//new double[] { 0.7, 0.5, 0.4 };
 				//new double[] { 0.5, 0.3 };
 				//new double[] { 0.1 };
 			string[] editions =

@@ -1,4 +1,4 @@
-﻿/// \addtogroup opencl
+/// \addtogroup opencl
 /// @{
 
 //bool rangeIsValid(const int valuesCount, const int includedValuesCount, 

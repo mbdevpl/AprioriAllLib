@@ -1,4 +1,4 @@
-﻿/*!
+/*!
 	\defgroup opencl OpenCL kernels
 	\brief All OpenCL kernels used by parallel implementations.
 	

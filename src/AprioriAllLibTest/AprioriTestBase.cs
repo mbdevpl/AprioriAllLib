@@ -74,12 +74,18 @@ namespace AprioriAllLib.Test
 			StringBuilder result = new StringBuilder();
 
 			result.AppendLine("Expected:");
-			foreach (Litemset c in expected)
-				result.AppendFormat(" - {0}\n", c);
+			if (expected == null)
+				result.AppendLine(" null");
+			else
+				foreach (Litemset c in expected)
+					result.AppendFormat(" - {0}\n", c);
 
 			result.AppendLine("Actual:");
-			foreach (Litemset c in actual)
-				result.AppendFormat(" - {0}\n", c);
+			if (actual == null)
+				result.AppendLine(" null");
+			else
+				foreach (Litemset c in actual)
+					result.AppendFormat(" - {0}\n", c);
 
 			return result.ToString();
 		}
