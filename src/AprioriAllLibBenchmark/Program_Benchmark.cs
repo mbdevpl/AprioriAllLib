@@ -24,140 +24,210 @@ namespace AprioriAllLib.Test.InConsole
 
 		static void Main(string[] args)
 		{
-			//int i = 0;
-			//foreach (string arg in args)
-			//{
-			//	if (Int32.TryParse(arg, out ints[i]))
-			//		++i;
-			//	if (i == 4)
-			//		break;
-			//}
-			//InputData inputData = new InputData();
-			int testCount = 100;
-			bool newEachTime = true;
-			bool openCl = true;
+			int testsCount = 100;
+			bool newEachTime = false;
+			bool openCL = false;
+			bool serialized = false;
 			double support = 0.5;
-			int uniqueIds = 20;
-			int[] cust = new int[] { 5, 5, 5, 5, 5 };
-			int[] cust2 = new int[] { 4, 4, 4, 4 };
-			int[] cust3 = new int[] { 3, 3, 3 };
-			int[][] sizes = new int[2][];
-			for (int i = 0; i < sizes.Length; ++i)
-			{
-				//sizes[i] = new int[5];
-				//for (int j = 0; ; ++j)
-				//{
-				//	sizes[i][j] = 5;
-				//}
-				sizes[i] = cust3;
-			}
 
+			//int custCount = 2;
+			int custCountMin = 1;
+			int custCountMax = 10;
+			int transactCount = 3;
+			int itemCount = 3;
+			int uniqueIds = 20;
+
+			#region parsing string[] args
+			foreach (string arg in args)
+			{
+				if (arg == null || arg.Length < 6)
+					continue;
+
+				else if (arg.StartsWith("testsCount="))
+					Int32.TryParse(arg.Substring(11), out testsCount);
+				else if (arg.Equals("newEachTime"))
+					newEachTime = true;
+				else if (arg.Equals("openCL"))
+					openCL = true;
+				else if (arg.Equals("serialized"))
+					serialized = true;
+				else if (arg.StartsWith("support="))
+					Double.TryParse(arg.Substring(8), out support);
+
+				else if (arg.StartsWith("custCountMin="))
+					Int32.TryParse(arg.Substring(13), out custCountMin);
+				else if (arg.StartsWith("custCountMax="))
+					Int32.TryParse(arg.Substring(13), out custCountMax);
+				else if (arg.StartsWith("transactCount="))
+					Int32.TryParse(arg.Substring(14), out transactCount);
+				else if (arg.StartsWith("itemCount="))
+					Int32.TryParse(arg.Substring(10), out itemCount);
+				else if (arg.StartsWith("uniqueIds="))
+					Int32.TryParse(arg.Substring(10), out uniqueIds);
+			}
+			#endregion
+
+			int[] transactions = new int[transactCount];
+			for (int i = 0; i < transactions.Length; ++i)
+				transactions[i] = itemCount;
+			int[][] customers = new int[custCountMax][];
+			for (int i = 0; i < customers.Length; ++i)
+				customers[i] = transactions;
+
+			CustomerList maxInput = InputGenerator.GenerateRandomList(customers, uniqueIds);
+
+			CustomerList input = new CustomerList();
+			for (int i = 0; i < custCountMin - 1; ++i)
+				input.Customers.Add(maxInput.Customers[i]);
+
+			for (int custCount = custCountMin; custCount <= custCountMax; ++custCount)
+			{
+				input.Customers.Add(maxInput.Customers[custCount - 1]);
+				if (openCL)
+					RunBenchmark(input, custCount, transactCount, itemCount,
+						uniqueIds, support, newEachTime, true, testsCount);
+				if (serialized)
+					RunBenchmark(input, custCount, transactCount, itemCount,
+						uniqueIds, support, newEachTime, false, testsCount);
+			}
+		}
+
+		private static void RunBenchmark(CustomerList input, int custCount, int transactCount, int itemCount,
+			int uniqueIds, double support, bool newEachTime, bool openCL, int testsCount)
+		{
 			DateTime dt = DateTime.Now;
 
 			StringBuilder logFilepath = new StringBuilder();
-
 			logFilepath.Append(AssemblyDirectory);
 			logFilepath.Append("\\");
 			logFilepath.AppendFormat("benchmark_run_{0:0000}{1:00}{2:00}_{3:00}{4:00}{5:00}",
 				dt.Year, dt.Month, dt.Day, dt.Hour, dt.Minute, dt.Second);
 
-			dt.ToString();
-			var input = InputGenerator.GenerateRandomList(sizes, uniqueIds);
+			#region integrity checks
 
-			input = new CustomerList();
-			input.Customers.Add(new Customer(new Transaction(1)));
+			if (input.Customers.Count != custCount)
+				Console.Out.WriteLine("Error: customers count is wrong");
+			if (input.Customers[0].Transactions.Count != transactCount)
+				Console.Out.WriteLine("Error: transactions count is wrong");
+			if (input.Customers[0].Transactions[0].Items.Count != itemCount)
+				Console.Out.WriteLine("Error: items count is wrong");
 
+			//Console.Out.WriteLine("Error: ");
+
+			#endregion
+
+			Stopwatch watchAll = new Stopwatch();
 			Stopwatch watch = new Stopwatch();
 			List<double> times = new List<double>();
 			Apriori apriori = null;
 			if (!newEachTime)
 				apriori = new Apriori(input);
 			int count = -1;
-			while (++count <= testCount)
+			while (++count <= testsCount)
 			{
+				if (count > 0)
+					watchAll.Start();
 				watch.Restart();
 
 				if (newEachTime)
 					apriori = new Apriori(input);
 
 				List<Litemset> results = null;
-				if (openCl)
+				if (openCL)
 					results = apriori.RunParallelApriori(support); //, true);
 				else
 					results = apriori.RunApriori(support);
 
-				if (newEachTime && openCl)
+				if (newEachTime && openCL)
 					apriori.Dispose();
 
 				watch.Stop();
+				watchAll.Stop();
 
 				Console.Out.WriteLine("{0}. {1} in {2} ms", count, results.Count, watch.ElapsedMilliseconds);
 				if (count > 0)
 					times.Add(watch.ElapsedMilliseconds);
 			}
 
-			if (!newEachTime && openCl)
+			if (!newEachTime && openCL)
 				apriori.Dispose();
 
 			double average = times.Average();
-			Console.Out.WriteLine("mean time (without 0th test) {0}ms", average);
+			double average2 = ((double)watchAll.ElapsedMilliseconds) / testsCount;
+
+			Console.Out.WriteLine("redundant mean times (without 0th test) {0:0.00}ms and {1:0.00}ms", average, average2);
 			logFilepath.AppendFormat("_{0:0}.csv", average);
 
-			#region benchmark_all
+			WriteAllBenchmarksLog(custCount, transactCount, itemCount, uniqueIds, support, newEachTime, openCL,
+				dt, testsCount, average, average2);
 
-			string pathAll = new StringBuilder().Append(AssemblyDirectory).Append("\\").Append("benchmark_all.csv").ToString();
+			WriteNewBenchmarkLog(custCount, transactCount, itemCount, uniqueIds, support, newEachTime, openCL,
+				dt, logFilepath.ToString(), testsCount, times, average, average2);
 
-			FileStream fsAll = null;
-			StreamWriter fswAll = null;
+			//Console.ReadKey();
+		}
+
+		private static void WriteAllBenchmarksLog(int custCount, int transactCount, int itemCount,
+			int uniqueIds, double support, bool newEachTime, bool openCL,
+			DateTime dt, int testsCount, double average1, double average2)
+		{
+			string pathAll = new StringBuilder().Append(AssemblyDirectory).Append("\\benchmark_all.csv").ToString();
+
 			if (!File.Exists(pathAll))
 			{
+				FileStream fsAll = null;
+				StreamWriter fswAll = null;
+
 				fsAll = File.Create(pathAll);
 				fswAll = new StreamWriter(fsAll);
 
-				fswAll.WriteLine("date,time,customers,transactionsPerCustomer,itemsPerTransaction,possibleUniqueIds,avg");
-			}
-			else
-			{
-				fsAll = File.OpenWrite(pathAll);
-				fswAll = new StreamWriter(fsAll);
+				fswAll.Write("date,time,testsCount,");
+				fswAll.Write("customers,transactionsPerCustomer,itemsPerTransaction,possibleUniqueIds,");
+				fswAll.Write("support,newEachTime,openCL,");
+				fswAll.WriteLine("avg1,avg2");
+
+				fswAll.Close();
+				fsAll.Close();
 			}
 
-			int custCount = input.Customers.Count;
-			int tranactCount = input.Customers[0].Transactions.Count;
-			int itemCount = input.Customers[0].Transactions[0].Items.Count;
+			StringBuilder s = new StringBuilder();
 
-			fswAll.Write("{2:00}/{1:00}/{0:0000},{3:00}:{4:00}:{5:00},",
+			s.AppendFormat("{2:00}/{1:00}/{0:0000},{3:00}:{4:00}:{5:00},",
 				dt.Year, dt.Month, dt.Day, dt.Hour, dt.Minute, dt.Second);
+			s.AppendFormat("{0},", testsCount);
+			s.AppendFormat("{0},{1},{2},{3},", custCount, transactCount, itemCount, uniqueIds);
+			s.AppendFormat("{0:0.000},{1},{2},", support, newEachTime, openCL);
+			s.AppendFormat("{0:0.00},{1:0.00}", average1, average2);
+			s.AppendLine();
 
-			fswAll.WriteLine("{0},{1},{2},{3},{4:0.00}", custCount, tranactCount, itemCount, uniqueIds, average);
+			File.AppendAllText(pathAll, s.ToString());
+		}
 
-			fswAll.Close();
-			fsAll.Close();
-
-			#endregion
-
-			string path = logFilepath.ToString();
-			FileStream fs = File.Create(path);
-			//File.OpenWrite(path);
+		private static void WriteNewBenchmarkLog(int custCount, int transactCount, int itemCount,
+			int uniqueIds, double support, bool newEachTime, bool openCL,
+			DateTime dt, string logFilepath, int testsCount, List<double> times, double average1, double average2)
+		{
+			FileStream fs = File.Create(logFilepath);
 			StreamWriter fsw = new StreamWriter(fs);
-			//BufferedStream bfs = new BufferedStream(fs);
 
-			fswAll.WriteLine("date,{2:00}/{1:00}/{0:0000}", dt.Year, dt.Month, dt.Day);
-			fswAll.WriteLine("time,{0:00}:{1:00}:{2:00}", dt.Hour, dt.Minute, dt.Second);
+			fsw.WriteLine("date,{2:00}/{1:00}/{0:0000}", dt.Year, dt.Month, dt.Day);
+			fsw.WriteLine("time,{0:00}:{1:00}:{2:00}", dt.Hour, dt.Minute, dt.Second);
+			fsw.WriteLine("testsCount,{0}", testsCount);
 			fsw.WriteLine("customers,{0}", custCount);
-			fsw.WriteLine("transactionsPerCustomer,{0}", tranactCount);
+			fsw.WriteLine("transactionsPerCustomer,{0}", transactCount);
 			fsw.WriteLine("itemsPerTransaction,{0}", itemCount);
 			fsw.WriteLine("possibleUniqueIds,{0}", uniqueIds);
-			fsw.WriteLine("avg,{0:0.00}", average);
+			fsw.WriteLine("support,{0:0.000}", support);
+			fsw.WriteLine("newEachTime,{0}", newEachTime);
+			fsw.WriteLine("openCL,{0}", openCL);
+			fsw.WriteLine("avg1,{0:0.00}", average1);
+			fsw.WriteLine("avg2,{0:0.00}", average2);
 			for (int i = 0; i < times.Count; ++i)
 				fsw.WriteLine("{0},{1}", i + 1, times[i]);
 
 			fsw.Close();
 			fs.Close();
-
-
-
-			//Console.ReadKey();
 		}
+
 	}
 }

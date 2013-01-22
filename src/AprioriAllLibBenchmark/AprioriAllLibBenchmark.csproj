@@ -87,6 +87,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="AprioriAllLibBenchmark.bat" />
     <None Include="AprioriOpenCLProfiling.bat" />
   </ItemGroup>
   <ItemGroup>
@@ -103,6 +104,8 @@
   <PropertyGroup>
     <PostBuildEvent>mkdir $(SolutionDir)..\bin\$(ConfigurationName)\Benchmark\$(PlatformName)\
 copy $(TargetPath) $(SolutionDir)..\bin\$(ConfigurationName)\Benchmark\$(PlatformName)\
+
+copy $(ProjectDir)AprioriAllLibBenchmark.bat $(SolutionDir)..\bin\$(ConfigurationName)\Benchmark\$(PlatformName)\
 </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
