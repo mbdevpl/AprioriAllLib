@@ -2,6 +2,11 @@ Thumbs.db
 *.suo
 *.csproj.user
 /bin/Debug
+/bin/Release/AnyCPU
+/bin/Release/x64
+/bin/Release/x86
+/bin/Release/Benchmark/AnyCPU
+/bin/Release/Benchmark/x64
 /src/*/obj
 /src/*/bin
 /src/TestResults

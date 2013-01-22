@@ -95,9 +95,12 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>mkdir $(SolutionDir)..\bin\$(ConfigurationName)\
-copy $(TargetPath) $(SolutionDir)..\bin\$(ConfigurationName)\
+    <PostBuildEvent>mkdir $(SolutionDir)..\bin\$(ConfigurationName)\$(PlatformName)\
+copy $(TargetPath) $(SolutionDir)..\bin\$(ConfigurationName)\$(PlatformName)\
 copy $(TargetDir)Apriori.bat $(SolutionDir)..\bin\$(ConfigurationName)\
+
+copy $(SolutionDir)..\bin\$(ConfigurationName)\AnyCPU\$(TargetFileName) $(SolutionDir)..\bin\$(ConfigurationName)\
+
 </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

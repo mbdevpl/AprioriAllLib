@@ -141,10 +141,14 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>mkdir $(SolutionDir)..\bin\$(ConfigurationName)\
-copy $(TargetPath) $(SolutionDir)..\bin\$(ConfigurationName)\
-copy $(TargetDir)OpenCL.Net.dll $(SolutionDir)..\bin\$(ConfigurationName)\
-copy $(TargetDir)AbstractOpenCL.dll $(SolutionDir)..\bin\$(ConfigurationName)\
+    <PostBuildEvent>mkdir $(SolutionDir)..\bin\$(ConfigurationName)\$(PlatformName)\
+copy $(TargetPath) $(SolutionDir)..\bin\$(ConfigurationName)\$(PlatformName)\
+copy $(TargetDir)OpenCL.Net.dll $(SolutionDir)..\bin\$(ConfigurationName)\$(PlatformName)\
+copy $(TargetDir)AbstractOpenCL.dll $(SolutionDir)..\bin\$(ConfigurationName)\$(PlatformName)\
+
+copy $(SolutionDir)..\bin\$(ConfigurationName)\AnyCPU\$(TargetFileName) $(SolutionDir)..\bin\$(ConfigurationName)\
+copy $(SolutionDir)..\bin\$(ConfigurationName)\AnyCPU\OpenCL.Net.dll $(TargetDir)OpenCL.Net.dll $(SolutionDir)..\bin\$(ConfigurationName)\
+copy $(SolutionDir)..\bin\$(ConfigurationName)\AnyCPU\AbstractOpenCL.dll $(TargetDir)AbstractOpenCL.dll $(SolutionDir)..\bin\$(ConfigurationName)\
 
 mkdir -p $(SolutionDir)..\bin\$(ConfigurationName)\Benchmark\$(PlatformName)\
 copy $(TargetPath) $(SolutionDir)..\bin\$(ConfigurationName)\Benchmark\$(PlatformName)\

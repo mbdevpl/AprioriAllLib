@@ -135,12 +135,14 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>mkdir $(SolutionDir)..\bin\$(ConfigurationName)\
-copy $(TargetPath) $(SolutionDir)..\bin\$(ConfigurationName)\
+    <PostBuildEvent>mkdir $(SolutionDir)..\bin\$(ConfigurationName)\$(PlatformName)\
+copy $(TargetPath) $(SolutionDir)..\bin\$(ConfigurationName)\$(PlatformName)\
 copy $(TargetDir)AprioriAll.bat $(SolutionDir)..\bin\$(ConfigurationName)\
 copy $(TargetDir)dataset1.xml $(SolutionDir)..\bin\$(ConfigurationName)\
 copy $(TargetDir)dataset2.xml $(SolutionDir)..\bin\$(ConfigurationName)\
 copy $(TargetDir)dataset3.xml $(SolutionDir)..\bin\$(ConfigurationName)\
+
+copy $(SolutionDir)..\bin\$(ConfigurationName)\AnyCPU\$(TargetFileName) $(SolutionDir)..\bin\$(ConfigurationName)\
 </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
