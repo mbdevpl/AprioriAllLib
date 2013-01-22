@@ -54,11 +54,13 @@ namespace AprioriAllLib
 
 		Kernels.PairwiseCopy kernelCopy;
 
-		Kernels.Max kernelMax;
-
 		Kernels.AssignZero kernelZero;
 
-		Kernels.Min kernelMin;
+		Kernels.MultiplyByTwo kernelMultiplyByTwo;
+
+		Kernels.AssignConst kernelConst;
+
+		Kernels.Increment kernelIncrement;
 
 		Kernels.SubstituteIfEqual kernelSubstitute;
 
@@ -66,14 +68,14 @@ namespace AprioriAllLib
 
 		Kernels.SubstituteIfNotEqual kernelSubstituteIfNotEqual;
 
+		Kernels.Min kernelMin;
+		Kernels.Max kernelMax;
 		Kernels.Sum kernelSum;
 
 		//Kernels.PairwiseAnd kernelPairwiseAnd;
 
 		Kernels.Or kernelOr;
-
 		//Kernels.And kernelAnd;
-
 		Kernels.SegmentedOr kernelSegmentedOr;
 
 		#endregion
@@ -164,8 +166,8 @@ namespace AprioriAllLib
 				new Thread(() =>
 				{
 					sem[0].WaitOne();
-					kernelCopy = new Kernels.PairwiseCopy();
-					kernelCopyIfEqual = new Kernels.PairwiseCopyIfEqual();
+					kernelCopy = new Kernels.PairwiseCopy(true);
+					kernelCopyIfEqual = new Kernels.PairwiseCopyIfEqual(true);
 					sem[0].Release();
 				}
 				).Start();
@@ -174,9 +176,9 @@ namespace AprioriAllLib
 				new Thread(() =>
 				{
 					sem[1].WaitOne();
-					kernelSum = new Kernels.Sum();
-					kernelMin = new Kernels.Min();
-					kernelMax = new Kernels.Max();
+					kernelSum = new Kernels.Sum(true);
+					kernelMin = new Kernels.Min(true);
+					kernelMax = new Kernels.Max(true);
 					sem[1].Release();
 				}
 				).Start();
@@ -185,9 +187,12 @@ namespace AprioriAllLib
 				new Thread(() =>
 				{
 					sem[2].WaitOne();
-					kernelZero = new Kernels.AssignZero();
-					kernelSubstitute = new Kernels.SubstituteIfEqual();
-					kernelSubstituteIfNotEqual = new Kernels.SubstituteIfNotEqual();
+					kernelZero = new Kernels.AssignZero(true);
+					kernelSubstitute = new Kernels.SubstituteIfEqual(true);
+					kernelSubstituteIfNotEqual = new Kernels.SubstituteIfNotEqual(true);
+					kernelConst = new Kernels.AssignConst(true);
+					kernelMultiplyByTwo = new Kernels.MultiplyByTwo();
+					kernelIncrement = new Kernels.Increment();
 					sem[2].Release();
 				}
 				).Start();
@@ -196,7 +201,7 @@ namespace AprioriAllLib
 				new Thread(() =>
 				{
 					sem[3].WaitOne();
-					//kernelPairwiseAnd = new Kernels.PairwiseAnd();
+					//kernelPairwiseAnd = new Kernels.PairwiseAnd(true);
 					sem[3].Release();
 				}
 				).Start();
@@ -205,9 +210,9 @@ namespace AprioriAllLib
 				new Thread(() =>
 				{
 					sem[4].WaitOne();
-					kernelOr = new Kernels.Or();
-					kernelSegmentedOr = new Kernels.SegmentedOr();
-					//kernelAnd = new Kernels.And();
+					kernelOr = new Kernels.Or(true);
+					kernelSegmentedOr = new Kernels.SegmentedOr(true);
+					//kernelAnd = new Kernels.And(true);
 					sem[4].Release();
 				}
 				).Start();
@@ -260,22 +265,25 @@ namespace AprioriAllLib
 			}
 			else
 			{
-				kernelCopy = new Kernels.PairwiseCopy();
-				kernelCopyIfEqual = new Kernels.PairwiseCopyIfEqual();
+				kernelCopy = new Kernels.PairwiseCopy(true);
+				kernelCopyIfEqual = new Kernels.PairwiseCopyIfEqual(true);
 
-				kernelMin = new Kernels.Min();
-				kernelMax = new Kernels.Max();
-				kernelSum = new Kernels.Sum();
+				kernelMin = new Kernels.Min(true);
+				kernelMax = new Kernels.Max(true);
+				kernelSum = new Kernels.Sum(true);
 
-				kernelZero = new Kernels.AssignZero();
-				kernelSubstitute = new Kernels.SubstituteIfEqual();
-				kernelSubstituteIfNotEqual = new Kernels.SubstituteIfNotEqual();
+				kernelZero = new Kernels.AssignZero(true);
+				kernelSubstitute = new Kernels.SubstituteIfEqual(true);
+				kernelSubstituteIfNotEqual = new Kernels.SubstituteIfNotEqual(true);
+				kernelConst = new Kernels.AssignConst(true);
+				kernelMultiplyByTwo = new Kernels.MultiplyByTwo();
+				kernelIncrement = new Kernels.Increment();
 
-				//kernelPairwiseAnd = new Kernels.PairwiseAnd();
+				//kernelPairwiseAnd = new Kernels.PairwiseAnd(true);
 
-				kernelOr = new Kernels.Or();
-				kernelSegmentedOr = new Kernels.SegmentedOr();
-				//kernelAnd = new Kernels.And();
+				kernelOr = new Kernels.Or(true);
+				kernelSegmentedOr = new Kernels.SegmentedOr(true);
+				//kernelAnd = new Kernels.And(true);
 			}
 
 			//buildWatch.Stop();
@@ -674,7 +682,7 @@ namespace AprioriAllLib
 			Buffer<int> One = new Buffer<int>(context, queue, new int[] { 1 });
 			Zero.Write(false);
 
-			queue.Finish();
+			//queue.Finish();
 
 			Buffer<int> tempItemsBuf = new Buffer<int>(context, queue, itemsCountUInt);
 			kernelCopy.SetArguments(itemsBuf, itemsCountBuf, Zero, itemsCountBuf,
@@ -704,11 +712,24 @@ namespace AprioriAllLib
 			#region finding empty id
 
 			int[] tempValue = new int[] { -1 };
-			queue.Finish();
-			kernelMax.SetArguments(tempItemsBuf, itemsCountBuf, Zero, itemsCountBuf);
-			kernelMax.Launch(queue, itemsCountUInt);
 
-			queue.Finish();
+			int[] step = new int[] { 1 };
+			Buffer<int> stepBuf = new Buffer<int>(context, queue, step);
+			kernelConst.SetArguments(stepBuf, One, Zero, One, One);
+			kernelConst.Launch(queue, 1);
+
+			//queue.Finish();
+			kernelMax.SetArguments(tempItemsBuf, itemsCountBuf, Zero, itemsCountBuf, stepBuf);
+			kernelMultiplyByTwo.SetArgument(0, stepBuf);
+			stepBuf.Value = 1;
+			while (stepBuf.Value < itemsCountInt)
+			{
+				kernelMax.Launch1D(queue, itemsCountUInt, 1);
+				kernelMultiplyByTwo.Launch(queue);
+				stepBuf.Value *= 2;
+			}
+
+			//queue.Finish();
 			tempItemsBuf.Read(tempValue, 0, 1);
 
 			int emptyId = tempValue[0] + 1;
@@ -752,16 +773,23 @@ namespace AprioriAllLib
 			kernelCopy.SetArgument(0, itemsRemainingBuf);
 			kernelCopy.SetArgument(4, tempItemsBuf);
 
-			kernelMin.SetArguments(tempItemsBuf, itemsCountBuf, Zero, itemsCountBuf);
+			kernelMin.SetArguments(tempItemsBuf, itemsCountBuf, Zero, itemsCountBuf, stepBuf);
 			kernelSubstitute.SetArguments(itemsRemainingBuf, itemsCountBuf, Zero, itemsCountBuf, emptyIdBuf, tempItemsBuf);
 
 			while (true)
 			{
-				queue.Finish();
+				//queue.Finish();
 				//kernelMin.Launch(queue, tempItemsBuf);
-				kernelMin.Launch(queue, itemsCountUInt);
+				kernelConst.Launch(queue, 1);
+				stepBuf.Value = 1;
+				while (stepBuf.Value < itemsCountInt)
+				{
+					kernelMin.Launch1D(queue, itemsCountUInt, 1);
+					kernelMultiplyByTwo.Launch(queue);
+					stepBuf.Value *= 2;
+				}
 
-				queue.Finish();
+				//queue.Finish();
 				tempItemsBuf.Read(tempValue, 0, 1);
 
 				int foundValue = tempValue[0];
@@ -810,7 +838,7 @@ namespace AprioriAllLib
 
 			//Abstract.Diagnostics = true;
 
-			queue.Finish();
+			//queue.Finish();
 			kernelZero.SetArguments(itemsSupportsBuf, itemsSupportsCountBuf, null, itemsSupportsCountBuf);
 			kernelZero.Launch(queue, itemsSupportsCountUInt);
 
@@ -842,12 +870,12 @@ namespace AprioriAllLib
 				//uniqueItemBufs[uniqueItemIndex] = new Buffer<int>(context, queue, 1);
 				//uniqueItemBufs[uniqueItemIndex].BackingCollection[0] = uniqueItems[uniqueItemIndex];
 				//uniqueItemBufs[uniqueItemIndex].Write(false);
-				uniqueItemBuf.Array[0] = uniqueItems[uniqueItemIndex];
+				uniqueItemBuf.Value = uniqueItems[uniqueItemIndex];
 				uniqueItemBuf.Write(false);
-				offsetBuf.Array[0] = supportsOffset;
-				offsetBuf.Write(false);
+				offsetBuf.Value = supportsOffset;
+				offsetBuf.Write();
 
-				queue.Finish();
+				//queue.Finish();
 				kernelCopyIfEqual.Launch(queue, itemsCountUInt);
 				//kernelCopy.Launch(queue, itemsCountUInt);
 
@@ -892,7 +920,7 @@ namespace AprioriAllLib
 			int[] transactionsSupports = new int[transactionsSupportsCountInt];
 			Buffer<int> transactionsSupportsBuf = new Buffer<int>(context, queue, transactionsSupports);
 
-			queue.Finish();
+			//queue.Finish();
 			kernelZero.SetArguments(transactionsSupportsBuf, transactionsSupportsCountBuf, null, transactionsSupportsCountBuf);
 			kernelZero.Launch(queue, transactionsSupportsCountUInt);
 
@@ -906,7 +934,7 @@ namespace AprioriAllLib
 			Buffer<int> outputOffsetBuf = new Buffer<int>(context, queue, 1);
 
 			kernelSegmentedOr.SetArguments(itemsSupportsBufCopy, itemsSupportsCountBuf, offsetBuf, includedCountBuf,
-				null, itemsCountBuf);
+				stepBuf, itemsCountBuf);
 			kernelCopy.SetArguments(itemsSupportsBufCopy, itemsSupportsCountBuf, offsetBuf, One,
 				transactionsSupportsBuf, transactionsSupportsCountBuf, outputOffsetBuf, One);
 
@@ -920,10 +948,19 @@ namespace AprioriAllLib
 				includedCountBuf.Value = transactionsLengths[tn];
 				includedCountBuf.Write(false);
 
-				queue.Finish();
+				//queue.Finish();
 				//for (int i = 0; i < uniqueItemsCount; ++i)
 				//	kernelOr.Launch();
-				kernelSegmentedOr.Launch(queue, (uint)transactionsLengths[tn], uniqueItemsCountUInt);
+
+				//kernelSegmentedOr.Launch(queue, (uint)transactionsLengths[tn], uniqueItemsCountUInt);
+				kernelConst.Launch(queue, 1);
+				stepBuf.Value = 1;
+				while (stepBuf.Value < transactionsLengths[tn])
+				{
+					kernelSegmentedOr.Launch2D(queue, (uint)transactionsLengths[tn], 1, uniqueItemsCountUInt, 1);
+					kernelMultiplyByTwo.Launch(queue);
+					stepBuf.Value *= 2;
+				}
 
 				//queue.Finish(); // debug
 				//itemsSupportsBufCopy.Read(); // debug ONLY - causes incorrect results
@@ -992,8 +1029,16 @@ namespace AprioriAllLib
 				includedCountBuf.Value = customersLengths[cn];
 				includedCountBuf.Write(false);
 
-				queue.Finish();
-				kernelSegmentedOr.Launch(queue, (uint)customersLengths[cn], uniqueItemsCountUInt);
+				//queue.Finish();
+				//kernelSegmentedOr.Launch(queue, (uint)customersLengths[cn], uniqueItemsCountUInt);
+				kernelConst.Launch(queue, 1);
+				stepBuf.Value = 1;
+				while (stepBuf.Value < customersLengths[cn])
+				{
+					kernelSegmentedOr.Launch2D(queue, (uint)customersLengths[cn], 1, uniqueItemsCountUInt, 1);
+					kernelMultiplyByTwo.Launch(queue);
+					stepBuf.Value *= 2;
+				}
 
 				//queue.Finish(); // debug
 				//transactionsSupportsBufCopy.Read(); // debug ONLY - causes incorrect results
@@ -1032,7 +1077,7 @@ namespace AprioriAllLib
 			includedCountBuf.Value = customersCountInt;
 			includedCountBuf.Write(false);
 
-			kernelSum.SetArguments(customersSupportsBufCopy, customersSupportsCountBuf, offsetBuf, includedCountBuf);
+			kernelSum.SetArguments(customersSupportsBufCopy, customersSupportsCountBuf, offsetBuf, includedCountBuf, stepBuf);
 
 			queue.Finish();
 			List<Litemset> litemsets = new List<Litemset>();
@@ -1043,16 +1088,24 @@ namespace AprioriAllLib
 				offsetBuf.Value = un * customersCountInt;
 				offsetBuf.Write(false);
 
-				queue.Finish();
-				kernelSum.Launch(queue, customersCountUInt);
+				//queue.Finish();
+				//kernelSum.Launch(queue, customersCountUInt);
+				kernelConst.Launch(queue, 1);
+				stepBuf.Value = 1;
+				while (stepBuf.Value < customersCountUInt)
+				{
+					kernelSum.Launch1D(queue, customersCountUInt, 1);
+					kernelMultiplyByTwo.Launch(queue);
+					stepBuf.Value *= 2;
+				}
 
 				//queue.Finish(); // debug
 				//customersSupportsBufCopy.Read(); // debug
 
-				queue.Finish();
-				customersSupportsBufCopy.Read(false, tempValue, (uint)offsetBuf.Value, 1);
+				//queue.Finish();
+				customersSupportsBufCopy.Read(tempValue, (uint)offsetBuf.Value, 1);
 
-				queue.Finish();
+				//queue.Finish();
 				int support = tempValue[0];
 				if (support < minSupport)
 					continue;
@@ -1075,22 +1128,32 @@ namespace AprioriAllLib
 			//int[] tempSupport = new int[] { 0 };
 			bool moreCanBeFound = true;
 
-			queue.Finish();
+			//queue.Finish();
+			//kernelMax.Launch1D(queue, customersSupportsCountUInt);
 			kernelMax.SetArguments(customersSupportsBufCopy, customersSupportsCountBuf, null, customersSupportsCountBuf);
-			kernelMax.Launch(queue, customersSupportsCountUInt);
+			kernelConst.Launch(queue, 1);
+			//stepBuf.Read(); // debug
+			stepBuf.Value = 1;
+			while (stepBuf.Value < customersSupportsCountInt)
+			{
+				kernelMax.Launch1D(queue, customersSupportsCountUInt, 1);
+				kernelMultiplyByTwo.Launch(queue);
+				//stepBuf.Read(); // debug
+				stepBuf.Value *= 2;
+			}
 
 			bool[] newSupportedLocations = new bool[uniqueItemsCount];
 			for (int i = 0; i < uniqueItemsCount; ++i)
 				newSupportedLocations[i] = false;
 
 			queue.Finish();
-			customersSupportsBufCopy.Read(false, tempValue, 0, 1);
+			customersSupportsBufCopy.Read(tempValue, 0, 1);
 
-			queue.Finish();
+			//customersSupportsBufCopy.Read(); // debug
+			//queue.Finish();
 			if (tempValue[0] < minSupport)
 				moreCanBeFound = false;
-
-			if (supportedLocations.Count == 1)
+			else if (supportedLocations.Count == 1)
 				moreCanBeFound = false;
 
 			if (moreCanBeFound)
@@ -1104,17 +1167,14 @@ namespace AprioriAllLib
 				//int[] currLengthArr = new int[]{ currLength };
 				Buffer<int> currLengthBuf = new Buffer<int>(context, queue, 1);
 
-				Buffer<int> stepBuf = new Buffer<int>(context, queue, 1);
-
 				kernelMulitItemSupport.SetArguments(transactionsSupportsBufCopy, transactionsSupportsCountBuf,
 					transactionsCountBuf, /*uniqueItemsBuf,*/ locationsBuf, currLengthBuf, stepBuf);
 
 				kernelCopy.SetArguments(transactionsSupportsBuf, transactionsSupportsCountBuf, offsetBuf, includedCountBuf,
 					transactionsSupportsBufCopy, transactionsSupportsCountBuf, offsetBuf, includedCountBuf);
 
-				kernelOr.SetArguments(transactionsSupportsBufCopy, transactionsSupportsCountBuf, offsetBuf, includedCountBuf);
+				kernelOr.SetArguments(transactionsSupportsBufCopy, transactionsSupportsCountBuf, offsetBuf, includedCountBuf, stepBuf);
 
-				kernelSum.SetArguments(transactionsSupportsBufCopy, transactionsSupportsCountBuf, offsetBuf, transactionsCountBuf);
 
 				while (moreCanBeFound)
 				{
@@ -1152,12 +1212,12 @@ namespace AprioriAllLib
 							locations[i] = supportedLocations[indices[i]];
 						locationsBuf.Write(false, 0, (uint)currLength);
 
+						includedCountBuf.Value = transactionsCountInt;
+						includedCountBuf.Write(false);
 						for (int i = 0; i < currLength; ++i)
 						{
 							offsetBuf.Value = supportedLocations[indices[i]] * transactionsCountInt;
-							offsetBuf.Write(false);
-							includedCountBuf.Value = transactionsCountInt;
-							includedCountBuf.Write();
+							offsetBuf.Write();
 							//queue.Finish();
 							kernelCopy.Launch(queue, transactionsCountUInt);
 						}
@@ -1165,7 +1225,7 @@ namespace AprioriAllLib
 						//queue.Finish(); // debug
 						//transactionsSupportsBufCopy.Read(); // debug
 
-						queue.Finish();
+						//queue.Finish();
 						stepBuf.Value = 1;
 						while (stepBuf.Value < currLength)
 						{
@@ -1185,8 +1245,18 @@ namespace AprioriAllLib
 							includedCountBuf.Write();
 
 							//queue.Finish();
-							kernelOr.Launch(queue, (uint)customersLengths[cn]);
+							//kernelOr.Launch(queue, (uint)customersLengths[cn]);
+							kernelConst.Launch(queue, 1);
+							stepBuf.Value = 1;
+							while (stepBuf.Value < customersLengths[cn])
+							{
+								kernelOr.Launch1D(queue, (uint)customersLengths[cn], 1);
+								kernelMultiplyByTwo.Launch(queue);
+								stepBuf.Value *= 2;
+							}
 						}
+
+						kernelSum.SetArguments(transactionsSupportsBufCopy, transactionsSupportsCountBuf, null, transactionsCountBuf);
 
 						//queue.Finish(); // debug
 						//transactionsSupportsBufCopy.Read(); // debug
@@ -1195,9 +1265,17 @@ namespace AprioriAllLib
 						offsetBuf.Write();
 
 						//queue.Finish();
-						kernelSum.Launch(queue, transactionsCountUInt);
+						//kernelSum.Launch(queue, transactionsCountUInt);
+						kernelConst.Launch(queue, 1);
+						stepBuf.Value = 1;
+						while (stepBuf.Value < transactionsCountInt)
+						{
+							kernelSum.Launch1D(queue, transactionsCountUInt, 1);
+							kernelMultiplyByTwo.Launch(queue);
+							stepBuf.Value *= 2;
+						}
 
-						queue.Finish();
+						//queue.Finish();
 						transactionsSupportsBufCopy.Read(tempValue, (uint)offsetBuf.Value, 1);
 
 						//int locInit = supportedLocations[indices[0]];
@@ -1291,7 +1369,6 @@ namespace AprioriAllLib
 
 				queue.Finish();
 
-				stepBuf.Dispose();
 				currLengthBuf.Dispose();
 				locationsBuf.Dispose();
 			}
@@ -1346,10 +1423,10 @@ namespace AprioriAllLib
 			tempItemsBuf.Dispose();
 			itemsRemainingBuf.Dispose();
 
+			stepBuf.Dispose();
 			includedCountBuf.Dispose();
 			offsetBuf.Dispose();
 			outputOffsetBuf.Dispose();
-
 
 			// constants
 			Zero.Dispose();

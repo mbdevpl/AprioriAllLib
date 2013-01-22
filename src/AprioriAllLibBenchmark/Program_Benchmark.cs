@@ -28,14 +28,18 @@ namespace AprioriAllLib.Test.InConsole
 			bool newEachTime = false;
 			bool openCL = false;
 			bool serialized = false;
+			bool warmUp = false;
 			double support = 0.5;
 
 			//int custCount = 2;
-			int custCountMin = 1;
-			int custCountMax = 10;
+
+			CustomerList input = null;
+
+			int custCountMin = 3;
+			int custCountMax = 3;
 			int transactCount = 3;
 			int itemCount = 3;
-			int uniqueIds = 20;
+			int uniqueIds = 10;
 
 			#region parsing string[] args
 			foreach (string arg in args)
@@ -51,8 +55,26 @@ namespace AprioriAllLib.Test.InConsole
 					openCL = true;
 				else if (arg.Equals("serialized"))
 					serialized = true;
+				else if (arg.Equals("warmUp"))
+					warmUp = true;
 				else if (arg.StartsWith("support="))
 					Double.TryParse(arg.Substring(8), out support);
+
+				else if (arg.StartsWith("input="))
+				{
+					InputData data = new InputData();
+
+					string inputName = arg.Substring(6);
+
+					Type type = typeof(InputData);
+					FieldInfo field = type.GetField(inputName);
+					object inputObj = field.GetValue(data);
+
+					if (inputObj is CustomerList)
+					{
+						input = (CustomerList)inputObj;
+					}
+				}
 
 				else if (arg.StartsWith("custCountMin="))
 					Int32.TryParse(arg.Substring(13), out custCountMin);
@@ -74,26 +96,53 @@ namespace AprioriAllLib.Test.InConsole
 			for (int i = 0; i < customers.Length; ++i)
 				customers[i] = transactions;
 
-			CustomerList maxInput = InputGenerator.GenerateRandomList(customers, uniqueIds);
-
-			CustomerList input = new CustomerList();
-			for (int i = 0; i < custCountMin - 1; ++i)
-				input.Customers.Add(maxInput.Customers[i]);
-
-			for (int custCount = custCountMin; custCount <= custCountMax; ++custCount)
+			CustomerList maxInput = null;
+			if (input == null)
+				maxInput = InputGenerator.GenerateRandomList(customers, uniqueIds);
+			else
 			{
-				input.Customers.Add(maxInput.Customers[custCount - 1]);
-				if (openCL)
+				custCountMin = custCountMax = input.Customers.Count;
+				transactCount = input.Customers[0].Transactions.Count;
+				itemCount = input.Customers[0].Transactions[0].Items.Count;
+			}
+
+			if (serialized)
+			{
+				if (input == null)
+				{
+					input = new CustomerList();
+					for (int i = 0; i < custCountMin - 1; ++i)
+						input.Customers.Add(maxInput.Customers[i]);
+				}
+				for (int custCount = custCountMin; custCount <= custCountMax; ++custCount)
+				{
+					if (maxInput != null)
+						input.Customers.Add(maxInput.Customers[custCount - 1]);
 					RunBenchmark(input, custCount, transactCount, itemCount,
-						uniqueIds, support, newEachTime, true, testsCount);
-				if (serialized)
+						uniqueIds, support, newEachTime, false, warmUp, testsCount);
+				}
+			}
+
+			if (openCL)
+			{
+				if (input == null)
+				{
+					input = new CustomerList();
+					for (int i = 0; i < custCountMin - 1; ++i)
+						input.Customers.Add(maxInput.Customers[i]);
+				}
+				for (int custCount = custCountMin; custCount <= custCountMax; ++custCount)
+				{
+					if (maxInput != null)
+						input.Customers.Add(maxInput.Customers[custCount - 1]);
 					RunBenchmark(input, custCount, transactCount, itemCount,
-						uniqueIds, support, newEachTime, false, testsCount);
+						uniqueIds, support, newEachTime, true, warmUp, testsCount);
+				}
 			}
 		}
 
 		private static void RunBenchmark(CustomerList input, int custCount, int transactCount, int itemCount,
-			int uniqueIds, double support, bool newEachTime, bool openCL, int testsCount)
+			int uniqueIds, double support, bool newEachTime, bool openCL, bool warmUp, int testsCount)
 		{
 			DateTime dt = DateTime.Now;
 
@@ -122,7 +171,9 @@ namespace AprioriAllLib.Test.InConsole
 			Apriori apriori = null;
 			if (!newEachTime)
 				apriori = new Apriori(input);
-			int count = -1;
+			int count = 0;
+			if (warmUp)
+				count = -1;
 			while (++count <= testsCount)
 			{
 				if (count > 0)
@@ -155,7 +206,8 @@ namespace AprioriAllLib.Test.InConsole
 			double average = times.Average();
 			double average2 = ((double)watchAll.ElapsedMilliseconds) / testsCount;
 
-			Console.Out.WriteLine("redundant mean times (without 0th test) {0:0.00}ms and {1:0.00}ms", average, average2);
+			Console.Out.WriteLine("redundant mean times{0} {1:0.00}ms and {2:0.00}ms", 
+				warmUp ? " (without 0th test)" : "", average, average2);
 			logFilepath.AppendFormat("_{0:0}.csv", average);
 
 			WriteAllBenchmarksLog(custCount, transactCount, itemCount, uniqueIds, support, newEachTime, openCL,

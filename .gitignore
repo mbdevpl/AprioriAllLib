@@ -8,6 +8,7 @@ Thumbs.db
 /bin/Release/Benchmark/AnyCPU
 /bin/Release/Benchmark/x64
 /bin/Release/Benchmark/x86/benchmark_run_*
+/bin/Release/Benchmark/x86/profiling_trace.atp
 /src/*/obj
 /src/*/bin
 /src/TestResults
