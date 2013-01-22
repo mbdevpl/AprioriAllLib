@@ -112,7 +112,6 @@
     <Compile Include="AprioriAll.cs" />
     <Compile Include="AprioriLog.cs" />
     <Compile Include="CustomerList.cs" />
-    <Compile Include="InputGenerator.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="Litemset.cs" />
     <Compile Include="OpenCL\AprioriKernels.cs" />
@@ -142,10 +141,15 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>mkdir -p $(SolutionDir)..\bin\$(ConfigurationName)\
+    <PostBuildEvent>mkdir $(SolutionDir)..\bin\$(ConfigurationName)\
 copy $(TargetPath) $(SolutionDir)..\bin\$(ConfigurationName)\
 copy $(TargetDir)OpenCL.Net.dll $(SolutionDir)..\bin\$(ConfigurationName)\
 copy $(TargetDir)AbstractOpenCL.dll $(SolutionDir)..\bin\$(ConfigurationName)\
+
+mkdir -p $(SolutionDir)..\bin\$(ConfigurationName)\Benchmark\$(PlatformName)\
+copy $(TargetPath) $(SolutionDir)..\bin\$(ConfigurationName)\Benchmark\$(PlatformName)\
+copy $(TargetDir)OpenCL.Net.dll $(SolutionDir)..\bin\$(ConfigurationName)\Benchmark\$(PlatformName)\
+copy $(TargetDir)AbstractOpenCL.dll $(SolutionDir)..\bin\$(ConfigurationName)\Benchmark\$(PlatformName)\
 </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

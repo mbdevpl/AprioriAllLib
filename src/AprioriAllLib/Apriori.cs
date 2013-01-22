@@ -412,7 +412,7 @@ namespace AprioriAllLib
 				watch.Start();
 			}
 
-			int cIndex = 0;
+			//int cIndex = 0;
 			foreach (Customer c in customerList.Customers)
 			{
 				foreach (Transaction t in c.Transactions)

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace AprioriAllLib
+namespace AprioriAllLib.Test
 {
 	/// <summary>
 	/// Tool for generating random input for Apriori and AprioriAll algorithms.
@@ -58,5 +58,46 @@ namespace AprioriAllLib
 			return randomCustomerList;
 		}
 
+		public static CustomerList GenerateRandomList(int[][] sizes, int uniqueIds)
+		{
+			Random random = new Random();
+			CustomerList randomCustomerList = new CustomerList();
+
+			int[] uniques = new int[uniqueIds];
+			for (int i = 0; i < uniqueIds; ++i)
+				uniques[i] = (i + 1) * 2;
+
+			Customer c;
+			Transaction t;
+			List<int> usedIds = new List<int>();
+			for (int cn = 0; cn < sizes.Length; ++cn)
+			{
+				c = new Customer();
+				randomCustomerList.Customers.Add(c);
+				for (int tn = 0; tn < sizes[cn].Length; ++tn)
+				{
+					t = new Transaction();
+					usedIds.Clear();
+					for (int i = 0; i < sizes[cn][tn]; ++i)
+					{
+						int id = random.Next() % uniqueIds;
+						int starting = id;
+						while (usedIds.Contains(id))
+						{
+							++id;
+							if (id >= uniqueIds)
+								id = 0;
+							if (id == starting)
+								throw new Exception("number of unique elements must be as great as the length of any transaction");
+						}
+						t.AddItem(id);
+						usedIds.Add(id);
+					}
+					c.AddTransaction(t);
+				}
+			}
+
+			return randomCustomerList;
+		}
 	}
 }
