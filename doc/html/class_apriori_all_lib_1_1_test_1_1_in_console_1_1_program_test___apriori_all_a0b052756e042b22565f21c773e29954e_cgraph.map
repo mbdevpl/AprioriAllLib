@@ -1,4 +1,4 @@
 <map id="AprioriAllLib.Test.InConsole.ProgramTest_AprioriAll.Main" name="AprioriAllLib.Test.InConsole.ProgramTest_AprioriAll.Main">
-<area shape="rect" id="node3" href="$class_apriori_all_lib_1_1_input_generator.html#af4d27a9352dff265fe1d6f012f33f2b8" title="Generates a random list of customers. Randomization is parameterized. " alt="" coords="240,5,424,46"/>
-<area shape="rect" id="node5" href="$class_apriori_all_lib_1_1_apriori_all.html#a9a05f0ff368d6dfea768ce19f09505b2" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. " alt="" coords="257,70,407,111"/>
+<area shape="rect" id="node3" href="$class_apriori_all_lib_1_1_test_1_1_input_generator.html#ada133d09d1577b79a8f0aab4aa493a68" title="Generates a random list of customers. Randomization is parameterized. " alt="" coords="240,5,445,46"/>
+<area shape="rect" id="node5" href="$class_apriori_all_lib_1_1_apriori_all.html#a9a05f0ff368d6dfea768ce19f09505b2" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. " alt="" coords="267,70,418,111"/>
 </map>

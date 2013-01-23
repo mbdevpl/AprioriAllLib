@@ -1,5 +1,4 @@
 <map id="AprioriAllLib.Apriori.Dispose" name="AprioriAllLib.Apriori.Dispose">
-<area shape="rect" id="node3" href="$class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test.html#a34f97425d8fa423d69e2a0b17cee8e28" title="AprioriAllLib.Test.Apriori\lParallelTest.Test_AprioriParallel\l_Example1_LowSupport" alt="" coords="242,5,449,61"/>
-<area shape="rect" id="node5" href="$class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test.html#a52657a5b9ce9b2fbe98d9420e9f40806" title="AprioriAllLib.Test.Apriori\lParallelTest.Test_AprioriParallel\l_Example1_HighSupport" alt="" coords="242,85,449,141"/>
-<area shape="rect" id="node7" href="$class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program_test___parallel_apriori.html#a81452427e86f0b8e84715bc7162bf8e9" title="Main function. " alt="" coords="238,166,453,207"/>
+<area shape="rect" id="node3" href="$class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test.html#a0cdc41d6f77dc7dea172c9226b5331e1" title="AprioriAllLib.Test.Apriori\lParallelTest.AprioriSerialized\lAndParallelLauncher" alt="" coords="251,5,439,61"/>
+<area shape="rect" id="node5" href="$class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program_test___parallel_apriori.html#a81452427e86f0b8e84715bc7162bf8e9" title="Main function. " alt="" coords="238,86,453,127"/>
 </map>

@@ -9,6 +9,10 @@ using System.Threading.Tasks;
 
 namespace AprioriAllLib.Test.InConsole
 {
+	/// <summary>
+	/// Application that is able to benchmark and compare the efficiency of both versions 
+	/// of the algorithm on various inputs. It creates reports in CSV format.
+	/// </summary>
 	class Program_Benchmark
 	{
 		static public string AssemblyDirectory

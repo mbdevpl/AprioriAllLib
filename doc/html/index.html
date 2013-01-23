@@ -29,7 +29,7 @@
   <td id="projectlogo"><img alt="Logo" src="project_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">Apriori and AprioriAll in C#
-   &#160;<span id="projectnumber">version 2.0.0</span>
+   &#160;<span id="projectnumber">version 2.1.0</span>
    </div>
    <div id="projectbrief">serialized version with prefix trees, parallel version with OpenCL</div>
   </td>
@@ -121,16 +121,24 @@ along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
 <h3>Examples</h3>
 <p><code>AprioriAll dataset1.xml 0.2</code> runs AprioriAll algorithm with support 0.2 on given data set</p>
 <p><code>Apriori dataset2.xml 0.3</code> runs Apriori algorithm with support 0.3 on given data set</p>
+<p>Apriori and AprioriAll executables do not have any extra options at the moment.</p>
+<p>The executables do not (yet) allow execution of parallel (OpenCL) version of the algorithm. It is still accessible via AprioriAllLib.dll and the benchmarking executable. It was tested on AMD GPU, but it is not efficient enough to be useful in practice. Current development focuses primarily on the parallel version, with only minor tweaks (if any) in the serialized.</p>
+<p><code>AprioriAllLibBenchmark testsCount=1 openCL support=0.1 input=Example2</code></p>
+<p><code>AprioriAllLibBenchmark testsCount=4 openCL serialized support=0.5 custCountMin=1 custCountMax=10 transactCount=3 itemCount=3 uniqueIds=7</code></p>
+<p><code>AprioriAllLibBenchmark testsCount=3 openCL warmUp support=0.5 custCountMin=1 custCountMax=30 transactCount=5 itemCount=5 uniqueIds=20</code></p>
+<p>Benchmark command-line options are currently not documented as they frequently change.</p>
 <h2>Timeline</h2>
 <ul>
 <li>6 Nov 2012: project started</li>
 <li>7 Dec 2012: version 1.0.0</li>
 <li>15 Dec 2012: version 1.5.0</li>
 <li>21 Jan 2013: version 2.0.0</li>
+<li>23 Jan 2013: version 2.1.0</li>
 </ul>
 <h2>Where is everything, i.e. structure of the repository</h2>
 <ul>
 <li>*/bin/Release* - binaries of applications and the library, compiled for .NET 4.0</li>
+<li>*/bin/Release/Profiling/x86* - binaries of benchmark of the library, compiled for .NET 4.0 x86 with batch file for AMD APP profiler</li>
 <li>*/doc/html* - documentation of source code</li>
 <li>*/doc/pdf* - general documentation describing main principles of the algorithm and this application</li>
 <li>*/src* - source code</li>

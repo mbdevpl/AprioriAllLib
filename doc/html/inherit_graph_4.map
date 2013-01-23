@@ -1,3 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_apriori_all_lib_1_1_prefix_tree_node.html" title="Represents a single node of PrefixTree. " alt="" coords="6,5,189,32"/>
+<area shape="rect" id="node1" href="$class_apriori_all_lib_1_1_test_1_1_apriori_benchmark.html" title="AprioriAllLib.Test.Apriori\lBenchmark" alt="" coords="6,38,167,79"/>
+<area shape="rect" id="node3" href="$class_apriori_all_lib_1_1_test_1_1_apriori_open_c_l_benchmark.html" title="AprioriAllLib.Test.Apriori\lOpenCLBenchmark" alt="" coords="217,5,378,46"/>
+<area shape="rect" id="node5" href="$class_apriori_all_lib_1_1_test_1_1_apriori_serialized_benchmark.html" title="AprioriAllLib.Test.Apriori\lSerializedBenchmark" alt="" coords="217,70,378,111"/>
 </map>

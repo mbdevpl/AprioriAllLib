@@ -1,11 +1,12 @@
 <map id="AprioriAllLib.Test.AprioriTestBase" name="AprioriAllLib.Test.AprioriTestBase">
-<area shape="rect" id="node3" href="$class_apriori_all_lib_1_1_test_1_1_apriori_all_test_base.html" title="Base class for all AprioriAll tests. Defines common routines used by the tests. " alt="" coords="297,360,481,467"/>
-<area shape="rect" id="node13" href="$class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test.html" title="Unit tests for parallel version of Apriori. " alt="" coords="505,345,679,481"/>
-<area shape="rect" id="node15" href="$class_apriori_all_lib_1_1_test_1_1_apriori_test.html" title="Unit tests for serialized version of Apriori algorithm. " alt="" coords="703,294,889,533"/>
-<area shape="rect" id="node17" href="$class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program_test___apriori.html" title="Runs Apriori algorithm on fixed input data. " alt="" coords="914,367,1099,459"/>
-<area shape="rect" id="node19" href="$class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program_test___parallel_apriori.html" title="An example program that runs the parallel version of the Apriori algorithm. " alt="" coords="1123,367,1308,459"/>
-<area shape="rect" id="node5" href="$class_apriori_all_lib_1_1_test_1_1_apriori_all_parallel_test.html" title="Unit tests for parallel version of AprioriAll. " alt="" coords="5,685,165,777"/>
-<area shape="rect" id="node7" href="$class_apriori_all_lib_1_1_test_1_1_apriori_all_test.html" title="Unit tests for serialized version of AprioriAll algorithm. " alt="" coords="191,582,377,879"/>
-<area shape="rect" id="node9" href="$class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program_test___apriori_all.html" title="Runs AprioriAll algorithm on random input. " alt="" coords="402,685,587,777"/>
-<area shape="rect" id="node11" href="$class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program_test___parallel_apriori_all.html" title="Runs parallel AprioriAll algorithm on a fixed data set. " alt="" coords="611,685,809,777"/>
+<area shape="rect" id="node3" href="$class_apriori_all_lib_1_1_test_1_1_apriori_all_test_base.html" title="Base class for all AprioriAll tests. Defines common routines used by the tests. " alt="" coords="297,477,481,584"/>
+<area shape="rect" id="node13" href="$class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test.html" title="Unit tests for parallel version of Apriori. " alt="" coords="506,294,699,767"/>
+<area shape="rect" id="node15" href="$class_apriori_all_lib_1_1_test_1_1_apriori_test.html" title="Unit tests for serialized version of Apriori algorithm. " alt="" coords="724,411,911,650"/>
+<area shape="rect" id="node17" href="$class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program_test___apriori.html" title="Runs Apriori algorithm on fixed input data. " alt="" coords="935,485,1120,577"/>
+<area shape="rect" id="node19" href="$class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program_test___comparison_apriori.html" title="Executes a simple comparison of two version of the algorithm on fixed input. " alt="" coords="1145,485,1353,577"/>
+<area shape="rect" id="node21" href="$class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program_test___parallel_apriori.html" title="An example program that runs the parallel version of the Apriori algorithm. " alt="" coords="1378,485,1563,577"/>
+<area shape="rect" id="node5" href="$class_apriori_all_lib_1_1_test_1_1_apriori_all_parallel_test.html" title="Unit tests for parallel version of AprioriAll. " alt="" coords="5,919,165,1011"/>
+<area shape="rect" id="node7" href="$class_apriori_all_lib_1_1_test_1_1_apriori_all_test.html" title="Unit tests for serialized version of AprioriAll algorithm. " alt="" coords="191,817,377,1114"/>
+<area shape="rect" id="node9" href="$class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program_test___apriori_all.html" title="Runs AprioriAll algorithm on random input. " alt="" coords="402,919,587,1011"/>
+<area shape="rect" id="node11" href="$class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program_test___parallel_apriori_all.html" title="Runs parallel AprioriAll algorithm on a fixed data set. " alt="" coords="611,919,809,1011"/>
 </map>

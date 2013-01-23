@@ -6,9 +6,13 @@ var searchData=
   ['aprioriallparalleltest_2ecs',['AprioriAllParallelTest.cs',['../_apriori_all_parallel_test_8cs.html',1,'']]],
   ['apriorialltest_2ecs',['AprioriAllTest.cs',['../_apriori_all_test_8cs.html',1,'']]],
   ['apriorialltestbase_2ecs',['AprioriAllTestBase.cs',['../_apriori_all_test_base_8cs.html',1,'']]],
+  ['aprioribenchmark_2ecs',['AprioriBenchmark.cs',['../_apriori_benchmark_8cs.html',1,'']]],
+  ['aprioricomparison_2ecs',['AprioriComparison.cs',['../_apriori_comparison_8cs.html',1,'']]],
   ['apriorikernels_2ecs',['AprioriKernels.cs',['../_apriori_kernels_8cs.html',1,'']]],
   ['apriorilog_2ecs',['AprioriLog.cs',['../_apriori_log_8cs.html',1,'']]],
+  ['aprioriopenclbenchmark_2ecs',['AprioriOpenCLBenchmark.cs',['../_apriori_open_c_l_benchmark_8cs.html',1,'']]],
   ['aprioriparalleltest_2ecs',['AprioriParallelTest.cs',['../_apriori_parallel_test_8cs.html',1,'']]],
+  ['aprioriserializedbenchmark_2ecs',['AprioriSerializedBenchmark.cs',['../_apriori_serialized_benchmark_8cs.html',1,'']]],
   ['aprioritest_2ecs',['AprioriTest.cs',['../_apriori_test_8cs.html',1,'']]],
   ['aprioritestbase_2ecs',['AprioriTestBase.cs',['../_apriori_test_base_8cs.html',1,'']]]
 ];

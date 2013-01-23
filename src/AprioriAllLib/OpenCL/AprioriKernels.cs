@@ -6,6 +6,9 @@ using OpenCL.Abstract;
 
 namespace AprioriAllLib
 {
+	/// <summary>
+	/// Linked to the kernel code responsible for calculating support of Litemsets of length 2 and larger.
+	/// </summary>
 	public class MultiItemSupportKernel : Kernel
 	{
 		//private Buffer<int> dataBuffer;

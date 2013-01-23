@@ -29,7 +29,7 @@
   <td id="projectlogo"><img alt="Logo" src="project_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">Apriori and AprioriAll in C#
-   &#160;<span id="projectnumber">version 2.0.0</span>
+   &#160;<span id="projectnumber">version 2.1.0</span>
    </div>
    <div id="projectbrief">serialized version with prefix trees, parallel version with OpenCL</div>
   </td>
@@ -98,6 +98,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="#index_r"><span>r</span></a></li>
       <li><a href="#index_s"><span>s</span></a></li>
       <li><a href="#index_t"><span>t</span></a></li>
+      <li><a href="#index_w"><span>w</span></a></li>
       <li><a href="#index_0x7e"><span>~</span></a></li>
     </ul>
   </div>
@@ -154,6 +155,12 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 </li>
 <li>AprioriAll()
 : <a class="el" href="class_apriori_all_lib_1_1_apriori_all.html#aca507124c70c7ba3fe45f4f100905eb3">AprioriAllLib.AprioriAll</a>
+</li>
+<li>AprioriParallelAndSerializedResultsComparer()
+: <a class="el" href="class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test.html#ac824fffea2336d5367392018a1a3c2a3">AprioriAllLib.Test.AprioriParallelTest</a>
+</li>
+<li>AprioriSerializedAndParallelLauncher()
+: <a class="el" href="class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test.html#a0cdc41d6f77dc7dea172c9226b5331e1">AprioriAllLib.Test.AprioriParallelTest</a>
 </li>
 <li>AprioriTestBase()
 : <a class="el" href="class_apriori_all_lib_1_1_test_1_1_apriori_test_base.html#a852282ef8bc2b5bf4c884f63f2f29617">AprioriAllLib.Test.AprioriTestBase</a>
@@ -231,7 +238,7 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 : <a class="el" href="class_apriori_all_lib_1_1_apriori_all.html#a1d9069babd9e846baf093edb597ee35f">AprioriAllLib.AprioriAll</a>
 </li>
 <li>GenerateRandomList()
-: <a class="el" href="class_apriori_all_lib_1_1_input_generator.html#af4d27a9352dff265fe1d6f012f33f2b8">AprioriAllLib.InputGenerator</a>
+: <a class="el" href="class_apriori_all_lib_1_1_test_1_1_input_generator.html#ada133d09d1577b79a8f0aab4aa493a68">AprioriAllLib.Test.InputGenerator</a>
 </li>
 <li>Get()
 : <a class="el" href="class_apriori_all_lib_1_1_prefix_tree_node.html#a77b5dc6f02610fe8b0ca6a8c245de53c">AprioriAllLib.PrefixTreeNode</a>
@@ -244,9 +251,9 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 </li>
 <li>GetHashCode()
 : <a class="el" href="class_apriori_all_lib_1_1_transaction.html#a4764adaec1f3e43759056153174b86b0">AprioriAllLib.Transaction</a>
-, <a class="el" href="class_apriori_all_lib_1_1_litemset.html#a9136150bd3e28ca6ec5045e3f9c9d8cc">AprioriAllLib.Litemset</a>
 , <a class="el" href="class_apriori_all_lib_1_1_customer.html#aa4829804d6b0775ffe01460f82a9b5d0">AprioriAllLib.Customer</a>
 , <a class="el" href="class_apriori_all_lib_1_1_item.html#a8e03d67f91ed9e055903e30eecf0d400">AprioriAllLib.Item</a>
+, <a class="el" href="class_apriori_all_lib_1_1_litemset.html#a9136150bd3e28ca6ec5045e3f9c9d8cc">AprioriAllLib.Litemset</a>
 </li>
 <li>GetNode()
 : <a class="el" href="class_apriori_all_lib_1_1_prefix_tree.html#aa998bde5470b1f5e149a8369fe478b75">AprioriAllLib.PrefixTree</a>
@@ -288,12 +295,14 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 
 <h3><a class="anchor" id="index_m"></a>- m -</h3><ul>
 <li>Main()
-: <a class="el" href="class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program___apriori.html#a5c0a41b94b7926da567ed5ad12718991">AprioriAllLib.Test.InConsole.Program_Apriori</a>
-, <a class="el" href="class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program___apriori_all.html#aed97065946eb41a3b1d9ce46d997808f">AprioriAllLib.Test.InConsole.Program_AprioriAll</a>
-, <a class="el" href="class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program_test___apriori_all.html#a0b052756e042b22565f21c773e29954e">AprioriAllLib.Test.InConsole.ProgramTest_AprioriAll</a>
+: <a class="el" href="class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program___benchmark.html#a8b13c531eb43c6b5d4b23f98434e7094">AprioriAllLib.Test.InConsole.Program_Benchmark</a>
+, <a class="el" href="class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program___apriori.html#a5c0a41b94b7926da567ed5ad12718991">AprioriAllLib.Test.InConsole.Program_Apriori</a>
+, <a class="el" href="class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program_test___apriori.html#acc4c685f49db793db13e649a6e79be65">AprioriAllLib.Test.InConsole.ProgramTest_Apriori</a>
 , <a class="el" href="class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program_test___parallel_apriori_all.html#ae84695ae9318d606e01adfd11760a0df">AprioriAllLib.Test.InConsole.ProgramTest_ParallelAprioriAll</a>
 , <a class="el" href="class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program_test___parallel_apriori.html#a81452427e86f0b8e84715bc7162bf8e9">AprioriAllLib.Test.InConsole.ProgramTest_ParallelApriori</a>
-, <a class="el" href="class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program_test___apriori.html#acc4c685f49db793db13e649a6e79be65">AprioriAllLib.Test.InConsole.ProgramTest_Apriori</a>
+, <a class="el" href="class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program_test___comparison_apriori.html#ad9891d9b7372b1c2a1a5289e8b770b67">AprioriAllLib.Test.InConsole.ProgramTest_ComparisonApriori</a>
+, <a class="el" href="class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program_test___apriori_all.html#a0b052756e042b22565f21c773e29954e">AprioriAllLib.Test.InConsole.ProgramTest_AprioriAll</a>
+, <a class="el" href="class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program___apriori_all.html#aed97065946eb41a3b1d9ce46d997808f">AprioriAllLib.Test.InConsole.Program_AprioriAll</a>
 </li>
 <li>MatchCandidateToEncodedCustomer()
 : <a class="el" href="class_apriori_all_lib_1_1_apriori_all.html#af4fb4eb42f8678f318d77638306fc27c">AprioriAllLib.AprioriAll</a>
@@ -354,11 +363,14 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <li>RunAprioriWithPruning()
 : <a class="el" href="class_apriori_all_lib_1_1_apriori.html#a9193560129d6127879603a772d520506">AprioriAllLib.Apriori</a>
 </li>
+<li>RunBenchmark()
+: <a class="el" href="class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program___benchmark.html#a5884ebe603b59602b2cba279a7974fc8">AprioriAllLib.Test.InConsole.Program_Benchmark</a>
+</li>
 <li>RunParallelApriori()
 : <a class="el" href="class_apriori_all_lib_1_1_apriori.html#abf88e1f78883083cd20760cb43029738">AprioriAllLib.Apriori</a>
 </li>
 <li>RunParallelAprioriAll()
-: <a class="el" href="class_apriori_all_lib_1_1_apriori_all.html#aa4b4a84846b18ee40bbcc798e08fa4f1">AprioriAllLib.AprioriAll</a>
+: <a class="el" href="class_apriori_all_lib_1_1_apriori_all.html#a1abf95c25d82e6b9ff1bf26184d6c5e4">AprioriAllLib.AprioriAll</a>
 </li>
 <li>RunParallelAprioriWithPruning()
 : <a class="el" href="class_apriori_all_lib_1_1_apriori.html#a15ffd8ff3283d42db3caac5400f68e05">AprioriAllLib.Apriori</a>
@@ -422,11 +434,38 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <li>Test_AprioriAll_Example1_MediumSupport()
 : <a class="el" href="class_apriori_all_lib_1_1_test_1_1_apriori_all_test.html#a187dc993b3cf23b3065f21a1ee06185a">AprioriAllLib.Test.AprioriAllTest</a>
 </li>
+<li>Test_AprioriParallel_DataSet2_LowSupport()
+: <a class="el" href="class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test.html#a1c7daf3dbc14936c88ca94dfc71b538a">AprioriAllLib.Test.AprioriParallelTest</a>
+</li>
+<li>Test_AprioriParallel_DataSet2_VeryLowSupport()
+: <a class="el" href="class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test.html#af37b1baa33294c93c4e264eff385cdad">AprioriAllLib.Test.AprioriParallelTest</a>
+</li>
+<li>Test_AprioriParallel_DataSet3_LowSupport()
+: <a class="el" href="class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test.html#a0ba40700db91f029e59b80e955bbd62d">AprioriAllLib.Test.AprioriParallelTest</a>
+</li>
+<li>Test_AprioriParallel_DataSet3_VeryLowSupport()
+: <a class="el" href="class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test.html#af602888d34974cc0671a0339044a47c0">AprioriAllLib.Test.AprioriParallelTest</a>
+</li>
 <li>Test_AprioriParallel_Example1_HighSupport()
 : <a class="el" href="class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test.html#a52657a5b9ce9b2fbe98d9420e9f40806">AprioriAllLib.Test.AprioriParallelTest</a>
 </li>
 <li>Test_AprioriParallel_Example1_LowSupport()
 : <a class="el" href="class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test.html#a34f97425d8fa423d69e2a0b17cee8e28">AprioriAllLib.Test.AprioriParallelTest</a>
+</li>
+<li>Test_AprioriParallel_Example2_HighSupport()
+: <a class="el" href="class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test.html#a8818caf014fbfcecccf46dc5023dcf36">AprioriAllLib.Test.AprioriParallelTest</a>
+</li>
+<li>Test_AprioriParallel_Example2_LowSupport()
+: <a class="el" href="class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test.html#ab8b78106b6b60d63c00394ae8e32e68e">AprioriAllLib.Test.AprioriParallelTest</a>
+</li>
+<li>Test_AprioriParallel_Example2_MediumSupport()
+: <a class="el" href="class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test.html#a38d8a2ee78bc8d19cb7d6be26d8818f7">AprioriAllLib.Test.AprioriParallelTest</a>
+</li>
+<li>Test_AprioriParallel_Example3_LowSupport()
+: <a class="el" href="class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test.html#a079511bcc9ca0474efdc78c7ac73dacc">AprioriAllLib.Test.AprioriParallelTest</a>
+</li>
+<li>Test_AprioriParallel_Example3_MediumSupport()
+: <a class="el" href="class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test.html#afe0a53dafdf9e9e3c732574cd9c76a34">AprioriAllLib.Test.AprioriParallelTest</a>
 </li>
 <li>TestCleanup()
 : <a class="el" href="class_apriori_all_lib_1_1_test_1_1_apriori_test_base.html#a70389b15d89c6cb5be114ec7f29b7252">AprioriAllLib.Test.AprioriTestBase</a>
@@ -435,17 +474,27 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 : <a class="el" href="class_apriori_all_lib_1_1_test_1_1_apriori_test_base.html#aa0b9fea69300b787a6bd547641027c10">AprioriAllLib.Test.AprioriTestBase</a>
 </li>
 <li>ToString()
-: <a class="el" href="class_apriori_all_lib_1_1_transaction.html#acee1a8846d87f949c63110f7e6eabfe0">AprioriAllLib.Transaction</a>
+: <a class="el" href="class_apriori_all_lib_1_1_customer_list.html#a8f3853844dc1e35424a54e706014f8d7">AprioriAllLib.CustomerList</a>
+, <a class="el" href="class_apriori_all_lib_1_1_transaction.html#acee1a8846d87f949c63110f7e6eabfe0">AprioriAllLib.Transaction</a>
 , <a class="el" href="class_apriori_all_lib_1_1_litemset.html#a512b70867120363edcd1178cec1c31f9">AprioriAllLib.Litemset</a>
 , <a class="el" href="class_apriori_all_lib_1_1_item.html#a020b36119d00b63670da5688967dc147">AprioriAllLib.Item</a>
-, <a class="el" href="class_apriori_all_lib_1_1_customer_list.html#a8f3853844dc1e35424a54e706014f8d7">AprioriAllLib.CustomerList</a>
 , <a class="el" href="class_apriori_all_lib_1_1_customer.html#a311c3424f3f1207afe9b883cc41cae60">AprioriAllLib.Customer</a>
 </li>
 <li>Transaction()
 : <a class="el" href="class_apriori_all_lib_1_1_transaction.html#a582a1d655d1c0d452a5e5f0b972688dd">AprioriAllLib.Transaction</a>
 </li>
 <li>TryAdd()
-: <a class="el" href="class_apriori_all_lib_1_1_prefix_tree.html#ace8c0ad1a2cd374ee8189e5977baf30b">AprioriAllLib.PrefixTree</a>
+: <a class="el" href="class_apriori_all_lib_1_1_prefix_tree.html#ac119ff097f8ffad045aeba780c2d6357">AprioriAllLib.PrefixTree</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_w"></a>- w -</h3><ul>
+<li>WriteAllBenchmarksLog()
+: <a class="el" href="class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program___benchmark.html#a8a06e6cda3fc511e4982f054f4552054">AprioriAllLib.Test.InConsole.Program_Benchmark</a>
+</li>
+<li>WriteNewBenchmarkLog()
+: <a class="el" href="class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program___benchmark.html#a349bbb29928724834107f043da3863c0">AprioriAllLib.Test.InConsole.Program_Benchmark</a>
 </li>
 </ul>
 

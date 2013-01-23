@@ -1,5 +1,10 @@
 var hierarchy =
 [
+    [ "AprioriAllLib.Test.AprioriBenchmark", "class_apriori_all_lib_1_1_test_1_1_apriori_benchmark.html", [
+      [ "AprioriAllLib.Test.AprioriOpenCLBenchmark", "class_apriori_all_lib_1_1_test_1_1_apriori_open_c_l_benchmark.html", null ],
+      [ "AprioriAllLib.Test.AprioriSerializedBenchmark", "class_apriori_all_lib_1_1_test_1_1_apriori_serialized_benchmark.html", null ]
+    ] ],
+    [ "AprioriAllLib.Test.AprioriComparison", "class_apriori_all_lib_1_1_test_1_1_apriori_comparison.html", null ],
     [ "AprioriAllLib.Test.AprioriTestBase", "class_apriori_all_lib_1_1_test_1_1_apriori_test_base.html", [
       [ "AprioriAllLib.Test.AprioriAllTestBase", "class_apriori_all_lib_1_1_test_1_1_apriori_all_test_base.html", [
         [ "AprioriAllLib.Test.AprioriAllParallelTest", "class_apriori_all_lib_1_1_test_1_1_apriori_all_parallel_test.html", null ],
@@ -10,6 +15,7 @@ var hierarchy =
       [ "AprioriAllLib.Test.AprioriParallelTest", "class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test.html", null ],
       [ "AprioriAllLib.Test.AprioriTest", "class_apriori_all_lib_1_1_test_1_1_apriori_test.html", null ],
       [ "AprioriAllLib.Test.InConsole.ProgramTest_Apriori", "class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program_test___apriori.html", null ],
+      [ "AprioriAllLib.Test.InConsole.ProgramTest_ComparisonApriori", "class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program_test___comparison_apriori.html", null ],
       [ "AprioriAllLib.Test.InConsole.ProgramTest_ParallelApriori", "class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program_test___parallel_apriori.html", null ]
     ] ],
     [ "AprioriAllLib.Customer", "class_apriori_all_lib_1_1_customer.html", null ],
@@ -24,7 +30,7 @@ var hierarchy =
       ] ]
     ] ],
     [ "AprioriAllLib.Test.InputData", "class_apriori_all_lib_1_1_test_1_1_input_data.html", null ],
-    [ "AprioriAllLib.InputGenerator", "class_apriori_all_lib_1_1_input_generator.html", null ],
+    [ "AprioriAllLib.Test.InputGenerator", "class_apriori_all_lib_1_1_test_1_1_input_generator.html", null ],
     [ "Kernel", "class_kernel.html", [
       [ "AprioriAllLib.MultiItemSupportKernel", "class_apriori_all_lib_1_1_multi_item_support_kernel.html", null ]
     ] ],
@@ -32,6 +38,7 @@ var hierarchy =
     [ "AprioriAllLib.PrefixTreeNode", "class_apriori_all_lib_1_1_prefix_tree_node.html", null ],
     [ "AprioriAllLib.Test.InConsole.Program_Apriori", "class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program___apriori.html", null ],
     [ "AprioriAllLib.Test.InConsole.Program_AprioriAll", "class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program___apriori_all.html", null ],
+    [ "AprioriAllLib.Test.InConsole.Program_Benchmark", "class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program___benchmark.html", null ],
     [ "AprioriAllLib.Transaction", "class_apriori_all_lib_1_1_transaction.html", null ],
     [ "AprioriAllLib.XmlReader", "class_apriori_all_lib_1_1_xml_reader.html", null ]
 ];

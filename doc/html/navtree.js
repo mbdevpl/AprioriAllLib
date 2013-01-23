@@ -30,7 +30,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_apriori_8cs.html",
-"index.html"
+"class_kernel.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

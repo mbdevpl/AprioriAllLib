@@ -5,7 +5,11 @@ var searchData=
   ['aprioriallparalleltest',['AprioriAllParallelTest',['../class_apriori_all_lib_1_1_test_1_1_apriori_all_parallel_test.html',1,'AprioriAllLib::Test']]],
   ['apriorialltest',['AprioriAllTest',['../class_apriori_all_lib_1_1_test_1_1_apriori_all_test.html',1,'AprioriAllLib::Test']]],
   ['apriorialltestbase',['AprioriAllTestBase',['../class_apriori_all_lib_1_1_test_1_1_apriori_all_test_base.html',1,'AprioriAllLib::Test']]],
+  ['aprioribenchmark',['AprioriBenchmark',['../class_apriori_all_lib_1_1_test_1_1_apriori_benchmark.html',1,'AprioriAllLib::Test']]],
+  ['aprioricomparison',['AprioriComparison',['../class_apriori_all_lib_1_1_test_1_1_apriori_comparison.html',1,'AprioriAllLib::Test']]],
+  ['aprioriopenclbenchmark',['AprioriOpenCLBenchmark',['../class_apriori_all_lib_1_1_test_1_1_apriori_open_c_l_benchmark.html',1,'AprioriAllLib::Test']]],
   ['aprioriparalleltest',['AprioriParallelTest',['../class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test.html',1,'AprioriAllLib::Test']]],
+  ['aprioriserializedbenchmark',['AprioriSerializedBenchmark',['../class_apriori_all_lib_1_1_test_1_1_apriori_serialized_benchmark.html',1,'AprioriAllLib::Test']]],
   ['aprioritest',['AprioriTest',['../class_apriori_all_lib_1_1_test_1_1_apriori_test.html',1,'AprioriAllLib::Test']]],
   ['aprioritestbase',['AprioriTestBase',['../class_apriori_all_lib_1_1_test_1_1_apriori_test_base.html',1,'AprioriAllLib::Test']]]
 ];

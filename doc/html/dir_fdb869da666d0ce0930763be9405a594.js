@@ -6,9 +6,6 @@ var dir_fdb869da666d0ce0930763be9405a594 =
     [ "AprioriLog.cs", "_apriori_log_8cs.html", null ],
     [ "Customer.cs", "_customer_8cs.html", null ],
     [ "CustomerList.cs", "_customer_list_8cs.html", null ],
-    [ "InputGenerator.cs", "_input_generator_8cs.html", [
-      [ "InputGenerator", "class_apriori_all_lib_1_1_input_generator.html", "class_apriori_all_lib_1_1_input_generator" ]
-    ] ],
     [ "Item.cs", "_item_8cs.html", null ],
     [ "Litemset.cs", "_litemset_8cs.html", [
       [ "Litemset", "class_apriori_all_lib_1_1_litemset.html", "class_apriori_all_lib_1_1_litemset" ]

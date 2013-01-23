@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace AprioriAllLib.Test.InConsole
 {
+	/// <summary>
+	/// Executes a simple comparison of two version of the algorithm on fixed input.
+	/// </summary>
 	public class ProgramTest_ComparisonApriori : AprioriTestBase
 	{
 		private static bool Diagnostics = true;

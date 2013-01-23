@@ -29,7 +29,7 @@
   <td id="projectlogo"><img alt="Logo" src="project_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">Apriori and AprioriAll in C#
-   &#160;<span id="projectnumber">version 2.0.0</span>
+   &#160;<span id="projectnumber">version 2.1.0</span>
    </div>
    <div id="projectbrief">serialized version with prefix trees, parallel version with OpenCL</div>
   </td>
@@ -186,7 +186,7 @@ Functions</h2></td></tr>
 <div class="line">                watch.Start();</div>
 <div class="line">            }</div>
 <div class="line"></div>
-<div class="line">            <span class="keywordtype">int</span> cIndex = 0;</div>
+<div class="line">            <span class="comment">//int cIndex = 0;</span></div>
 <div class="line">            <span class="keywordflow">foreach</span> (Customer c <span class="keywordflow">in</span> <a class="code" href="class_apriori_all_lib_1_1_apriori.html#abbca8be3761136e76782ce10ebd61638" title="Input data for the algorithm. ">customerList</a>.<a class="code" href="class_apriori_all_lib_1_1_customer_list.html#a4fd2a16a984844e61ffc60b327e6534a" title="List of Customers ">Customers</a>)</div>
 <div class="line">            {</div>
 <div class="line">                <span class="keywordflow">foreach</span> (Transaction t <span class="keywordflow">in</span> c.Transactions)</div>
@@ -219,22 +219,22 @@ Functions</h2></td></tr>
 <div class="line">                    }</div>
 <div class="line">                }</div>
 <div class="line"></div>
-<div class="line">                <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">                {</div>
-<div class="line">                    <span class="keywordflow">if</span> (cIndex % 10 == 9)</div>
-<div class="line">                    {</div>
-<div class="line">                        watch.Stop();</div>
-<div class="line">                        Log.Write(<span class="stringliteral">&quot;{0}ms &quot;</span>, watch.ElapsedMilliseconds);</div>
-<div class="line">                        watch.Start();</div>
-<div class="line">                    }</div>
-<div class="line">                    ++cIndex;</div>
-<div class="line">                }</div>
+<div class="line">                <span class="comment">//if (progressOutput)</span></div>
+<div class="line">                <span class="comment">//{</span></div>
+<div class="line">                <span class="comment">//  if (cIndex % 10 == 9)</span></div>
+<div class="line">                <span class="comment">//  {</span></div>
+<div class="line">                <span class="comment">//      watch.Stop();</span></div>
+<div class="line">                <span class="comment">//      Log.Write(&quot;{0}ms &quot;, watch.ElapsedMilliseconds);</span></div>
+<div class="line">                <span class="comment">//      watch.Start();</span></div>
+<div class="line">                <span class="comment">//  }</span></div>
+<div class="line">                <span class="comment">//  ++cIndex;</span></div>
+<div class="line">                <span class="comment">//}</span></div>
 <div class="line"></div>
 <div class="line">            }</div>
-<div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
-<div class="line">            {</div>
-<div class="line">                Log.WriteLine();</div>
-<div class="line">            }</div>
+<div class="line">            <span class="comment">//if (progressOutput)</span></div>
+<div class="line">            <span class="comment">//{</span></div>
+<div class="line">            <span class="comment">//  Log.WriteLine();</span></div>
+<div class="line">            <span class="comment">//}</span></div>
 <div class="line"></div>
 <div class="line"></div>
 <div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
