@@ -12,120 +12,82 @@ namespace AprioriAllLib.Test
 	[TestClass]
 	public class AprioriParallelTest : AprioriTestBase
 	{
-		static string MsgCount = "lists lengths do not match\n{0}";
-		static string MsgElements = "mismatched elements at index {0}:\n{1} vs. {2}\n{3}";
-
-		private void AprioriSerializedAndParallelLauncher(CustomerList input, double support)
+		[TestMethod]
+		public void AprioriOpenCL_Ex1Su020_Test()
 		{
-			//Arrange
-			Apriori aprioriSerialized = new Apriori(input);
-			List<Litemset> expected = aprioriSerialized.RunApriori(support);
-			Assert.IsNotNull(expected, GetAprioriTestResults(expected, null));
-
-			//Act
-			Apriori apriori = new Apriori(input);
-			List<Litemset> oneLitemsets = null;
-			try
-			{
-				oneLitemsets = apriori.RunParallelApriori(support, true);
-			}
-			catch (Exception e)
-			{
-				Console.Out.WriteLine(e.ToString());
-			}
-			apriori.Dispose();
-
-			//Assert
-			Assert.IsNotNull(oneLitemsets, GetAprioriTestResults(expected, oneLitemsets));
-			AprioriParallelAndSerializedResultsComparer(expected, oneLitemsets);
-		}
-
-		private void AprioriParallelAndSerializedResultsComparer(List<Litemset> expected, List<Litemset> actual)
-		{
-			Assert.AreEqual(expected.Count, actual.Count,
-				String.Format(MsgCount, GetAprioriTestResults(expected, actual)));
-
-			for (int n = 0; n < expected.Count; ++n)
-			{
-				Litemset expectedSet = expected[n];
-				Litemset actualSet = actual[n];
-
-
-				Assert.AreEqual(expectedSet.Support, actualSet.Support,
-					String.Format(MsgElements, n, expectedSet, actualSet, GetAprioriTestResults(expected, actual)));
-				Assert.AreEqual(expectedSet.Items.Count, expectedSet.Items.Count,
-					String.Format(MsgElements, n, expectedSet, actualSet, GetAprioriTestResults(expected, actual)));
-				Assert.AreEqual(expectedSet, actualSet,
-					String.Format(MsgElements, n, expectedSet, actualSet, GetAprioriTestResults(expected, actual)));
-			}
-
-			CollectionAssert.AreEqual(expected, actual, GetAprioriTestResults(expected, actual));
+			AprioriSerializedAndOpenCLLauncher(Data.Example1, 0.2);
 		}
 
 		[TestMethod]
-		public void Test_AprioriParallel_Example1_LowSupport()
+		public void AprioriOpenCL_Ex1Su060_Test()
 		{
-			AprioriSerializedAndParallelLauncher(Data.Example1, 0.2);
+			AprioriSerializedAndOpenCLLauncher(Data.Example1, 0.6);
 		}
 
 		[TestMethod]
-		public void Test_AprioriParallel_Example1_HighSupport()
+		public void AprioriOpenCL_Ex2Su010_Test()
 		{
-			AprioriSerializedAndParallelLauncher(Data.Example1, 0.6);
+			AprioriSerializedAndOpenCLLauncher(Data.Example2, 0.1);
 		}
 
 		[TestMethod]
-		public void Test_AprioriParallel_Example2_LowSupport()
+		public void AprioriOpenCL_Ex2Su020_Test()
 		{
-			AprioriSerializedAndParallelLauncher(Data.Example2, 0.2);
+			AprioriSerializedAndOpenCLLauncher(Data.Example2, 0.2);
 		}
 
 		[TestMethod]
-		public void Test_AprioriParallel_Example2_MediumSupport()
+		public void AprioriOpenCL_Ex2Su030_Test()
 		{
-			AprioriSerializedAndParallelLauncher(Data.Example2, 0.5);
+			AprioriSerializedAndOpenCLLauncher(Data.Example2, 0.3);
 		}
 
 		[TestMethod]
-		public void Test_AprioriParallel_Example2_HighSupport()
+		public void AprioriOpenCL_Ex2Su050_Test()
 		{
-			AprioriSerializedAndParallelLauncher(Data.Example2, 0.65);
+			AprioriSerializedAndOpenCLLauncher(Data.Example2, 0.5);
 		}
 
 		[TestMethod]
-		public void Test_AprioriParallel_Example3_LowSupport()
+		public void AprioriOpenCL_Ex2Su065_Test()
 		{
-			AprioriSerializedAndParallelLauncher(Data.Example3, 0.3);
+			AprioriSerializedAndOpenCLLauncher(Data.Example2, 0.65);
 		}
 
 		[TestMethod]
-		public void Test_AprioriParallel_Example3_MediumSupport()
+		public void AprioriOpenCL_Ex3Su030_Test()
 		{
-			AprioriSerializedAndParallelLauncher(Data.Example3, 0.4);
+			AprioriSerializedAndOpenCLLauncher(Data.Example3, 0.3);
 		}
 
 		[TestMethod]
-		public void Test_AprioriParallel_DataSet2_VeryLowSupport()
+		public void AprioriOpenCL_Ex3Su040_Test()
 		{
-			AprioriSerializedAndParallelLauncher(Data.DataSet2, 0.1);
+			AprioriSerializedAndOpenCLLauncher(Data.Example3, 0.4);
 		}
 
 		[TestMethod]
-		public void Test_AprioriParallel_DataSet2_LowSupport()
+		public void AprioriOpenCL_Ds2Su010_Test()
 		{
-			AprioriSerializedAndParallelLauncher(Data.DataSet2, 0.2);
+			AprioriSerializedAndOpenCLLauncher(Data.DataSet2, 0.1);
 		}
 
 		[TestMethod]
-		public void Test_AprioriParallel_DataSet3_VeryLowSupport()
+		public void AprioriOpenCL_Ds2Su020_Test()
 		{
-			AprioriSerializedAndParallelLauncher(Data.DataSet2, 0.1);
+			AprioriSerializedAndOpenCLLauncher(Data.DataSet2, 0.2);
 		}
 
 		[TestMethod]
-		public void Test_AprioriParallel_DataSet3_LowSupport()
+		public void AprioriOpenCL_Ds3Su010_Test()
 		{
-			AprioriSerializedAndParallelLauncher(Data.DataSet2, 0.2);
+			AprioriSerializedAndOpenCLLauncher(Data.DataSet2, 0.1);
+		}
+
+		[TestMethod]
+		public void AprioriOpenCL_Ds3Su020_Test()
+		{
+			AprioriSerializedAndOpenCLLauncher(Data.DataSet2, 0.2);
 		}
 
 	}

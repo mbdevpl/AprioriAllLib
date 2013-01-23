@@ -82,7 +82,8 @@
     <Compile Include="AprioriComparison.cs" />
     <Compile Include="AprioriOpenCLBenchmark.cs" />
     <Compile Include="AprioriSerializedBenchmark.cs" />
-    <Compile Include="Program_Benchmark.cs" />
+    <Compile Include="BenchmarkParameters.cs" />
+    <Compile Include="Benchmark.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

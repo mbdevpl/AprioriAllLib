@@ -52,21 +52,19 @@ namespace AprioriAllLib
 
 		private Semaphore[] sem;
 
-		Kernels.PairwiseCopy kernelCopy;
 
 		Kernels.AssignZero kernelZero;
-
-		Kernels.MultiplyByTwo kernelMultiplyByTwo;
-
 		Kernels.AssignConst kernelConst;
-
 		Kernels.Increment kernelIncrement;
+		Kernels.MultiplyByTwo kernelMultiplyByTwo;
 
 		Kernels.SubstituteIfEqual kernelSubstitute;
 
-		Kernels.PairwiseCopyIfEqual kernelCopyIfEqual;
-
 		Kernels.SubstituteIfNotEqual kernelSubstituteIfNotEqual;
+
+		Kernels.PairwiseCopy kernelCopy;
+		Kernels.PairwiseCopy kernelCopySingle;
+		Kernels.PairwiseCopyIfEqual kernelCopyIfEqual;
 
 		Kernels.Min kernelMin;
 		Kernels.Max kernelMax;
@@ -167,6 +165,7 @@ namespace AprioriAllLib
 				{
 					sem[0].WaitOne();
 					kernelCopy = new Kernels.PairwiseCopy(true);
+					kernelCopySingle = new Kernels.PairwiseCopy(true);
 					kernelCopyIfEqual = new Kernels.PairwiseCopyIfEqual(true);
 					sem[0].Release();
 				}
@@ -188,9 +187,9 @@ namespace AprioriAllLib
 				{
 					sem[2].WaitOne();
 					kernelZero = new Kernels.AssignZero(true);
+					kernelConst = new Kernels.AssignConst(true);
 					kernelSubstitute = new Kernels.SubstituteIfEqual(true);
 					kernelSubstituteIfNotEqual = new Kernels.SubstituteIfNotEqual(true);
-					kernelConst = new Kernels.AssignConst(true);
 					kernelMultiplyByTwo = new Kernels.MultiplyByTwo();
 					kernelIncrement = new Kernels.Increment();
 					sem[2].Release();
@@ -266,6 +265,7 @@ namespace AprioriAllLib
 			else
 			{
 				kernelCopy = new Kernels.PairwiseCopy(true);
+				kernelCopySingle = new Kernels.PairwiseCopy(true);
 				kernelCopyIfEqual = new Kernels.PairwiseCopyIfEqual(true);
 
 				kernelMin = new Kernels.Min(true);
@@ -273,9 +273,9 @@ namespace AprioriAllLib
 				kernelSum = new Kernels.Sum(true);
 
 				kernelZero = new Kernels.AssignZero(true);
+				kernelConst = new Kernels.AssignConst(true);
 				kernelSubstitute = new Kernels.SubstituteIfEqual(true);
 				kernelSubstituteIfNotEqual = new Kernels.SubstituteIfNotEqual(true);
-				kernelConst = new Kernels.AssignConst(true);
 				kernelMultiplyByTwo = new Kernels.MultiplyByTwo();
 				kernelIncrement = new Kernels.Increment();
 
@@ -299,17 +299,25 @@ namespace AprioriAllLib
 			{
 				// kernels from abstraction layer
 				kernelCopy.Dispose();
-				kernelMax.Dispose();
-				kernelZero.Dispose();
-				kernelMin.Dispose();
-				kernelSubstitute.Dispose();
+				kernelCopySingle.Dispose();
 				kernelCopyIfEqual.Dispose();
-				kernelSubstituteIfNotEqual.Dispose();
+
+				kernelMin.Dispose();
+				kernelMax.Dispose();
 				kernelSum.Dispose();
+
+				kernelZero.Dispose();
+				kernelConst.Dispose();
+				kernelSubstitute.Dispose();
+				kernelSubstituteIfNotEqual.Dispose();
+				kernelMultiplyByTwo.Dispose();
+				kernelIncrement.Dispose();
+
 				//kernelPairwiseAnd.Dispose();
+
 				kernelOr.Dispose();
-				//kernelAnd.Dispose();
 				kernelSegmentedOr.Dispose();
+				//kernelAnd.Dispose();
 
 				// own kernels
 				kernelMulitItemSupport.Dispose();
@@ -730,12 +738,17 @@ namespace AprioriAllLib
 			}
 
 			//queue.Finish();
-			tempItemsBuf.Read(tempValue, 0, 1);
-
-			int emptyId = tempValue[0] + 1;
+			//tempItemsBuf.Read(tempValue, 0, 1);
+			int emptyId = -1;
+			//emptyId = tempValue[0] + 1;
 			Buffer<int> emptyIdBuf = new Buffer<int>(context, queue, 1);
-			emptyIdBuf.Value = emptyId;
-			emptyIdBuf.Write(false);
+			//emptyIdBuf.Value = emptyId;
+			//emptyIdBuf.Write(false);
+			kernelIncrement.SetArgument(0, tempItemsBuf);
+			kernelIncrement.Launch(queue);
+			kernelCopySingle.SetArguments(tempItemsBuf, One, Zero, One,
+				emptyIdBuf, One, Zero, One);
+			kernelCopySingle.Launch(queue, 1);
 
 			#endregion
 
@@ -790,13 +803,17 @@ namespace AprioriAllLib
 				}
 
 				//queue.Finish();
+				if (emptyId == -1)
+				{
+					emptyIdBuf.Read();
+					emptyId = emptyIdBuf.Value;
+				}
 				tempItemsBuf.Read(tempValue, 0, 1);
-
 				int foundValue = tempValue[0];
-				if (foundValue == emptyId)
+				if (tempValue[0] == emptyId)
 					break; // reached end of computation
 
-				uniqueItems[uniqueItemsCount] = foundValue;
+				uniqueItems[uniqueItemsCount] = tempValue[0];
 				uniqueItemsCount += 1;
 				uniqueItemsBuf.Write(false, 0, (uint)uniqueItemsCount);
 
@@ -1445,4 +1462,3 @@ namespace AprioriAllLib
 
 	/// @}
 }
-

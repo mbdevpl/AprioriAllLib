@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
+using System.IO;
+using System.Reflection;
 using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -12,6 +13,8 @@ namespace AprioriAllLib.Test
 	[TestClass]
 	public class AprioriTestBase
 	{
+		private static string MsgCount = "lists lengths do not match\n{0}";
+		private static string MsgElements = "mismatched elements at index {0}:\n{1} vs. {2}\n{3}";
 
 		private static bool initialized = false;
 
@@ -41,6 +44,17 @@ namespace AprioriAllLib.Test
 		}
 
 		//private TextWriterTraceListener traceListener;
+
+		public static string AssemblyDirectory
+		{
+			get
+			{
+				string codeBase = Assembly.GetExecutingAssembly().CodeBase;
+				UriBuilder uri = new UriBuilder(codeBase);
+				string path = Uri.UnescapeDataString(uri.Path);
+				return Path.GetDirectoryName(path);
+			}
+		}
 
 		public AprioriTestBase()
 		{
@@ -125,6 +139,54 @@ namespace AprioriAllLib.Test
 			Console.Out.WriteLine("\nResults:");
 			foreach (Litemset l in results)
 				Console.Out.WriteLine(" - {0}", l);
+		}
+
+		protected void AprioriSerializedAndOpenCLLauncher(CustomerList input, double support)
+		{
+			//Arrange
+			Apriori aprioriSerialized = new Apriori(input);
+			List<Litemset> expected = aprioriSerialized.RunApriori(support);
+			Assert.IsNotNull(expected, GetAprioriTestResults(expected, null));
+
+			//Act
+			Apriori apriori = new Apriori(input);
+			List<Litemset> oneLitemsets = null;
+			try
+			{
+				oneLitemsets = apriori.RunParallelApriori(support, true);
+			}
+			catch (Exception e)
+			{
+				Console.Out.WriteLine(e.ToString());
+			}
+			apriori.Dispose();
+
+			//Assert
+			Assert.IsNotNull(oneLitemsets, GetAprioriTestResults(expected, oneLitemsets));
+			AprioriSerializedAndOpenCLResultsComparer(expected, oneLitemsets);
+		}
+
+		protected void AprioriSerializedAndOpenCLResultsComparer(List<Litemset> resultsSerialized,
+			List<Litemset> resultsOpenCL)
+		{
+			Assert.AreEqual(resultsSerialized.Count, resultsOpenCL.Count,
+				String.Format(MsgCount, GetAprioriTestResults(resultsSerialized, resultsOpenCL)));
+
+			for (int n = 0; n < resultsSerialized.Count; ++n)
+			{
+				Litemset expectedSet = resultsSerialized[n];
+				Litemset actualSet = resultsOpenCL[n];
+
+
+				Assert.AreEqual(expectedSet.Support, actualSet.Support,
+					String.Format(MsgElements, n, expectedSet, actualSet, GetAprioriTestResults(resultsSerialized, resultsOpenCL)));
+				Assert.AreEqual(expectedSet.Items.Count, expectedSet.Items.Count,
+					String.Format(MsgElements, n, expectedSet, actualSet, GetAprioriTestResults(resultsSerialized, resultsOpenCL)));
+				Assert.AreEqual(expectedSet, actualSet,
+					String.Format(MsgElements, n, expectedSet, actualSet, GetAprioriTestResults(resultsSerialized, resultsOpenCL)));
+			}
+
+			CollectionAssert.AreEqual(resultsSerialized, resultsOpenCL, GetAprioriTestResults(resultsSerialized, resultsOpenCL));
 		}
 
 	}
