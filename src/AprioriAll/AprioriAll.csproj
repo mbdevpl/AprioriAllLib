@@ -50,10 +50,10 @@
     <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\..\bin\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
+    <DebugType>none</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <CodeAnalysisLogFile>bin\Release\SequencialMiningApriori.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
     <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
@@ -118,32 +118,25 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <Content Include="AprioriAll.bat">
+    <None Include="AprioriAll.bat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="dataset1.xml">
+    <None Include="dataset1.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="dataset2.xml">
+    </None>
+    <None Include="dataset2.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="dataset3.xml">
+    </None>
+    <None Include="dataset3.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>mkdir $(SolutionDir)..\bin\$(ConfigurationName)\$(PlatformName)\
-copy $(TargetPath) $(SolutionDir)..\bin\$(ConfigurationName)\$(PlatformName)\
-copy $(TargetDir)AprioriAll.bat $(SolutionDir)..\bin\$(ConfigurationName)\
-copy $(TargetDir)dataset1.xml $(SolutionDir)..\bin\$(ConfigurationName)\
-copy $(TargetDir)dataset2.xml $(SolutionDir)..\bin\$(ConfigurationName)\
-copy $(TargetDir)dataset3.xml $(SolutionDir)..\bin\$(ConfigurationName)\
-
-copy $(SolutionDir)..\bin\$(ConfigurationName)\AnyCPU\$(TargetFileName) $(SolutionDir)..\bin\$(ConfigurationName)\
-</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

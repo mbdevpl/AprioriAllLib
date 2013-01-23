@@ -24,7 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
+    <DebugType>none</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
@@ -51,7 +51,7 @@
     <OutputPath>bin\x86\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
+    <DebugType>none</DebugType>
     <PlatformTarget>x86</PlatformTarget>
     <CodeAnalysisLogFile>bin\Release\AprioriAllLib.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
     <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
@@ -141,20 +141,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>mkdir $(SolutionDir)..\bin\$(ConfigurationName)\$(PlatformName)\
-copy $(TargetPath) $(SolutionDir)..\bin\$(ConfigurationName)\$(PlatformName)\
-copy $(TargetDir)OpenCL.Net.dll $(SolutionDir)..\bin\$(ConfigurationName)\$(PlatformName)\
-copy $(TargetDir)AbstractOpenCL.dll $(SolutionDir)..\bin\$(ConfigurationName)\$(PlatformName)\
-
-copy $(SolutionDir)..\bin\$(ConfigurationName)\AnyCPU\$(TargetFileName) $(SolutionDir)..\bin\$(ConfigurationName)\
-copy $(SolutionDir)..\bin\$(ConfigurationName)\AnyCPU\OpenCL.Net.dll $(TargetDir)OpenCL.Net.dll $(SolutionDir)..\bin\$(ConfigurationName)\
-copy $(SolutionDir)..\bin\$(ConfigurationName)\AnyCPU\AbstractOpenCL.dll $(TargetDir)AbstractOpenCL.dll $(SolutionDir)..\bin\$(ConfigurationName)\
-
-mkdir -p $(SolutionDir)..\bin\$(ConfigurationName)\Benchmark\$(PlatformName)\
-copy $(TargetPath) $(SolutionDir)..\bin\$(ConfigurationName)\Benchmark\$(PlatformName)\
-copy $(TargetDir)OpenCL.Net.dll $(SolutionDir)..\bin\$(ConfigurationName)\Benchmark\$(PlatformName)\
-copy $(TargetDir)AbstractOpenCL.dll $(SolutionDir)..\bin\$(ConfigurationName)\Benchmark\$(PlatformName)\
-</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

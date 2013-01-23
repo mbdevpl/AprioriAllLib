@@ -158,7 +158,7 @@ namespace AprioriAllLib.Test.InConsole
 
 				if (parameters.NewEachTime)
 					apriori = new Apriori(input);
-				List<Litemset> litemsets = apriori.RunParallelApriori(support);
+				List<Litemset> litemsets = apriori.RunParallelApriori(support, true);
 				if (parameters.NewEachTime)
 					apriori.Dispose();
 

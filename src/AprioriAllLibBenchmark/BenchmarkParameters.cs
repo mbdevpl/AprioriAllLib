@@ -101,8 +101,8 @@ namespace AprioriAllLib.Test
 					{
 						double start, end, step;
 						if (Double.TryParse(supportss.Substring(0, first), out start)
-							&& Double.TryParse(supportss.Substring(last + 1), out end)
-							&& Double.TryParse(supportss.Substring(first + 1, last - first - 1), out step))
+							&& Double.TryParse(supportss.Substring(last + 1), out step)
+							&& Double.TryParse(supportss.Substring(first + 1, last - first - 1), out end))
 						{
 							supports.Clear();
 							if (start < end)
@@ -129,15 +129,15 @@ namespace AprioriAllLib.Test
 				}
 				else if (arg.StartsWith("customers="))
 				{
-					string customerss = arg.Substring(9);
+					string customerss = arg.Substring(10);
 					int first = customerss.IndexOf(';');
 					int last = customerss.LastIndexOf(';');
 					if (first > 0 && last < customerss.Length - 1 && first != last)
 					{
 						int start, end, step;
 						if (Int32.TryParse(customerss.Substring(0, first), out start)
-							&& Int32.TryParse(customerss.Substring(last + 1), out end)
-							&& Int32.TryParse(customerss.Substring(first + 1, last - first - 1), out step))
+							&& Int32.TryParse(customerss.Substring(last + 1), out step)
+							&& Int32.TryParse(customerss.Substring(first + 1, last - first - 1), out end))
 						{
 							customers.Clear();
 							if (start < end)
