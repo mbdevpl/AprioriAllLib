@@ -639,27 +639,27 @@ namespace AprioriAllLib
 
 			//int[] items = itemsList.ToArray();
 			Buffer<int> itemsBuf = new Buffer<int>(context, queue, items);
-			itemsBuf.Write(false);
+			//itemsBuf.Write(false);
 
 			//int[] transactionsStarts = transactionsStartsList.ToArray();
 			Buffer<int> transactionsStartsBuf = new Buffer<int>(context, queue, transactionsStarts);
-			transactionsStartsBuf.Write(false);
+			//transactionsStartsBuf.Write(false);
 
 			//int[] customersStarts = customersStartsList.ToArray();
 			Buffer<int> customersStartsBuf = new Buffer<int>(context, queue, customersStarts);
-			customersStartsBuf.Write(false);
+			//customersStartsBuf.Write(false);
 
 			int[] itemsCount = new int[] { itemsCountInt };
 			Buffer<int> itemsCountBuf = new Buffer<int>(context, queue, itemsCount);
-			itemsCountBuf.Write(false);
+			//itemsCountBuf.Write(false);
 
 			int[] transactionsCount = new int[] { transactionsCountInt };
 			Buffer<int> transactionsCountBuf = new Buffer<int>(context, queue, transactionsCount);
-			transactionsCountBuf.Write(false);
+			//transactionsCountBuf.Write(false);
 
 			int[] customersCount = new int[] { customersCountInt };
 			Buffer<int> customersCountBuf = new Buffer<int>(context, queue, customersCount);
-			customersCountBuf.Write(false);
+			//customersCountBuf.Write(false);
 
 			#endregion
 

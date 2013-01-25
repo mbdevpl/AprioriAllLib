@@ -111,6 +111,12 @@ namespace AprioriAllLib.Test.InConsole
 
 		private void RunAllTests()
 		{
+			if (parameters.Output && parameters.Customers.Count == 1)
+			{
+				PrintInput(parameters.Input);
+				Console.Out.WriteLine();
+			}
+
 			if (parameters.OpenCL)
 				foreach (int customers in parameters.Customers)
 				{
@@ -120,16 +126,16 @@ namespace AprioriAllLib.Test.InConsole
 					foreach (double support in parameters.Supports)
 						RunOpenCLTest(input, support);
 				}
-			//watchAll.Reset();
-			//if (parameters.Serialized)
-			//	foreach (int customers in parameters.Customers)
-			//	{
-			//		CustomerList input = new CustomerList();
-			//		for (int i = 0; i < customers; ++i)
-			//			input.Customers.Add(parameters.Input.Customers[i]);
-			//		foreach (double support in parameters.Supports)
-			//			RunTests(input, support, false);
-			//	}
+
+			if (parameters.Serialized)
+				foreach (int customers in parameters.Customers)
+				{
+					CustomerList input = new CustomerList();
+					for (int i = 0; i < customers; ++i)
+						input.Customers.Add(parameters.Input.Customers[i]);
+					foreach (double support in parameters.Supports)
+						RunSerializedTest(input, support);
+				}
 		}
 
 		private void RunOpenCLTest(CustomerList input, double support)
@@ -177,6 +183,69 @@ namespace AprioriAllLib.Test.InConsole
 				apriori.Dispose();
 		}
 
+		private void RunSerializedTest(CustomerList input, double support)
+		{
+			Apriori apriori = null;
+			if (!parameters.NewEachTime)
+				apriori = new Apriori(input);
+
+			if (parameters.Output)
+			{
+				if (parameters.Customers.Count > 1)
+				{
+					PrintInput(parameters.Input);
+					Console.Out.WriteLine();
+				}
+				Console.Out.WriteLine("Starting benchmark, support={0:0.000}", support);
+			}
+
+			if (parameters.WarmUp)
+			{
+				if (parameters.NewEachTime)
+					apriori = new Apriori(input);
+				apriori.RunParallelApriori(support);
+				//if (parameters.NewEachTime)
+				//	apriori.Dispose();
+			}
+
+			List<double> times = new List<double>();
+			Stopwatch watchAll = new Stopwatch();
+			Stopwatch watch = new Stopwatch();
+
+			List<Litemset> litemsets = null;
+			for (int n = 1; n <= parameters.Repeats; ++n)
+			{
+				watch.Restart();
+				watchAll.Start();
+
+				if (parameters.NewEachTime)
+					apriori = new Apriori(input);
+				litemsets = apriori.RunApriori(support, true);
+				//if (parameters.NewEachTime)
+				//	apriori.Dispose();
+
+				watch.Stop();
+				watchAll.Stop();
+
+				times.Add(watch.ElapsedMilliseconds);
+			}
+
+			double average1 = times.Average();
+			double average2 = ((double)watchAll.ElapsedMilliseconds) / parameters.Repeats;
+
+			if (parameters.Output)
+			{
+				Console.Out.WriteLine("mean time {0:0.00}ms", average1);
+				PrintAprioriOutput(litemsets);
+				Console.Out.WriteLine();
+			}
+
+			results.Add(new Tuple<DateTime, CustomerList, double, double, double>(dt, input, support, average1, average2));
+
+			if (!parameters.NewEachTime)
+				apriori.Dispose();
+		}
+
 		private void Close()
 		{
 			if (parameters == null)
@@ -204,7 +273,7 @@ namespace AprioriAllLib.Test.InConsole
 				fsAll.Close();
 			}
 
-			foreach (Tuple<DateTime,CustomerList,double,double,double> result in results)
+			foreach (Tuple<DateTime, CustomerList, double, double, double> result in results)
 			{
 				s = new StringBuilder();
 				s.AppendFormat("{2:00}/{1:00}/{0:0000},{3:00}:{4:00}:{5:00},",

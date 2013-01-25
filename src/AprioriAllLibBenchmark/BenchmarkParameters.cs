@@ -36,6 +36,9 @@ namespace AprioriAllLib.Test
 		//public List<int> Items { get { return items; } }
 		//private List<int> items;
 
+		public bool Output { get { return output; } }
+		private bool output;
+
 		//int custCountMin = 3;
 		//int custCountMax = 3;
 		//int transactions = 3;
@@ -55,6 +58,10 @@ namespace AprioriAllLib.Test
 
 			supports = new List<double>();
 			customers = new List<int>();
+			//transactions = new List<int>();
+			//items = new List<int>();
+
+			output = false;
 
 			//custCountMin = 3;
 			//custCountMax = 3;
@@ -149,6 +156,8 @@ namespace AprioriAllLib.Test
 						}
 					}
 				}
+				else if (arg.Equals("output"))
+					output = true;
 				//else if (arg.StartsWith("custCountMin="))
 				//	Int32.TryParse(arg.Substring(13), out custCountMin);
 				//else if (arg.StartsWith("custCountMax="))
