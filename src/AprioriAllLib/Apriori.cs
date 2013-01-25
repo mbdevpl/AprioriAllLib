@@ -421,7 +421,7 @@ namespace AprioriAllLib
 				watch.Start();
 			}
 
-			//int cIndex = 0;
+			int cIndex = 0;
 			foreach (Customer c in customerList.Customers)
 			{
 				foreach (Transaction t in c.Transactions)
@@ -435,25 +435,24 @@ namespace AprioriAllLib
 						IEnumerable<Litemset> l = litemsets.Where(litemset => (litemset.Items.Count == lset.Items.Count) &&
 							 litemset.Items.All(item => lset.Items.Exists(lsetItem => lsetItem.CompareTo(item) == 0)));
 
-						int custID = customerList.Customers.IndexOf(c);
-						if (l.Count() == 0 && !lset.IDs.Contains(custID))
+						if (l.Count() == 0 && !lset.IDs.Contains(cIndex))
 						{
 							litemsets.Add(lset);
 							lset.Support++;
-							lset.IDs.Add(custID);
+							lset.IDs.Add(cIndex);
 						}
 						else
 						{
 							Litemset litset = l.FirstOrDefault();
-							if (!litset.IDs.Contains(custID))
+							if (!litset.IDs.Contains(cIndex))
 							{
 								litset.Support++;
-								litset.IDs.Add(custID);
+								litset.IDs.Add(cIndex);
 							}
 						}
 					}
 				}
-
+                cIndex++;
 				//if (progressOutput)
 				//{
 				//	if (cIndex % 10 == 9)
@@ -484,6 +483,8 @@ namespace AprioriAllLib
 			if (progressOutput)
 				Log.WriteLine("Purged unsupported, {0} remain.", properLitemsets.Count);
 
+            foreach (Litemset l in properLitemsets)
+                l.Items.Sort();
 			properLitemsets.Sort();
 
 			if (progressOutput)
