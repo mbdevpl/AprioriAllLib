@@ -67,13 +67,13 @@ change.
 
 ## Where is everything, i.e. structure of the repository
 
-* */bin/Release* - binaries of applications and the library, compiled for .NET 4.0
-* */bin/Release/Profiling/x86* - binaries of benchmark of the library, compiled for .NET 4.0 x86 with batch file for AMD APP profiler
+* */bin* - binaries of applications, benchmark and the library, compiled for .NET 4.0
+* */bin/x86* - binaries of benchmark, compiled for .NET 4.0 x86 with batch file for AMD APP profiler
 * */doc/html* - documentation of source code
 * */doc/pdf* - general documentation describing main principles of the algorithm and this application
 * */src* - source code
 * */src/Apriori* - console application that runs Apriori algorithm on user-defined input
 * */src/AprioriAll* - console application that runs AprioriAll algorithm on user-defined input
 * */src/AprioriAllLib* - library that implements the algorithms
+* */src/AprioriAllLibBenchmark* - console application that runs many algorithms on many data sets and measures their performance
 * */src/AprioriAllLibTest* - unit tests, which check correctness of the implementation
-* */src/ConsoleTest(...)* - console applications that run the specific algorithm only on specific test data
