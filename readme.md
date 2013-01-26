@@ -48,11 +48,18 @@ executable. It was tested on AMD GPU, but it is not efficient enough to be usefu
 in practice. Current development focuses primarily on the parallel version, with 
 only minor tweaks (if any) in the serialized.
 
-<code>AprioriAllLibBenchmark testsCount=1 openCL support=0.1 input=Example2</code>
+<code>AprioriAllLibBenchmark apriori serialized repeats=3 input=Example2 support=0.1
+printInput printProgress printOutput</code>
 
-<code>AprioriAllLibBenchmark testsCount=4 openCL serialized support=0.5 custCountMin=1 custCountMax=10 transactCount=3 itemCount=3 uniqueIds=7</code>
+<code>AprioriAllLibBenchmark apriori openCL repeats=3 input=Example2 support=0.1
+printInput printProgress printOutput</code>
 
-<code>AprioriAllLibBenchmark testsCount=3 openCL warmUp support=0.5 custCountMin=1 custCountMax=30 transactCount=5 itemCount=5 uniqueIds=20</code>
+<code>AprioriAllLibBenchmark aprioriAll serialized repeats=2 input=Example3 support=0.5
+printInput printProgress printOutput</code>
+
+<code>AprioriAllLibBenchmark apriori aprioriAll serialized openCL 
+warmUp repeats=2 input=Example3 support=0.5
+printInput printProgress printOutput</code>
 
 Benchmark command-line options are currently not documented as they frequently 
 change.
