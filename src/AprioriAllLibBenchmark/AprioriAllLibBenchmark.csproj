@@ -78,12 +78,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AprioriAllSerializedBenchmark.cs" />
     <Compile Include="AprioriBenchmark.cs" />
-    <Compile Include="AprioriComparison.cs" />
+    <Compile Include="AprioriAllBenchmark.cs" />
+    <Compile Include="AprioriBenchmarkLogEntry.cs" />
     <Compile Include="AprioriOpenCLBenchmark.cs" />
     <Compile Include="AprioriSerializedBenchmark.cs" />
     <Compile Include="BenchmarkParameters.cs" />
-    <Compile Include="Benchmark.cs" />
+    <Compile Include="Program_Benchmark.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

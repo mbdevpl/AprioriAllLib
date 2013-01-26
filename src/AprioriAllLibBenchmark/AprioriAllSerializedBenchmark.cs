@@ -1,23 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
-using System.Diagnostics;
-using System.Threading.Tasks;
 
 namespace AprioriAllLib.Test
 {
-	public class AprioriOpenCLBenchmark : AprioriBenchmark
+	public class AprioriAllSerializedBenchmark : AprioriAllBenchmark
 	{
-
-		public AprioriOpenCLBenchmark()
+		public AprioriAllSerializedBenchmark()
 			: base()
 		{
 		}
 
 		public override void RunAllTests()
 		{
-			if (!parameters.Apriori || !parameters.OpenCL)
+			if (!parameters.AprioriAll || !parameters.Serialized)
 				return;
 
 			if (parameters.PrintInput && parameters.Customers.Count == 1)
@@ -38,9 +36,9 @@ namespace AprioriAllLib.Test
 
 		protected override void RunOneTest(CustomerList input, double support)
 		{
-			Apriori apriori = null;
+			AprioriAll aprioriAll = null;
 			if (!parameters.NewEachTime)
-				apriori = new Apriori(input);
+				aprioriAll = new AprioriAll(input);
 
 			if (parameters.PrintInput)
 			{
@@ -55,27 +53,27 @@ namespace AprioriAllLib.Test
 			if (parameters.WarmUp)
 			{
 				if (parameters.NewEachTime)
-					apriori = new Apriori(input);
-				apriori.RunParallelApriori(support);
-				if (parameters.NewEachTime)
-					apriori.Dispose();
+					aprioriAll = new AprioriAll(input);
+				aprioriAll.RunAprioriAll(support);
+				//if (parameters.NewEachTime)
+				//	apriori.Dispose();
 			}
 
 			List<double> times = new List<double>();
 			Stopwatch watchAll = new Stopwatch();
 			Stopwatch watch = new Stopwatch();
 
-			List<Litemset> litemsets = null;
+			List<Customer> frequentCustomers = null;
 			for (int n = 1; n <= parameters.Repeats; ++n)
 			{
 				watch.Restart();
 				watchAll.Start();
 
 				if (parameters.NewEachTime)
-					apriori = new Apriori(input);
-				litemsets = apriori.RunParallelApriori(support, parameters.PrintProgress);
-				if (parameters.NewEachTime)
-					apriori.Dispose();
+					aprioriAll = new AprioriAll(input);
+				frequentCustomers = aprioriAll.RunAprioriAll(support, parameters.PrintProgress);
+				//if (parameters.NewEachTime)
+				//	apriori.Dispose();
 
 				watch.Stop();
 				watchAll.Stop();
@@ -89,15 +87,14 @@ namespace AprioriAllLib.Test
 			if (parameters.PrintOutput)
 			{
 				Console.Out.WriteLine("mean time {0:0.00}ms", average1);
-				PrintAprioriOutput(litemsets);
+				PrintAprioriAllOutput(frequentCustomers);
 				Console.Out.WriteLine();
 			}
 
 			results.Add(new AprioriBenchmarkLogEntry(dt, input, support, average1, average2));
 
-			if (!parameters.NewEachTime)
-				apriori.Dispose();
+			//if (!parameters.NewEachTime)
+			//	aprioriAll.Dispose();
 		}
-
 	}
 }
