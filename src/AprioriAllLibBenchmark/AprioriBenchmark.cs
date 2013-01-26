@@ -23,6 +23,12 @@ namespace AprioriAllLib.Test
 		{
 			dt = DateTime.MinValue;
 			results = new List<AprioriBenchmarkLogEntry>();
+
+			StringBuilder logFilepath = new StringBuilder();
+			logFilepath.Append(AssemblyDirectory);
+			logFilepath.Append("\\");
+
+			this.logFilepath = logFilepath.ToString();
 		}
 
 		public void Initialize(BenchmarkParameters parameters)
@@ -32,17 +38,121 @@ namespace AprioriAllLib.Test
 
 			this.parameters = parameters;
 			dt = DateTime.Now;
-
-			StringBuilder logFilepath = new StringBuilder();
-			logFilepath.Append(AssemblyDirectory);
-			logFilepath.Append("\\");
-
-			this.logFilepath = logFilepath.ToString();
 		}
 
-		public abstract void RunAllTests();
+		public void RunAllTests()
+		{
+			if (!BeginAllTests())
+				return;
 
-		protected abstract void RunOneTest(CustomerList input, double support);
+			if (parameters.PrintInput && parameters.Customers.Count == 1)
+			{
+				PrintInput(parameters.Input);
+				Console.Out.WriteLine();
+			}
+
+			foreach (int customers in parameters.Customers)
+			{
+				CustomerList input = new CustomerList();
+				for (int i = 0; i < customers; ++i)
+					input.Customers.Add(parameters.Input.Customers[i]);
+				foreach (double support in parameters.Supports)
+				{
+					RunOneTest(input, support);
+				}
+			}
+
+			//if (!EndAllTests())
+			//	return;
+		}
+
+		/// <summary>
+		/// Should return false if and only if benchmark parameters disallow the tests to continue.
+		/// </summary>
+		/// <returns>true if it is ok to start the benchmark
+		/// with current parameters</returns>
+		protected abstract bool BeginAllTests();
+
+		//protected abstract bool EndAllTests();
+
+		protected void RunOneTest(CustomerList input, double support)
+		{
+			Apriori apriori = null;
+			if (!parameters.NewEachTime)
+				apriori = ConstructTestedInstance(input);
+
+			if (parameters.PrintInput)
+			{
+				if (parameters.Customers.Count > 1)
+				{
+					PrintInput(input);
+					Console.Out.WriteLine();
+				}
+			}
+
+			if (parameters.PrintProgress)
+			{
+				Console.Out.Write("Starting benchmark, ");
+				if (parameters.Customers.Count > 1)
+					Console.Out.Write("{0} customers, ", input.Customers.Count);
+				Console.Out.WriteLine(" support={0:0.000}", support);
+			}
+
+			if (parameters.WarmUp)
+			{
+				if (parameters.NewEachTime)
+					apriori = ConstructTestedInstance(input);
+				RunTestedInstance(apriori, support, false);
+				if (parameters.NewEachTime)
+					DestroyTestedInstance(apriori);
+			}
+
+			List<double> times = new List<double>();
+			Stopwatch watchAll = new Stopwatch();
+			Stopwatch watch = new Stopwatch();
+
+			List<Litemset> litemsets = null;
+			for (int n = 1; n <= parameters.Repeats; ++n)
+			{
+				watch.Restart();
+				watchAll.Start();
+
+				if (parameters.NewEachTime)
+					apriori = new Apriori(input);
+				litemsets = RunTestedInstance(apriori, support, parameters.PrintProgress);
+				if (parameters.NewEachTime)
+					apriori.Dispose();
+
+				watch.Stop();
+				watchAll.Stop();
+
+				times.Add(watch.ElapsedMilliseconds);
+			}
+
+			double average1 = times.Average();
+			double average2 = ((double)watchAll.ElapsedMilliseconds) / parameters.Repeats;
+
+			if (parameters.PrintProgress)
+				Console.Out.WriteLine("mean time {0:0.00}ms", average1);
+
+			if (parameters.PrintOutput)
+			{
+				PrintAprioriOutput(litemsets);
+				Console.Out.WriteLine();
+			}
+
+			results.Add(new AprioriBenchmarkLogEntry(dt, "Apriori", true, input, support,
+				(uint)parameters.Repeats, parameters.NewEachTime, average1, average2));
+
+			if (!parameters.NewEachTime)
+				DestroyTestedInstance(apriori);
+		}
+
+		protected abstract Apriori ConstructTestedInstance(CustomerList input);
+
+		protected abstract List<Litemset> RunTestedInstance(Apriori apriori, double support, bool progressOutput);
+
+		protected abstract void DestroyTestedInstance(Apriori apriori);
 
 		public void Close()
 		{
@@ -60,35 +170,44 @@ namespace AprioriAllLib.Test
 				fsAll = File.Create(pathAll);
 				fswAll = new StreamWriter(fsAll);
 
-				fswAll.Write("date,time,");
-				fswAll.Write("newEachTime,openCL,");
-				fswAll.Write("customers,");
-				fswAll.Write("support,");
-				//fswAll.Write("transactionsPerCustomer,itemsPerTransaction,possibleUniqueIds,");
-				fswAll.WriteLine("repeats,average1,average2");
+				fswAll.WriteLine(AprioriBenchmarkLogEntry.CsvHeader);
 
 				fswAll.Close();
 				fsAll.Close();
 			}
 
+			if (parameters.SaveInput && parameters.Customers.Count == 1)
+			{
+				s = new StringBuilder();
+				s.Append(logFilepath).Append("benchmark_saved_input.txt");
+
+				File.AppendAllText(s.ToString(), parameters.Input.ToIntArrayInitializer());
+			}
+
+			if (parameters.SaveLatex)
+			{
+				string pathLtx = new StringBuilder().Append(AssemblyDirectory)
+					.AppendFormat("\\benchmark_run_{0:0000}{1:00}{2:00}_{3:00}{4:00}{5:00}",
+						dt.Year, dt.Month, dt.Day, dt.Hour, dt.Minute, dt.Second).Append(".txt").ToString();
+
+				s = new StringBuilder();
+				foreach (AprioriBenchmarkLogEntry result in results)
+				{
+					s.Append(result.ToLatexPgfplotsString()).AppendLine();
+				}
+				File.AppendAllText(pathLtx, s.ToString());
+			}
+
 			foreach (AprioriBenchmarkLogEntry result in results)
 			{
 				s = new StringBuilder();
-				s.AppendFormat("{2:00}/{1:00}/{0:0000},{3:00}:{4:00}:{5:00},",
-					dt.Year, dt.Month, dt.Day, dt.Hour, dt.Minute, dt.Second);
-				s.AppendFormat("{0},{1},", parameters.NewEachTime, parameters.OpenCL);
-				s.AppendFormat("{0},", result.Input.Customers.Count);
-				s.AppendFormat("{0:0.000},", result.Support);
-				//s.AppendFormat("{0},{1},{2},{3},", custCount, transactCount, itemCount, uniqueIds);
-				s.AppendFormat("{0},", parameters.Repeats);
-				s.AppendFormat("{0:0.00},{1:0.00}", result.Average1, result.Average2);
+				s.Append(result.ToCsvString());
 				s.AppendLine();
 
 				File.AppendAllText(pathAll, s.ToString());
 
 				//s = new StringBuilder().AppendFormat(logFilepath);
-				//s.AppendFormat("benchmark_run_{0:0000}{1:00}{2:00}_{3:00}{4:00}{5:00}",
-				//	dt.Year, dt.Month, dt.Day, dt.Hour, dt.Minute, dt.Second);
+				//s
 				//s.AppendFormat("_{0:0}.csv", average1);
 				//string path = s.ToString();
 			}

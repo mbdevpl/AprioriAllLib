@@ -92,11 +92,17 @@ namespace AprioriAllLib.Test
 		public bool PrintInput { get { return printInput; } }
 		private bool printInput;
 
+		public bool SaveInput { get { return saveInput; } }
+		private bool saveInput;
+
 		public bool PrintProgress { get { return printProgress; } }
 		private bool printProgress;
 
 		public bool PrintOutput { get { return printOutput; } }
 		private bool printOutput;
+
+		public bool SaveLatex { get { return saveLatex; } }
+		private bool saveLatex;
 
 		#endregion
 
@@ -179,16 +185,49 @@ namespace AprioriAllLib.Test
 				#region algorithms' parameters
 				else if (arg.StartsWith("input="))
 				{
-					InputData data = new InputData();
-
 					string inputName = arg.Substring(6);
 
-					Type type = typeof(InputData);
-					FieldInfo field = type.GetField(inputName);
-					object inputObj = field.GetValue(data);
+					if (inputName.StartsWith("Generate(") && inputName.EndsWith(")"))
+					{
+						string generatorParams = inputName.Substring(9, inputName.Length - 9 - 1);
 
-					if (inputObj is CustomerList)
-						input = (CustomerList)inputObj;
+						int[] genArgs = new int[4];
+						bool genArgsOk = false;
+
+						for (int i = 0; i < genArgs.Length; ++i)
+						{
+							int end = generatorParams.IndexOf(',');
+							if (end < 1)
+								end = generatorParams.Length;
+
+							int argValue;
+							if (!Int32.TryParse(generatorParams.Substring(0, end), out argValue))
+								break;
+
+							genArgs[i] = argValue;
+							if (i == genArgs.Length - 1)
+							{
+								genArgsOk = true;
+								break;
+							}
+							generatorParams = generatorParams.Substring(end + 1);
+						}
+
+						if (genArgsOk)
+							input = InputGenerator.GenerateRandomList(genArgs[0], genArgs[1], genArgs[2], genArgs[3]);
+					}
+					else
+					{
+						InputData data = new InputData();
+
+						Type type = typeof(InputData);
+						FieldInfo field = type.GetField(inputName);
+						object inputObj = field.GetValue(data);
+
+						if (inputObj is CustomerList)
+							input = (CustomerList)inputObj;
+					}
+
 				}
 				else if (arg.StartsWith("support="))
 				{
@@ -242,15 +281,34 @@ namespace AprioriAllLib.Test
 									customers.Add(c);
 						}
 					}
+					else
+					{
+						int number;
+						if (Int32.TryParse(customerss, out number))
+						{
+							customers.Clear();
+							customers.Add(number);
+						}
+					}
 				}
 				#endregion
 				#region output settings
 				else if (arg.Equals("printInput"))
 					printInput = true;
+				else if (arg.Equals("saveInput"))
+					saveInput = true;
 				else if (arg.Equals("printProgress"))
 					printProgress = true;
 				else if (arg.Equals("printOutput"))
-					printOutput = true; 
+					printOutput = true;
+				else if (arg.Equals("saveLatex"))
+					saveLatex = true;
+				else if (arg.Equals("printAll"))
+				{
+					printInput = true;
+					printProgress = true;
+					printOutput = true;
+				}
 				#endregion
 			}
 

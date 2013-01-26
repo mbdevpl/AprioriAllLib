@@ -44,7 +44,7 @@ namespace AprioriAllLib.Test
 			{
 				if (parameters.Customers.Count > 1)
 				{
-					PrintInput(parameters.Input);
+					PrintInput(input);
 					Console.Out.WriteLine();
 				}
 				Console.Out.WriteLine("Starting benchmark, support={0:0.000}", support);
@@ -84,14 +84,17 @@ namespace AprioriAllLib.Test
 			double average1 = times.Average();
 			double average2 = ((double)watchAll.ElapsedMilliseconds) / parameters.Repeats;
 
+			if (parameters.PrintProgress)
+				Console.Out.WriteLine("mean time {0:0.00}ms", average1);
+
 			if (parameters.PrintOutput)
 			{
-				Console.Out.WriteLine("mean time {0:0.00}ms", average1);
 				PrintAprioriAllOutput(frequentCustomers);
 				Console.Out.WriteLine();
 			}
 
-			results.Add(new AprioriBenchmarkLogEntry(dt, input, support, average1, average2));
+			results.Add(new AprioriBenchmarkLogEntry(dt, "AprioriAll", false, input, support, 
+				(uint)parameters.Repeats, parameters.NewEachTime, average1, average2));
 
 			//if (!parameters.NewEachTime)
 			//	aprioriAll.Dispose();

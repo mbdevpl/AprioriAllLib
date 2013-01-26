@@ -13,90 +13,29 @@ namespace AprioriAllLib.Test
 		public AprioriOpenCLBenchmark()
 			: base()
 		{
+			// nothing needed here
 		}
 
-		public override void RunAllTests()
+		protected override bool BeginAllTests()
 		{
 			if (!parameters.Apriori || !parameters.OpenCL)
-				return;
-
-			if (parameters.PrintInput && parameters.Customers.Count == 1)
-			{
-				PrintInput(parameters.Input);
-				Console.Out.WriteLine();
-			}
-
-			foreach (int customers in parameters.Customers)
-			{
-				CustomerList input = new CustomerList();
-				for (int i = 0; i < customers; ++i)
-					input.Customers.Add(parameters.Input.Customers[i]);
-				foreach (double support in parameters.Supports)
-					RunOneTest(input, support);
-			}
+				return false;
+			return true;
 		}
 
-		protected override void RunOneTest(CustomerList input, double support)
+		protected override Apriori ConstructTestedInstance(CustomerList input)
 		{
-			Apriori apriori = null;
-			if (!parameters.NewEachTime)
-				apriori = new Apriori(input);
+			return new Apriori(input);
+		}
 
-			if (parameters.PrintInput)
-			{
-				if (parameters.Customers.Count > 1)
-				{
-					PrintInput(parameters.Input);
-					Console.Out.WriteLine();
-				}
-				Console.Out.WriteLine("Starting benchmark, support={0:0.000}", support);
-			}
+		protected override List<Litemset> RunTestedInstance(Apriori apriori, double support, bool progressOutput)
+		{
+			return apriori.RunParallelApriori(support, parameters.PrintProgress);
+		}
 
-			if (parameters.WarmUp)
-			{
-				if (parameters.NewEachTime)
-					apriori = new Apriori(input);
-				apriori.RunParallelApriori(support);
-				if (parameters.NewEachTime)
-					apriori.Dispose();
-			}
-
-			List<double> times = new List<double>();
-			Stopwatch watchAll = new Stopwatch();
-			Stopwatch watch = new Stopwatch();
-
-			List<Litemset> litemsets = null;
-			for (int n = 1; n <= parameters.Repeats; ++n)
-			{
-				watch.Restart();
-				watchAll.Start();
-
-				if (parameters.NewEachTime)
-					apriori = new Apriori(input);
-				litemsets = apriori.RunParallelApriori(support, parameters.PrintProgress);
-				if (parameters.NewEachTime)
-					apriori.Dispose();
-
-				watch.Stop();
-				watchAll.Stop();
-
-				times.Add(watch.ElapsedMilliseconds);
-			}
-
-			double average1 = times.Average();
-			double average2 = ((double)watchAll.ElapsedMilliseconds) / parameters.Repeats;
-
-			if (parameters.PrintOutput)
-			{
-				Console.Out.WriteLine("mean time {0:0.00}ms", average1);
-				PrintAprioriOutput(litemsets);
-				Console.Out.WriteLine();
-			}
-
-			results.Add(new AprioriBenchmarkLogEntry(dt, input, support, average1, average2));
-
-			if (!parameters.NewEachTime)
-				apriori.Dispose();
+		protected override void DestroyTestedInstance(Apriori apriori)
+		{
+			apriori.Dispose();
 		}
 
 	}

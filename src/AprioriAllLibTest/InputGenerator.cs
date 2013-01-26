@@ -43,7 +43,7 @@ namespace AprioriAllLib.Test
 					t = new Transaction();
 					for (int it = 0; it < n; ++it)
 					{
-						int itemVal = ((random.Next() % maxUniqueItemsCount) + 10) * 10;
+						int itemVal = (random.Next() % maxUniqueItemsCount) + 1;
 						if (t.Contains(itemVal))
 						{
 							--it;

@@ -107,7 +107,7 @@ namespace AprioriAllLib.Test
 		public void PrintInput(CustomerList customerList)
 		{
 			Console.Out.WriteLine("\nInput:");
-			if (customerList.Customers.Count < 50)
+			if (customerList.Customers.Count < 30)
 			{
 				foreach (Customer c in customerList.Customers)
 					Console.Out.WriteLine(" - {0}", c);
@@ -115,12 +115,33 @@ namespace AprioriAllLib.Test
 			else
 			{
 				const int header = 10;
+				const int headerT = 4;
 				int i;
+				int j;
 
 				for (i = 0; i < header; ++i)
 				{
 					Customer c = customerList.Customers[i];
-					Console.Out.WriteLine(" - {0}", c);
+					if (c.Transactions.Count < 10)
+					{
+						Console.Out.WriteLine(" - {0}", c);
+					}
+					else
+					{
+						Console.Out.Write(" - (");
+						for (j = 0; j < headerT; ++j)
+						{
+							Console.Out.Write("{0}, ", c.Transactions[j]);
+						}
+
+						Console.Out.Write("... ");
+
+						for (j = c.Transactions.Count - headerT; j < c.Transactions.Count; ++j)
+						{
+							Console.Out.Write(", {0}", c.Transactions[j]);
+						}
+						Console.Out.WriteLine(")");
+					}
 				}
 
 				Console.Out.WriteLine(" ... {0} entries omitted", customerList.Customers.Count - 2 * header);
@@ -128,7 +149,26 @@ namespace AprioriAllLib.Test
 				for (i = customerList.Customers.Count - header; i < customerList.Customers.Count; ++i)
 				{
 					Customer c = customerList.Customers[i];
-					Console.Out.WriteLine(" - {0}", c);
+					if (c.Transactions.Count < 10)
+					{
+						Console.Out.WriteLine(" - {0}", c);
+					}
+					else
+					{
+						Console.Out.Write(" - (");
+						for (j = 0; j < headerT; ++j)
+						{
+							Console.Out.Write("{0}, ", c.Transactions[j]);
+						}
+
+						Console.Out.Write("... ");
+
+						for (j = c.Transactions.Count - headerT; j < c.Transactions.Count; ++j)
+						{
+							Console.Out.Write(", {0}", c.Transactions[j]);
+						}
+						Console.Out.WriteLine(")");
+					}
 				}
 
 			}

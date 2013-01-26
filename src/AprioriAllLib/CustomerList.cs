@@ -36,6 +36,16 @@ namespace AprioriAllLib
 		}
 
 		/// <summary>
+		/// Constructor
+		/// </summary>
+		public CustomerList(params int[][][] customersWithTransactionsWithItems)
+		{
+			Customers = new List<Customer>();
+			foreach (int[][] customer in customersWithTransactionsWithItems)
+				Customers.Add(new Customer(customer));
+		}
+
+		/// <summary>
 		/// String representation of this class
 		/// </summary>
 		/// <returns>String representation</returns>
@@ -43,6 +53,34 @@ namespace AprioriAllLib
 		{
 			string itemsStr = string.Join("; ", Customers.Select(x => x.ToString()).ToArray());
 			return String.Format("CuLst[ {0} ]", itemsStr);
+		}
+
+		public string ToIntArrayInitializer()
+		{
+			StringBuilder s = new StringBuilder();
+
+			if (Customers.Count > 0)
+			{
+				foreach (Customer c in Customers)
+				{
+					s.Append(" new int[][] {");
+					foreach (Transaction t in c.Transactions)
+					{
+						s.Append(" new int[] {");
+						foreach (Item i in t.Items)
+						{
+							s.AppendFormat(" {0},", i.Value);
+						}
+						s.Remove(s.Length - 1, 1);
+						s.Append(" },");
+					}
+					s.Remove(s.Length - 1, 1);
+					s.Append("},\n");
+				}
+				s.Remove(s.Length - 2, 2);
+			}
+
+			return s.ToString();
 		}
 
 	}
