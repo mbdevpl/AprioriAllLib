@@ -11,7 +11,7 @@ var NAVTREE =
       [ "Class Index", "classes.html", null ],
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
-        [ "All", "functions.html", null ],
+        [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", null ],
         [ "Variables", "functions_vars.html", null ],
         [ "Properties", "functions_prop.html", null ]
@@ -30,7 +30,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_apriori_8cs.html",
-"class_kernel.html"
+"class_apriori_all_lib_1_1_test_1_1_benchmark_parameters.html#aa0d4a1d6752fa708c866658e9acbdc51"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

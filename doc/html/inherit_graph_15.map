@@ -1,5 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_i_disposable.html" title="IDisposable" alt="" coords="6,5,95,32"/>
-<area shape="rect" id="node3" href="$class_apriori_all_lib_1_1_apriori.html" title="Used to get list of large itemsets from a set of customers&#39; transactions." alt="" coords="145,5,277,32"/>
-<area shape="rect" id="node5" href="$class_apriori_all_lib_1_1_apriori_all.html" title="AprioriAll algorithm implementation. " alt="" coords="325,5,472,32"/>
+<area shape="rect" id="node1" href="$class_kernel.html" title="Kernel" alt="" coords="5,12,64,39"/>
+<area shape="rect" id="node3" href="$class_apriori_all_lib_1_1_multi_item_support_kernel.html" title="Linked to the kernel code responsible for calculating support of Litemsets of length 2 and larger..." alt="" coords="113,5,306,46"/>
 </map>

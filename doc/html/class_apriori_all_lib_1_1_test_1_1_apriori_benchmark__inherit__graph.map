@@ -1,4 +1,5 @@
 <map id="AprioriAllLib.Test.AprioriBenchmark" name="AprioriAllLib.Test.AprioriBenchmark">
-<area shape="rect" id="node3" href="$class_apriori_all_lib_1_1_test_1_1_apriori_open_c_l_benchmark.html" title="{AprioriAllLib.Test.Apriori\lOpenCLBenchmark\n||}" alt="" coords="5,147,165,239"/>
-<area shape="rect" id="node5" href="$class_apriori_all_lib_1_1_test_1_1_apriori_serialized_benchmark.html" title="{AprioriAllLib.Test.Apriori\lSerializedBenchmark\n||}" alt="" coords="190,147,351,239"/>
+<area shape="rect" id="node5" href="$class_apriori_all_lib_1_1_test_1_1_apriori_open_c_l_benchmark.html" title="{AprioriAllLib.Test.Apriori\lOpenCLBenchmark\n||+ AprioriOpenCLBenchmark()\l+ RunAllTests()\l# RunOneTest()\l}" alt="" coords="5,625,197,746"/>
+<area shape="rect" id="node7" href="$class_apriori_all_lib_1_1_test_1_1_apriori_serialized_benchmark.html" title="{AprioriAllLib.Test.Apriori\lSerializedBenchmark\n||+ AprioriSerializedBenchmark()\l+ RunAllTests()\l# RunOneTest()\l}" alt="" coords="221,625,424,746"/>
+<area shape="rect" id="node2" href="$class_apriori_all_lib_1_1_test_1_1_apriori_test_base.html" title="Basic routines needed to test Apriori algorithm. AprioriAll tests are also derived from this class..." alt="" coords="121,6,303,333"/>
 </map>

@@ -1,3 +1,9 @@
 <map id="AprioriAllLib.Test.InConsole.Program_Benchmark.Main" name="AprioriAllLib.Test.InConsole.Program_Benchmark.Main">
-<area shape="rect" id="node3" href="$class_apriori_all_lib_1_1_test_1_1_input_generator.html#ada133d09d1577b79a8f0aab4aa493a68" title="Generates a random list of customers. Randomization is parameterized. " alt="" coords="240,5,445,46"/>
+<area shape="rect" id="node3" href="$class_apriori_all_lib_1_1_test_1_1_apriori_benchmark.html#ad125989059516243ee72966593d096d5" title="AprioriAllLib.Test.Apriori\lBenchmark.Initialize" alt="" coords="277,5,438,46"/>
+<area shape="rect" id="node5" href="$class_apriori_all_lib_1_1_test_1_1_apriori_serialized_benchmark.html#a0a23e673c308583ea7e9a5d011da3e52" title="AprioriAllLib.Test.Apriori\lSerializedBenchmark.RunAllTests" alt="" coords="248,70,467,111"/>
+<area shape="rect" id="node7" href="$class_apriori_all_lib_1_1_test_1_1_apriori_benchmark.html#a855ba165bfa11ab9fe44d5b33996d49f" title="AprioriAllLib.Test.Apriori\lBenchmark.Close" alt="" coords="277,135,438,177"/>
+<area shape="rect" id="node9" href="$class_apriori_all_lib_1_1_test_1_1_apriori_open_c_l_benchmark.html#abb0da966aa27312567f2834ab41bc23d" title="AprioriAllLib.Test.Apriori\lOpenCLBenchmark.RunAllTests" alt="" coords="253,201,462,242"/>
+<area shape="rect" id="node11" href="$class_apriori_all_lib_1_1_test_1_1_apriori_all_benchmark.html#ac64ab775c1a21195c4c06ecb9867a462" title="AprioriAllLib.Test.Apriori\lAllBenchmark.Initialize" alt="" coords="277,266,438,307"/>
+<area shape="rect" id="node13" href="$class_apriori_all_lib_1_1_test_1_1_apriori_all_serialized_benchmark.html#ad6c194282c0252089e1f16e5898d66c6" title="AprioriAllLib.Test.Apriori\lAllSerializedBenchmark.RunAllTests" alt="" coords="240,331,475,373"/>
+<area shape="rect" id="node15" href="$class_apriori_all_lib_1_1_test_1_1_apriori_all_benchmark.html#ada0c61cfee011f35655b3406368812c0" title="AprioriAllLib.Test.Apriori\lAllBenchmark.Close" alt="" coords="277,397,438,438"/>
 </map>

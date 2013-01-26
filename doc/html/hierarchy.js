@@ -1,23 +1,23 @@
 var hierarchy =
 [
-    [ "AprioriAllLib.Test.AprioriBenchmark", "class_apriori_all_lib_1_1_test_1_1_apriori_benchmark.html", [
-      [ "AprioriAllLib.Test.AprioriOpenCLBenchmark", "class_apriori_all_lib_1_1_test_1_1_apriori_open_c_l_benchmark.html", null ],
-      [ "AprioriAllLib.Test.AprioriSerializedBenchmark", "class_apriori_all_lib_1_1_test_1_1_apriori_serialized_benchmark.html", null ]
-    ] ],
-    [ "AprioriAllLib.Test.AprioriComparison", "class_apriori_all_lib_1_1_test_1_1_apriori_comparison.html", null ],
+    [ "AprioriAllLib.Test.AprioriBenchmarkLogEntry", "class_apriori_all_lib_1_1_test_1_1_apriori_benchmark_log_entry.html", null ],
     [ "AprioriAllLib.Test.AprioriTestBase", "class_apriori_all_lib_1_1_test_1_1_apriori_test_base.html", [
       [ "AprioriAllLib.Test.AprioriAllTestBase", "class_apriori_all_lib_1_1_test_1_1_apriori_all_test_base.html", [
+        [ "AprioriAllLib.Test.AprioriAllBenchmark", "class_apriori_all_lib_1_1_test_1_1_apriori_all_benchmark.html", [
+          [ "AprioriAllLib.Test.AprioriAllSerializedBenchmark", "class_apriori_all_lib_1_1_test_1_1_apriori_all_serialized_benchmark.html", null ]
+        ] ],
         [ "AprioriAllLib.Test.AprioriAllParallelTest", "class_apriori_all_lib_1_1_test_1_1_apriori_all_parallel_test.html", null ],
-        [ "AprioriAllLib.Test.AprioriAllTest", "class_apriori_all_lib_1_1_test_1_1_apriori_all_test.html", null ],
-        [ "AprioriAllLib.Test.InConsole.ProgramTest_AprioriAll", "class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program_test___apriori_all.html", null ],
-        [ "AprioriAllLib.Test.InConsole.ProgramTest_ParallelAprioriAll", "class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program_test___parallel_apriori_all.html", null ]
+        [ "AprioriAllLib.Test.AprioriAllTest", "class_apriori_all_lib_1_1_test_1_1_apriori_all_test.html", null ]
+      ] ],
+      [ "AprioriAllLib.Test.AprioriBenchmark", "class_apriori_all_lib_1_1_test_1_1_apriori_benchmark.html", [
+        [ "AprioriAllLib.Test.AprioriOpenCLBenchmark", "class_apriori_all_lib_1_1_test_1_1_apriori_open_c_l_benchmark.html", null ],
+        [ "AprioriAllLib.Test.AprioriSerializedBenchmark", "class_apriori_all_lib_1_1_test_1_1_apriori_serialized_benchmark.html", null ]
       ] ],
       [ "AprioriAllLib.Test.AprioriParallelTest", "class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test.html", null ],
       [ "AprioriAllLib.Test.AprioriTest", "class_apriori_all_lib_1_1_test_1_1_apriori_test.html", null ],
-      [ "AprioriAllLib.Test.InConsole.ProgramTest_Apriori", "class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program_test___apriori.html", null ],
-      [ "AprioriAllLib.Test.InConsole.ProgramTest_ComparisonApriori", "class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program_test___comparison_apriori.html", null ],
-      [ "AprioriAllLib.Test.InConsole.ProgramTest_ParallelApriori", "class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program_test___parallel_apriori.html", null ]
+      [ "AprioriAllLib.Test.InConsole.Program_Benchmark", "class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program___benchmark.html", null ]
     ] ],
+    [ "AprioriAllLib.Test.BenchmarkParameters", "class_apriori_all_lib_1_1_test_1_1_benchmark_parameters.html", null ],
     [ "AprioriAllLib.Customer", "class_apriori_all_lib_1_1_customer.html", null ],
     [ "AprioriAllLib.CustomerList", "class_apriori_all_lib_1_1_customer_list.html", null ],
     [ "IComparable", "class_i_comparable.html", [
@@ -38,7 +38,6 @@ var hierarchy =
     [ "AprioriAllLib.PrefixTreeNode", "class_apriori_all_lib_1_1_prefix_tree_node.html", null ],
     [ "AprioriAllLib.Test.InConsole.Program_Apriori", "class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program___apriori.html", null ],
     [ "AprioriAllLib.Test.InConsole.Program_AprioriAll", "class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program___apriori_all.html", null ],
-    [ "AprioriAllLib.Test.InConsole.Program_Benchmark", "class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program___benchmark.html", null ],
     [ "AprioriAllLib.Transaction", "class_apriori_all_lib_1_1_transaction.html", null ],
     [ "AprioriAllLib.XmlReader", "class_apriori_all_lib_1_1_xml_reader.html", null ]
 ];

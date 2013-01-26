@@ -71,6 +71,7 @@ change.
 * 15 Dec 2012: version 1.5.0
 * 21 Jan 2013: version 2.0.0
 * 23 Jan 2013: version 2.1.0
+* 26 Jan 2013: version 2.2.0
 
 ## Where is everything, i.e. structure of the repository
 

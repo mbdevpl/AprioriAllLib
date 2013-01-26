@@ -1,3 +1,14 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_apriori_all_lib_1_1_test_1_1_apriori_comparison.html" title="AprioriAllLib.Test.Apriori\lComparison" alt="" coords="6,5,167,46"/>
+<area shape="rect" id="node1" href="$class_apriori_all_lib_1_1_test_1_1_apriori_test_base.html" title="Basic routines needed to test Apriori algorithm. AprioriAll tests are also derived from this class..." alt="" coords="6,266,167,307"/>
+<area shape="rect" id="node3" href="$class_apriori_all_lib_1_1_test_1_1_apriori_all_test_base.html" title="Base class for all AprioriAll tests. Defines common routines used by the tests. " alt="" coords="229,102,390,143"/>
+<area shape="rect" id="node13" href="$class_apriori_all_lib_1_1_test_1_1_apriori_benchmark.html" title="AprioriAllLib.Test.Apriori\lBenchmark" alt="" coords="229,201,390,242"/>
+<area shape="rect" id="node19" href="$class_apriori_all_lib_1_1_test_1_1_apriori_parallel_test.html" title="Unit tests for parallel version of Apriori. " alt="" coords="229,266,390,307"/>
+<area shape="rect" id="node21" href="$class_apriori_all_lib_1_1_test_1_1_apriori_test.html" title="Unit tests for serialized version of Apriori algorithm. " alt="" coords="216,332,403,359"/>
+<area shape="rect" id="node23" href="$class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program___benchmark.html" title="Application that is able to benchmark and compare the efficiency of both versions of the algorithm on..." alt="" coords="217,383,402,425"/>
+<area shape="rect" id="node5" href="$class_apriori_all_lib_1_1_test_1_1_apriori_all_benchmark.html" title="AprioriAllLib.Test.Apriori\lAllBenchmark" alt="" coords="451,5,613,46"/>
+<area shape="rect" id="node9" href="$class_apriori_all_lib_1_1_test_1_1_apriori_all_parallel_test.html" title="Unit tests for parallel version of AprioriAll. " alt="" coords="451,70,613,111"/>
+<area shape="rect" id="node11" href="$class_apriori_all_lib_1_1_test_1_1_apriori_all_test.html" title="Unit tests for serialized version of AprioriAll algorithm. " alt="" coords="451,135,613,177"/>
+<area shape="rect" id="node7" href="$class_apriori_all_lib_1_1_test_1_1_apriori_all_serialized_benchmark.html" title="AprioriAllLib.Test.Apriori\lAllSerializedBenchmark" alt="" coords="662,5,823,46"/>
+<area shape="rect" id="node15" href="$class_apriori_all_lib_1_1_test_1_1_apriori_open_c_l_benchmark.html" title="AprioriAllLib.Test.Apriori\lOpenCLBenchmark" alt="" coords="451,201,613,242"/>
+<area shape="rect" id="node17" href="$class_apriori_all_lib_1_1_test_1_1_apriori_serialized_benchmark.html" title="AprioriAllLib.Test.Apriori\lSerializedBenchmark" alt="" coords="451,266,613,307"/>
 </map>

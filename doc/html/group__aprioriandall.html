@@ -29,7 +29,7 @@
   <td id="projectlogo"><img alt="Logo" src="project_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">Apriori and AprioriAll in C#
-   &#160;<span id="projectnumber">version 2.1.0</span>
+   &#160;<span id="projectnumber">version 2.2.0</span>
    </div>
    <div id="projectbrief">serialized version with prefix trees, parallel version with OpenCL</div>
   </td>
@@ -186,7 +186,7 @@ Functions</h2></td></tr>
 <div class="line">                watch.Start();</div>
 <div class="line">            }</div>
 <div class="line"></div>
-<div class="line">            <span class="comment">//int cIndex = 0;</span></div>
+<div class="line">            <span class="keywordtype">int</span> cIndex = 0;</div>
 <div class="line">            <span class="keywordflow">foreach</span> (Customer c <span class="keywordflow">in</span> <a class="code" href="class_apriori_all_lib_1_1_apriori.html#abbca8be3761136e76782ce10ebd61638" title="Input data for the algorithm. ">customerList</a>.<a class="code" href="class_apriori_all_lib_1_1_customer_list.html#a4fd2a16a984844e61ffc60b327e6534a" title="List of Customers ">Customers</a>)</div>
 <div class="line">            {</div>
 <div class="line">                <span class="keywordflow">foreach</span> (Transaction t <span class="keywordflow">in</span> c.Transactions)</div>
@@ -200,25 +200,24 @@ Functions</h2></td></tr>
 <div class="line">                        IEnumerable&lt;Litemset&gt; l = litemsets.Where(litemset =&gt; (litemset.Items.Count == lset.Items.Count) &amp;&amp;</div>
 <div class="line">                             litemset.Items.All(item =&gt; lset.Items.Exists(lsetItem =&gt; lsetItem.CompareTo(item) == 0)));</div>
 <div class="line"></div>
-<div class="line">                        <span class="keywordtype">int</span> custID = <a class="code" href="class_apriori_all_lib_1_1_apriori.html#abbca8be3761136e76782ce10ebd61638" title="Input data for the algorithm. ">customerList</a>.<a class="code" href="class_apriori_all_lib_1_1_customer_list.html#a4fd2a16a984844e61ffc60b327e6534a" title="List of Customers ">Customers</a>.IndexOf(c);</div>
-<div class="line">                        <span class="keywordflow">if</span> (l.Count() == 0 &amp;&amp; !lset.IDs.Contains(custID))</div>
+<div class="line">                        <span class="keywordflow">if</span> (l.Count() == 0 &amp;&amp; !lset.IDs.Contains(cIndex))</div>
 <div class="line">                        {</div>
 <div class="line">                            litemsets.Add(lset);</div>
 <div class="line">                            lset.Support++;</div>
-<div class="line">                            lset.IDs.Add(custID);</div>
+<div class="line">                            lset.IDs.Add(cIndex);</div>
 <div class="line">                        }</div>
 <div class="line">                        <span class="keywordflow">else</span></div>
 <div class="line">                        {</div>
 <div class="line">                            Litemset litset = l.FirstOrDefault();</div>
-<div class="line">                            <span class="keywordflow">if</span> (!litset.IDs.Contains(custID))</div>
+<div class="line">                            <span class="keywordflow">if</span> (!litset.IDs.Contains(cIndex))</div>
 <div class="line">                            {</div>
 <div class="line">                                litset.Support++;</div>
-<div class="line">                                litset.IDs.Add(custID);</div>
+<div class="line">                                litset.IDs.Add(cIndex);</div>
 <div class="line">                            }</div>
 <div class="line">                        }</div>
 <div class="line">                    }</div>
 <div class="line">                }</div>
-<div class="line"></div>
+<div class="line">                cIndex++;</div>
 <div class="line">                <span class="comment">//if (progressOutput)</span></div>
 <div class="line">                <span class="comment">//{</span></div>
 <div class="line">                <span class="comment">//  if (cIndex % 10 == 9)</span></div>
@@ -249,6 +248,8 @@ Functions</h2></td></tr>
 <div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
 <div class="line">                Log.WriteLine(<span class="stringliteral">&quot;Purged unsupported, {0} remain.&quot;</span>, properLitemsets.Count);</div>
 <div class="line"></div>
+<div class="line">            <span class="keywordflow">foreach</span> (Litemset l <span class="keywordflow">in</span> properLitemsets)</div>
+<div class="line">                l.Items.Sort();</div>
 <div class="line">            properLitemsets.Sort();</div>
 <div class="line"></div>
 <div class="line">            <span class="keywordflow">if</span> (progressOutput)</div>
