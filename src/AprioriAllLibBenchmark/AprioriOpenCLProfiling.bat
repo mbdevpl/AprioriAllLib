@@ -8,7 +8,7 @@ set PROFILEDAPP=%PROFILEDAPPPATH%\%PROFILEDAPPEXECUTABLE%
 
 call echo %AMDAPPSDKROOT%
 
-set PARAMS=apriori openCL repeats=1 input=Example2 support=0.1
+set PARAMS=apriori openCL repeats=1 input=Example6 support=0.6
 
 REM call "%AMDPROFILER%" -o "%PROFILEDAPPPATH%\profiling_counters.csv" -w "%PROFILEDAPPPATH%" "%PROFILEDAPP%" "%PARAMS%"
 call "%AMDPROFILER%" -o "%PROFILEDAPPPATH%\profiling_trace.atp" -t -T -w "%PROFILEDAPPPATH%" "%PROFILEDAPP%" "%PARAMS%"

@@ -4,9 +4,13 @@ Thumbs.db
 /bin/AprioriAllLibBenchmark.vshost.exe
 /bin/AprioriAllLibBenchmark.vshost.exe.config
 /bin/AprioriAllLibBenchmark.vshost.exe.manifest
+/bin/benchmark_all.csv
+/bin/benchmark_run_*
 /bin/x86/AprioriAllLibBenchmark.vshost.exe
 /bin/x86/AprioriAllLibBenchmark.vshost.exe.config
 /bin/x86/AprioriAllLibBenchmark.vshost.exe.manifest
+/bin/x86/benchmark_all.csv
+/bin/x86/benchmark_run_*
 /bin/x86/profiling_counters.csv
 /bin/x86/profiling_trace.atp
 /src/*/obj

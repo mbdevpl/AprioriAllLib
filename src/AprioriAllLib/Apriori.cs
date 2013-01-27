@@ -60,8 +60,8 @@ namespace AprioriAllLib
 		Kernels.ChangeValueToConst kernelSubstitute;
 		Kernels.ChangeAllButValueToConst kernelSubstituteIfNotEqual;
 
-		Kernels.Identity kernelCopy;
-		Kernels.Identity kernelCopySingle;
+		//Kernels.Identity kernelCopy;
+		//Kernels.Identity kernelCopySingle;
 		Kernels.CopyOnlyOneValue kernelCopyIfEqual;
 
 		Kernels.ReductionMin kernelMin;
@@ -262,8 +262,8 @@ namespace AprioriAllLib
 			//}
 			//else
 			{
-				kernelCopy = new Kernels.Identity();
-				kernelCopySingle = new Kernels.Identity();
+				//kernelCopy = new Kernels.Identity();
+				//kernelCopySingle = new Kernels.Identity();
 				kernelCopyIfEqual = new Kernels.CopyOnlyOneValue();
 
 				kernelMin = new Kernels.ReductionMin();
@@ -296,8 +296,8 @@ namespace AprioriAllLib
 			if (clProgramsInitialized)
 			{
 				// kernels from abstraction layer
-				kernelCopy.Dispose();
-				kernelCopySingle.Dispose();
+				//kernelCopy.Dispose();
+				//kernelCopySingle.Dispose();
 				kernelCopyIfEqual.Dispose();
 
 				kernelMin.Dispose();
@@ -672,11 +672,12 @@ namespace AprioriAllLib
 			One.Write(false);
 
 			Buffer<int> tempItemsBuf = new Buffer<int>(context, queue, itemsCountUInt);
-			kernelCopy.SetArgument(0, itemsBuf);
-			kernelCopy.SetArgument(4, tempItemsBuf);
-			kernelCopy.SetArguments(null, itemsCountInt, 0, itemsCountInt,
-				null, itemsCountInt, 0, itemsCountInt);
-			kernelCopy.Launch1D(queue, Kernels.GetOptimalGlobalSize(localSize, itemsCountUInt), localSize);
+			//kernelCopy.SetArgument(0, itemsBuf);
+			//kernelCopy.SetArgument(4, tempItemsBuf);
+			//kernelCopy.SetArguments(null, itemsCountInt, 0, itemsCountInt,
+			//	null, itemsCountInt, 0, itemsCountInt);
+			//kernelCopy.Launch1D(queue, Kernels.GetOptimalGlobalSize(localSize, itemsCountUInt), localSize);
+			itemsBuf.Copy(0, itemsCountUInt, tempItemsBuf, 0);
 
 			#endregion
 
@@ -710,10 +711,11 @@ namespace AprioriAllLib
 			kernelIncrement.SetArguments(null, 1, 0, 1);
 			kernelIncrement.Launch1D(queue, 1, 1);
 
-			kernelCopySingle.SetArgument(0, tempItemsBuf);
-			kernelCopySingle.SetArgument(4, emptyIdBuf);
-			kernelCopySingle.SetArguments(null, 1, 0, 1, null, 1, 0, 1);
-			kernelCopySingle.Launch1D(queue, 1, 1);
+			//kernelCopySingle.SetArgument(0, tempItemsBuf);
+			//kernelCopySingle.SetArgument(4, emptyIdBuf);
+			//kernelCopySingle.SetArguments(null, 1, 0, 1, null, 1, 0, 1);
+			//kernelCopySingle.Launch1D(queue, 1, 1);
+			tempItemsBuf.Copy(0, 1, emptyIdBuf, 0);
 
 			#endregion
 
@@ -727,11 +729,13 @@ namespace AprioriAllLib
 			#region finding distinct item ids
 
 			Buffer<int> itemsRemainingBuf = new Buffer<int>(context, queue, itemsCountUInt);
-			kernelCopy.SetArgument(4, itemsRemainingBuf);
-			kernelCopy.Launch1D(queue, Kernels.GetOptimalGlobalSize(localSize, itemsCountUInt), localSize);
+			//kernelCopy.SetArgument(4, itemsRemainingBuf);
+			//kernelCopy.Launch1D(queue, Kernels.GetOptimalGlobalSize(localSize, itemsCountUInt), localSize);
+			itemsBuf.Copy(itemsRemainingBuf);
 
-			kernelCopy.SetArgument(4, tempItemsBuf);
-			kernelCopy.Launch1D(queue, Kernels.GetOptimalGlobalSize(localSize, itemsCountUInt), localSize);
+			//kernelCopy.SetArgument(4, tempItemsBuf);
+			//kernelCopy.Launch1D(queue, Kernels.GetOptimalGlobalSize(localSize, itemsCountUInt), localSize);
+			itemsBuf.Copy(tempItemsBuf);
 
 			int uniqueItemsCount = 0;
 
@@ -742,8 +746,8 @@ namespace AprioriAllLib
 			kernelZero.SetArguments(null, itemsCountInt, 0, itemsCountInt);
 			kernelZero.Launch1D(queue, Kernels.GetOptimalGlobalSize(localSize, itemsCountUInt), localSize);
 
-			kernelCopy.SetArgument(0, itemsRemainingBuf);
-			kernelCopy.SetArgument(4, tempItemsBuf);
+			//kernelCopy.SetArgument(0, itemsRemainingBuf);
+			//kernelCopy.SetArgument(4, tempItemsBuf);
 
 			kernelMin.SetArgument(0, tempItemsBuf);
 			kernelMin.SetArguments(null, itemsCountInt, 0, itemsCountInt);
@@ -784,7 +788,8 @@ namespace AprioriAllLib
 				//itemsRemainingBuf.Read(); // debug only
 				//tempItemsBuf.Read(); // debug only
 
-				kernelCopy.Launch1D(queue, Kernels.GetOptimalGlobalSize(localSize, itemsCountUInt), localSize);
+				//kernelCopy.Launch1D(queue, Kernels.GetOptimalGlobalSize(localSize, itemsCountUInt), localSize);
+				itemsRemainingBuf.Copy(0, itemsCountUInt, tempItemsBuf, 0);
 			}
 
 			uint uniqueItemsCountUInt = (uint)uniqueItemsCount;
@@ -872,20 +877,21 @@ namespace AprioriAllLib
 
 			Buffer<int> itemsSupportsBufCopy = new Buffer<int>(context, queue, itemsSupports);
 
-			kernelCopy.SetArgument(0, itemsSupportsBuf);
-			kernelCopy.SetArgument(4, itemsSupportsBufCopy);
-			kernelCopy.SetArguments(null, itemsSupportsCountInt, 0, itemsSupportsCountInt,
-				null, itemsSupportsCountInt, 0, itemsSupportsCountInt);
-			kernelCopy.Launch1D(queue, Kernels.GetOptimalGlobalSize(localSize, itemsSupportsCountUInt), localSize);
+			//kernelCopy.SetArgument(0, itemsSupportsBuf);
+			//kernelCopy.SetArgument(4, itemsSupportsBufCopy);
+			//kernelCopy.SetArguments(null, itemsSupportsCountInt, 0, itemsSupportsCountInt,
+			//	null, itemsSupportsCountInt, 0, itemsSupportsCountInt);
+			//kernelCopy.Launch1D(queue, Kernels.GetOptimalGlobalSize(localSize, itemsSupportsCountUInt), localSize);
+			itemsSupportsBuf.Copy(0, itemsSupportsCountUInt, itemsSupportsBufCopy, 0);
 
 			kernelSegmentedOr.SetArgument(0, itemsSupportsBufCopy);
 			kernelSegmentedOr.SetArguments(null, itemsSupportsCountInt, null, null,
 				null, itemsCountInt);
 
-			kernelCopy.SetArgument(0, itemsSupportsBufCopy);
-			kernelCopy.SetArgument(4, transactionsSupportsBuf);
-			kernelCopy.SetArguments(null, itemsSupportsCountInt, null, 1,
-				null, transactionsSupportsCountInt, null, 1);
+			//kernelCopy.SetArgument(0, itemsSupportsBufCopy);
+			//kernelCopy.SetArgument(4, transactionsSupportsBuf);
+			//kernelCopy.SetArguments(null, itemsSupportsCountInt, null, 1,
+			//	null, transactionsSupportsCountInt, null, 1);
 
 			//queue.Finish(); // debug
 			//itemsSupportsBufCopy.Read(); // debug
@@ -910,12 +916,13 @@ namespace AprioriAllLib
 				//itemsSupportsBufCopy.Read(); // debug ONLY - causes incorrect results
 
 				int offset = transactionsStarts[tn];
-				kernelCopy.SetArgument(2, offset);
+				//kernelCopy.SetArgument(2, offset);
 				int outputOffset = tn;
-				kernelCopy.SetArgument(6, outputOffset);
+				//kernelCopy.SetArgument(6, outputOffset);
 				for (int i = 0; i < uniqueItemsCount; ++i)
 				{
-					kernelCopy.Launch1D(queue, 1, 1);
+					//kernelCopy.Launch1D(queue, 1, 1);
+					itemsSupportsBufCopy.Copy((uint)offset, 1, transactionsSupportsBuf, (uint)outputOffset);
 
 					//queue.Finish(); // debug
 					//transactionsSupportsBuf.Read(); // debug
@@ -924,10 +931,10 @@ namespace AprioriAllLib
 						break;
 
 					offset += itemsCountInt;
-					kernelCopy.SetArgument(2, offset);
+					//kernelCopy.SetArgument(2, offset);
 
 					outputOffset += transactionsCountInt;
-					kernelCopy.SetArgument(6, outputOffset);
+					//kernelCopy.SetArgument(6, outputOffset);
 				}
 			}
 
@@ -953,20 +960,21 @@ namespace AprioriAllLib
 
 			Buffer<int> transactionsSupportsBufCopy = new Buffer<int>(context, queue, transactionsSupports);
 
-			kernelCopy.SetArgument(0, transactionsSupportsBuf);
-			kernelCopy.SetArgument(4, transactionsSupportsBufCopy);
-			kernelCopy.SetArguments(null, transactionsSupportsCountInt, 0, transactionsSupportsCountInt,
-				null, transactionsSupportsCountInt, 0, transactionsSupportsCountInt);
-			kernelCopy.Launch1D(queue, Kernels.GetOptimalGlobalSize(localSize, transactionsSupportsCountUInt), localSize);
+			//kernelCopy.SetArgument(0, transactionsSupportsBuf);
+			//kernelCopy.SetArgument(4, transactionsSupportsBufCopy);
+			//kernelCopy.SetArguments(null, transactionsSupportsCountInt, 0, transactionsSupportsCountInt,
+			//	null, transactionsSupportsCountInt, 0, transactionsSupportsCountInt);
+			//kernelCopy.Launch1D(queue, Kernels.GetOptimalGlobalSize(localSize, transactionsSupportsCountUInt), localSize);
+			transactionsSupportsBuf.Copy(0, transactionsSupportsCountUInt, transactionsSupportsBufCopy, 0);
 
 			kernelSegmentedOr.SetArgument(0, transactionsSupportsBufCopy);
 			kernelSegmentedOr.SetArguments(null, transactionsSupportsCountInt, null, null,
 				null, transactionsCountInt);
 
-			kernelCopy.SetArgument(0, transactionsSupportsBufCopy);
-			kernelCopy.SetArgument(4, customersSupportsBuf);
-			kernelCopy.SetArguments(null, transactionsSupportsCountInt, null, 1,
-				null, customersSupportsCountInt, null, 1);
+			//kernelCopy.SetArgument(0, transactionsSupportsBufCopy);
+			//kernelCopy.SetArgument(4, customersSupportsBuf);
+			//kernelCopy.SetArguments(null, transactionsSupportsCountInt, null, 1,
+			//	null, customersSupportsCountInt, null, 1);
 
 			//transactionsSupportsBufCopy.Read(); // debug
 
@@ -988,12 +996,13 @@ namespace AprioriAllLib
 				//transactionsSupportsBufCopy.Read(); // debug ONLY - causes incorrect results
 
 				int offset = customersStarts[cn];
-				kernelCopy.SetArgument(2, offset);
+				//kernelCopy.SetArgument(2, offset);
 				int outputOffset = cn;
-				kernelCopy.SetArgument(6, outputOffset);
+				//kernelCopy.SetArgument(6, outputOffset);
 				for (int i = 0; i < uniqueItemsCount; ++i)
 				{
-					kernelCopy.Launch1D(queue, 1, 1);
+					transactionsSupportsBufCopy.Copy((uint)offset, 1, customersSupportsBuf, (uint)outputOffset);
+					//kernelCopy.Launch1D(queue, 1, 1);
 
 					//customersSupportsBuf.Read(); // debug
 
@@ -1001,10 +1010,10 @@ namespace AprioriAllLib
 						break;
 
 					offset += transactionsCountInt;
-					kernelCopy.SetArgument(2, offset);
+					//kernelCopy.SetArgument(2, offset);
 
 					outputOffset += customersCountInt;
-					kernelCopy.SetArgument(6, outputOffset);
+					//kernelCopy.SetArgument(6, outputOffset);
 				}
 			}
 
@@ -1014,14 +1023,15 @@ namespace AprioriAllLib
 
 			Buffer<int> customersSupportsBufCopy = new Buffer<int>(context, queue, customersSupports);
 
-			kernelCopy.SetArgument(0, customersSupportsBuf);
-			kernelCopy.SetArgument(4, customersSupportsBufCopy);
-			kernelCopy.SetArguments(null, customersSupportsCountInt, 0, customersSupportsCountInt,
-				null, customersSupportsCountInt, 0, customersSupportsCountInt);
+			//kernelCopy.SetArgument(0, customersSupportsBuf);
+			//kernelCopy.SetArgument(4, customersSupportsBufCopy);
+			//kernelCopy.SetArguments(null, customersSupportsCountInt, 0, customersSupportsCountInt,
+			//	null, customersSupportsCountInt, 0, customersSupportsCountInt);
 			//queue.Finish(); // debug
 			//customersSupportsBuf.Read(); // debug
 			//customersSupportsBufCopy.Read(); // debug
-			kernelCopy.Launch1D(queue, Kernels.GetOptimalGlobalSize(localSize, customersSupportsCountUInt), localSize);
+			customersSupportsBuf.Copy(0, customersSupportsCountUInt, customersSupportsBufCopy, 0);
+			//kernelCopy.Launch1D(queue, Kernels.GetOptimalGlobalSize(localSize, customersSupportsCountUInt), localSize);
 			//customersSupportsBuf.Read(); // debug
 			//customersSupportsBufCopy.Read(); // debug
 
@@ -1138,10 +1148,10 @@ namespace AprioriAllLib
 				kernelMulitItemSupport.SetArgument(3, locationsBuf);
 				kernelMulitItemSupport.SetArgument(4, currLengthBuf);
 
-				kernelCopy.SetArgument(0, transactionsSupportsBuf);
-				kernelCopy.SetArgument(4, transactionsSupportsBufCopy);
-				kernelCopy.SetArguments(null, transactionsSupportsCountInt, null, transactionsCountInt,
-					null, transactionsSupportsCountInt, null, transactionsCountInt);
+				//kernelCopy.SetArgument(0, transactionsSupportsBuf);
+				//kernelCopy.SetArgument(4, transactionsSupportsBufCopy);
+				//kernelCopy.SetArguments(null, transactionsSupportsCountInt, null, transactionsCountInt,
+				//	null, transactionsSupportsCountInt, null, transactionsCountInt);
 
 				kernelOr.SetArgument(0, transactionsSupportsBufCopy);
 				kernelOr.SetArguments(null, transactionsSupportsCountInt, null, null);
@@ -1187,8 +1197,6 @@ namespace AprioriAllLib
 							locations[i] = supportedLocations[indices[i]];
 						locationsBuf.Write(false, 0, (uint)currLength);
 
-						//kernelCopy.SetArgument(3, transactionsCountInt);
-						//kernelCopy.SetArgument(7, transactionsCountInt);
 						for (int i = 0; i < currLength; ++i)
 						{
 							//if (currLength == 2
@@ -1202,9 +1210,11 @@ namespace AprioriAllLib
 							//}
 
 							int offset = supportedLocations[indices[i]] * transactionsCountInt;
-							kernelCopy.SetArgument(2, offset);
-							kernelCopy.SetArgument(6, offset);
-							kernelCopy.Launch1D(queue, Kernels.GetOptimalGlobalSize(localSize, transactionsCountUInt), localSize);
+							//kernelCopy.SetArgument(2, offset);
+							//kernelCopy.SetArgument(6, offset);
+							//kernelCopy.Launch1D(queue, Kernels.GetOptimalGlobalSize(localSize, transactionsCountUInt), localSize);
+							transactionsSupportsBuf.Copy((uint)offset, transactionsCountUInt,
+								transactionsSupportsBufCopy, (uint)offset);
 						}
 
 						//if (currLength == 2
