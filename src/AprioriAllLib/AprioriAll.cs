@@ -177,6 +177,9 @@ namespace AprioriAllLib
 		/// <returns>candidates for k-sequences</returns>
 		protected Dictionary<List<int>, int> GenerateCandidates(List<List<int>> prev, int litemsetCount, bool progressOutput)
 		{
+			const int progressOutputFactor = 1000000;
+			const char progressOutputLetter = 'M';
+
 			var candidates = new Dictionary<List<int>, int>();
 
 			int prevCount = prev.Count;
@@ -208,14 +211,15 @@ namespace AprioriAllLib
 							candidates.Add(newCandidate, 0);
 
 							if (progressOutput)
-								if (candidates.Count > 0 && candidates.Count % 50000 == 0)
-									Log.WriteLine("   {0} and counting...", candidates.Count);
+								if (candidates.Count > 0 && candidates.Count % progressOutputFactor == 0)
+									Log.Write(" {0}{1}...", candidates.Count / progressOutputFactor, progressOutputLetter);
 						}
 					}
 				}
 			}
 			generationWatch.Stop();
 
+			#region old stuff
 			//generationWatch.Start();
 			//var enum1 = prev.GetEnumerator();
 			//for (int i1 = 0; i1 < prevCount; ++i1)
@@ -261,19 +265,21 @@ namespace AprioriAllLib
 			//				Log.WriteLine(String.Format("   {0} and counting...", candidates.Count));
 			//	}
 			//}
-			//generationWatch.Stop();
+			//generationWatch.Stop(); 
+			#endregion
 
 			if (progressOutput)
-				Log.Write("Found {0} candidates", candidates.Count);
+			{
+				if (candidates.Count > 100000)
+					Log.Write(" found {0} candidates,", candidates.Count);
+				else if (candidates.Count == 0 || prevLen == 1)
+					Log.WriteLine(" found {0} candidates.", candidates.Count);
+				else
+					Log.WriteLine(" found {0} candidates,", candidates.Count);
+			}
 
 			if (candidates.Count == 0 || prevLen == 1)
-			{
-				if (progressOutput)
-					Log.WriteLine(".");
 				return candidates;
-			}
-			if (progressOutput)
-				Log.Write(",");
 
 			PrefixTree radixTree = new PrefixTree(litemsetCount + 1); // litemsets IDs are starting from 1
 
@@ -317,8 +323,13 @@ namespace AprioriAllLib
 				if (invalidCandidate)
 					keysToRemove.Add(currentList);
 				if (progressOutput)
-					if (ic > 0 && ic % 50000 == 0)
-						Log.WriteLine("   {0} remaining...", ic);
+					if (ic > 0 && ic % progressOutputFactor == 0)
+					{
+						//if (ic == progressOutputFactor)
+						//	Log.WriteLine(" {0}{1}...", ic / progressOutputFactor, progressOutputLetter);
+						//else
+						Log.Write(" {0}{1}...", ic / progressOutputFactor, progressOutputLetter);
+					}
 			}
 
 			sw2.Stop();
@@ -448,7 +459,7 @@ namespace AprioriAllLib
 			for (int k = 2; kSequences.Count >= k && kSequences[k - 1].Count > 0; ++k)
 			{
 				if (progressOutput)
-					Log.WriteLine("Looking for {0}-sequences...", k);
+					Log.Write("Looking for {0}-sequences...", k);
 				// list of kSequences, initially empty
 				kSequences.Add(new List<List<int>>());
 				var prev = kSequences[k - 1];
@@ -1091,13 +1102,14 @@ namespace AprioriAllLib
 				Log.WriteLine("Encoding dictionary for litemsets:");
 				foreach (KeyValuePair<int, Litemset> kv in decoding)
 				{
-					Log.Write(" {0} <= {1}", kv.Key, kv.Value);
+					StringBuilder s = new StringBuilder();
+					s.AppendFormat(" {0} <= {1}", kv.Key, kv.Value);
 					if (litemsetsContaining.ContainsKey(kv.Key))
 					{
 						List<int> superLitemsets = litemsetsContaining[kv.Key];
-						Log.Write("; {0} is in {1}", kv.Key, String.Join(", ", superLitemsets.ToArray()));
+						s.AppendFormat("; {0} is in {1}", kv.Key, String.Join(", ", superLitemsets.ToArray()));
 					}
-					Log.WriteLine("");
+					Log.WriteLine(s.ToString());
 				}
 			}
 
@@ -1127,27 +1139,29 @@ namespace AprioriAllLib
 				Log.WriteLine("How the input is encoded:");
 				foreach (List<List<int>> c in encodedList)
 				{
+					StringBuilder s = new StringBuilder();
 					customersEnumerator.MoveNext();
 					//var transactionsEnumerator = customersEnumerator.Current.Transactions.GetEnumerator();
-					Log.Write(" - {0} => (", customersEnumerator.Current);
+					s.AppendFormat(" - {0} => (", customersEnumerator.Current);
 					foreach (List<int> t in c)
 					{
 						//transactionsEnumerator.MoveNext();
 						//var itemsEnumerator = transactionsEnumerator.Current.Items.GetEnumerator();
-						Log.Write("{");
+						s.Append("{");
 						bool first = true;
 						foreach (int i in t)
 						{
 							//itemsEnumerator.MoveNext();
 							if (!first)
-								Log.Write(" ");
+								s.Append(" ");
 							if (first)
 								first = false;
-							Log.Write("{0}", i);
+							s.AppendFormat("{0}", i);
 						}
-						Log.Write("}");
+						s.Append("}");
 					}
-					Log.WriteLine(")");
+					s.Append(")");
+					Log.WriteLine(s.ToString());
 				}
 			}
 
@@ -1182,20 +1196,21 @@ namespace AprioriAllLib
 				foreach (List<List<int>> kSequencesPartition in kSequences)
 					foreach (List<int> sequene in kSequencesPartition)
 					{
-						Log.Write(" - <");
+						StringBuilder s = new StringBuilder();
+						s.Append(" - <");
 						bool first = true;
 						foreach (int i in sequene)
 						{
 							if (!first)
-								Log.Write(" ");
+								s.Append(" ");
 							if (first)
 								first = false;
-							Log.Write("{0}", i);
+							s.AppendFormat("{0}", i);
 						}
-						Log.Write(">");
+						s.Append(">");
 						if (decodedEnumerator.MoveNext())
-							Log.Write(" => {0}", decodedEnumerator.Current);
-						Log.WriteLine("");
+							s.AppendFormat(" => {0}", decodedEnumerator.Current);
+						Log.WriteLine(s.ToString());
 					}
 			}
 

@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AprioriAllLib.Apriori">
+    <Position X="0.5" Y="0.5" Width="2.75" />
+    <Members>
+      <Method Name="Apriori" Hidden="true" />
+      <Field Name="clInitialized" Hidden="true" />
+      <Field Name="clProgramsInitialized" Hidden="true" />
+      <Field Name="context" Hidden="true" />
+      <Field Name="device" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="GenerateCandidateLitemsets" Hidden="true" />
+      <Method Name="InitOpenCL" Hidden="true" />
+      <Method Name="InitOpenCLPrograms" Hidden="true" />
+      <Field Name="kernelConst" Hidden="true" />
+      <Field Name="kernelCopyIfEqual" Hidden="true" />
+      <Field Name="kernelIncrement" Hidden="true" />
+      <Field Name="kernelMax" Hidden="true" />
+      <Field Name="kernelMin" Hidden="true" />
+      <Field Name="kernelMulitItemSupport" Hidden="true" />
+      <Field Name="kernelMultiplyByTwo" Hidden="true" />
+      <Field Name="kernelOr" Hidden="true" />
+      <Field Name="kernelSegmentedOr" Hidden="true" />
+      <Field Name="kernelSubstitute" Hidden="true" />
+      <Field Name="kernelSubstituteIfNotEqual" Hidden="true" />
+      <Field Name="kernelSum" Hidden="true" />
+      <Field Name="kernelZero" Hidden="true" />
+      <Field Name="platform" Hidden="true" />
+      <Field Name="programApriori" Hidden="true" />
+      <Method Name="RemoveNonMaximal" Hidden="true" />
+      <Method Name="RunAprioriWithPruning" Hidden="true" />
+      <Method Name="RunParallelAprioriWithPruning" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>gAAChAISCGRAAAIAKEAAAAAAEEIIAAEACigCAAgggAA=</HashCode>
+      <FileName>Apriori.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="customerList" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="AprioriAllLib.Customer">
+    <Position X="4.5" Y="1.75" Width="1.5" />
+    <Members>
+      <Method Name="AddTransaction" Hidden="true" />
+      <Method Name="Customer" Hidden="true" />
+      <Method Name="Equals" Hidden="true" />
+      <Method Name="GetHashCode" Hidden="true" />
+      <Method Name="ToString" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAEAAEgAAAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Customer.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="Transactions" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="AprioriAllLib.CustomerList">
+    <Position X="4.5" Y="0.5" Width="1.5" />
+    <Members>
+      <Method Name="CustomerList" Hidden="true" />
+      <Method Name="ToIntArrayInitializer" Hidden="true" />
+      <Method Name="ToString" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAEBAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CustomerList.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="Customers" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="AprioriAllLib.Item" BaseTypeListCollapsed="true">
+    <Position X="4.5" Y="4.25" Width="1.5" />
+    <Members>
+      <Method Name="CompareTo" Hidden="true" />
+      <Method Name="Equals" Hidden="true" />
+      <Method Name="GetHashCode" Hidden="true" />
+      <Method Name="Item" Hidden="true" />
+      <Method Name="ToString" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQEgAAAAAAAAAAAAIAAAAAgAAAAAAA=</HashCode>
+      <FileName>Item.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.881" />
+  </Class>
+  <Class Name="AprioriAllLib.Litemset" BaseTypeListCollapsed="true">
+    <Position X="7" Y="4" Width="1.25" />
+    <Members>
+      <Method Name="CompareTo" Hidden="true" />
+      <Method Name="Equals" Hidden="true" />
+      <Method Name="GetHashCode" Hidden="true" />
+      <Method Name="Litemset" Hidden="true" />
+      <Method Name="ToString" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAiAQEgAAAAAAAAAAAAIgAAAAAAAAAAAA=</HashCode>
+      <FileName>Litemset.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="Items" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="AprioriAllLib.Transaction">
+    <Position X="4.5" Y="3" Width="1.5" />
+    <Members>
+      <Method Name="AddItem" Hidden="true" />
+      <Method Name="Contains" Hidden="true" />
+      <Method Name="Equals" Hidden="true" />
+      <Field Name="FrequentItems" Hidden="true" />
+      <Method Name="GetHashCode" Hidden="true" />
+      <Field Name="items" Hidden="true" />
+      <Method Name="ToString" Hidden="true" />
+      <Method Name="Transaction" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAEgAgAAAAAgAAAAIAAAAAAAAAQAAA=</HashCode>
+      <FileName>Transaction.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Items" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="AprioriAllLib.AprioriAll">
+    <Position X="0.5" Y="2.5" Width="2.75" />
+    <Members>
+      <Method Name="AprioriAll" Hidden="true" />
+      <Method Name="CompactSequencesList" Hidden="true" />
+      <Method Name="EncodeCustomerList" Hidden="true" />
+      <Method Name="FindAllFrequentSequences" Hidden="true" />
+      <Method Name="GenerateCandidates" Hidden="true" />
+      <Method Name="GenerateContainmentRules" Hidden="true" />
+      <Method Name="GenerateEncoding" Hidden="true" />
+      <Method Name="InferRealResults" Hidden="true" />
+      <Method Name="IsSubSequence" Hidden="true" />
+      <Method Name="MatchCandidateToEncodedCustomer" Hidden="true" />
+      <Method Name="PurgeAllNonMax" Hidden="true" />
+      <Method Name="PurgeAllSubSeqsOf" Hidden="true" />
+      <Method Name="PurgeUsingInclusionRules" Hidden="true" />
+      <Method Name="PurgeUsingInclusionRulesWithinSameSize" Hidden="true" />
+      <Method Name="PurgeUsingSequenceInnerRedundancy" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAIAAABAAAACACAAAAAAAggAAAAIAICUkKAAAABAA=</HashCode>
+      <FileName>AprioriAll.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AprioriAllLib.Log">
+    <Position X="7.5" Y="0.5" Width="2" />
+    <Members>
+      <Field Name="_lock" Hidden="true" />
+      <Method Name="HandleMsgNumberIndicator_ConsoleOut" Hidden="true" />
+      <Method Name="HandleMsgNumberIndicator_Trace" Hidden="true" />
+      <Method Name="Log" Hidden="true" />
+      <Field Name="msgNumber" Hidden="true" />
+      <Field Name="msgNumberFormat" Hidden="true" />
+      <Field Name="msgNumberPlaceholder" Hidden="true" />
+      <Field Name="msgNumberWithMsgFormat" Hidden="true" />
+      <Method Name="Write" Hidden="true" />
+      <Method Name="WriteLine" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAJAAAAAQoAAAEAAAAAAAAEABAAAIAUAEAAAI=</HashCode>
+      <FileName>AprioriLog.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

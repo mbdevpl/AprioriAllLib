@@ -128,7 +128,8 @@
     <Compile Include="XmlReader.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassDiagram.cd" />
+    <None Include="Apriori.cd" />
+    <None Include="AprioriAll.cd" />
     <None Include="OpenCL\distinct.cl" />
     <None Include="OpenCL\opencl.cl" />
     <None Include="OpenCL\apriori.cl" />

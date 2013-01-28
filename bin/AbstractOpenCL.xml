@@ -98,6 +98,11 @@
             </summary>
             <typeparam name="T">type of the entries contained in the memory</typeparam>
         </member>
+        <member name="M:OpenCL.Abstract.MemoryObject`1.Dispose">
+            <summary>
+            Sets field values to null, meant to be overriden by non-abstract subclasses.
+            </summary>
+        </member>
         <member name="M:OpenCL.Abstract.MemoryObject`1.AddWritingResult(OpenCL.Abstract.ActionResult)">
             <summary>
             This method should be executed only in case of diagnostic run,
@@ -151,9 +156,19 @@
             <param name="destination">target memory</param>
             <returns>true if the copy operation was successfully enqueued</returns>
         </member>
+        <member name="P:OpenCL.Abstract.MemoryObject`1.DefaultQueue">
+            <summary>
+            Command queue, on which the memory object enqueues its actions by default.
+            </summary>
+        </member>
         <member name="P:OpenCL.Abstract.MemoryObject`1.Length">
             <summary>
-            Length of the backing collection, and also the buffer itself.
+            Length of the backing collection, and also the memory object itself.
+            </summary>
+        </member>
+        <member name="P:OpenCL.Abstract.MemoryObject`1.LengthSigned">
+            <summary>
+            Gets length of this memory object as a signed integer.
             </summary>
         </member>
         <member name="M:OpenCL.Abstract.Buffer`1.Dispose">
@@ -190,6 +205,11 @@
             <param name="device">a device</param>
             <param name="context">a context on that deviec</param>
         </member>
+        <member name="M:OpenCL.Abstract.CommandQueue.Dispose">
+            <summary>
+            Releases the unmanaged memory paired with this object.
+            </summary>
+        </member>
         <member name="M:OpenCL.Abstract.CommandQueue.ToString">
             <summary>
             Returns a short string that represents this object.
@@ -201,6 +221,21 @@
             Returns a long and very detailed string that represents this object.
             </summary>
             <returns></returns>
+        </member>
+        <member name="P:OpenCL.Abstract.CommandQueue.Handle">
+            <summary>
+            Pointer to unmanaged memory.
+            </summary>
+        </member>
+        <member name="P:OpenCL.Abstract.CommandQueue.Device">
+            <summary>
+            Device, on which this command queue resides.
+            </summary>
+        </member>
+        <member name="P:OpenCL.Abstract.CommandQueue.Context">
+            <summary>
+            Context, on which this command queue resides.
+            </summary>
         </member>
         <member name="T:OpenCL.Abstract.Context">
             <summary>
@@ -225,6 +260,11 @@
             Creates a context for a Device array.
             </summary>
             <param name="devices">set of devices</param>
+        </member>
+        <member name="M:OpenCL.Abstract.Context.Dispose">
+            <summary>
+            Releases the unmanaged memory paired with this object.
+            </summary>
         </member>
         <member name="M:OpenCL.Abstract.Context.ToString">
             <summary>
@@ -337,10 +377,24 @@
             Possible types that a Device can have.
             </summary>
         </member>
-        <member name="F:OpenCL.Abstract.Kernel.defaultQueue">
+        <member name="M:OpenCL.Abstract.Kernel.#ctor(OpenCL.Abstract.Program,System.String)">
             <summary>
-            Default queue on which this kernel is launched unless other queue is specified 
-            in Launch1D(), Launch2D(), Launch3D() or LaunchND() method call.
+            Constructs a new OpenCL kernel without setting a default command queue.
+            </summary>
+            <param name="program"></param>
+            <param name="kernelName"></param>
+        </member>
+        <member name="M:OpenCL.Abstract.Kernel.#ctor(OpenCL.Abstract.CommandQueue,OpenCL.Abstract.Program,System.String)">
+            <summary>
+            Constructs a new OpenCL kernel.
+            </summary>
+            <param name="defaultQueue">default command queue</param>
+            <param name="program"></param>
+            <param name="kernelName"></param>
+        </member>
+        <member name="M:OpenCL.Abstract.Kernel.Dispose">
+            <summary>
+            Releases the unmanaged memory paired with this object.
             </summary>
         </member>
         <member name="M:OpenCL.Abstract.Kernel.SetArguments``1(OpenCL.Abstract.Buffer{``0}[])">
@@ -381,10 +435,26 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="P:OpenCL.Abstract.Kernel.DefaultQueue">
+            <summary>
+            Default queue on which this kernel is launched unless other queue is specified 
+            in Launch1D(), Launch2D(), Launch3D() or LaunchND() method call.
+            </summary>
+        </member>
+        <member name="P:OpenCL.Abstract.Kernel.Program">
+            <summary>
+            Program for this Kernel.
+            </summary>
+        </member>
         <member name="T:OpenCL.Abstract.Kernels">
             <summary>
             Collection of example kernel, which are built on-demand, i.e. when a constructor 
             of the first instance of a given Kernel is called.
+            </summary>
+        </member>
+        <member name="M:OpenCL.Abstract.Kernels.Dispose">
+            <summary>
+            Releases the unmanaged memory paired with this class.
             </summary>
         </member>
         <member name="P:OpenCL.Abstract.Kernels.Device">
@@ -431,6 +501,11 @@
             </summary>
             <returns>number of available OpenCL platforms, 0 in case of any errors</returns>
         </member>
+        <member name="T:OpenCL.Abstract.Program">
+            <summary>
+            Contains OpenCL program, also executable if it is built.
+            </summary>
+        </member>
         <member name="M:OpenCL.Abstract.Program.#ctor(OpenCL.Abstract.Context,OpenCL.Abstract.SourceCode)">
             <summary>
             Creates a new Program, and does not build it.
@@ -454,6 +529,11 @@
             <param name="sourceCode">source code of the program</param>
             <param name="device">device on which the program will be built</param>
             <param name="buildOptions">build options for the OpenCL compiler</param>
+        </member>
+        <member name="M:OpenCL.Abstract.Program.Dispose">
+            <summary>
+            Releases the unmanaged memory paired with this object.
+            </summary>
         </member>
         <member name="M:OpenCL.Abstract.Program.BuildInformation">
             <summary>
@@ -479,6 +559,26 @@
             Returns a long and very detailed string that represents this object.
             </summary>
             <returns></returns>
+        </member>
+        <member name="P:OpenCL.Abstract.Program.Context">
+            <summary>
+            Context, in which this Program was created.
+            </summary>
+        </member>
+        <member name="P:OpenCL.Abstract.Program.Built">
+            <summary>
+            True indicates that this program is already built.
+            </summary>
+        </member>
+        <member name="P:OpenCL.Abstract.Program.DeviceBuiltOn">
+            <summary>
+            If not null, contains device that this program was built on.
+            </summary>
+        </member>
+        <member name="P:OpenCL.Abstract.Program.SourceCode">
+            <summary>
+            SourceCode from which the Program was created.
+            </summary>
         </member>
         <member name="T:OpenCL.Abstract.Properties.Resources">
             <summary>
@@ -589,6 +689,13 @@
         <member name="P:OpenCL.Abstract.SourceCode.Path">
             <summary>
             Used to access the path of the resource
+            </summary>
+        </member>
+        <member name="P:OpenCL.Abstract.SourceCode.GeneratedFrom">
+            <summary>
+            If this source code was not created directly from source file, 
+            but rather by combining other sources, it enumerates 
+            parent SourceCode objects.
             </summary>
         </member>
         <member name="P:OpenCL.Abstract.SourceCode.Lines">

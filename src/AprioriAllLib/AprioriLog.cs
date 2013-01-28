@@ -12,7 +12,7 @@ namespace AprioriAllLib
 
 		public static bool UseConsoleOut = true;
 
-		public static bool LogMsgNumber = true;
+		public static bool LogMsgNumber = false;
 
 		public static bool IndicateMsgInTrace = true;
 
