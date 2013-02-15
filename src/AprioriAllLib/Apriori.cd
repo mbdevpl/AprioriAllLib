@@ -1,16 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="AprioriAllLib.Apriori">
-    <Position X="0.5" Y="0.75" Width="2.75" />
+    <Position X="0.5" Y="0.5" Width="2.5" />
     <Members>
       <Method Name="Apriori" Hidden="true" />
       <Field Name="clInitialized" Hidden="true" />
       <Field Name="clProgramsInitialized" Hidden="true" />
       <Field Name="context" Hidden="true" />
-      <Field Name="customerList" Hidden="true" />
       <Field Name="customersCount" Hidden="true" />
       <Field Name="device" Hidden="true" />
-      <Method Name="Dispose" Hidden="true" />
       <Method Name="GenerateCandidateLitemsets" Hidden="true" />
       <Method Name="InitOpenCL" Hidden="true" />
       <Method Name="InitOpenCLPrograms" Hidden="true" />
@@ -37,7 +35,17 @@
       <HashCode>gAAChAISCGRAAAIAKEAAAAABEEIIAAEACigCAAgggAA=</HashCode>
       <FileName>Apriori.cs</FileName>
     </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="customerList" />
+    </ShowAsCollectionAssociation>
     <Lollipop Position="0.292" />
   </Class>
+  <Interface Name="AprioriAllLib.ICustomer" Collapsed="true">
+    <Position X="4.5" Y="0.5" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAAAAAAAAAAAAAgAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>DataModel\ICustomer.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
