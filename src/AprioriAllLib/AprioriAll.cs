@@ -30,8 +30,14 @@ namespace AprioriAllLib
 		/// Constructs a new AprioriAll instance.
 		/// </summary>
 		/// <param name="customerList">list of customers, who have transactions that have items</param>
+		[Obsolete]
 		public AprioriAll(CustomerList customerList)
 			: base(customerList)
+		{
+		}
+
+		public AprioriAll(IEnumerable<ICustomer> customers)
+			: base(customers)
 		{
 		}
 
@@ -41,14 +47,14 @@ namespace AprioriAllLib
 		/// <param name="oneLitemsets">set of 1-sequences (large itemsets)</param>
 		/// <param name="encoding">encoding dictionary</param>
 		/// <param name="decoding">decoding dictionary</param>
-		protected void GenerateEncoding(List<Litemset> oneLitemsets, out Dictionary<Litemset, int> encoding,
-			out Dictionary<int, Litemset> decoding)
+		protected void GenerateEncoding(List<ILitemset> oneLitemsets, out Dictionary<ILitemset, int> encoding,
+			out Dictionary<int, ILitemset> decoding)
 		{
-			encoding = new Dictionary<Litemset, int>();
-			decoding = new Dictionary<int, Litemset>();
+			encoding = new Dictionary<ILitemset, int>();
+			decoding = new Dictionary<int, ILitemset>();
 
 			int i = 1;
-			foreach (Litemset li in oneLitemsets)
+			foreach (ILitemset li in oneLitemsets)
 			{
 				encoding.Add(li, i);
 				decoding.Add(i, li);
@@ -67,8 +73,8 @@ namespace AprioriAllLib
 		/// <param name="oneLitemsets">large itemests (i.e. 1-sequences)</param>
 		/// <param name="encoding">encoding dictionary for the </param>
 		/// <returns></returns>
-		protected Dictionary<int, List<int>> GenerateContainmentRules(List<Litemset> oneLitemsets,
-			Dictionary<Litemset, int> encoding)
+		protected Dictionary<int, List<int>> GenerateContainmentRules(List<ILitemset> oneLitemsets,
+			Dictionary<ILitemset, int> encoding)
 		{
 			Dictionary<int, List<int>> litemsetsContaining = new Dictionary<int, List<int>>();
 
@@ -79,7 +85,7 @@ namespace AprioriAllLib
 					if (ReferenceEquals(other, l))
 						continue;
 
-					if (l.Items.All(item => other.Items.Contains(item)))
+					if (l.GetItems().All(item => other.GetItems().Contains(item)))
 					{
 						int encoded = encoding[l];
 						if (!litemsetsContaining.ContainsKey(encoded))
@@ -100,15 +106,15 @@ namespace AprioriAllLib
 		/// <param name="oneLitemsets">1-sequences, i.e. large itemsets</param>
 		/// <param name="encoding">an encoding dictionary</param>
 		/// <returns>encoded customer list</returns>
-		protected List<List<List<int>>> EncodeCustomerList(List<Litemset> oneLitemsets, Dictionary<Litemset, int> encoding)
+		protected List<List<List<int>>> EncodeCustomerList(List<ILitemset> oneLitemsets, Dictionary<ILitemset, int> encoding)
 		{
 			var encodedList = new List<List<List<int>>>();
 
-			foreach (Customer c in customerList.Customers)
+			foreach (ICustomer c in customerList)
 			{
 				var encodedCustomer = new List<List<int>>();
 
-				foreach (Transaction t in c.Transactions)
+				foreach (ITransaction t in c.GetTransactions())
 				{
 					var encodedTransaction = new List<int>();
 					int id = -1; // temp. variable used as in-out param
@@ -116,12 +122,12 @@ namespace AprioriAllLib
 					// adding litemsets of length >= 2
 					foreach (Litemset li in oneLitemsets)
 					{
-						if (li.Items.Count == 1)
+						if (li.GetItemsCount() == 1)
 							continue;
 						bool someMissing = false;
-						foreach (Item litem in li.Items)
+						foreach (IItem litem in li.GetItems())
 						{
-							if (!t.Items.Contains(litem))
+							if (!t.GetItems().Contains(litem))
 							{
 								someMissing = true;
 								break;
@@ -136,7 +142,7 @@ namespace AprioriAllLib
 
 					}
 
-					foreach (Item i in t.Items)
+					foreach (IItem i in t.GetItems())
 					{
 
 						// adding litemsets of length == 1
@@ -144,9 +150,9 @@ namespace AprioriAllLib
 						foreach (Litemset li in oneLitemsets)
 						{
 							//Litemset li = oneLitemsets[index];
-							if (li.Items.Count > 1)
+							if (li.GetItemsCount() > 1)
 								continue;
-							Item item = li.Items[0];
+							IItem item = li.GetItem(0);
 
 							if (item.Equals(i) && encoding.TryGetValue(li, out id))
 								encodedTransaction.Insert(0, id);
@@ -439,8 +445,8 @@ namespace AprioriAllLib
 		/// <param name="progressOutput">if true, information about progress is sent to standard output</param>
 		/// <returns>list of k-sequences, partitioned by k. i.e. i-th element of resulting List 
 		/// contains all i-sequences</returns>
-		protected List<List<List<int>>> FindAllFrequentSequences(List<Litemset> oneLitemsets,
-			Dictionary<Litemset, int> encoding, List<List<List<int>>> encodedList,
+		protected List<List<List<int>>> FindAllFrequentSequences(List<ILitemset> oneLitemsets,
+			Dictionary<ILitemset, int> encoding, List<List<List<int>>> encodedList,
 			Dictionary<int, List<int>> containmentRules, int minSupport, bool progressOutput)
 		{
 			var kSequences = new List<List<List<int>>>();
@@ -968,10 +974,10 @@ namespace AprioriAllLib
 		/// <param name="kSequences">all found maximal k-sequences, partitioned by k</param>
 		/// <param name="decoding">decoding dictionary</param>
 		/// <returns>cleaned-up data that can be used as final output of AprioriAll</returns>
-		protected List<Customer> InferRealResults(List<List<List<int>>> encodedList, List<List<List<int>>> kSequences,
-			Dictionary<int, Litemset> decoding)
+		protected List<ICustomer> InferRealResults(List<List<List<int>>> encodedList, List<List<List<int>>> kSequences,
+			Dictionary<int, ILitemset> decoding)
 		{
-			var decodedList = new List<Customer>();
+			var decodedList = new List<ICustomer>();
 
 			var compactSequences = CompactSequencesList(kSequences);
 
@@ -980,8 +986,9 @@ namespace AprioriAllLib
 				Customer c = new Customer();
 				foreach (int encodedLitemset in sequence)
 				{
-					Transaction t = new Transaction(decoding[encodedLitemset].Items);
-					c.Transactions.Add(t);
+					Transaction t = new Transaction();
+					t.AddItems(decoding[encodedLitemset].GetItems());
+					c.AddTransaction(t);
 				}
 				decodedList.Add(c);
 			}
@@ -1039,7 +1046,7 @@ namespace AprioriAllLib
 		/// </summary>
 		/// <param name="threshold">greater than 0, and less or equal 1</param>
 		/// <returns>list of frequently occurring customers transaction's patters</returns>
-		public List<Customer> RunAprioriAll(double threshold)
+		public List<ICustomer> RunAprioriAll(double threshold)
 		{
 			return RunAprioriAll(threshold, false);
 		}
@@ -1052,14 +1059,14 @@ namespace AprioriAllLib
 		/// <param name="threshold">greater than 0, and less or equal 1</param>
 		/// <param name="progressOutput">if true, information about progress is sent to standard output</param>
 		/// <returns>list of frequently occurring customers transaction's patters</returns>
-		public List<Customer> RunAprioriAll(double threshold, bool progressOutput)
+		public List<ICustomer> RunAprioriAll(double threshold, bool progressOutput)
 		{
 			if (customerList == null)
 				throw new ArgumentNullException("customers list is null", "customerList");
 			if (threshold > 1 || threshold <= 0)
 				throw new ArgumentException("threshold is out of range = (0,1]", "threshold");
 
-			int minSupport = (int)Math.Ceiling((double)customerList.Customers.Count * threshold);
+			int minSupport = (int)Math.Ceiling((double)customersCount * threshold);
 			if (progressOutput)
 				Log.WriteLine("Threshold = {0}  =>  Minimum support = {1}", threshold, minSupport);
 
@@ -1083,15 +1090,15 @@ namespace AprioriAllLib
 			if (progressOutput)
 				Log.WriteLine("Launching Apriori...");
 			// this corresponds to 2nd step of AprioriAll algorithm, namely "Litemset Phase".
-			List<Litemset> oneLitemsets = RunApriori(threshold, progressOutput);
+			List<ILitemset> oneLitemsets = RunApriori(threshold, progressOutput);
 
 			// 3. transform input into list of IDs
 			if (progressOutput)
 				Log.WriteLine("3) Transformation Phase");
 
 			// 3.a) give an ID to each 1-seq
-			Dictionary<Litemset, int> encoding;
-			Dictionary<int, Litemset> decoding;
+			Dictionary<ILitemset, int> encoding;
+			Dictionary<int, ILitemset> decoding;
 
 			GenerateEncoding(oneLitemsets, out encoding, out decoding);
 
@@ -1100,7 +1107,7 @@ namespace AprioriAllLib
 			if (progressOutput)
 			{
 				Log.WriteLine("Encoding dictionary for litemsets:");
-				foreach (KeyValuePair<int, Litemset> kv in decoding)
+				foreach (KeyValuePair<int, ILitemset> kv in decoding)
 				{
 					StringBuilder s = new StringBuilder();
 					s.AppendFormat(" {0} <= {1}", kv.Key, kv.Value);
@@ -1135,7 +1142,7 @@ namespace AprioriAllLib
 
 			if (progressOutput && encodedList.Count <= 100)
 			{
-				var customersEnumerator = customerList.Customers.GetEnumerator();
+				var customersEnumerator = customerList.GetEnumerator();
 				Log.WriteLine("How the input is encoded:");
 				foreach (List<List<int>> c in encodedList)
 				{
@@ -1216,7 +1223,8 @@ namespace AprioriAllLib
 
 			totalTimeTaken.Stop();
 
-			Log.WriteLine(" total time taken to complete the algorithm: {0}ms", totalTimeTaken.ElapsedMilliseconds);
+			if (progressOutput)
+				Log.WriteLine(" total time taken to complete the algorithm: {0}ms", totalTimeTaken.ElapsedMilliseconds);
 
 			// 7. return results
 			return decodedList;
@@ -1228,7 +1236,7 @@ namespace AprioriAllLib
 		/// </summary>
 		/// <param name="threshold">greater than 0, and less or equal 1</param>
 		/// <returns>list of frequently occurring customers transaction's patters</returns>
-		public List<Customer> RunParallelAprioriAll(double threshold)
+		public List<ICustomer> RunParallelAprioriAll(double threshold)
 		{
 			return RunParallelAprioriAll(threshold, false);
 		}
@@ -1240,7 +1248,7 @@ namespace AprioriAllLib
 		/// <param name="threshold">greater than 0, and less or equal 1</param>
 		/// <param name="progressOutput">if true, information about progress is sent to standard output</param>
 		/// <returns>list of frequently occurring customers transaction's patters</returns>
-		public List<Customer> RunParallelAprioriAll(double threshold, bool progressOutput)
+		public List<ICustomer> RunParallelAprioriAll(double threshold, bool progressOutput)
 		{
 			if (Platforms.InitializeAll().Length == 0)
 				return RunAprioriAll(threshold, progressOutput);
@@ -1250,14 +1258,14 @@ namespace AprioriAllLib
 			if (threshold > 1 || threshold <= 0)
 				throw new ArgumentException("threshold", "threshold is out of range = (0,1]");
 
-			int minSupport = (int)Math.Ceiling((double)customerList.Customers.Count * threshold);
+			int minSupport = (int)Math.Ceiling((double)customersCount * threshold);
 			if (progressOutput)
 				Log.WriteLine("Threshold = {0}  =>  Minimum support = {1}", threshold, minSupport);
 
 			if (minSupport <= 0)
 				throw new ArgumentException("minimum support must be positive", "minSupport");
 
-			List<Litemset> oneLitemsets = RunParallelApriori(threshold, progressOutput);
+			//var oneLitemsets = RunParallelApriori(threshold, progressOutput);
 
 			return null;
 		}

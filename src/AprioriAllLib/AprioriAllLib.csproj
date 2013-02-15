@@ -111,9 +111,13 @@
     <Compile Include="Apriori.cs" />
     <Compile Include="AprioriAll.cs" />
     <Compile Include="AprioriLog.cs" />
-    <Compile Include="CustomerList.cs" />
-    <Compile Include="Item.cs" />
-    <Compile Include="Litemset.cs" />
+    <Compile Include="DataModel\CustomerList.cs" />
+    <Compile Include="DataModel\ICustomer.cs" />
+    <Compile Include="DataModel\IItem.cs" />
+    <Compile Include="DataModel\ILitemset.cs" />
+    <Compile Include="DataModel\ITransaction.cs" />
+    <Compile Include="DataModel\Item.cs" />
+    <Compile Include="DataModel\Litemset.cs" />
     <Compile Include="OpenCL\AprioriKernels.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -122,14 +126,15 @@
     </Compile>
     <Compile Include="PrefixTree.cs" />
     <Compile Include="PrefixTreeNode.cs" />
-    <Compile Include="Transaction.cs" />
+    <Compile Include="DataModel\Transaction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Customer.cs" />
+    <Compile Include="DataModel\Customer.cs" />
     <Compile Include="XmlReader.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Apriori.cd" />
     <None Include="AprioriAll.cd" />
+    <None Include="DataModel\DataModel.cd" />
     <None Include="OpenCL\distinct.cl" />
     <None Include="OpenCL\opencl.cl" />
     <None Include="OpenCL\apriori.cl" />

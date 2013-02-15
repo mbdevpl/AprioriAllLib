@@ -20,6 +20,7 @@ namespace AprioriAllLib
 	/// <summary>
 	/// Class that represents a total set of customers
 	/// </summary>
+	[Obsolete]
 	public class CustomerList
 	{
 		/// <summary>
@@ -53,34 +54,6 @@ namespace AprioriAllLib
 		{
 			string itemsStr = string.Join("; ", Customers.Select(x => x.ToString()).ToArray());
 			return String.Format("CuLst[ {0} ]", itemsStr);
-		}
-
-		public string ToIntArrayInitializer()
-		{
-			StringBuilder s = new StringBuilder();
-
-			if (Customers.Count > 0)
-			{
-				foreach (Customer c in Customers)
-				{
-					s.Append(" new int[][] {");
-					foreach (Transaction t in c.Transactions)
-					{
-						s.Append(" new int[] {");
-						foreach (Item i in t.Items)
-						{
-							s.AppendFormat(" {0},", i.Value);
-						}
-						s.Remove(s.Length - 1, 1);
-						s.Append(" },");
-					}
-					s.Remove(s.Length - 1, 1);
-					s.Append("},\n");
-				}
-				s.Remove(s.Length - 2, 2);
-			}
-
-			return s.ToString();
 		}
 
 	}

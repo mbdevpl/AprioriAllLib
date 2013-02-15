@@ -13,7 +13,7 @@ namespace AprioriAllLib
 	/// <summary>
 	/// Class which represents a customer from database having a list of transactions
 	/// </summary>
-	public class Customer
+	public class Customer : ICustomer
 	{
 
 		//public string Name;
@@ -21,14 +21,16 @@ namespace AprioriAllLib
 		/// <summary>
 		/// List of transactions
 		/// </summary>
-		public List<Transaction> Transactions;
+		private List<ITransaction> transactions;
+
+		//public List<Transaction> Transactions;
 
 		/// <summary>
 		/// Constructor
 		/// </summary>
 		public Customer()
 		{
-			Transactions = new List<Transaction>();
+			transactions = new List<ITransaction>();
 		}
 
 		/// <summary>
@@ -36,10 +38,10 @@ namespace AprioriAllLib
 		/// </summary>
 		/// <param name="transactions">Array of transactions of this client</param>
 		public Customer(params Transaction[] transactions)
+			: this()
 		{
-			Transactions = new List<Transaction>();
 			foreach (Transaction t in transactions)
-				Transactions.Add(t);
+				this.transactions.Add(t);
 		}
 
 		/// <summary>
@@ -47,10 +49,10 @@ namespace AprioriAllLib
 		/// </summary>
 		/// <param name="valuesArray">Two-dimensional array of integer values of items in transactions of this client</param>
 		public Customer(params int[][] valuesArray)
+			: this()
 		{
-			Transactions = new List<Transaction>();
 			foreach (int[] values in valuesArray)
-				Transactions.Add(new Transaction(values));
+				transactions.Add(new Transaction(values));
 		}
 
 		/// <summary>
@@ -59,14 +61,14 @@ namespace AprioriAllLib
 		/// <returns>String of values of transaction items</returns>
 		public override string ToString()
 		{
-			string itemsStr = string.Join(",", Transactions.Select(x => x.ToString()).ToArray());
+			string itemsStr = string.Join(",", transactions.Select(x => x.ToString()).ToArray());
 			return String.Format("({0})", itemsStr);
 		}
 
 		public override bool Equals(object obj)
 		{
-			if (obj.GetType().Equals(typeof(Customer)) && Transactions.Count == ((Customer)obj).Transactions.Count
-					&& Enumerable.SequenceEqual(Transactions, ((Customer)obj).Transactions))
+			if (obj.GetType().Equals(typeof(Customer)) && transactions.Count == ((Customer)obj).transactions.Count
+					&& Enumerable.SequenceEqual(transactions, ((Customer)obj).transactions))
 				return true;
 			return false;
 			//return base.Equals(obj);
@@ -79,9 +81,34 @@ namespace AprioriAllLib
 
 		public void AddTransaction(Transaction t)
 		{
-			Transactions.Add(t);
+			transactions.Add(t);
 		}
 
+
+		public IEnumerable<ITransaction> GetTransactions()
+		{
+			return transactions;
+		}
+
+		public ITransaction GetTransaction(int index)
+		{
+			return transactions[index];
+		}
+
+		public int GetTransactionsCount()
+		{
+			return transactions.Count;
+		}
+
+		public void AddTransaction(ITransaction transaction)
+		{
+			transactions.Add(transaction);
+		}
+
+		public void AddTransactions(IEnumerable<ITransaction> transactions)
+		{
+			this.transactions.AddRange(transactions);
+		}
 	}
 
 	/// @}

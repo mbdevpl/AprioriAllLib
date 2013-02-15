@@ -12,25 +12,26 @@ namespace AprioriAllLib
 	/// <summary>
 	/// Single item of a transaction.
 	/// </summary>
-	public class Item : IComparable
+	public class Item : IItem
 	{
 		/// <summary>
 		/// Integer value (id) of the item
 		/// </summary>
-		public int Value;
+		//public int Value;
+		private int value;
 
 		/// <summary>
-		/// Constructor
+		/// Constructor.
 		/// </summary>
-		/// <param name="value">Value of the item</param>
+		/// <param name="value">value of the item</param>
 		public Item(int value)
 		{
-			this.Value = value;
+			this.value = value;
 		}
 
 		public int CompareTo(object obj)
 		{
-			return ((Item)obj).Value == this.Value ? 0 : (((Item)obj).Value > this.Value ? -1 : 1);
+			return ((Item)obj).value == this.value ? 0 : (((Item)obj).value > this.value ? -1 : 1);
 		}
 
 		/// <summary>
@@ -39,12 +40,12 @@ namespace AprioriAllLib
 		/// <returns>String representation</returns>
 		public override string ToString()
 		{
-			return String.Format("{0}", Value);
+			return String.Format("{0}", value);
 		}
 
 		public override bool Equals(object obj)
 		{
-			if (typeof(Item).Equals(obj.GetType()) && ((Item)obj).Value == Value)
+			if (typeof(Item).Equals(obj.GetType()) && ((Item)obj).value == value)
 				return true;
 			return false;
 		}
@@ -52,6 +53,16 @@ namespace AprioriAllLib
 		public override int GetHashCode()
 		{
 			return base.GetHashCode();
+		}
+
+		public int GetId()
+		{
+			return value;
+		}
+
+		public void SetId(int id)
+		{
+			value = id;
 		}
 
 	}

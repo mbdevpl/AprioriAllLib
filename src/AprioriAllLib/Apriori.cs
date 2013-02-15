@@ -25,7 +25,9 @@ namespace AprioriAllLib
 		/// <summary>
 		/// Input data for the algorithm.
 		/// </summary>
-		protected CustomerList customerList;
+		protected IEnumerable<ICustomer> customerList;
+
+		protected int customersCount;
 
 		#region OpenCL
 
@@ -101,13 +103,21 @@ namespace AprioriAllLib
 		/// Constructor.
 		/// </summary>
 		/// <param name="customerList">CustomerList object containing a list of Customers from a database</param>
+		[Obsolete]
 		public Apriori(CustomerList customerList)
 		{
-			this.customerList = customerList;
+			this.customerList = customerList.Customers;
+			this.customersCount = customerList.Customers.Count;
 
 			clInitialized = false;
 			clProgramsInitialized = false;
 			//clKernelsInitialized = false;
+		}
+
+		public Apriori(IEnumerable<ICustomer> customers)
+		{
+			this.customerList = customers;
+			this.customersCount = customers.Count();
 		}
 
 		protected void InitOpenCL(bool progressOutput)
@@ -335,21 +345,21 @@ namespace AprioriAllLib
 		/// </summary>
 		/// <param name="items">list of items contained in one transaction</param>
 		/// <returns>list of candidates for litemsets (large itemsets)</returns>
-		protected List<Litemset> GenerateCandidateLitemsets(List<Item> items)
+		protected List<ILitemset> GenerateCandidateLitemsets(List<IItem> items)
 		{
 			int count = items.Count;
 			int i = 0;
-			List<List<Item>> candLitemsets = new List<List<Item>>();
+			List<List<IItem>> candLitemsets = new List<List<IItem>>();
 
 			// add a frequent sequence containing all the elements in this transaction
-			candLitemsets.Add(new List<Item>(items));
+			candLitemsets.Add(new List<IItem>(items));
 			count--;
 			while (count != 0)
 			{
-				List<Item> temp;
+				List<IItem> temp;
 				foreach (Item item in candLitemsets[i])
 				{
-					temp = new List<Item>(candLitemsets[i]);
+					temp = new List<IItem>(candLitemsets[i]);
 					temp.Remove(item);
 					// check if there's already such subsequence in the list, add
 					// if it doesn't exist
@@ -361,18 +371,18 @@ namespace AprioriAllLib
 					count--;
 				i++;
 			}
-			List<Litemset> l = new List<Litemset>();
-			foreach (List<Item> j in candLitemsets)
+			var l = new List<ILitemset>();
+			foreach (List<IItem> j in candLitemsets)
 				l.Add(new Litemset(j));
 			return l;
 		}
 
-		protected void RemoveNonMaximal(List<Litemset> litemsets, bool progressOutput)
+		protected void RemoveNonMaximal(List<ILitemset> litemsets, bool progressOutput)
 		{
 
 		}
 
-		protected void RemoveNonMaximal(List<Litemset> litemsets, bool useOpenCL, bool progressOutput)
+		protected void RemoveNonMaximal(List<ILitemset> litemsets, bool useOpenCL, bool progressOutput)
 		{
 
 		}
@@ -382,7 +392,7 @@ namespace AprioriAllLib
 		/// </summary>
 		/// <param name="minimalSupport">minimal support</param>
 		/// <returns>A list of Litemsets with support >= minimalSupport</returns>
-		public List<Litemset> RunApriori(double minimalSupport)
+		public List<ILitemset> RunApriori(double minimalSupport)
 		{
 			return RunApriori(minimalSupport, false);
 		}
@@ -395,7 +405,7 @@ namespace AprioriAllLib
 		/// <param name="minimalSupport">minimal support</param>
 		/// <param name="progressOutput">if true, information about progress is sent to standard output</param>
 		/// <returns>A list of Litemsets with support >= minimalSupport</returns>
-		public List<Litemset> RunApriori(double minimalSupport, bool progressOutput)
+		public List<ILitemset> RunApriori(double minimalSupport, bool progressOutput)
 		{
 			if (minimalSupport > 1 || minimalSupport <= 0)
 				return null;
@@ -403,12 +413,12 @@ namespace AprioriAllLib
 			if (customerList == null)
 				return null;
 
-			if (customerList.Customers.Count == 0)
-				return new List<Litemset>();
+			if (customersCount == 0)
+				return new List<ILitemset>();
 
 			//common part - initialization
-			minimalSupport *= customerList.Customers.Count;
-			List<Litemset> litemsets = new List<Litemset>();
+			minimalSupport *= customersCount;
+			var litemsets = new List<ILitemset>();
 
 			// serialized version of the algorithm
 
@@ -420,32 +430,48 @@ namespace AprioriAllLib
 			}
 
 			int cIndex = 0;
-			foreach (Customer c in customerList.Customers)
+			var idsInLitemsets = new Dictionary<ILitemset, List<int>>();
+			foreach (ICustomer c in customerList)
 			{
-				foreach (Transaction t in c.Transactions)
+				foreach (ITransaction t in c.GetTransactions())
 				{
 					//generate subsets (candidates for litemsets)
-					List<Litemset> candidateLitemsets = GenerateCandidateLitemsets(t.Items);
+					var candidateLitemsets = GenerateCandidateLitemsets(new List<IItem>(t.GetItems()));
 
 					//check if they already exist in litemsets list; if not, add a litemset to litemsets
 					foreach (Litemset lset in candidateLitemsets)
 					{
-						IEnumerable<Litemset> l = litemsets.Where(litemset => (litemset.Items.Count == lset.Items.Count) &&
-							 litemset.Items.All(item => lset.Items.Exists(lsetItem => lsetItem.CompareTo(item) == 0)));
+						IEnumerable<ILitemset> l = litemsets.Where(litemset => (litemset.GetItemsCount() == lset.GetItemsCount()) &&
+							 litemset.GetItems().All(item => lset/*.items.Exists*/.GetItems().Any(lsetItem => lsetItem.CompareTo(item) == 0)));
 
-						if (l.Count() == 0 && !lset.IDs.Contains(cIndex))
+						List<int> IDs_lset = null;
+						if (!idsInLitemsets.TryGetValue(lset, out IDs_lset))
+						{
+							IDs_lset = new List<int>();
+							idsInLitemsets.Add(lset, IDs_lset);
+						}
+
+						if (l.Count() == 0 && !IDs_lset.Contains(cIndex))
 						{
 							litemsets.Add(lset);
-							lset.Support++;
-							lset.IDs.Add(cIndex);
+							lset.IncrementSupport();
+							IDs_lset.Add(cIndex);
 						}
 						else
 						{
-							Litemset litset = l.FirstOrDefault();
-							if (!litset.IDs.Contains(cIndex))
+							ILitemset litset = l.FirstOrDefault();
+
+							List<int> IDs_litset = null;
+							if (!idsInLitemsets.TryGetValue(litset, out IDs_litset))
 							{
-								litset.Support++;
-								litset.IDs.Add(cIndex);
+								IDs_litset = new List<int>();
+								idsInLitemsets.Add(lset, IDs_litset);
+							}
+
+							if (!IDs_litset.Contains(cIndex))
+							{
+								litset.IncrementSupport();
+								IDs_litset.Add(cIndex);
 							}
 						}
 					}
@@ -473,16 +499,16 @@ namespace AprioriAllLib
 				Log.WriteLine("Found {0} subsets.", litemsets.Count);
 
 			// rewrite the litemsets with support >= minimum to a new list
-			List<Litemset> properLitemsets = new List<Litemset>();
-			foreach (Litemset litemset in litemsets)
-				if (litemset.Support >= minimalSupport)
+			var properLitemsets = new List<ILitemset>();
+			foreach (ILitemset litemset in litemsets)
+				if (litemset.GetSupport() >= minimalSupport)
 					properLitemsets.Add(litemset);
 
 			if (progressOutput)
 				Log.WriteLine("Purged unsupported, {0} remain.", properLitemsets.Count);
 
 			foreach (Litemset l in properLitemsets)
-				l.Items.Sort();
+				l.SortItems();
 			properLitemsets.Sort();
 
 			if (progressOutput)
@@ -497,7 +523,7 @@ namespace AprioriAllLib
 			return properLitemsets;
 		}
 
-		public List<Litemset> RunAprioriWithPruning(double minimalSupport, bool progressOutput)
+		public List<ILitemset> RunAprioriWithPruning(double minimalSupport, bool progressOutput)
 		{
 			var results = RunApriori(minimalSupport, progressOutput);
 			RemoveNonMaximal(results, progressOutput);
@@ -509,12 +535,12 @@ namespace AprioriAllLib
 		/// </summary>
 		/// <param name="minimalSupport">minimal support</param>
 		/// <returns>A list of Litemsets with support >= minimalSupport</returns>
-		public List<Litemset> RunParallelApriori(double minimalSupport)
+		public List<ILitemset> RunParallelApriori(double minimalSupport)
 		{
 			return RunParallelApriori(minimalSupport, false);
 		}
 
-		public List<Litemset> RunParallelAprioriWithPruning(double minimalSupport, bool progressOutput)
+		public List<ILitemset> RunParallelAprioriWithPruning(double minimalSupport, bool progressOutput)
 		{
 			var results = RunParallelApriori(minimalSupport, progressOutput);
 			RemoveNonMaximal(results, true, progressOutput);
@@ -527,7 +553,7 @@ namespace AprioriAllLib
 		/// <param name="minimalSupport"></param>
 		/// <param name="progressOutput">if true, information about progress is sent to standard output</param>
 		/// <returns>A list of Litemsets with support >= minimalSupport</returns>
-		public List<Litemset> RunParallelApriori(double minimalSupport, bool progressOutput)
+		public List<ILitemset> RunParallelApriori(double minimalSupport, bool progressOutput)
 		{
 			if (Platforms.InitializeAll().Length == 0)
 				return RunApriori(minimalSupport, progressOutput);
@@ -538,10 +564,10 @@ namespace AprioriAllLib
 			if (customerList == null)
 				return null;
 
-			if (customerList.Customers.Count == 0)
-				return new List<Litemset>();
+			if (this.customersCount == 0)
+				return new List<ILitemset>();
 
-			int minSupport = (int)Math.Ceiling((double)customerList.Customers.Count * minimalSupport);
+			int minSupport = (int)Math.Ceiling((double)this.customersCount * minimalSupport);
 
 			Stopwatch watch = null;
 			if (progressOutput)
@@ -556,13 +582,13 @@ namespace AprioriAllLib
 			int transactionsCountInt = 0;
 			int customersCountInt = 0;
 
-			foreach (Customer c in customerList.Customers)
+			foreach (ICustomer c in customerList)
 			{
 				++customersCountInt;
-				foreach (Transaction t in c.Transactions)
+				foreach (ITransaction t in c.GetTransactions())
 				{
 					++transactionsCountInt;
-					foreach (Item item in t.Items)
+					foreach (IItem item in t.GetItems())
 					{
 						++itemsCountInt;
 					}
@@ -587,17 +613,17 @@ namespace AprioriAllLib
 
 				int currTransactionLenth = 0;
 				int currCustomerLength = 0;
-				foreach (Customer c in customerList.Customers)
+				foreach (ICustomer c in customerList)
 				{
 					currCustomerLength = 0;
 					customersStarts[currCustomer] = currTransaction;
-					foreach (Transaction t in c.Transactions)
+					foreach (ITransaction t in c.GetTransactions())
 					{
 						currTransactionLenth = 0;
 						transactionsStarts[currTransaction] = currItem;
-						foreach (Item item in t.Items)
+						foreach (IItem item in t.GetItems())
 						{
-							items[currItem] = item.Value;
+							items[currItem] = item.GetId();
 							itemsTransactions[currItem] = currTransaction;
 							itemsCustomers[currItem] = currCustomer;
 							++currItem;
@@ -1038,8 +1064,8 @@ namespace AprioriAllLib
 			kernelSum.SetArgument(0, customersSupportsBufCopy);
 			kernelSum.SetArguments(null, customersSupportsCountInt, null, customersCountInt);
 
-			List<Litemset> litemsets = new List<Litemset>();
-			List<int> supportedLocations = new List<int>();
+			var litemsets = new List<ILitemset>();
+			var supportedLocations = new List<int>();
 
 			//queue.Finish(); // debug
 			//customersSupportsBuf.Read(); // debug
@@ -1332,13 +1358,13 @@ namespace AprioriAllLib
 
 						if (tempValue[0] >= minSupport)
 						{
-							Litemset l = new Litemset(new List<Item>());
-							l.Support = tempValue[0];
+							ILitemset l = new Litemset(new List<IItem>());
+							l.SetSupport(tempValue[0]);
 							for (int i = 0; i < currLength; ++i)
 							{
 								int index = indices[i];
 								int spprtd = supportedLocations[index];
-								l.Items.Add(new Item(uniqueItems[spprtd]));
+								l.AddItem(new Item(uniqueItems[spprtd]));
 								newSupportedLocations[spprtd] = true;
 							}
 

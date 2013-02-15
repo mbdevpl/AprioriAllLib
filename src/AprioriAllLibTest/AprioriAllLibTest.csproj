@@ -118,10 +118,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AprioriAllTest.cs" />
-    <Compile Include="AprioriAllTestBase.cs" />
     <Compile Include="AprioriParallelTest.cs" />
     <Compile Include="AprioriTest.cs" />
-    <Compile Include="AprioriTestBase.cs" />
+    <Compile Include="AprioriAllLibTestBase.cs" />
     <Compile Include="InputData.cs" />
     <Compile Include="InputGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -23,12 +23,12 @@ namespace AprioriAllLib.Test
 			return true;
 		}
 
-		protected override Apriori ConstructTestedInstance(CustomerList input)
+		protected override Apriori ConstructTestedInstance(IEnumerable<ICustomer> input)
 		{
 			return new Apriori(input);
 		}
 
-		protected override List<Litemset> RunTestedInstance(Apriori apriori, double support, bool progressOutput)
+		protected override IEnumerable<object> RunTestedInstance(Apriori apriori, double support, bool progressOutput)
 		{
 			return apriori.RunParallelApriori(support, parameters.PrintProgress);
 		}

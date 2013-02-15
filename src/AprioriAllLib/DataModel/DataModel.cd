@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AprioriAllLib.Transaction" Collapsed="true">
+    <Position X="0.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACkAEgAgAAAAAgAAAAoAAAAAAAAAQAAA=</HashCode>
+      <FileName>DataModel\Transaction.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="AprioriAllLib.Customer" Collapsed="true">
+    <Position X="0.5" Y="2" Width="1.5" />
+    <AssociationLine Name="Transactions" Type="AprioriAllLib.Transaction" FixedToPoint="true">
+      <Path>
+        <Point X="1.688" Y="2.562" />
+        <Point X="1.688" Y="4" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.065" Y="0.818" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAEAAEgAAAAAAAAAgAAIAAAAAAAgAAAAA=</HashCode>
+      <FileName>DataModel\Customer.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="Transactions" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="AprioriAllLib.CustomerList" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <AssociationLine Name="Customers" Type="AprioriAllLib.Customer" FixedToPoint="true">
+      <Path>
+        <Point X="1.688" Y="1.062" />
+        <Point X="1.688" Y="2" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.94" Y="0.568" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAEBAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataModel\CustomerList.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="Customers" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="AprioriAllLib.Item" Collapsed="true">
+    <Position X="0.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQEgAAAAAAAAAAAAIAAAAAgAAIAAAA=</HashCode>
+      <FileName>DataModel\Item.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="AprioriAllLib.Litemset" Collapsed="true">
+    <Position X="7.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAikQEgAAAAAAAAAAAAogAAAAAAAAAAAA=</HashCode>
+      <FileName>DataModel\Litemset.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="AprioriAllLib.ICustomer">
+    <Position X="3" Y="1.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAAAAAAAAAAAAAgAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>DataModel\ICustomer.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="AprioriAllLib.IItem">
+    <Position X="2.5" Y="6.5" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>DataModel\IItem.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="AprioriAllLib.ITransaction">
+    <Position X="2.5" Y="4" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAkAAAAAAAAAAgAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataModel\ITransaction.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="AprioriAllLib.ILitemset">
+    <Position X="5.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataModel\ILitemset.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

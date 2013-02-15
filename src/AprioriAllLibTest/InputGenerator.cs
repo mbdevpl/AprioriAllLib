@@ -18,21 +18,22 @@ namespace AprioriAllLib.Test
 		/// <param name="maxTransactionCount">limit of number of transactions for each customer</param>
 		/// <param name="maxTransactionLength">limit of number of items per transaction</param>
 		/// <returns></returns>
-		public static CustomerList GenerateRandomList(int customersCount, int maxTransactionCount,
+		public static List<ICustomer> GenerateRandomList(int customersCount, int maxTransactionCount,
 			int maxTransactionLength)
 		{
 			return GenerateRandomList(customersCount, maxTransactionCount,
 				maxTransactionLength, maxTransactionLength);
 		}
 
-		public static CustomerList GenerateRandomList(int customersCount, int maxTransactionCount,
+		public static List<ICustomer> GenerateRandomList(int customersCount, int maxTransactionCount,
 			int maxTransactionLength, int maxUniqueItemsCount)
 		{
 			Random random = new Random();
-			CustomerList randomCustomerList = new CustomerList();
+			var randomCustomerList = new List<ICustomer>();
 
-			Customer c;
-			Transaction t;
+			ICustomer c;
+			ITransaction t;
+			IItem item;
 			for (int i = 0; i < customersCount; ++i)
 			{
 				c = new Customer();
@@ -44,36 +45,37 @@ namespace AprioriAllLib.Test
 					for (int it = 0; it < n; ++it)
 					{
 						int itemVal = (random.Next() % maxUniqueItemsCount) + 1;
-						if (t.Contains(itemVal))
+						item = new Item(itemVal);
+						if (t.GetItems().Any(x => x.GetId() == item.GetId()))
 						{
 							--it;
 							continue;
 						}
-						t.AddItem(itemVal);
+						t.AddItem(item);
 					}
 					c.AddTransaction(t);
 				}
-				randomCustomerList.Customers.Add(c);
+				randomCustomerList.Add(c);
 			}
 			return randomCustomerList;
 		}
 
-		public static CustomerList GenerateRandomList(int[][] sizes, int uniqueIds)
+		public static List<ICustomer> GenerateRandomList(int[][] sizes, int uniqueIds)
 		{
 			Random random = new Random();
-			CustomerList randomCustomerList = new CustomerList();
+			var randomCustomerList = new List<ICustomer>();
 
 			int[] uniques = new int[uniqueIds];
 			for (int i = 0; i < uniqueIds; ++i)
 				uniques[i] = (i + 1) * 2;
 
-			Customer c;
-			Transaction t;
+			ICustomer c;
+			ITransaction t;
 			List<int> usedIds = new List<int>();
 			for (int cn = 0; cn < sizes.Length; ++cn)
 			{
 				c = new Customer();
-				randomCustomerList.Customers.Add(c);
+				randomCustomerList.Add(c);
 				for (int tn = 0; tn < sizes[cn].Length; ++tn)
 				{
 					t = new Transaction();
@@ -90,7 +92,7 @@ namespace AprioriAllLib.Test
 							if (id == starting)
 								throw new Exception("number of unique elements must be as great as the length of any transaction");
 						}
-						t.AddItem(id);
+						t.AddItem(new Item(id));
 						usedIds.Add(id);
 					}
 					c.AddTransaction(t);

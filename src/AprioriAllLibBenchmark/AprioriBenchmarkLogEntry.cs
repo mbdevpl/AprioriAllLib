@@ -23,7 +23,7 @@ namespace AprioriAllLib.Test
 
 		public string Algorithm;
 		public bool OpenCL;
-		public CustomerList Input;
+		public IEnumerable<ICustomer> Input;
 		public double Support;
 
 		public uint Repeats;
@@ -32,7 +32,7 @@ namespace AprioriAllLib.Test
 		public double Average2;
 
 		public AprioriBenchmarkLogEntry(DateTime dateAndTime, 
-			string algorithm, bool openCL, CustomerList input, double support,
+			string algorithm, bool openCL, IEnumerable<ICustomer> input, double support,
 			uint repeats, bool newEachTime, double average1, double average2)
 		{
 			this.DateAndTime = dateAndTime;
@@ -57,7 +57,7 @@ namespace AprioriAllLib.Test
 			s.AppendFormat("{0:00}:{1:00}:{2:00},",
 				DateAndTime.Hour, DateAndTime.Minute, DateAndTime.Second);
 
-			s.AppendFormat("{0},{1},{2},", Algorithm, OpenCL, Input.Customers.Count);
+			s.AppendFormat("{0},{1},{2},", Algorithm, OpenCL, Input.Count());
 			s.AppendFormat("{0:0.000},", Support);
 
 			s.AppendFormat("{0},{1},", Repeats, NewEachTime);
@@ -71,7 +71,7 @@ namespace AprioriAllLib.Test
 			StringBuilder s = new StringBuilder();
 
 			s.Append("(");
-			s.AppendFormat("{0},", Input.Customers.Count);
+			s.AppendFormat("{0},", Input.Count());
 			s.AppendFormat("{0:0.000}", Average1);
 			s.Append(")");
 

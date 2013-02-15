@@ -64,8 +64,8 @@ namespace AprioriAllLib.Test
 		/// <summary>
 		/// List of customers used in the benchmark.
 		/// </summary>
-		public CustomerList Input { get { return input; } }
-		private CustomerList input;
+		public List<ICustomer> Input { get { return input; } }
+		private List<ICustomer> input;
 
 		/// <summary>
 		/// Sequence of supports checked by the benchmark.
@@ -131,7 +131,7 @@ namespace AprioriAllLib.Test
 		public BenchmarkParameters(
 			bool apriori, bool aprioriAll, bool serialized, bool openCL,
 			int repeats, bool warmUp, bool newEachTime,
-			CustomerList input, List<double> supports, List<int> customers,
+			List<ICustomer> input, List<double> supports, List<int> customers,
 			bool printInput, bool printProgress, bool printOutput)
 		{
 			this.apriori = apriori;
@@ -224,8 +224,8 @@ namespace AprioriAllLib.Test
 						FieldInfo field = type.GetField(inputName);
 						object inputObj = field.GetValue(data);
 
-						if (inputObj is CustomerList)
-							input = (CustomerList)inputObj;
+						if (inputObj is List<ICustomer>)
+							input = (List<ICustomer>)inputObj;
 					}
 
 				}
@@ -312,10 +312,10 @@ namespace AprioriAllLib.Test
 				#endregion
 			}
 
-			if (customers.Count > 0 && customers[customers.Count - 1] > input.Customers.Count)
+			if (customers.Count > 0 && customers[customers.Count - 1] > input.Count)
 				throw new Exception("inconsistent benchmark scenario parameters");
 			if (customers.Count == 0)
-				customers.Add(input.Customers.Count);
+				customers.Add(input.Count);
 		}
 
 	}

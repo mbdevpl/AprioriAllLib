@@ -12,83 +12,74 @@ namespace AprioriAllLib.Test
 	/// Unit tests for serialized version of AprioriAll algorithm.
 	/// </summary>
 	[TestClass]
-	public class AprioriAllTest : AprioriAllTestBase
+	public class AprioriAllTest : AprioriAllLibTestBase
 	{
-		[TestMethod, TestCategory("AprioriAll"), TestCategory("Serialized")]
-		public void Test_AprioriAll_Example1_LowSupport()
+		[TestMethod]
+		public void AprioriAll_Ex1Su020_Test()
 		{
 			//Arrange
-			List<Customer> expected = new List<Customer>();
+			var expected = new List<ICustomer>();
 			expected.Add(new Customer(new int[] { 90 }));
 			expected.Add(new Customer(new int[] { 30, 50, 70 }));
 			expected.Add(new Customer(new int[] { 30 }, new int[] { 80 }));
 			expected.Add(new Customer(new int[] { 30 }, new int[] { 40, 70 }));
 			expected.Add(new Customer(new int[] { 10, 20 }, new int[] { 30 }, new int[] { 10, 60, 70 }));
 			Assert.AreEqual(5, expected.Count);
-
-			//Act
-			AprioriAll all = new AprioriAll(Data.Example1);
-			List<Customer> results = all.RunAprioriAll(0.2, true);
-
-			//Assert
-			//areEquivalent doesn't work ?!
-			CollectionAssert.AreEqual(expected, results, GetAprioriAllTestResults(expected, results));
+			
+			//Act & Assert
+			AprioriAllSerializedLauncher(Data.Example1, 0.2, expected);
 		}
 
-		[TestMethod, TestCategory("AprioriAll"), TestCategory("Serialized")]
-		public void Test_AprioriAll_Example1_MediumSupport()
+		[TestMethod]
+		public void AprioriAll_Ex1Su040_Test()
 		{
 			//Arrange
-			List<Customer> expected = new List<Customer>();
+			var expected = new List<ICustomer>();
+			expected.Add(new Customer(new int[] { 30 }, new int[] { 70 }));
+			Assert.AreEqual(1, expected.Count);
+
+			//Act & Assert
+			AprioriAllSerializedLauncher(Data.Example1, 0.4, expected);
+		}
+
+		[TestMethod]
+		public void AprioriAll_Ex1Su060_Test()
+		{
+			//Arrange
+			var expected = new List<ICustomer>();
 			expected.Add(new Customer(new int[] { 30 }, new int[] { 70 }));
 			Assert.AreEqual(1, expected.Count);
 
 			//Act
 			AprioriAll all = new AprioriAll(Data.Example1);
-			List<Customer> results = all.RunAprioriAll(0.4);
+			var results = all.RunAprioriAll(0.6);
 
 			//Assert
 			CollectionAssert.AreEqual(expected, results, GetAprioriAllTestResults(expected, results));
 		}
 
-		[TestMethod, TestCategory("AprioriAll"), TestCategory("Serialized")]
-		public void Test_AprioriAll_Example1_HighSupport()
+		[TestMethod]
+		public void AprioriAll_Ds1Su025_Test()
 		{
 			//Arrange
-			List<Customer> expected = new List<Customer>();
-			expected.Add(new Customer(new int[] { 30 }, new int[] { 70 }));
-			Assert.AreEqual(1, expected.Count);
-
-			//Act
-			AprioriAll all = new AprioriAll(Data.Example1);
-			List<Customer> results = all.RunAprioriAll(0.6);
-
-			//Assert
-			CollectionAssert.AreEqual(expected, results, GetAprioriAllTestResults(expected, results));
-		}
-
-		[TestMethod, TestCategory("AprioriAll"), TestCategory("Serialized")]
-		public void Test_AprioriAll_DataSet1()
-		{
-			//Arrange
-			List<Customer> expected = new List<Customer>();
+			var expected = new List<ICustomer>();
 			expected.Add(new Customer(new int[] { 30 }, new int[] { 90 }));
 			expected.Add(new Customer(new int[] { 30 }, new int[] { 40, 70 }));
 			Assert.AreEqual(2, expected.Count);
 
 			//Act
 			AprioriAll all = new AprioriAll(Data.DataSet1);
-			List<Customer> results = all.RunAprioriAll(0.25);
+			var results = all.RunAprioriAll(0.25);
 
 			//Assert
 			CollectionAssert.AreEqual(expected, results, GetAprioriAllTestResults(expected, results));
 		}
 
-		[TestMethod, TestCategory("AprioriAll"), TestCategory("Serialized")]
-		public void Test_AprioriAll_DataSet2_LowSupport()
+		[TestMethod]
+		public void AprioriAll_Ds2Su020_Test()
 		{
 			//Arrange
-			List<Customer> expected = new List<Customer>();
+			var expected = new List<ICustomer>();
 			expected.Add(new Customer(new int[] { 30, 50 }));
 			expected.Add(new Customer(new int[] { 10 }, new int[] { 50 }));
 			expected.Add(new Customer(new int[] { 30 }, new int[] { 50 }, new int[] { 70 }));
@@ -99,17 +90,17 @@ namespace AprioriAllLib.Test
 
 			//Act
 			AprioriAll all = new AprioriAll(Data.DataSet2);
-			List<Customer> results = all.RunAprioriAll(0.2, true);
+			var results = all.RunAprioriAll(0.2, true);
 
 			//Assert
 			CollectionAssert.AreEqual(expected, results, GetAprioriAllTestResults(expected, results));
 		}
 
-		[TestMethod, TestCategory("AprioriAll"), TestCategory("Serialized")]
-		public void Test_AprioriAll_DataSet2_HighSupport()
+		[TestMethod]
+		public void AprioriAll_Ds2Su040_Test()
 		{
 			//Arrange
-			List<Customer> expected = new List<Customer>();
+			var expected = new List<ICustomer>();
 			expected.Add(new Customer(new int[] { 10 }));
 			expected.Add(new Customer(new int[] { 30 }, new int[] { 40 }));
 			expected.Add(new Customer(new int[] { 30 }, new int[] { 50 }));
@@ -120,17 +111,17 @@ namespace AprioriAllLib.Test
 
 			//Act
 			AprioriAll all = new AprioriAll(Data.DataSet2);
-			List<Customer> results = all.RunAprioriAll(0.4);
+			var results = all.RunAprioriAll(0.4);
 
 			//Assert
 			CollectionAssert.AreEqual(expected, results, GetAprioriAllTestResults(expected, results));
 		}
 
-		[TestMethod, TestCategory("AprioriAll"), TestCategory("Serialized"), TestCategory("TooLong")]
-		public void Test_AprioriAll_DataSet3_LowSupport()
+		[TestMethod]
+		public void AprioriAll_Ds3Su020_Test()
 		{
 			//Arrange
-			List<Customer> expected = new List<Customer>();
+			var expected = new List<ICustomer>();
 			expected.Add(new Customer(new int[] { 10, 20 }));
 			expected.Add(new Customer(new int[] { 50 }, new int[] { 10 }));
 			expected.Add(new Customer(new int[] { 30 }, new int[] { 40, 70 }));
@@ -141,17 +132,17 @@ namespace AprioriAllLib.Test
 
 			//Act
 			AprioriAll all = new AprioriAll(Data.DataSet3);
-			List<Customer> results = all.RunAprioriAll(0.2, true);
+			var results = all.RunAprioriAll(0.2, true);
 
 			//Assert
 			CollectionAssert.AreEqual(expected, results, GetAprioriAllTestResults(expected, results));
 		}
 
-		[TestMethod, TestCategory("AprioriAll"), TestCategory("Serialized")]
-		public void Test_AprioriAll_DataSet3_HighSupport()
+		[TestMethod]
+		public void AprioriAll_Ds3Su040_Test()
 		{
 			//Arrange
-			List<Customer> expected = new List<Customer>();
+			var expected = new List<ICustomer>();
 			expected.Add(new Customer(new int[] { 10 }));
 			expected.Add(new Customer(new int[] { 80 }));
 			expected.Add(new Customer(new int[] { 90 }));
@@ -162,7 +153,7 @@ namespace AprioriAllLib.Test
 
 			//Act
 			AprioriAll all = new AprioriAll(Data.DataSet3);
-			List<Customer> results = all.RunAprioriAll(0.4, true);
+			var results = all.RunAprioriAll(0.4, true);
 
 			//Assert
 			CollectionAssert.AreEqual(expected, results, GetAprioriAllTestResults(expected, results));

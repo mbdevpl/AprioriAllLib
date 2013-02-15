@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace AprioriAllLib.Test
 {
-
-	public abstract class AprioriAllBenchmark : AprioriAllTestBase
+	[Obsolete]
+	public abstract class AprioriAllBenchmark : AprioriAllLibTestBase
 	{
 		
 		protected BenchmarkParameters parameters;
@@ -77,7 +77,7 @@ namespace AprioriAllLib.Test
 				s.AppendFormat("{2:00}/{1:00}/{0:0000},{3:00}:{4:00}:{5:00},",
 					dt.Year, dt.Month, dt.Day, dt.Hour, dt.Minute, dt.Second);
 				s.AppendFormat("{0},{1},", parameters.NewEachTime, parameters.OpenCL);
-				s.AppendFormat("{0},", result.Input.Customers.Count);
+				s.AppendFormat("{0},", result.Input.Count());
 				s.AppendFormat("{0:0.000},", result.Support);
 				//s.AppendFormat("{0},{1},{2},{3},", custCount, transactCount, itemCount, uniqueIds);
 				s.AppendFormat("{0},", parameters.Repeats);

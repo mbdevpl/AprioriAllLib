@@ -17,9 +17,9 @@ namespace AprioriAllLib
 		/// </summary>
 		/// <param name="filename">path of the database file</param>
 		/// <returns>database transformed into a CustomerList object</returns>
-		public static CustomerList ReadFromXmlFile(string filename)
+		public static List<ICustomer> ReadFromXmlFile(string filename)
 		{
-			CustomerList list = new CustomerList();
+			var list = new List<ICustomer>();
 
 			try
 			{
@@ -51,10 +51,10 @@ namespace AprioriAllLib
 		/// </summary>
 		/// <param name="reader"></param>
 		/// <param name="list"></param>
-		private static void addCustomer(XmlTextReader reader, CustomerList list)
+		private static void addCustomer(XmlTextReader reader, List<ICustomer> list)
 		{
-			Customer customer = new Customer();
-			list.Customers.Add(customer);
+			ICustomer customer = new Customer();
+			list.Add(customer);
 
 			while (reader.Read() && (reader.NodeType != XmlNodeType.EndElement || reader.Name != "Customer"))
 			{
@@ -68,10 +68,10 @@ namespace AprioriAllLib
 		/// </summary>
 		/// <param name="reader"></param>
 		/// <param name="customer"></param>
-		private static void addTransaction(XmlTextReader reader, Customer customer)
+		private static void addTransaction(XmlTextReader reader, ICustomer customer)
 		{
-			Transaction transaction = new Transaction();
-			customer.Transactions.Add(transaction);
+			ITransaction transaction = new Transaction();
+			customer.AddTransaction(transaction);
 
 			while (reader.Read() && (reader.NodeType != XmlNodeType.EndElement || reader.Name != "Transaction"))
 			{
@@ -85,12 +85,12 @@ namespace AprioriAllLib
 		/// </summary>
 		/// <param name="reader"></param>
 		/// <param name="transaction"></param>
-		private static void addItem(XmlTextReader reader, Transaction transaction)
+		private static void addItem(XmlTextReader reader, ITransaction transaction)
 		{
 			while (reader.Read() && (reader.NodeType != XmlNodeType.EndElement) && reader.Name != "Item")
 				if (reader.NodeType == XmlNodeType.Text && reader.HasValue)
 				{
-					transaction.Items.Add(new Item(int.Parse(reader.Value)));
+					transaction.AddItem(new Item(int.Parse(reader.Value)));
 					//Console.WriteLine(reader.Value);
 				}
 		}

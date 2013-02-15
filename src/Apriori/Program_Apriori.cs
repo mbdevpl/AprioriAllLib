@@ -24,7 +24,7 @@ namespace AprioriAllLib.Test.InConsole
 
 			Console.Out.WriteLine("Apriori algorithm implementation in .NET\n");
 
-			CustomerList customerList = null;
+			List<ICustomer> customerList = null;
 			double support = -1;
 
 			if (args.Count() == 2)
@@ -53,15 +53,15 @@ namespace AprioriAllLib.Test.InConsole
 			}
 
 			Console.Out.WriteLine("Input:");
-			foreach (Customer c in customerList.Customers)
+			foreach (ICustomer c in customerList)
 				Console.Out.WriteLine(" - {0}", c);
 
 			Console.Out.WriteLine("\nComputation:");
 			Apriori apriori = new Apriori(customerList);
-			List<Litemset> aprioriAllResult = apriori.RunApriori(support, true);
+			var aprioriAllResult = apriori.RunApriori(support, true);
 
 			Console.Out.WriteLine("\nResults:");
-			foreach (Litemset l in aprioriAllResult)
+			foreach (ILitemset l in aprioriAllResult)
 				Console.Out.WriteLine(" - {0}", l);
 
 			Console.Write("\nThe end.");

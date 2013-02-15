@@ -13,89 +13,89 @@ namespace AprioriAllLib.Test
 		/// <summary>
 		/// Example data set.
 		/// </summary>
-		public readonly CustomerList Example1;
+		public readonly List<ICustomer> Example1;
 
-		public readonly CustomerList Example2;
+		public readonly List<ICustomer> Example2;
 
-		public readonly CustomerList Example3;
+		public readonly List<ICustomer> Example3;
 
-		public readonly CustomerList Example4;
+		public readonly List<ICustomer> Example4;
 
-		public readonly CustomerList Example5;
+		public readonly List<ICustomer> Example5;
 
-		public readonly CustomerList Example6;
+		public readonly List<ICustomer> Example6;
 
 		/// <summary>
 		/// Another data set.
 		/// </summary>
-		public readonly CustomerList DataSet1;
+		public readonly List<ICustomer> DataSet1;
 
-		public readonly CustomerList DataSet2;
+		public readonly List<ICustomer> DataSet2;
 
-		public readonly CustomerList DataSet3;
+		public readonly List<ICustomer> DataSet3;
 
 		/// <summary>
 		/// Constructs a new instance of input data.
 		/// </summary>
 		public InputData()
 		{
-			Example1 = new CustomerList();
-			Example1.Customers.Add(new Customer(new int[] { 30 }, new int[] { 80 }));
-			Example1.Customers.Add(new Customer(new int[] { 10, 20 }, new int[] { 30 }, new int[] { 10, 60, 70 }));
-			Example1.Customers.Add(new Customer(new int[] { 30, 50, 70 }));
-			Example1.Customers.Add(new Customer(new int[] { 30 }, new int[] { 40, 70 }, new int[] { 40 }));
-			Example1.Customers.Add(new Customer(new int[] { 90 }));
+			Example1 = new List<ICustomer>();
+			Example1.Add(new Customer(new int[] { 30 }, new int[] { 80 }));
+			Example1.Add(new Customer(new int[] { 10, 20 }, new int[] { 30 }, new int[] { 10, 60, 70 }));
+			Example1.Add(new Customer(new int[] { 30, 50, 70 }));
+			Example1.Add(new Customer(new int[] { 30 }, new int[] { 40, 70 }, new int[] { 40 }));
+			Example1.Add(new Customer(new int[] { 90 }));
 
-			Example2 = new CustomerList();
-			Example2.Customers.Add(new Customer(new int[] { 19, 46, 39, 31, 12, 18, 17, 26 }));
-			Example2.Customers.Add(new Customer(new int[] { 48, 14, 28, 21, 44, 26, 22, 46 }));
-			Example2.Customers.Add(new Customer(new int[] { 25, 18 }));
-			Example2.Customers.Add(new Customer(new int[] { 41, 15, 32, 13, 29, 21, 19, 12 }));
-			Example2.Customers.Add(new Customer(new int[] { 27, 13, 47 }));
-			Example2.Customers.Add(new Customer(new int[] { 32, 24 }));
-			Example2.Customers.Add(new Customer(new int[] { 38, 28, 47, 32, 36, 13, 11 }));
-			Example2.Customers.Add(new Customer(new int[] { 31, 23, 26 }));
-			Example2.Customers.Add(new Customer(new int[] { 19, 44, 12, 30, 37, }));
-			Example2.Customers.Add(new Customer(new int[] { 26, 37, 20, 16, 19, 38, 45 }));
-			Example2.Customers.Add(new Customer(new int[] { 11, 45, 21, 10, 23, 25 }));
-			Example2.Customers.Add(new Customer(new int[] { 26, 27, 42, 16, 38 }));
-			Example2.Customers.Add(new Customer(new int[] { 18, 26, 35 }));
-			Example2.Customers.Add(new Customer(new int[] { 37, 11, 43, 13, 19, 27, 22, 44, 23 }));
-			Example2.Customers.Add(new Customer(new int[] { 38, 30, 35, 22 }));
+			Example2 = new List<ICustomer>();
+			Example2.Add(new Customer(new int[] { 19, 46, 39, 31, 12, 18, 17, 26 }));
+			Example2.Add(new Customer(new int[] { 48, 14, 28, 21, 44, 26, 22, 46 }));
+			Example2.Add(new Customer(new int[] { 25, 18 }));
+			Example2.Add(new Customer(new int[] { 41, 15, 32, 13, 29, 21, 19, 12 }));
+			Example2.Add(new Customer(new int[] { 27, 13, 47 }));
+			Example2.Add(new Customer(new int[] { 32, 24 }));
+			Example2.Add(new Customer(new int[] { 38, 28, 47, 32, 36, 13, 11 }));
+			Example2.Add(new Customer(new int[] { 31, 23, 26 }));
+			Example2.Add(new Customer(new int[] { 19, 44, 12, 30, 37, }));
+			Example2.Add(new Customer(new int[] { 26, 37, 20, 16, 19, 38, 45 }));
+			Example2.Add(new Customer(new int[] { 11, 45, 21, 10, 23, 25 }));
+			Example2.Add(new Customer(new int[] { 26, 27, 42, 16, 38 }));
+			Example2.Add(new Customer(new int[] { 18, 26, 35 }));
+			Example2.Add(new Customer(new int[] { 37, 11, 43, 13, 19, 27, 22, 44, 23 }));
+			Example2.Add(new Customer(new int[] { 38, 30, 35, 22 }));
 
-			Example3 = new CustomerList();
-			Example3.Customers.Add(new Customer(new int[] { 10001, 20000, 30001, 40000, 50000, 60002, 70004, 80004 }));
-			Example3.Customers.Add(new Customer(new int[] { 10002, 20005, 30003, 40007, 50002, 60002, 70004, 80004 }));
-			Example3.Customers.Add(new Customer(new int[] { 10001, 20005, 30002, 40012, 50003, 60002, 70004, 80004 }));
-			Example3.Customers.Add(new Customer(new int[] { 10002, 20000, 30006, 40000, 50000, 60002, 70004, 80004 }));
-			Example3.Customers.Add(new Customer(new int[] { 10001, 20005, 30005, 40008, 50002, 60002, 70004, 80004 }));
-			Example3.Customers.Add(new Customer(new int[] { 10001, 20001, 30003, 40007, 50002, 60002, 70004, 80004 }));
-			Example3.Customers.Add(new Customer(new int[] { 10002, 20000, 30004, 40008, 50002, 60002, 70004, 80004 }));
-			Example3.Customers.Add(new Customer(new int[] { 10001, 20002, 30002, 40006, 50001, 60002, 70004, 80004 }));
-			Example3.Customers.Add(new Customer(new int[] { 10002, 20005, 30001, 40000, 50000, 60002, 70004, 80004 }));
-			Example3.Customers.Add(new Customer(new int[] { 10002, 20005, 30005, 40008, 50002, 60002, 70004, 80004 }));
-			Example3.Customers.Add(new Customer(new int[] { 10001, 20000, 30003, 40008, 50002, 60002, 70004, 80004 }));
-			Example3.Customers.Add(new Customer(new int[] { 10001, 20002, 30004, 40008, 50002, 60002, 70004, 80004 }));
-			Example3.Customers.Add(new Customer(new int[] { 10001, 20005, 30002, 40000, 50000, 60002, 70004, 80004 }));
-			Example3.Customers.Add(new Customer(new int[] { 10002, 20000, 30001, 40003, 50001, 60002, 70004, 80004 }));
-			Example3.Customers.Add(new Customer(new int[] { 10002, 20005, 30007, 40007, 50002, 60002, 70004, 80004 }));
-			Example3.Customers.Add(new Customer(new int[] { 10001, 20002, 30005, 40005, 50001, 60002, 70004, 80004 }));
-			Example3.Customers.Add(new Customer(new int[] { 10001, 20001, 30003, 40007, 50002, 60002, 70004, 80004 }));
-			Example3.Customers.Add(new Customer(new int[] { 10002, 20000, 30002, 40013, 50003, 60002, 70004, 80004 }));
-			Example3.Customers.Add(new Customer(new int[] { 10002, 20004, 30005, 40000, 50000, 60002, 70004, 80004 }));
-			Example3.Customers.Add(new Customer(new int[] { 10001, 20005, 30003, 40014, 50003, 60002, 70004, 80004 }));
-			Example3.Customers.Add(new Customer(new int[] { 10001, 20000, 30002, 40007, 50002, 60002, 70004, 80004 }));
-			Example3.Customers.Add(new Customer(new int[] { 10001, 20001, 30005, 40010, 50002, 60002, 70004, 80004 }));
-			Example3.Customers.Add(new Customer(new int[] { 10002, 20003, 30004, 40007, 50002, 60002, 70004, 80004 }));
-			Example3.Customers.Add(new Customer(new int[] { 10001, 20004, 30007, 40004, 50001, 60002, 70004, 80004 }));
-			Example3.Customers.Add(new Customer(new int[] { 10002, 20005, 30001, 40007, 50002, 60002, 70004, 80004 }));
-			Example3.Customers.Add(new Customer(new int[] { 10002, 20001, 30004, 40004, 50001, 60002, 70004, 80004 }));
-			Example3.Customers.Add(new Customer(new int[] { 10002, 20003, 30003, 40010, 50002, 60002, 70004, 80004 }));
-			Example3.Customers.Add(new Customer(new int[] { 10002, 20003, 30005, 40002, 50001, 60002, 70004, 80004 }));
-			Example3.Customers.Add(new Customer(new int[] { 10001, 20008, 30003, 40011, 50002, 60002, 70004, 80004 }));
+			Example3 = new List<ICustomer>();
+			Example3.Add(new Customer(new int[] { 10001, 20000, 30001, 40000, 50000, 60002, 70004, 80004 }));
+			Example3.Add(new Customer(new int[] { 10002, 20005, 30003, 40007, 50002, 60002, 70004, 80004 }));
+			Example3.Add(new Customer(new int[] { 10001, 20005, 30002, 40012, 50003, 60002, 70004, 80004 }));
+			Example3.Add(new Customer(new int[] { 10002, 20000, 30006, 40000, 50000, 60002, 70004, 80004 }));
+			Example3.Add(new Customer(new int[] { 10001, 20005, 30005, 40008, 50002, 60002, 70004, 80004 }));
+			Example3.Add(new Customer(new int[] { 10001, 20001, 30003, 40007, 50002, 60002, 70004, 80004 }));
+			Example3.Add(new Customer(new int[] { 10002, 20000, 30004, 40008, 50002, 60002, 70004, 80004 }));
+			Example3.Add(new Customer(new int[] { 10001, 20002, 30002, 40006, 50001, 60002, 70004, 80004 }));
+			Example3.Add(new Customer(new int[] { 10002, 20005, 30001, 40000, 50000, 60002, 70004, 80004 }));
+			Example3.Add(new Customer(new int[] { 10002, 20005, 30005, 40008, 50002, 60002, 70004, 80004 }));
+			Example3.Add(new Customer(new int[] { 10001, 20000, 30003, 40008, 50002, 60002, 70004, 80004 }));
+			Example3.Add(new Customer(new int[] { 10001, 20002, 30004, 40008, 50002, 60002, 70004, 80004 }));
+			Example3.Add(new Customer(new int[] { 10001, 20005, 30002, 40000, 50000, 60002, 70004, 80004 }));
+			Example3.Add(new Customer(new int[] { 10002, 20000, 30001, 40003, 50001, 60002, 70004, 80004 }));
+			Example3.Add(new Customer(new int[] { 10002, 20005, 30007, 40007, 50002, 60002, 70004, 80004 }));
+			Example3.Add(new Customer(new int[] { 10001, 20002, 30005, 40005, 50001, 60002, 70004, 80004 }));
+			Example3.Add(new Customer(new int[] { 10001, 20001, 30003, 40007, 50002, 60002, 70004, 80004 }));
+			Example3.Add(new Customer(new int[] { 10002, 20000, 30002, 40013, 50003, 60002, 70004, 80004 }));
+			Example3.Add(new Customer(new int[] { 10002, 20004, 30005, 40000, 50000, 60002, 70004, 80004 }));
+			Example3.Add(new Customer(new int[] { 10001, 20005, 30003, 40014, 50003, 60002, 70004, 80004 }));
+			Example3.Add(new Customer(new int[] { 10001, 20000, 30002, 40007, 50002, 60002, 70004, 80004 }));
+			Example3.Add(new Customer(new int[] { 10001, 20001, 30005, 40010, 50002, 60002, 70004, 80004 }));
+			Example3.Add(new Customer(new int[] { 10002, 20003, 30004, 40007, 50002, 60002, 70004, 80004 }));
+			Example3.Add(new Customer(new int[] { 10001, 20004, 30007, 40004, 50001, 60002, 70004, 80004 }));
+			Example3.Add(new Customer(new int[] { 10002, 20005, 30001, 40007, 50002, 60002, 70004, 80004 }));
+			Example3.Add(new Customer(new int[] { 10002, 20001, 30004, 40004, 50001, 60002, 70004, 80004 }));
+			Example3.Add(new Customer(new int[] { 10002, 20003, 30003, 40010, 50002, 60002, 70004, 80004 }));
+			Example3.Add(new Customer(new int[] { 10002, 20003, 30005, 40002, 50001, 60002, 70004, 80004 }));
+			Example3.Add(new Customer(new int[] { 10001, 20008, 30003, 40011, 50002, 60002, 70004, 80004 }));
 
 			#region Example4
-			Example4 = new CustomerList(
+			Example4 = new List<ICustomer>(new CustomerList(
 				new int[][] { new int[] { 9, 4, 32, 8, 1, 7, 39, 64, 11, 29, 24, 17, 45, 20, 41, 30, 28, 42, 2, 26, 14, 10, 12, 21, 6, 33, 25, 53, 5, 48, 36, 34 }, new int[] { 60, 41, 50, 18, 35, 38, 3, 20, 64, 57, 62, 47, 49, 63, 1, 27, 54, 23, 55, 28, 56, 9, 46, 7, 33, 61, 24, 39, 51 } },
 				new int[][] { new int[] { 33 }, new int[] { 22, 61, 10, 35, 48, 30, 9, 64, 40, 37, 50, 51, 54, 8, 38, 11, 27, 39, 1, 25, 45, 18, 23, 3 }, new int[] { 23, 31, 37, 6, 4 }, new int[] { 39, 63, 34, 62, 33, 22, 52, 37, 58, 32, 64, 17, 25, 12, 47 }, new int[] { 36, 29, 59, 30, 8, 20, 56, 37, 64, 28, 21, 18, 2, 35, 52, 40, 31, 53, 61, 38, 58, 4, 25, 55, 43, 26 }, new int[] { 48, 11, 34, 32, 18, 44, 33, 27, 43, 42, 49, 52, 25, 16, 40, 31, 30, 37, 36, 3, 58, 7 }, new int[] { 36, 56, 6, 17, 30, 1, 58, 39, 38, 37, 7, 32, 3, 11, 9, 4, 20, 45, 50, 34, 52, 49, 25, 54, 51, 46, 28, 53, 10, 14, 41 }, new int[] { 14, 51, 44, 34, 63, 28, 42, 29, 30, 64, 48, 10, 27, 13, 3, 4, 21, 57, 5, 61, 52, 49, 47 }, new int[] { 5, 34, 29, 20, 43, 58, 62, 54, 37, 47, 9, 15, 26, 27, 25, 52, 7, 1, 21, 44, 49, 8, 18, 45, 4 }, new int[] { 64, 61, 10, 59, 58, 13, 9, 51, 6, 50, 32, 37, 41, 20, 60, 31, 7, 35, 24, 53, 4, 14, 36, 63, 8, 48, 12, 15, 34 }, new int[] { 47, 21, 5, 28, 44, 24, 53 }, new int[] { 51, 2 }, new int[] { 58, 5, 64, 21, 22, 55, 45, 27, 38, 15, 29 }, new int[] { 34, 50, 33, 36, 49, 1, 64, 4, 21, 40, 17, 20, 48, 27, 47, 35, 55, 52, 53, 57, 42, 24, 61, 19, 12, 5, 51, 63, 54 }, new int[] { 19, 48, 2, 39, 15, 12, 1, 56, 44, 38, 10, 46, 58, 30, 52, 17, 23, 33, 43 }, new int[] { 62, 60, 12, 63, 22, 39, 42, 35, 4, 53, 49, 1, 54, 10, 27, 13, 52, 6, 44, 46, 15, 55, 47, 11, 48, 29, 19 }, new int[] { 40, 57, 50, 6, 27, 17, 54, 26, 14, 10, 34, 21, 48, 19, 45, 51, 4, 8, 60, 32, 46, 38 }, new int[] { 17, 46, 22, 14, 40, 39, 31, 51, 35, 41, 63, 56, 16, 48, 11 } },
 				new int[][] { new int[] { 56, 35, 12, 58, 8, 31, 2, 14, 7, 41, 34, 52, 40, 11, 25, 6, 4, 47, 23, 59, 51, 20, 54, 36, 50, 21 }, new int[] { 12, 6, 52, 14, 48, 38, 25, 24, 11, 47, 1, 62, 45, 42 }, new int[] { 10, 38, 12, 17, 8, 2, 11, 13 }, new int[] { 52, 16, 48, 44, 20, 64, 28, 37, 56, 21 }, new int[] { 28, 23, 13, 53, 5, 6, 9, 54 }, new int[] { 47, 43, 62, 48, 37, 64, 54, 45, 13, 26, 59, 23, 3, 46, 42, 19, 52, 51, 35, 11, 28, 4, 60, 53, 55, 34, 6, 39, 57 }, new int[] { 48, 14, 45, 50, 18, 31, 2, 24, 46, 28, 35 }, new int[] { 61, 56, 28, 37, 50, 1, 26, 42, 18 }, new int[] { 22, 59, 46, 26, 17, 21, 10, 58, 47, 44, 8, 4, 30, 2, 61, 36, 7, 41 }, new int[] { 46, 38, 15, 19, 64, 62, 63, 13, 16, 26, 57, 51, 4, 52, 56, 14, 54, 7 }, new int[] { 49, 18, 30, 40, 46, 43, 41 }, new int[] { 53 }, new int[] { 2, 10 }, new int[] { 48, 32, 44, 46, 6, 29, 62, 55, 21, 19, 60, 27, 28, 12, 57, 14, 45, 40, 20, 11, 10, 4, 5, 56, 24, 35, 8, 43 }, new int[] { 51, 28, 48, 19, 25, 15, 33, 5, 38, 54, 17, 47, 3, 4, 2, 35, 58, 42, 16, 62, 41, 46, 34, 31, 18, 64, 22 }, new int[] { 59, 25, 36, 1, 40, 54, 53, 10, 60, 41, 31, 7, 57, 42, 16, 9, 62, 12, 35, 29 }, new int[] { 21, 51, 20, 50, 48, 47, 46, 56, 59, 40, 23, 57, 52, 28, 18, 3, 27, 32, 34, 10, 38, 35, 49, 44, 11 }, new int[] { 36, 47, 2, 48, 34, 55, 10, 57, 26, 4, 31, 17, 35, 56, 23, 46, 44, 51, 50, 3, 59, 6, 12, 13, 49, 64, 58, 21, 15, 19 }, new int[] { 28, 57, 34, 49, 9, 47, 43, 22, 64, 48, 27, 54, 30, 18, 62, 63, 42, 23, 6, 1, 58, 45, 55, 10, 8, 24 }, new int[] { 42, 14, 36, 21, 17, 58, 19, 51, 23, 33, 56, 49, 27, 37 }, new int[] { 6, 40, 38, 60, 22, 37, 32, 61, 36, 23, 57, 4, 18, 63 }, new int[] { 7, 13, 18, 9, 2, 55, 45, 19, 54, 63, 21, 39, 32, 50, 34, 28, 56, 5, 46 }, new int[] { 49, 58, 2, 41, 15, 34, 51, 62 }, new int[] { 63, 21, 24, 60, 61, 39, 47, 15, 42, 14, 7, 38, 2, 19, 37, 33, 4, 35, 32, 25, 9, 54, 5, 31, 22 } },
@@ -224,11 +224,11 @@ namespace AprioriAllLib.Test
 				new int[][] { new int[] { 54, 29, 22, 46, 14, 15, 16, 12, 26, 36, 37, 61, 30, 2, 39, 55, 11, 9, 56, 27, 53, 58, 25, 31 }, new int[] { 21, 52, 18 }, new int[] { 46, 49, 59, 29 }, new int[] { 62, 6, 32, 18, 64, 20 }, new int[] { 64, 11, 35, 28, 26, 49, 61, 16, 45, 3, 33, 52, 54, 48, 13 }, new int[] { 38, 5, 32, 55, 13, 36, 1, 58, 6, 42, 39, 40, 54, 44, 48, 14, 61, 4, 26, 33, 7, 30, 64 }, new int[] { 27, 5, 11, 17, 49, 9, 46, 43, 32, 21, 63, 64, 33, 44 }, new int[] { 42, 10, 55, 23, 44, 5, 40, 51, 62, 12, 37, 26, 25, 14, 22, 11, 61, 48, 53, 58 } },
 				new int[][] { new int[] { 9, 2, 23, 27, 16, 62, 42, 31, 58, 53, 52, 54, 4, 26, 6, 41, 60, 11, 34, 50, 55, 43, 47, 21, 25, 33, 32, 19, 48, 38, 37 }, new int[] { 63, 8, 35, 42, 13, 60, 39, 21, 61, 17, 32, 31, 20, 27, 64, 9, 62, 26, 45, 11, 41, 48, 6, 29 } },
 				new int[][] { new int[] { 28, 44, 15, 22, 33, 23, 26, 43 }, new int[] { 61, 8, 43, 31, 34, 23, 25, 4 }, new int[] { 59, 34, 6, 33, 11, 51, 13, 57, 23, 24 }, new int[] { 14, 62, 53, 11, 42, 25, 39, 49, 9, 5, 19, 3, 1, 20, 59, 33, 24, 2, 22, 38, 36, 31, 32, 46, 43, 23, 48, 50, 55 }, new int[] { 52, 30, 11, 32, 18, 47, 25, 54, 1, 28, 59, 40, 15, 31, 20, 4, 43, 56, 22, 34, 35, 6, 38, 17, 7 }, new int[] { 38, 46, 18, 31, 34, 59, 5, 2, 49, 53, 30, 48, 1, 6, 28, 16, 47, 55 }, new int[] { 63, 36, 18, 59, 5, 58, 2, 19, 28, 46, 42, 10, 34, 21, 50, 26, 64, 3, 56, 51, 31, 6, 33, 53 }, new int[] { 55, 22, 56, 59, 33, 10, 16, 51, 54, 12, 1, 35, 26, 21, 23, 61, 13, 31, 2 }, new int[] { 27, 30, 60, 45, 32, 28, 64, 25, 13, 41, 47, 37, 55, 48, 24, 5 }, new int[] { 37, 53, 28, 5, 33, 30, 31, 9, 47, 59, 6, 25, 21, 8, 29, 48, 23, 55, 51, 52, 13, 43, 40, 20, 35, 60, 64, 15, 2, 17, 19 }, new int[] { 3, 27, 30, 26 }, new int[] { 4, 59, 21, 40, 46, 2, 57, 26, 52, 47, 7, 17, 24, 62, 55, 12, 30, 5, 10 }, new int[] { 47, 4, 38, 63, 34, 42, 5, 17, 19, 8, 22, 16, 41, 52, 57, 48 }, new int[] { 24, 33, 2, 28, 20, 44, 10, 35, 59, 39, 11, 36, 18, 60, 14, 37, 9, 3, 6, 15, 21, 29, 49, 48, 64, 8, 52 }, new int[] { 24, 28, 40, 3, 59, 45, 1, 12, 9, 22, 61, 14, 21, 56, 18, 46, 57, 55, 26, 34, 11, 29, 64, 41, 51, 13, 39, 31 }, new int[] { 27, 55, 28, 22, 41, 44, 52, 61, 32, 53, 20, 60 } }
-			);
+			).Customers);
 			#endregion
 
 			#region Example5
-			Example5 = new CustomerList(
+			Example5 = new List<ICustomer>(new CustomerList(
 				new int[][] { new int[] { 114, 9, 60, 28, 92, 115, 84, 96, 87, 13, 20, 49, 124, 66, 72, 37, 5, 97, 10, 90, 26, 89, 7, 70 }, new int[] { 42, 24, 87, 49, 107, 119, 35, 7, 67, 6, 72, 5, 94, 48, 84, 39, 108, 34, 64, 66, 12, 112, 116, 68, 85, 45 }, new int[] { 55, 64, 54, 99, 71, 6, 31, 66, 98, 128, 25, 23, 45, 94, 22, 34, 65, 42, 91, 68, 103, 118, 24, 112, 108, 11, 79 }, new int[] { 115, 89 }, new int[] { 122, 21, 79 }, new int[] { 82, 88, 78, 53 }, new int[] { 35, 39 }, new int[] { 22, 47, 19, 91, 83, 3, 44, 88, 80, 74, 31 }, new int[] { 30, 27, 20, 44, 19, 62, 39, 63, 106, 101, 113, 71, 94, 112, 82, 13, 15, 6, 83, 69 }, new int[] { 61, 121, 125, 63, 72, 7, 108, 42, 75, 49, 80, 52, 62, 58, 10, 79, 102, 1, 109, 44, 34 }, new int[] { 117, 19, 90, 70, 73, 74, 119, 47, 9, 94, 28, 111, 22, 127, 95, 56, 126, 59, 39, 14, 61 } },
 				new int[][] { new int[] { 5, 55, 110, 112, 89, 105, 115, 87, 41, 9, 45, 65, 36, 96, 85, 3, 34, 43, 31 }, new int[] { 57, 103, 34, 53, 47, 16, 124, 127, 87, 70, 115, 68, 20, 10, 63, 86, 33, 107, 69, 71, 14, 83, 114, 120, 91, 109, 18 }, new int[] { 52, 107, 126, 7, 78, 37, 59, 99, 92, 43, 35, 86, 41, 79, 96, 77, 75, 68, 76, 11, 118 }, new int[] { 85, 44, 21, 49, 62, 54, 42, 107, 122, 70, 17, 63, 90, 22, 3, 114, 103, 8, 105, 29, 108, 126, 74, 41, 124, 14, 81 }, new int[] { 7, 64 }, new int[] { 22, 83, 115, 30, 104, 103, 46, 51, 64, 41, 16, 24, 6, 56, 73, 82, 27, 36, 110, 114, 65, 23, 21, 89, 40, 35 }, new int[] { 89, 63, 82, 102, 69, 68, 16, 85, 74, 1, 91, 55, 93, 67, 110, 50, 26, 118, 87, 127, 7, 99, 104, 95, 18, 92 }, new int[] { 84, 14, 6, 16, 38, 80, 81, 70, 42, 66, 117, 58, 126, 82, 36, 20, 59, 91, 54, 123, 100, 28 }, new int[] { 92, 128, 127, 102, 50, 52, 31, 118, 116, 85, 40, 55, 115, 29, 108, 113, 53, 99, 6 }, new int[] { 53 }, new int[] { 63, 45, 4, 20, 51, 1, 90, 42, 53, 11, 126, 117, 71, 44, 92, 68, 7, 96, 93, 49, 37, 12, 13, 74, 47, 112, 95, 27, 30, 29, 66, 82 }, new int[] { 30, 1, 31 }, new int[] { 74, 33, 123, 44, 117, 40, 38, 70, 90, 31, 128, 34, 89, 16, 26, 96, 9, 55, 80, 124, 69, 78, 113, 97, 5, 121, 6, 65, 64 }, new int[] { 31, 25, 121, 23, 102, 37, 69 }, new int[] { 81, 96, 121, 69, 14, 67, 57, 4, 21, 92, 105, 78, 46, 60, 80, 34, 108, 97, 122, 123, 98 }, new int[] { 41, 97, 1, 104, 115, 65, 19, 11, 39, 117, 111, 121, 28, 76, 66, 34, 118, 18, 42, 89, 26, 67, 108, 61, 2 }, new int[] { 3, 90, 116, 88, 102, 24, 45, 101, 98, 57, 29, 35, 28, 87, 67, 40, 104, 63, 122, 5, 96, 75 }, new int[] { 105, 81, 9, 38, 16, 31, 21, 43, 113, 50, 51, 30 }, new int[] { 98, 112, 103, 96, 105, 90, 111, 15, 3, 49 }, new int[] { 92, 46, 123, 9, 18, 35, 15, 112, 21, 7, 86, 68, 37, 114, 51, 113, 71, 117, 75 }, new int[] { 98, 11, 30, 1, 19, 122, 66, 7, 118, 68, 103, 49, 104, 25, 109, 35, 43, 47, 117, 83, 105, 17 } },
 				new int[][] { new int[] { 104, 61, 31, 60, 126 }, new int[] { 120, 25, 127, 117, 35, 45, 118, 84, 8, 17, 57, 1, 62, 66, 75, 88, 91 }, new int[] { 74, 29, 66, 16, 34, 13, 100, 30, 44, 62, 36, 76, 88, 32, 51, 112 }, new int[] { 106, 37, 74, 118, 53, 57, 34, 75, 88, 89, 28, 8, 38, 114, 71, 98, 48, 52, 117, 55, 10, 93, 104, 63 }, new int[] { 75, 56, 48, 61, 58, 25, 78, 79, 42, 98, 52, 17, 122, 22, 100, 33 }, new int[] { 74, 52, 72, 23, 7 }, new int[] { 94, 107, 40, 108, 63, 57, 15, 13, 62, 12, 102, 106, 1 }, new int[] { 15, 31, 64, 79, 57, 124, 16, 20, 81, 54, 17, 23, 69, 52, 119, 122, 108, 82 }, new int[] { 18, 46, 16, 22, 28, 86, 118, 6, 21, 44, 100, 47, 55, 117, 122, 94, 11, 61, 75 }, new int[] { 115, 77, 47, 35, 74, 122, 10, 21, 109, 38, 22, 32, 60, 13, 19, 64, 97, 59, 30, 76, 34, 116, 46, 104, 15, 126 }, new int[] { 58, 47, 8, 32, 97, 116, 82, 92, 108, 113, 40, 7, 78, 16, 123, 98, 59, 43, 3, 46, 81, 90, 1, 60, 18, 75, 24, 103 }, new int[] { 3, 109, 50, 95, 48, 15, 92, 122, 96, 89, 20, 72, 94, 67, 97, 16, 45, 91, 108, 80, 8, 56, 22, 74 }, new int[] { 90, 87 }, new int[] { 104, 120, 121, 52, 48, 92, 11, 28, 36, 124, 115, 87, 109, 34, 100, 40, 74, 85, 112, 58, 62, 23, 30, 43, 127, 122, 21, 17 }, new int[] { 36, 82 }, new int[] { 98, 27, 21, 46, 103, 87, 116, 10, 95, 122, 121, 63, 85, 110, 1, 53, 5, 64, 58, 99, 23, 6, 94, 19 }, new int[] { 15, 108, 113 }, new int[] { 28, 42, 3, 13, 54, 64, 110, 26, 104, 49, 95, 29, 37, 17, 36, 12, 21, 92, 126, 61 }, new int[] { 75, 40, 57, 127, 41, 10, 68, 82, 123, 116, 9, 70, 128, 22, 83, 97, 118, 24, 78 }, new int[] { 125, 92, 70, 114, 117, 31, 112, 24, 123, 16, 116, 120, 9, 96, 91, 85, 55, 23, 101, 87, 108, 21, 18, 43 }, new int[] { 43, 74, 103, 112, 60, 78, 77, 115, 14, 52, 107, 84, 59, 128, 100, 22, 79 }, new int[] { 55, 120, 13, 21, 95, 51, 119, 65, 71, 112, 50, 19, 100, 117, 31, 109, 49, 41, 14, 9, 78, 18, 15 }, new int[] { 42, 99, 122 }, new int[] { 93, 55, 8 }, new int[] { 17, 28, 117, 89, 30, 54, 9, 52, 121, 123, 7, 93, 66, 81, 119, 53, 78, 80, 59, 8, 71, 41, 37, 106, 43, 108, 124, 58, 116, 101, 16, 104 }, new int[] { 2, 73, 1, 71, 79, 124, 33, 91, 16, 84, 12, 51, 47, 19, 3, 15, 104, 78, 120 }, new int[] { 115, 81, 112, 116, 74, 13, 122, 6, 22, 120, 117 }, new int[] { 121, 9, 119, 111, 127, 84, 27, 46, 55, 86, 26, 56, 10, 61, 106, 38 }, new int[] { 41, 27, 59, 55, 86, 49, 87, 92, 50, 21, 97, 11, 62, 20, 18, 10, 12, 96, 17, 51, 75, 29 } },
@@ -357,19 +357,19 @@ namespace AprioriAllLib.Test
 				new int[][] { new int[] { 18, 64, 1, 10, 112, 9, 97, 50, 33, 40, 76 }, new int[] { 65, 64, 121, 96 }, new int[] { 59, 50, 65, 47, 49, 94, 25 }, new int[] { 76, 106, 63, 53, 23, 18, 88, 111, 99, 73, 55, 45, 67, 124, 50, 102, 127, 108, 39, 112, 20, 46 }, new int[] { 55, 30, 79, 39, 61, 98, 105, 85, 37, 31 }, new int[] { 126, 11, 22 }, new int[] { 22, 94, 120, 66, 51, 101, 63, 1, 91, 48, 69, 55, 41, 107, 56, 111, 17, 108, 96, 117, 9 } },
 				new int[][] { new int[] { 104, 85, 69, 110, 88, 19, 67 }, new int[] { 98, 18 }, new int[] { 55, 54, 5, 109, 23, 83, 95, 78, 76, 13, 29, 44, 65, 106, 49, 19, 18, 43, 34, 77, 56, 16, 111, 119, 104, 25, 47, 100 }, new int[] { 46, 53, 2, 107, 36, 85 }, new int[] { 22, 60, 125, 26, 76, 42, 5, 108, 99, 48, 112, 55, 113, 16 }, new int[] { 127, 117, 128, 40, 93, 120, 96, 51, 95, 57 }, new int[] { 19, 54, 107, 70, 111, 62, 30 }, new int[] { 49, 80, 31, 69, 68, 107, 114, 125, 13, 105, 63, 45 }, new int[] { 30, 76, 4, 119, 37, 46, 49, 93, 74, 59, 19, 36, 114, 79, 1, 29, 66, 51, 25, 101, 95, 26 } },
 				new int[][] { new int[] { 61, 62, 107, 124, 83, 75, 32, 13, 81, 118, 104, 80, 16, 109, 111, 85 } }
-			);
+			).Customers);
 			#endregion
 
-			Example6 = new CustomerList();
+			Example6 = new List<ICustomer>();
 			for (int i = 0; i < 100; ++i)
 			{
-				Example6.Customers.Add(new Customer(
+				Example6.Add(new Customer(
 					new int[] { 12, 10, 7, 4, 13, 2, 9 },
 					new int[] { 2, 7, 13, 16, 18 },
 					new int[] { 1, 4, 3, 5, 6, 8, 7, 2 },
 					new int[] { 6, 14, 13, 18 }
 				));
-				Example6.Customers.Add(new Customer(
+				Example6.Add(new Customer(
 					new int[] { 14, 10, 8, 3, 4 },
 					new int[] { 18, 6, 7, 16, 13, 11 },
 					new int[] { 8, 14, 21, 12, 2, 22, 6 },
@@ -377,28 +377,28 @@ namespace AprioriAllLib.Test
 				));
 			}
 
-			DataSet1 = new CustomerList();
-			DataSet1.Customers.Add(new Customer(new int[] { 30 }, new int[] { 90 }));
-			DataSet1.Customers.Add(new Customer(new int[] { 10, 20 }, new int[] { 30 }, new int[] { 40, 60, 70 }));
-			DataSet1.Customers.Add(new Customer(new int[] { 30, 50, 70 }));
-			DataSet1.Customers.Add(new Customer(new int[] { 30 }, new int[] { 40, 70 }, new int[] { 90 }));
-			DataSet1.Customers.Add(new Customer(new int[] { 90 }));
+			DataSet1 = new List<ICustomer>();
+			DataSet1.Add(new Customer(new int[] { 30 }, new int[] { 90 }));
+			DataSet1.Add(new Customer(new int[] { 10, 20 }, new int[] { 30 }, new int[] { 40, 60, 70 }));
+			DataSet1.Add(new Customer(new int[] { 30, 50, 70 }));
+			DataSet1.Add(new Customer(new int[] { 30 }, new int[] { 40, 70 }, new int[] { 90 }));
+			DataSet1.Add(new Customer(new int[] { 90 }));
 
-			DataSet2 = new CustomerList();
-			DataSet2.Customers.Add(new Customer(new int[] { 30 }, new int[] { 30, 40, 50 }, new int[] { 80 }, new int[] { 90 }));
-			DataSet2.Customers.Add(new Customer(new int[] { 10, 20 }, new int[] { 30 }, new int[] { 40, 60, 70 }));
-			DataSet2.Customers.Add(new Customer(new int[] { 10, 20 }, new int[] { 30, 50, 70 }));
-			DataSet2.Customers.Add(new Customer(new int[] { 30, 40 }, new int[] { 50, 60 }, new int[] { 70, 80, 90 }));
-			DataSet2.Customers.Add(new Customer(new int[] { 80 }, new int[] { 90 }));
-			DataSet2.Customers.Add(new Customer(new int[] { 10, 50 }, new int[] { 80 }));
+			DataSet2 = new List<ICustomer>();
+			DataSet2.Add(new Customer(new int[] { 30 }, new int[] { 30, 40, 50 }, new int[] { 80 }, new int[] { 90 }));
+			DataSet2.Add(new Customer(new int[] { 10, 20 }, new int[] { 30 }, new int[] { 40, 60, 70 }));
+			DataSet2.Add(new Customer(new int[] { 10, 20 }, new int[] { 30, 50, 70 }));
+			DataSet2.Add(new Customer(new int[] { 30, 40 }, new int[] { 50, 60 }, new int[] { 70, 80, 90 }));
+			DataSet2.Add(new Customer(new int[] { 80 }, new int[] { 90 }));
+			DataSet2.Add(new Customer(new int[] { 10, 50 }, new int[] { 80 }));
 
-			DataSet3 = new CustomerList();
-			DataSet3.Customers.Add(new Customer(new int[] { 30 }, new int[] { 80 }, new int[] { 30, 40, 50 }, new int[] { 90 }));
-			DataSet3.Customers.Add(new Customer(new int[] { 10, 20 }, new int[] { 30 }, new int[] { 40, 60, 70 }));
-			DataSet3.Customers.Add(new Customer(new int[] { 30, 50, 70 }, new int[] { 10, 20 }));
-			DataSet3.Customers.Add(new Customer(new int[] { 30, 80 }, new int[] { 40, 70 }, new int[] { 90, 30, 40, 50 }));
-			DataSet3.Customers.Add(new Customer(new int[] { 90 }, new int[] { 80 }));
-			DataSet3.Customers.Add(new Customer(new int[] { 50, 10 }, new int[] { 80 }));
+			DataSet3 = new List<ICustomer>();
+			DataSet3.Add(new Customer(new int[] { 30 }, new int[] { 80 }, new int[] { 30, 40, 50 }, new int[] { 90 }));
+			DataSet3.Add(new Customer(new int[] { 10, 20 }, new int[] { 30 }, new int[] { 40, 60, 70 }));
+			DataSet3.Add(new Customer(new int[] { 30, 50, 70 }, new int[] { 10, 20 }));
+			DataSet3.Add(new Customer(new int[] { 30, 80 }, new int[] { 40, 70 }, new int[] { 90, 30, 40, 50 }));
+			DataSet3.Add(new Customer(new int[] { 90 }, new int[] { 80 }));
+			DataSet3.Add(new Customer(new int[] { 50, 10 }, new int[] { 80 }));
 
 			// future sets may be read from xml files?
 			//XmlReader reader = new XmlReader();

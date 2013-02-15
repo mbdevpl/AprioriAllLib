@@ -11,21 +11,13 @@ namespace AprioriAllLib.Test
 	/// Unit tests for serialized version of Apriori algorithm.
 	/// </summary>
 	[TestClass]
-	public class AprioriTest : AprioriTestBase
+	public class AprioriTest : AprioriAllLibTestBase
 	{
-
-		// Use ClassInitialize to run code before running the first test in the class.
-		//[ClassInitialize]
-		//public static void MyClassInitialize(TestContext testContext)
-		//{
-		//	TestBaseInitialize();
-		//}
-
-		[TestMethod, TestCategory("Apriori"), TestCategory("Serialized")]
-		public void Test_Apriori_Example1_LowSupport()
+		[TestMethod]
+		public void Apriori_Ex1Su020_Test()
 		{
 			//Arrange
-			List<Litemset> expected = new List<Litemset>();
+			var expected = new List<ILitemset>();
 			expected.Add(new Litemset(1, 10));
 			expected.Add(new Litemset(1, 20));
 			expected.Add(new Litemset(4, 30));
@@ -49,35 +41,35 @@ namespace AprioriAllLib.Test
 
 			//Act
 			Apriori apriori = new Apriori(Data.Example1);
-			List<Litemset> oneLitemsets = apriori.RunApriori(0.2, true);
+			var oneLitemsets = apriori.RunApriori(0.2, true);
 
 			//Assert
 			// areEquivalent doesn't work ?!
 			CollectionAssert.AreEqual(expected, oneLitemsets, GetAprioriTestResults(expected, oneLitemsets));
 		}
 
-		[TestMethod, TestCategory("Apriori"), TestCategory("Serialized")]
-		public void Test_Apriori_Example1_HighSupport()
+		[TestMethod]
+		public void Apriori_Ex1Su060_Test()
 		{
 			//Arrange
-			List<Litemset> expected = new List<Litemset>();
+			var expected = new List<ILitemset>();
 			expected.Add(new Litemset(4, 30));
 			expected.Add(new Litemset(3, 70));
 			Assert.AreEqual(2, expected.Count);
 
 			//Act
 			Apriori apriori = new Apriori(Data.Example1);
-			List<Litemset> oneLitemsets = apriori.RunApriori(0.6, true);
+			var oneLitemsets = apriori.RunApriori(0.6, true);
 
 			//Assert
 			CollectionAssert.AreEqual(expected, oneLitemsets, GetAprioriTestResults(expected, oneLitemsets));
 		}
 
-		[TestMethod, TestCategory("Apriori"), TestCategory("Serialized")]
-		public void Test_Apriori_DataSet2_LowSupport()
+		[TestMethod]
+		public void Apriori_Ds2Su020_Test()
 		{
 			//Arrange
-			List<Litemset> expected = new List<Litemset>();
+			var expected = new List<ILitemset>();
 			expected.Add(new Litemset(3, 10));
 			expected.Add(new Litemset(2, 20));
 			expected.Add(new Litemset(4, 30));
@@ -94,17 +86,17 @@ namespace AprioriAllLib.Test
 
 			//Act
 			Apriori apriori = new Apriori(Data.DataSet2);
-			List<Litemset> oneLitemsets = apriori.RunApriori(0.2);
+			var oneLitemsets = apriori.RunApriori(0.2);
 
 			//Assert
 			CollectionAssert.AreEqual(expected, oneLitemsets, GetAprioriTestResults(expected, oneLitemsets));
 		}
 
-		[TestMethod, TestCategory("Apriori"), TestCategory("Serialized")]
-		public void Test_Apriori_DataSet2_HighSupport()
+		[TestMethod]
+		public void Apriori_Ds2Su050_Test()
 		{
 			//Arrange
-			List<Litemset> expected = new List<Litemset>();
+			var expected = new List<ILitemset>();
 			expected.Add(new Litemset(3, 10));
 			expected.Add(new Litemset(4, 30));
 			expected.Add(new Litemset(3, 40));
@@ -116,17 +108,17 @@ namespace AprioriAllLib.Test
 
 			//Act
 			Apriori apriori = new Apriori(Data.DataSet2);
-			List<Litemset> oneLitemsets = apriori.RunApriori(0.5);
+			var oneLitemsets = apriori.RunApriori(0.5);
 
 			//Assert
 			CollectionAssert.AreEqual(expected, oneLitemsets, GetAprioriTestResults(expected, oneLitemsets));
 		}
 
-		[TestMethod, TestCategory("Apriori"), TestCategory("Serialized")]
-		public void Test_Apriori_DataSet3_LowSupport()
+		[TestMethod]
+		public void Apriori_Ds3Su020_Test()
 		{
 			//Arrange
-			List<Litemset> expected = new List<Litemset>();
+			var expected = new List<ILitemset>();
 			expected.Add(new Litemset(3, 10));
 			expected.Add(new Litemset(2, 20));
 			expected.Add(new Litemset(4, 30));
@@ -145,17 +137,17 @@ namespace AprioriAllLib.Test
 
 			//Act
 			Apriori apriori = new Apriori(Data.DataSet3);
-			List<Litemset> oneLitemsets = apriori.RunApriori(0.2);
+			var oneLitemsets = apriori.RunApriori(0.2);
 
 			//Assert
 			CollectionAssert.AreEqual(expected, oneLitemsets, GetAprioriTestResults(expected, oneLitemsets));
 		}
 
-		[TestMethod, TestCategory("Apriori"), TestCategory("Serialized")]
-		public void Test_Apriori_DataSet3_HighSupport()
+		[TestMethod]
+		public void Apriori_Ds3Su050_Test()
 		{
 			//Arrange
-			List<Litemset> expected = new List<Litemset>();
+			var expected = new List<ILitemset>();
 			expected.Add(new Litemset(3, 10));
 			expected.Add(new Litemset(4, 30));
 			expected.Add(new Litemset(3, 40));
@@ -168,7 +160,7 @@ namespace AprioriAllLib.Test
 
 			//Act
 			Apriori apriori = new Apriori(Data.DataSet3);
-			List<Litemset> oneLitemsets = apriori.RunApriori(0.5);
+			var oneLitemsets = apriori.RunApriori(0.5);
 
 			//Assert
 			CollectionAssert.AreEqual(expected, oneLitemsets, GetAprioriTestResults(expected, oneLitemsets));

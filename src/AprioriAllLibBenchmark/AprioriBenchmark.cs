@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace AprioriAllLib.Test
 {
 
-	public abstract class AprioriBenchmark : AprioriTestBase
+	public abstract class AprioriBenchmark : AprioriAllLibTestBase
 	{
 		protected BenchmarkParameters parameters;
 
@@ -53,9 +53,9 @@ namespace AprioriAllLib.Test
 
 			foreach (int customers in parameters.Customers)
 			{
-				CustomerList input = new CustomerList();
+				List<ICustomer> input = new List<ICustomer>();
 				for (int i = 0; i < customers; ++i)
-					input.Customers.Add(parameters.Input.Customers[i]);
+					input.Add(parameters.Input[i]);
 				foreach (double support in parameters.Supports)
 				{
 					RunOneTest(input, support);
@@ -75,7 +75,7 @@ namespace AprioriAllLib.Test
 
 		//protected abstract bool EndAllTests();
 
-		protected void RunOneTest(CustomerList input, double support)
+		protected void RunOneTest(IEnumerable<ICustomer> input, double support)
 		{
 			Apriori apriori = null;
 			if (!parameters.NewEachTime)
@@ -94,7 +94,7 @@ namespace AprioriAllLib.Test
 			{
 				Console.Out.Write("Starting benchmark, ");
 				if (parameters.Customers.Count > 1)
-					Console.Out.Write("{0} customers, ", input.Customers.Count);
+					Console.Out.Write("{0} customers, ", input.Count());
 				Console.Out.WriteLine(" support={0:0.000}", support);
 			}
 
@@ -111,7 +111,7 @@ namespace AprioriAllLib.Test
 			Stopwatch watchAll = new Stopwatch();
 			Stopwatch watch = new Stopwatch();
 
-			List<Litemset> litemsets = null;
+			IEnumerable<object> aprioriResults = null;
 			for (int n = 1; n <= parameters.Repeats; ++n)
 			{
 				watch.Restart();
@@ -119,7 +119,7 @@ namespace AprioriAllLib.Test
 
 				if (parameters.NewEachTime)
 					apriori = new Apriori(input);
-				litemsets = RunTestedInstance(apriori, support, parameters.PrintProgress);
+				aprioriResults = RunTestedInstance(apriori, support, parameters.PrintProgress);
 				if (parameters.NewEachTime)
 					apriori.Dispose();
 
@@ -137,7 +137,10 @@ namespace AprioriAllLib.Test
 
 			if (parameters.PrintOutput)
 			{
-				PrintAprioriOutput(litemsets);
+				if (aprioriResults is IEnumerable<ICustomer>)
+					PrintAprioriAllOutput(aprioriResults.Cast<ICustomer>());
+				else
+					PrintAprioriOutput(aprioriResults.Cast<ILitemset>());
 				Console.Out.WriteLine();
 			}
 
@@ -148,9 +151,10 @@ namespace AprioriAllLib.Test
 				DestroyTestedInstance(apriori);
 		}
 
-		protected abstract Apriori ConstructTestedInstance(CustomerList input);
+		protected abstract Apriori ConstructTestedInstance(IEnumerable<ICustomer> input);
 
-		protected abstract List<Litemset> RunTestedInstance(Apriori apriori, double support, bool progressOutput);
+		protected abstract IEnumerable<object> RunTestedInstance(Apriori apriori,
+			double support, bool progressOutput);
 
 		protected abstract void DestroyTestedInstance(Apriori apriori);
 
@@ -181,7 +185,7 @@ namespace AprioriAllLib.Test
 				s = new StringBuilder();
 				s.Append(logFilepath).Append("benchmark_saved_input.txt");
 
-				File.AppendAllText(s.ToString(), parameters.Input.ToIntArrayInitializer());
+				File.AppendAllText(s.ToString(), ToIntArrayInitializer(parameters.Input));
 			}
 
 			if (parameters.SaveLatex)
