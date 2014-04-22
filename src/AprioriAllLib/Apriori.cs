@@ -714,6 +714,7 @@ namespace AprioriAllLib
 				watch.Restart();
 			}
 
+			// time: n*log^2(n)
 			#region finding empty id
 
 			int[] tempValue = new int[] { -1 };
@@ -737,10 +738,6 @@ namespace AprioriAllLib
 			kernelIncrement.SetArguments(null, 1, 0, 1);
 			kernelIncrement.Launch1D(queue, 1, 1);
 
-			//kernelCopySingle.SetArgument(0, tempItemsBuf);
-			//kernelCopySingle.SetArgument(4, emptyIdBuf);
-			//kernelCopySingle.SetArguments(null, 1, 0, 1, null, 1, 0, 1);
-			//kernelCopySingle.Launch1D(queue, 1, 1);
 			tempItemsBuf.Copy(0, 1, emptyIdBuf, 0);
 
 			#endregion
@@ -752,15 +749,11 @@ namespace AprioriAllLib
 				watch.Start();
 			}
 
+			// time: 3n + n * ( 1.5n + log^2(n) ) == O(n^2)
 			#region finding distinct item ids
 
 			Buffer<int> itemsRemainingBuf = new Buffer<int>(context, queue, itemsCountUInt);
-			//kernelCopy.SetArgument(4, itemsRemainingBuf);
-			//kernelCopy.Launch1D(queue, Kernels.GetOptimalGlobalSize(localSize, itemsCountUInt), localSize);
 			itemsBuf.Copy(itemsRemainingBuf);
-
-			//kernelCopy.SetArgument(4, tempItemsBuf);
-			//kernelCopy.Launch1D(queue, Kernels.GetOptimalGlobalSize(localSize, itemsCountUInt), localSize);
 			itemsBuf.Copy(tempItemsBuf);
 
 			int uniqueItemsCount = 0;
@@ -772,9 +765,6 @@ namespace AprioriAllLib
 			kernelZero.SetArguments(null, itemsCountInt, 0, itemsCountInt);
 			kernelZero.Launch1D(queue, Kernels.GetOptimalGlobalSize(localSize, itemsCountUInt), localSize);
 
-			//kernelCopy.SetArgument(0, itemsRemainingBuf);
-			//kernelCopy.SetArgument(4, tempItemsBuf);
-
 			kernelMin.SetArgument(0, tempItemsBuf);
 			kernelMin.SetArguments(null, itemsCountInt, 0, itemsCountInt);
 			kernelSubstitute.SetArgument(0, itemsRemainingBuf);
@@ -784,7 +774,6 @@ namespace AprioriAllLib
 
 			while (true)
 			{
-				/*uint*/
 				globalSize = itemsCountUInt;
 				for (int scaling = 1; scaling < itemsCountInt; scaling *= (int)localSize)
 				{
@@ -800,7 +789,6 @@ namespace AprioriAllLib
 					emptyId = emptyIdBuf.Value;
 				}
 				tempItemsBuf.Read(tempValue, 0, 1);
-				int foundValue = tempValue[0];
 				if (tempValue[0] == emptyId)
 					break; // reached end of computation
 
@@ -814,7 +802,6 @@ namespace AprioriAllLib
 				//itemsRemainingBuf.Read(); // debug only
 				//tempItemsBuf.Read(); // debug only
 
-				//kernelCopy.Launch1D(queue, Kernels.GetOptimalGlobalSize(localSize, itemsCountUInt), localSize);
 				itemsRemainingBuf.Copy(0, itemsCountUInt, tempItemsBuf, 0);
 			}
 
@@ -829,6 +816,7 @@ namespace AprioriAllLib
 				watch.Start();
 			}
 
+			// time: 2n + n^2 * log^2(n) == O(n^2 * log^2(n))
 			#region finding supports for items
 
 			int itemsSupportsCountInt = itemsCountInt * uniqueItemsCount;
@@ -886,6 +874,7 @@ namespace AprioriAllLib
 
 			#endregion
 
+			// time: 2n + n^2 * log^2(n) == O(n^2 * log^2(n))
 			#region finding supports for transactions
 
 			int transactionsSupportsCountInt = transactionsCountInt * uniqueItemsCount;
@@ -903,21 +892,11 @@ namespace AprioriAllLib
 
 			Buffer<int> itemsSupportsBufCopy = new Buffer<int>(context, queue, itemsSupports);
 
-			//kernelCopy.SetArgument(0, itemsSupportsBuf);
-			//kernelCopy.SetArgument(4, itemsSupportsBufCopy);
-			//kernelCopy.SetArguments(null, itemsSupportsCountInt, 0, itemsSupportsCountInt,
-			//	null, itemsSupportsCountInt, 0, itemsSupportsCountInt);
-			//kernelCopy.Launch1D(queue, Kernels.GetOptimalGlobalSize(localSize, itemsSupportsCountUInt), localSize);
 			itemsSupportsBuf.Copy(0, itemsSupportsCountUInt, itemsSupportsBufCopy, 0);
 
 			kernelSegmentedOr.SetArgument(0, itemsSupportsBufCopy);
 			kernelSegmentedOr.SetArguments(null, itemsSupportsCountInt, null, null,
 				null, itemsCountInt);
-
-			//kernelCopy.SetArgument(0, itemsSupportsBufCopy);
-			//kernelCopy.SetArgument(4, transactionsSupportsBuf);
-			//kernelCopy.SetArguments(null, itemsSupportsCountInt, null, 1,
-			//	null, transactionsSupportsCountInt, null, 1);
 
 			//queue.Finish(); // debug
 			//itemsSupportsBufCopy.Read(); // debug
@@ -942,12 +921,9 @@ namespace AprioriAllLib
 				//itemsSupportsBufCopy.Read(); // debug ONLY - causes incorrect results
 
 				int offset = transactionsStarts[tn];
-				//kernelCopy.SetArgument(2, offset);
 				int outputOffset = tn;
-				//kernelCopy.SetArgument(6, outputOffset);
 				for (int i = 0; i < uniqueItemsCount; ++i)
 				{
-					//kernelCopy.Launch1D(queue, 1, 1);
 					itemsSupportsBufCopy.Copy((uint)offset, 1, transactionsSupportsBuf, (uint)outputOffset);
 
 					//queue.Finish(); // debug
@@ -957,10 +933,7 @@ namespace AprioriAllLib
 						break;
 
 					offset += itemsCountInt;
-					//kernelCopy.SetArgument(2, offset);
-
 					outputOffset += transactionsCountInt;
-					//kernelCopy.SetArgument(6, outputOffset);
 				}
 			}
 
@@ -969,6 +942,7 @@ namespace AprioriAllLib
 
 			#endregion
 
+			// time: 2n + n^2 * log^2(n) == O(n^2 * log^2(n))
 			#region finding supports for customers
 
 			int customersSupportsCountInt = customersCountInt * uniqueItemsCount;
@@ -986,21 +960,11 @@ namespace AprioriAllLib
 
 			Buffer<int> transactionsSupportsBufCopy = new Buffer<int>(context, queue, transactionsSupports);
 
-			//kernelCopy.SetArgument(0, transactionsSupportsBuf);
-			//kernelCopy.SetArgument(4, transactionsSupportsBufCopy);
-			//kernelCopy.SetArguments(null, transactionsSupportsCountInt, 0, transactionsSupportsCountInt,
-			//	null, transactionsSupportsCountInt, 0, transactionsSupportsCountInt);
-			//kernelCopy.Launch1D(queue, Kernels.GetOptimalGlobalSize(localSize, transactionsSupportsCountUInt), localSize);
 			transactionsSupportsBuf.Copy(0, transactionsSupportsCountUInt, transactionsSupportsBufCopy, 0);
 
 			kernelSegmentedOr.SetArgument(0, transactionsSupportsBufCopy);
 			kernelSegmentedOr.SetArguments(null, transactionsSupportsCountInt, null, null,
 				null, transactionsCountInt);
-
-			//kernelCopy.SetArgument(0, transactionsSupportsBufCopy);
-			//kernelCopy.SetArgument(4, customersSupportsBuf);
-			//kernelCopy.SetArguments(null, transactionsSupportsCountInt, null, 1,
-			//	null, customersSupportsCountInt, null, 1);
 
 			//transactionsSupportsBufCopy.Read(); // debug
 
@@ -1022,13 +986,10 @@ namespace AprioriAllLib
 				//transactionsSupportsBufCopy.Read(); // debug ONLY - causes incorrect results
 
 				int offset = customersStarts[cn];
-				//kernelCopy.SetArgument(2, offset);
 				int outputOffset = cn;
-				//kernelCopy.SetArgument(6, outputOffset);
 				for (int i = 0; i < uniqueItemsCount; ++i)
 				{
 					transactionsSupportsBufCopy.Copy((uint)offset, 1, customersSupportsBuf, (uint)outputOffset);
-					//kernelCopy.Launch1D(queue, 1, 1);
 
 					//customersSupportsBuf.Read(); // debug
 
@@ -1036,28 +997,21 @@ namespace AprioriAllLib
 						break;
 
 					offset += transactionsCountInt;
-					//kernelCopy.SetArgument(2, offset);
-
 					outputOffset += customersCountInt;
-					//kernelCopy.SetArgument(6, outputOffset);
 				}
 			}
 
 			#endregion
 
+			// time: n + n * ( n*log^2(n) + n ) == O(n^2 * log^2(n))
 			#region litemsets of size 1
 
 			Buffer<int> customersSupportsBufCopy = new Buffer<int>(context, queue, customersSupports);
 
-			//kernelCopy.SetArgument(0, customersSupportsBuf);
-			//kernelCopy.SetArgument(4, customersSupportsBufCopy);
-			//kernelCopy.SetArguments(null, customersSupportsCountInt, 0, customersSupportsCountInt,
-			//	null, customersSupportsCountInt, 0, customersSupportsCountInt);
 			//queue.Finish(); // debug
 			//customersSupportsBuf.Read(); // debug
 			//customersSupportsBufCopy.Read(); // debug
 			customersSupportsBuf.Copy(0, customersSupportsCountUInt, customersSupportsBufCopy, 0);
-			//kernelCopy.Launch1D(queue, Kernels.GetOptimalGlobalSize(localSize, customersSupportsCountUInt), localSize);
 			//customersSupportsBuf.Read(); // debug
 			//customersSupportsBufCopy.Read(); // debug
 
@@ -1122,9 +1076,9 @@ namespace AprioriAllLib
 				watch.Start();
 			}
 
+			// time: n*log^2(n) + n + n * ( 0.5n + n^2 + 0.5n * n^2 * log^2(n) + n*log^2(n) ) == O(n^4 * log^2(n))
 			#region litemsets of size 2 and above
 
-			//int[] tempSupport = new int[] { 0 };
 			bool moreCanBeFound = true;
 
 			//queue.Finish(); // debug
@@ -1162,22 +1116,13 @@ namespace AprioriAllLib
 				Buffer<int> locationsBuf = new Buffer<int>(context, queue, locations);
 
 				int currLength = 1;
-				//int[] currLengthArr = new int[]{ currLength };
 				Buffer<int> currLengthBuf = new Buffer<int>(context, queue, 1);
-
-				//int[] step = new int[] { 1 };
-				//Buffer<int> stepBuf = new Buffer<int>(context, queue, step);
 
 				kernelMulitItemSupport.SetArgument(0, transactionsSupportsBufCopy);
 				kernelMulitItemSupport.SetArguments(null, transactionsSupportsCountInt,
 					transactionsCountInt);
 				kernelMulitItemSupport.SetArgument(3, locationsBuf);
 				kernelMulitItemSupport.SetArgument(4, currLengthBuf);
-
-				//kernelCopy.SetArgument(0, transactionsSupportsBuf);
-				//kernelCopy.SetArgument(4, transactionsSupportsBufCopy);
-				//kernelCopy.SetArguments(null, transactionsSupportsCountInt, null, transactionsCountInt,
-				//	null, transactionsSupportsCountInt, null, transactionsCountInt);
 
 				kernelOr.SetArgument(0, transactionsSupportsBufCopy);
 				kernelOr.SetArguments(null, transactionsSupportsCountInt, null, null);
@@ -1188,10 +1133,8 @@ namespace AprioriAllLib
 					currLengthBuf.Value = currLength;
 					currLengthBuf.Write(false);
 
-					//uint itemsLength = (uint)items.Length;
 					uint litemsetOffset = (uint)litemsets.Count;
 
-					//indices.Clear();
 					for (int i = 0; i < currLength; ++i)
 						indices[i] = i;
 					int currIndex = currLength - 1;
@@ -1200,6 +1143,7 @@ namespace AprioriAllLib
 					//supportsBuf.Read(); // debug only
 					//supportsBakBuf.Read(); // debug only
 
+					#region debugging
 					//{ // debug
 					//	indices[0] = 0;
 					//	indices[1] = 5;
@@ -1208,23 +1152,30 @@ namespace AprioriAllLib
 					//	currLengthBuf.Value = currLength;
 					//	currLengthBuf.Write();
 					//}
+					#endregion
 
 					//queue.Finish(); // debug
 					//transactionsSupportsBufCopy.Read(); // debug
 
 					while (true)
 					{
+						#region debugging
 						//if (currLength == 2
 						//	&& uniqueItems[supportedLocations[indices[0]]] == 2
 						//	&& uniqueItems[supportedLocations[indices[1]]] == 3)
 						//	Abstract.Diagnostics = true;
+						#endregion
 
+						#region initialization of int[] locations
 						for (int i = 0; i < currLength; ++i)
 							locations[i] = supportedLocations[indices[i]];
 						locationsBuf.Write(false, 0, (uint)currLength);
+						#endregion
 
+						#region copying of relevant parts of int[] transactionsSupports
 						for (int i = 0; i < currLength; ++i)
 						{
+							#region debugging
 							//if (currLength == 2
 							//	&& uniqueItems[supportedLocations[indices[0]]] == 2
 							//	&& uniqueItems[supportedLocations[indices[1]]] == 3)
@@ -1234,15 +1185,15 @@ namespace AprioriAllLib
 							//	transactionsSupportsBufCopy.Read();
 							//	//transactionsSupportsBuf.Read();
 							//}
+							#endregion
 
 							int offset = supportedLocations[indices[i]] * transactionsCountInt;
-							//kernelCopy.SetArgument(2, offset);
-							//kernelCopy.SetArgument(6, offset);
-							//kernelCopy.Launch1D(queue, Kernels.GetOptimalGlobalSize(localSize, transactionsCountUInt), localSize);
 							transactionsSupportsBuf.Copy((uint)offset, transactionsCountUInt,
 								transactionsSupportsBufCopy, (uint)offset);
 						}
+						#endregion
 
+						#region debugging
 						//if (currLength == 2
 						//	&& uniqueItems[supportedLocations[indices[0]]] == 2
 						//	&& uniqueItems[supportedLocations[indices[1]]] == 3)
@@ -1252,14 +1203,15 @@ namespace AprioriAllLib
 						//	transactionsSupportsBufCopy.Read();
 						//	//transactionsSupportsBuf.Read();
 						//}
+						#endregion
 
 						//queue.Finish(); // debug
 						//transactionsSupportsBufCopy.Read(); // debug
 
-						//stepBuf.Value = 1;
 						int stepNo = 1;
-						while (/*stepBuf.Value*/stepNo < currLength)
+						while (stepNo < currLength)
 						{
+							#region debugging
 							//if (currLength == 2
 							//	&& uniqueItems[supportedLocations[indices[0]]] == 2
 							//	&& uniqueItems[supportedLocations[indices[1]]] == 3)
@@ -1276,15 +1228,15 @@ namespace AprioriAllLib
 							//	transactionsSupportsBuf.Read();
 							//	//customersSupportsBuf.Read();
 							//}
+							#endregion
 
-							//stepBuf.Write(queue);
 							kernelMulitItemSupport.SetArgument(5, stepNo);
 							kernelMulitItemSupport.Launch2D(queue, transactionsCountUInt, 1, (uint)currLength, 1);
-							//stepBuf.BackingCollection[0] *= 2;
 							stepNo *= 2;
 							queue.Finish();
 						}
 
+						#region debugging
 						//if (currLength == 2
 						//	&& uniqueItems[supportedLocations[indices[0]]] == 2
 						//	&& uniqueItems[supportedLocations[indices[1]]] == 3)
@@ -1301,6 +1253,7 @@ namespace AprioriAllLib
 						//	transactionsSupportsBuf.Read();
 						//	//customersSupportsBuf.Read();
 						//}
+						#endregion
 
 						for (int cn = 0; cn < customersCountInt; ++cn)
 						{
@@ -1339,22 +1292,31 @@ namespace AprioriAllLib
 
 						if (tempValue[0] > transactionsSupportsCountInt)
 						{
+							// this indicates that data became corrupted due to:
+							//  a) some gpu memory error,
+							//  b) bad synchronization,
+							//  c) or some other unknown thing
+							// this situation occurs rarely, only with very large data
+							// specific cause is unknown
 							itemsSupportsBufCopy.Read();
 							transactionsSupportsBufCopy.Read();
 							customersSupportsBufCopy.Read();
 							itemsSupportsBuf.Read();
 							transactionsSupportsBuf.Read();
 							customersSupportsBuf.Read();
+							// this error is severe: it prevents algorithm from continuing
 							throw new Exception(String.Format("{0} is greater than {1}, impossible!\n{2}",
 								tempValue[0], transactionsSupportsCountInt, String.Join(",", transactionsSupports)));
 						}
 
+						#region debugging
 						//if (currLength == 2
 						//	&& uniqueItems[supportedLocations[indices[0]]] == 2
 						//	&& uniqueItems[supportedLocations[indices[1]]] == 3)
 						//	Abstract.Diagnostics = false;
 						//supportsBuf.Read(); // debug only
 						//supportsBakBuf.Read(); // debug only
+						#endregion
 
 						if (tempValue[0] >= minSupport)
 						{
@@ -1368,6 +1330,7 @@ namespace AprioriAllLib
 								newSupportedLocations[spprtd] = true;
 							}
 
+							#region debugging
 							//if (currLength == 2 && l.Items.Count == 2
 							//	&& l.Items[0].Value == 2 && l.Items[1].Value == 3)
 							//{
@@ -1382,12 +1345,14 @@ namespace AprioriAllLib
 							//	customersSupportsBuf.Read();
 							//	throw new Exception("this litemset is not supported");
 							//}
+							#endregion
 
 							litemsets.Add(l);
 						}
 
+						#region selecting new indices (from supportedLocations) to analyze
 						if ((currIndex == 0 && indices[currIndex] == supportedLocations.Count - currLength)
-							|| currLength == supportedLocations.Count)
+											|| currLength == supportedLocations.Count)
 							break;
 						if (indices[currIndex] == supportedLocations.Count - currLength + currIndex)
 						{
@@ -1408,6 +1373,7 @@ namespace AprioriAllLib
 							continue;
 						}
 						indices[currIndex] += 1;
+						#endregion
 					}
 
 					if (progressOutput)
@@ -1442,7 +1408,6 @@ namespace AprioriAllLib
 
 				currLengthBuf.Dispose();
 				locationsBuf.Dispose();
-				//stepBuf.Dispose();
 			}
 			#endregion
 
