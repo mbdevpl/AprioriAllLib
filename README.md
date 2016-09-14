@@ -5,6 +5,7 @@ Authors: Karolina Baltyn and Mateusz Bysiek
 of Faculty of Mathematics and Information Sciences
 at Warsaw University of Technology
 
+
 ## License
 
 	This program is free software: you can redistribute it and/or modify
@@ -20,6 +21,7 @@ at Warsaw University of Technology
 	You should have received a copy of the GNU General Public License
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+
 ## How to use the application
 
 Launch <code>/bin/Release/AprioriAll.bat</code> 
@@ -31,6 +33,7 @@ or <code>/bin/Release/Apriori.exe</code>
 with correct command line arguments to execute AprioriAll algorithm 
 for an arbitrary input data. When the program is run without any options,
 it displays information about available options.
+
 
 ### Examples
 
@@ -64,6 +67,7 @@ printInput printProgress printOutput</code>
 Benchmark command-line options are currently not documented as they frequently 
 change.
 
+
 ## Timeline
 
 * 6 Nov 2012: project started
@@ -72,6 +76,8 @@ change.
 * 21 Jan 2013: version 2.0.0
 * 23 Jan 2013: version 2.1.0
 * 26 Jan 2013: version 2.2.0
+* 14 Sep 2016: project moved to GitHub
+
 
 ## Where is everything, i.e. structure of the repository
 
