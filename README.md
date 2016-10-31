@@ -79,6 +79,7 @@ change.
 * 23 Jan 2013: version 2.1.0
 * 26 Jan 2013: version 2.2.0
 * 14 Sep 2016: project moved to GitHub
+* 31 Oct 2016: version 2.2.1, started using AppVeyor
 
 
 ## Where is everything, i.e. structure of the repository
