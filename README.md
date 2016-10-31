@@ -1,7 +1,8 @@
 Apriori and AprioriAll in C# {#mainpage}
 ============================
 
-![build status from AppVeyor](https://ci.appveyor.com/api/projects/status/github/mbdevpl/apriorialllib?svg=true)
+[![build status from AppVeyor](https://ci.appveyor.com/api/projects/status/github/mbdevpl/apriorialllib?svg=true)](https://ci.appveyor.com/project/mbdevpl/apriorialllib)
+[![license](https://img.shields.io/github/license/mbdevpl/AprioriAllLib.svg)](https://github.com/mbdevpl/AprioriAllLib)
 
 Authors: Karolina Baltyn and Mateusz Bysiek
 of Faculty of Mathematics and Information Sciences
