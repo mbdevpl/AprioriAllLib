@@ -1,0 +1,18 @@
+version: "{build}"
+
+platform:
+  - x86
+  - x64
+  - Any CPU
+
+configuration:
+  - Debug
+  - Release
+
+install:
+
+before_build:
+  - ps: Get-ChildItem -force
+
+build:
+  project: src\AprioriAll.sln
