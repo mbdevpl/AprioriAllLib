@@ -16,3 +16,6 @@ before_build:
 
 build:
   project: src\AprioriAll.sln
+
+test_script:
+  - vstest.console /logger:Appveyor /TestCaseFilter:"FullyQualifiedName~AprioriTest|FullyQualifiedName~AprioriAllTest" bin\AprioriAllLibTest.dll
