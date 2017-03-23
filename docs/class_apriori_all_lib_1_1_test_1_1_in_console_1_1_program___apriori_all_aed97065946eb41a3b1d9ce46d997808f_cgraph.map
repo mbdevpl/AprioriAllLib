@@ -1,0 +1,7 @@
+<map id="AprioriAllLib.Test.InConsole.Program_AprioriAll.Main" name="AprioriAllLib.Test.InConsole.Program_AprioriAll.Main">
+<area shape="rect" id="node3" href="$class_apriori_all_lib_1_1_xml_reader.html#ac8254897758b96fbc8e8e65ccf1103f9" title="Reads from XML client database. " alt="" coords="241,5,402,46"/>
+<area shape="rect" id="node11" href="$class_apriori_all_lib_1_1_apriori_all.html#a9a05f0ff368d6dfea768ce19f09505b2" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. " alt="" coords="246,70,397,111"/>
+<area shape="rect" id="node5" href="$class_apriori_all_lib_1_1_xml_reader.html#a7b9b5900bec644e28a72dd513f26b8b1" title="Adds a Customer to the CustomerList. " alt="" coords="451,5,634,46"/>
+<area shape="rect" id="node7" href="$class_apriori_all_lib_1_1_xml_reader.html#a55e41c372e7613272d6cc0c5c7659382" title="Adds a Transaction to the Customer. " alt="" coords="683,5,866,46"/>
+<area shape="rect" id="node9" href="$class_apriori_all_lib_1_1_xml_reader.html#a8d7b3b8b757aa0517b726d4c59617836" title="Adds an Item to the Transaction. " alt="" coords="915,12,1122,39"/>
+</map>

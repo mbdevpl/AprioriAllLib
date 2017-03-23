@@ -1,0 +1,28 @@
+var searchData=
+[
+  ['parameters',['parameters',['../class_apriori_all_lib_1_1_test_1_1_apriori_all_benchmark.html#ae52eefb6fde161083fff046f5a5714af',1,'AprioriAllLib.Test.AprioriAllBenchmark.parameters()'],['../class_apriori_all_lib_1_1_test_1_1_apriori_benchmark.html#a1436a1916655a71120424b77adc2b126',1,'AprioriAllLib.Test.AprioriBenchmark.parameters()']]],
+  ['platform',['platform',['../class_apriori_all_lib_1_1_apriori.html#aa2181af1f62cbe335ef2b4c43acf9e5b',1,'AprioriAllLib::Apriori']]],
+  ['prefixtree',['PrefixTree',['../class_apriori_all_lib_1_1_prefix_tree.html',1,'AprioriAllLib']]],
+  ['prefixtree',['PrefixTree',['../class_apriori_all_lib_1_1_prefix_tree.html#acf7fb71c2ffd3f5a977cfde6aad295b7',1,'AprioriAllLib.PrefixTree.PrefixTree()'],['../group__prefixtree.html',1,'(Global Namespace)']]],
+  ['prefixtree_2ecs',['PrefixTree.cs',['../_prefix_tree_8cs.html',1,'']]],
+  ['prefixtreenode',['PrefixTreeNode',['../class_apriori_all_lib_1_1_prefix_tree_node.html',1,'AprioriAllLib']]],
+  ['prefixtreenode',['PrefixTreeNode',['../class_apriori_all_lib_1_1_prefix_tree_node.html#a6b4f2b4de1f3576ef2546005755ff89c',1,'AprioriAllLib::PrefixTreeNode']]],
+  ['prefixtreenode_2ecs',['PrefixTreeNode.cs',['../_prefix_tree_node_8cs.html',1,'']]],
+  ['printapriorialloutput',['PrintAprioriAllOutput',['../class_apriori_all_lib_1_1_test_1_1_apriori_all_test_base.html#a27dfa4baa91aecec8dc86a98bb159229',1,'AprioriAllLib::Test::AprioriAllTestBase']]],
+  ['printapriorioutput',['PrintAprioriOutput',['../class_apriori_all_lib_1_1_test_1_1_apriori_test_base.html#a04dc8cca3131c508baf4eaa4aeca1e73',1,'AprioriAllLib::Test::AprioriTestBase']]],
+  ['printinput',['PrintInput',['../class_apriori_all_lib_1_1_test_1_1_benchmark_parameters.html#a7ff9351daabb9ee33068b4613b7cabea',1,'AprioriAllLib.Test.BenchmarkParameters.PrintInput()'],['../class_apriori_all_lib_1_1_test_1_1_apriori_test_base.html#ac919f218df6469dc268dec5dd5a81f4d',1,'AprioriAllLib.Test.AprioriTestBase.PrintInput()'],['../class_apriori_all_lib_1_1_test_1_1_benchmark_parameters.html#a54e58a00e580600c3656d51187c6e807',1,'AprioriAllLib.Test.BenchmarkParameters.printInput()']]],
+  ['printoutput',['printOutput',['../class_apriori_all_lib_1_1_test_1_1_benchmark_parameters.html#a3f1db24ece685bd1d3e4655b4276540a',1,'AprioriAllLib.Test.BenchmarkParameters.printOutput()'],['../class_apriori_all_lib_1_1_test_1_1_benchmark_parameters.html#ab8b63e256fd98a255037758d6a9731eb',1,'AprioriAllLib.Test.BenchmarkParameters.PrintOutput()']]],
+  ['printprogress',['printProgress',['../class_apriori_all_lib_1_1_test_1_1_benchmark_parameters.html#ab2f984cfccee69f2cf90b760b7441639',1,'AprioriAllLib.Test.BenchmarkParameters.printProgress()'],['../class_apriori_all_lib_1_1_test_1_1_benchmark_parameters.html#af9660a7c1eced883c65b4d89cce52efc',1,'AprioriAllLib.Test.BenchmarkParameters.PrintProgress()']]],
+  ['program_5fapriori',['Program_Apriori',['../class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program___apriori.html',1,'AprioriAllLib::Test::InConsole']]],
+  ['program_5fapriori_2ecs',['Program_Apriori.cs',['../_program___apriori_8cs.html',1,'']]],
+  ['program_5faprioriall',['Program_AprioriAll',['../class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program___apriori_all.html',1,'AprioriAllLib::Test::InConsole']]],
+  ['program_5faprioriall_2ecs',['Program_AprioriAll.cs',['../_program___apriori_all_8cs.html',1,'']]],
+  ['program_5fbenchmark',['Program_Benchmark',['../class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program___benchmark.html',1,'AprioriAllLib::Test::InConsole']]],
+  ['program_5fbenchmark_2ecs',['Program_Benchmark.cs',['../_program___benchmark_8cs.html',1,'']]],
+  ['programapriori',['programApriori',['../class_apriori_all_lib_1_1_apriori.html#aae4047b4e4860e25fc33500ea5ffc2ff',1,'AprioriAllLib::Apriori']]],
+  ['purgeallnonmax',['PurgeAllNonMax',['../class_apriori_all_lib_1_1_apriori_all.html#a9f96a735cce2f04d31f0d82345ef6f7d',1,'AprioriAllLib::AprioriAll']]],
+  ['purgeallsubseqsof',['PurgeAllSubSeqsOf',['../class_apriori_all_lib_1_1_apriori_all.html#ad5fc82d557718ca9ba150b3fbda3ea75',1,'AprioriAllLib::AprioriAll']]],
+  ['purgeusinginclusionrules',['PurgeUsingInclusionRules',['../class_apriori_all_lib_1_1_apriori_all.html#a35780135d51c22e5cd20ff2c5da7fb1f',1,'AprioriAllLib::AprioriAll']]],
+  ['purgeusinginclusionruleswithinsamesize',['PurgeUsingInclusionRulesWithinSameSize',['../class_apriori_all_lib_1_1_apriori_all.html#ada7deafd303a0ca62e38a5cb5d7baad0',1,'AprioriAllLib::AprioriAll']]],
+  ['purgeusingsequenceinnerredundancy',['PurgeUsingSequenceInnerRedundancy',['../class_apriori_all_lib_1_1_apriori_all.html#a5e7e5f4c697bfd2571276b7bb89255d2',1,'AprioriAllLib::AprioriAll']]]
+];

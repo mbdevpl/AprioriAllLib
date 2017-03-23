@@ -1,0 +1,5 @@
+<map id="AprioriAllLib.Test.AprioriParallelTest.AprioriSerializedAndParallelLauncher" name="AprioriAllLib.Test.AprioriParallelTest.AprioriSerializedAndParallelLauncher">
+<area shape="rect" id="node3" href="$class_apriori_all_lib_1_1_apriori.html#a91d0b11de53dab28769f1d7fda0542c6" title="Finds all litemsets that have the minimal support. " alt="" coords="255,5,414,46"/>
+<area shape="rect" id="node5" href="$class_apriori_all_lib_1_1_apriori.html#abf88e1f78883083cd20760cb43029738" title="Executes parallel version of the Apriori algorithm. " alt="" coords="255,70,414,111"/>
+<area shape="rect" id="node7" href="$class_apriori_all_lib_1_1_apriori.html#a055ceb7a6ff652d10c34ddce89e899ac" title="AprioriAllLib.Apriori.Dispose" alt="" coords="243,136,426,163"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="AprioriAllLib.Test.AprioriAllBenchmark" name="AprioriAllLib.Test.AprioriAllBenchmark">
+<area shape="rect" id="node2" href="$class_apriori_all_lib_1_1_test_1_1_apriori_all_test_base.html" title="Base class for all AprioriAll tests. Defines common routines used by the tests. " alt="" coords="137,1203,321,1295"/>
+<area shape="rect" id="node4" href="$class_apriori_all_lib_1_1_test_1_1_apriori_test_base.html" title="Basic routines needed to test Apriori algorithm. AprioriAll tests are also derived from this class..." alt="" coords="138,783,319,1065"/>
+<area shape="rect" id="node21" href="$class_apriori_all_lib_1_1_test_1_1_benchmark_parameters.html" title="Set of parameters for the benchmark. " alt="" coords="528,709,718,1139"/>
+<area shape="rect" id="node12" href="$class_apriori_all_lib_1_1_test_1_1_input_data.html" title="Defines some example inputs for Apriori and AprioriAll tests. " alt="" coords="99,377,278,527"/>
+<area shape="rect" id="node14" href="$class_apriori_all_lib_1_1_customer_list.html" title="Class that represents a total set of customers " alt="" coords="356,147,527,239"/>
+</map>

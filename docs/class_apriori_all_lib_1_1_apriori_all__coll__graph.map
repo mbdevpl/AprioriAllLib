@@ -1,0 +1,7 @@
+<map id="AprioriAllLib.AprioriAll" name="AprioriAllLib.AprioriAll">
+<area shape="rect" id="node2" href="$class_apriori_all_lib_1_1_apriori.html" title="Used to get list of large itemsets from a set of customers&#39; transactions." alt="" coords="1485,331,1701,629"/>
+<area shape="rect" id="node4" href="$class_i_disposable.html" title="{IDisposable\n||}" alt="" coords="5,161,93,239"/>
+<area shape="rect" id="node22" href="$class_apriori_all_lib_1_1_multi_item_support_kernel.html" title="Linked to the kernel code responsible for calculating support of Litemsets of length 2 and larger..." alt="" coords="1341,147,1533,253"/>
+<area shape="rect" id="node24" href="$class_kernel.html" title="{Kernel\n||}" alt="" coords="1408,5,1467,83"/>
+<area shape="rect" id="node40" href="$class_apriori_all_lib_1_1_customer_list.html" title="Class that represents a total set of customers " alt="" coords="2511,154,2683,246"/>
+</map>

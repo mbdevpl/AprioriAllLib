@@ -1,0 +1,6 @@
+<map id="AprioriAllLib.Apriori.RunParallelApriori" name="AprioriAllLib.Apriori.RunParallelApriori">
+<area shape="rect" id="node3" href="$class_apriori_all_lib_1_1_apriori.html#a15ffd8ff3283d42db3caac5400f68e05" title="AprioriAllLib.Apriori.Run\lParallelAprioriWithPruning" alt="" coords="241,5,415,46"/>
+<area shape="rect" id="node5" href="$class_apriori_all_lib_1_1_apriori_all.html#a1abf95c25d82e6b9ff1bf26184d6c5e4" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. It uses parallel version..." alt="" coords="253,70,403,111"/>
+<area shape="rect" id="node7" href="$class_apriori_all_lib_1_1_test_1_1_apriori_open_c_l_benchmark.html#a513931f20490578b49cf0ad2dc590fae" title="AprioriAllLib.Test.Apriori\lOpenCLBenchmark.RunOneTest" alt="" coords="223,135,433,177"/>
+<area shape="rect" id="node9" href="$class_apriori_all_lib_1_1_test_1_1_apriori_test_base.html#acd53f485e87b91593c5f497362b70ad6" title="AprioriAllLib.Test.Apriori\lTestBase.AprioriSerializedAndOpen\lCLLauncher" alt="" coords="213,201,443,257"/>
+</map>

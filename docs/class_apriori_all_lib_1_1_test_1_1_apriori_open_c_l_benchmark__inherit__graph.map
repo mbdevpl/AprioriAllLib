@@ -1,0 +1,4 @@
+<map id="AprioriAllLib.Test.AprioriOpenCLBenchmark" name="AprioriAllLib.Test.AprioriOpenCLBenchmark">
+<area shape="rect" id="node2" href="$class_apriori_all_lib_1_1_test_1_1_apriori_benchmark.html" title="{AprioriBenchmark\n|# parameters\l# results\l# dt\l# logFilepath\l|+ AprioriBenchmark()\l+ Initialize()\l+ RunAllTests()\l+ Close()\l# RunOneTest()\l}" alt="" coords="29,382,173,562"/>
+<area shape="rect" id="node4" href="$class_apriori_all_lib_1_1_test_1_1_apriori_test_base.html" title="Basic routines needed to test Apriori algorithm. AprioriAll tests are also derived from this class..." alt="" coords="11,6,192,333"/>
+</map>

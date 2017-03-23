@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['apriori_2ecl',['apriori.cl',['../apriori_8cl.html',1,'']]],
+  ['apriori_2ecs',['Apriori.cs',['../_apriori_8cs.html',1,'']]],
+  ['aprioriall_2ecs',['AprioriAll.cs',['../_apriori_all_8cs.html',1,'']]],
+  ['aprioriallbenchmark_2ecs',['AprioriAllBenchmark.cs',['../_apriori_all_benchmark_8cs.html',1,'']]],
+  ['aprioriallparalleltest_2ecs',['AprioriAllParallelTest.cs',['../_apriori_all_parallel_test_8cs.html',1,'']]],
+  ['aprioriallserializedbenchmark_2ecs',['AprioriAllSerializedBenchmark.cs',['../_apriori_all_serialized_benchmark_8cs.html',1,'']]],
+  ['apriorialltest_2ecs',['AprioriAllTest.cs',['../_apriori_all_test_8cs.html',1,'']]],
+  ['apriorialltestbase_2ecs',['AprioriAllTestBase.cs',['../_apriori_all_test_base_8cs.html',1,'']]],
+  ['aprioribenchmark_2ecs',['AprioriBenchmark.cs',['../_apriori_benchmark_8cs.html',1,'']]],
+  ['aprioribenchmarklogentry_2ecs',['AprioriBenchmarkLogEntry.cs',['../_apriori_benchmark_log_entry_8cs.html',1,'']]],
+  ['apriorikernels_2ecs',['AprioriKernels.cs',['../_apriori_kernels_8cs.html',1,'']]],
+  ['apriorilog_2ecs',['AprioriLog.cs',['../_apriori_log_8cs.html',1,'']]],
+  ['aprioriopenclbenchmark_2ecs',['AprioriOpenCLBenchmark.cs',['../_apriori_open_c_l_benchmark_8cs.html',1,'']]],
+  ['aprioriparalleltest_2ecs',['AprioriParallelTest.cs',['../_apriori_parallel_test_8cs.html',1,'']]],
+  ['aprioriserializedbenchmark_2ecs',['AprioriSerializedBenchmark.cs',['../_apriori_serialized_benchmark_8cs.html',1,'']]],
+  ['aprioritest_2ecs',['AprioriTest.cs',['../_apriori_test_8cs.html',1,'']]],
+  ['aprioritestbase_2ecs',['AprioriTestBase.cs',['../_apriori_test_base_8cs.html',1,'']]]
+];

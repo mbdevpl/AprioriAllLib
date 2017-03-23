@@ -1,0 +1,14 @@
+<map id="AprioriAllLib.Apriori.RunApriori" name="AprioriAllLib.Apriori.RunApriori">
+<area shape="rect" id="node3" href="$class_apriori_all_lib_1_1_test_1_1_in_console_1_1_program___apriori.html#a5c0a41b94b7926da567ed5ad12718991" title="Main function. " alt="" coords="235,5,421,46"/>
+<area shape="rect" id="node5" href="$class_apriori_all_lib_1_1_apriori.html#a9193560129d6127879603a772d520506" title="AprioriAllLib.Apriori.Run\lAprioriWithPruning" alt="" coords="249,70,407,111"/>
+<area shape="rect" id="node7" href="$class_apriori_all_lib_1_1_apriori.html#acc814f1f0486ef94181556bb96750b95" title="Executes parallel version of the Apriori algorithm. " alt="" coords="249,135,407,177"/>
+<area shape="rect" id="node9" href="$group__aprioriandall.html#ga719d1c07f93fa2e82e1ae6dcacbb8efe" title="Executes AprioriAll algorithm on a given input and minimum suport threshold. " alt="" coords="253,201,403,242"/>
+<area shape="rect" id="node11" href="$class_apriori_all_lib_1_1_test_1_1_apriori_serialized_benchmark.html#a046d4e82f8546264a9d8bad815329a01" title="AprioriAllLib.Test.Apriori\lSerializedBenchmark.RunOneTest" alt="" coords="217,266,439,307"/>
+<area shape="rect" id="node13" href="$class_apriori_all_lib_1_1_test_1_1_apriori_test.html#a7f88088aa49b8a59ae72e5c6b8c10603" title="AprioriAllLib.Test.Apriori\lTest.Test_Apriori_Example1\l_LowSupport" alt="" coords="235,332,421,388"/>
+<area shape="rect" id="node15" href="$class_apriori_all_lib_1_1_test_1_1_apriori_test.html#ab672e1f34760b67a025d2b6385e85cf2" title="AprioriAllLib.Test.Apriori\lTest.Test_Apriori_Example1\l_HighSupport" alt="" coords="235,412,421,468"/>
+<area shape="rect" id="node17" href="$class_apriori_all_lib_1_1_test_1_1_apriori_test.html#a995e2e9976503df6750aaa6cdbbd9dd9" title="AprioriAllLib.Test.Apriori\lTest.Test_Apriori_DataSet2\l_LowSupport" alt="" coords="237,492,419,548"/>
+<area shape="rect" id="node19" href="$class_apriori_all_lib_1_1_test_1_1_apriori_test.html#ad622c7c743a4b038c2703c6ba6082d6d" title="AprioriAllLib.Test.Apriori\lTest.Test_Apriori_DataSet2\l_HighSupport" alt="" coords="237,572,419,628"/>
+<area shape="rect" id="node21" href="$class_apriori_all_lib_1_1_test_1_1_apriori_test.html#a320b15a0355574b4a219f6a775d59fa2" title="AprioriAllLib.Test.Apriori\lTest.Test_Apriori_DataSet3\l_LowSupport" alt="" coords="237,652,419,708"/>
+<area shape="rect" id="node23" href="$class_apriori_all_lib_1_1_test_1_1_apriori_test.html#a6e3ab7bce063150d94d925fe9427d0d5" title="AprioriAllLib.Test.Apriori\lTest.Test_Apriori_DataSet3\l_HighSupport" alt="" coords="237,732,419,788"/>
+<area shape="rect" id="node25" href="$class_apriori_all_lib_1_1_test_1_1_apriori_test_base.html#acd53f485e87b91593c5f497362b70ad6" title="AprioriAllLib.Test.Apriori\lTestBase.AprioriSerializedAndOpen\lCLLauncher" alt="" coords="213,812,443,868"/>
+</map>
